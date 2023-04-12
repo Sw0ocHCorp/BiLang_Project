@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated BiLang -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="ucal3ia.BiLang.presentation.BiLangModelWizardID"
+            name="%_UI_BiLangModelWizard_label"
+            class="ucal3ia.BiLang.presentation.BiLangModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/BiLangModelFile.gif">
+         <description>%_UI_BiLangModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated BiLang -->
+      <editor
+            id="ucal3ia.BiLang.presentation.BiLangEditorID"
+            name="%_UI_BiLangEditor_label"
+            icon="icons/full/obj16/BiLangModelFile.gif"
+            extensions="bilang"
+            class="ucal3ia.BiLang.presentation.BiLangEditor"
+            contributorClass="ucal3ia.BiLang.presentation.BiLangActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

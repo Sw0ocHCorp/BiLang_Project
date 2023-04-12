@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/ucal3ia.BiLang/src-gen" creationIcons="false"
+    editDirectory="/ucal3ia.BiLang.edit/src-gen" editorDirectory="/ucal3ia.BiLang.editor/src-gen"
+    modelPluginID="ucal3ia.BiLang" modelName="BiLang" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0"
+    copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>BiLang.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="BiLang" basePackage="ucal3ia" disposableProviderFactory="true"
+      ecorePackage="BiLang.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="BiLang.ecore#//MathOperator">
+      <genEnumLiterals ecoreEnumLiteral="BiLang.ecore#//MathOperator/PLUS"/>
+      <genEnumLiterals ecoreEnumLiteral="BiLang.ecore#//MathOperator/MINUS"/>
+      <genEnumLiterals ecoreEnumLiteral="BiLang.ecore#//MathOperator/MULTIPLY"/>
+      <genEnumLiterals ecoreEnumLiteral="BiLang.ecore#//MathOperator/DIVIDING"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="BiLang.ecore#//StatisticalOperator">
+      <genEnumLiterals ecoreEnumLiteral="BiLang.ecore#//StatisticalOperator/MEAN"/>
+      <genEnumLiterals ecoreEnumLiteral="BiLang.ecore#//StatisticalOperator/MEDIAN"/>
+      <genEnumLiterals ecoreEnumLiteral="BiLang.ecore#//StatisticalOperator/STD"/>
+    </genEnums>
+    <genClasses ecoreClass="BiLang.ecore#//Task">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BiLang.ecore#//Task/fileextractor"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BiLang.ecore#//Task/datafiltering"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BiLang.ecore#//Task/dashboard"/>
+    </genClasses>
+    <genClasses ecoreClass="BiLang.ecore#//FileExtractor">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BiLang.ecore#//FileExtractor/path"/>
+    </genClasses>
+    <genClasses ecoreClass="BiLang.ecore#//CsvExtractor"/>
+    <genClasses ecoreClass="BiLang.ecore#//ExcelExtractor"/>
+    <genClasses ecoreClass="BiLang.ecore#//DataFiltering">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BiLang.ecore#//DataFiltering/filteringsteps"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BiLang.ecore#//DataFiltering/preprocessingsteps"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference BiLang.ecore#//DataFiltering/fileextractor"/>
+    </genClasses>
+    <genClasses ecoreClass="BiLang.ecore#//DashBoard">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference BiLang.ecore#//DashBoard/fileextractor"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference BiLang.ecore#//DashBoard/datafiltering"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BiLang.ecore#//DashBoard/plot"/>
+    </genClasses>
+    <genClasses ecoreClass="BiLang.ecore#//LinePlot"/>
+    <genClasses ecoreClass="BiLang.ecore#//BarPlot"/>
+    <genClasses ecoreClass="BiLang.ecore#//FilteringSteps">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BiLang.ecore#//FilteringSteps/axis"/>
+    </genClasses>
+    <genClasses ecoreClass="BiLang.ecore#//PreprocessingSteps"/>
+    <genClasses ecoreClass="BiLang.ecore#//NamedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BiLang.ecore#//NamedElement/name"/>
+    </genClasses>
+    <genClasses ecoreClass="BiLang.ecore#//QuantitativeFiltering">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BiLang.ecore#//QuantitativeFiltering/targetValue"/>
+    </genClasses>
+    <genClasses ecoreClass="BiLang.ecore#//QualitativeFiltering">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BiLang.ecore#//QualitativeFiltering/targetLabel"/>
+    </genClasses>
+    <genClasses ecoreClass="BiLang.ecore#//MathOperation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BiLang.ecore#//MathOperation/lside"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BiLang.ecore#//MathOperation/rside"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BiLang.ecore#//MathOperation/operator"/>
+    </genClasses>
+    <genClasses ecoreClass="BiLang.ecore#//StatisticalOperation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference BiLang.ecore#//StatisticalOperation/preprocessingsteps"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BiLang.ecore#//StatisticalOperation/operator"/>
+    </genClasses>
+    <genClasses ecoreClass="BiLang.ecore#//colReference">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BiLang.ecore#//colReference/colLabel"/>
+    </genClasses>
+    <genClasses ecoreClass="BiLang.ecore#//Plot">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BiLang.ecore#//Plot/xAxis"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BiLang.ecore#//Plot/yAxis"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BiLang.ecore#//Plot/location"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BiLang.ecore#//Plot/color"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute BiLang.ecore#//Plot/thickness"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
