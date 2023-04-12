@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/ucal3ia.bilang.abstractsyntax/src-gen" creationIcons="false"
+    editDirectory="/ucal3ia.bilang.abstractsyntax.edit/src-gen" editorDirectory="/ucal3ia.bilang.abstractsyntax.editor/src-gen"
+    modelPluginID="ucal3ia.bilang.abstractsyntax" modelName="Abstractsyntax" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0"
+    copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>abstractsyntax.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="Abstractsyntax" basePackage="ucal3ia.bilang" disposableProviderFactory="true"
+      ecorePackage="abstractsyntax.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="abstractsyntax.ecore#//MathOperator">
+      <genEnumLiterals ecoreEnumLiteral="abstractsyntax.ecore#//MathOperator/PLUS"/>
+      <genEnumLiterals ecoreEnumLiteral="abstractsyntax.ecore#//MathOperator/MINUS"/>
+      <genEnumLiterals ecoreEnumLiteral="abstractsyntax.ecore#//MathOperator/MULTIPLY"/>
+      <genEnumLiterals ecoreEnumLiteral="abstractsyntax.ecore#//MathOperator/DIVIDING"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="abstractsyntax.ecore#//StatisticalOperator">
+      <genEnumLiterals ecoreEnumLiteral="abstractsyntax.ecore#//StatisticalOperator/MEAN"/>
+      <genEnumLiterals ecoreEnumLiteral="abstractsyntax.ecore#//StatisticalOperator/MEDIAN"/>
+      <genEnumLiterals ecoreEnumLiteral="abstractsyntax.ecore#//StatisticalOperator/STD"/>
+    </genEnums>
+    <genClasses ecoreClass="abstractsyntax.ecore#//NamedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstractsyntax.ecore#//NamedElement/name"/>
+    </genClasses>
+    <genClasses ecoreClass="abstractsyntax.ecore#//Task">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference abstractsyntax.ecore#//Task/fileextractor"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference abstractsyntax.ecore#//Task/datafiltering"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference abstractsyntax.ecore#//Task/dashboard"/>
+    </genClasses>
+    <genClasses ecoreClass="abstractsyntax.ecore#//FileExtractor">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstractsyntax.ecore#//FileExtractor/path"/>
+    </genClasses>
+    <genClasses ecoreClass="abstractsyntax.ecore#//DataFiltering">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference abstractsyntax.ecore#//DataFiltering/fileextractor"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference abstractsyntax.ecore#//DataFiltering/filteringstep"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference abstractsyntax.ecore#//DataFiltering/processingstep"/>
+    </genClasses>
+    <genClasses ecoreClass="abstractsyntax.ecore#//DashBoard">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference abstractsyntax.ecore#//DashBoard/fileextractor"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference abstractsyntax.ecore#//DashBoard/datafiltering"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference abstractsyntax.ecore#//DashBoard/plot"/>
+    </genClasses>
+    <genClasses ecoreClass="abstractsyntax.ecore#//CsvExtractor"/>
+    <genClasses ecoreClass="abstractsyntax.ecore#//ExcelExtractor"/>
+    <genClasses ecoreClass="abstractsyntax.ecore#//Plot">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstractsyntax.ecore#//Plot/xAxis"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstractsyntax.ecore#//Plot/yAxis"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstractsyntax.ecore#//Plot/location"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstractsyntax.ecore#//Plot/color"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstractsyntax.ecore#//Plot/thickness"/>
+    </genClasses>
+    <genClasses ecoreClass="abstractsyntax.ecore#//BarPlot"/>
+    <genClasses ecoreClass="abstractsyntax.ecore#//LinePlot"/>
+    <genClasses ecoreClass="abstractsyntax.ecore#//FilteringStep">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstractsyntax.ecore#//FilteringStep/axis"/>
+    </genClasses>
+    <genClasses ecoreClass="abstractsyntax.ecore#//PreprocessingStep"/>
+    <genClasses ecoreClass="abstractsyntax.ecore#//QuantitativeFiltering">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstractsyntax.ecore#//QuantitativeFiltering/values"/>
+    </genClasses>
+    <genClasses ecoreClass="abstractsyntax.ecore#//QualitativeFiltering">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstractsyntax.ecore#//QualitativeFiltering/labels"/>
+    </genClasses>
+    <genClasses ecoreClass="abstractsyntax.ecore#//MathOperation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference abstractsyntax.ecore#//MathOperation/lside"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference abstractsyntax.ecore#//MathOperation/rside"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstractsyntax.ecore#//MathOperation/operator"/>
+    </genClasses>
+    <genClasses ecoreClass="abstractsyntax.ecore#//ColReference">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstractsyntax.ecore#//ColReference/target"/>
+    </genClasses>
+    <genClasses ecoreClass="abstractsyntax.ecore#//StatisticalOperation">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference abstractsyntax.ecore#//StatisticalOperation/colreference"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstractsyntax.ecore#//StatisticalOperation/operator"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

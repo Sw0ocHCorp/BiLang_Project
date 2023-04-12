@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="abstractsyntax" nsURI="http://www.example.org/abstractsyntax"
+    nsPrefix="abstractsyntax">
+  <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Task" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fileextractor" lowerBound="1"
+        upperBound="-1" eType="#//FileExtractor" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="datafiltering" upperBound="-1"
+        eType="#//DataFiltering" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dashboard" lowerBound="1"
+        upperBound="-1" eType="#//DashBoard" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FileExtractor" abstract="true" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DataFiltering" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fileextractor" lowerBound="1"
+        eType="#//FileExtractor"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="filteringstep" lowerBound="1"
+        upperBound="-1" eType="#//FilteringStep" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="processingstep" upperBound="-1"
+        eType="#//PreprocessingStep" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DashBoard" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fileextractor" eType="#//FileExtractor"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="datafiltering" eType="#//DataFiltering"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="plot" lowerBound="1" upperBound="-1"
+        eType="#//Plot" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CsvExtractor" eSuperTypes="#//FileExtractor"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ExcelExtractor" eSuperTypes="#//FileExtractor"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Plot" abstract="true" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="xAxis" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="yAxis" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="location" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="color" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="thickness" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BarPlot" eSuperTypes="#//Plot"/>
+  <eClassifiers xsi:type="ecore:EClass" name="LinePlot" eSuperTypes="#//Plot"/>
+  <eClassifiers xsi:type="ecore:EClass" name="FilteringStep" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="axis" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PreprocessingStep"/>
+  <eClassifiers xsi:type="ecore:EClass" name="QuantitativeFiltering" eSuperTypes="#//FilteringStep">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="values" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="QualitativeFiltering" eSuperTypes="#//FilteringStep">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="labels" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MathOperation" eSuperTypes="#//PreprocessingStep">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lside" lowerBound="1" eType="#//PreprocessingStep"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rside" lowerBound="1" eType="#//PreprocessingStep"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" eType="#//MathOperator"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ColReference" eSuperTypes="#//PreprocessingStep">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="target" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StatisticalOperation" eSuperTypes="#//PreprocessingStep">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="colreference" lowerBound="1"
+        eType="#//ColReference" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" eType="#//StatisticalOperator"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="MathOperator">
+    <eLiterals name="PLUS" literal="+"/>
+    <eLiterals name="MINUS" value="1" literal="-"/>
+    <eLiterals name="MULTIPLY" value="2"/>
+    <eLiterals name="DIVIDING" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="StatisticalOperator">
+    <eLiterals name="MEAN"/>
+    <eLiterals name="MEDIAN" value="1"/>
+    <eLiterals name="STD" value="2"/>
+  </eClassifiers>
+</ecore:EPackage>

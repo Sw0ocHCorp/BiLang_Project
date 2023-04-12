@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated abstractsyntax -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="ucal3ia.bilang.abstractsyntax.presentation.AbstractsyntaxModelWizardID"
+            name="%_UI_AbstractsyntaxModelWizard_label"
+            class="ucal3ia.bilang.abstractsyntax.presentation.AbstractsyntaxModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/AbstractsyntaxModelFile.gif">
+         <description>%_UI_AbstractsyntaxModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated abstractsyntax -->
+      <editor
+            id="ucal3ia.bilang.abstractsyntax.presentation.AbstractsyntaxEditorID"
+            name="%_UI_AbstractsyntaxEditor_label"
+            icon="icons/full/obj16/AbstractsyntaxModelFile.gif"
+            extensions="abstractsyntax"
+            class="ucal3ia.bilang.abstractsyntax.presentation.AbstractsyntaxEditor"
+            contributorClass="ucal3ia.bilang.abstractsyntax.presentation.AbstractsyntaxActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

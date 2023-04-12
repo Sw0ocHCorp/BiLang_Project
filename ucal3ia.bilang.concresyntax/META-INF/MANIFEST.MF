@@ -1,0 +1,26 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: ucal3ia.bilang.concresyntax
+Bundle-ManifestVersion: 2
+Bundle-Name: ucal3ia.bilang.concresyntax
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: ucal3ia.bilang.concresyntax; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: ucal3ia.bilang.abstractsyntax,
+ org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ org.eclipse.xtext.xbase.lib;bundle-version="2.14.0",
+ org.eclipse.xtext.util,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Export-Package: ucal3ia.bilang.generator,
+ ucal3ia.bilang.parser.antlr.internal,
+ ucal3ia.bilang.formatting2,
+ ucal3ia.bilang.validation,
+ ucal3ia.bilang.scoping,
+ ucal3ia.bilang.parser.antlr,
+ ucal3ia.bilang,
+ ucal3ia.bilang.services,
+ ucal3ia.bilang.serializer
+Import-Package: org.apache.log4j
