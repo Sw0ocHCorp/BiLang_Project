@@ -19,6 +19,8 @@ import ucal3ia.bilang.abstractsyntax.ExcelExtractor
 import ucal3ia.bilang.abstractsyntax.DataFiltering
 import ucal3ia.bilang.abstractsyntax.DashBoard
 import ucal3ia.bilang.abstractsyntax.BarPlot
+import ucal3ia.bilang.abstractsyntax.QuantitativeFiltering
+import ucal3ia.bilang.abstractsyntax.QualitativeFiltering
 
 /**
  * Generates code from your model files on save.
@@ -75,7 +77,9 @@ class BiLangGenerator extends AbstractGenerator {
 			dataArray.put(extractor.name, extractorData);
 		}
 		for (filter:task.datafiltering) {
-			//dataArray.put(filter.fileextractor.name, translateDataFiltering(filter, dataArray.get(filter.fileextractor)))
+			var inputData= dataArray.get(filter.fileextractor.name)
+			//var filteredData= 
+			dataArray.put(filter.fileextractor.name, translateDataFiltering(filter, inputData))
 		}
 		for (dashboard:task.dashboard) {
 			fileContent += translateDashBoard(dashboard, dataArray.get(dashboard.fileextractor.name))
@@ -147,19 +151,47 @@ class BiLangGenerator extends AbstractGenerator {
 	
 	def translateDataFiltering(DataFiltering df, HashMap<String, ArrayList<String>> fileData) {
 		var filteredData= new HashMap<String, ArrayList<String>>;
-		var i=0
-		var fileName= "";
-		for (str:df.fileextractor.path.split("\\.")) {
-			if (str.contains("/")) {
-				for(tk:str.split("/")){
-					fileName= tk;
-				}
-			}
+		var targets= new ArrayList<String>()	
+		/* Copie du contenu du fichier CSV / EXCEL */
+		for (lab:fileData.keySet()) {
+			filteredData.put(lab, (fileData.get(lab)));
 		}
 		if (df.fileextractor instanceof CsvExtractor){
+			//PHASE DE PREPROCESSING 
+			for (preprocess:df.processingstep) {
+			
+			}
+			//PHASE DE FILTRAGE
+			var stopLoop= false;
+			for (filter:df.filteringstep){
+				var targetCol= fileData.get(filter.axis)
+				if (filter instanceof QuantitativeFiltering) {
+					targets= new ArrayList<String>(Arrays.asList(filter.values.split(",")))
+				} if (filter instanceof QualitativeFiltering) {
+					targets= new ArrayList<String>(Arrays.asList(filter.labels.split(",")))
+				}
+				for(var i= 0; i<targetCol.size(); i++) {
+					while ((stopLoop == false) && (targets.contains(targetCol.get(i)) == false)){
+						for (lab:filteredData.keySet()){
+							if (i == targetCol.size()) {
+								stopLoop= true;
+							}
+							else {
+								filteredData.get(lab).remove(i)	
+							}
+						}
+					}
+				}
+			}
 			return filteredData
 		}
 		if (df.fileextractor instanceof ExcelExtractor){
+			for (preprocess:df.processingstep) {
+			
+			}
+			for (filter:df.filteringstep){
+			
+			}
 			return filteredData
 		}
 		

@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -26,7 +27,11 @@ import ucal3ia.bilang.abstractsyntax.DashBoard;
 import ucal3ia.bilang.abstractsyntax.DataFiltering;
 import ucal3ia.bilang.abstractsyntax.ExcelExtractor;
 import ucal3ia.bilang.abstractsyntax.FileExtractor;
+import ucal3ia.bilang.abstractsyntax.FilteringStep;
 import ucal3ia.bilang.abstractsyntax.Plot;
+import ucal3ia.bilang.abstractsyntax.PreprocessingStep;
+import ucal3ia.bilang.abstractsyntax.QualitativeFiltering;
+import ucal3ia.bilang.abstractsyntax.QuantitativeFiltering;
 import ucal3ia.bilang.abstractsyntax.Task;
 
 /**
@@ -150,6 +155,10 @@ public class BiLangGenerator extends AbstractGenerator {
     }
     EList<DataFiltering> _datafiltering = task.getDatafiltering();
     for (final DataFiltering filter : _datafiltering) {
+      {
+        HashMap<String, ArrayList<String>> inputData = dataArray.get(filter.getFileextractor().getName());
+        dataArray.put(filter.getFileextractor().getName(), this.translateDataFiltering(filter, inputData));
+      }
     }
     EList<DashBoard> _dashboard = task.getDashboard();
     for (final DashBoard dashboard : _dashboard) {
@@ -242,24 +251,57 @@ public class BiLangGenerator extends AbstractGenerator {
   
   public HashMap<String, ArrayList<String>> translateDataFiltering(final DataFiltering df, final HashMap<String, ArrayList<String>> fileData) {
     HashMap<String, ArrayList<String>> filteredData = new HashMap<String, ArrayList<String>>();
-    int i = 0;
-    String fileName = "";
-    String[] _split = df.getFileextractor().getPath().split("\\.");
-    for (final String str : _split) {
-      boolean _contains = str.contains("/");
-      if (_contains) {
-        String[] _split_1 = str.split("/");
-        for (final String tk : _split_1) {
-          fileName = tk;
-        }
-      }
+    ArrayList<String> targets = new ArrayList<String>();
+    Set<String> _keySet = fileData.keySet();
+    for (final String lab : _keySet) {
+      filteredData.put(lab, fileData.get(lab));
     }
     FileExtractor _fileextractor = df.getFileextractor();
     if ((_fileextractor instanceof CsvExtractor)) {
+      EList<PreprocessingStep> _processingstep = df.getProcessingstep();
+      for (final PreprocessingStep preprocess : _processingstep) {
+      }
+      boolean stopLoop = false;
+      EList<FilteringStep> _filteringstep = df.getFilteringstep();
+      for (final FilteringStep filter : _filteringstep) {
+        {
+          ArrayList<String> targetCol = fileData.get(filter.getAxis());
+          if ((filter instanceof QuantitativeFiltering)) {
+            List<String> _asList = Arrays.<String>asList(((QuantitativeFiltering)filter).getValues().split(","));
+            ArrayList<String> _arrayList = new ArrayList<String>(_asList);
+            targets = _arrayList;
+          }
+          if ((filter instanceof QualitativeFiltering)) {
+            List<String> _asList_1 = Arrays.<String>asList(((QualitativeFiltering)filter).getLabels().split(","));
+            ArrayList<String> _arrayList_1 = new ArrayList<String>(_asList_1);
+            targets = _arrayList_1;
+          }
+          for (int i = 0; (i < targetCol.size()); i++) {
+            while (((stopLoop == false) && (targets.contains(targetCol.get(i)) == false))) {
+              Set<String> _keySet_1 = filteredData.keySet();
+              for (final String lab_1 : _keySet_1) {
+                int _size = targetCol.size();
+                boolean _equals = (i == _size);
+                if (_equals) {
+                  stopLoop = true;
+                } else {
+                  filteredData.get(lab_1).remove(i);
+                }
+              }
+            }
+          }
+        }
+      }
       return filteredData;
     }
     FileExtractor _fileextractor_1 = df.getFileextractor();
     if ((_fileextractor_1 instanceof ExcelExtractor)) {
+      EList<PreprocessingStep> _processingstep_1 = df.getProcessingstep();
+      for (final PreprocessingStep preprocess_1 : _processingstep_1) {
+      }
+      EList<FilteringStep> _filteringstep_1 = df.getFilteringstep();
+      for (final FilteringStep filter_1 : _filteringstep_1) {
+      }
       return filteredData;
     }
     return null;
