@@ -21,6 +21,9 @@ import ucal3ia.bilang.abstractsyntax.DashBoard
 import ucal3ia.bilang.abstractsyntax.BarPlot
 import ucal3ia.bilang.abstractsyntax.QuantitativeFiltering
 import ucal3ia.bilang.abstractsyntax.QualitativeFiltering
+import ucal3ia.bilang.abstractsyntax.MathOperation
+import ucal3ia.bilang.abstractsyntax.ColReference
+import ucal3ia.bilang.abstractsyntax.StatisticalOperation
 
 /**
  * Generates code from your model files on save.
@@ -152,6 +155,7 @@ class BiLangGenerator extends AbstractGenerator {
 	def translateDataFiltering(DataFiltering df, HashMap<String, ArrayList<String>> fileData) {
 		var filteredData= new HashMap<String, ArrayList<String>>;
 		var targets= new ArrayList<String>()	
+		var operationContent= new ArrayList<String>()
 		/* Copie du contenu du fichier CSV / EXCEL */
 		for (lab:fileData.keySet()) {
 			filteredData.put(lab, (fileData.get(lab)));
@@ -159,26 +163,108 @@ class BiLangGenerator extends AbstractGenerator {
 		if (df.fileextractor instanceof CsvExtractor){
 			//PHASE DE PREPROCESSING 
 			for (preprocess:df.processingstep) {
+				var newFieldData= new ArrayList<String>();
+				if (preprocess instanceof MathOperation) {
+					var lSide= preprocess.lside
+					var rSide= preprocess.rside
+					if (lSide instanceof ColReference) {
+						operationContent.add(lSide.target)
+						operationContent.add(preprocess.operator.literal)
+					}if (rSide instanceof ColReference) {
+						operationContent.add(rSide.target)
+					}
+					System.out.println(operationContent)
+					var keyList= new ArrayList<String>(filteredData.keySet());
+					for (var i= 0; i<filteredData.get(keyList.get(0)).size(); i++) {
+						var sum= 0;
+						var floatSum= 0.0;
+						var isDouble= false;
+						var addition= false;
+						var substraction= false;
+						var multiplication= false;
+						var division= false;
+						for (var j= 0; j<operationContent.size(); j++) {
+							if (j == 0) {
+								var stringValue= filteredData.get(operationContent.get(0)).get(i);
+								if (Character.isDigit(stringValue.charAt(0))) {
+									if (stringValue.contains(".")) {
+										isDouble= true;
+										floatSum+= Double.valueOf(stringValue);
+									}
+									else {
+										isDouble= false;
+										sum+= Integer.valueOf(stringValue);
+									}
+								}
+							} else if (operationContent.get(j).equals("+")) {
+								addition= true;
+							} else if (operationContent.get(j).equals("-")) {
+								substraction= true;
+							} else if (operationContent.get(j).equals("*")) {
+								multiplication= true;
+							} else if (operationContent.get(j).equals("/")) {
+								division= true;	
+							} else {
+								var stringValue= filteredData.get(operationContent.get(j)).get(i);
+								if (Character.isDigit(stringValue.charAt(0))) {
+									if (stringValue.contains(".")) {
+										isDouble= true;
+										if (addition == true) {
+											floatSum+= Double.valueOf(stringValue);
+										} else if (substraction == true) {
+											floatSum-= Double.valueOf(stringValue);
+										} else if (multiplication == true) {
+											floatSum*= Double.valueOf(stringValue);
+										} else if (division == true) {
+											floatSum/= Double.valueOf(stringValue);
+										}
+									}
+									else {
+										isDouble= false;
+										if (addition == true) {
+											sum+= Integer.valueOf(stringValue);
+										} else if (substraction == true) {
+											sum-= Integer.valueOf(stringValue);
+										} else if (multiplication == true) {
+											sum*= Integer.valueOf(stringValue);
+										} else if (division == true) {
+											sum/= Integer.valueOf(stringValue);
+										}
+									}
+								}
+							}
+						}
+						if (isDouble == false) {
+							newFieldData.add(Integer.toString(sum));
+						} else {
+							newFieldData.add(Double.toString(floatSum));
+						}
+					}
+					filteredData.put("TEST", newFieldData);
+				} else if (preprocess instanceof StatisticalOperation) {
+					var ref= preprocess.colreference
+					var operator= preprocess.operator
+				}
 			
 			}
 			//PHASE DE FILTRAGE
 			var stopLoop= false;
 			for (filter:df.filteringstep){
+				// RECUPERATION DES CARACTERISTIQUES DU FILTRE | Axe cible et Valeur(s) ‡ conserver
 				var targetCol= fileData.get(filter.axis)
 				if (filter instanceof QuantitativeFiltering) {
 					targets= new ArrayList<String>(Arrays.asList(filter.values.split(",")))
 				} if (filter instanceof QualitativeFiltering) {
 					targets= new ArrayList<String>(Arrays.asList(filter.labels.split(",")))
 				}
+				//NETTOYAGE DES DONNÈES SELON LES CA
 				for(var i= 0; i<targetCol.size(); i++) {
 					while ((stopLoop == false) && (targets.contains(targetCol.get(i)) == false)){
 						for (lab:filteredData.keySet()){
 							if (i == targetCol.size()) {
 								stopLoop= true;
 							}
-							else {
-								filteredData.get(lab).remove(i)	
-							}
+							filteredData.get(lab).remove(i)	
 						}
 					}
 				}

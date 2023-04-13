@@ -22,16 +22,20 @@ import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 import ucal3ia.bilang.abstractsyntax.BarPlot;
+import ucal3ia.bilang.abstractsyntax.ColReference;
 import ucal3ia.bilang.abstractsyntax.CsvExtractor;
 import ucal3ia.bilang.abstractsyntax.DashBoard;
 import ucal3ia.bilang.abstractsyntax.DataFiltering;
 import ucal3ia.bilang.abstractsyntax.ExcelExtractor;
 import ucal3ia.bilang.abstractsyntax.FileExtractor;
 import ucal3ia.bilang.abstractsyntax.FilteringStep;
+import ucal3ia.bilang.abstractsyntax.MathOperation;
 import ucal3ia.bilang.abstractsyntax.Plot;
 import ucal3ia.bilang.abstractsyntax.PreprocessingStep;
 import ucal3ia.bilang.abstractsyntax.QualitativeFiltering;
 import ucal3ia.bilang.abstractsyntax.QuantitativeFiltering;
+import ucal3ia.bilang.abstractsyntax.StatisticalOperation;
+import ucal3ia.bilang.abstractsyntax.StatisticalOperator;
 import ucal3ia.bilang.abstractsyntax.Task;
 
 /**
@@ -252,6 +256,7 @@ public class BiLangGenerator extends AbstractGenerator {
   public HashMap<String, ArrayList<String>> translateDataFiltering(final DataFiltering df, final HashMap<String, ArrayList<String>> fileData) {
     HashMap<String, ArrayList<String>> filteredData = new HashMap<String, ArrayList<String>>();
     ArrayList<String> targets = new ArrayList<String>();
+    ArrayList<String> operationContent = new ArrayList<String>();
     Set<String> _keySet = fileData.keySet();
     for (final String lab : _keySet) {
       filteredData.put(lab, fileData.get(lab));
@@ -260,6 +265,142 @@ public class BiLangGenerator extends AbstractGenerator {
     if ((_fileextractor instanceof CsvExtractor)) {
       EList<PreprocessingStep> _processingstep = df.getProcessingstep();
       for (final PreprocessingStep preprocess : _processingstep) {
+        {
+          ArrayList<String> newFieldData = new ArrayList<String>();
+          if ((preprocess instanceof MathOperation)) {
+            PreprocessingStep lSide = ((MathOperation)preprocess).getLside();
+            PreprocessingStep rSide = ((MathOperation)preprocess).getRside();
+            if ((lSide instanceof ColReference)) {
+              operationContent.add(((ColReference)lSide).getTarget());
+              operationContent.add(((MathOperation)preprocess).getOperator().getLiteral());
+            }
+            if ((rSide instanceof ColReference)) {
+              operationContent.add(((ColReference)rSide).getTarget());
+            }
+            System.out.println(operationContent);
+            Set<String> _keySet_1 = filteredData.keySet();
+            ArrayList<String> keyList = new ArrayList<String>(_keySet_1);
+            for (int i = 0; (i < filteredData.get(keyList.get(0)).size()); i++) {
+              {
+                int sum = 0;
+                double floatSum = 0.0;
+                boolean isDouble = false;
+                boolean addition = false;
+                boolean substraction = false;
+                boolean multiplication = false;
+                boolean division = false;
+                for (int j = 0; (j < operationContent.size()); j++) {
+                  if ((j == 0)) {
+                    String stringValue = filteredData.get(operationContent.get(0)).get(i);
+                    boolean _isDigit = Character.isDigit(stringValue.charAt(0));
+                    if (_isDigit) {
+                      boolean _contains = stringValue.contains(".");
+                      if (_contains) {
+                        isDouble = true;
+                        double _floatSum = floatSum;
+                        Double _valueOf = Double.valueOf(stringValue);
+                        floatSum = (_floatSum + (_valueOf).doubleValue());
+                      } else {
+                        isDouble = false;
+                        int _sum = sum;
+                        Integer _valueOf_1 = Integer.valueOf(stringValue);
+                        sum = (_sum + (_valueOf_1).intValue());
+                      }
+                    }
+                  } else {
+                    boolean _equals = operationContent.get(j).equals("+");
+                    if (_equals) {
+                      addition = true;
+                    } else {
+                      boolean _equals_1 = operationContent.get(j).equals("-");
+                      if (_equals_1) {
+                        substraction = true;
+                      } else {
+                        boolean _equals_2 = operationContent.get(j).equals("*");
+                        if (_equals_2) {
+                          multiplication = true;
+                        } else {
+                          boolean _equals_3 = operationContent.get(j).equals("/");
+                          if (_equals_3) {
+                            division = true;
+                          } else {
+                            String stringValue_1 = filteredData.get(operationContent.get(j)).get(i);
+                            boolean _isDigit_1 = Character.isDigit(stringValue_1.charAt(0));
+                            if (_isDigit_1) {
+                              boolean _contains_1 = stringValue_1.contains(".");
+                              if (_contains_1) {
+                                isDouble = true;
+                                if ((addition == true)) {
+                                  double _floatSum_1 = floatSum;
+                                  Double _valueOf_2 = Double.valueOf(stringValue_1);
+                                  floatSum = (_floatSum_1 + (_valueOf_2).doubleValue());
+                                } else {
+                                  if ((substraction == true)) {
+                                    double _floatSum_2 = floatSum;
+                                    Double _valueOf_3 = Double.valueOf(stringValue_1);
+                                    floatSum = (_floatSum_2 - (_valueOf_3).doubleValue());
+                                  } else {
+                                    if ((multiplication == true)) {
+                                      double _floatSum_3 = floatSum;
+                                      Double _valueOf_4 = Double.valueOf(stringValue_1);
+                                      floatSum = (_floatSum_3 * (_valueOf_4).doubleValue());
+                                    } else {
+                                      if ((division == true)) {
+                                        double _floatSum_4 = floatSum;
+                                        Double _valueOf_5 = Double.valueOf(stringValue_1);
+                                        floatSum = (_floatSum_4 / (_valueOf_5).doubleValue());
+                                      }
+                                    }
+                                  }
+                                }
+                              } else {
+                                isDouble = false;
+                                if ((addition == true)) {
+                                  int _sum_1 = sum;
+                                  Integer _valueOf_6 = Integer.valueOf(stringValue_1);
+                                  sum = (_sum_1 + (_valueOf_6).intValue());
+                                } else {
+                                  if ((substraction == true)) {
+                                    int _sum_2 = sum;
+                                    Integer _valueOf_7 = Integer.valueOf(stringValue_1);
+                                    sum = (_sum_2 - (_valueOf_7).intValue());
+                                  } else {
+                                    if ((multiplication == true)) {
+                                      int _sum_3 = sum;
+                                      Integer _valueOf_8 = Integer.valueOf(stringValue_1);
+                                      sum = (_sum_3 * (_valueOf_8).intValue());
+                                    } else {
+                                      if ((division == true)) {
+                                        int _sum_4 = sum;
+                                        Integer _valueOf_9 = Integer.valueOf(stringValue_1);
+                                        sum = (_sum_4 / (_valueOf_9).intValue());
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+                if ((isDouble == false)) {
+                  newFieldData.add(Integer.toString(sum));
+                } else {
+                  newFieldData.add(Double.toString(floatSum));
+                }
+              }
+            }
+            filteredData.put("TEST", newFieldData);
+          } else {
+            if ((preprocess instanceof StatisticalOperation)) {
+              ColReference ref = ((StatisticalOperation)preprocess).getColreference();
+              StatisticalOperator operator = ((StatisticalOperation)preprocess).getOperator();
+            }
+          }
+        }
       }
       boolean stopLoop = false;
       EList<FilteringStep> _filteringstep = df.getFilteringstep();
@@ -280,11 +421,12 @@ public class BiLangGenerator extends AbstractGenerator {
             while (((stopLoop == false) && (targets.contains(targetCol.get(i)) == false))) {
               Set<String> _keySet_1 = filteredData.keySet();
               for (final String lab_1 : _keySet_1) {
-                int _size = targetCol.size();
-                boolean _equals = (i == _size);
-                if (_equals) {
-                  stopLoop = true;
-                } else {
+                {
+                  int _size = targetCol.size();
+                  boolean _equals = (i == _size);
+                  if (_equals) {
+                    stopLoop = true;
+                  }
                   filteredData.get(lab_1).remove(i);
                 }
               }
