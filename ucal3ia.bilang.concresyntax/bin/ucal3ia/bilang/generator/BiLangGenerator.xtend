@@ -24,6 +24,7 @@ import ucal3ia.bilang.abstractsyntax.QualitativeFiltering
 import ucal3ia.bilang.abstractsyntax.MathOperation
 import ucal3ia.bilang.abstractsyntax.ColReference
 import ucal3ia.bilang.abstractsyntax.StatisticalOperation
+import ucal3ia.bilang.abstractsyntax.LinePlot
 
 /**
  * Generates code from your model files on save.
@@ -31,11 +32,12 @@ import ucal3ia.bilang.abstractsyntax.StatisticalOperation
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#code-generation
  */
 class BiLangGenerator extends AbstractGenerator {
-
+	//FONCTION PERMETTANT DE PRODUIRE LE CODE A INJECTER DANS LE FICHIER .html
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 		System.out.println("------------------------------")
 		var Task task= resource.allContents.head as Task
 		var dataArray= new HashMap<String, HashMap<String, ArrayList<String>>>;
+		var dashBoardContent= new HashMap<String, HashMap<String, Object>>;
 		var fileExtractName= "";
 		var fileContent= '''
 		<!DOCTYPE html>
@@ -48,32 +50,7 @@ class BiLangGenerator extends AbstractGenerator {
 		
 		</head>
 		<body>
-		<div>
-		  <canvas id="histogramme"></canvas>
-		</div>
-		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-		<script>
-		  	const CHART_COLORS = {
-		  	  redt: 'rgba(255, 99, 132, 0.6)',
-		  	  red: 'rgb(255, 99, 132)',
-		  	  orange: 'rgb(255, 159, 64)',
-		  	  yellow: 'rgb(255, 205, 86)',
-		  	  green: 'rgb(75, 192, 192)',
-		  	  bluet: 'rgba(54, 162, 235,0.6)',
-		  	  blue: 'rgb(54, 162, 235)',
-		  	  purple: 'rgb(153, 102, 255)',
-		  	  grey: 'rgb(201, 203, 207)'
-		  	};
-		  	
-		  	const NAMED_COLORS = [
-		  	  CHART_COLORS.red,
-		  	  CHART_COLORS.orange,
-		  	  CHART_COLORS.yellow,
-		  	  CHART_COLORS.green,
-		  	  CHART_COLORS.blue,
-		  	  CHART_COLORS.purple,
-		  	  CHART_COLORS.grey,
-		  	];
+		
 		'''
 		for (extractor:task.fileextractor) {
 			var extractorData= translateFileExtractor(extractor)
@@ -84,15 +61,15 @@ class BiLangGenerator extends AbstractGenerator {
 			//var filteredData= 
 			dataArray.put(filter.fileextractor.name, translateDataFiltering(filter, inputData))
 		}
-		for (dashboard:task.dashboard) {
-			fileContent += translateDashBoard(dashboard, dataArray.get(dashboard.fileextractor.name))
+		
+		dashBoardContent= translateDashBoard(task.dashboard, dataArray.get(task.dashboard.fileextractor.name))
 			/*if (dashboard.datafiltering != null) {
 				fileContent += translateDashBoardManager(dashboard, dataArray.get(dashboard.datafiltering));
 			} else {
 				fileContent += translateDashBoardManager(dashboard, dataArray.get(dashboard.fileextractor))
 			}*/
 			
-		}
+		fileContent+= displayDashboard(dashBoardContent, dataArray.get(task.dashboard.fileextractor.name))
 		
 		fileContent += '''
 		</script>
@@ -102,6 +79,7 @@ class BiLangGenerator extends AbstractGenerator {
 		fsa.generateFile(task.name+".html", fileContent)
 	}
 	
+	//FONCTION PERMETTANT DE STOCKER ET ORGANISER LES DONNÈES | BASE DE DONNÈE UTILISÈE DANS TOUTES LES AUTRES FONCTIONS
 	def translateFileExtractor(FileExtractor fe) {
 		var i=0
 		var fileName= "";
@@ -152,6 +130,7 @@ class BiLangGenerator extends AbstractGenerator {
 		}
 	}
 	
+	//FONCTION PERMETTANT D'EFFECTUER LES TRAITEMENT / FILTRAGE DES DONNÈES DU CSV
 	def translateDataFiltering(DataFiltering df, HashMap<String, ArrayList<String>> fileData) {
 		var filteredData= new HashMap<String, ArrayList<String>>;
 		var targets= new ArrayList<String>()	
@@ -283,32 +262,129 @@ class BiLangGenerator extends AbstractGenerator {
 		
 	}
 	
-	def translateDashBoard(DashBoard dbm, HashMap<String, ArrayList<String>> fileData) {
-		var content= "";
-		for (var j= 0; j < dbm.plot.length(); j++){
-			var plotType= ""
+	//FONCTION DE STOCKAGE DES CARACTERISTIQUES DES GRAPHIQUES
+	def translateDashBoard(DashBoard db, HashMap<String, ArrayList<String>> fileData) {
+		var dashBoardContent= new HashMap<String, HashMap<String, Object>>
+		var plotType= ""
+		for (plot:db.plot) {
+			var plotContent= new HashMap<String, Object>
+			var key= plot.name
+			var xAxis= new ArrayList<String>()
+			var colors= new ArrayList<String>()
+			//RÈcupÈration de la / des couleurs du graphique
+			if ((plot.colors).contains(", ")){
+				for (color:(plot.colors).split(", ")) {
+					colors.add(color)
+				}
+				plotContent.put("colors", colors)
+			} else if ((plot.colors).contains(",")) {
+				for (color:(plot.colors).split(",")) {
+					colors.add(color)
+				}
+				plotContent.put("colors", colors)
+			}else
+				colors.add(plot.colors)
+				plotContent.put("colors", colors)
+			//RÈcupÈration du type de graphique
+			if (plot instanceof BarPlot) {
+				plotContent.put("type", "bar")
+			} else if (plot instanceof LinePlot) {
+				plotContent.put("type", "line")
+			}
+			//RÈcupÈration des axes en abscisses
+			if ((plot.XAxis).contains(", ")){
+				for (lab:(plot.XAxis).split(", ")) {
+					xAxis.add(lab)
+				}
+				plotContent.put("xAxis", xAxis)
+			}
+			else if ((plot.XAxis).contains(",")) {
+				for (lab:(plot.XAxis).split(",")) {
+					xAxis.add(lab)
+				}
+				plotContent.put("xAxis", xAxis)
+			} else {
+				plotContent.put("xAxis", plot.XAxis)
+			}		
+			//RÈcupÈration des axes en ordonnÈes
+			var yAxis= new ArrayList<String>()
+			if ((plot.YAxis).contains(", ")){
+				for (lab:(plot.YAxis).split(", ")) {
+					yAxis.add(lab)
+				}
+				plotContent.put("yAxis", yAxis)
+			}
+			else if ((plot.YAxis).contains(",")) {
+				for (lab:(plot.YAxis).split(",")) {
+					yAxis.add(lab)
+					
+				}
+				plotContent.put("yAxis", yAxis)
+			} else {
+				plotContent.put("yAxis", plot.YAxis)
+			}
+			//RÈcupÈration de la position du graphique, epaisseur des lignes / barres / etc...
+			plotContent.put("location", plot.location)
+			plotContent.put("thickness", Float.toString(plot.thickness))
+			// Stockage dans la map globale du dashboard
+			dashBoardContent.put(key, plotContent)
+			System.out.println(dashBoardContent)
+		}
+		return dashBoardContent
+	}
+	
+	//FONCTION PERMETTANT D'UTILISER LES DONNÈES CARACTÈRISTIQUES DES GRAPHIQUES ET DONNÈES DU CSV POUR AFFICHER LES GRAPHIQUES SUR LA PAGE WEB
+	def displayDashboard(HashMap<String, HashMap<String, Object>> dashboardContent, HashMap<String, ArrayList<String>> fileData) {
+		var displayDashboard= ""
+		
+		var content= '''
+		<div>
+				  '''
+				  for (key:dashboardContent.keySet()) {
+				  	content+= '''<canvas id="''' + key + '''"></canvas>'''
+				  }
+		content+='''
+				</div>
+				<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+				<script>
+				  	const CHART_COLORS = {
+				  	  redt: 'rgba(255, 99, 132, 0.6)',
+				  	  red: 'rgb(255, 99, 132)',
+				  	  orange: 'rgb(255, 159, 64)',
+				  	  yellow: 'rgb(255, 205, 86)',
+				  	  green: 'rgb(75, 192, 192)',
+				  	  bluet: 'rgba(54, 162, 235,0.6)',
+				  	  blue: 'rgb(54, 162, 235)',
+				  	  purple: 'rgb(153, 102, 255)',
+				  	  grey: 'rgb(201, 203, 207)'
+				  	};
+				  	
+				  	const NAMED_COLORS = [
+				  	  CHART_COLORS.red,
+				  	  CHART_COLORS.orange,
+				  	  CHART_COLORS.yellow,
+				  	  CHART_COLORS.green,
+				  	  CHART_COLORS.blue,
+				  	  CHART_COLORS.purple,
+				  	  CHART_COLORS.grey,
+				  	];''';
+		var j=0
+		for (keyPlot:dashboardContent.keySet()) {
+			var plotType= dashboardContent.get(keyPlot).get("type")
 			var xLabs= new ArrayList<String>()
 			var yLabs= new ArrayList<String>()
-			if (dbm.plot.get(j).YAxis.contains(", ")) {
-				yLabs= new ArrayList<String>(Arrays.asList(dbm.plot.get(j).YAxis.split(", ")));
-			} else if (dbm.plot.get(j).YAxis.contains(",")) {
-				yLabs= new ArrayList<String>(Arrays.asList(dbm.plot.get(j).YAxis.split(",")));
+			if (dashboardContent.get(keyPlot).get("xAxis") instanceof ArrayList) {
+				xLabs= dashboardContent.get(keyPlot).get("xAxis") as ArrayList
 			} else {
-				yLabs.add(dbm.plot.get(j).YAxis);
-			}
-			if (dbm.plot.get(j).XAxis.contains(", ")) {
-				xLabs= new ArrayList<String>(Arrays.asList(dbm.plot.get(j).XAxis.split(", ")));
-			} else if (dbm.plot.get(j).XAxis.contains(",")) {
-				xLabs= new ArrayList<String>(Arrays.asList(dbm.plot.get(j).XAxis.split(",")));
-			} else {
-				xLabs.add(dbm.plot.get(j).XAxis);
+				xLabs.add(dashboardContent.get(keyPlot).get("xAxis") as String)
 			}
 			
-			if (dbm.plot.get(j) instanceof BarPlot) {
-				plotType= "bar"
+			if (dashboardContent.get(keyPlot).get("yAxis") instanceof ArrayList) {
+				yLabs= dashboardContent.get(keyPlot).get("yAxis") as ArrayList
+			} else {
+				yLabs.add(dashboardContent.get(keyPlot).get("yAxis") as String)
 			}
-			//var yCol= fileData.get(dbm.plot.get(j).YAxis)
-			//var xCol= fileData.get(dbm.plot.get(j).XAxis)
+			
 			var yCols= new ArrayList<ArrayList<String>>();
 			var xCols= new ArrayList<ArrayList<String>>();	
 			for (var a= 0; a < yLabs.size(); a++) 
@@ -316,7 +392,7 @@ class BiLangGenerator extends AbstractGenerator {
 	
 			for (var a= 0; a < xLabs.size(); a++) 
 				xCols.add(fileData.get(xLabs.get(a)));
-			content += '''	const file''' + j+1 + '''= ['''
+			content += "\n"+'''	const file''' + j+1 + '''= ['''
 			var yLength= yCols.get(0).length()
 			for (var i= 0; i < yLength; i++) {
 				content+='''	{'''
@@ -330,20 +406,48 @@ class BiLangGenerator extends AbstractGenerator {
 			}
 			content += '''	];'''
 			content += "\n"
-			content += '''	''' + dbm.plot.get(j).name + '''= new Chart(
-		document.getElementById('histogramme'),
+			content += '''	''' + keyPlot + '''= new Chart(
+		document.getElementById("''' + keyPlot + '''"),
 		{
 			type: "''' + plotType + '''",
-			data: {
-				labels: file''' + j+1 + '''.map(row => row.''' + dbm.plot.get(j).XAxis + '''),
+			data: {''' 
+			for (xax: xLabs) {	
+				
+				content+= '''
+				labels: file''' + j+1 + '''.map(row => row.''' + xax + '''),
 				datasets: [
 					''' 
-			for (var a= 0; a < yLabs.size(); a++) { 
-					content+= '''					{
-			    		label: "''' + yLabs.get(a) + '''",
-			        	data: file''' + j+1 + '''.map(row => row.''' + yLabs.get(a) + '''),
-			    	},
-			    	''' 
+				var value= dashboardContent.get(keyPlot).get("colors") as ArrayList
+				var convertColors= new ArrayList<String>()
+				for (col: value) {
+					if (value.contains("#")) {
+						var hexR= (col as String).substring(1, 3)
+						var hexG= (col as String).substring(3, 5)
+						var hexB= (col as String).substring(5)
+						convertColors.add("rgba(" + hexR + hexG + hexB + ", 0.6)" )
+					} else
+						convertColors.add((col as String))
+				}
+				for (var a= 0; a < yLabs.size(); a++) { 
+					if (convertColors.size()> 1) {	
+						content+= '''					{
+				    		label: "''' + yLabs.get(a) + '''",
+				        	data: file''' + j+1 + '''.map(row => row.''' + yLabs.get(a) + '''),
+				        	borderColor: "''' + convertColors.get(a) + '''",
+				        	borderWidth: ''' + dashboardContent.get(keyPlot).get("thickness") + ''',
+				    	},
+				    	'''  
+				   	} else {
+				   		content+= '''					{
+				    		label: "''' + yLabs.get(a) + '''",
+				        	data: file''' + j+1 + '''.map(row => row.''' + yLabs.get(a) + '''),
+				        	borderColor: "''' + convertColors.get(0) + '''",
+				        	borderWidth: ''' + dashboardContent.get(keyPlot).get("thickness") + ''',
+				    	},
+				    	'''  
+				   	}
+				}
+				
 			}
 			    	content+= '''
 				]
@@ -352,7 +456,7 @@ class BiLangGenerator extends AbstractGenerator {
 	);
 					
 			'''
-				
+		j++		
 		}
 		return content
 	}

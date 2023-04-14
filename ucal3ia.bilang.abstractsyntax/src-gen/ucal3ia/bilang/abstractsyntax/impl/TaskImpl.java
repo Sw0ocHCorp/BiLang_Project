@@ -4,6 +4,7 @@ package ucal3ia.bilang.abstractsyntax.impl;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -11,6 +12,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -57,14 +59,14 @@ public class TaskImpl extends NamedElementImpl implements Task {
 	protected EList<DataFiltering> datafiltering;
 
 	/**
-	 * The cached value of the '{@link #getDashboard() <em>Dashboard</em>}' containment reference list.
+	 * The cached value of the '{@link #getDashboard() <em>Dashboard</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getDashboard()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<DashBoard> dashboard;
+	protected DashBoard dashboard;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -116,12 +118,49 @@ public class TaskImpl extends NamedElementImpl implements Task {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<DashBoard> getDashboard() {
-		if (dashboard == null) {
-			dashboard = new EObjectContainmentEList<DashBoard>(DashBoard.class, this,
-					AbstractsyntaxPackage.TASK__DASHBOARD);
-		}
+	public DashBoard getDashboard() {
 		return dashboard;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetDashboard(DashBoard newDashboard, NotificationChain msgs) {
+		DashBoard oldDashboard = dashboard;
+		dashboard = newDashboard;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					AbstractsyntaxPackage.TASK__DASHBOARD, oldDashboard, newDashboard);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDashboard(DashBoard newDashboard) {
+		if (newDashboard != dashboard) {
+			NotificationChain msgs = null;
+			if (dashboard != null)
+				msgs = ((InternalEObject) dashboard).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - AbstractsyntaxPackage.TASK__DASHBOARD, null, msgs);
+			if (newDashboard != null)
+				msgs = ((InternalEObject) newDashboard).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - AbstractsyntaxPackage.TASK__DASHBOARD, null, msgs);
+			msgs = basicSetDashboard(newDashboard, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AbstractsyntaxPackage.TASK__DASHBOARD, newDashboard,
+					newDashboard));
 	}
 
 	/**
@@ -137,7 +176,7 @@ public class TaskImpl extends NamedElementImpl implements Task {
 		case AbstractsyntaxPackage.TASK__DATAFILTERING:
 			return ((InternalEList<?>) getDatafiltering()).basicRemove(otherEnd, msgs);
 		case AbstractsyntaxPackage.TASK__DASHBOARD:
-			return ((InternalEList<?>) getDashboard()).basicRemove(otherEnd, msgs);
+			return basicSetDashboard(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -178,8 +217,7 @@ public class TaskImpl extends NamedElementImpl implements Task {
 			getDatafiltering().addAll((Collection<? extends DataFiltering>) newValue);
 			return;
 		case AbstractsyntaxPackage.TASK__DASHBOARD:
-			getDashboard().clear();
-			getDashboard().addAll((Collection<? extends DashBoard>) newValue);
+			setDashboard((DashBoard) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -200,7 +238,7 @@ public class TaskImpl extends NamedElementImpl implements Task {
 			getDatafiltering().clear();
 			return;
 		case AbstractsyntaxPackage.TASK__DASHBOARD:
-			getDashboard().clear();
+			setDashboard((DashBoard) null);
 			return;
 		}
 		super.eUnset(featureID);
@@ -219,7 +257,7 @@ public class TaskImpl extends NamedElementImpl implements Task {
 		case AbstractsyntaxPackage.TASK__DATAFILTERING:
 			return datafiltering != null && !datafiltering.isEmpty();
 		case AbstractsyntaxPackage.TASK__DASHBOARD:
-			return dashboard != null && !dashboard.isEmpty();
+			return dashboard != null;
 		}
 		return super.eIsSet(featureID);
 	}

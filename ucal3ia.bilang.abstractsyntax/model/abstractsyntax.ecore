@@ -11,12 +11,12 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="datafiltering" upperBound="-1"
         eType="#//DataFiltering" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="dashboard" lowerBound="1"
-        upperBound="-1" eType="#//DashBoard" containment="true"/>
+        eType="#//DashBoard" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FileExtractor" abstract="true" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DataFiltering" eSuperTypes="#//NamedElement">
+  <eClassifiers xsi:type="ecore:EClass" name="DataFiltering">
     <eStructuralFeatures xsi:type="ecore:EReference" name="fileextractor" lowerBound="1"
         eType="#//FileExtractor"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="filteringstep" lowerBound="1"
@@ -36,7 +36,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="xAxis" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="yAxis" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="location" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="color" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="colors" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="thickness" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BarPlot" eSuperTypes="#//Plot"/>

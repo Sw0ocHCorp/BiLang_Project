@@ -8,10 +8,17 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
+import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.IItemPropertySource;
+import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
+import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import ucal3ia.bilang.abstractsyntax.AbstractsyntaxFactory;
@@ -24,7 +31,8 @@ import ucal3ia.bilang.abstractsyntax.DataFiltering;
  * <!-- end-user-doc -->
  * @generated
  */
-public class DataFilteringItemProvider extends NamedElementItemProvider {
+public class DataFilteringItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -127,9 +135,7 @@ public class DataFilteringItemProvider extends NamedElementItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((DataFiltering) object).getName();
-		return label == null || label.length() == 0 ? getString("_UI_DataFiltering_type")
-				: getString("_UI_DataFiltering_type") + " " + label;
+		return getString("_UI_DataFiltering_type");
 	}
 
 	/**
@@ -180,6 +186,17 @@ public class DataFilteringItemProvider extends NamedElementItemProvider {
 
 		newChildDescriptors.add(createChildParameter(AbstractsyntaxPackage.Literals.DATA_FILTERING__PROCESSINGSTEP,
 				AbstractsyntaxFactory.eINSTANCE.createStatisticalOperation()));
+	}
+
+	/**
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ResourceLocator getResourceLocator() {
+		return AbstractsyntaxEditPlugin.INSTANCE;
 	}
 
 }

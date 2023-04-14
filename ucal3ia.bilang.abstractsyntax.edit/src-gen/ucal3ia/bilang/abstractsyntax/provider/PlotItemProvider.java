@@ -47,7 +47,7 @@ public class PlotItemProvider extends NamedElementItemProvider {
 			addXAxisPropertyDescriptor(object);
 			addYAxisPropertyDescriptor(object);
 			addLocationPropertyDescriptor(object);
-			addColorPropertyDescriptor(object);
+			addColorsPropertyDescriptor(object);
 			addThicknessPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -99,17 +99,17 @@ public class PlotItemProvider extends NamedElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Color feature.
+	 * This adds a property descriptor for the Colors feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addColorPropertyDescriptor(Object object) {
+	protected void addColorsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Plot_color_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Plot_color_feature", "_UI_Plot_type"),
-						AbstractsyntaxPackage.Literals.PLOT__COLOR, true, false, false,
+						getResourceLocator(), getString("_UI_Plot_colors_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_Plot_colors_feature", "_UI_Plot_type"),
+						AbstractsyntaxPackage.Literals.PLOT__COLORS, true, false, false,
 						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
@@ -177,7 +177,7 @@ public class PlotItemProvider extends NamedElementItemProvider {
 		case AbstractsyntaxPackage.PLOT__XAXIS:
 		case AbstractsyntaxPackage.PLOT__YAXIS:
 		case AbstractsyntaxPackage.PLOT__LOCATION:
-		case AbstractsyntaxPackage.PLOT__COLOR:
+		case AbstractsyntaxPackage.PLOT__COLORS:
 		case AbstractsyntaxPackage.PLOT__THICKNESS:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;

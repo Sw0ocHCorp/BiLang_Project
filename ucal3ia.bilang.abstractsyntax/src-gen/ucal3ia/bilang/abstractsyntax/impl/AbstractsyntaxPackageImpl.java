@@ -439,7 +439,7 @@ public class AbstractsyntaxPackageImpl extends EPackageImpl implements Abstracts
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPlot_Color() {
+	public EAttribute getPlot_Colors() {
 		return (EAttribute) plotEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -690,7 +690,7 @@ public class AbstractsyntaxPackageImpl extends EPackageImpl implements Abstracts
 		createEAttribute(plotEClass, PLOT__XAXIS);
 		createEAttribute(plotEClass, PLOT__YAXIS);
 		createEAttribute(plotEClass, PLOT__LOCATION);
-		createEAttribute(plotEClass, PLOT__COLOR);
+		createEAttribute(plotEClass, PLOT__COLORS);
 		createEAttribute(plotEClass, PLOT__THICKNESS);
 
 		barPlotEClass = createEClass(BAR_PLOT);
@@ -756,7 +756,6 @@ public class AbstractsyntaxPackageImpl extends EPackageImpl implements Abstracts
 		// Add supertypes to classes
 		taskEClass.getESuperTypes().add(this.getNamedElement());
 		fileExtractorEClass.getESuperTypes().add(this.getNamedElement());
-		dataFilteringEClass.getESuperTypes().add(this.getNamedElement());
 		dashBoardEClass.getESuperTypes().add(this.getNamedElement());
 		csvExtractorEClass.getESuperTypes().add(this.getFileExtractor());
 		excelExtractorEClass.getESuperTypes().add(this.getFileExtractor());
@@ -782,7 +781,7 @@ public class AbstractsyntaxPackageImpl extends EPackageImpl implements Abstracts
 		initEReference(getTask_Datafiltering(), this.getDataFiltering(), null, "datafiltering", null, 0, -1, Task.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTask_Dashboard(), this.getDashBoard(), null, "dashboard", null, 1, -1, Task.class,
+		initEReference(getTask_Dashboard(), this.getDashBoard(), null, "dashboard", null, 1, 1, Task.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -828,7 +827,7 @@ public class AbstractsyntaxPackageImpl extends EPackageImpl implements Abstracts
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPlot_Location(), ecorePackage.getEString(), "location", null, 0, 1, Plot.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPlot_Color(), ecorePackage.getEString(), "color", null, 0, 1, Plot.class, !IS_TRANSIENT,
+		initEAttribute(getPlot_Colors(), ecorePackage.getEString(), "colors", null, 0, 1, Plot.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPlot_Thickness(), ecorePackage.getEFloat(), "thickness", null, 0, 1, Plot.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

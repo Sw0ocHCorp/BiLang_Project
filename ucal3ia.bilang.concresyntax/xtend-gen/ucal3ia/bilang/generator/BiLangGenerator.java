@@ -29,6 +29,7 @@ import ucal3ia.bilang.abstractsyntax.DataFiltering;
 import ucal3ia.bilang.abstractsyntax.ExcelExtractor;
 import ucal3ia.bilang.abstractsyntax.FileExtractor;
 import ucal3ia.bilang.abstractsyntax.FilteringStep;
+import ucal3ia.bilang.abstractsyntax.LinePlot;
 import ucal3ia.bilang.abstractsyntax.MathOperation;
 import ucal3ia.bilang.abstractsyntax.Plot;
 import ucal3ia.bilang.abstractsyntax.PreprocessingStep;
@@ -51,6 +52,7 @@ public class BiLangGenerator extends AbstractGenerator {
     EObject _head = IteratorExtensions.<EObject>head(resource.getAllContents());
     Task task = ((Task) _head);
     HashMap<String, HashMap<String, ArrayList<String>>> dataArray = new HashMap<String, HashMap<String, ArrayList<String>>>();
+    HashMap<String, HashMap<String, Object>> dashBoardContent = new HashMap<String, HashMap<String, Object>>();
     String fileExtractName = "";
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("<!DOCTYPE html>");
@@ -76,78 +78,6 @@ public class BiLangGenerator extends AbstractGenerator {
     _builder.newLine();
     _builder.append("<body>");
     _builder.newLine();
-    _builder.append("<div>");
-    _builder.newLine();
-    _builder.append("  ");
-    _builder.append("<canvas id=\"histogramme\"></canvas>");
-    _builder.newLine();
-    _builder.append("</div>");
-    _builder.newLine();
-    _builder.append("<script src=\"https://cdn.jsdelivr.net/npm/chart.js\"></script>");
-    _builder.newLine();
-    _builder.append("<script>");
-    _builder.newLine();
-    _builder.append("  \t");
-    _builder.append("const CHART_COLORS = {");
-    _builder.newLine();
-    _builder.append("  \t  ");
-    _builder.append("redt: \'rgba(255, 99, 132, 0.6)\',");
-    _builder.newLine();
-    _builder.append("  \t  ");
-    _builder.append("red: \'rgb(255, 99, 132)\',");
-    _builder.newLine();
-    _builder.append("  \t  ");
-    _builder.append("orange: \'rgb(255, 159, 64)\',");
-    _builder.newLine();
-    _builder.append("  \t  ");
-    _builder.append("yellow: \'rgb(255, 205, 86)\',");
-    _builder.newLine();
-    _builder.append("  \t  ");
-    _builder.append("green: \'rgb(75, 192, 192)\',");
-    _builder.newLine();
-    _builder.append("  \t  ");
-    _builder.append("bluet: \'rgba(54, 162, 235,0.6)\',");
-    _builder.newLine();
-    _builder.append("  \t  ");
-    _builder.append("blue: \'rgb(54, 162, 235)\',");
-    _builder.newLine();
-    _builder.append("  \t  ");
-    _builder.append("purple: \'rgb(153, 102, 255)\',");
-    _builder.newLine();
-    _builder.append("  \t  ");
-    _builder.append("grey: \'rgb(201, 203, 207)\'");
-    _builder.newLine();
-    _builder.append("  \t");
-    _builder.append("};");
-    _builder.newLine();
-    _builder.append("  \t");
-    _builder.newLine();
-    _builder.append("  \t");
-    _builder.append("const NAMED_COLORS = [");
-    _builder.newLine();
-    _builder.append("  \t  ");
-    _builder.append("CHART_COLORS.red,");
-    _builder.newLine();
-    _builder.append("  \t  ");
-    _builder.append("CHART_COLORS.orange,");
-    _builder.newLine();
-    _builder.append("  \t  ");
-    _builder.append("CHART_COLORS.yellow,");
-    _builder.newLine();
-    _builder.append("  \t  ");
-    _builder.append("CHART_COLORS.green,");
-    _builder.newLine();
-    _builder.append("  \t  ");
-    _builder.append("CHART_COLORS.blue,");
-    _builder.newLine();
-    _builder.append("  \t  ");
-    _builder.append("CHART_COLORS.purple,");
-    _builder.newLine();
-    _builder.append("  \t  ");
-    _builder.append("CHART_COLORS.grey,");
-    _builder.newLine();
-    _builder.append("  \t");
-    _builder.append("];");
     _builder.newLine();
     String fileContent = _builder.toString();
     EList<FileExtractor> _fileextractor = task.getFileextractor();
@@ -164,12 +94,10 @@ public class BiLangGenerator extends AbstractGenerator {
         dataArray.put(filter.getFileextractor().getName(), this.translateDataFiltering(filter, inputData));
       }
     }
-    EList<DashBoard> _dashboard = task.getDashboard();
-    for (final DashBoard dashboard : _dashboard) {
-      String _fileContent = fileContent;
-      String _translateDashBoard = this.translateDashBoard(dashboard, dataArray.get(dashboard.getFileextractor().getName()));
-      fileContent = (_fileContent + _translateDashBoard);
-    }
+    dashBoardContent = this.translateDashBoard(task.getDashboard(), dataArray.get(task.getDashboard().getFileextractor().getName()));
+    String _fileContent = fileContent;
+    String _displayDashboard = this.displayDashboard(dashBoardContent, dataArray.get(task.getDashboard().getFileextractor().getName()));
+    fileContent = (_fileContent + _displayDashboard);
     String _fileContent_1 = fileContent;
     StringConcatenation _builder_1 = new StringConcatenation();
     _builder_1.append("</script>");
@@ -449,46 +377,200 @@ public class BiLangGenerator extends AbstractGenerator {
     return null;
   }
   
-  public String translateDashBoard(final DashBoard dbm, final HashMap<String, ArrayList<String>> fileData) {
-    String content = "";
-    for (int j = 0; (j < ((Object[])Conversions.unwrapArray(dbm.getPlot(), Object.class)).length); j++) {
+  public HashMap<String, HashMap<String, Object>> translateDashBoard(final DashBoard db, final HashMap<String, ArrayList<String>> fileData) {
+    HashMap<String, HashMap<String, Object>> dashBoardContent = new HashMap<String, HashMap<String, Object>>();
+    String plotType = "";
+    EList<Plot> _plot = db.getPlot();
+    for (final Plot plot : _plot) {
       {
-        String plotType = "";
+        HashMap<String, Object> plotContent = new HashMap<String, Object>();
+        String key = plot.getName();
+        ArrayList<String> xAxis = new ArrayList<String>();
+        ArrayList<String> colors = new ArrayList<String>();
+        boolean _contains = plot.getColors().contains(", ");
+        if (_contains) {
+          String[] _split = plot.getColors().split(", ");
+          for (final String color : _split) {
+            colors.add(color);
+          }
+          plotContent.put("colors", colors);
+        } else {
+          boolean _contains_1 = plot.getColors().contains(",");
+          if (_contains_1) {
+            String[] _split_1 = plot.getColors().split(",");
+            for (final String color_1 : _split_1) {
+              colors.add(color_1);
+            }
+            plotContent.put("colors", colors);
+          } else {
+            colors.add(plot.getColors());
+          }
+        }
+        plotContent.put("colors", colors);
+        if ((plot instanceof BarPlot)) {
+          plotContent.put("type", "bar");
+        } else {
+          if ((plot instanceof LinePlot)) {
+            plotContent.put("type", "line");
+          }
+        }
+        boolean _contains_2 = plot.getXAxis().contains(", ");
+        if (_contains_2) {
+          String[] _split_2 = plot.getXAxis().split(", ");
+          for (final String lab : _split_2) {
+            xAxis.add(lab);
+          }
+          plotContent.put("xAxis", xAxis);
+        } else {
+          boolean _contains_3 = plot.getXAxis().contains(",");
+          if (_contains_3) {
+            String[] _split_3 = plot.getXAxis().split(",");
+            for (final String lab_1 : _split_3) {
+              xAxis.add(lab_1);
+            }
+            plotContent.put("xAxis", xAxis);
+          } else {
+            plotContent.put("xAxis", plot.getXAxis());
+          }
+        }
+        ArrayList<String> yAxis = new ArrayList<String>();
+        boolean _contains_4 = plot.getYAxis().contains(", ");
+        if (_contains_4) {
+          String[] _split_4 = plot.getYAxis().split(", ");
+          for (final String lab_2 : _split_4) {
+            yAxis.add(lab_2);
+          }
+          plotContent.put("yAxis", yAxis);
+        } else {
+          boolean _contains_5 = plot.getYAxis().contains(",");
+          if (_contains_5) {
+            String[] _split_5 = plot.getYAxis().split(",");
+            for (final String lab_3 : _split_5) {
+              yAxis.add(lab_3);
+            }
+            plotContent.put("yAxis", yAxis);
+          } else {
+            plotContent.put("yAxis", plot.getYAxis());
+          }
+        }
+        plotContent.put("location", plot.getLocation());
+        plotContent.put("thickness", Float.toString(plot.getThickness()));
+        dashBoardContent.put(key, plotContent);
+        System.out.println(dashBoardContent);
+      }
+    }
+    return dashBoardContent;
+  }
+  
+  public String displayDashboard(final HashMap<String, HashMap<String, Object>> dashboardContent, final HashMap<String, ArrayList<String>> fileData) {
+    String displayDashboard = "";
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("<div>");
+    _builder.newLine();
+    String content = _builder.toString();
+    Set<String> _keySet = dashboardContent.keySet();
+    for (final String key : _keySet) {
+      String _content = content;
+      StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("<canvas id=\"");
+      String _plus = (_builder_1.toString() + key);
+      StringConcatenation _builder_2 = new StringConcatenation();
+      _builder_2.append("\"></canvas>");
+      String _plus_1 = (_plus + _builder_2);
+      content = (_content + _plus_1);
+    }
+    String _content_1 = content;
+    StringConcatenation _builder_3 = new StringConcatenation();
+    _builder_3.append("</div>");
+    _builder_3.newLine();
+    _builder_3.append("<script src=\"https://cdn.jsdelivr.net/npm/chart.js\"></script>");
+    _builder_3.newLine();
+    _builder_3.append("<script>");
+    _builder_3.newLine();
+    _builder_3.append("  \t");
+    _builder_3.append("const CHART_COLORS = {");
+    _builder_3.newLine();
+    _builder_3.append("  \t  ");
+    _builder_3.append("redt: \'rgba(255, 99, 132, 0.6)\',");
+    _builder_3.newLine();
+    _builder_3.append("  \t  ");
+    _builder_3.append("red: \'rgb(255, 99, 132)\',");
+    _builder_3.newLine();
+    _builder_3.append("  \t  ");
+    _builder_3.append("orange: \'rgb(255, 159, 64)\',");
+    _builder_3.newLine();
+    _builder_3.append("  \t  ");
+    _builder_3.append("yellow: \'rgb(255, 205, 86)\',");
+    _builder_3.newLine();
+    _builder_3.append("  \t  ");
+    _builder_3.append("green: \'rgb(75, 192, 192)\',");
+    _builder_3.newLine();
+    _builder_3.append("  \t  ");
+    _builder_3.append("bluet: \'rgba(54, 162, 235,0.6)\',");
+    _builder_3.newLine();
+    _builder_3.append("  \t  ");
+    _builder_3.append("blue: \'rgb(54, 162, 235)\',");
+    _builder_3.newLine();
+    _builder_3.append("  \t  ");
+    _builder_3.append("purple: \'rgb(153, 102, 255)\',");
+    _builder_3.newLine();
+    _builder_3.append("  \t  ");
+    _builder_3.append("grey: \'rgb(201, 203, 207)\'");
+    _builder_3.newLine();
+    _builder_3.append("  \t");
+    _builder_3.append("};");
+    _builder_3.newLine();
+    _builder_3.append("  \t");
+    _builder_3.newLine();
+    _builder_3.append("  \t");
+    _builder_3.append("const NAMED_COLORS = [");
+    _builder_3.newLine();
+    _builder_3.append("  \t  ");
+    _builder_3.append("CHART_COLORS.red,");
+    _builder_3.newLine();
+    _builder_3.append("  \t  ");
+    _builder_3.append("CHART_COLORS.orange,");
+    _builder_3.newLine();
+    _builder_3.append("  \t  ");
+    _builder_3.append("CHART_COLORS.yellow,");
+    _builder_3.newLine();
+    _builder_3.append("  \t  ");
+    _builder_3.append("CHART_COLORS.green,");
+    _builder_3.newLine();
+    _builder_3.append("  \t  ");
+    _builder_3.append("CHART_COLORS.blue,");
+    _builder_3.newLine();
+    _builder_3.append("  \t  ");
+    _builder_3.append("CHART_COLORS.purple,");
+    _builder_3.newLine();
+    _builder_3.append("  \t  ");
+    _builder_3.append("CHART_COLORS.grey,");
+    _builder_3.newLine();
+    _builder_3.append("  \t");
+    _builder_3.append("];");
+    content = (_content_1 + _builder_3);
+    int j = 0;
+    Set<String> _keySet_1 = dashboardContent.keySet();
+    for (final String keyPlot : _keySet_1) {
+      {
+        Object plotType = dashboardContent.get(keyPlot).get("type");
         ArrayList<String> xLabs = new ArrayList<String>();
         ArrayList<String> yLabs = new ArrayList<String>();
-        boolean _contains = dbm.getPlot().get(j).getYAxis().contains(", ");
-        if (_contains) {
-          List<String> _asList = Arrays.<String>asList(dbm.getPlot().get(j).getYAxis().split(", "));
-          ArrayList<String> _arrayList = new ArrayList<String>(_asList);
-          yLabs = _arrayList;
+        Object _get = dashboardContent.get(keyPlot).get("xAxis");
+        if ((_get instanceof ArrayList)) {
+          Object _get_1 = dashboardContent.get(keyPlot).get("xAxis");
+          xLabs = ((ArrayList) _get_1);
         } else {
-          boolean _contains_1 = dbm.getPlot().get(j).getYAxis().contains(",");
-          if (_contains_1) {
-            List<String> _asList_1 = Arrays.<String>asList(dbm.getPlot().get(j).getYAxis().split(","));
-            ArrayList<String> _arrayList_1 = new ArrayList<String>(_asList_1);
-            yLabs = _arrayList_1;
-          } else {
-            yLabs.add(dbm.getPlot().get(j).getYAxis());
-          }
+          Object _get_2 = dashboardContent.get(keyPlot).get("xAxis");
+          xLabs.add(((String) _get_2));
         }
-        boolean _contains_2 = dbm.getPlot().get(j).getXAxis().contains(", ");
-        if (_contains_2) {
-          List<String> _asList_2 = Arrays.<String>asList(dbm.getPlot().get(j).getXAxis().split(", "));
-          ArrayList<String> _arrayList_2 = new ArrayList<String>(_asList_2);
-          xLabs = _arrayList_2;
+        Object _get_3 = dashboardContent.get(keyPlot).get("yAxis");
+        if ((_get_3 instanceof ArrayList)) {
+          Object _get_4 = dashboardContent.get(keyPlot).get("yAxis");
+          yLabs = ((ArrayList) _get_4);
         } else {
-          boolean _contains_3 = dbm.getPlot().get(j).getXAxis().contains(",");
-          if (_contains_3) {
-            List<String> _asList_3 = Arrays.<String>asList(dbm.getPlot().get(j).getXAxis().split(","));
-            ArrayList<String> _arrayList_3 = new ArrayList<String>(_asList_3);
-            xLabs = _arrayList_3;
-          } else {
-            xLabs.add(dbm.getPlot().get(j).getXAxis());
-          }
-        }
-        Plot _get = dbm.getPlot().get(j);
-        if ((_get instanceof BarPlot)) {
-          plotType = "bar";
+          Object _get_5 = dashboardContent.get(keyPlot).get("yAxis");
+          yLabs.add(((String) _get_5));
         }
         ArrayList<ArrayList<String>> yCols = new ArrayList<ArrayList<String>>();
         ArrayList<ArrayList<String>> xCols = new ArrayList<ArrayList<String>>();
@@ -498,151 +580,241 @@ public class BiLangGenerator extends AbstractGenerator {
         for (int a = 0; (a < xLabs.size()); a++) {
           xCols.add(fileData.get(xLabs.get(a)));
         }
-        String _content = content;
-        StringConcatenation _builder = new StringConcatenation();
-        _builder.append("\t");
-        _builder.append("const file");
-        String _plus = (_builder.toString() + Integer.valueOf(j));
-        String _plus_1 = (_plus + Integer.valueOf(1));
-        StringConcatenation _builder_1 = new StringConcatenation();
-        _builder_1.append("= [");
-        String _plus_2 = (_plus_1 + _builder_1);
-        content = (_content + _plus_2);
+        String _content_2 = content;
+        StringConcatenation _builder_4 = new StringConcatenation();
+        _builder_4.append("\t");
+        _builder_4.append("const file");
+        String _plus_2 = ("\n" + _builder_4);
+        String _plus_3 = (_plus_2 + Integer.valueOf(j));
+        String _plus_4 = (_plus_3 + Integer.valueOf(1));
+        StringConcatenation _builder_5 = new StringConcatenation();
+        _builder_5.append("= [");
+        String _plus_5 = (_plus_4 + _builder_5);
+        content = (_content_2 + _plus_5);
         int yLength = ((Object[])Conversions.unwrapArray(yCols.get(0), Object.class)).length;
         for (int i = 0; (i < yLength); i++) {
           {
-            String _content_1 = content;
-            StringConcatenation _builder_2 = new StringConcatenation();
-            _builder_2.append("\t");
-            _builder_2.append("{");
-            content = (_content_1 + _builder_2);
+            String _content_3 = content;
+            StringConcatenation _builder_6 = new StringConcatenation();
+            _builder_6.append("\t");
+            _builder_6.append("{");
+            content = (_content_3 + _builder_6);
             for (int cx = 0; (cx < ((Object[])Conversions.unwrapArray(xCols, Object.class)).length); cx++) {
-              String _content_2 = content;
-              String _get_1 = xLabs.get(cx);
-              StringConcatenation _builder_3 = new StringConcatenation();
-              _builder_3.append(": \"");
-              String _plus_3 = (_get_1 + _builder_3);
-              String _get_2 = xCols.get(cx).get(i);
-              String _plus_4 = (_plus_3 + _get_2);
-              StringConcatenation _builder_4 = new StringConcatenation();
-              _builder_4.append("\", ");
-              String _plus_5 = (_plus_4 + _builder_4);
-              content = (_content_2 + _plus_5);
+              String _content_4 = content;
+              String _get_6 = xLabs.get(cx);
+              StringConcatenation _builder_7 = new StringConcatenation();
+              _builder_7.append(": \"");
+              String _plus_6 = (_get_6 + _builder_7);
+              String _get_7 = xCols.get(cx).get(i);
+              String _plus_7 = (_plus_6 + _get_7);
+              StringConcatenation _builder_8 = new StringConcatenation();
+              _builder_8.append("\", ");
+              String _plus_8 = (_plus_7 + _builder_8);
+              content = (_content_4 + _plus_8);
             }
             for (int cy = 0; (cy < ((Object[])Conversions.unwrapArray(yCols, Object.class)).length); cy++) {
-              String _content_2 = content;
-              String _get_1 = yLabs.get(cy);
-              StringConcatenation _builder_3 = new StringConcatenation();
-              _builder_3.append(": \"");
-              String _plus_3 = (_get_1 + _builder_3);
-              String _get_2 = yCols.get(cy).get(i);
-              String _plus_4 = (_plus_3 + _get_2);
-              StringConcatenation _builder_4 = new StringConcatenation();
-              _builder_4.append("\", ");
-              String _plus_5 = (_plus_4 + _builder_4);
-              content = (_content_2 + _plus_5);
+              String _content_4 = content;
+              String _get_6 = yLabs.get(cy);
+              StringConcatenation _builder_7 = new StringConcatenation();
+              _builder_7.append(": \"");
+              String _plus_6 = (_get_6 + _builder_7);
+              String _get_7 = yCols.get(cy).get(i);
+              String _plus_7 = (_plus_6 + _get_7);
+              StringConcatenation _builder_8 = new StringConcatenation();
+              _builder_8.append("\", ");
+              String _plus_8 = (_plus_7 + _builder_8);
+              content = (_content_4 + _plus_8);
             }
-            String _content_2 = content;
-            content = (_content_2 + "},\n");
+            String _content_4 = content;
+            content = (_content_4 + "},\n");
           }
         }
-        String _content_1 = content;
-        StringConcatenation _builder_2 = new StringConcatenation();
-        _builder_2.append("\t");
-        _builder_2.append("];");
-        content = (_content_1 + _builder_2);
-        String _content_2 = content;
-        content = (_content_2 + "\n");
         String _content_3 = content;
-        StringConcatenation _builder_3 = new StringConcatenation();
-        _builder_3.append("\t");
-        String _name = dbm.getPlot().get(j).getName();
-        String _plus_3 = (_builder_3.toString() + _name);
-        StringConcatenation _builder_4 = new StringConcatenation();
-        _builder_4.append("= new Chart(");
-        _builder_4.newLine();
-        _builder_4.append("\t\t");
-        _builder_4.append("document.getElementById(\'histogramme\'),");
-        _builder_4.newLine();
-        _builder_4.append("\t\t");
-        _builder_4.append("{");
-        _builder_4.newLine();
-        _builder_4.append("\t\t\t");
-        _builder_4.append("type: \"");
-        String _plus_4 = (_plus_3 + _builder_4);
-        String _plus_5 = (_plus_4 + plotType);
-        StringConcatenation _builder_5 = new StringConcatenation();
-        _builder_5.append("\",");
-        _builder_5.newLine();
-        _builder_5.append("\t\t\t");
-        _builder_5.append("data: {");
-        _builder_5.newLine();
-        _builder_5.append("\t\t\t\t");
-        _builder_5.append("labels: file");
-        String _plus_6 = (_plus_5 + _builder_5);
-        String _plus_7 = (_plus_6 + Integer.valueOf(j));
-        String _plus_8 = (_plus_7 + Integer.valueOf(1));
         StringConcatenation _builder_6 = new StringConcatenation();
-        _builder_6.append(".map(row => row.");
-        String _plus_9 = (_plus_8 + _builder_6);
-        String _xAxis = dbm.getPlot().get(j).getXAxis();
-        String _plus_10 = (_plus_9 + _xAxis);
-        StringConcatenation _builder_7 = new StringConcatenation();
-        _builder_7.append("),");
-        _builder_7.newLine();
-        _builder_7.append("\t\t\t\t");
-        _builder_7.append("datasets: [");
-        _builder_7.newLine();
-        String _plus_11 = (_plus_10 + _builder_7);
-        content = (_content_3 + _plus_11);
-        for (int a = 0; (a < yLabs.size()); a++) {
-          String _content_4 = content;
-          StringConcatenation _builder_8 = new StringConcatenation();
-          _builder_8.append("\t\t\t\t\t");
-          _builder_8.append("{");
-          _builder_8.newLine();
-          _builder_8.append("\t\t\t    \t\t");
-          _builder_8.append("label: \"");
-          String _get_1 = yLabs.get(a);
-          String _plus_12 = (_builder_8.toString() + _get_1);
-          StringConcatenation _builder_9 = new StringConcatenation();
-          _builder_9.append("\",");
-          _builder_9.newLine();
-          _builder_9.append("\t\t\t        \t");
-          _builder_9.append("data: file");
-          String _plus_13 = (_plus_12 + _builder_9);
-          String _plus_14 = (_plus_13 + Integer.valueOf(j));
-          String _plus_15 = (_plus_14 + Integer.valueOf(1));
-          StringConcatenation _builder_10 = new StringConcatenation();
-          _builder_10.append(".map(row => row.");
-          String _plus_16 = (_plus_15 + _builder_10);
-          String _get_2 = yLabs.get(a);
-          String _plus_17 = (_plus_16 + _get_2);
-          StringConcatenation _builder_11 = new StringConcatenation();
-          _builder_11.append("),");
-          _builder_11.newLine();
-          _builder_11.append("\t\t\t    \t");
-          _builder_11.append("},");
-          _builder_11.newLine();
-          String _plus_18 = (_plus_17 + _builder_11);
-          content = (_content_4 + _plus_18);
-        }
+        _builder_6.append("\t");
+        _builder_6.append("];");
+        content = (_content_3 + _builder_6);
         String _content_4 = content;
+        content = (_content_4 + "\n");
+        String _content_5 = content;
+        StringConcatenation _builder_7 = new StringConcatenation();
+        _builder_7.append("\t");
+        String _plus_6 = (_builder_7.toString() + keyPlot);
         StringConcatenation _builder_8 = new StringConcatenation();
-        _builder_8.append("\t\t\t");
-        _builder_8.append("]");
+        _builder_8.append("= new Chart(");
         _builder_8.newLine();
         _builder_8.append("\t\t");
-        _builder_8.append("}");
-        _builder_8.newLine();
-        _builder_8.append("\t");
-        _builder_8.append("}");
-        _builder_8.newLine();
-        _builder_8.append(");");
-        _builder_8.newLine();
-        _builder_8.append("\t\t\t\t");
-        _builder_8.newLine();
-        content = (_content_4 + _builder_8);
+        _builder_8.append("document.getElementById(\"");
+        String _plus_7 = (_plus_6 + _builder_8);
+        String _plus_8 = (_plus_7 + keyPlot);
+        StringConcatenation _builder_9 = new StringConcatenation();
+        _builder_9.append("\"),");
+        _builder_9.newLine();
+        _builder_9.append("\t\t");
+        _builder_9.append("{");
+        _builder_9.newLine();
+        _builder_9.append("\t\t\t");
+        _builder_9.append("type: \"");
+        String _plus_9 = (_plus_8 + _builder_9);
+        String _plus_10 = (_plus_9 + plotType);
+        StringConcatenation _builder_10 = new StringConcatenation();
+        _builder_10.append("\",");
+        _builder_10.newLine();
+        _builder_10.append("\t\t\t");
+        _builder_10.append("data: {");
+        String _plus_11 = (_plus_10 + _builder_10);
+        content = (_content_5 + _plus_11);
+        for (final String xax : xLabs) {
+          {
+            String _content_6 = content;
+            StringConcatenation _builder_11 = new StringConcatenation();
+            _builder_11.append("labels: file");
+            String _plus_12 = (_builder_11.toString() + Integer.valueOf(j));
+            String _plus_13 = (_plus_12 + Integer.valueOf(1));
+            StringConcatenation _builder_12 = new StringConcatenation();
+            _builder_12.append(".map(row => row.");
+            String _plus_14 = (_plus_13 + _builder_12);
+            String _plus_15 = (_plus_14 + xax);
+            StringConcatenation _builder_13 = new StringConcatenation();
+            _builder_13.append("),");
+            _builder_13.newLine();
+            _builder_13.append("\t\t\t\t");
+            _builder_13.append("datasets: [");
+            _builder_13.newLine();
+            String _plus_16 = (_plus_15 + _builder_13);
+            content = (_content_6 + _plus_16);
+            Object _get_6 = dashboardContent.get(keyPlot).get("colors");
+            ArrayList value = ((ArrayList) _get_6);
+            ArrayList<String> convertColors = new ArrayList<String>();
+            for (final Object col : value) {
+              boolean _contains = value.contains("#");
+              if (_contains) {
+                String hexR = ((String) col).substring(1, 3);
+                String hexG = ((String) col).substring(3, 5);
+                String hexB = ((String) col).substring(5);
+                convertColors.add((((("rgba(" + hexR) + hexG) + hexB) + ", 0.6)"));
+              } else {
+                convertColors.add(((String) col));
+              }
+            }
+            for (int a = 0; (a < yLabs.size()); a++) {
+              int _size = convertColors.size();
+              boolean _greaterThan = (_size > 1);
+              if (_greaterThan) {
+                String _content_7 = content;
+                StringConcatenation _builder_14 = new StringConcatenation();
+                _builder_14.append("\t\t\t\t\t");
+                _builder_14.append("{");
+                _builder_14.newLine();
+                _builder_14.append("\t\t\t\t    \t\t");
+                _builder_14.append("label: \"");
+                String _get_7 = yLabs.get(a);
+                String _plus_17 = (_builder_14.toString() + _get_7);
+                StringConcatenation _builder_15 = new StringConcatenation();
+                _builder_15.append("\",");
+                _builder_15.newLine();
+                _builder_15.append("\t\t\t\t        \t");
+                _builder_15.append("data: file");
+                String _plus_18 = (_plus_17 + _builder_15);
+                String _plus_19 = (_plus_18 + Integer.valueOf(j));
+                String _plus_20 = (_plus_19 + Integer.valueOf(1));
+                StringConcatenation _builder_16 = new StringConcatenation();
+                _builder_16.append(".map(row => row.");
+                String _plus_21 = (_plus_20 + _builder_16);
+                String _get_8 = yLabs.get(a);
+                String _plus_22 = (_plus_21 + _get_8);
+                StringConcatenation _builder_17 = new StringConcatenation();
+                _builder_17.append("),");
+                _builder_17.newLine();
+                _builder_17.append("\t\t\t\t        \t");
+                _builder_17.append("borderColor: \"");
+                String _plus_23 = (_plus_22 + _builder_17);
+                String _get_9 = convertColors.get(a);
+                String _plus_24 = (_plus_23 + _get_9);
+                StringConcatenation _builder_18 = new StringConcatenation();
+                _builder_18.append("\",");
+                _builder_18.newLine();
+                _builder_18.append("\t\t\t\t        \t");
+                _builder_18.append("borderWidth: ");
+                String _plus_25 = (_plus_24 + _builder_18);
+                Object _get_10 = dashboardContent.get(keyPlot).get("thickness");
+                String _plus_26 = (_plus_25 + _get_10);
+                StringConcatenation _builder_19 = new StringConcatenation();
+                _builder_19.append(",");
+                _builder_19.newLine();
+                _builder_19.append("\t\t\t\t    \t");
+                _builder_19.append("},");
+                _builder_19.newLine();
+                String _plus_27 = (_plus_26 + _builder_19);
+                content = (_content_7 + _plus_27);
+              } else {
+                String _content_8 = content;
+                StringConcatenation _builder_20 = new StringConcatenation();
+                _builder_20.append("\t\t\t\t\t");
+                _builder_20.append("{");
+                _builder_20.newLine();
+                _builder_20.append("\t\t\t\t    \t\t");
+                _builder_20.append("label: \"");
+                String _get_11 = yLabs.get(a);
+                String _plus_28 = (_builder_20.toString() + _get_11);
+                StringConcatenation _builder_21 = new StringConcatenation();
+                _builder_21.append("\",");
+                _builder_21.newLine();
+                _builder_21.append("\t\t\t\t        \t");
+                _builder_21.append("data: file");
+                String _plus_29 = (_plus_28 + _builder_21);
+                String _plus_30 = (_plus_29 + Integer.valueOf(j));
+                String _plus_31 = (_plus_30 + Integer.valueOf(1));
+                StringConcatenation _builder_22 = new StringConcatenation();
+                _builder_22.append(".map(row => row.");
+                String _plus_32 = (_plus_31 + _builder_22);
+                String _get_12 = yLabs.get(a);
+                String _plus_33 = (_plus_32 + _get_12);
+                StringConcatenation _builder_23 = new StringConcatenation();
+                _builder_23.append("),");
+                _builder_23.newLine();
+                _builder_23.append("\t\t\t\t        \t");
+                _builder_23.append("borderColor: \"");
+                String _plus_34 = (_plus_33 + _builder_23);
+                String _get_13 = convertColors.get(0);
+                String _plus_35 = (_plus_34 + _get_13);
+                StringConcatenation _builder_24 = new StringConcatenation();
+                _builder_24.append("\",");
+                _builder_24.newLine();
+                _builder_24.append("\t\t\t\t        \t");
+                _builder_24.append("borderWidth: ");
+                String _plus_36 = (_plus_35 + _builder_24);
+                Object _get_14 = dashboardContent.get(keyPlot).get("thickness");
+                String _plus_37 = (_plus_36 + _get_14);
+                StringConcatenation _builder_25 = new StringConcatenation();
+                _builder_25.append(",");
+                _builder_25.newLine();
+                _builder_25.append("\t\t\t\t    \t");
+                _builder_25.append("},");
+                _builder_25.newLine();
+                String _plus_38 = (_plus_37 + _builder_25);
+                content = (_content_8 + _plus_38);
+              }
+            }
+          }
+        }
+        String _content_6 = content;
+        StringConcatenation _builder_11 = new StringConcatenation();
+        _builder_11.append("\t\t\t");
+        _builder_11.append("]");
+        _builder_11.newLine();
+        _builder_11.append("\t\t");
+        _builder_11.append("}");
+        _builder_11.newLine();
+        _builder_11.append("\t");
+        _builder_11.append("}");
+        _builder_11.newLine();
+        _builder_11.append(");");
+        _builder_11.newLine();
+        _builder_11.append("\t\t\t\t");
+        _builder_11.newLine();
+        content = (_content_6 + _builder_11);
+        j++;
       }
     }
     return content;

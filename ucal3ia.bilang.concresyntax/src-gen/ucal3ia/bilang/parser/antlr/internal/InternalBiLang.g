@@ -199,7 +199,7 @@ ruleTask returns [EObject current=null]
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getTaskRule());
 					}
-					add(
+					set(
 						$current,
 						"dashboard",
 						lv_dashboard_9_0,
@@ -208,28 +208,9 @@ ruleTask returns [EObject current=null]
 				}
 			)
 		)
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getTaskAccess().getDashboardDashBoardParserRuleCall_9_0());
-				}
-				lv_dashboard_10_0=ruleDashBoard
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getTaskRule());
-					}
-					add(
-						$current,
-						"dashboard",
-						lv_dashboard_10_0,
-						"ucal3ia.bilang.BiLang.DashBoard");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)*
-		otherlv_11=']'
+		otherlv_10=']'
 		{
-			newLeafNode(otherlv_11, grammarAccess.getTaskAccess().getRightSquareBracketKeyword_10());
+			newLeafNode(otherlv_10, grammarAccess.getTaskAccess().getRightSquareBracketKeyword_9());
 		}
 	)
 ;
@@ -437,32 +418,9 @@ ruleDataFiltering returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='filter'
+		otherlv_0='=>'
 		{
-			newLeafNode(otherlv_0, grammarAccess.getDataFilteringAccess().getFilterKeyword_0());
-		}
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getDataFilteringAccess().getNameEStringParserRuleCall_1_0());
-				}
-				lv_name_1_0=ruleEString
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getDataFilteringRule());
-					}
-					set(
-						$current,
-						"name",
-						lv_name_1_0,
-						"ucal3ia.bilang.BiLang.EString");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		otherlv_2='=>'
-		{
-			newLeafNode(otherlv_2, grammarAccess.getDataFilteringAccess().getEqualsSignGreaterThanSignKeyword_2());
+			newLeafNode(otherlv_0, grammarAccess.getDataFilteringAccess().getEqualsSignGreaterThanSignKeyword_0());
 		}
 		(
 			(
@@ -472,7 +430,7 @@ ruleDataFiltering returns [EObject current=null]
 					}
 				}
 				{
-					newCompositeNode(grammarAccess.getDataFilteringAccess().getFileextractorFileExtractorCrossReference_3_0());
+					newCompositeNode(grammarAccess.getDataFilteringAccess().getFileextractorFileExtractorCrossReference_1_0());
 				}
 				ruleEString
 				{
@@ -481,16 +439,16 @@ ruleDataFiltering returns [EObject current=null]
 			)
 		)
 		(
-			otherlv_4='processing step='
+			otherlv_2='processing step='
 			{
-				newLeafNode(otherlv_4, grammarAccess.getDataFilteringAccess().getProcessingStepKeyword_4_0());
+				newLeafNode(otherlv_2, grammarAccess.getDataFilteringAccess().getProcessingStepKeyword_2_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getDataFilteringAccess().getProcessingstepPreprocessingStepParserRuleCall_4_1_0());
+						newCompositeNode(grammarAccess.getDataFilteringAccess().getProcessingstepPreprocessingStepParserRuleCall_2_1_0());
 					}
-					lv_processingstep_5_0=rulePreprocessingStep
+					lv_processingstep_3_0=rulePreprocessingStep
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getDataFilteringRule());
@@ -498,7 +456,7 @@ ruleDataFiltering returns [EObject current=null]
 						add(
 							$current,
 							"processingstep",
-							lv_processingstep_5_0,
+							lv_processingstep_3_0,
 							"ucal3ia.bilang.BiLang.PreprocessingStep");
 						afterParserOrEnumRuleCall();
 					}
@@ -507,9 +465,9 @@ ruleDataFiltering returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getDataFilteringAccess().getProcessingstepPreprocessingStepParserRuleCall_4_2_0());
+						newCompositeNode(grammarAccess.getDataFilteringAccess().getProcessingstepPreprocessingStepParserRuleCall_2_2_0());
 					}
-					lv_processingstep_6_0=rulePreprocessingStep
+					lv_processingstep_4_0=rulePreprocessingStep
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getDataFilteringRule());
@@ -517,23 +475,23 @@ ruleDataFiltering returns [EObject current=null]
 						add(
 							$current,
 							"processingstep",
-							lv_processingstep_6_0,
+							lv_processingstep_4_0,
 							"ucal3ia.bilang.BiLang.PreprocessingStep");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)*
 		)?
-		otherlv_7='filtering step='
+		otherlv_5='filtering step='
 		{
-			newLeafNode(otherlv_7, grammarAccess.getDataFilteringAccess().getFilteringStepKeyword_5());
+			newLeafNode(otherlv_5, grammarAccess.getDataFilteringAccess().getFilteringStepKeyword_3());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getDataFilteringAccess().getFilteringstepFilteringStepParserRuleCall_6_0());
+					newCompositeNode(grammarAccess.getDataFilteringAccess().getFilteringstepFilteringStepParserRuleCall_4_0());
 				}
-				lv_filteringstep_8_0=ruleFilteringStep
+				lv_filteringstep_6_0=ruleFilteringStep
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getDataFilteringRule());
@@ -541,23 +499,23 @@ ruleDataFiltering returns [EObject current=null]
 					add(
 						$current,
 						"filteringstep",
-						lv_filteringstep_8_0,
+						lv_filteringstep_6_0,
 						"ucal3ia.bilang.BiLang.FilteringStep");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
 		(
-			otherlv_9=','
+			otherlv_7=','
 			{
-				newLeafNode(otherlv_9, grammarAccess.getDataFilteringAccess().getCommaKeyword_7_0());
+				newLeafNode(otherlv_7, grammarAccess.getDataFilteringAccess().getCommaKeyword_5_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getDataFilteringAccess().getFilteringstepFilteringStepParserRuleCall_7_1_0());
+						newCompositeNode(grammarAccess.getDataFilteringAccess().getFilteringstepFilteringStepParserRuleCall_5_1_0());
 					}
-					lv_filteringstep_10_0=ruleFilteringStep
+					lv_filteringstep_8_0=ruleFilteringStep
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getDataFilteringRule());
@@ -565,7 +523,7 @@ ruleDataFiltering returns [EObject current=null]
 						add(
 							$current,
 							"filteringstep",
-							lv_filteringstep_10_0,
+							lv_filteringstep_8_0,
 							"ucal3ia.bilang.BiLang.FilteringStep");
 						afterParserOrEnumRuleCall();
 					}
@@ -1400,17 +1358,17 @@ ruleBarPlot returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getBarPlotAccess().getColorEStringParserRuleCall_9_1_0());
+						newCompositeNode(grammarAccess.getBarPlotAccess().getColorsEStringParserRuleCall_9_1_0());
 					}
-					lv_color_11_0=ruleEString
+					lv_colors_11_0=ruleEString
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getBarPlotRule());
 						}
 						set(
 							$current,
-							"color",
-							lv_color_11_0,
+							"colors",
+							lv_colors_11_0,
 							"ucal3ia.bilang.BiLang.EString");
 						afterParserOrEnumRuleCall();
 					}
@@ -1573,17 +1531,17 @@ ruleLinePlot returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getLinePlotAccess().getColorEStringParserRuleCall_9_1_0());
+						newCompositeNode(grammarAccess.getLinePlotAccess().getColorsEStringParserRuleCall_9_1_0());
 					}
-					lv_color_11_0=ruleEString
+					lv_colors_11_0=ruleEString
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getLinePlotRule());
 						}
 						set(
 							$current,
-							"color",
-							lv_color_11_0,
+							"colors",
+							lv_colors_11_0,
 							"ucal3ia.bilang.BiLang.EString");
 						afterParserOrEnumRuleCall();
 					}

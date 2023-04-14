@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -38,7 +39,7 @@ import ucal3ia.bilang.abstractsyntax.PreprocessingStep;
  *
  * @generated
  */
-public class DataFilteringImpl extends NamedElementImpl implements DataFiltering {
+public class DataFilteringImpl extends MinimalEObjectImpl.Container implements DataFiltering {
 	/**
 	 * The cached value of the '{@link #getFileextractor() <em>Fileextractor</em>}' reference.
 	 * <!-- begin-user-doc -->

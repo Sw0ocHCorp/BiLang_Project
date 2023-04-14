@@ -95,7 +95,7 @@ public class BiLangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *         xAxis=EString 
 	 *         yAxis=EString 
 	 *         location=EString? 
-	 *         color=EString? 
+	 *         colors=EString? 
 	 *         thickness=EFloat?
 	 *     )
 	 */
@@ -163,7 +163,6 @@ public class BiLangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *
 	 * Constraint:
 	 *     (
-	 *         name=EString 
 	 *         fileextractor=[FileExtractor|EString] 
 	 *         (processingstep+=PreprocessingStep processingstep+=PreprocessingStep*)? 
 	 *         filteringstep+=FilteringStep 
@@ -208,7 +207,7 @@ public class BiLangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *         xAxis=EString 
 	 *         yAxis=EString 
 	 *         location=EString? 
-	 *         color=EString? 
+	 *         colors=EString? 
 	 *         thickness=EFloat?
 	 *     )
 	 */
@@ -318,8 +317,7 @@ public class BiLangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *         fileextractor+=FileExtractor 
 	 *         datafiltering+=DataFiltering? 
 	 *         (fileextractor+=FileExtractor datafiltering+=DataFiltering?)* 
-	 *         dashboard+=DashBoard 
-	 *         dashboard+=DashBoard*
+	 *         dashboard=DashBoard
 	 *     )
 	 */
 	protected void sequence_Task(ISerializationContext context, Task semanticObject) {

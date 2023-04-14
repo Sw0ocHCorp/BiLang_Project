@@ -46,21 +46,19 @@ public class BiLangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		private final Keyword cDashboardKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		private final Assignment cDashboardAssignment_8 = (Assignment)cGroup.eContents().get(8);
 		private final RuleCall cDashboardDashBoardParserRuleCall_8_0 = (RuleCall)cDashboardAssignment_8.eContents().get(0);
-		private final Assignment cDashboardAssignment_9 = (Assignment)cGroup.eContents().get(9);
-		private final RuleCall cDashboardDashBoardParserRuleCall_9_0 = (RuleCall)cDashboardAssignment_9.eContents().get(0);
-		private final Keyword cRightSquareBracketKeyword_10 = (Keyword)cGroup.eContents().get(10);
+		private final Keyword cRightSquareBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
 		
 		//Task returns Task:
 		//    'Task'name=ID":"
 		//        "load" fileextractor+=FileExtractor (datafiltering+=DataFiltering)?
 		//        (fileextractor+= FileExtractor (datafiltering+= DataFiltering)?)*
-		//        '[dashboard:' dashboard+=DashBoard (dashboard+=DashBoard)* ']';
+		//        '[dashboard:' dashboard=DashBoard']';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'Task'name=ID":"
 		//    "load" fileextractor+=FileExtractor (datafiltering+=DataFiltering)?
 		//    (fileextractor+= FileExtractor (datafiltering+= DataFiltering)?)*
-		//    '[dashboard:' dashboard+=DashBoard (dashboard+=DashBoard)* ']'
+		//    '[dashboard:' dashboard=DashBoard']'
 		public Group getGroup() { return cGroup; }
 		
 		//'Task'
@@ -108,20 +106,14 @@ public class BiLangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		//'[dashboard:'
 		public Keyword getDashboardKeyword_7() { return cDashboardKeyword_7; }
 		
-		//dashboard+=DashBoard
+		//dashboard=DashBoard
 		public Assignment getDashboardAssignment_8() { return cDashboardAssignment_8; }
 		
 		//DashBoard
 		public RuleCall getDashboardDashBoardParserRuleCall_8_0() { return cDashboardDashBoardParserRuleCall_8_0; }
 		
-		//(dashboard+=DashBoard)*
-		public Assignment getDashboardAssignment_9() { return cDashboardAssignment_9; }
-		
-		//DashBoard
-		public RuleCall getDashboardDashBoardParserRuleCall_9_0() { return cDashboardDashBoardParserRuleCall_9_0; }
-		
 		//']'
-		public Keyword getRightSquareBracketKeyword_10() { return cRightSquareBracketKeyword_10; }
+		public Keyword getRightSquareBracketKeyword_9() { return cRightSquareBracketKeyword_9; }
 	}
 	public class FileExtractorElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ucal3ia.bilang.BiLang.FileExtractor");
@@ -225,99 +217,85 @@ public class BiLangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 	public class DataFilteringElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ucal3ia.bilang.BiLang.DataFiltering");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cFilterKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameEStringParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Keyword cEqualsSignGreaterThanSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cFileextractorAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final CrossReference cFileextractorFileExtractorCrossReference_3_0 = (CrossReference)cFileextractorAssignment_3.eContents().get(0);
-		private final RuleCall cFileextractorFileExtractorEStringParserRuleCall_3_0_1 = (RuleCall)cFileextractorFileExtractorCrossReference_3_0.eContents().get(1);
-		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cProcessingStepKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cProcessingstepAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cProcessingstepPreprocessingStepParserRuleCall_4_1_0 = (RuleCall)cProcessingstepAssignment_4_1.eContents().get(0);
-		private final Assignment cProcessingstepAssignment_4_2 = (Assignment)cGroup_4.eContents().get(2);
-		private final RuleCall cProcessingstepPreprocessingStepParserRuleCall_4_2_0 = (RuleCall)cProcessingstepAssignment_4_2.eContents().get(0);
-		private final Keyword cFilteringStepKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Assignment cFilteringstepAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cFilteringstepFilteringStepParserRuleCall_6_0 = (RuleCall)cFilteringstepAssignment_6.eContents().get(0);
-		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
-		private final Keyword cCommaKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
-		private final Assignment cFilteringstepAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
-		private final RuleCall cFilteringstepFilteringStepParserRuleCall_7_1_0 = (RuleCall)cFilteringstepAssignment_7_1.eContents().get(0);
+		private final Keyword cEqualsSignGreaterThanSignKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cFileextractorAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final CrossReference cFileextractorFileExtractorCrossReference_1_0 = (CrossReference)cFileextractorAssignment_1.eContents().get(0);
+		private final RuleCall cFileextractorFileExtractorEStringParserRuleCall_1_0_1 = (RuleCall)cFileextractorFileExtractorCrossReference_1_0.eContents().get(1);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cProcessingStepKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cProcessingstepAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cProcessingstepPreprocessingStepParserRuleCall_2_1_0 = (RuleCall)cProcessingstepAssignment_2_1.eContents().get(0);
+		private final Assignment cProcessingstepAssignment_2_2 = (Assignment)cGroup_2.eContents().get(2);
+		private final RuleCall cProcessingstepPreprocessingStepParserRuleCall_2_2_0 = (RuleCall)cProcessingstepAssignment_2_2.eContents().get(0);
+		private final Keyword cFilteringStepKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cFilteringstepAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cFilteringstepFilteringStepParserRuleCall_4_0 = (RuleCall)cFilteringstepAssignment_4.eContents().get(0);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cCommaKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cFilteringstepAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cFilteringstepFilteringStepParserRuleCall_5_1_0 = (RuleCall)cFilteringstepAssignment_5_1.eContents().get(0);
 		
 		//DataFiltering returns DataFiltering:
-		//    "filter"
-		//    name=EString "=>" fileextractor=[FileExtractor|EString]
+		//    "=>" fileextractor=[FileExtractor|EString]
 		//        ('processing step=' processingstep+=PreprocessingStep ( processingstep+=PreprocessingStep)* )?
 		//        'filtering step=' filteringstep+=FilteringStep ( "," filteringstep+=FilteringStep)* ;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//"filter"
-		//name=EString "=>" fileextractor=[FileExtractor|EString]
+		//"=>" fileextractor=[FileExtractor|EString]
 		//    ('processing step=' processingstep+=PreprocessingStep ( processingstep+=PreprocessingStep)* )?
 		//    'filtering step=' filteringstep+=FilteringStep ( "," filteringstep+=FilteringStep)*
 		public Group getGroup() { return cGroup; }
 		
-		//"filter"
-		public Keyword getFilterKeyword_0() { return cFilterKeyword_0; }
-		
-		//name=EString
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
-		
-		//EString
-		public RuleCall getNameEStringParserRuleCall_1_0() { return cNameEStringParserRuleCall_1_0; }
-		
 		//"=>"
-		public Keyword getEqualsSignGreaterThanSignKeyword_2() { return cEqualsSignGreaterThanSignKeyword_2; }
+		public Keyword getEqualsSignGreaterThanSignKeyword_0() { return cEqualsSignGreaterThanSignKeyword_0; }
 		
 		//fileextractor=[FileExtractor|EString]
-		public Assignment getFileextractorAssignment_3() { return cFileextractorAssignment_3; }
+		public Assignment getFileextractorAssignment_1() { return cFileextractorAssignment_1; }
 		
 		//[FileExtractor|EString]
-		public CrossReference getFileextractorFileExtractorCrossReference_3_0() { return cFileextractorFileExtractorCrossReference_3_0; }
+		public CrossReference getFileextractorFileExtractorCrossReference_1_0() { return cFileextractorFileExtractorCrossReference_1_0; }
 		
 		//EString
-		public RuleCall getFileextractorFileExtractorEStringParserRuleCall_3_0_1() { return cFileextractorFileExtractorEStringParserRuleCall_3_0_1; }
+		public RuleCall getFileextractorFileExtractorEStringParserRuleCall_1_0_1() { return cFileextractorFileExtractorEStringParserRuleCall_1_0_1; }
 		
 		//('processing step=' processingstep+=PreprocessingStep ( processingstep+=PreprocessingStep)* )?
-		public Group getGroup_4() { return cGroup_4; }
+		public Group getGroup_2() { return cGroup_2; }
 		
 		//'processing step='
-		public Keyword getProcessingStepKeyword_4_0() { return cProcessingStepKeyword_4_0; }
+		public Keyword getProcessingStepKeyword_2_0() { return cProcessingStepKeyword_2_0; }
 		
 		//processingstep+=PreprocessingStep
-		public Assignment getProcessingstepAssignment_4_1() { return cProcessingstepAssignment_4_1; }
+		public Assignment getProcessingstepAssignment_2_1() { return cProcessingstepAssignment_2_1; }
 		
 		//PreprocessingStep
-		public RuleCall getProcessingstepPreprocessingStepParserRuleCall_4_1_0() { return cProcessingstepPreprocessingStepParserRuleCall_4_1_0; }
+		public RuleCall getProcessingstepPreprocessingStepParserRuleCall_2_1_0() { return cProcessingstepPreprocessingStepParserRuleCall_2_1_0; }
 		
 		//( processingstep+=PreprocessingStep)*
-		public Assignment getProcessingstepAssignment_4_2() { return cProcessingstepAssignment_4_2; }
+		public Assignment getProcessingstepAssignment_2_2() { return cProcessingstepAssignment_2_2; }
 		
 		//PreprocessingStep
-		public RuleCall getProcessingstepPreprocessingStepParserRuleCall_4_2_0() { return cProcessingstepPreprocessingStepParserRuleCall_4_2_0; }
+		public RuleCall getProcessingstepPreprocessingStepParserRuleCall_2_2_0() { return cProcessingstepPreprocessingStepParserRuleCall_2_2_0; }
 		
 		//'filtering step='
-		public Keyword getFilteringStepKeyword_5() { return cFilteringStepKeyword_5; }
+		public Keyword getFilteringStepKeyword_3() { return cFilteringStepKeyword_3; }
 		
 		//filteringstep+=FilteringStep
-		public Assignment getFilteringstepAssignment_6() { return cFilteringstepAssignment_6; }
+		public Assignment getFilteringstepAssignment_4() { return cFilteringstepAssignment_4; }
 		
 		//FilteringStep
-		public RuleCall getFilteringstepFilteringStepParserRuleCall_6_0() { return cFilteringstepFilteringStepParserRuleCall_6_0; }
+		public RuleCall getFilteringstepFilteringStepParserRuleCall_4_0() { return cFilteringstepFilteringStepParserRuleCall_4_0; }
 		
 		//( "," filteringstep+=FilteringStep)*
-		public Group getGroup_7() { return cGroup_7; }
+		public Group getGroup_5() { return cGroup_5; }
 		
 		//","
-		public Keyword getCommaKeyword_7_0() { return cCommaKeyword_7_0; }
+		public Keyword getCommaKeyword_5_0() { return cCommaKeyword_5_0; }
 		
 		//filteringstep+=FilteringStep
-		public Assignment getFilteringstepAssignment_7_1() { return cFilteringstepAssignment_7_1; }
+		public Assignment getFilteringstepAssignment_5_1() { return cFilteringstepAssignment_5_1; }
 		
 		//FilteringStep
-		public RuleCall getFilteringstepFilteringStepParserRuleCall_7_1_0() { return cFilteringstepFilteringStepParserRuleCall_7_1_0; }
+		public RuleCall getFilteringstepFilteringStepParserRuleCall_5_1_0() { return cFilteringstepFilteringStepParserRuleCall_5_1_0; }
 	}
 	public class DashBoardElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ucal3ia.bilang.BiLang.DashBoard");
@@ -763,8 +741,8 @@ public class BiLangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		private final RuleCall cLocationEStringParserRuleCall_8_1_0 = (RuleCall)cLocationAssignment_8_1.eContents().get(0);
 		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
 		private final Keyword cColorsKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
-		private final Assignment cColorAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
-		private final RuleCall cColorEStringParserRuleCall_9_1_0 = (RuleCall)cColorAssignment_9_1.eContents().get(0);
+		private final Assignment cColorsAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
+		private final RuleCall cColorsEStringParserRuleCall_9_1_0 = (RuleCall)cColorsAssignment_9_1.eContents().get(0);
 		private final Group cGroup_10 = (Group)cGroup.eContents().get(10);
 		private final Keyword cThicknessKeyword_10_0 = (Keyword)cGroup_10.eContents().get(0);
 		private final Assignment cThicknessAssignment_10_1 = (Assignment)cGroup_10.eContents().get(1);
@@ -772,11 +750,11 @@ public class BiLangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		
 		//BarPlot returns BarPlot:
 		//    {BarPlot}
-		//    'bar' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EString)? ('colors' color=EString)? ('thickness' thickness=EFloat)?;
+		//    'bar' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EString)? ('colors' colors=EString)? ('thickness' thickness=EFloat)?;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{BarPlot}
-		//'bar' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EString)? ('colors' color=EString)? ('thickness' thickness=EFloat)?
+		//'bar' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EString)? ('colors' colors=EString)? ('thickness' thickness=EFloat)?
 		public Group getGroup() { return cGroup; }
 		
 		//{BarPlot}
@@ -824,17 +802,17 @@ public class BiLangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		//EString
 		public RuleCall getLocationEStringParserRuleCall_8_1_0() { return cLocationEStringParserRuleCall_8_1_0; }
 		
-		//('colors' color=EString)?
+		//('colors' colors=EString)?
 		public Group getGroup_9() { return cGroup_9; }
 		
 		//'colors'
 		public Keyword getColorsKeyword_9_0() { return cColorsKeyword_9_0; }
 		
-		//color=EString
-		public Assignment getColorAssignment_9_1() { return cColorAssignment_9_1; }
+		//colors=EString
+		public Assignment getColorsAssignment_9_1() { return cColorsAssignment_9_1; }
 		
 		//EString
-		public RuleCall getColorEStringParserRuleCall_9_1_0() { return cColorEStringParserRuleCall_9_1_0; }
+		public RuleCall getColorsEStringParserRuleCall_9_1_0() { return cColorsEStringParserRuleCall_9_1_0; }
 		
 		//('thickness' thickness=EFloat)?
 		public Group getGroup_10() { return cGroup_10; }
@@ -868,8 +846,8 @@ public class BiLangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		private final RuleCall cLocationEStringParserRuleCall_8_1_0 = (RuleCall)cLocationAssignment_8_1.eContents().get(0);
 		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
 		private final Keyword cColorsKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
-		private final Assignment cColorAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
-		private final RuleCall cColorEStringParserRuleCall_9_1_0 = (RuleCall)cColorAssignment_9_1.eContents().get(0);
+		private final Assignment cColorsAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
+		private final RuleCall cColorsEStringParserRuleCall_9_1_0 = (RuleCall)cColorsAssignment_9_1.eContents().get(0);
 		private final Group cGroup_10 = (Group)cGroup.eContents().get(10);
 		private final Keyword cThicknessKeyword_10_0 = (Keyword)cGroup_10.eContents().get(0);
 		private final Assignment cThicknessAssignment_10_1 = (Assignment)cGroup_10.eContents().get(1);
@@ -877,11 +855,11 @@ public class BiLangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		
 		//LinePlot returns LinePlot:
 		//    {LinePlot}
-		//    'line' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EString)? ('colors' color=EString)? ('thickness' thickness=EFloat)?;
+		//    'line' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EString)? ('colors' colors=EString)? ('thickness' thickness=EFloat)?;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{LinePlot}
-		//'line' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EString)? ('colors' color=EString)? ('thickness' thickness=EFloat)?
+		//'line' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EString)? ('colors' colors=EString)? ('thickness' thickness=EFloat)?
 		public Group getGroup() { return cGroup; }
 		
 		//{LinePlot}
@@ -929,17 +907,17 @@ public class BiLangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		//EString
 		public RuleCall getLocationEStringParserRuleCall_8_1_0() { return cLocationEStringParserRuleCall_8_1_0; }
 		
-		//('colors' color=EString)?
+		//('colors' colors=EString)?
 		public Group getGroup_9() { return cGroup_9; }
 		
 		//'colors'
 		public Keyword getColorsKeyword_9_0() { return cColorsKeyword_9_0; }
 		
-		//color=EString
-		public Assignment getColorAssignment_9_1() { return cColorAssignment_9_1; }
+		//colors=EString
+		public Assignment getColorsAssignment_9_1() { return cColorsAssignment_9_1; }
 		
 		//EString
-		public RuleCall getColorEStringParserRuleCall_9_1_0() { return cColorEStringParserRuleCall_9_1_0; }
+		public RuleCall getColorsEStringParserRuleCall_9_1_0() { return cColorsEStringParserRuleCall_9_1_0; }
 		
 		//('thickness' thickness=EFloat)?
 		public Group getGroup_10() { return cGroup_10; }
@@ -1116,7 +1094,7 @@ public class BiLangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 	//    'Task'name=ID":"
 	//        "load" fileextractor+=FileExtractor (datafiltering+=DataFiltering)?
 	//        (fileextractor+= FileExtractor (datafiltering+= DataFiltering)?)*
-	//        '[dashboard:' dashboard+=DashBoard (dashboard+=DashBoard)* ']';
+	//        '[dashboard:' dashboard=DashBoard']';
 	public TaskElements getTaskAccess() {
 		return pTask;
 	}
@@ -1176,8 +1154,7 @@ public class BiLangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 	}
 	
 	//DataFiltering returns DataFiltering:
-	//    "filter"
-	//    name=EString "=>" fileextractor=[FileExtractor|EString]
+	//    "=>" fileextractor=[FileExtractor|EString]
 	//        ('processing step=' processingstep+=PreprocessingStep ( processingstep+=PreprocessingStep)* )?
 	//        'filtering step=' filteringstep+=FilteringStep ( "," filteringstep+=FilteringStep)* ;
 	public DataFilteringElements getDataFilteringAccess() {
@@ -1292,7 +1269,7 @@ public class BiLangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 	
 	//BarPlot returns BarPlot:
 	//    {BarPlot}
-	//    'bar' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EString)? ('colors' color=EString)? ('thickness' thickness=EFloat)?;
+	//    'bar' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EString)? ('colors' colors=EString)? ('thickness' thickness=EFloat)?;
 	public BarPlotElements getBarPlotAccess() {
 		return pBarPlot;
 	}
@@ -1303,7 +1280,7 @@ public class BiLangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 	
 	//LinePlot returns LinePlot:
 	//    {LinePlot}
-	//    'line' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EString)? ('colors' color=EString)? ('thickness' thickness=EFloat)?;
+	//    'line' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EString)? ('colors' colors=EString)? ('thickness' thickness=EFloat)?;
 	public LinePlotElements getLinePlotAccess() {
 		return pLinePlot;
 	}

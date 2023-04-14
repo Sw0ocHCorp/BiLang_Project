@@ -22,9 +22,7 @@ class BiLangFormatter extends AbstractFormatter2 {
 		for (dataFiltering : task.datafiltering) {
 			dataFiltering.format
 		}
-		for (dashBoard : task.dashboard) {
-			dashBoard.format
-		}
+		task.dashboard.format
 	}
 
 	def dispatch void format(DataFiltering dataFiltering, extension IFormattableDocument document) {

@@ -14,7 +14,7 @@ package ucal3ia.bilang.abstractsyntax;
  *   <li>{@link ucal3ia.bilang.abstractsyntax.Plot#getXAxis <em>XAxis</em>}</li>
  *   <li>{@link ucal3ia.bilang.abstractsyntax.Plot#getYAxis <em>YAxis</em>}</li>
  *   <li>{@link ucal3ia.bilang.abstractsyntax.Plot#getLocation <em>Location</em>}</li>
- *   <li>{@link ucal3ia.bilang.abstractsyntax.Plot#getColor <em>Color</em>}</li>
+ *   <li>{@link ucal3ia.bilang.abstractsyntax.Plot#getColors <em>Colors</em>}</li>
  *   <li>{@link ucal3ia.bilang.abstractsyntax.Plot#getThickness <em>Thickness</em>}</li>
  * </ul>
  *
@@ -90,26 +90,26 @@ public interface Plot extends NamedElement {
 	void setLocation(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Color</b></em>' attribute.
+	 * Returns the value of the '<em><b>Colors</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Color</em>' attribute.
-	 * @see #setColor(String)
-	 * @see ucal3ia.bilang.abstractsyntax.AbstractsyntaxPackage#getPlot_Color()
+	 * @return the value of the '<em>Colors</em>' attribute.
+	 * @see #setColors(String)
+	 * @see ucal3ia.bilang.abstractsyntax.AbstractsyntaxPackage#getPlot_Colors()
 	 * @model
 	 * @generated
 	 */
-	String getColor();
+	String getColors();
 
 	/**
-	 * Sets the value of the '{@link ucal3ia.bilang.abstractsyntax.Plot#getColor <em>Color</em>}' attribute.
+	 * Sets the value of the '{@link ucal3ia.bilang.abstractsyntax.Plot#getColors <em>Colors</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Color</em>' attribute.
-	 * @see #getColor()
+	 * @param value the new value of the '<em>Colors</em>' attribute.
+	 * @see #getColors()
 	 * @generated
 	 */
-	void setColor(String value);
+	void setColors(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Thickness</b></em>' attribute.

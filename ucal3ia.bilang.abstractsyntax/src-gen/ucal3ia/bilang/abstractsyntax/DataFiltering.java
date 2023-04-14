@@ -3,6 +3,7 @@
 package ucal3ia.bilang.abstractsyntax;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,7 +23,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface DataFiltering extends NamedElement {
+public interface DataFiltering extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Fileextractor</b></em>' reference.
 	 * <!-- begin-user-doc -->

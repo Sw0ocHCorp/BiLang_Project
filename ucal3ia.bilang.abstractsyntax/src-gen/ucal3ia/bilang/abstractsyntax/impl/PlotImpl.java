@@ -22,7 +22,7 @@ import ucal3ia.bilang.abstractsyntax.Plot;
  *   <li>{@link ucal3ia.bilang.abstractsyntax.impl.PlotImpl#getXAxis <em>XAxis</em>}</li>
  *   <li>{@link ucal3ia.bilang.abstractsyntax.impl.PlotImpl#getYAxis <em>YAxis</em>}</li>
  *   <li>{@link ucal3ia.bilang.abstractsyntax.impl.PlotImpl#getLocation <em>Location</em>}</li>
- *   <li>{@link ucal3ia.bilang.abstractsyntax.impl.PlotImpl#getColor <em>Color</em>}</li>
+ *   <li>{@link ucal3ia.bilang.abstractsyntax.impl.PlotImpl#getColors <em>Colors</em>}</li>
  *   <li>{@link ucal3ia.bilang.abstractsyntax.impl.PlotImpl#getThickness <em>Thickness</em>}</li>
  * </ul>
  *
@@ -90,24 +90,24 @@ public abstract class PlotImpl extends NamedElementImpl implements Plot {
 	protected String location = LOCATION_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getColor() <em>Color</em>}' attribute.
+	 * The default value of the '{@link #getColors() <em>Colors</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getColor()
+	 * @see #getColors()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String COLOR_EDEFAULT = null;
+	protected static final String COLORS_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getColor() <em>Color</em>}' attribute.
+	 * The cached value of the '{@link #getColors() <em>Colors</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getColor()
+	 * @see #getColors()
 	 * @generated
 	 * @ordered
 	 */
-	protected String color = COLOR_EDEFAULT;
+	protected String colors = COLORS_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getThickness() <em>Thickness</em>}' attribute.
@@ -217,8 +217,8 @@ public abstract class PlotImpl extends NamedElementImpl implements Plot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getColor() {
-		return color;
+	public String getColors() {
+		return colors;
 	}
 
 	/**
@@ -226,11 +226,12 @@ public abstract class PlotImpl extends NamedElementImpl implements Plot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setColor(String newColor) {
-		String oldColor = color;
-		color = newColor;
+	public void setColors(String newColors) {
+		String oldColors = colors;
+		colors = newColors;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AbstractsyntaxPackage.PLOT__COLOR, oldColor, color));
+			eNotify(new ENotificationImpl(this, Notification.SET, AbstractsyntaxPackage.PLOT__COLORS, oldColors,
+					colors));
 	}
 
 	/**
@@ -269,8 +270,8 @@ public abstract class PlotImpl extends NamedElementImpl implements Plot {
 			return getYAxis();
 		case AbstractsyntaxPackage.PLOT__LOCATION:
 			return getLocation();
-		case AbstractsyntaxPackage.PLOT__COLOR:
-			return getColor();
+		case AbstractsyntaxPackage.PLOT__COLORS:
+			return getColors();
 		case AbstractsyntaxPackage.PLOT__THICKNESS:
 			return getThickness();
 		}
@@ -294,8 +295,8 @@ public abstract class PlotImpl extends NamedElementImpl implements Plot {
 		case AbstractsyntaxPackage.PLOT__LOCATION:
 			setLocation((String) newValue);
 			return;
-		case AbstractsyntaxPackage.PLOT__COLOR:
-			setColor((String) newValue);
+		case AbstractsyntaxPackage.PLOT__COLORS:
+			setColors((String) newValue);
 			return;
 		case AbstractsyntaxPackage.PLOT__THICKNESS:
 			setThickness((Float) newValue);
@@ -321,8 +322,8 @@ public abstract class PlotImpl extends NamedElementImpl implements Plot {
 		case AbstractsyntaxPackage.PLOT__LOCATION:
 			setLocation(LOCATION_EDEFAULT);
 			return;
-		case AbstractsyntaxPackage.PLOT__COLOR:
-			setColor(COLOR_EDEFAULT);
+		case AbstractsyntaxPackage.PLOT__COLORS:
+			setColors(COLORS_EDEFAULT);
 			return;
 		case AbstractsyntaxPackage.PLOT__THICKNESS:
 			setThickness(THICKNESS_EDEFAULT);
@@ -345,8 +346,8 @@ public abstract class PlotImpl extends NamedElementImpl implements Plot {
 			return YAXIS_EDEFAULT == null ? yAxis != null : !YAXIS_EDEFAULT.equals(yAxis);
 		case AbstractsyntaxPackage.PLOT__LOCATION:
 			return LOCATION_EDEFAULT == null ? location != null : !LOCATION_EDEFAULT.equals(location);
-		case AbstractsyntaxPackage.PLOT__COLOR:
-			return COLOR_EDEFAULT == null ? color != null : !COLOR_EDEFAULT.equals(color);
+		case AbstractsyntaxPackage.PLOT__COLORS:
+			return COLORS_EDEFAULT == null ? colors != null : !COLORS_EDEFAULT.equals(colors);
 		case AbstractsyntaxPackage.PLOT__THICKNESS:
 			return thickness != THICKNESS_EDEFAULT;
 		}
@@ -370,8 +371,8 @@ public abstract class PlotImpl extends NamedElementImpl implements Plot {
 		result.append(yAxis);
 		result.append(", location: ");
 		result.append(location);
-		result.append(", color: ");
-		result.append(color);
+		result.append(", colors: ");
+		result.append(colors);
 		result.append(", thickness: ");
 		result.append(thickness);
 		result.append(')');

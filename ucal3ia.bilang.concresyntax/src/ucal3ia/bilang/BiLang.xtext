@@ -8,7 +8,7 @@ Task returns Task:
 	'Task'name=ID":"
 		"load" fileextractor+=FileExtractor (datafiltering+=DataFiltering)?
 		(fileextractor+= FileExtractor (datafiltering+= DataFiltering)?)* 
-		'[dashboard:' dashboard+=DashBoard (dashboard+=DashBoard)* ']';
+		'[dashboard:' dashboard=DashBoard']';
 
 FileExtractor returns FileExtractor:
 	CsvExtractor | ExcelExtractor;
@@ -28,8 +28,7 @@ EString returns ecore::EString:
 	STRING | ID;
 
 DataFiltering returns DataFiltering:
-	"filter"
-	name=EString "=>" fileextractor=[FileExtractor|EString]
+	"=>" fileextractor=[FileExtractor|EString]
 		('processing step=' processingstep+=PreprocessingStep ( processingstep+=PreprocessingStep)* )?
 		'filtering step=' filteringstep+=FilteringStep ( "," filteringstep+=FilteringStep)* ;
 
@@ -76,11 +75,11 @@ EFloat returns ecore::EFloat:
 
 BarPlot returns BarPlot:
 	{BarPlot}
-	'bar' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EString)? ('colors' color=EString)? ('thickness' thickness=EFloat)?;
+	'bar' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EString)? ('colors' colors=EString)? ('thickness' thickness=EFloat)?;
 
 LinePlot returns LinePlot:
 	{LinePlot}
-	'line' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EString)? ('colors' color=EString)? ('thickness' thickness=EFloat)?;
+	'line' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EString)? ('colors' colors=EString)? ('thickness' thickness=EFloat)?;
 
 enum MathOperator returns MathOperator:
 				PLUS = 'PLUS' | MINUS = 'MINUS' | MULTIPLY = 'MULTIPLY' | DIVIDING = 'DIVIDING';

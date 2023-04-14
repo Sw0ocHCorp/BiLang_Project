@@ -43,8 +43,8 @@ public class BiLangParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getTaskAccess().getGroup(), "rule__Task__Group__0");
 			builder.put(grammarAccess.getTaskAccess().getGroup_6(), "rule__Task__Group_6__0");
 			builder.put(grammarAccess.getDataFilteringAccess().getGroup(), "rule__DataFiltering__Group__0");
-			builder.put(grammarAccess.getDataFilteringAccess().getGroup_4(), "rule__DataFiltering__Group_4__0");
-			builder.put(grammarAccess.getDataFilteringAccess().getGroup_7(), "rule__DataFiltering__Group_7__0");
+			builder.put(grammarAccess.getDataFilteringAccess().getGroup_2(), "rule__DataFiltering__Group_2__0");
+			builder.put(grammarAccess.getDataFilteringAccess().getGroup_5(), "rule__DataFiltering__Group_5__0");
 			builder.put(grammarAccess.getDashBoardAccess().getGroup(), "rule__DashBoard__Group__0");
 			builder.put(grammarAccess.getDashBoardAccess().getGroup_2_0(), "rule__DashBoard__Group_2_0__0");
 			builder.put(grammarAccess.getDashBoardAccess().getGroup_2_1(), "rule__DashBoard__Group_2_1__0");
@@ -71,13 +71,11 @@ public class BiLangParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getTaskAccess().getFileextractorAssignment_6_0(), "rule__Task__FileextractorAssignment_6_0");
 			builder.put(grammarAccess.getTaskAccess().getDatafilteringAssignment_6_1(), "rule__Task__DatafilteringAssignment_6_1");
 			builder.put(grammarAccess.getTaskAccess().getDashboardAssignment_8(), "rule__Task__DashboardAssignment_8");
-			builder.put(grammarAccess.getTaskAccess().getDashboardAssignment_9(), "rule__Task__DashboardAssignment_9");
-			builder.put(grammarAccess.getDataFilteringAccess().getNameAssignment_1(), "rule__DataFiltering__NameAssignment_1");
-			builder.put(grammarAccess.getDataFilteringAccess().getFileextractorAssignment_3(), "rule__DataFiltering__FileextractorAssignment_3");
-			builder.put(grammarAccess.getDataFilteringAccess().getProcessingstepAssignment_4_1(), "rule__DataFiltering__ProcessingstepAssignment_4_1");
-			builder.put(grammarAccess.getDataFilteringAccess().getProcessingstepAssignment_4_2(), "rule__DataFiltering__ProcessingstepAssignment_4_2");
-			builder.put(grammarAccess.getDataFilteringAccess().getFilteringstepAssignment_6(), "rule__DataFiltering__FilteringstepAssignment_6");
-			builder.put(grammarAccess.getDataFilteringAccess().getFilteringstepAssignment_7_1(), "rule__DataFiltering__FilteringstepAssignment_7_1");
+			builder.put(grammarAccess.getDataFilteringAccess().getFileextractorAssignment_1(), "rule__DataFiltering__FileextractorAssignment_1");
+			builder.put(grammarAccess.getDataFilteringAccess().getProcessingstepAssignment_2_1(), "rule__DataFiltering__ProcessingstepAssignment_2_1");
+			builder.put(grammarAccess.getDataFilteringAccess().getProcessingstepAssignment_2_2(), "rule__DataFiltering__ProcessingstepAssignment_2_2");
+			builder.put(grammarAccess.getDataFilteringAccess().getFilteringstepAssignment_4(), "rule__DataFiltering__FilteringstepAssignment_4");
+			builder.put(grammarAccess.getDataFilteringAccess().getFilteringstepAssignment_5_1(), "rule__DataFiltering__FilteringstepAssignment_5_1");
 			builder.put(grammarAccess.getDashBoardAccess().getNameAssignment_0(), "rule__DashBoard__NameAssignment_0");
 			builder.put(grammarAccess.getDashBoardAccess().getFileextractorAssignment_2_0_1(), "rule__DashBoard__FileextractorAssignment_2_0_1");
 			builder.put(grammarAccess.getDashBoardAccess().getDatafilteringAssignment_2_1_1(), "rule__DashBoard__DatafilteringAssignment_2_1_1");
@@ -101,13 +99,13 @@ public class BiLangParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getBarPlotAccess().getXAxisAssignment_5(), "rule__BarPlot__XAxisAssignment_5");
 			builder.put(grammarAccess.getBarPlotAccess().getYAxisAssignment_7(), "rule__BarPlot__YAxisAssignment_7");
 			builder.put(grammarAccess.getBarPlotAccess().getLocationAssignment_8_1(), "rule__BarPlot__LocationAssignment_8_1");
-			builder.put(grammarAccess.getBarPlotAccess().getColorAssignment_9_1(), "rule__BarPlot__ColorAssignment_9_1");
+			builder.put(grammarAccess.getBarPlotAccess().getColorsAssignment_9_1(), "rule__BarPlot__ColorsAssignment_9_1");
 			builder.put(grammarAccess.getBarPlotAccess().getThicknessAssignment_10_1(), "rule__BarPlot__ThicknessAssignment_10_1");
 			builder.put(grammarAccess.getLinePlotAccess().getNameAssignment_2(), "rule__LinePlot__NameAssignment_2");
 			builder.put(grammarAccess.getLinePlotAccess().getXAxisAssignment_5(), "rule__LinePlot__XAxisAssignment_5");
 			builder.put(grammarAccess.getLinePlotAccess().getYAxisAssignment_7(), "rule__LinePlot__YAxisAssignment_7");
 			builder.put(grammarAccess.getLinePlotAccess().getLocationAssignment_8_1(), "rule__LinePlot__LocationAssignment_8_1");
-			builder.put(grammarAccess.getLinePlotAccess().getColorAssignment_9_1(), "rule__LinePlot__ColorAssignment_9_1");
+			builder.put(grammarAccess.getLinePlotAccess().getColorsAssignment_9_1(), "rule__LinePlot__ColorsAssignment_9_1");
 			builder.put(grammarAccess.getLinePlotAccess().getThicknessAssignment_10_1(), "rule__LinePlot__ThicknessAssignment_10_1");
 		}
 	}

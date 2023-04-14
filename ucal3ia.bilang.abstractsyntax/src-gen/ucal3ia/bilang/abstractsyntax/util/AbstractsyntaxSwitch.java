@@ -95,8 +95,6 @@ public class AbstractsyntaxSwitch<T> extends Switch<T> {
 			DataFiltering dataFiltering = (DataFiltering) theEObject;
 			T result = caseDataFiltering(dataFiltering);
 			if (result == null)
-				result = caseNamedElement(dataFiltering);
-			if (result == null)
 				result = defaultCase(theEObject);
 			return result;
 		}

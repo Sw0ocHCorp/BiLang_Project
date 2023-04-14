@@ -1,13 +1,13 @@
-'('=42
-')'=43
-','=29
-'-'=44
-'->'=47
-'.'=45
-'.csv'=34
-'.xlsx'=35
+'('=41
+')'=42
+','=28
+'-'=43
+'->'=46
+'.'=44
+'.csv'=33
+'.xlsx'=34
 ':'=21
-'=>'=26
+'=>'=25
 'DIVIDING'=16
 'E'=11
 'MEAN'=17
@@ -19,28 +19,27 @@
 'Task'=20
 '[dashboard:'=23
 ']'=24
-'bar'=46
-'colors'=51
-'df'=33
+'bar'=45
+'colors'=50
+'df'=32
 'e'=12
-'filter'=25
-'filtering step='=27
-'l'=40
-'label'=39
-'line'=53
+'filtering step='=26
+'l'=39
+'label'=38
+'line'=52
 'load'=22
-'loc'=50
-'plots'=30
-'processing step='=28
-'quali axis->'=38
-'quanti axis->'=36
-'r'=41
-'thickness'=52
-'value'=37
-'xAx'=48
-'yA'=49
-'{'=31
-'}'=32
+'loc'=49
+'plots'=29
+'processing step='=27
+'quali axis->'=37
+'quanti axis->'=35
+'r'=40
+'thickness'=51
+'value'=36
+'xAx'=47
+'yA'=48
+'{'=30
+'}'=31
 RULE_ANY_OTHER=10
 RULE_ID=5
 RULE_INT=6
@@ -90,4 +89,3 @@ T__49=49
 T__50=50
 T__51=51
 T__52=52
-T__53=53

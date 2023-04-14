@@ -48,15 +48,25 @@ public interface Task extends NamedElement {
 	EList<DataFiltering> getDatafiltering();
 
 	/**
-	 * Returns the value of the '<em><b>Dashboard</b></em>' containment reference list.
-	 * The list contents are of type {@link ucal3ia.bilang.abstractsyntax.DashBoard}.
+	 * Returns the value of the '<em><b>Dashboard</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Dashboard</em>' containment reference list.
+	 * @return the value of the '<em>Dashboard</em>' containment reference.
+	 * @see #setDashboard(DashBoard)
 	 * @see ucal3ia.bilang.abstractsyntax.AbstractsyntaxPackage#getTask_Dashboard()
 	 * @model containment="true" required="true"
 	 * @generated
 	 */
-	EList<DashBoard> getDashboard();
+	DashBoard getDashboard();
+
+	/**
+	 * Sets the value of the '{@link ucal3ia.bilang.abstractsyntax.Task#getDashboard <em>Dashboard</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Dashboard</em>' containment reference.
+	 * @see #getDashboard()
+	 * @generated
+	 */
+	void setDashboard(DashBoard value);
 
 } // Task

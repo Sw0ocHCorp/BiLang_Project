@@ -48,7 +48,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstractsyntax.ecore#//Plot/xAxis"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstractsyntax.ecore#//Plot/yAxis"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstractsyntax.ecore#//Plot/location"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstractsyntax.ecore#//Plot/color"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstractsyntax.ecore#//Plot/colors"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstractsyntax.ecore#//Plot/thickness"/>
     </genClasses>
     <genClasses ecoreClass="abstractsyntax.ecore#//BarPlot"/>

@@ -132,7 +132,7 @@ public interface AbstractsyntaxPackage extends EPackage {
 	int TASK__DATAFILTERING = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Dashboard</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Dashboard</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -215,22 +215,13 @@ public interface AbstractsyntaxPackage extends EPackage {
 	int DATA_FILTERING = 3;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_FILTERING__NAME = NAMED_ELEMENT__NAME;
-
-	/**
 	 * The feature id for the '<em><b>Fileextractor</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_FILTERING__FILEEXTRACTOR = NAMED_ELEMENT_FEATURE_COUNT + 0;
+	int DATA_FILTERING__FILEEXTRACTOR = 0;
 
 	/**
 	 * The feature id for the '<em><b>Filteringstep</b></em>' containment reference list.
@@ -239,7 +230,7 @@ public interface AbstractsyntaxPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_FILTERING__FILTERINGSTEP = NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int DATA_FILTERING__FILTERINGSTEP = 1;
 
 	/**
 	 * The feature id for the '<em><b>Processingstep</b></em>' containment reference list.
@@ -248,7 +239,7 @@ public interface AbstractsyntaxPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_FILTERING__PROCESSINGSTEP = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int DATA_FILTERING__PROCESSINGSTEP = 2;
 
 	/**
 	 * The number of structural features of the '<em>Data Filtering</em>' class.
@@ -257,7 +248,7 @@ public interface AbstractsyntaxPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_FILTERING_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 3;
+	int DATA_FILTERING_FEATURE_COUNT = 3;
 
 	/**
 	 * The number of operations of the '<em>Data Filtering</em>' class.
@@ -266,7 +257,7 @@ public interface AbstractsyntaxPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_FILTERING_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
+	int DATA_FILTERING_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link ucal3ia.bilang.abstractsyntax.impl.DashBoardImpl <em>Dash Board</em>}' class.
@@ -471,13 +462,13 @@ public interface AbstractsyntaxPackage extends EPackage {
 	int PLOT__LOCATION = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Color</b></em>' attribute.
+	 * The feature id for the '<em><b>Colors</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PLOT__COLOR = NAMED_ELEMENT_FEATURE_COUNT + 3;
+	int PLOT__COLORS = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Thickness</b></em>' attribute.
@@ -553,13 +544,13 @@ public interface AbstractsyntaxPackage extends EPackage {
 	int BAR_PLOT__LOCATION = PLOT__LOCATION;
 
 	/**
-	 * The feature id for the '<em><b>Color</b></em>' attribute.
+	 * The feature id for the '<em><b>Colors</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BAR_PLOT__COLOR = PLOT__COLOR;
+	int BAR_PLOT__COLORS = PLOT__COLORS;
 
 	/**
 	 * The feature id for the '<em><b>Thickness</b></em>' attribute.
@@ -635,13 +626,13 @@ public interface AbstractsyntaxPackage extends EPackage {
 	int LINE_PLOT__LOCATION = PLOT__LOCATION;
 
 	/**
-	 * The feature id for the '<em><b>Color</b></em>' attribute.
+	 * The feature id for the '<em><b>Colors</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LINE_PLOT__COLOR = PLOT__COLOR;
+	int LINE_PLOT__COLORS = PLOT__COLORS;
 
 	/**
 	 * The feature id for the '<em><b>Thickness</b></em>' attribute.
@@ -1039,10 +1030,10 @@ public interface AbstractsyntaxPackage extends EPackage {
 	EReference getTask_Datafiltering();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link ucal3ia.bilang.abstractsyntax.Task#getDashboard <em>Dashboard</em>}'.
+	 * Returns the meta object for the containment reference '{@link ucal3ia.bilang.abstractsyntax.Task#getDashboard <em>Dashboard</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Dashboard</em>'.
+	 * @return the meta object for the containment reference '<em>Dashboard</em>'.
 	 * @see ucal3ia.bilang.abstractsyntax.Task#getDashboard()
 	 * @see #getTask()
 	 * @generated
@@ -1220,15 +1211,15 @@ public interface AbstractsyntaxPackage extends EPackage {
 	EAttribute getPlot_Location();
 
 	/**
-	 * Returns the meta object for the attribute '{@link ucal3ia.bilang.abstractsyntax.Plot#getColor <em>Color</em>}'.
+	 * Returns the meta object for the attribute '{@link ucal3ia.bilang.abstractsyntax.Plot#getColors <em>Colors</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Color</em>'.
-	 * @see ucal3ia.bilang.abstractsyntax.Plot#getColor()
+	 * @return the meta object for the attribute '<em>Colors</em>'.
+	 * @see ucal3ia.bilang.abstractsyntax.Plot#getColors()
 	 * @see #getPlot()
 	 * @generated
 	 */
-	EAttribute getPlot_Color();
+	EAttribute getPlot_Colors();
 
 	/**
 	 * Returns the meta object for the attribute '{@link ucal3ia.bilang.abstractsyntax.Plot#getThickness <em>Thickness</em>}'.
@@ -1518,7 +1509,7 @@ public interface AbstractsyntaxPackage extends EPackage {
 		EReference TASK__DATAFILTERING = eINSTANCE.getTask_Datafiltering();
 
 		/**
-		 * The meta object literal for the '<em><b>Dashboard</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Dashboard</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1666,12 +1657,12 @@ public interface AbstractsyntaxPackage extends EPackage {
 		EAttribute PLOT__LOCATION = eINSTANCE.getPlot_Location();
 
 		/**
-		 * The meta object literal for the '<em><b>Color</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Colors</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute PLOT__COLOR = eINSTANCE.getPlot_Color();
+		EAttribute PLOT__COLORS = eINSTANCE.getPlot_Colors();
 
 		/**
 		 * The meta object literal for the '<em><b>Thickness</b></em>' attribute feature.

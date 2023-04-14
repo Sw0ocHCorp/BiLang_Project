@@ -34,10 +34,7 @@ public class BiLangFormatter extends AbstractFormatter2 {
     for (final DataFiltering dataFiltering : _datafiltering) {
       document.<DataFiltering>format(dataFiltering);
     }
-    EList<DashBoard> _dashboard = task.getDashboard();
-    for (final DashBoard dashBoard : _dashboard) {
-      document.<DashBoard>format(dashBoard);
-    }
+    document.<DashBoard>format(task.getDashboard());
   }
   
   protected void _format(final DataFiltering dataFiltering, @Extension final IFormattableDocument document) {
@@ -51,28 +48,28 @@ public class BiLangFormatter extends AbstractFormatter2 {
     }
   }
   
-  public void format(final Object dataFiltering, final IFormattableDocument document) {
-    if (dataFiltering instanceof XtextResource) {
-      _format((XtextResource)dataFiltering, document);
+  public void format(final Object task, final IFormattableDocument document) {
+    if (task instanceof XtextResource) {
+      _format((XtextResource)task, document);
       return;
-    } else if (dataFiltering instanceof DataFiltering) {
-      _format((DataFiltering)dataFiltering, document);
+    } else if (task instanceof Task) {
+      _format((Task)task, document);
       return;
-    } else if (dataFiltering instanceof Task) {
-      _format((Task)dataFiltering, document);
+    } else if (task instanceof DataFiltering) {
+      _format((DataFiltering)task, document);
       return;
-    } else if (dataFiltering instanceof EObject) {
-      _format((EObject)dataFiltering, document);
+    } else if (task instanceof EObject) {
+      _format((EObject)task, document);
       return;
-    } else if (dataFiltering == null) {
+    } else if (task == null) {
       _format((Void)null, document);
       return;
-    } else if (dataFiltering != null) {
-      _format(dataFiltering, document);
+    } else if (task != null) {
+      _format(task, document);
       return;
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
-        Arrays.<Object>asList(dataFiltering, document).toString());
+        Arrays.<Object>asList(task, document).toString());
     }
   }
 }
