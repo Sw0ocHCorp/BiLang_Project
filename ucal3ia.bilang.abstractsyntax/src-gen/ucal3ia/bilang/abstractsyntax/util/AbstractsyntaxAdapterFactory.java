@@ -152,6 +152,31 @@ public class AbstractsyntaxAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseScatterPlot(ScatterPlot object) {
+			return createScatterPlotAdapter();
+		}
+
+		@Override
+		public Adapter casePolarPlot(PolarPlot object) {
+			return createPolarPlotAdapter();
+		}
+
+		@Override
+		public Adapter casePiePlot(PiePlot object) {
+			return createPiePlotAdapter();
+		}
+
+		@Override
+		public Adapter caseRadarPlot(RadarPlot object) {
+			return createRadarPlotAdapter();
+		}
+
+		@Override
+		public Adapter caseDonutPlot(DonutPlot object) {
+			return createDonutPlotAdapter();
+		}
+
+		@Override
 		public Adapter defaultCase(EObject object) {
 			return createEObjectAdapter();
 		}
@@ -405,6 +430,76 @@ public class AbstractsyntaxAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createStatisticalOperationAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ucal3ia.bilang.abstractsyntax.ScatterPlot <em>Scatter Plot</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ucal3ia.bilang.abstractsyntax.ScatterPlot
+	 * @generated
+	 */
+	public Adapter createScatterPlotAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ucal3ia.bilang.abstractsyntax.PolarPlot <em>Polar Plot</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ucal3ia.bilang.abstractsyntax.PolarPlot
+	 * @generated
+	 */
+	public Adapter createPolarPlotAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ucal3ia.bilang.abstractsyntax.PiePlot <em>Pie Plot</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ucal3ia.bilang.abstractsyntax.PiePlot
+	 * @generated
+	 */
+	public Adapter createPiePlotAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ucal3ia.bilang.abstractsyntax.RadarPlot <em>Radar Plot</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ucal3ia.bilang.abstractsyntax.RadarPlot
+	 * @generated
+	 */
+	public Adapter createRadarPlotAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ucal3ia.bilang.abstractsyntax.DonutPlot <em>Donut Plot</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ucal3ia.bilang.abstractsyntax.DonutPlot
+	 * @generated
+	 */
+	public Adapter createDonutPlotAdapter() {
 		return null;
 	}
 

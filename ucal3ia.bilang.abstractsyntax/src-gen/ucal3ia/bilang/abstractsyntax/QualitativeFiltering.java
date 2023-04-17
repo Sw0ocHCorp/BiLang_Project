@@ -12,6 +12,7 @@ package ucal3ia.bilang.abstractsyntax;
  * </p>
  * <ul>
  *   <li>{@link ucal3ia.bilang.abstractsyntax.QualitativeFiltering#getLabels <em>Labels</em>}</li>
+ *   <li>{@link ucal3ia.bilang.abstractsyntax.QualitativeFiltering#getOperator <em>Operator</em>}</li>
  * </ul>
  *
  * @see ucal3ia.bilang.abstractsyntax.AbstractsyntaxPackage#getQualitativeFiltering()
@@ -41,4 +42,29 @@ public interface QualitativeFiltering extends FilteringStep {
 	 * @generated
 	 */
 	void setLabels(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Operator</b></em>' attribute.
+	 * The literals are from the enumeration {@link ucal3ia.bilang.abstractsyntax.QualitativeOperator}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Operator</em>' attribute.
+	 * @see ucal3ia.bilang.abstractsyntax.QualitativeOperator
+	 * @see #setOperator(QualitativeOperator)
+	 * @see ucal3ia.bilang.abstractsyntax.AbstractsyntaxPackage#getQualitativeFiltering_Operator()
+	 * @model
+	 * @generated
+	 */
+	QualitativeOperator getOperator();
+
+	/**
+	 * Sets the value of the '{@link ucal3ia.bilang.abstractsyntax.QualitativeFiltering#getOperator <em>Operator</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Operator</em>' attribute.
+	 * @see ucal3ia.bilang.abstractsyntax.QualitativeOperator
+	 * @see #getOperator()
+	 * @generated
+	 */
+	void setOperator(QualitativeOperator value);
 } // QualitativeFiltering

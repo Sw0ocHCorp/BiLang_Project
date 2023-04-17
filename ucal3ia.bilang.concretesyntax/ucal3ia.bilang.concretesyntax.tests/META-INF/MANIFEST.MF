@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: ucal3ia.bilang.concretesyntax.tests
+Bundle-ManifestVersion: 2
+Bundle-Name: ucal3ia.bilang.concretesyntax.tests
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: ucal3ia.bilang.concretesyntax.tests; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: ucal3ia.bilang.concretesyntax,
+ ucal3ia.bilang.abstractsyntax,
+ org.junit.jupiter.api;bundle-version="[5.1.0,6.0.0)",
+ org.eclipse.xtext.testing,
+ org.eclipse.xtext.xbase.testing,
+ org.eclipse.xtext.xbase.lib;bundle-version="2.14.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Export-Package: ucal3ia.bilang.tests;x-internal=true

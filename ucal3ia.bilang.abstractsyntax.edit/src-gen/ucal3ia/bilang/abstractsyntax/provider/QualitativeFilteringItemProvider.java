@@ -44,6 +44,7 @@ public class QualitativeFilteringItemProvider extends FilteringStepItemProvider 
 			super.getPropertyDescriptors(object);
 
 			addLabelsPropertyDescriptor(object);
+			addOperatorPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -62,6 +63,22 @@ public class QualitativeFilteringItemProvider extends FilteringStepItemProvider 
 						"_UI_QualitativeFiltering_type"),
 				AbstractsyntaxPackage.Literals.QUALITATIVE_FILTERING__LABELS, true, false, false,
 				ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Operator feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOperatorPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_QualitativeFiltering_operator_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_QualitativeFiltering_operator_feature",
+								"_UI_QualitativeFiltering_type"),
+						AbstractsyntaxPackage.Literals.QUALITATIVE_FILTERING__OPERATOR, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -111,6 +128,7 @@ public class QualitativeFilteringItemProvider extends FilteringStepItemProvider 
 
 		switch (notification.getFeatureID(QualitativeFiltering.class)) {
 		case AbstractsyntaxPackage.QUALITATIVE_FILTERING__LABELS:
+		case AbstractsyntaxPackage.QUALITATIVE_FILTERING__OPERATOR:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		}

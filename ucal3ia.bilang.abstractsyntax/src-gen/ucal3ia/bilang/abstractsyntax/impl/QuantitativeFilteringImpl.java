@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import ucal3ia.bilang.abstractsyntax.AbstractsyntaxPackage;
 import ucal3ia.bilang.abstractsyntax.QuantitativeFiltering;
+import ucal3ia.bilang.abstractsyntax.QuantitativeOperator;
 
 /**
  * <!-- begin-user-doc -->
@@ -18,6 +19,7 @@ import ucal3ia.bilang.abstractsyntax.QuantitativeFiltering;
  * </p>
  * <ul>
  *   <li>{@link ucal3ia.bilang.abstractsyntax.impl.QuantitativeFilteringImpl#getValues <em>Values</em>}</li>
+ *   <li>{@link ucal3ia.bilang.abstractsyntax.impl.QuantitativeFilteringImpl#getOperator <em>Operator</em>}</li>
  * </ul>
  *
  * @generated
@@ -31,7 +33,7 @@ public class QuantitativeFilteringImpl extends FilteringStepImpl implements Quan
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String VALUES_EDEFAULT = null;
+	protected static final float VALUES_EDEFAULT = 0.0F;
 	/**
 	 * The cached value of the '{@link #getValues() <em>Values</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -40,7 +42,26 @@ public class QuantitativeFilteringImpl extends FilteringStepImpl implements Quan
 	 * @generated
 	 * @ordered
 	 */
-	protected String values = VALUES_EDEFAULT;
+	protected float values = VALUES_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getOperator() <em>Operator</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOperator()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final QuantitativeOperator OPERATOR_EDEFAULT = QuantitativeOperator.EQUAL;
+	/**
+	 * The cached value of the '{@link #getOperator() <em>Operator</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOperator()
+	 * @generated
+	 * @ordered
+	 */
+	protected QuantitativeOperator operator = OPERATOR_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -66,7 +87,7 @@ public class QuantitativeFilteringImpl extends FilteringStepImpl implements Quan
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getValues() {
+	public float getValues() {
 		return values;
 	}
 
@@ -75,12 +96,34 @@ public class QuantitativeFilteringImpl extends FilteringStepImpl implements Quan
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setValues(String newValues) {
-		String oldValues = values;
+	public void setValues(float newValues) {
+		float oldValues = values;
 		values = newValues;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, AbstractsyntaxPackage.QUANTITATIVE_FILTERING__VALUES,
 					oldValues, values));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QuantitativeOperator getOperator() {
+		return operator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOperator(QuantitativeOperator newOperator) {
+		QuantitativeOperator oldOperator = operator;
+		operator = newOperator == null ? OPERATOR_EDEFAULT : newOperator;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET,
+					AbstractsyntaxPackage.QUANTITATIVE_FILTERING__OPERATOR, oldOperator, operator));
 	}
 
 	/**
@@ -93,6 +136,8 @@ public class QuantitativeFilteringImpl extends FilteringStepImpl implements Quan
 		switch (featureID) {
 		case AbstractsyntaxPackage.QUANTITATIVE_FILTERING__VALUES:
 			return getValues();
+		case AbstractsyntaxPackage.QUANTITATIVE_FILTERING__OPERATOR:
+			return getOperator();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -106,7 +151,10 @@ public class QuantitativeFilteringImpl extends FilteringStepImpl implements Quan
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 		case AbstractsyntaxPackage.QUANTITATIVE_FILTERING__VALUES:
-			setValues((String) newValue);
+			setValues((Float) newValue);
+			return;
+		case AbstractsyntaxPackage.QUANTITATIVE_FILTERING__OPERATOR:
+			setOperator((QuantitativeOperator) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -123,6 +171,9 @@ public class QuantitativeFilteringImpl extends FilteringStepImpl implements Quan
 		case AbstractsyntaxPackage.QUANTITATIVE_FILTERING__VALUES:
 			setValues(VALUES_EDEFAULT);
 			return;
+		case AbstractsyntaxPackage.QUANTITATIVE_FILTERING__OPERATOR:
+			setOperator(OPERATOR_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -136,7 +187,9 @@ public class QuantitativeFilteringImpl extends FilteringStepImpl implements Quan
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 		case AbstractsyntaxPackage.QUANTITATIVE_FILTERING__VALUES:
-			return VALUES_EDEFAULT == null ? values != null : !VALUES_EDEFAULT.equals(values);
+			return values != VALUES_EDEFAULT;
+		case AbstractsyntaxPackage.QUANTITATIVE_FILTERING__OPERATOR:
+			return operator != OPERATOR_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -154,6 +207,8 @@ public class QuantitativeFilteringImpl extends FilteringStepImpl implements Quan
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (values: ");
 		result.append(values);
+		result.append(", operator: ");
+		result.append(operator);
 		result.append(')');
 		return result.toString();
 	}

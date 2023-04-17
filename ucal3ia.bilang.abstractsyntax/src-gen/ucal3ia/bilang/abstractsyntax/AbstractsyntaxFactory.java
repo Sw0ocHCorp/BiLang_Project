@@ -139,6 +139,51 @@ public interface AbstractsyntaxFactory extends EFactory {
 	StatisticalOperation createStatisticalOperation();
 
 	/**
+	 * Returns a new object of class '<em>Scatter Plot</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Scatter Plot</em>'.
+	 * @generated
+	 */
+	ScatterPlot createScatterPlot();
+
+	/**
+	 * Returns a new object of class '<em>Polar Plot</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Polar Plot</em>'.
+	 * @generated
+	 */
+	PolarPlot createPolarPlot();
+
+	/**
+	 * Returns a new object of class '<em>Pie Plot</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Pie Plot</em>'.
+	 * @generated
+	 */
+	PiePlot createPiePlot();
+
+	/**
+	 * Returns a new object of class '<em>Radar Plot</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Radar Plot</em>'.
+	 * @generated
+	 */
+	RadarPlot createRadarPlot();
+
+	/**
+	 * Returns a new object of class '<em>Donut Plot</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Donut Plot</em>'.
+	 * @generated
+	 */
+	DonutPlot createDonutPlot();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

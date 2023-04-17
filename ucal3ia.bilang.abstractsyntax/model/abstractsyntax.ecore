@@ -46,10 +46,12 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PreprocessingStep"/>
   <eClassifiers xsi:type="ecore:EClass" name="QuantitativeFiltering" eSuperTypes="#//FilteringStep">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="values" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="values" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" eType="#//QuantitativeOperator"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="QualitativeFiltering" eSuperTypes="#//FilteringStep">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="labels" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" eType="#//QualitativeOperator"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MathOperation" eSuperTypes="#//PreprocessingStep">
     <eStructuralFeatures xsi:type="ecore:EReference" name="lside" lowerBound="1" eType="#//PreprocessingStep"
@@ -77,4 +79,18 @@
     <eLiterals name="MEDIAN" value="1"/>
     <eLiterals name="STD" value="2"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="QuantitativeOperator">
+    <eLiterals name="EQUAL" literal="="/>
+    <eLiterals name="SUPERIOR" value="1" literal=">"/>
+    <eLiterals name="INFERIOR" value="2" literal="&lt;"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="QualitativeOperator">
+    <eLiterals name="EQUALS" literal="="/>
+    <eLiterals name="NOT" value="1" literal="!="/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ScatterPlot" eSuperTypes="#//Plot"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PolarPlot" eSuperTypes="#//Plot"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PiePlot" eSuperTypes="#//Plot"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RadarPlot" eSuperTypes="#//Plot"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DonutPlot" eSuperTypes="#//Plot"/>
 </ecore:EPackage>

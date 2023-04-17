@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import ucal3ia.bilang.abstractsyntax.AbstractsyntaxPackage;
 import ucal3ia.bilang.abstractsyntax.QualitativeFiltering;
+import ucal3ia.bilang.abstractsyntax.QualitativeOperator;
 
 /**
  * <!-- begin-user-doc -->
@@ -18,6 +19,7 @@ import ucal3ia.bilang.abstractsyntax.QualitativeFiltering;
  * </p>
  * <ul>
  *   <li>{@link ucal3ia.bilang.abstractsyntax.impl.QualitativeFilteringImpl#getLabels <em>Labels</em>}</li>
+ *   <li>{@link ucal3ia.bilang.abstractsyntax.impl.QualitativeFilteringImpl#getOperator <em>Operator</em>}</li>
  * </ul>
  *
  * @generated
@@ -41,6 +43,25 @@ public class QualitativeFilteringImpl extends FilteringStepImpl implements Quali
 	 * @ordered
 	 */
 	protected String labels = LABELS_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getOperator() <em>Operator</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOperator()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final QualitativeOperator OPERATOR_EDEFAULT = QualitativeOperator.EQUALS;
+	/**
+	 * The cached value of the '{@link #getOperator() <em>Operator</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOperator()
+	 * @generated
+	 * @ordered
+	 */
+	protected QualitativeOperator operator = OPERATOR_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -88,11 +109,35 @@ public class QualitativeFilteringImpl extends FilteringStepImpl implements Quali
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public QualitativeOperator getOperator() {
+		return operator;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setOperator(QualitativeOperator newOperator) {
+		QualitativeOperator oldOperator = operator;
+		operator = newOperator == null ? OPERATOR_EDEFAULT : newOperator;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AbstractsyntaxPackage.QUALITATIVE_FILTERING__OPERATOR,
+					oldOperator, operator));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 		case AbstractsyntaxPackage.QUALITATIVE_FILTERING__LABELS:
 			return getLabels();
+		case AbstractsyntaxPackage.QUALITATIVE_FILTERING__OPERATOR:
+			return getOperator();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -107,6 +152,9 @@ public class QualitativeFilteringImpl extends FilteringStepImpl implements Quali
 		switch (featureID) {
 		case AbstractsyntaxPackage.QUALITATIVE_FILTERING__LABELS:
 			setLabels((String) newValue);
+			return;
+		case AbstractsyntaxPackage.QUALITATIVE_FILTERING__OPERATOR:
+			setOperator((QualitativeOperator) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -123,6 +171,9 @@ public class QualitativeFilteringImpl extends FilteringStepImpl implements Quali
 		case AbstractsyntaxPackage.QUALITATIVE_FILTERING__LABELS:
 			setLabels(LABELS_EDEFAULT);
 			return;
+		case AbstractsyntaxPackage.QUALITATIVE_FILTERING__OPERATOR:
+			setOperator(OPERATOR_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -137,6 +188,8 @@ public class QualitativeFilteringImpl extends FilteringStepImpl implements Quali
 		switch (featureID) {
 		case AbstractsyntaxPackage.QUALITATIVE_FILTERING__LABELS:
 			return LABELS_EDEFAULT == null ? labels != null : !LABELS_EDEFAULT.equals(labels);
+		case AbstractsyntaxPackage.QUALITATIVE_FILTERING__OPERATOR:
+			return operator != OPERATOR_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -154,6 +207,8 @@ public class QualitativeFilteringImpl extends FilteringStepImpl implements Quali
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (labels: ");
 		result.append(labels);
+		result.append(", operator: ");
+		result.append(operator);
 		result.append(')');
 		return result.toString();
 	}

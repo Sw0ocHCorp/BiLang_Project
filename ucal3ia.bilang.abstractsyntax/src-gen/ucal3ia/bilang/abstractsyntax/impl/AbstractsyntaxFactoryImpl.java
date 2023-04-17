@@ -83,6 +83,16 @@ public class AbstractsyntaxFactoryImpl extends EFactoryImpl implements Abstracts
 			return createColReference();
 		case AbstractsyntaxPackage.STATISTICAL_OPERATION:
 			return createStatisticalOperation();
+		case AbstractsyntaxPackage.SCATTER_PLOT:
+			return createScatterPlot();
+		case AbstractsyntaxPackage.POLAR_PLOT:
+			return createPolarPlot();
+		case AbstractsyntaxPackage.PIE_PLOT:
+			return createPiePlot();
+		case AbstractsyntaxPackage.RADAR_PLOT:
+			return createRadarPlot();
+		case AbstractsyntaxPackage.DONUT_PLOT:
+			return createDonutPlot();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -100,6 +110,10 @@ public class AbstractsyntaxFactoryImpl extends EFactoryImpl implements Abstracts
 			return createMathOperatorFromString(eDataType, initialValue);
 		case AbstractsyntaxPackage.STATISTICAL_OPERATOR:
 			return createStatisticalOperatorFromString(eDataType, initialValue);
+		case AbstractsyntaxPackage.QUANTITATIVE_OPERATOR:
+			return createQuantitativeOperatorFromString(eDataType, initialValue);
+		case AbstractsyntaxPackage.QUALITATIVE_OPERATOR:
+			return createQualitativeOperatorFromString(eDataType, initialValue);
 		default:
 			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -117,6 +131,10 @@ public class AbstractsyntaxFactoryImpl extends EFactoryImpl implements Abstracts
 			return convertMathOperatorToString(eDataType, instanceValue);
 		case AbstractsyntaxPackage.STATISTICAL_OPERATOR:
 			return convertStatisticalOperatorToString(eDataType, instanceValue);
+		case AbstractsyntaxPackage.QUANTITATIVE_OPERATOR:
+			return convertQuantitativeOperatorToString(eDataType, instanceValue);
+		case AbstractsyntaxPackage.QUALITATIVE_OPERATOR:
+			return convertQualitativeOperatorToString(eDataType, instanceValue);
 		default:
 			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -257,6 +275,56 @@ public class AbstractsyntaxFactoryImpl extends EFactoryImpl implements Abstracts
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ScatterPlot createScatterPlot() {
+		ScatterPlotImpl scatterPlot = new ScatterPlotImpl();
+		return scatterPlot;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PolarPlot createPolarPlot() {
+		PolarPlotImpl polarPlot = new PolarPlotImpl();
+		return polarPlot;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PiePlot createPiePlot() {
+		PiePlotImpl piePlot = new PiePlotImpl();
+		return piePlot;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RadarPlot createRadarPlot() {
+		RadarPlotImpl radarPlot = new RadarPlotImpl();
+		return radarPlot;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DonutPlot createDonutPlot() {
+		DonutPlotImpl donutPlot = new DonutPlotImpl();
+		return donutPlot;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public MathOperator createMathOperatorFromString(EDataType eDataType, String initialValue) {
 		MathOperator result = MathOperator.get(initialValue);
 		if (result == null)
@@ -293,6 +361,50 @@ public class AbstractsyntaxFactoryImpl extends EFactoryImpl implements Abstracts
 	 * @generated
 	 */
 	public String convertStatisticalOperatorToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QuantitativeOperator createQuantitativeOperatorFromString(EDataType eDataType, String initialValue) {
+		QuantitativeOperator result = QuantitativeOperator.get(initialValue);
+		if (result == null)
+			throw new IllegalArgumentException(
+					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertQuantitativeOperatorToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public QualitativeOperator createQualitativeOperatorFromString(EDataType eDataType, String initialValue) {
+		QualitativeOperator result = QualitativeOperator.get(initialValue);
+		if (result == null)
+			throw new IllegalArgumentException(
+					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertQualitativeOperatorToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

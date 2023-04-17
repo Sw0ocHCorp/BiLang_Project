@@ -21,6 +21,15 @@
       <genEnumLiterals ecoreEnumLiteral="abstractsyntax.ecore#//StatisticalOperator/MEDIAN"/>
       <genEnumLiterals ecoreEnumLiteral="abstractsyntax.ecore#//StatisticalOperator/STD"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="abstractsyntax.ecore#//QuantitativeOperator">
+      <genEnumLiterals ecoreEnumLiteral="abstractsyntax.ecore#//QuantitativeOperator/EQUAL"/>
+      <genEnumLiterals ecoreEnumLiteral="abstractsyntax.ecore#//QuantitativeOperator/SUPERIOR"/>
+      <genEnumLiterals ecoreEnumLiteral="abstractsyntax.ecore#//QuantitativeOperator/INFERIOR"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="abstractsyntax.ecore#//QualitativeOperator">
+      <genEnumLiterals ecoreEnumLiteral="abstractsyntax.ecore#//QualitativeOperator/EQUALS"/>
+      <genEnumLiterals ecoreEnumLiteral="abstractsyntax.ecore#//QualitativeOperator/NOT"/>
+    </genEnums>
     <genClasses ecoreClass="abstractsyntax.ecore#//NamedElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstractsyntax.ecore#//NamedElement/name"/>
     </genClasses>
@@ -59,9 +68,11 @@
     <genClasses ecoreClass="abstractsyntax.ecore#//PreprocessingStep"/>
     <genClasses ecoreClass="abstractsyntax.ecore#//QuantitativeFiltering">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstractsyntax.ecore#//QuantitativeFiltering/values"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstractsyntax.ecore#//QuantitativeFiltering/operator"/>
     </genClasses>
     <genClasses ecoreClass="abstractsyntax.ecore#//QualitativeFiltering">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstractsyntax.ecore#//QualitativeFiltering/labels"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstractsyntax.ecore#//QualitativeFiltering/operator"/>
     </genClasses>
     <genClasses ecoreClass="abstractsyntax.ecore#//MathOperation">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference abstractsyntax.ecore#//MathOperation/lside"/>
@@ -75,5 +86,10 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference abstractsyntax.ecore#//StatisticalOperation/colreference"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstractsyntax.ecore#//StatisticalOperation/operator"/>
     </genClasses>
+    <genClasses ecoreClass="abstractsyntax.ecore#//ScatterPlot"/>
+    <genClasses ecoreClass="abstractsyntax.ecore#//PolarPlot"/>
+    <genClasses ecoreClass="abstractsyntax.ecore#//PiePlot"/>
+    <genClasses ecoreClass="abstractsyntax.ecore#//RadarPlot"/>
+    <genClasses ecoreClass="abstractsyntax.ecore#//DonutPlot"/>
   </genPackages>
 </genmodel:GenModel>

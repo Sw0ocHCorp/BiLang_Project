@@ -17,6 +17,7 @@ import ucal3ia.bilang.abstractsyntax.ColReference;
 import ucal3ia.bilang.abstractsyntax.CsvExtractor;
 import ucal3ia.bilang.abstractsyntax.DashBoard;
 import ucal3ia.bilang.abstractsyntax.DataFiltering;
+import ucal3ia.bilang.abstractsyntax.DonutPlot;
 import ucal3ia.bilang.abstractsyntax.ExcelExtractor;
 import ucal3ia.bilang.abstractsyntax.FileExtractor;
 import ucal3ia.bilang.abstractsyntax.FilteringStep;
@@ -24,10 +25,16 @@ import ucal3ia.bilang.abstractsyntax.LinePlot;
 import ucal3ia.bilang.abstractsyntax.MathOperation;
 import ucal3ia.bilang.abstractsyntax.MathOperator;
 import ucal3ia.bilang.abstractsyntax.NamedElement;
+import ucal3ia.bilang.abstractsyntax.PiePlot;
 import ucal3ia.bilang.abstractsyntax.Plot;
+import ucal3ia.bilang.abstractsyntax.PolarPlot;
 import ucal3ia.bilang.abstractsyntax.PreprocessingStep;
 import ucal3ia.bilang.abstractsyntax.QualitativeFiltering;
+import ucal3ia.bilang.abstractsyntax.QualitativeOperator;
 import ucal3ia.bilang.abstractsyntax.QuantitativeFiltering;
+import ucal3ia.bilang.abstractsyntax.QuantitativeOperator;
+import ucal3ia.bilang.abstractsyntax.RadarPlot;
+import ucal3ia.bilang.abstractsyntax.ScatterPlot;
 import ucal3ia.bilang.abstractsyntax.StatisticalOperation;
 import ucal3ia.bilang.abstractsyntax.StatisticalOperator;
 import ucal3ia.bilang.abstractsyntax.Task;
@@ -163,6 +170,41 @@ public class AbstractsyntaxPackageImpl extends EPackageImpl implements Abstracts
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass scatterPlotEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass polarPlotEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass piePlotEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass radarPlotEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass donutPlotEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum mathOperatorEEnum = null;
 
 	/**
@@ -171,6 +213,20 @@ public class AbstractsyntaxPackageImpl extends EPackageImpl implements Abstracts
 	 * @generated
 	 */
 	private EEnum statisticalOperatorEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum quantitativeOperatorEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum qualitativeOperatorEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -520,6 +576,15 @@ public class AbstractsyntaxPackageImpl extends EPackageImpl implements Abstracts
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getQuantitativeFiltering_Operator() {
+		return (EAttribute) quantitativeFilteringEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getQualitativeFiltering() {
 		return qualitativeFilteringEClass;
 	}
@@ -531,6 +596,15 @@ public class AbstractsyntaxPackageImpl extends EPackageImpl implements Abstracts
 	 */
 	public EAttribute getQualitativeFiltering_Labels() {
 		return (EAttribute) qualitativeFilteringEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getQualitativeFiltering_Operator() {
+		return (EAttribute) qualitativeFilteringEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -619,6 +693,51 @@ public class AbstractsyntaxPackageImpl extends EPackageImpl implements Abstracts
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getScatterPlot() {
+		return scatterPlotEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPolarPlot() {
+		return polarPlotEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPiePlot() {
+		return piePlotEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getRadarPlot() {
+		return radarPlotEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getDonutPlot() {
+		return donutPlotEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getMathOperator() {
 		return mathOperatorEEnum;
 	}
@@ -630,6 +749,24 @@ public class AbstractsyntaxPackageImpl extends EPackageImpl implements Abstracts
 	 */
 	public EEnum getStatisticalOperator() {
 		return statisticalOperatorEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getQuantitativeOperator() {
+		return quantitativeOperatorEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getQualitativeOperator() {
+		return qualitativeOperatorEEnum;
 	}
 
 	/**
@@ -704,9 +841,11 @@ public class AbstractsyntaxPackageImpl extends EPackageImpl implements Abstracts
 
 		quantitativeFilteringEClass = createEClass(QUANTITATIVE_FILTERING);
 		createEAttribute(quantitativeFilteringEClass, QUANTITATIVE_FILTERING__VALUES);
+		createEAttribute(quantitativeFilteringEClass, QUANTITATIVE_FILTERING__OPERATOR);
 
 		qualitativeFilteringEClass = createEClass(QUALITATIVE_FILTERING);
 		createEAttribute(qualitativeFilteringEClass, QUALITATIVE_FILTERING__LABELS);
+		createEAttribute(qualitativeFilteringEClass, QUALITATIVE_FILTERING__OPERATOR);
 
 		mathOperationEClass = createEClass(MATH_OPERATION);
 		createEReference(mathOperationEClass, MATH_OPERATION__LSIDE);
@@ -720,9 +859,21 @@ public class AbstractsyntaxPackageImpl extends EPackageImpl implements Abstracts
 		createEReference(statisticalOperationEClass, STATISTICAL_OPERATION__COLREFERENCE);
 		createEAttribute(statisticalOperationEClass, STATISTICAL_OPERATION__OPERATOR);
 
+		scatterPlotEClass = createEClass(SCATTER_PLOT);
+
+		polarPlotEClass = createEClass(POLAR_PLOT);
+
+		piePlotEClass = createEClass(PIE_PLOT);
+
+		radarPlotEClass = createEClass(RADAR_PLOT);
+
+		donutPlotEClass = createEClass(DONUT_PLOT);
+
 		// Create enums
 		mathOperatorEEnum = createEEnum(MATH_OPERATOR);
 		statisticalOperatorEEnum = createEEnum(STATISTICAL_OPERATOR);
+		quantitativeOperatorEEnum = createEEnum(QUANTITATIVE_OPERATOR);
+		qualitativeOperatorEEnum = createEEnum(QUALITATIVE_OPERATOR);
 	}
 
 	/**
@@ -767,6 +918,11 @@ public class AbstractsyntaxPackageImpl extends EPackageImpl implements Abstracts
 		mathOperationEClass.getESuperTypes().add(this.getPreprocessingStep());
 		colReferenceEClass.getESuperTypes().add(this.getPreprocessingStep());
 		statisticalOperationEClass.getESuperTypes().add(this.getPreprocessingStep());
+		scatterPlotEClass.getESuperTypes().add(this.getPlot());
+		polarPlotEClass.getESuperTypes().add(this.getPlot());
+		piePlotEClass.getESuperTypes().add(this.getPlot());
+		radarPlotEClass.getESuperTypes().add(this.getPlot());
+		donutPlotEClass.getESuperTypes().add(this.getPlot());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(namedElementEClass, NamedElement.class, "NamedElement", IS_ABSTRACT, !IS_INTERFACE,
@@ -847,13 +1003,19 @@ public class AbstractsyntaxPackageImpl extends EPackageImpl implements Abstracts
 
 		initEClass(quantitativeFilteringEClass, QuantitativeFiltering.class, "QuantitativeFiltering", !IS_ABSTRACT,
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getQuantitativeFiltering_Values(), ecorePackage.getEString(), "values", null, 0, 1,
+		initEAttribute(getQuantitativeFiltering_Values(), ecorePackage.getEFloat(), "values", null, 0, 1,
+				QuantitativeFiltering.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getQuantitativeFiltering_Operator(), this.getQuantitativeOperator(), "operator", null, 0, 1,
 				QuantitativeFiltering.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(qualitativeFilteringEClass, QualitativeFiltering.class, "QualitativeFiltering", !IS_ABSTRACT,
 				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getQualitativeFiltering_Labels(), ecorePackage.getEString(), "labels", null, 0, 1,
+				QualitativeFiltering.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getQualitativeFiltering_Operator(), this.getQualitativeOperator(), "operator", null, 0, 1,
 				QualitativeFiltering.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -882,6 +1044,20 @@ public class AbstractsyntaxPackageImpl extends EPackageImpl implements Abstracts
 				StatisticalOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+		initEClass(scatterPlotEClass, ScatterPlot.class, "ScatterPlot", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(polarPlotEClass, PolarPlot.class, "PolarPlot", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(piePlotEClass, PiePlot.class, "PiePlot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(radarPlotEClass, RadarPlot.class, "RadarPlot", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(donutPlotEClass, DonutPlot.class, "DonutPlot", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+
 		// Initialize enums and add enum literals
 		initEEnum(mathOperatorEEnum, MathOperator.class, "MathOperator");
 		addEEnumLiteral(mathOperatorEEnum, MathOperator.PLUS);
@@ -893,6 +1069,15 @@ public class AbstractsyntaxPackageImpl extends EPackageImpl implements Abstracts
 		addEEnumLiteral(statisticalOperatorEEnum, StatisticalOperator.MEAN);
 		addEEnumLiteral(statisticalOperatorEEnum, StatisticalOperator.MEDIAN);
 		addEEnumLiteral(statisticalOperatorEEnum, StatisticalOperator.STD);
+
+		initEEnum(quantitativeOperatorEEnum, QuantitativeOperator.class, "QuantitativeOperator");
+		addEEnumLiteral(quantitativeOperatorEEnum, QuantitativeOperator.EQUAL);
+		addEEnumLiteral(quantitativeOperatorEEnum, QuantitativeOperator.SUPERIOR);
+		addEEnumLiteral(quantitativeOperatorEEnum, QuantitativeOperator.INFERIOR);
+
+		initEEnum(qualitativeOperatorEEnum, QualitativeOperator.class, "QualitativeOperator");
+		addEEnumLiteral(qualitativeOperatorEEnum, QualitativeOperator.EQUALS);
+		addEEnumLiteral(qualitativeOperatorEEnum, QualitativeOperator.NOT);
 
 		// Create resource
 		createResource(eNS_URI);

@@ -219,6 +219,61 @@ public class AbstractsyntaxSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case AbstractsyntaxPackage.SCATTER_PLOT: {
+			ScatterPlot scatterPlot = (ScatterPlot) theEObject;
+			T result = caseScatterPlot(scatterPlot);
+			if (result == null)
+				result = casePlot(scatterPlot);
+			if (result == null)
+				result = caseNamedElement(scatterPlot);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case AbstractsyntaxPackage.POLAR_PLOT: {
+			PolarPlot polarPlot = (PolarPlot) theEObject;
+			T result = casePolarPlot(polarPlot);
+			if (result == null)
+				result = casePlot(polarPlot);
+			if (result == null)
+				result = caseNamedElement(polarPlot);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case AbstractsyntaxPackage.PIE_PLOT: {
+			PiePlot piePlot = (PiePlot) theEObject;
+			T result = casePiePlot(piePlot);
+			if (result == null)
+				result = casePlot(piePlot);
+			if (result == null)
+				result = caseNamedElement(piePlot);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case AbstractsyntaxPackage.RADAR_PLOT: {
+			RadarPlot radarPlot = (RadarPlot) theEObject;
+			T result = caseRadarPlot(radarPlot);
+			if (result == null)
+				result = casePlot(radarPlot);
+			if (result == null)
+				result = caseNamedElement(radarPlot);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case AbstractsyntaxPackage.DONUT_PLOT: {
+			DonutPlot donutPlot = (DonutPlot) theEObject;
+			T result = caseDonutPlot(donutPlot);
+			if (result == null)
+				result = casePlot(donutPlot);
+			if (result == null)
+				result = caseNamedElement(donutPlot);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		default:
 			return defaultCase(theEObject);
 		}
@@ -476,6 +531,81 @@ public class AbstractsyntaxSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseStatisticalOperation(StatisticalOperation object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Scatter Plot</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Scatter Plot</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseScatterPlot(ScatterPlot object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Polar Plot</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Polar Plot</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePolarPlot(PolarPlot object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Pie Plot</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Pie Plot</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePiePlot(PiePlot object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Radar Plot</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Radar Plot</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRadarPlot(RadarPlot object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Donut Plot</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Donut Plot</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDonutPlot(DonutPlot object) {
 		return null;
 	}
 

@@ -181,6 +181,21 @@ public class DashBoardItemProvider extends NamedElementItemProvider {
 
 		newChildDescriptors.add(createChildParameter(AbstractsyntaxPackage.Literals.DASH_BOARD__PLOT,
 				AbstractsyntaxFactory.eINSTANCE.createLinePlot()));
+
+		newChildDescriptors.add(createChildParameter(AbstractsyntaxPackage.Literals.DASH_BOARD__PLOT,
+				AbstractsyntaxFactory.eINSTANCE.createScatterPlot()));
+
+		newChildDescriptors.add(createChildParameter(AbstractsyntaxPackage.Literals.DASH_BOARD__PLOT,
+				AbstractsyntaxFactory.eINSTANCE.createPolarPlot()));
+
+		newChildDescriptors.add(createChildParameter(AbstractsyntaxPackage.Literals.DASH_BOARD__PLOT,
+				AbstractsyntaxFactory.eINSTANCE.createPiePlot()));
+
+		newChildDescriptors.add(createChildParameter(AbstractsyntaxPackage.Literals.DASH_BOARD__PLOT,
+				AbstractsyntaxFactory.eINSTANCE.createRadarPlot()));
+
+		newChildDescriptors.add(createChildParameter(AbstractsyntaxPackage.Literals.DASH_BOARD__PLOT,
+				AbstractsyntaxFactory.eINSTANCE.createDonutPlot()));
 	}
 
 }

@@ -755,13 +755,22 @@ public interface AbstractsyntaxPackage extends EPackage {
 	int QUANTITATIVE_FILTERING__VALUES = FILTERING_STEP_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Operator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUANTITATIVE_FILTERING__OPERATOR = FILTERING_STEP_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Quantitative Filtering</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QUANTITATIVE_FILTERING_FEATURE_COUNT = FILTERING_STEP_FEATURE_COUNT + 1;
+	int QUANTITATIVE_FILTERING_FEATURE_COUNT = FILTERING_STEP_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Quantitative Filtering</em>' class.
@@ -801,13 +810,22 @@ public interface AbstractsyntaxPackage extends EPackage {
 	int QUALITATIVE_FILTERING__LABELS = FILTERING_STEP_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Operator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUALITATIVE_FILTERING__OPERATOR = FILTERING_STEP_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>Qualitative Filtering</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QUALITATIVE_FILTERING_FEATURE_COUNT = FILTERING_STEP_FEATURE_COUNT + 1;
+	int QUALITATIVE_FILTERING_FEATURE_COUNT = FILTERING_STEP_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Qualitative Filtering</em>' class.
@@ -957,6 +975,416 @@ public interface AbstractsyntaxPackage extends EPackage {
 	int STATISTICAL_OPERATION_OPERATION_COUNT = PREPROCESSING_STEP_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link ucal3ia.bilang.abstractsyntax.impl.ScatterPlotImpl <em>Scatter Plot</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ucal3ia.bilang.abstractsyntax.impl.ScatterPlotImpl
+	 * @see ucal3ia.bilang.abstractsyntax.impl.AbstractsyntaxPackageImpl#getScatterPlot()
+	 * @generated
+	 */
+	int SCATTER_PLOT = 17;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCATTER_PLOT__NAME = PLOT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>XAxis</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCATTER_PLOT__XAXIS = PLOT__XAXIS;
+
+	/**
+	 * The feature id for the '<em><b>YAxis</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCATTER_PLOT__YAXIS = PLOT__YAXIS;
+
+	/**
+	 * The feature id for the '<em><b>Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCATTER_PLOT__LOCATION = PLOT__LOCATION;
+
+	/**
+	 * The feature id for the '<em><b>Colors</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCATTER_PLOT__COLORS = PLOT__COLORS;
+
+	/**
+	 * The feature id for the '<em><b>Thickness</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCATTER_PLOT__THICKNESS = PLOT__THICKNESS;
+
+	/**
+	 * The number of structural features of the '<em>Scatter Plot</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCATTER_PLOT_FEATURE_COUNT = PLOT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Scatter Plot</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCATTER_PLOT_OPERATION_COUNT = PLOT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link ucal3ia.bilang.abstractsyntax.impl.PolarPlotImpl <em>Polar Plot</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ucal3ia.bilang.abstractsyntax.impl.PolarPlotImpl
+	 * @see ucal3ia.bilang.abstractsyntax.impl.AbstractsyntaxPackageImpl#getPolarPlot()
+	 * @generated
+	 */
+	int POLAR_PLOT = 18;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_PLOT__NAME = PLOT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>XAxis</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_PLOT__XAXIS = PLOT__XAXIS;
+
+	/**
+	 * The feature id for the '<em><b>YAxis</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_PLOT__YAXIS = PLOT__YAXIS;
+
+	/**
+	 * The feature id for the '<em><b>Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_PLOT__LOCATION = PLOT__LOCATION;
+
+	/**
+	 * The feature id for the '<em><b>Colors</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_PLOT__COLORS = PLOT__COLORS;
+
+	/**
+	 * The feature id for the '<em><b>Thickness</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_PLOT__THICKNESS = PLOT__THICKNESS;
+
+	/**
+	 * The number of structural features of the '<em>Polar Plot</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_PLOT_FEATURE_COUNT = PLOT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Polar Plot</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLAR_PLOT_OPERATION_COUNT = PLOT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link ucal3ia.bilang.abstractsyntax.impl.PiePlotImpl <em>Pie Plot</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ucal3ia.bilang.abstractsyntax.impl.PiePlotImpl
+	 * @see ucal3ia.bilang.abstractsyntax.impl.AbstractsyntaxPackageImpl#getPiePlot()
+	 * @generated
+	 */
+	int PIE_PLOT = 19;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIE_PLOT__NAME = PLOT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>XAxis</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIE_PLOT__XAXIS = PLOT__XAXIS;
+
+	/**
+	 * The feature id for the '<em><b>YAxis</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIE_PLOT__YAXIS = PLOT__YAXIS;
+
+	/**
+	 * The feature id for the '<em><b>Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIE_PLOT__LOCATION = PLOT__LOCATION;
+
+	/**
+	 * The feature id for the '<em><b>Colors</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIE_PLOT__COLORS = PLOT__COLORS;
+
+	/**
+	 * The feature id for the '<em><b>Thickness</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIE_PLOT__THICKNESS = PLOT__THICKNESS;
+
+	/**
+	 * The number of structural features of the '<em>Pie Plot</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIE_PLOT_FEATURE_COUNT = PLOT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Pie Plot</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIE_PLOT_OPERATION_COUNT = PLOT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link ucal3ia.bilang.abstractsyntax.impl.RadarPlotImpl <em>Radar Plot</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ucal3ia.bilang.abstractsyntax.impl.RadarPlotImpl
+	 * @see ucal3ia.bilang.abstractsyntax.impl.AbstractsyntaxPackageImpl#getRadarPlot()
+	 * @generated
+	 */
+	int RADAR_PLOT = 20;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RADAR_PLOT__NAME = PLOT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>XAxis</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RADAR_PLOT__XAXIS = PLOT__XAXIS;
+
+	/**
+	 * The feature id for the '<em><b>YAxis</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RADAR_PLOT__YAXIS = PLOT__YAXIS;
+
+	/**
+	 * The feature id for the '<em><b>Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RADAR_PLOT__LOCATION = PLOT__LOCATION;
+
+	/**
+	 * The feature id for the '<em><b>Colors</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RADAR_PLOT__COLORS = PLOT__COLORS;
+
+	/**
+	 * The feature id for the '<em><b>Thickness</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RADAR_PLOT__THICKNESS = PLOT__THICKNESS;
+
+	/**
+	 * The number of structural features of the '<em>Radar Plot</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RADAR_PLOT_FEATURE_COUNT = PLOT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Radar Plot</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RADAR_PLOT_OPERATION_COUNT = PLOT_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link ucal3ia.bilang.abstractsyntax.impl.DonutPlotImpl <em>Donut Plot</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ucal3ia.bilang.abstractsyntax.impl.DonutPlotImpl
+	 * @see ucal3ia.bilang.abstractsyntax.impl.AbstractsyntaxPackageImpl#getDonutPlot()
+	 * @generated
+	 */
+	int DONUT_PLOT = 21;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DONUT_PLOT__NAME = PLOT__NAME;
+
+	/**
+	 * The feature id for the '<em><b>XAxis</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DONUT_PLOT__XAXIS = PLOT__XAXIS;
+
+	/**
+	 * The feature id for the '<em><b>YAxis</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DONUT_PLOT__YAXIS = PLOT__YAXIS;
+
+	/**
+	 * The feature id for the '<em><b>Location</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DONUT_PLOT__LOCATION = PLOT__LOCATION;
+
+	/**
+	 * The feature id for the '<em><b>Colors</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DONUT_PLOT__COLORS = PLOT__COLORS;
+
+	/**
+	 * The feature id for the '<em><b>Thickness</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DONUT_PLOT__THICKNESS = PLOT__THICKNESS;
+
+	/**
+	 * The number of structural features of the '<em>Donut Plot</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DONUT_PLOT_FEATURE_COUNT = PLOT_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of operations of the '<em>Donut Plot</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DONUT_PLOT_OPERATION_COUNT = PLOT_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link ucal3ia.bilang.abstractsyntax.MathOperator <em>Math Operator</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -964,7 +1392,7 @@ public interface AbstractsyntaxPackage extends EPackage {
 	 * @see ucal3ia.bilang.abstractsyntax.impl.AbstractsyntaxPackageImpl#getMathOperator()
 	 * @generated
 	 */
-	int MATH_OPERATOR = 17;
+	int MATH_OPERATOR = 22;
 
 	/**
 	 * The meta object id for the '{@link ucal3ia.bilang.abstractsyntax.StatisticalOperator <em>Statistical Operator</em>}' enum.
@@ -974,7 +1402,27 @@ public interface AbstractsyntaxPackage extends EPackage {
 	 * @see ucal3ia.bilang.abstractsyntax.impl.AbstractsyntaxPackageImpl#getStatisticalOperator()
 	 * @generated
 	 */
-	int STATISTICAL_OPERATOR = 18;
+	int STATISTICAL_OPERATOR = 23;
+
+	/**
+	 * The meta object id for the '{@link ucal3ia.bilang.abstractsyntax.QuantitativeOperator <em>Quantitative Operator</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ucal3ia.bilang.abstractsyntax.QuantitativeOperator
+	 * @see ucal3ia.bilang.abstractsyntax.impl.AbstractsyntaxPackageImpl#getQuantitativeOperator()
+	 * @generated
+	 */
+	int QUANTITATIVE_OPERATOR = 24;
+
+	/**
+	 * The meta object id for the '{@link ucal3ia.bilang.abstractsyntax.QualitativeOperator <em>Qualitative Operator</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ucal3ia.bilang.abstractsyntax.QualitativeOperator
+	 * @see ucal3ia.bilang.abstractsyntax.impl.AbstractsyntaxPackageImpl#getQualitativeOperator()
+	 * @generated
+	 */
+	int QUALITATIVE_OPERATOR = 25;
 
 	/**
 	 * Returns the meta object for class '{@link ucal3ia.bilang.abstractsyntax.NamedElement <em>Named Element</em>}'.
@@ -1305,6 +1753,17 @@ public interface AbstractsyntaxPackage extends EPackage {
 	EAttribute getQuantitativeFiltering_Values();
 
 	/**
+	 * Returns the meta object for the attribute '{@link ucal3ia.bilang.abstractsyntax.QuantitativeFiltering#getOperator <em>Operator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Operator</em>'.
+	 * @see ucal3ia.bilang.abstractsyntax.QuantitativeFiltering#getOperator()
+	 * @see #getQuantitativeFiltering()
+	 * @generated
+	 */
+	EAttribute getQuantitativeFiltering_Operator();
+
+	/**
 	 * Returns the meta object for class '{@link ucal3ia.bilang.abstractsyntax.QualitativeFiltering <em>Qualitative Filtering</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1324,6 +1783,17 @@ public interface AbstractsyntaxPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getQualitativeFiltering_Labels();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ucal3ia.bilang.abstractsyntax.QualitativeFiltering#getOperator <em>Operator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Operator</em>'.
+	 * @see ucal3ia.bilang.abstractsyntax.QualitativeFiltering#getOperator()
+	 * @see #getQualitativeFiltering()
+	 * @generated
+	 */
+	EAttribute getQualitativeFiltering_Operator();
 
 	/**
 	 * Returns the meta object for class '{@link ucal3ia.bilang.abstractsyntax.MathOperation <em>Math Operation</em>}'.
@@ -1422,6 +1892,56 @@ public interface AbstractsyntaxPackage extends EPackage {
 	EAttribute getStatisticalOperation_Operator();
 
 	/**
+	 * Returns the meta object for class '{@link ucal3ia.bilang.abstractsyntax.ScatterPlot <em>Scatter Plot</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Scatter Plot</em>'.
+	 * @see ucal3ia.bilang.abstractsyntax.ScatterPlot
+	 * @generated
+	 */
+	EClass getScatterPlot();
+
+	/**
+	 * Returns the meta object for class '{@link ucal3ia.bilang.abstractsyntax.PolarPlot <em>Polar Plot</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Polar Plot</em>'.
+	 * @see ucal3ia.bilang.abstractsyntax.PolarPlot
+	 * @generated
+	 */
+	EClass getPolarPlot();
+
+	/**
+	 * Returns the meta object for class '{@link ucal3ia.bilang.abstractsyntax.PiePlot <em>Pie Plot</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Pie Plot</em>'.
+	 * @see ucal3ia.bilang.abstractsyntax.PiePlot
+	 * @generated
+	 */
+	EClass getPiePlot();
+
+	/**
+	 * Returns the meta object for class '{@link ucal3ia.bilang.abstractsyntax.RadarPlot <em>Radar Plot</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Radar Plot</em>'.
+	 * @see ucal3ia.bilang.abstractsyntax.RadarPlot
+	 * @generated
+	 */
+	EClass getRadarPlot();
+
+	/**
+	 * Returns the meta object for class '{@link ucal3ia.bilang.abstractsyntax.DonutPlot <em>Donut Plot</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Donut Plot</em>'.
+	 * @see ucal3ia.bilang.abstractsyntax.DonutPlot
+	 * @generated
+	 */
+	EClass getDonutPlot();
+
+	/**
 	 * Returns the meta object for enum '{@link ucal3ia.bilang.abstractsyntax.MathOperator <em>Math Operator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1440,6 +1960,26 @@ public interface AbstractsyntaxPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getStatisticalOperator();
+
+	/**
+	 * Returns the meta object for enum '{@link ucal3ia.bilang.abstractsyntax.QuantitativeOperator <em>Quantitative Operator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Quantitative Operator</em>'.
+	 * @see ucal3ia.bilang.abstractsyntax.QuantitativeOperator
+	 * @generated
+	 */
+	EEnum getQuantitativeOperator();
+
+	/**
+	 * Returns the meta object for enum '{@link ucal3ia.bilang.abstractsyntax.QualitativeOperator <em>Qualitative Operator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Qualitative Operator</em>'.
+	 * @see ucal3ia.bilang.abstractsyntax.QualitativeOperator
+	 * @generated
+	 */
+	EEnum getQualitativeOperator();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1739,6 +2279,14 @@ public interface AbstractsyntaxPackage extends EPackage {
 		EAttribute QUANTITATIVE_FILTERING__VALUES = eINSTANCE.getQuantitativeFiltering_Values();
 
 		/**
+		 * The meta object literal for the '<em><b>Operator</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute QUANTITATIVE_FILTERING__OPERATOR = eINSTANCE.getQuantitativeFiltering_Operator();
+
+		/**
 		 * The meta object literal for the '{@link ucal3ia.bilang.abstractsyntax.impl.QualitativeFilteringImpl <em>Qualitative Filtering</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1755,6 +2303,14 @@ public interface AbstractsyntaxPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute QUALITATIVE_FILTERING__LABELS = eINSTANCE.getQualitativeFiltering_Labels();
+
+		/**
+		 * The meta object literal for the '<em><b>Operator</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute QUALITATIVE_FILTERING__OPERATOR = eINSTANCE.getQualitativeFiltering_Operator();
 
 		/**
 		 * The meta object literal for the '{@link ucal3ia.bilang.abstractsyntax.impl.MathOperationImpl <em>Math Operation</em>}' class.
@@ -1835,6 +2391,56 @@ public interface AbstractsyntaxPackage extends EPackage {
 		EAttribute STATISTICAL_OPERATION__OPERATOR = eINSTANCE.getStatisticalOperation_Operator();
 
 		/**
+		 * The meta object literal for the '{@link ucal3ia.bilang.abstractsyntax.impl.ScatterPlotImpl <em>Scatter Plot</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ucal3ia.bilang.abstractsyntax.impl.ScatterPlotImpl
+		 * @see ucal3ia.bilang.abstractsyntax.impl.AbstractsyntaxPackageImpl#getScatterPlot()
+		 * @generated
+		 */
+		EClass SCATTER_PLOT = eINSTANCE.getScatterPlot();
+
+		/**
+		 * The meta object literal for the '{@link ucal3ia.bilang.abstractsyntax.impl.PolarPlotImpl <em>Polar Plot</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ucal3ia.bilang.abstractsyntax.impl.PolarPlotImpl
+		 * @see ucal3ia.bilang.abstractsyntax.impl.AbstractsyntaxPackageImpl#getPolarPlot()
+		 * @generated
+		 */
+		EClass POLAR_PLOT = eINSTANCE.getPolarPlot();
+
+		/**
+		 * The meta object literal for the '{@link ucal3ia.bilang.abstractsyntax.impl.PiePlotImpl <em>Pie Plot</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ucal3ia.bilang.abstractsyntax.impl.PiePlotImpl
+		 * @see ucal3ia.bilang.abstractsyntax.impl.AbstractsyntaxPackageImpl#getPiePlot()
+		 * @generated
+		 */
+		EClass PIE_PLOT = eINSTANCE.getPiePlot();
+
+		/**
+		 * The meta object literal for the '{@link ucal3ia.bilang.abstractsyntax.impl.RadarPlotImpl <em>Radar Plot</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ucal3ia.bilang.abstractsyntax.impl.RadarPlotImpl
+		 * @see ucal3ia.bilang.abstractsyntax.impl.AbstractsyntaxPackageImpl#getRadarPlot()
+		 * @generated
+		 */
+		EClass RADAR_PLOT = eINSTANCE.getRadarPlot();
+
+		/**
+		 * The meta object literal for the '{@link ucal3ia.bilang.abstractsyntax.impl.DonutPlotImpl <em>Donut Plot</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ucal3ia.bilang.abstractsyntax.impl.DonutPlotImpl
+		 * @see ucal3ia.bilang.abstractsyntax.impl.AbstractsyntaxPackageImpl#getDonutPlot()
+		 * @generated
+		 */
+		EClass DONUT_PLOT = eINSTANCE.getDonutPlot();
+
+		/**
 		 * The meta object literal for the '{@link ucal3ia.bilang.abstractsyntax.MathOperator <em>Math Operator</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1853,6 +2459,26 @@ public interface AbstractsyntaxPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum STATISTICAL_OPERATOR = eINSTANCE.getStatisticalOperator();
+
+		/**
+		 * The meta object literal for the '{@link ucal3ia.bilang.abstractsyntax.QuantitativeOperator <em>Quantitative Operator</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ucal3ia.bilang.abstractsyntax.QuantitativeOperator
+		 * @see ucal3ia.bilang.abstractsyntax.impl.AbstractsyntaxPackageImpl#getQuantitativeOperator()
+		 * @generated
+		 */
+		EEnum QUANTITATIVE_OPERATOR = eINSTANCE.getQuantitativeOperator();
+
+		/**
+		 * The meta object literal for the '{@link ucal3ia.bilang.abstractsyntax.QualitativeOperator <em>Qualitative Operator</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ucal3ia.bilang.abstractsyntax.QualitativeOperator
+		 * @see ucal3ia.bilang.abstractsyntax.impl.AbstractsyntaxPackageImpl#getQualitativeOperator()
+		 * @generated
+		 */
+		EEnum QUALITATIVE_OPERATOR = eINSTANCE.getQualitativeOperator();
 
 	}
 

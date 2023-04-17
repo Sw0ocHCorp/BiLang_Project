@@ -1,0 +1,25 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: ucal3ia.bilang.concretesyntax.ui
+Bundle-ManifestVersion: 2
+Bundle-Name: ucal3ia.bilang.concretesyntax.ui
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: ucal3ia.bilang.concretesyntax.ui; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: ucal3ia.bilang.concretesyntax,
+ ucal3ia.bilang.concretesyntax.ide,
+ ucal3ia.bilang.abstractsyntax,
+ org.eclipse.xtext.ui,
+ org.eclipse.xtext.ui.shared,
+ org.eclipse.xtext.ui.codetemplates.ui,
+ org.eclipse.ui.editors;bundle-version="3.5.0",
+ org.eclipse.ui.ide;bundle-version="3.5.0",
+ org.eclipse.ui,
+ org.eclipse.compare,
+ org.eclipse.xtext.builder
+Import-Package: org.apache.log4j
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Export-Package: ucal3ia.bilang.ui.quickfix,
+ ucal3ia.bilang.concretesyntax.ui.internal,
+ ucal3ia.bilang.ui.contentassist
+Bundle-Activator: ucal3ia.bilang.concretesyntax.ui.internal.ConcretesyntaxActivator

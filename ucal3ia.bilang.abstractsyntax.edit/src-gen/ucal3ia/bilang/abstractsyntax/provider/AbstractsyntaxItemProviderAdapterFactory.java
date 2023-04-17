@@ -372,6 +372,121 @@ public class AbstractsyntaxItemProviderAdapterFactory extends AbstractsyntaxAdap
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link ucal3ia.bilang.abstractsyntax.ScatterPlot} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ScatterPlotItemProvider scatterPlotItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ucal3ia.bilang.abstractsyntax.ScatterPlot}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createScatterPlotAdapter() {
+		if (scatterPlotItemProvider == null) {
+			scatterPlotItemProvider = new ScatterPlotItemProvider(this);
+		}
+
+		return scatterPlotItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link ucal3ia.bilang.abstractsyntax.PolarPlot} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PolarPlotItemProvider polarPlotItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ucal3ia.bilang.abstractsyntax.PolarPlot}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPolarPlotAdapter() {
+		if (polarPlotItemProvider == null) {
+			polarPlotItemProvider = new PolarPlotItemProvider(this);
+		}
+
+		return polarPlotItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link ucal3ia.bilang.abstractsyntax.PiePlot} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PiePlotItemProvider piePlotItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ucal3ia.bilang.abstractsyntax.PiePlot}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPiePlotAdapter() {
+		if (piePlotItemProvider == null) {
+			piePlotItemProvider = new PiePlotItemProvider(this);
+		}
+
+		return piePlotItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link ucal3ia.bilang.abstractsyntax.RadarPlot} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RadarPlotItemProvider radarPlotItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ucal3ia.bilang.abstractsyntax.RadarPlot}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRadarPlotAdapter() {
+		if (radarPlotItemProvider == null) {
+			radarPlotItemProvider = new RadarPlotItemProvider(this);
+		}
+
+		return radarPlotItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link ucal3ia.bilang.abstractsyntax.DonutPlot} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DonutPlotItemProvider donutPlotItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ucal3ia.bilang.abstractsyntax.DonutPlot}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDonutPlotAdapter() {
+		if (donutPlotItemProvider == null) {
+			donutPlotItemProvider = new DonutPlotItemProvider(this);
+		}
+
+		return donutPlotItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -496,6 +611,16 @@ public class AbstractsyntaxItemProviderAdapterFactory extends AbstractsyntaxAdap
 			colReferenceItemProvider.dispose();
 		if (statisticalOperationItemProvider != null)
 			statisticalOperationItemProvider.dispose();
+		if (scatterPlotItemProvider != null)
+			scatterPlotItemProvider.dispose();
+		if (polarPlotItemProvider != null)
+			polarPlotItemProvider.dispose();
+		if (piePlotItemProvider != null)
+			piePlotItemProvider.dispose();
+		if (radarPlotItemProvider != null)
+			radarPlotItemProvider.dispose();
+		if (donutPlotItemProvider != null)
+			donutPlotItemProvider.dispose();
 	}
 
 }
