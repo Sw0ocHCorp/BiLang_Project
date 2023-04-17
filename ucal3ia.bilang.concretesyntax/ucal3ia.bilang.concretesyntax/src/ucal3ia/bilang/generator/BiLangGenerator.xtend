@@ -25,6 +25,11 @@ import ucal3ia.bilang.abstractsyntax.MathOperation
 import ucal3ia.bilang.abstractsyntax.ColReference
 import ucal3ia.bilang.abstractsyntax.StatisticalOperation
 import ucal3ia.bilang.abstractsyntax.LinePlot
+import ucal3ia.bilang.abstractsyntax.RadarPlot
+import ucal3ia.bilang.abstractsyntax.PiePlot
+import ucal3ia.bilang.abstractsyntax.ScatterPlot
+import ucal3ia.bilang.abstractsyntax.PolarPlot
+import ucal3ia.bilang.abstractsyntax.DonutPlot
 
 /**
  * Generates code from your model files on save.
@@ -312,25 +317,36 @@ class BiLangGenerator extends AbstractGenerator {
 			var xAxis= new ArrayList<String>()
 			var colors= new ArrayList<String>()
 			//Récupération de la / des couleurs du graphique
-			if ((plot.colors).contains(", ")){
-				for (color:(plot.colors).split(", ")) {
-					colors.add(color)
-				}
-				plotContent.put("colors", colors)
-			} else if ((plot.colors).contains(",")) {
-				for (color:(plot.colors).split(",")) {
-					colors.add(color)
-				}
-				plotContent.put("colors", colors)
-			}else
-				colors.add(plot.colors)
-				plotContent.put("colors", colors)
-			//Récupération du type de graphique
-			if (plot instanceof BarPlot) {
-				plotContent.put("type", "bar")
-			} else if (plot instanceof LinePlot) {
-				plotContent.put("type", "line")
+			if (plot.colors != null) {
+				if ((plot.colors).contains(", ")){
+					for (color:(plot.colors).split(", ")) {
+						colors.add(color)
+					}
+					plotContent.put("colors", colors)
+				} else if ((plot.colors).contains(",")) {
+					for (color:(plot.colors).split(",")) {
+						colors.add(color)
+					}
+					plotContent.put("colors", colors)
+				}else
+					colors.add(plot.colors)
+					plotContent.put("colors", colors)		
 			}
+			//Récupération du type de graphique
+			if (plot instanceof BarPlot) 
+				plotContent.put("type", "bar")
+			else if (plot instanceof ScatterPlot)
+				plotContent.put("type", "scatter")
+			else if (plot instanceof LinePlot) 
+				plotContent.put("type", "line")
+			else if (plot instanceof PiePlot)
+				plotContent.put("type", "pie")
+			else if (plot instanceof PolarPlot)
+				plotContent.put("type", "polar")
+			else if (plot instanceof DonutPlot)
+				plotContent.put("type", "doughnut")
+			else if (plot instanceof RadarPlot)
+				plotContent.put("type", "radar")
 			//Récupération des axes en abscisses
 			if ((plot.XAxis).contains(", ")){
 				for (lab:(plot.XAxis).split(", ")) {
@@ -364,8 +380,12 @@ class BiLangGenerator extends AbstractGenerator {
 				plotContent.put("yAxis", plot.YAxis)
 			}
 			//Récupération de la position du graphique, epaisseur des lignes / barres / etc...
-			plotContent.put("location", plot.location)
-			plotContent.put("thickness", Float.toString(plot.thickness))
+			if (plot.location != null) {
+				plotContent.put("location", plot.location)	
+			}
+			if (plot.thickness != 0.0) {
+				plotContent.put("thickness", Float.toString(plot.thickness))	
+			}
 			// Stockage dans la map globale du dashboard
 			dashBoardContent.put(key, plotContent)
 			System.out.println(dashBoardContent)
@@ -457,7 +477,11 @@ class BiLangGenerator extends AbstractGenerator {
 				labels: file''' + j+1 + '''.map(row => row.''' + xax + '''),
 				datasets: [
 					''' 
-				var value= dashboardContent.get(keyPlot).get("colors") as ArrayList
+				
+				var value= new ArrayList<String>()
+				if (dashboardContent.get(keyPlot).containsKey("colors")) {
+					value= dashboardContent.get(keyPlot).get("colors") as ArrayList
+				}
 				var convertColors= new ArrayList<String>()
 				for (col: value) {
 					if (value.contains("#")) {
@@ -473,18 +497,34 @@ class BiLangGenerator extends AbstractGenerator {
 						content+= '''					{
 				    		label: "''' + yLabs.get(a) + '''",
 				        	data: file''' + j+1 + '''.map(row => row.''' + yLabs.get(a) + '''),
-				        	borderColor: "''' + convertColors.get(a) + '''",
-				        	borderWidth: ''' + dashboardContent.get(keyPlot).get("thickness") + ''',
+				        	borderColor: "''' + convertColors.get(a) 
+				        	if (dashboardContent.get(keyPlot).containsKey("thickness"))
+				        		content+='''",
+				        	borderWidth: ''' + dashboardContent.get(keyPlot).get("thickness")
+				        	content+=  ''',
+				    	},
+				    	'''  
+				   	} else if (convertColors.size() == 1) {
+				   		content+= '''					{
+				    		label: "''' + yLabs.get(a) + '''",
+				        	data: file''' + j+1 + '''.map(row => row.''' + yLabs.get(a) + '''),
+				        	borderColor: "''' + convertColors.get(0) + '''"'''
+				        	if (dashboardContent.get(keyPlot).containsKey("thickness")) 
+				        		content+= '''
+				        	borderWidth: ''' + dashboardContent.get(keyPlot).get("thickness") 
+				        	content+= ''',
 				    	},
 				    	'''  
 				   	} else {
 				   		content+= '''					{
 				    		label: "''' + yLabs.get(a) + '''",
-				        	data: file''' + j+1 + '''.map(row => row.''' + yLabs.get(a) + '''),
-				        	borderColor: "''' + convertColors.get(0) + '''",
-				        	borderWidth: ''' + dashboardContent.get(keyPlot).get("thickness") + ''',
+				        	data: file''' + j+1 + '''.map(row => row.''' + yLabs.get(a)+ ''')'''
+				        	if (dashboardContent.get(keyPlot).containsKey("thickness")) 
+				        		content+= '''
+				        	borderWidth: ''' + dashboardContent.get(keyPlot).get("thickness") 
+				        	content+= ''',
 				    	},
-				    	'''  
+				    	'''
 				   	}
 				}
 				

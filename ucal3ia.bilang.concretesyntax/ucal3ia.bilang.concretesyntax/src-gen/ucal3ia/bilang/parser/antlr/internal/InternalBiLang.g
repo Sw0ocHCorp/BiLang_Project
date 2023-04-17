@@ -365,6 +365,51 @@ rulePlot returns [EObject current=null]
 			$current = $this_LinePlot_1.current;
 			afterParserOrEnumRuleCall();
 		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getPlotAccess().getDonutPlotParserRuleCall_2());
+		}
+		this_DonutPlot_2=ruleDonutPlot
+		{
+			$current = $this_DonutPlot_2.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getPlotAccess().getScatterPlotParserRuleCall_3());
+		}
+		this_ScatterPlot_3=ruleScatterPlot
+		{
+			$current = $this_ScatterPlot_3.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getPlotAccess().getPolarPlotParserRuleCall_4());
+		}
+		this_PolarPlot_4=rulePolarPlot
+		{
+			$current = $this_PolarPlot_4.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getPlotAccess().getRadarPlotParserRuleCall_5());
+		}
+		this_RadarPlot_5=ruleRadarPlot
+		{
+			$current = $this_RadarPlot_5.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getPlotAccess().getPiePlotParserRuleCall_6());
+		}
+		this_PiePlot_6=rulePiePlot
+		{
+			$current = $this_PiePlot_6.current;
+			afterParserOrEnumRuleCall();
+		}
 	)
 ;
 
@@ -1589,6 +1634,836 @@ ruleLinePlot returns [EObject current=null]
 							$current,
 							"thickness",
 							lv_thickness_13_0,
+							"ucal3ia.bilang.BiLang.EFloat");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+	)
+;
+
+// Entry rule entryRuleDonutPlot
+entryRuleDonutPlot returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getDonutPlotRule()); }
+	iv_ruleDonutPlot=ruleDonutPlot
+	{ $current=$iv_ruleDonutPlot.current; }
+	EOF;
+
+// Rule DonutPlot
+ruleDonutPlot returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='donut'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getDonutPlotAccess().getDonutKeyword_0());
+		}
+		(
+			(
+				lv_name_1_0=RULE_ID
+				{
+					newLeafNode(lv_name_1_0, grammarAccess.getDonutPlotAccess().getNameIDTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getDonutPlotRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_1_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
+		)
+		otherlv_2='->'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getDonutPlotAccess().getHyphenMinusGreaterThanSignKeyword_2());
+		}
+		otherlv_3='xAx'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getDonutPlotAccess().getXAxKeyword_3());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDonutPlotAccess().getXAxisEStringParserRuleCall_4_0());
+				}
+				lv_xAxis_4_0=ruleEString
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDonutPlotRule());
+					}
+					set(
+						$current,
+						"xAxis",
+						lv_xAxis_4_0,
+						"ucal3ia.bilang.BiLang.EString");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_5='yA'
+		{
+			newLeafNode(otherlv_5, grammarAccess.getDonutPlotAccess().getYAKeyword_5());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDonutPlotAccess().getYAxisEStringParserRuleCall_6_0());
+				}
+				lv_yAxis_6_0=ruleEString
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDonutPlotRule());
+					}
+					set(
+						$current,
+						"yAxis",
+						lv_yAxis_6_0,
+						"ucal3ia.bilang.BiLang.EString");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			otherlv_7='loc'
+			{
+				newLeafNode(otherlv_7, grammarAccess.getDonutPlotAccess().getLocKeyword_7_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getDonutPlotAccess().getLocationEStringParserRuleCall_7_1_0());
+					}
+					lv_location_8_0=ruleEString
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getDonutPlotRule());
+						}
+						set(
+							$current,
+							"location",
+							lv_location_8_0,
+							"ucal3ia.bilang.BiLang.EString");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		(
+			otherlv_9='colors'
+			{
+				newLeafNode(otherlv_9, grammarAccess.getDonutPlotAccess().getColorsKeyword_8_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getDonutPlotAccess().getColorsEStringParserRuleCall_8_1_0());
+					}
+					lv_colors_10_0=ruleEString
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getDonutPlotRule());
+						}
+						set(
+							$current,
+							"colors",
+							lv_colors_10_0,
+							"ucal3ia.bilang.BiLang.EString");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		(
+			otherlv_11='thickness'
+			{
+				newLeafNode(otherlv_11, grammarAccess.getDonutPlotAccess().getThicknessKeyword_9_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getDonutPlotAccess().getThicknessEFloatParserRuleCall_9_1_0());
+					}
+					lv_thickness_12_0=ruleEFloat
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getDonutPlotRule());
+						}
+						set(
+							$current,
+							"thickness",
+							lv_thickness_12_0,
+							"ucal3ia.bilang.BiLang.EFloat");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+	)
+;
+
+// Entry rule entryRulePiePlot
+entryRulePiePlot returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getPiePlotRule()); }
+	iv_rulePiePlot=rulePiePlot
+	{ $current=$iv_rulePiePlot.current; }
+	EOF;
+
+// Rule PiePlot
+rulePiePlot returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='pie'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getPiePlotAccess().getPieKeyword_0());
+		}
+		(
+			(
+				lv_name_1_0=RULE_ID
+				{
+					newLeafNode(lv_name_1_0, grammarAccess.getPiePlotAccess().getNameIDTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getPiePlotRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_1_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
+		)
+		otherlv_2='->'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getPiePlotAccess().getHyphenMinusGreaterThanSignKeyword_2());
+		}
+		otherlv_3='xAx'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getPiePlotAccess().getXAxKeyword_3());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getPiePlotAccess().getXAxisEStringParserRuleCall_4_0());
+				}
+				lv_xAxis_4_0=ruleEString
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getPiePlotRule());
+					}
+					set(
+						$current,
+						"xAxis",
+						lv_xAxis_4_0,
+						"ucal3ia.bilang.BiLang.EString");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_5='yA'
+		{
+			newLeafNode(otherlv_5, grammarAccess.getPiePlotAccess().getYAKeyword_5());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getPiePlotAccess().getYAxisEStringParserRuleCall_6_0());
+				}
+				lv_yAxis_6_0=ruleEString
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getPiePlotRule());
+					}
+					set(
+						$current,
+						"yAxis",
+						lv_yAxis_6_0,
+						"ucal3ia.bilang.BiLang.EString");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			otherlv_7='loc'
+			{
+				newLeafNode(otherlv_7, grammarAccess.getPiePlotAccess().getLocKeyword_7_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getPiePlotAccess().getLocationEStringParserRuleCall_7_1_0());
+					}
+					lv_location_8_0=ruleEString
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getPiePlotRule());
+						}
+						set(
+							$current,
+							"location",
+							lv_location_8_0,
+							"ucal3ia.bilang.BiLang.EString");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		(
+			otherlv_9='colors'
+			{
+				newLeafNode(otherlv_9, grammarAccess.getPiePlotAccess().getColorsKeyword_8_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getPiePlotAccess().getColorsEStringParserRuleCall_8_1_0());
+					}
+					lv_colors_10_0=ruleEString
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getPiePlotRule());
+						}
+						set(
+							$current,
+							"colors",
+							lv_colors_10_0,
+							"ucal3ia.bilang.BiLang.EString");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		(
+			otherlv_11='thickness'
+			{
+				newLeafNode(otherlv_11, grammarAccess.getPiePlotAccess().getThicknessKeyword_9_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getPiePlotAccess().getThicknessEFloatParserRuleCall_9_1_0());
+					}
+					lv_thickness_12_0=ruleEFloat
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getPiePlotRule());
+						}
+						set(
+							$current,
+							"thickness",
+							lv_thickness_12_0,
+							"ucal3ia.bilang.BiLang.EFloat");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+	)
+;
+
+// Entry rule entryRulePolarPlot
+entryRulePolarPlot returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getPolarPlotRule()); }
+	iv_rulePolarPlot=rulePolarPlot
+	{ $current=$iv_rulePolarPlot.current; }
+	EOF;
+
+// Rule PolarPlot
+rulePolarPlot returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='polar'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getPolarPlotAccess().getPolarKeyword_0());
+		}
+		(
+			(
+				lv_name_1_0=RULE_ID
+				{
+					newLeafNode(lv_name_1_0, grammarAccess.getPolarPlotAccess().getNameIDTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getPolarPlotRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_1_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
+		)
+		otherlv_2='->'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getPolarPlotAccess().getHyphenMinusGreaterThanSignKeyword_2());
+		}
+		otherlv_3='xAx'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getPolarPlotAccess().getXAxKeyword_3());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getPolarPlotAccess().getXAxisEStringParserRuleCall_4_0());
+				}
+				lv_xAxis_4_0=ruleEString
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getPolarPlotRule());
+					}
+					set(
+						$current,
+						"xAxis",
+						lv_xAxis_4_0,
+						"ucal3ia.bilang.BiLang.EString");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_5='yA'
+		{
+			newLeafNode(otherlv_5, grammarAccess.getPolarPlotAccess().getYAKeyword_5());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getPolarPlotAccess().getYAxisEStringParserRuleCall_6_0());
+				}
+				lv_yAxis_6_0=ruleEString
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getPolarPlotRule());
+					}
+					set(
+						$current,
+						"yAxis",
+						lv_yAxis_6_0,
+						"ucal3ia.bilang.BiLang.EString");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			otherlv_7='loc'
+			{
+				newLeafNode(otherlv_7, grammarAccess.getPolarPlotAccess().getLocKeyword_7_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getPolarPlotAccess().getLocationEStringParserRuleCall_7_1_0());
+					}
+					lv_location_8_0=ruleEString
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getPolarPlotRule());
+						}
+						set(
+							$current,
+							"location",
+							lv_location_8_0,
+							"ucal3ia.bilang.BiLang.EString");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		(
+			otherlv_9='colors'
+			{
+				newLeafNode(otherlv_9, grammarAccess.getPolarPlotAccess().getColorsKeyword_8_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getPolarPlotAccess().getColorsEStringParserRuleCall_8_1_0());
+					}
+					lv_colors_10_0=ruleEString
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getPolarPlotRule());
+						}
+						set(
+							$current,
+							"colors",
+							lv_colors_10_0,
+							"ucal3ia.bilang.BiLang.EString");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		(
+			otherlv_11='thickness'
+			{
+				newLeafNode(otherlv_11, grammarAccess.getPolarPlotAccess().getThicknessKeyword_9_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getPolarPlotAccess().getThicknessEFloatParserRuleCall_9_1_0());
+					}
+					lv_thickness_12_0=ruleEFloat
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getPolarPlotRule());
+						}
+						set(
+							$current,
+							"thickness",
+							lv_thickness_12_0,
+							"ucal3ia.bilang.BiLang.EFloat");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+	)
+;
+
+// Entry rule entryRuleScatterPlot
+entryRuleScatterPlot returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getScatterPlotRule()); }
+	iv_ruleScatterPlot=ruleScatterPlot
+	{ $current=$iv_ruleScatterPlot.current; }
+	EOF;
+
+// Rule ScatterPlot
+ruleScatterPlot returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='scatter'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getScatterPlotAccess().getScatterKeyword_0());
+		}
+		(
+			(
+				lv_name_1_0=RULE_ID
+				{
+					newLeafNode(lv_name_1_0, grammarAccess.getScatterPlotAccess().getNameIDTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getScatterPlotRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_1_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
+		)
+		otherlv_2='->'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getScatterPlotAccess().getHyphenMinusGreaterThanSignKeyword_2());
+		}
+		otherlv_3='xAx'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getScatterPlotAccess().getXAxKeyword_3());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getScatterPlotAccess().getXAxisEStringParserRuleCall_4_0());
+				}
+				lv_xAxis_4_0=ruleEString
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getScatterPlotRule());
+					}
+					set(
+						$current,
+						"xAxis",
+						lv_xAxis_4_0,
+						"ucal3ia.bilang.BiLang.EString");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_5='yA'
+		{
+			newLeafNode(otherlv_5, grammarAccess.getScatterPlotAccess().getYAKeyword_5());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getScatterPlotAccess().getYAxisEStringParserRuleCall_6_0());
+				}
+				lv_yAxis_6_0=ruleEString
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getScatterPlotRule());
+					}
+					set(
+						$current,
+						"yAxis",
+						lv_yAxis_6_0,
+						"ucal3ia.bilang.BiLang.EString");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			otherlv_7='loc'
+			{
+				newLeafNode(otherlv_7, grammarAccess.getScatterPlotAccess().getLocKeyword_7_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getScatterPlotAccess().getLocationEStringParserRuleCall_7_1_0());
+					}
+					lv_location_8_0=ruleEString
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getScatterPlotRule());
+						}
+						set(
+							$current,
+							"location",
+							lv_location_8_0,
+							"ucal3ia.bilang.BiLang.EString");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		(
+			otherlv_9='colors'
+			{
+				newLeafNode(otherlv_9, grammarAccess.getScatterPlotAccess().getColorsKeyword_8_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getScatterPlotAccess().getColorsEStringParserRuleCall_8_1_0());
+					}
+					lv_colors_10_0=ruleEString
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getScatterPlotRule());
+						}
+						set(
+							$current,
+							"colors",
+							lv_colors_10_0,
+							"ucal3ia.bilang.BiLang.EString");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		(
+			otherlv_11='thickness'
+			{
+				newLeafNode(otherlv_11, grammarAccess.getScatterPlotAccess().getThicknessKeyword_9_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getScatterPlotAccess().getThicknessEFloatParserRuleCall_9_1_0());
+					}
+					lv_thickness_12_0=ruleEFloat
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getScatterPlotRule());
+						}
+						set(
+							$current,
+							"thickness",
+							lv_thickness_12_0,
+							"ucal3ia.bilang.BiLang.EFloat");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+	)
+;
+
+// Entry rule entryRuleRadarPlot
+entryRuleRadarPlot returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getRadarPlotRule()); }
+	iv_ruleRadarPlot=ruleRadarPlot
+	{ $current=$iv_ruleRadarPlot.current; }
+	EOF;
+
+// Rule RadarPlot
+ruleRadarPlot returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='radar'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getRadarPlotAccess().getRadarKeyword_0());
+		}
+		(
+			(
+				lv_name_1_0=RULE_ID
+				{
+					newLeafNode(lv_name_1_0, grammarAccess.getRadarPlotAccess().getNameIDTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getRadarPlotRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"name",
+						lv_name_1_0,
+						"org.eclipse.xtext.common.Terminals.ID");
+				}
+			)
+		)
+		otherlv_2='->'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getRadarPlotAccess().getHyphenMinusGreaterThanSignKeyword_2());
+		}
+		otherlv_3='xAx'
+		{
+			newLeafNode(otherlv_3, grammarAccess.getRadarPlotAccess().getXAxKeyword_3());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getRadarPlotAccess().getXAxisEStringParserRuleCall_4_0());
+				}
+				lv_xAxis_4_0=ruleEString
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getRadarPlotRule());
+					}
+					set(
+						$current,
+						"xAxis",
+						lv_xAxis_4_0,
+						"ucal3ia.bilang.BiLang.EString");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_5='yA'
+		{
+			newLeafNode(otherlv_5, grammarAccess.getRadarPlotAccess().getYAKeyword_5());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getRadarPlotAccess().getYAxisEStringParserRuleCall_6_0());
+				}
+				lv_yAxis_6_0=ruleEString
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getRadarPlotRule());
+					}
+					set(
+						$current,
+						"yAxis",
+						lv_yAxis_6_0,
+						"ucal3ia.bilang.BiLang.EString");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			otherlv_7='loc'
+			{
+				newLeafNode(otherlv_7, grammarAccess.getRadarPlotAccess().getLocKeyword_7_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getRadarPlotAccess().getLocationEStringParserRuleCall_7_1_0());
+					}
+					lv_location_8_0=ruleEString
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getRadarPlotRule());
+						}
+						set(
+							$current,
+							"location",
+							lv_location_8_0,
+							"ucal3ia.bilang.BiLang.EString");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		(
+			otherlv_9='colors'
+			{
+				newLeafNode(otherlv_9, grammarAccess.getRadarPlotAccess().getColorsKeyword_8_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getRadarPlotAccess().getColorsEStringParserRuleCall_8_1_0());
+					}
+					lv_colors_10_0=ruleEString
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getRadarPlotRule());
+						}
+						set(
+							$current,
+							"colors",
+							lv_colors_10_0,
+							"ucal3ia.bilang.BiLang.EString");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+		(
+			otherlv_11='thickness'
+			{
+				newLeafNode(otherlv_11, grammarAccess.getRadarPlotAccess().getThicknessKeyword_9_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getRadarPlotAccess().getThicknessEFloatParserRuleCall_9_1_0());
+					}
+					lv_thickness_12_0=ruleEFloat
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getRadarPlotRule());
+						}
+						set(
+							$current,
+							"thickness",
+							lv_thickness_12_0,
 							"ucal3ia.bilang.BiLang.EFloat");
 						afterParserOrEnumRuleCall();
 					}

@@ -26,15 +26,20 @@ import ucal3ia.bilang.abstractsyntax.ColReference;
 import ucal3ia.bilang.abstractsyntax.CsvExtractor;
 import ucal3ia.bilang.abstractsyntax.DashBoard;
 import ucal3ia.bilang.abstractsyntax.DataFiltering;
+import ucal3ia.bilang.abstractsyntax.DonutPlot;
 import ucal3ia.bilang.abstractsyntax.ExcelExtractor;
 import ucal3ia.bilang.abstractsyntax.FileExtractor;
 import ucal3ia.bilang.abstractsyntax.FilteringStep;
 import ucal3ia.bilang.abstractsyntax.LinePlot;
 import ucal3ia.bilang.abstractsyntax.MathOperation;
+import ucal3ia.bilang.abstractsyntax.PiePlot;
 import ucal3ia.bilang.abstractsyntax.Plot;
+import ucal3ia.bilang.abstractsyntax.PolarPlot;
 import ucal3ia.bilang.abstractsyntax.PreprocessingStep;
 import ucal3ia.bilang.abstractsyntax.QualitativeFiltering;
 import ucal3ia.bilang.abstractsyntax.QuantitativeFiltering;
+import ucal3ia.bilang.abstractsyntax.RadarPlot;
+import ucal3ia.bilang.abstractsyntax.ScatterPlot;
 import ucal3ia.bilang.abstractsyntax.StatisticalOperation;
 import ucal3ia.bilang.abstractsyntax.StatisticalOperator;
 import ucal3ia.bilang.abstractsyntax.Task;
@@ -458,31 +463,55 @@ public class BiLangGenerator extends AbstractGenerator {
         String key = plot.getName();
         ArrayList<String> xAxis = new ArrayList<String>();
         ArrayList<String> colors = new ArrayList<String>();
-        boolean _contains = plot.getColors().contains(", ");
-        if (_contains) {
-          String[] _split = plot.getColors().split(", ");
-          for (final String color : _split) {
-            colors.add(color);
-          }
-          plotContent.put("colors", colors);
-        } else {
-          boolean _contains_1 = plot.getColors().contains(",");
-          if (_contains_1) {
-            String[] _split_1 = plot.getColors().split(",");
-            for (final String color_1 : _split_1) {
-              colors.add(color_1);
+        String _colors = plot.getColors();
+        boolean _notEquals = (!Objects.equal(_colors, null));
+        if (_notEquals) {
+          boolean _contains = plot.getColors().contains(", ");
+          if (_contains) {
+            String[] _split = plot.getColors().split(", ");
+            for (final String color : _split) {
+              colors.add(color);
             }
             plotContent.put("colors", colors);
           } else {
-            colors.add(plot.getColors());
+            boolean _contains_1 = plot.getColors().contains(",");
+            if (_contains_1) {
+              String[] _split_1 = plot.getColors().split(",");
+              for (final String color_1 : _split_1) {
+                colors.add(color_1);
+              }
+              plotContent.put("colors", colors);
+            } else {
+              colors.add(plot.getColors());
+            }
           }
+          plotContent.put("colors", colors);
         }
-        plotContent.put("colors", colors);
         if ((plot instanceof BarPlot)) {
           plotContent.put("type", "bar");
         } else {
-          if ((plot instanceof LinePlot)) {
-            plotContent.put("type", "line");
+          if ((plot instanceof ScatterPlot)) {
+            plotContent.put("type", "scatter");
+          } else {
+            if ((plot instanceof LinePlot)) {
+              plotContent.put("type", "line");
+            } else {
+              if ((plot instanceof PiePlot)) {
+                plotContent.put("type", "pie");
+              } else {
+                if ((plot instanceof PolarPlot)) {
+                  plotContent.put("type", "polar");
+                } else {
+                  if ((plot instanceof DonutPlot)) {
+                    plotContent.put("type", "doughnut");
+                  } else {
+                    if ((plot instanceof RadarPlot)) {
+                      plotContent.put("type", "radar");
+                    }
+                  }
+                }
+              }
+            }
           }
         }
         boolean _contains_2 = plot.getXAxis().contains(", ");
@@ -524,8 +553,16 @@ public class BiLangGenerator extends AbstractGenerator {
             plotContent.put("yAxis", plot.getYAxis());
           }
         }
-        plotContent.put("location", plot.getLocation());
-        plotContent.put("thickness", Float.toString(plot.getThickness()));
+        String _location = plot.getLocation();
+        boolean _notEquals_1 = (!Objects.equal(_location, null));
+        if (_notEquals_1) {
+          plotContent.put("location", plot.getLocation());
+        }
+        float _thickness = plot.getThickness();
+        boolean _notEquals_2 = (_thickness != 0.0);
+        if (_notEquals_2) {
+          plotContent.put("thickness", Float.toString(plot.getThickness()));
+        }
         dashBoardContent.put(key, plotContent);
         System.out.println(dashBoardContent);
       }
@@ -754,10 +791,14 @@ public class BiLangGenerator extends AbstractGenerator {
             _builder_13.newLine();
             String _plus_16 = (_plus_15 + _builder_13);
             content = (_content_6 + _plus_16);
-            Object _get_6 = dashboardContent.get(keyPlot).get("colors");
-            ArrayList value = ((ArrayList) _get_6);
+            ArrayList<String> value = new ArrayList<String>();
+            boolean _containsKey = dashboardContent.get(keyPlot).containsKey("colors");
+            if (_containsKey) {
+              Object _get_6 = dashboardContent.get(keyPlot).get("colors");
+              value = ((ArrayList) _get_6);
+            }
             ArrayList<String> convertColors = new ArrayList<String>();
-            for (final Object col : value) {
+            for (final String col : value) {
               boolean _contains = value.contains("#");
               if (_contains) {
                 String hexR = ((String) col).substring(1, 3);
@@ -802,69 +843,127 @@ public class BiLangGenerator extends AbstractGenerator {
                 String _plus_23 = (_plus_22 + _builder_17);
                 String _get_9 = convertColors.get(a);
                 String _plus_24 = (_plus_23 + _get_9);
-                StringConcatenation _builder_18 = new StringConcatenation();
-                _builder_18.append("\",");
-                _builder_18.newLine();
-                _builder_18.append("\t\t\t\t        \t");
-                _builder_18.append("borderWidth: ");
-                String _plus_25 = (_plus_24 + _builder_18);
-                Object _get_10 = dashboardContent.get(keyPlot).get("thickness");
-                String _plus_26 = (_plus_25 + _get_10);
+                content = (_content_7 + _plus_24);
+                boolean _containsKey_1 = dashboardContent.get(keyPlot).containsKey("thickness");
+                if (_containsKey_1) {
+                  String _content_8 = content;
+                  StringConcatenation _builder_18 = new StringConcatenation();
+                  _builder_18.append("\",");
+                  _builder_18.newLine();
+                  _builder_18.append("\t\t\t\t        \t");
+                  _builder_18.append("borderWidth: ");
+                  Object _get_10 = dashboardContent.get(keyPlot).get("thickness");
+                  String _plus_25 = (_builder_18.toString() + _get_10);
+                  content = (_content_8 + _plus_25);
+                }
+                String _content_9 = content;
                 StringConcatenation _builder_19 = new StringConcatenation();
                 _builder_19.append(",");
                 _builder_19.newLine();
                 _builder_19.append("\t\t\t\t    \t");
                 _builder_19.append("},");
                 _builder_19.newLine();
-                String _plus_27 = (_plus_26 + _builder_19);
-                content = (_content_7 + _plus_27);
+                content = (_content_9 + _builder_19);
               } else {
-                String _content_8 = content;
-                StringConcatenation _builder_20 = new StringConcatenation();
-                _builder_20.append("\t\t\t\t\t");
-                _builder_20.append("{");
-                _builder_20.newLine();
-                _builder_20.append("\t\t\t\t    \t\t");
-                _builder_20.append("label: \"");
-                String _get_11 = yLabs.get(a);
-                String _plus_28 = (_builder_20.toString() + _get_11);
-                StringConcatenation _builder_21 = new StringConcatenation();
-                _builder_21.append("\",");
-                _builder_21.newLine();
-                _builder_21.append("\t\t\t\t        \t");
-                _builder_21.append("data: file");
-                String _plus_29 = (_plus_28 + _builder_21);
-                String _plus_30 = (_plus_29 + Integer.valueOf(j));
-                String _plus_31 = (_plus_30 + Integer.valueOf(1));
-                StringConcatenation _builder_22 = new StringConcatenation();
-                _builder_22.append(".map(row => row.");
-                String _plus_32 = (_plus_31 + _builder_22);
-                String _get_12 = yLabs.get(a);
-                String _plus_33 = (_plus_32 + _get_12);
-                StringConcatenation _builder_23 = new StringConcatenation();
-                _builder_23.append("),");
-                _builder_23.newLine();
-                _builder_23.append("\t\t\t\t        \t");
-                _builder_23.append("borderColor: \"");
-                String _plus_34 = (_plus_33 + _builder_23);
-                String _get_13 = convertColors.get(0);
-                String _plus_35 = (_plus_34 + _get_13);
-                StringConcatenation _builder_24 = new StringConcatenation();
-                _builder_24.append("\",");
-                _builder_24.newLine();
-                _builder_24.append("\t\t\t\t        \t");
-                _builder_24.append("borderWidth: ");
-                String _plus_36 = (_plus_35 + _builder_24);
-                Object _get_14 = dashboardContent.get(keyPlot).get("thickness");
-                String _plus_37 = (_plus_36 + _get_14);
-                StringConcatenation _builder_25 = new StringConcatenation();
-                _builder_25.append(",");
-                _builder_25.newLine();
-                _builder_25.append("\t\t\t\t    \t");
-                _builder_25.append("},");
-                _builder_25.newLine();
-                String _plus_38 = (_plus_37 + _builder_25);
-                content = (_content_8 + _plus_38);
+                int _size_1 = convertColors.size();
+                boolean _equals = (_size_1 == 1);
+                if (_equals) {
+                  String _content_10 = content;
+                  StringConcatenation _builder_20 = new StringConcatenation();
+                  _builder_20.append("\t\t\t\t\t");
+                  _builder_20.append("{");
+                  _builder_20.newLine();
+                  _builder_20.append("\t\t\t\t    \t\t");
+                  _builder_20.append("label: \"");
+                  String _get_11 = yLabs.get(a);
+                  String _plus_26 = (_builder_20.toString() + _get_11);
+                  StringConcatenation _builder_21 = new StringConcatenation();
+                  _builder_21.append("\",");
+                  _builder_21.newLine();
+                  _builder_21.append("\t\t\t\t        \t");
+                  _builder_21.append("data: file");
+                  String _plus_27 = (_plus_26 + _builder_21);
+                  String _plus_28 = (_plus_27 + Integer.valueOf(j));
+                  String _plus_29 = (_plus_28 + Integer.valueOf(1));
+                  StringConcatenation _builder_22 = new StringConcatenation();
+                  _builder_22.append(".map(row => row.");
+                  String _plus_30 = (_plus_29 + _builder_22);
+                  String _get_12 = yLabs.get(a);
+                  String _plus_31 = (_plus_30 + _get_12);
+                  StringConcatenation _builder_23 = new StringConcatenation();
+                  _builder_23.append("),");
+                  _builder_23.newLine();
+                  _builder_23.append("\t\t\t\t        \t");
+                  _builder_23.append("borderColor: \"");
+                  String _plus_32 = (_plus_31 + _builder_23);
+                  String _get_13 = convertColors.get(0);
+                  String _plus_33 = (_plus_32 + _get_13);
+                  StringConcatenation _builder_24 = new StringConcatenation();
+                  _builder_24.append("\"");
+                  String _plus_34 = (_plus_33 + _builder_24);
+                  content = (_content_10 + _plus_34);
+                  boolean _containsKey_2 = dashboardContent.get(keyPlot).containsKey("thickness");
+                  if (_containsKey_2) {
+                    String _content_11 = content;
+                    StringConcatenation _builder_25 = new StringConcatenation();
+                    _builder_25.append("borderWidth: ");
+                    Object _get_14 = dashboardContent.get(keyPlot).get("thickness");
+                    String _plus_35 = (_builder_25.toString() + _get_14);
+                    content = (_content_11 + _plus_35);
+                  }
+                  String _content_12 = content;
+                  StringConcatenation _builder_26 = new StringConcatenation();
+                  _builder_26.append(",");
+                  _builder_26.newLine();
+                  _builder_26.append("\t\t\t\t    \t");
+                  _builder_26.append("},");
+                  _builder_26.newLine();
+                  content = (_content_12 + _builder_26);
+                } else {
+                  String _content_13 = content;
+                  StringConcatenation _builder_27 = new StringConcatenation();
+                  _builder_27.append("\t\t\t\t\t");
+                  _builder_27.append("{");
+                  _builder_27.newLine();
+                  _builder_27.append("\t\t\t\t    \t\t");
+                  _builder_27.append("label: \"");
+                  String _get_15 = yLabs.get(a);
+                  String _plus_36 = (_builder_27.toString() + _get_15);
+                  StringConcatenation _builder_28 = new StringConcatenation();
+                  _builder_28.append("\",");
+                  _builder_28.newLine();
+                  _builder_28.append("\t\t\t\t        \t");
+                  _builder_28.append("data: file");
+                  String _plus_37 = (_plus_36 + _builder_28);
+                  String _plus_38 = (_plus_37 + Integer.valueOf(j));
+                  String _plus_39 = (_plus_38 + Integer.valueOf(1));
+                  StringConcatenation _builder_29 = new StringConcatenation();
+                  _builder_29.append(".map(row => row.");
+                  String _plus_40 = (_plus_39 + _builder_29);
+                  String _get_16 = yLabs.get(a);
+                  String _plus_41 = (_plus_40 + _get_16);
+                  StringConcatenation _builder_30 = new StringConcatenation();
+                  _builder_30.append(")");
+                  String _plus_42 = (_plus_41 + _builder_30);
+                  content = (_content_13 + _plus_42);
+                  boolean _containsKey_3 = dashboardContent.get(keyPlot).containsKey("thickness");
+                  if (_containsKey_3) {
+                    String _content_14 = content;
+                    StringConcatenation _builder_31 = new StringConcatenation();
+                    _builder_31.append("borderWidth: ");
+                    Object _get_17 = dashboardContent.get(keyPlot).get("thickness");
+                    String _plus_43 = (_builder_31.toString() + _get_17);
+                    content = (_content_14 + _plus_43);
+                  }
+                  String _content_15 = content;
+                  StringConcatenation _builder_32 = new StringConcatenation();
+                  _builder_32.append(",");
+                  _builder_32.newLine();
+                  _builder_32.append("\t\t\t\t    \t");
+                  _builder_32.append("},");
+                  _builder_32.newLine();
+                  content = (_content_15 + _builder_32);
+                }
               }
             }
           }

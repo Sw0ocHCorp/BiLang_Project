@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalBiLangParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'E'", "'e'", "'+'", "'-'", "'*'", "'/'", "'mean'", "'median'", "'std'", "'= '", "'!= '", "'='", "'<'", "'>'", "'Task'", "':'", "'load'", "'[dashboard:'", "']'", "'=>'", "'filtering='", "'processing='", "','", "'plots'", "'{'", "'}'", "'df'", "'.csv'", "'.xlsx'", "'l'", "'r'", "'('", "')'", "'.'", "'bar'", "'->'", "'xAx'", "'yA'", "'loc'", "'colors'", "'thickness'", "'line'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'E'", "'e'", "'+'", "'-'", "'*'", "'/'", "'mean'", "'median'", "'std'", "'= '", "'!= '", "'='", "'<'", "'>'", "'Task'", "':'", "'load'", "'[dashboard:'", "']'", "'=>'", "'filtering='", "'processing='", "','", "'plots'", "'{'", "'}'", "'df'", "'.csv'", "'.xlsx'", "'l'", "'r'", "'('", "')'", "'.'", "'bar'", "'->'", "'xAx'", "'yA'", "'loc'", "'colors'", "'thickness'", "'line'", "'donut'", "'pie'", "'polar'", "'scatter'", "'radar'"
     };
     public static final int T__50=50;
     public static final int T__19=19;
@@ -31,11 +31,16 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
     public static final int T__17=17;
     public static final int T__18=18;
     public static final int T__11=11;
+    public static final int T__55=55;
     public static final int T__12=12;
+    public static final int T__56=56;
     public static final int T__13=13;
+    public static final int T__57=57;
     public static final int T__14=14;
     public static final int T__51=51;
     public static final int T__52=52;
+    public static final int T__53=53;
+    public static final int T__54=54;
     public static final int RULE_ID=5;
     public static final int T__26=26;
     public static final int T__27=27;
@@ -1496,22 +1501,407 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "ruleLinePlot"
 
 
+    // $ANTLR start "entryRuleDonutPlot"
+    // InternalBiLang.g:503:1: entryRuleDonutPlot : ruleDonutPlot EOF ;
+    public final void entryRuleDonutPlot() throws RecognitionException {
+        try {
+            // InternalBiLang.g:504:1: ( ruleDonutPlot EOF )
+            // InternalBiLang.g:505:1: ruleDonutPlot EOF
+            {
+             before(grammarAccess.getDonutPlotRule()); 
+            pushFollow(FOLLOW_1);
+            ruleDonutPlot();
+
+            state._fsp--;
+
+             after(grammarAccess.getDonutPlotRule()); 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+        }
+        return ;
+    }
+    // $ANTLR end "entryRuleDonutPlot"
+
+
+    // $ANTLR start "ruleDonutPlot"
+    // InternalBiLang.g:512:1: ruleDonutPlot : ( ( rule__DonutPlot__Group__0 ) ) ;
+    public final void ruleDonutPlot() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:516:2: ( ( ( rule__DonutPlot__Group__0 ) ) )
+            // InternalBiLang.g:517:2: ( ( rule__DonutPlot__Group__0 ) )
+            {
+            // InternalBiLang.g:517:2: ( ( rule__DonutPlot__Group__0 ) )
+            // InternalBiLang.g:518:3: ( rule__DonutPlot__Group__0 )
+            {
+             before(grammarAccess.getDonutPlotAccess().getGroup()); 
+            // InternalBiLang.g:519:3: ( rule__DonutPlot__Group__0 )
+            // InternalBiLang.g:519:4: rule__DonutPlot__Group__0
+            {
+            pushFollow(FOLLOW_2);
+            rule__DonutPlot__Group__0();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getDonutPlotAccess().getGroup()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "ruleDonutPlot"
+
+
+    // $ANTLR start "entryRulePiePlot"
+    // InternalBiLang.g:528:1: entryRulePiePlot : rulePiePlot EOF ;
+    public final void entryRulePiePlot() throws RecognitionException {
+        try {
+            // InternalBiLang.g:529:1: ( rulePiePlot EOF )
+            // InternalBiLang.g:530:1: rulePiePlot EOF
+            {
+             before(grammarAccess.getPiePlotRule()); 
+            pushFollow(FOLLOW_1);
+            rulePiePlot();
+
+            state._fsp--;
+
+             after(grammarAccess.getPiePlotRule()); 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+        }
+        return ;
+    }
+    // $ANTLR end "entryRulePiePlot"
+
+
+    // $ANTLR start "rulePiePlot"
+    // InternalBiLang.g:537:1: rulePiePlot : ( ( rule__PiePlot__Group__0 ) ) ;
+    public final void rulePiePlot() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:541:2: ( ( ( rule__PiePlot__Group__0 ) ) )
+            // InternalBiLang.g:542:2: ( ( rule__PiePlot__Group__0 ) )
+            {
+            // InternalBiLang.g:542:2: ( ( rule__PiePlot__Group__0 ) )
+            // InternalBiLang.g:543:3: ( rule__PiePlot__Group__0 )
+            {
+             before(grammarAccess.getPiePlotAccess().getGroup()); 
+            // InternalBiLang.g:544:3: ( rule__PiePlot__Group__0 )
+            // InternalBiLang.g:544:4: rule__PiePlot__Group__0
+            {
+            pushFollow(FOLLOW_2);
+            rule__PiePlot__Group__0();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getPiePlotAccess().getGroup()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rulePiePlot"
+
+
+    // $ANTLR start "entryRulePolarPlot"
+    // InternalBiLang.g:553:1: entryRulePolarPlot : rulePolarPlot EOF ;
+    public final void entryRulePolarPlot() throws RecognitionException {
+        try {
+            // InternalBiLang.g:554:1: ( rulePolarPlot EOF )
+            // InternalBiLang.g:555:1: rulePolarPlot EOF
+            {
+             before(grammarAccess.getPolarPlotRule()); 
+            pushFollow(FOLLOW_1);
+            rulePolarPlot();
+
+            state._fsp--;
+
+             after(grammarAccess.getPolarPlotRule()); 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+        }
+        return ;
+    }
+    // $ANTLR end "entryRulePolarPlot"
+
+
+    // $ANTLR start "rulePolarPlot"
+    // InternalBiLang.g:562:1: rulePolarPlot : ( ( rule__PolarPlot__Group__0 ) ) ;
+    public final void rulePolarPlot() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:566:2: ( ( ( rule__PolarPlot__Group__0 ) ) )
+            // InternalBiLang.g:567:2: ( ( rule__PolarPlot__Group__0 ) )
+            {
+            // InternalBiLang.g:567:2: ( ( rule__PolarPlot__Group__0 ) )
+            // InternalBiLang.g:568:3: ( rule__PolarPlot__Group__0 )
+            {
+             before(grammarAccess.getPolarPlotAccess().getGroup()); 
+            // InternalBiLang.g:569:3: ( rule__PolarPlot__Group__0 )
+            // InternalBiLang.g:569:4: rule__PolarPlot__Group__0
+            {
+            pushFollow(FOLLOW_2);
+            rule__PolarPlot__Group__0();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getPolarPlotAccess().getGroup()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rulePolarPlot"
+
+
+    // $ANTLR start "entryRuleScatterPlot"
+    // InternalBiLang.g:578:1: entryRuleScatterPlot : ruleScatterPlot EOF ;
+    public final void entryRuleScatterPlot() throws RecognitionException {
+        try {
+            // InternalBiLang.g:579:1: ( ruleScatterPlot EOF )
+            // InternalBiLang.g:580:1: ruleScatterPlot EOF
+            {
+             before(grammarAccess.getScatterPlotRule()); 
+            pushFollow(FOLLOW_1);
+            ruleScatterPlot();
+
+            state._fsp--;
+
+             after(grammarAccess.getScatterPlotRule()); 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+        }
+        return ;
+    }
+    // $ANTLR end "entryRuleScatterPlot"
+
+
+    // $ANTLR start "ruleScatterPlot"
+    // InternalBiLang.g:587:1: ruleScatterPlot : ( ( rule__ScatterPlot__Group__0 ) ) ;
+    public final void ruleScatterPlot() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:591:2: ( ( ( rule__ScatterPlot__Group__0 ) ) )
+            // InternalBiLang.g:592:2: ( ( rule__ScatterPlot__Group__0 ) )
+            {
+            // InternalBiLang.g:592:2: ( ( rule__ScatterPlot__Group__0 ) )
+            // InternalBiLang.g:593:3: ( rule__ScatterPlot__Group__0 )
+            {
+             before(grammarAccess.getScatterPlotAccess().getGroup()); 
+            // InternalBiLang.g:594:3: ( rule__ScatterPlot__Group__0 )
+            // InternalBiLang.g:594:4: rule__ScatterPlot__Group__0
+            {
+            pushFollow(FOLLOW_2);
+            rule__ScatterPlot__Group__0();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getScatterPlotAccess().getGroup()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "ruleScatterPlot"
+
+
+    // $ANTLR start "entryRuleRadarPlot"
+    // InternalBiLang.g:603:1: entryRuleRadarPlot : ruleRadarPlot EOF ;
+    public final void entryRuleRadarPlot() throws RecognitionException {
+        try {
+            // InternalBiLang.g:604:1: ( ruleRadarPlot EOF )
+            // InternalBiLang.g:605:1: ruleRadarPlot EOF
+            {
+             before(grammarAccess.getRadarPlotRule()); 
+            pushFollow(FOLLOW_1);
+            ruleRadarPlot();
+
+            state._fsp--;
+
+             after(grammarAccess.getRadarPlotRule()); 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+        }
+        return ;
+    }
+    // $ANTLR end "entryRuleRadarPlot"
+
+
+    // $ANTLR start "ruleRadarPlot"
+    // InternalBiLang.g:612:1: ruleRadarPlot : ( ( rule__RadarPlot__Group__0 ) ) ;
+    public final void ruleRadarPlot() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:616:2: ( ( ( rule__RadarPlot__Group__0 ) ) )
+            // InternalBiLang.g:617:2: ( ( rule__RadarPlot__Group__0 ) )
+            {
+            // InternalBiLang.g:617:2: ( ( rule__RadarPlot__Group__0 ) )
+            // InternalBiLang.g:618:3: ( rule__RadarPlot__Group__0 )
+            {
+             before(grammarAccess.getRadarPlotAccess().getGroup()); 
+            // InternalBiLang.g:619:3: ( rule__RadarPlot__Group__0 )
+            // InternalBiLang.g:619:4: rule__RadarPlot__Group__0
+            {
+            pushFollow(FOLLOW_2);
+            rule__RadarPlot__Group__0();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getRadarPlotAccess().getGroup()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "ruleRadarPlot"
+
+
     // $ANTLR start "ruleMathOperator"
-    // InternalBiLang.g:503:1: ruleMathOperator : ( ( rule__MathOperator__Alternatives ) ) ;
+    // InternalBiLang.g:628:1: ruleMathOperator : ( ( rule__MathOperator__Alternatives ) ) ;
     public final void ruleMathOperator() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:507:1: ( ( ( rule__MathOperator__Alternatives ) ) )
-            // InternalBiLang.g:508:2: ( ( rule__MathOperator__Alternatives ) )
+            // InternalBiLang.g:632:1: ( ( ( rule__MathOperator__Alternatives ) ) )
+            // InternalBiLang.g:633:2: ( ( rule__MathOperator__Alternatives ) )
             {
-            // InternalBiLang.g:508:2: ( ( rule__MathOperator__Alternatives ) )
-            // InternalBiLang.g:509:3: ( rule__MathOperator__Alternatives )
+            // InternalBiLang.g:633:2: ( ( rule__MathOperator__Alternatives ) )
+            // InternalBiLang.g:634:3: ( rule__MathOperator__Alternatives )
             {
              before(grammarAccess.getMathOperatorAccess().getAlternatives()); 
-            // InternalBiLang.g:510:3: ( rule__MathOperator__Alternatives )
-            // InternalBiLang.g:510:4: rule__MathOperator__Alternatives
+            // InternalBiLang.g:635:3: ( rule__MathOperator__Alternatives )
+            // InternalBiLang.g:635:4: rule__MathOperator__Alternatives
             {
             pushFollow(FOLLOW_2);
             rule__MathOperator__Alternatives();
@@ -1544,21 +1934,21 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleStatisticalOperator"
-    // InternalBiLang.g:519:1: ruleStatisticalOperator : ( ( rule__StatisticalOperator__Alternatives ) ) ;
+    // InternalBiLang.g:644:1: ruleStatisticalOperator : ( ( rule__StatisticalOperator__Alternatives ) ) ;
     public final void ruleStatisticalOperator() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:523:1: ( ( ( rule__StatisticalOperator__Alternatives ) ) )
-            // InternalBiLang.g:524:2: ( ( rule__StatisticalOperator__Alternatives ) )
+            // InternalBiLang.g:648:1: ( ( ( rule__StatisticalOperator__Alternatives ) ) )
+            // InternalBiLang.g:649:2: ( ( rule__StatisticalOperator__Alternatives ) )
             {
-            // InternalBiLang.g:524:2: ( ( rule__StatisticalOperator__Alternatives ) )
-            // InternalBiLang.g:525:3: ( rule__StatisticalOperator__Alternatives )
+            // InternalBiLang.g:649:2: ( ( rule__StatisticalOperator__Alternatives ) )
+            // InternalBiLang.g:650:3: ( rule__StatisticalOperator__Alternatives )
             {
              before(grammarAccess.getStatisticalOperatorAccess().getAlternatives()); 
-            // InternalBiLang.g:526:3: ( rule__StatisticalOperator__Alternatives )
-            // InternalBiLang.g:526:4: rule__StatisticalOperator__Alternatives
+            // InternalBiLang.g:651:3: ( rule__StatisticalOperator__Alternatives )
+            // InternalBiLang.g:651:4: rule__StatisticalOperator__Alternatives
             {
             pushFollow(FOLLOW_2);
             rule__StatisticalOperator__Alternatives();
@@ -1591,21 +1981,21 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleQualitativeOperator"
-    // InternalBiLang.g:535:1: ruleQualitativeOperator : ( ( rule__QualitativeOperator__Alternatives ) ) ;
+    // InternalBiLang.g:660:1: ruleQualitativeOperator : ( ( rule__QualitativeOperator__Alternatives ) ) ;
     public final void ruleQualitativeOperator() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:539:1: ( ( ( rule__QualitativeOperator__Alternatives ) ) )
-            // InternalBiLang.g:540:2: ( ( rule__QualitativeOperator__Alternatives ) )
+            // InternalBiLang.g:664:1: ( ( ( rule__QualitativeOperator__Alternatives ) ) )
+            // InternalBiLang.g:665:2: ( ( rule__QualitativeOperator__Alternatives ) )
             {
-            // InternalBiLang.g:540:2: ( ( rule__QualitativeOperator__Alternatives ) )
-            // InternalBiLang.g:541:3: ( rule__QualitativeOperator__Alternatives )
+            // InternalBiLang.g:665:2: ( ( rule__QualitativeOperator__Alternatives ) )
+            // InternalBiLang.g:666:3: ( rule__QualitativeOperator__Alternatives )
             {
              before(grammarAccess.getQualitativeOperatorAccess().getAlternatives()); 
-            // InternalBiLang.g:542:3: ( rule__QualitativeOperator__Alternatives )
-            // InternalBiLang.g:542:4: rule__QualitativeOperator__Alternatives
+            // InternalBiLang.g:667:3: ( rule__QualitativeOperator__Alternatives )
+            // InternalBiLang.g:667:4: rule__QualitativeOperator__Alternatives
             {
             pushFollow(FOLLOW_2);
             rule__QualitativeOperator__Alternatives();
@@ -1638,21 +2028,21 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "ruleQuantitativeOperator"
-    // InternalBiLang.g:551:1: ruleQuantitativeOperator : ( ( rule__QuantitativeOperator__Alternatives ) ) ;
+    // InternalBiLang.g:676:1: ruleQuantitativeOperator : ( ( rule__QuantitativeOperator__Alternatives ) ) ;
     public final void ruleQuantitativeOperator() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:555:1: ( ( ( rule__QuantitativeOperator__Alternatives ) ) )
-            // InternalBiLang.g:556:2: ( ( rule__QuantitativeOperator__Alternatives ) )
+            // InternalBiLang.g:680:1: ( ( ( rule__QuantitativeOperator__Alternatives ) ) )
+            // InternalBiLang.g:681:2: ( ( rule__QuantitativeOperator__Alternatives ) )
             {
-            // InternalBiLang.g:556:2: ( ( rule__QuantitativeOperator__Alternatives ) )
-            // InternalBiLang.g:557:3: ( rule__QuantitativeOperator__Alternatives )
+            // InternalBiLang.g:681:2: ( ( rule__QuantitativeOperator__Alternatives ) )
+            // InternalBiLang.g:682:3: ( rule__QuantitativeOperator__Alternatives )
             {
              before(grammarAccess.getQuantitativeOperatorAccess().getAlternatives()); 
-            // InternalBiLang.g:558:3: ( rule__QuantitativeOperator__Alternatives )
-            // InternalBiLang.g:558:4: rule__QuantitativeOperator__Alternatives
+            // InternalBiLang.g:683:3: ( rule__QuantitativeOperator__Alternatives )
+            // InternalBiLang.g:683:4: rule__QuantitativeOperator__Alternatives
             {
             pushFollow(FOLLOW_2);
             rule__QuantitativeOperator__Alternatives();
@@ -1685,13 +2075,13 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__FileExtractor__Alternatives"
-    // InternalBiLang.g:566:1: rule__FileExtractor__Alternatives : ( ( ruleCsvExtractor ) | ( ruleExcelExtractor ) );
+    // InternalBiLang.g:691:1: rule__FileExtractor__Alternatives : ( ( ruleCsvExtractor ) | ( ruleExcelExtractor ) );
     public final void rule__FileExtractor__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:570:1: ( ( ruleCsvExtractor ) | ( ruleExcelExtractor ) )
+            // InternalBiLang.g:695:1: ( ( ruleCsvExtractor ) | ( ruleExcelExtractor ) )
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -1735,10 +2125,10 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
             }
             switch (alt1) {
                 case 1 :
-                    // InternalBiLang.g:571:2: ( ruleCsvExtractor )
+                    // InternalBiLang.g:696:2: ( ruleCsvExtractor )
                     {
-                    // InternalBiLang.g:571:2: ( ruleCsvExtractor )
-                    // InternalBiLang.g:572:3: ruleCsvExtractor
+                    // InternalBiLang.g:696:2: ( ruleCsvExtractor )
+                    // InternalBiLang.g:697:3: ruleCsvExtractor
                     {
                      before(grammarAccess.getFileExtractorAccess().getCsvExtractorParserRuleCall_0()); 
                     pushFollow(FOLLOW_2);
@@ -1754,10 +2144,10 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalBiLang.g:577:2: ( ruleExcelExtractor )
+                    // InternalBiLang.g:702:2: ( ruleExcelExtractor )
                     {
-                    // InternalBiLang.g:577:2: ( ruleExcelExtractor )
-                    // InternalBiLang.g:578:3: ruleExcelExtractor
+                    // InternalBiLang.g:702:2: ( ruleExcelExtractor )
+                    // InternalBiLang.g:703:3: ruleExcelExtractor
                     {
                      before(grammarAccess.getFileExtractorAccess().getExcelExtractorParserRuleCall_1()); 
                     pushFollow(FOLLOW_2);
@@ -1790,13 +2180,13 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__FilteringStep__Alternatives"
-    // InternalBiLang.g:587:1: rule__FilteringStep__Alternatives : ( ( ruleQuantitativeFiltering ) | ( ruleQualitativeFiltering ) );
+    // InternalBiLang.g:712:1: rule__FilteringStep__Alternatives : ( ( ruleQuantitativeFiltering ) | ( ruleQualitativeFiltering ) );
     public final void rule__FilteringStep__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:591:1: ( ( ruleQuantitativeFiltering ) | ( ruleQualitativeFiltering ) )
+            // InternalBiLang.g:716:1: ( ( ruleQuantitativeFiltering ) | ( ruleQualitativeFiltering ) )
             int alt2=2;
             int LA2_0 = input.LA(1);
 
@@ -1840,10 +2230,10 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
             }
             switch (alt2) {
                 case 1 :
-                    // InternalBiLang.g:592:2: ( ruleQuantitativeFiltering )
+                    // InternalBiLang.g:717:2: ( ruleQuantitativeFiltering )
                     {
-                    // InternalBiLang.g:592:2: ( ruleQuantitativeFiltering )
-                    // InternalBiLang.g:593:3: ruleQuantitativeFiltering
+                    // InternalBiLang.g:717:2: ( ruleQuantitativeFiltering )
+                    // InternalBiLang.g:718:3: ruleQuantitativeFiltering
                     {
                      before(grammarAccess.getFilteringStepAccess().getQuantitativeFilteringParserRuleCall_0()); 
                     pushFollow(FOLLOW_2);
@@ -1859,10 +2249,10 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalBiLang.g:598:2: ( ruleQualitativeFiltering )
+                    // InternalBiLang.g:723:2: ( ruleQualitativeFiltering )
                     {
-                    // InternalBiLang.g:598:2: ( ruleQualitativeFiltering )
-                    // InternalBiLang.g:599:3: ruleQualitativeFiltering
+                    // InternalBiLang.g:723:2: ( ruleQualitativeFiltering )
+                    // InternalBiLang.g:724:3: ruleQualitativeFiltering
                     {
                      before(grammarAccess.getFilteringStepAccess().getQualitativeFilteringParserRuleCall_1()); 
                     pushFollow(FOLLOW_2);
@@ -1895,13 +2285,13 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__PreprocessingStep__Alternatives"
-    // InternalBiLang.g:608:1: rule__PreprocessingStep__Alternatives : ( ( ruleMathOperation ) | ( ruleColReference ) | ( ruleStatisticalOperation ) );
+    // InternalBiLang.g:733:1: rule__PreprocessingStep__Alternatives : ( ( ruleMathOperation ) | ( ruleColReference ) | ( ruleStatisticalOperation ) );
     public final void rule__PreprocessingStep__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:612:1: ( ( ruleMathOperation ) | ( ruleColReference ) | ( ruleStatisticalOperation ) )
+            // InternalBiLang.g:737:1: ( ( ruleMathOperation ) | ( ruleColReference ) | ( ruleStatisticalOperation ) )
             int alt3=3;
             switch ( input.LA(1) ) {
             case 40:
@@ -1931,10 +2321,10 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
             switch (alt3) {
                 case 1 :
-                    // InternalBiLang.g:613:2: ( ruleMathOperation )
+                    // InternalBiLang.g:738:2: ( ruleMathOperation )
                     {
-                    // InternalBiLang.g:613:2: ( ruleMathOperation )
-                    // InternalBiLang.g:614:3: ruleMathOperation
+                    // InternalBiLang.g:738:2: ( ruleMathOperation )
+                    // InternalBiLang.g:739:3: ruleMathOperation
                     {
                      before(grammarAccess.getPreprocessingStepAccess().getMathOperationParserRuleCall_0()); 
                     pushFollow(FOLLOW_2);
@@ -1950,10 +2340,10 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalBiLang.g:619:2: ( ruleColReference )
+                    // InternalBiLang.g:744:2: ( ruleColReference )
                     {
-                    // InternalBiLang.g:619:2: ( ruleColReference )
-                    // InternalBiLang.g:620:3: ruleColReference
+                    // InternalBiLang.g:744:2: ( ruleColReference )
+                    // InternalBiLang.g:745:3: ruleColReference
                     {
                      before(grammarAccess.getPreprocessingStepAccess().getColReferenceParserRuleCall_1()); 
                     pushFollow(FOLLOW_2);
@@ -1969,10 +2359,10 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 3 :
-                    // InternalBiLang.g:625:2: ( ruleStatisticalOperation )
+                    // InternalBiLang.g:750:2: ( ruleStatisticalOperation )
                     {
-                    // InternalBiLang.g:625:2: ( ruleStatisticalOperation )
-                    // InternalBiLang.g:626:3: ruleStatisticalOperation
+                    // InternalBiLang.g:750:2: ( ruleStatisticalOperation )
+                    // InternalBiLang.g:751:3: ruleStatisticalOperation
                     {
                      before(grammarAccess.getPreprocessingStepAccess().getStatisticalOperationParserRuleCall_2()); 
                     pushFollow(FOLLOW_2);
@@ -2005,34 +2395,63 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Plot__Alternatives"
-    // InternalBiLang.g:635:1: rule__Plot__Alternatives : ( ( ruleBarPlot ) | ( ruleLinePlot ) );
+    // InternalBiLang.g:760:1: rule__Plot__Alternatives : ( ( ruleBarPlot ) | ( ruleLinePlot ) | ( ruleDonutPlot ) | ( ruleScatterPlot ) | ( rulePolarPlot ) | ( ruleRadarPlot ) | ( rulePiePlot ) );
     public final void rule__Plot__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:639:1: ( ( ruleBarPlot ) | ( ruleLinePlot ) )
-            int alt4=2;
-            int LA4_0 = input.LA(1);
-
-            if ( (LA4_0==45) ) {
+            // InternalBiLang.g:764:1: ( ( ruleBarPlot ) | ( ruleLinePlot ) | ( ruleDonutPlot ) | ( ruleScatterPlot ) | ( rulePolarPlot ) | ( ruleRadarPlot ) | ( rulePiePlot ) )
+            int alt4=7;
+            switch ( input.LA(1) ) {
+            case 45:
+                {
                 alt4=1;
-            }
-            else if ( (LA4_0==52) ) {
+                }
+                break;
+            case 52:
+                {
                 alt4=2;
-            }
-            else {
+                }
+                break;
+            case 53:
+                {
+                alt4=3;
+                }
+                break;
+            case 56:
+                {
+                alt4=4;
+                }
+                break;
+            case 55:
+                {
+                alt4=5;
+                }
+                break;
+            case 57:
+                {
+                alt4=6;
+                }
+                break;
+            case 54:
+                {
+                alt4=7;
+                }
+                break;
+            default:
                 NoViableAltException nvae =
                     new NoViableAltException("", 4, 0, input);
 
                 throw nvae;
             }
+
             switch (alt4) {
                 case 1 :
-                    // InternalBiLang.g:640:2: ( ruleBarPlot )
+                    // InternalBiLang.g:765:2: ( ruleBarPlot )
                     {
-                    // InternalBiLang.g:640:2: ( ruleBarPlot )
-                    // InternalBiLang.g:641:3: ruleBarPlot
+                    // InternalBiLang.g:765:2: ( ruleBarPlot )
+                    // InternalBiLang.g:766:3: ruleBarPlot
                     {
                      before(grammarAccess.getPlotAccess().getBarPlotParserRuleCall_0()); 
                     pushFollow(FOLLOW_2);
@@ -2048,10 +2467,10 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalBiLang.g:646:2: ( ruleLinePlot )
+                    // InternalBiLang.g:771:2: ( ruleLinePlot )
                     {
-                    // InternalBiLang.g:646:2: ( ruleLinePlot )
-                    // InternalBiLang.g:647:3: ruleLinePlot
+                    // InternalBiLang.g:771:2: ( ruleLinePlot )
+                    // InternalBiLang.g:772:3: ruleLinePlot
                     {
                      before(grammarAccess.getPlotAccess().getLinePlotParserRuleCall_1()); 
                     pushFollow(FOLLOW_2);
@@ -2060,6 +2479,101 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
                     state._fsp--;
 
                      after(grammarAccess.getPlotAccess().getLinePlotParserRuleCall_1()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 3 :
+                    // InternalBiLang.g:777:2: ( ruleDonutPlot )
+                    {
+                    // InternalBiLang.g:777:2: ( ruleDonutPlot )
+                    // InternalBiLang.g:778:3: ruleDonutPlot
+                    {
+                     before(grammarAccess.getPlotAccess().getDonutPlotParserRuleCall_2()); 
+                    pushFollow(FOLLOW_2);
+                    ruleDonutPlot();
+
+                    state._fsp--;
+
+                     after(grammarAccess.getPlotAccess().getDonutPlotParserRuleCall_2()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 4 :
+                    // InternalBiLang.g:783:2: ( ruleScatterPlot )
+                    {
+                    // InternalBiLang.g:783:2: ( ruleScatterPlot )
+                    // InternalBiLang.g:784:3: ruleScatterPlot
+                    {
+                     before(grammarAccess.getPlotAccess().getScatterPlotParserRuleCall_3()); 
+                    pushFollow(FOLLOW_2);
+                    ruleScatterPlot();
+
+                    state._fsp--;
+
+                     after(grammarAccess.getPlotAccess().getScatterPlotParserRuleCall_3()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 5 :
+                    // InternalBiLang.g:789:2: ( rulePolarPlot )
+                    {
+                    // InternalBiLang.g:789:2: ( rulePolarPlot )
+                    // InternalBiLang.g:790:3: rulePolarPlot
+                    {
+                     before(grammarAccess.getPlotAccess().getPolarPlotParserRuleCall_4()); 
+                    pushFollow(FOLLOW_2);
+                    rulePolarPlot();
+
+                    state._fsp--;
+
+                     after(grammarAccess.getPlotAccess().getPolarPlotParserRuleCall_4()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 6 :
+                    // InternalBiLang.g:795:2: ( ruleRadarPlot )
+                    {
+                    // InternalBiLang.g:795:2: ( ruleRadarPlot )
+                    // InternalBiLang.g:796:3: ruleRadarPlot
+                    {
+                     before(grammarAccess.getPlotAccess().getRadarPlotParserRuleCall_5()); 
+                    pushFollow(FOLLOW_2);
+                    ruleRadarPlot();
+
+                    state._fsp--;
+
+                     after(grammarAccess.getPlotAccess().getRadarPlotParserRuleCall_5()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 7 :
+                    // InternalBiLang.g:801:2: ( rulePiePlot )
+                    {
+                    // InternalBiLang.g:801:2: ( rulePiePlot )
+                    // InternalBiLang.g:802:3: rulePiePlot
+                    {
+                     before(grammarAccess.getPlotAccess().getPiePlotParserRuleCall_6()); 
+                    pushFollow(FOLLOW_2);
+                    rulePiePlot();
+
+                    state._fsp--;
+
+                     after(grammarAccess.getPlotAccess().getPiePlotParserRuleCall_6()); 
 
                     }
 
@@ -2084,13 +2598,13 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EString__Alternatives"
-    // InternalBiLang.g:656:1: rule__EString__Alternatives : ( ( RULE_STRING ) | ( RULE_ID ) );
+    // InternalBiLang.g:811:1: rule__EString__Alternatives : ( ( RULE_STRING ) | ( RULE_ID ) );
     public final void rule__EString__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:660:1: ( ( RULE_STRING ) | ( RULE_ID ) )
+            // InternalBiLang.g:815:1: ( ( RULE_STRING ) | ( RULE_ID ) )
             int alt5=2;
             int LA5_0 = input.LA(1);
 
@@ -2108,10 +2622,10 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
             }
             switch (alt5) {
                 case 1 :
-                    // InternalBiLang.g:661:2: ( RULE_STRING )
+                    // InternalBiLang.g:816:2: ( RULE_STRING )
                     {
-                    // InternalBiLang.g:661:2: ( RULE_STRING )
-                    // InternalBiLang.g:662:3: RULE_STRING
+                    // InternalBiLang.g:816:2: ( RULE_STRING )
+                    // InternalBiLang.g:817:3: RULE_STRING
                     {
                      before(grammarAccess.getEStringAccess().getSTRINGTerminalRuleCall_0()); 
                     match(input,RULE_STRING,FOLLOW_2); 
@@ -2123,10 +2637,10 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalBiLang.g:667:2: ( RULE_ID )
+                    // InternalBiLang.g:822:2: ( RULE_ID )
                     {
-                    // InternalBiLang.g:667:2: ( RULE_ID )
-                    // InternalBiLang.g:668:3: RULE_ID
+                    // InternalBiLang.g:822:2: ( RULE_ID )
+                    // InternalBiLang.g:823:3: RULE_ID
                     {
                      before(grammarAccess.getEStringAccess().getIDTerminalRuleCall_1()); 
                     match(input,RULE_ID,FOLLOW_2); 
@@ -2155,13 +2669,13 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DashBoard__Alternatives_2"
-    // InternalBiLang.g:677:1: rule__DashBoard__Alternatives_2 : ( ( ( rule__DashBoard__Group_2_0__0 ) ) | ( ( rule__DashBoard__Group_2_1__0 ) ) );
+    // InternalBiLang.g:832:1: rule__DashBoard__Alternatives_2 : ( ( ( rule__DashBoard__Group_2_0__0 ) ) | ( ( rule__DashBoard__Group_2_1__0 ) ) );
     public final void rule__DashBoard__Alternatives_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:681:1: ( ( ( rule__DashBoard__Group_2_0__0 ) ) | ( ( rule__DashBoard__Group_2_1__0 ) ) )
+            // InternalBiLang.g:836:1: ( ( ( rule__DashBoard__Group_2_0__0 ) ) | ( ( rule__DashBoard__Group_2_1__0 ) ) )
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -2179,14 +2693,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
             }
             switch (alt6) {
                 case 1 :
-                    // InternalBiLang.g:682:2: ( ( rule__DashBoard__Group_2_0__0 ) )
+                    // InternalBiLang.g:837:2: ( ( rule__DashBoard__Group_2_0__0 ) )
                     {
-                    // InternalBiLang.g:682:2: ( ( rule__DashBoard__Group_2_0__0 ) )
-                    // InternalBiLang.g:683:3: ( rule__DashBoard__Group_2_0__0 )
+                    // InternalBiLang.g:837:2: ( ( rule__DashBoard__Group_2_0__0 ) )
+                    // InternalBiLang.g:838:3: ( rule__DashBoard__Group_2_0__0 )
                     {
                      before(grammarAccess.getDashBoardAccess().getGroup_2_0()); 
-                    // InternalBiLang.g:684:3: ( rule__DashBoard__Group_2_0__0 )
-                    // InternalBiLang.g:684:4: rule__DashBoard__Group_2_0__0
+                    // InternalBiLang.g:839:3: ( rule__DashBoard__Group_2_0__0 )
+                    // InternalBiLang.g:839:4: rule__DashBoard__Group_2_0__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__DashBoard__Group_2_0__0();
@@ -2204,14 +2718,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalBiLang.g:688:2: ( ( rule__DashBoard__Group_2_1__0 ) )
+                    // InternalBiLang.g:843:2: ( ( rule__DashBoard__Group_2_1__0 ) )
                     {
-                    // InternalBiLang.g:688:2: ( ( rule__DashBoard__Group_2_1__0 ) )
-                    // InternalBiLang.g:689:3: ( rule__DashBoard__Group_2_1__0 )
+                    // InternalBiLang.g:843:2: ( ( rule__DashBoard__Group_2_1__0 ) )
+                    // InternalBiLang.g:844:3: ( rule__DashBoard__Group_2_1__0 )
                     {
                      before(grammarAccess.getDashBoardAccess().getGroup_2_1()); 
-                    // InternalBiLang.g:690:3: ( rule__DashBoard__Group_2_1__0 )
-                    // InternalBiLang.g:690:4: rule__DashBoard__Group_2_1__0
+                    // InternalBiLang.g:845:3: ( rule__DashBoard__Group_2_1__0 )
+                    // InternalBiLang.g:845:4: rule__DashBoard__Group_2_1__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__DashBoard__Group_2_1__0();
@@ -2246,13 +2760,13 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EFloat__Alternatives_4_0"
-    // InternalBiLang.g:698:1: rule__EFloat__Alternatives_4_0 : ( ( 'E' ) | ( 'e' ) );
+    // InternalBiLang.g:853:1: rule__EFloat__Alternatives_4_0 : ( ( 'E' ) | ( 'e' ) );
     public final void rule__EFloat__Alternatives_4_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:702:1: ( ( 'E' ) | ( 'e' ) )
+            // InternalBiLang.g:857:1: ( ( 'E' ) | ( 'e' ) )
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -2270,10 +2784,10 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
             }
             switch (alt7) {
                 case 1 :
-                    // InternalBiLang.g:703:2: ( 'E' )
+                    // InternalBiLang.g:858:2: ( 'E' )
                     {
-                    // InternalBiLang.g:703:2: ( 'E' )
-                    // InternalBiLang.g:704:3: 'E'
+                    // InternalBiLang.g:858:2: ( 'E' )
+                    // InternalBiLang.g:859:3: 'E'
                     {
                      before(grammarAccess.getEFloatAccess().getEKeyword_4_0_0()); 
                     match(input,11,FOLLOW_2); 
@@ -2285,10 +2799,10 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalBiLang.g:709:2: ( 'e' )
+                    // InternalBiLang.g:864:2: ( 'e' )
                     {
-                    // InternalBiLang.g:709:2: ( 'e' )
-                    // InternalBiLang.g:710:3: 'e'
+                    // InternalBiLang.g:864:2: ( 'e' )
+                    // InternalBiLang.g:865:3: 'e'
                     {
                      before(grammarAccess.getEFloatAccess().getEKeyword_4_0_1()); 
                     match(input,12,FOLLOW_2); 
@@ -2317,13 +2831,13 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MathOperator__Alternatives"
-    // InternalBiLang.g:719:1: rule__MathOperator__Alternatives : ( ( ( '+' ) ) | ( ( '-' ) ) | ( ( '*' ) ) | ( ( '/' ) ) );
+    // InternalBiLang.g:874:1: rule__MathOperator__Alternatives : ( ( ( '+' ) ) | ( ( '-' ) ) | ( ( '*' ) ) | ( ( '/' ) ) );
     public final void rule__MathOperator__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:723:1: ( ( ( '+' ) ) | ( ( '-' ) ) | ( ( '*' ) ) | ( ( '/' ) ) )
+            // InternalBiLang.g:878:1: ( ( ( '+' ) ) | ( ( '-' ) ) | ( ( '*' ) ) | ( ( '/' ) ) )
             int alt8=4;
             switch ( input.LA(1) ) {
             case 13:
@@ -2355,14 +2869,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
             switch (alt8) {
                 case 1 :
-                    // InternalBiLang.g:724:2: ( ( '+' ) )
+                    // InternalBiLang.g:879:2: ( ( '+' ) )
                     {
-                    // InternalBiLang.g:724:2: ( ( '+' ) )
-                    // InternalBiLang.g:725:3: ( '+' )
+                    // InternalBiLang.g:879:2: ( ( '+' ) )
+                    // InternalBiLang.g:880:3: ( '+' )
                     {
                      before(grammarAccess.getMathOperatorAccess().getPLUSEnumLiteralDeclaration_0()); 
-                    // InternalBiLang.g:726:3: ( '+' )
-                    // InternalBiLang.g:726:4: '+'
+                    // InternalBiLang.g:881:3: ( '+' )
+                    // InternalBiLang.g:881:4: '+'
                     {
                     match(input,13,FOLLOW_2); 
 
@@ -2376,14 +2890,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalBiLang.g:730:2: ( ( '-' ) )
+                    // InternalBiLang.g:885:2: ( ( '-' ) )
                     {
-                    // InternalBiLang.g:730:2: ( ( '-' ) )
-                    // InternalBiLang.g:731:3: ( '-' )
+                    // InternalBiLang.g:885:2: ( ( '-' ) )
+                    // InternalBiLang.g:886:3: ( '-' )
                     {
                      before(grammarAccess.getMathOperatorAccess().getMINUSEnumLiteralDeclaration_1()); 
-                    // InternalBiLang.g:732:3: ( '-' )
-                    // InternalBiLang.g:732:4: '-'
+                    // InternalBiLang.g:887:3: ( '-' )
+                    // InternalBiLang.g:887:4: '-'
                     {
                     match(input,14,FOLLOW_2); 
 
@@ -2397,14 +2911,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 3 :
-                    // InternalBiLang.g:736:2: ( ( '*' ) )
+                    // InternalBiLang.g:891:2: ( ( '*' ) )
                     {
-                    // InternalBiLang.g:736:2: ( ( '*' ) )
-                    // InternalBiLang.g:737:3: ( '*' )
+                    // InternalBiLang.g:891:2: ( ( '*' ) )
+                    // InternalBiLang.g:892:3: ( '*' )
                     {
                      before(grammarAccess.getMathOperatorAccess().getMULTIPLYEnumLiteralDeclaration_2()); 
-                    // InternalBiLang.g:738:3: ( '*' )
-                    // InternalBiLang.g:738:4: '*'
+                    // InternalBiLang.g:893:3: ( '*' )
+                    // InternalBiLang.g:893:4: '*'
                     {
                     match(input,15,FOLLOW_2); 
 
@@ -2418,14 +2932,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 4 :
-                    // InternalBiLang.g:742:2: ( ( '/' ) )
+                    // InternalBiLang.g:897:2: ( ( '/' ) )
                     {
-                    // InternalBiLang.g:742:2: ( ( '/' ) )
-                    // InternalBiLang.g:743:3: ( '/' )
+                    // InternalBiLang.g:897:2: ( ( '/' ) )
+                    // InternalBiLang.g:898:3: ( '/' )
                     {
                      before(grammarAccess.getMathOperatorAccess().getDIVIDINGEnumLiteralDeclaration_3()); 
-                    // InternalBiLang.g:744:3: ( '/' )
-                    // InternalBiLang.g:744:4: '/'
+                    // InternalBiLang.g:899:3: ( '/' )
+                    // InternalBiLang.g:899:4: '/'
                     {
                     match(input,16,FOLLOW_2); 
 
@@ -2456,13 +2970,13 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__StatisticalOperator__Alternatives"
-    // InternalBiLang.g:752:1: rule__StatisticalOperator__Alternatives : ( ( ( 'mean' ) ) | ( ( 'median' ) ) | ( ( 'std' ) ) );
+    // InternalBiLang.g:907:1: rule__StatisticalOperator__Alternatives : ( ( ( 'mean' ) ) | ( ( 'median' ) ) | ( ( 'std' ) ) );
     public final void rule__StatisticalOperator__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:756:1: ( ( ( 'mean' ) ) | ( ( 'median' ) ) | ( ( 'std' ) ) )
+            // InternalBiLang.g:911:1: ( ( ( 'mean' ) ) | ( ( 'median' ) ) | ( ( 'std' ) ) )
             int alt9=3;
             switch ( input.LA(1) ) {
             case 17:
@@ -2489,14 +3003,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
             switch (alt9) {
                 case 1 :
-                    // InternalBiLang.g:757:2: ( ( 'mean' ) )
+                    // InternalBiLang.g:912:2: ( ( 'mean' ) )
                     {
-                    // InternalBiLang.g:757:2: ( ( 'mean' ) )
-                    // InternalBiLang.g:758:3: ( 'mean' )
+                    // InternalBiLang.g:912:2: ( ( 'mean' ) )
+                    // InternalBiLang.g:913:3: ( 'mean' )
                     {
                      before(grammarAccess.getStatisticalOperatorAccess().getMEANEnumLiteralDeclaration_0()); 
-                    // InternalBiLang.g:759:3: ( 'mean' )
-                    // InternalBiLang.g:759:4: 'mean'
+                    // InternalBiLang.g:914:3: ( 'mean' )
+                    // InternalBiLang.g:914:4: 'mean'
                     {
                     match(input,17,FOLLOW_2); 
 
@@ -2510,14 +3024,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalBiLang.g:763:2: ( ( 'median' ) )
+                    // InternalBiLang.g:918:2: ( ( 'median' ) )
                     {
-                    // InternalBiLang.g:763:2: ( ( 'median' ) )
-                    // InternalBiLang.g:764:3: ( 'median' )
+                    // InternalBiLang.g:918:2: ( ( 'median' ) )
+                    // InternalBiLang.g:919:3: ( 'median' )
                     {
                      before(grammarAccess.getStatisticalOperatorAccess().getMEDIANEnumLiteralDeclaration_1()); 
-                    // InternalBiLang.g:765:3: ( 'median' )
-                    // InternalBiLang.g:765:4: 'median'
+                    // InternalBiLang.g:920:3: ( 'median' )
+                    // InternalBiLang.g:920:4: 'median'
                     {
                     match(input,18,FOLLOW_2); 
 
@@ -2531,14 +3045,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 3 :
-                    // InternalBiLang.g:769:2: ( ( 'std' ) )
+                    // InternalBiLang.g:924:2: ( ( 'std' ) )
                     {
-                    // InternalBiLang.g:769:2: ( ( 'std' ) )
-                    // InternalBiLang.g:770:3: ( 'std' )
+                    // InternalBiLang.g:924:2: ( ( 'std' ) )
+                    // InternalBiLang.g:925:3: ( 'std' )
                     {
                      before(grammarAccess.getStatisticalOperatorAccess().getSTDEnumLiteralDeclaration_2()); 
-                    // InternalBiLang.g:771:3: ( 'std' )
-                    // InternalBiLang.g:771:4: 'std'
+                    // InternalBiLang.g:926:3: ( 'std' )
+                    // InternalBiLang.g:926:4: 'std'
                     {
                     match(input,19,FOLLOW_2); 
 
@@ -2569,13 +3083,13 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QualitativeOperator__Alternatives"
-    // InternalBiLang.g:779:1: rule__QualitativeOperator__Alternatives : ( ( ( '= ' ) ) | ( ( '!= ' ) ) );
+    // InternalBiLang.g:934:1: rule__QualitativeOperator__Alternatives : ( ( ( '= ' ) ) | ( ( '!= ' ) ) );
     public final void rule__QualitativeOperator__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:783:1: ( ( ( '= ' ) ) | ( ( '!= ' ) ) )
+            // InternalBiLang.g:938:1: ( ( ( '= ' ) ) | ( ( '!= ' ) ) )
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -2593,14 +3107,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
             }
             switch (alt10) {
                 case 1 :
-                    // InternalBiLang.g:784:2: ( ( '= ' ) )
+                    // InternalBiLang.g:939:2: ( ( '= ' ) )
                     {
-                    // InternalBiLang.g:784:2: ( ( '= ' ) )
-                    // InternalBiLang.g:785:3: ( '= ' )
+                    // InternalBiLang.g:939:2: ( ( '= ' ) )
+                    // InternalBiLang.g:940:3: ( '= ' )
                     {
                      before(grammarAccess.getQualitativeOperatorAccess().getEQUALSEnumLiteralDeclaration_0()); 
-                    // InternalBiLang.g:786:3: ( '= ' )
-                    // InternalBiLang.g:786:4: '= '
+                    // InternalBiLang.g:941:3: ( '= ' )
+                    // InternalBiLang.g:941:4: '= '
                     {
                     match(input,20,FOLLOW_2); 
 
@@ -2614,14 +3128,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalBiLang.g:790:2: ( ( '!= ' ) )
+                    // InternalBiLang.g:945:2: ( ( '!= ' ) )
                     {
-                    // InternalBiLang.g:790:2: ( ( '!= ' ) )
-                    // InternalBiLang.g:791:3: ( '!= ' )
+                    // InternalBiLang.g:945:2: ( ( '!= ' ) )
+                    // InternalBiLang.g:946:3: ( '!= ' )
                     {
                      before(grammarAccess.getQualitativeOperatorAccess().getNOTEnumLiteralDeclaration_1()); 
-                    // InternalBiLang.g:792:3: ( '!= ' )
-                    // InternalBiLang.g:792:4: '!= '
+                    // InternalBiLang.g:947:3: ( '!= ' )
+                    // InternalBiLang.g:947:4: '!= '
                     {
                     match(input,21,FOLLOW_2); 
 
@@ -2652,13 +3166,13 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QuantitativeOperator__Alternatives"
-    // InternalBiLang.g:800:1: rule__QuantitativeOperator__Alternatives : ( ( ( '=' ) ) | ( ( '<' ) ) | ( ( '>' ) ) );
+    // InternalBiLang.g:955:1: rule__QuantitativeOperator__Alternatives : ( ( ( '=' ) ) | ( ( '<' ) ) | ( ( '>' ) ) );
     public final void rule__QuantitativeOperator__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:804:1: ( ( ( '=' ) ) | ( ( '<' ) ) | ( ( '>' ) ) )
+            // InternalBiLang.g:959:1: ( ( ( '=' ) ) | ( ( '<' ) ) | ( ( '>' ) ) )
             int alt11=3;
             switch ( input.LA(1) ) {
             case 22:
@@ -2685,14 +3199,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
             switch (alt11) {
                 case 1 :
-                    // InternalBiLang.g:805:2: ( ( '=' ) )
+                    // InternalBiLang.g:960:2: ( ( '=' ) )
                     {
-                    // InternalBiLang.g:805:2: ( ( '=' ) )
-                    // InternalBiLang.g:806:3: ( '=' )
+                    // InternalBiLang.g:960:2: ( ( '=' ) )
+                    // InternalBiLang.g:961:3: ( '=' )
                     {
                      before(grammarAccess.getQuantitativeOperatorAccess().getEQUALEnumLiteralDeclaration_0()); 
-                    // InternalBiLang.g:807:3: ( '=' )
-                    // InternalBiLang.g:807:4: '='
+                    // InternalBiLang.g:962:3: ( '=' )
+                    // InternalBiLang.g:962:4: '='
                     {
                     match(input,22,FOLLOW_2); 
 
@@ -2706,14 +3220,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // InternalBiLang.g:811:2: ( ( '<' ) )
+                    // InternalBiLang.g:966:2: ( ( '<' ) )
                     {
-                    // InternalBiLang.g:811:2: ( ( '<' ) )
-                    // InternalBiLang.g:812:3: ( '<' )
+                    // InternalBiLang.g:966:2: ( ( '<' ) )
+                    // InternalBiLang.g:967:3: ( '<' )
                     {
                      before(grammarAccess.getQuantitativeOperatorAccess().getINFERIOREnumLiteralDeclaration_1()); 
-                    // InternalBiLang.g:813:3: ( '<' )
-                    // InternalBiLang.g:813:4: '<'
+                    // InternalBiLang.g:968:3: ( '<' )
+                    // InternalBiLang.g:968:4: '<'
                     {
                     match(input,23,FOLLOW_2); 
 
@@ -2727,14 +3241,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 3 :
-                    // InternalBiLang.g:817:2: ( ( '>' ) )
+                    // InternalBiLang.g:972:2: ( ( '>' ) )
                     {
-                    // InternalBiLang.g:817:2: ( ( '>' ) )
-                    // InternalBiLang.g:818:3: ( '>' )
+                    // InternalBiLang.g:972:2: ( ( '>' ) )
+                    // InternalBiLang.g:973:3: ( '>' )
                     {
                      before(grammarAccess.getQuantitativeOperatorAccess().getSUPERIOREnumLiteralDeclaration_2()); 
-                    // InternalBiLang.g:819:3: ( '>' )
-                    // InternalBiLang.g:819:4: '>'
+                    // InternalBiLang.g:974:3: ( '>' )
+                    // InternalBiLang.g:974:4: '>'
                     {
                     match(input,24,FOLLOW_2); 
 
@@ -2765,14 +3279,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Task__Group__0"
-    // InternalBiLang.g:827:1: rule__Task__Group__0 : rule__Task__Group__0__Impl rule__Task__Group__1 ;
+    // InternalBiLang.g:982:1: rule__Task__Group__0 : rule__Task__Group__0__Impl rule__Task__Group__1 ;
     public final void rule__Task__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:831:1: ( rule__Task__Group__0__Impl rule__Task__Group__1 )
-            // InternalBiLang.g:832:2: rule__Task__Group__0__Impl rule__Task__Group__1
+            // InternalBiLang.g:986:1: ( rule__Task__Group__0__Impl rule__Task__Group__1 )
+            // InternalBiLang.g:987:2: rule__Task__Group__0__Impl rule__Task__Group__1
             {
             pushFollow(FOLLOW_3);
             rule__Task__Group__0__Impl();
@@ -2803,17 +3317,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Task__Group__0__Impl"
-    // InternalBiLang.g:839:1: rule__Task__Group__0__Impl : ( 'Task' ) ;
+    // InternalBiLang.g:994:1: rule__Task__Group__0__Impl : ( 'Task' ) ;
     public final void rule__Task__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:843:1: ( ( 'Task' ) )
-            // InternalBiLang.g:844:1: ( 'Task' )
+            // InternalBiLang.g:998:1: ( ( 'Task' ) )
+            // InternalBiLang.g:999:1: ( 'Task' )
             {
-            // InternalBiLang.g:844:1: ( 'Task' )
-            // InternalBiLang.g:845:2: 'Task'
+            // InternalBiLang.g:999:1: ( 'Task' )
+            // InternalBiLang.g:1000:2: 'Task'
             {
              before(grammarAccess.getTaskAccess().getTaskKeyword_0()); 
             match(input,25,FOLLOW_2); 
@@ -2840,14 +3354,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Task__Group__1"
-    // InternalBiLang.g:854:1: rule__Task__Group__1 : rule__Task__Group__1__Impl rule__Task__Group__2 ;
+    // InternalBiLang.g:1009:1: rule__Task__Group__1 : rule__Task__Group__1__Impl rule__Task__Group__2 ;
     public final void rule__Task__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:858:1: ( rule__Task__Group__1__Impl rule__Task__Group__2 )
-            // InternalBiLang.g:859:2: rule__Task__Group__1__Impl rule__Task__Group__2
+            // InternalBiLang.g:1013:1: ( rule__Task__Group__1__Impl rule__Task__Group__2 )
+            // InternalBiLang.g:1014:2: rule__Task__Group__1__Impl rule__Task__Group__2
             {
             pushFollow(FOLLOW_4);
             rule__Task__Group__1__Impl();
@@ -2878,21 +3392,21 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Task__Group__1__Impl"
-    // InternalBiLang.g:866:1: rule__Task__Group__1__Impl : ( ( rule__Task__NameAssignment_1 ) ) ;
+    // InternalBiLang.g:1021:1: rule__Task__Group__1__Impl : ( ( rule__Task__NameAssignment_1 ) ) ;
     public final void rule__Task__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:870:1: ( ( ( rule__Task__NameAssignment_1 ) ) )
-            // InternalBiLang.g:871:1: ( ( rule__Task__NameAssignment_1 ) )
+            // InternalBiLang.g:1025:1: ( ( ( rule__Task__NameAssignment_1 ) ) )
+            // InternalBiLang.g:1026:1: ( ( rule__Task__NameAssignment_1 ) )
             {
-            // InternalBiLang.g:871:1: ( ( rule__Task__NameAssignment_1 ) )
-            // InternalBiLang.g:872:2: ( rule__Task__NameAssignment_1 )
+            // InternalBiLang.g:1026:1: ( ( rule__Task__NameAssignment_1 ) )
+            // InternalBiLang.g:1027:2: ( rule__Task__NameAssignment_1 )
             {
              before(grammarAccess.getTaskAccess().getNameAssignment_1()); 
-            // InternalBiLang.g:873:2: ( rule__Task__NameAssignment_1 )
-            // InternalBiLang.g:873:3: rule__Task__NameAssignment_1
+            // InternalBiLang.g:1028:2: ( rule__Task__NameAssignment_1 )
+            // InternalBiLang.g:1028:3: rule__Task__NameAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__Task__NameAssignment_1();
@@ -2925,14 +3439,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Task__Group__2"
-    // InternalBiLang.g:881:1: rule__Task__Group__2 : rule__Task__Group__2__Impl rule__Task__Group__3 ;
+    // InternalBiLang.g:1036:1: rule__Task__Group__2 : rule__Task__Group__2__Impl rule__Task__Group__3 ;
     public final void rule__Task__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:885:1: ( rule__Task__Group__2__Impl rule__Task__Group__3 )
-            // InternalBiLang.g:886:2: rule__Task__Group__2__Impl rule__Task__Group__3
+            // InternalBiLang.g:1040:1: ( rule__Task__Group__2__Impl rule__Task__Group__3 )
+            // InternalBiLang.g:1041:2: rule__Task__Group__2__Impl rule__Task__Group__3
             {
             pushFollow(FOLLOW_5);
             rule__Task__Group__2__Impl();
@@ -2963,17 +3477,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Task__Group__2__Impl"
-    // InternalBiLang.g:893:1: rule__Task__Group__2__Impl : ( ':' ) ;
+    // InternalBiLang.g:1048:1: rule__Task__Group__2__Impl : ( ':' ) ;
     public final void rule__Task__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:897:1: ( ( ':' ) )
-            // InternalBiLang.g:898:1: ( ':' )
+            // InternalBiLang.g:1052:1: ( ( ':' ) )
+            // InternalBiLang.g:1053:1: ( ':' )
             {
-            // InternalBiLang.g:898:1: ( ':' )
-            // InternalBiLang.g:899:2: ':'
+            // InternalBiLang.g:1053:1: ( ':' )
+            // InternalBiLang.g:1054:2: ':'
             {
              before(grammarAccess.getTaskAccess().getColonKeyword_2()); 
             match(input,26,FOLLOW_2); 
@@ -3000,14 +3514,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Task__Group__3"
-    // InternalBiLang.g:908:1: rule__Task__Group__3 : rule__Task__Group__3__Impl rule__Task__Group__4 ;
+    // InternalBiLang.g:1063:1: rule__Task__Group__3 : rule__Task__Group__3__Impl rule__Task__Group__4 ;
     public final void rule__Task__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:912:1: ( rule__Task__Group__3__Impl rule__Task__Group__4 )
-            // InternalBiLang.g:913:2: rule__Task__Group__3__Impl rule__Task__Group__4
+            // InternalBiLang.g:1067:1: ( rule__Task__Group__3__Impl rule__Task__Group__4 )
+            // InternalBiLang.g:1068:2: rule__Task__Group__3__Impl rule__Task__Group__4
             {
             pushFollow(FOLLOW_6);
             rule__Task__Group__3__Impl();
@@ -3038,17 +3552,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Task__Group__3__Impl"
-    // InternalBiLang.g:920:1: rule__Task__Group__3__Impl : ( 'load' ) ;
+    // InternalBiLang.g:1075:1: rule__Task__Group__3__Impl : ( 'load' ) ;
     public final void rule__Task__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:924:1: ( ( 'load' ) )
-            // InternalBiLang.g:925:1: ( 'load' )
+            // InternalBiLang.g:1079:1: ( ( 'load' ) )
+            // InternalBiLang.g:1080:1: ( 'load' )
             {
-            // InternalBiLang.g:925:1: ( 'load' )
-            // InternalBiLang.g:926:2: 'load'
+            // InternalBiLang.g:1080:1: ( 'load' )
+            // InternalBiLang.g:1081:2: 'load'
             {
              before(grammarAccess.getTaskAccess().getLoadKeyword_3()); 
             match(input,27,FOLLOW_2); 
@@ -3075,14 +3589,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Task__Group__4"
-    // InternalBiLang.g:935:1: rule__Task__Group__4 : rule__Task__Group__4__Impl rule__Task__Group__5 ;
+    // InternalBiLang.g:1090:1: rule__Task__Group__4 : rule__Task__Group__4__Impl rule__Task__Group__5 ;
     public final void rule__Task__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:939:1: ( rule__Task__Group__4__Impl rule__Task__Group__5 )
-            // InternalBiLang.g:940:2: rule__Task__Group__4__Impl rule__Task__Group__5
+            // InternalBiLang.g:1094:1: ( rule__Task__Group__4__Impl rule__Task__Group__5 )
+            // InternalBiLang.g:1095:2: rule__Task__Group__4__Impl rule__Task__Group__5
             {
             pushFollow(FOLLOW_7);
             rule__Task__Group__4__Impl();
@@ -3113,21 +3627,21 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Task__Group__4__Impl"
-    // InternalBiLang.g:947:1: rule__Task__Group__4__Impl : ( ( rule__Task__FileextractorAssignment_4 ) ) ;
+    // InternalBiLang.g:1102:1: rule__Task__Group__4__Impl : ( ( rule__Task__FileextractorAssignment_4 ) ) ;
     public final void rule__Task__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:951:1: ( ( ( rule__Task__FileextractorAssignment_4 ) ) )
-            // InternalBiLang.g:952:1: ( ( rule__Task__FileextractorAssignment_4 ) )
+            // InternalBiLang.g:1106:1: ( ( ( rule__Task__FileextractorAssignment_4 ) ) )
+            // InternalBiLang.g:1107:1: ( ( rule__Task__FileextractorAssignment_4 ) )
             {
-            // InternalBiLang.g:952:1: ( ( rule__Task__FileextractorAssignment_4 ) )
-            // InternalBiLang.g:953:2: ( rule__Task__FileextractorAssignment_4 )
+            // InternalBiLang.g:1107:1: ( ( rule__Task__FileextractorAssignment_4 ) )
+            // InternalBiLang.g:1108:2: ( rule__Task__FileextractorAssignment_4 )
             {
              before(grammarAccess.getTaskAccess().getFileextractorAssignment_4()); 
-            // InternalBiLang.g:954:2: ( rule__Task__FileextractorAssignment_4 )
-            // InternalBiLang.g:954:3: rule__Task__FileextractorAssignment_4
+            // InternalBiLang.g:1109:2: ( rule__Task__FileextractorAssignment_4 )
+            // InternalBiLang.g:1109:3: rule__Task__FileextractorAssignment_4
             {
             pushFollow(FOLLOW_2);
             rule__Task__FileextractorAssignment_4();
@@ -3160,14 +3674,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Task__Group__5"
-    // InternalBiLang.g:962:1: rule__Task__Group__5 : rule__Task__Group__5__Impl rule__Task__Group__6 ;
+    // InternalBiLang.g:1117:1: rule__Task__Group__5 : rule__Task__Group__5__Impl rule__Task__Group__6 ;
     public final void rule__Task__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:966:1: ( rule__Task__Group__5__Impl rule__Task__Group__6 )
-            // InternalBiLang.g:967:2: rule__Task__Group__5__Impl rule__Task__Group__6
+            // InternalBiLang.g:1121:1: ( rule__Task__Group__5__Impl rule__Task__Group__6 )
+            // InternalBiLang.g:1122:2: rule__Task__Group__5__Impl rule__Task__Group__6
             {
             pushFollow(FOLLOW_7);
             rule__Task__Group__5__Impl();
@@ -3198,20 +3712,20 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Task__Group__5__Impl"
-    // InternalBiLang.g:974:1: rule__Task__Group__5__Impl : ( ( rule__Task__DatafilteringAssignment_5 )? ) ;
+    // InternalBiLang.g:1129:1: rule__Task__Group__5__Impl : ( ( rule__Task__DatafilteringAssignment_5 )? ) ;
     public final void rule__Task__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:978:1: ( ( ( rule__Task__DatafilteringAssignment_5 )? ) )
-            // InternalBiLang.g:979:1: ( ( rule__Task__DatafilteringAssignment_5 )? )
+            // InternalBiLang.g:1133:1: ( ( ( rule__Task__DatafilteringAssignment_5 )? ) )
+            // InternalBiLang.g:1134:1: ( ( rule__Task__DatafilteringAssignment_5 )? )
             {
-            // InternalBiLang.g:979:1: ( ( rule__Task__DatafilteringAssignment_5 )? )
-            // InternalBiLang.g:980:2: ( rule__Task__DatafilteringAssignment_5 )?
+            // InternalBiLang.g:1134:1: ( ( rule__Task__DatafilteringAssignment_5 )? )
+            // InternalBiLang.g:1135:2: ( rule__Task__DatafilteringAssignment_5 )?
             {
              before(grammarAccess.getTaskAccess().getDatafilteringAssignment_5()); 
-            // InternalBiLang.g:981:2: ( rule__Task__DatafilteringAssignment_5 )?
+            // InternalBiLang.g:1136:2: ( rule__Task__DatafilteringAssignment_5 )?
             int alt12=2;
             int LA12_0 = input.LA(1);
 
@@ -3220,7 +3734,7 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
             }
             switch (alt12) {
                 case 1 :
-                    // InternalBiLang.g:981:3: rule__Task__DatafilteringAssignment_5
+                    // InternalBiLang.g:1136:3: rule__Task__DatafilteringAssignment_5
                     {
                     pushFollow(FOLLOW_2);
                     rule__Task__DatafilteringAssignment_5();
@@ -3256,14 +3770,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Task__Group__6"
-    // InternalBiLang.g:989:1: rule__Task__Group__6 : rule__Task__Group__6__Impl rule__Task__Group__7 ;
+    // InternalBiLang.g:1144:1: rule__Task__Group__6 : rule__Task__Group__6__Impl rule__Task__Group__7 ;
     public final void rule__Task__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:993:1: ( rule__Task__Group__6__Impl rule__Task__Group__7 )
-            // InternalBiLang.g:994:2: rule__Task__Group__6__Impl rule__Task__Group__7
+            // InternalBiLang.g:1148:1: ( rule__Task__Group__6__Impl rule__Task__Group__7 )
+            // InternalBiLang.g:1149:2: rule__Task__Group__6__Impl rule__Task__Group__7
             {
             pushFollow(FOLLOW_7);
             rule__Task__Group__6__Impl();
@@ -3294,20 +3808,20 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Task__Group__6__Impl"
-    // InternalBiLang.g:1001:1: rule__Task__Group__6__Impl : ( ( rule__Task__Group_6__0 )* ) ;
+    // InternalBiLang.g:1156:1: rule__Task__Group__6__Impl : ( ( rule__Task__Group_6__0 )* ) ;
     public final void rule__Task__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1005:1: ( ( ( rule__Task__Group_6__0 )* ) )
-            // InternalBiLang.g:1006:1: ( ( rule__Task__Group_6__0 )* )
+            // InternalBiLang.g:1160:1: ( ( ( rule__Task__Group_6__0 )* ) )
+            // InternalBiLang.g:1161:1: ( ( rule__Task__Group_6__0 )* )
             {
-            // InternalBiLang.g:1006:1: ( ( rule__Task__Group_6__0 )* )
-            // InternalBiLang.g:1007:2: ( rule__Task__Group_6__0 )*
+            // InternalBiLang.g:1161:1: ( ( rule__Task__Group_6__0 )* )
+            // InternalBiLang.g:1162:2: ( rule__Task__Group_6__0 )*
             {
              before(grammarAccess.getTaskAccess().getGroup_6()); 
-            // InternalBiLang.g:1008:2: ( rule__Task__Group_6__0 )*
+            // InternalBiLang.g:1163:2: ( rule__Task__Group_6__0 )*
             loop13:
             do {
                 int alt13=2;
@@ -3320,7 +3834,7 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
                 switch (alt13) {
             	case 1 :
-            	    // InternalBiLang.g:1008:3: rule__Task__Group_6__0
+            	    // InternalBiLang.g:1163:3: rule__Task__Group_6__0
             	    {
             	    pushFollow(FOLLOW_8);
             	    rule__Task__Group_6__0();
@@ -3359,14 +3873,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Task__Group__7"
-    // InternalBiLang.g:1016:1: rule__Task__Group__7 : rule__Task__Group__7__Impl rule__Task__Group__8 ;
+    // InternalBiLang.g:1171:1: rule__Task__Group__7 : rule__Task__Group__7__Impl rule__Task__Group__8 ;
     public final void rule__Task__Group__7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1020:1: ( rule__Task__Group__7__Impl rule__Task__Group__8 )
-            // InternalBiLang.g:1021:2: rule__Task__Group__7__Impl rule__Task__Group__8
+            // InternalBiLang.g:1175:1: ( rule__Task__Group__7__Impl rule__Task__Group__8 )
+            // InternalBiLang.g:1176:2: rule__Task__Group__7__Impl rule__Task__Group__8
             {
             pushFollow(FOLLOW_6);
             rule__Task__Group__7__Impl();
@@ -3397,17 +3911,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Task__Group__7__Impl"
-    // InternalBiLang.g:1028:1: rule__Task__Group__7__Impl : ( '[dashboard:' ) ;
+    // InternalBiLang.g:1183:1: rule__Task__Group__7__Impl : ( '[dashboard:' ) ;
     public final void rule__Task__Group__7__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1032:1: ( ( '[dashboard:' ) )
-            // InternalBiLang.g:1033:1: ( '[dashboard:' )
+            // InternalBiLang.g:1187:1: ( ( '[dashboard:' ) )
+            // InternalBiLang.g:1188:1: ( '[dashboard:' )
             {
-            // InternalBiLang.g:1033:1: ( '[dashboard:' )
-            // InternalBiLang.g:1034:2: '[dashboard:'
+            // InternalBiLang.g:1188:1: ( '[dashboard:' )
+            // InternalBiLang.g:1189:2: '[dashboard:'
             {
              before(grammarAccess.getTaskAccess().getDashboardKeyword_7()); 
             match(input,28,FOLLOW_2); 
@@ -3434,14 +3948,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Task__Group__8"
-    // InternalBiLang.g:1043:1: rule__Task__Group__8 : rule__Task__Group__8__Impl rule__Task__Group__9 ;
+    // InternalBiLang.g:1198:1: rule__Task__Group__8 : rule__Task__Group__8__Impl rule__Task__Group__9 ;
     public final void rule__Task__Group__8() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1047:1: ( rule__Task__Group__8__Impl rule__Task__Group__9 )
-            // InternalBiLang.g:1048:2: rule__Task__Group__8__Impl rule__Task__Group__9
+            // InternalBiLang.g:1202:1: ( rule__Task__Group__8__Impl rule__Task__Group__9 )
+            // InternalBiLang.g:1203:2: rule__Task__Group__8__Impl rule__Task__Group__9
             {
             pushFollow(FOLLOW_9);
             rule__Task__Group__8__Impl();
@@ -3472,21 +3986,21 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Task__Group__8__Impl"
-    // InternalBiLang.g:1055:1: rule__Task__Group__8__Impl : ( ( rule__Task__DashboardAssignment_8 ) ) ;
+    // InternalBiLang.g:1210:1: rule__Task__Group__8__Impl : ( ( rule__Task__DashboardAssignment_8 ) ) ;
     public final void rule__Task__Group__8__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1059:1: ( ( ( rule__Task__DashboardAssignment_8 ) ) )
-            // InternalBiLang.g:1060:1: ( ( rule__Task__DashboardAssignment_8 ) )
+            // InternalBiLang.g:1214:1: ( ( ( rule__Task__DashboardAssignment_8 ) ) )
+            // InternalBiLang.g:1215:1: ( ( rule__Task__DashboardAssignment_8 ) )
             {
-            // InternalBiLang.g:1060:1: ( ( rule__Task__DashboardAssignment_8 ) )
-            // InternalBiLang.g:1061:2: ( rule__Task__DashboardAssignment_8 )
+            // InternalBiLang.g:1215:1: ( ( rule__Task__DashboardAssignment_8 ) )
+            // InternalBiLang.g:1216:2: ( rule__Task__DashboardAssignment_8 )
             {
              before(grammarAccess.getTaskAccess().getDashboardAssignment_8()); 
-            // InternalBiLang.g:1062:2: ( rule__Task__DashboardAssignment_8 )
-            // InternalBiLang.g:1062:3: rule__Task__DashboardAssignment_8
+            // InternalBiLang.g:1217:2: ( rule__Task__DashboardAssignment_8 )
+            // InternalBiLang.g:1217:3: rule__Task__DashboardAssignment_8
             {
             pushFollow(FOLLOW_2);
             rule__Task__DashboardAssignment_8();
@@ -3519,14 +4033,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Task__Group__9"
-    // InternalBiLang.g:1070:1: rule__Task__Group__9 : rule__Task__Group__9__Impl ;
+    // InternalBiLang.g:1225:1: rule__Task__Group__9 : rule__Task__Group__9__Impl ;
     public final void rule__Task__Group__9() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1074:1: ( rule__Task__Group__9__Impl )
-            // InternalBiLang.g:1075:2: rule__Task__Group__9__Impl
+            // InternalBiLang.g:1229:1: ( rule__Task__Group__9__Impl )
+            // InternalBiLang.g:1230:2: rule__Task__Group__9__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Task__Group__9__Impl();
@@ -3552,17 +4066,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Task__Group__9__Impl"
-    // InternalBiLang.g:1081:1: rule__Task__Group__9__Impl : ( ']' ) ;
+    // InternalBiLang.g:1236:1: rule__Task__Group__9__Impl : ( ']' ) ;
     public final void rule__Task__Group__9__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1085:1: ( ( ']' ) )
-            // InternalBiLang.g:1086:1: ( ']' )
+            // InternalBiLang.g:1240:1: ( ( ']' ) )
+            // InternalBiLang.g:1241:1: ( ']' )
             {
-            // InternalBiLang.g:1086:1: ( ']' )
-            // InternalBiLang.g:1087:2: ']'
+            // InternalBiLang.g:1241:1: ( ']' )
+            // InternalBiLang.g:1242:2: ']'
             {
              before(grammarAccess.getTaskAccess().getRightSquareBracketKeyword_9()); 
             match(input,29,FOLLOW_2); 
@@ -3589,14 +4103,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Task__Group_6__0"
-    // InternalBiLang.g:1097:1: rule__Task__Group_6__0 : rule__Task__Group_6__0__Impl rule__Task__Group_6__1 ;
+    // InternalBiLang.g:1252:1: rule__Task__Group_6__0 : rule__Task__Group_6__0__Impl rule__Task__Group_6__1 ;
     public final void rule__Task__Group_6__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1101:1: ( rule__Task__Group_6__0__Impl rule__Task__Group_6__1 )
-            // InternalBiLang.g:1102:2: rule__Task__Group_6__0__Impl rule__Task__Group_6__1
+            // InternalBiLang.g:1256:1: ( rule__Task__Group_6__0__Impl rule__Task__Group_6__1 )
+            // InternalBiLang.g:1257:2: rule__Task__Group_6__0__Impl rule__Task__Group_6__1
             {
             pushFollow(FOLLOW_10);
             rule__Task__Group_6__0__Impl();
@@ -3627,21 +4141,21 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Task__Group_6__0__Impl"
-    // InternalBiLang.g:1109:1: rule__Task__Group_6__0__Impl : ( ( rule__Task__FileextractorAssignment_6_0 ) ) ;
+    // InternalBiLang.g:1264:1: rule__Task__Group_6__0__Impl : ( ( rule__Task__FileextractorAssignment_6_0 ) ) ;
     public final void rule__Task__Group_6__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1113:1: ( ( ( rule__Task__FileextractorAssignment_6_0 ) ) )
-            // InternalBiLang.g:1114:1: ( ( rule__Task__FileextractorAssignment_6_0 ) )
+            // InternalBiLang.g:1268:1: ( ( ( rule__Task__FileextractorAssignment_6_0 ) ) )
+            // InternalBiLang.g:1269:1: ( ( rule__Task__FileextractorAssignment_6_0 ) )
             {
-            // InternalBiLang.g:1114:1: ( ( rule__Task__FileextractorAssignment_6_0 ) )
-            // InternalBiLang.g:1115:2: ( rule__Task__FileextractorAssignment_6_0 )
+            // InternalBiLang.g:1269:1: ( ( rule__Task__FileextractorAssignment_6_0 ) )
+            // InternalBiLang.g:1270:2: ( rule__Task__FileextractorAssignment_6_0 )
             {
              before(grammarAccess.getTaskAccess().getFileextractorAssignment_6_0()); 
-            // InternalBiLang.g:1116:2: ( rule__Task__FileextractorAssignment_6_0 )
-            // InternalBiLang.g:1116:3: rule__Task__FileextractorAssignment_6_0
+            // InternalBiLang.g:1271:2: ( rule__Task__FileextractorAssignment_6_0 )
+            // InternalBiLang.g:1271:3: rule__Task__FileextractorAssignment_6_0
             {
             pushFollow(FOLLOW_2);
             rule__Task__FileextractorAssignment_6_0();
@@ -3674,14 +4188,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Task__Group_6__1"
-    // InternalBiLang.g:1124:1: rule__Task__Group_6__1 : rule__Task__Group_6__1__Impl ;
+    // InternalBiLang.g:1279:1: rule__Task__Group_6__1 : rule__Task__Group_6__1__Impl ;
     public final void rule__Task__Group_6__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1128:1: ( rule__Task__Group_6__1__Impl )
-            // InternalBiLang.g:1129:2: rule__Task__Group_6__1__Impl
+            // InternalBiLang.g:1283:1: ( rule__Task__Group_6__1__Impl )
+            // InternalBiLang.g:1284:2: rule__Task__Group_6__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Task__Group_6__1__Impl();
@@ -3707,20 +4221,20 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Task__Group_6__1__Impl"
-    // InternalBiLang.g:1135:1: rule__Task__Group_6__1__Impl : ( ( rule__Task__DatafilteringAssignment_6_1 )? ) ;
+    // InternalBiLang.g:1290:1: rule__Task__Group_6__1__Impl : ( ( rule__Task__DatafilteringAssignment_6_1 )? ) ;
     public final void rule__Task__Group_6__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1139:1: ( ( ( rule__Task__DatafilteringAssignment_6_1 )? ) )
-            // InternalBiLang.g:1140:1: ( ( rule__Task__DatafilteringAssignment_6_1 )? )
+            // InternalBiLang.g:1294:1: ( ( ( rule__Task__DatafilteringAssignment_6_1 )? ) )
+            // InternalBiLang.g:1295:1: ( ( rule__Task__DatafilteringAssignment_6_1 )? )
             {
-            // InternalBiLang.g:1140:1: ( ( rule__Task__DatafilteringAssignment_6_1 )? )
-            // InternalBiLang.g:1141:2: ( rule__Task__DatafilteringAssignment_6_1 )?
+            // InternalBiLang.g:1295:1: ( ( rule__Task__DatafilteringAssignment_6_1 )? )
+            // InternalBiLang.g:1296:2: ( rule__Task__DatafilteringAssignment_6_1 )?
             {
              before(grammarAccess.getTaskAccess().getDatafilteringAssignment_6_1()); 
-            // InternalBiLang.g:1142:2: ( rule__Task__DatafilteringAssignment_6_1 )?
+            // InternalBiLang.g:1297:2: ( rule__Task__DatafilteringAssignment_6_1 )?
             int alt14=2;
             int LA14_0 = input.LA(1);
 
@@ -3729,7 +4243,7 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
             }
             switch (alt14) {
                 case 1 :
-                    // InternalBiLang.g:1142:3: rule__Task__DatafilteringAssignment_6_1
+                    // InternalBiLang.g:1297:3: rule__Task__DatafilteringAssignment_6_1
                     {
                     pushFollow(FOLLOW_2);
                     rule__Task__DatafilteringAssignment_6_1();
@@ -3765,14 +4279,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DataFiltering__Group__0"
-    // InternalBiLang.g:1151:1: rule__DataFiltering__Group__0 : rule__DataFiltering__Group__0__Impl rule__DataFiltering__Group__1 ;
+    // InternalBiLang.g:1306:1: rule__DataFiltering__Group__0 : rule__DataFiltering__Group__0__Impl rule__DataFiltering__Group__1 ;
     public final void rule__DataFiltering__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1155:1: ( rule__DataFiltering__Group__0__Impl rule__DataFiltering__Group__1 )
-            // InternalBiLang.g:1156:2: rule__DataFiltering__Group__0__Impl rule__DataFiltering__Group__1
+            // InternalBiLang.g:1310:1: ( rule__DataFiltering__Group__0__Impl rule__DataFiltering__Group__1 )
+            // InternalBiLang.g:1311:2: rule__DataFiltering__Group__0__Impl rule__DataFiltering__Group__1
             {
             pushFollow(FOLLOW_6);
             rule__DataFiltering__Group__0__Impl();
@@ -3803,17 +4317,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DataFiltering__Group__0__Impl"
-    // InternalBiLang.g:1163:1: rule__DataFiltering__Group__0__Impl : ( '=>' ) ;
+    // InternalBiLang.g:1318:1: rule__DataFiltering__Group__0__Impl : ( '=>' ) ;
     public final void rule__DataFiltering__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1167:1: ( ( '=>' ) )
-            // InternalBiLang.g:1168:1: ( '=>' )
+            // InternalBiLang.g:1322:1: ( ( '=>' ) )
+            // InternalBiLang.g:1323:1: ( '=>' )
             {
-            // InternalBiLang.g:1168:1: ( '=>' )
-            // InternalBiLang.g:1169:2: '=>'
+            // InternalBiLang.g:1323:1: ( '=>' )
+            // InternalBiLang.g:1324:2: '=>'
             {
              before(grammarAccess.getDataFilteringAccess().getEqualsSignGreaterThanSignKeyword_0()); 
             match(input,30,FOLLOW_2); 
@@ -3840,14 +4354,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DataFiltering__Group__1"
-    // InternalBiLang.g:1178:1: rule__DataFiltering__Group__1 : rule__DataFiltering__Group__1__Impl rule__DataFiltering__Group__2 ;
+    // InternalBiLang.g:1333:1: rule__DataFiltering__Group__1 : rule__DataFiltering__Group__1__Impl rule__DataFiltering__Group__2 ;
     public final void rule__DataFiltering__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1182:1: ( rule__DataFiltering__Group__1__Impl rule__DataFiltering__Group__2 )
-            // InternalBiLang.g:1183:2: rule__DataFiltering__Group__1__Impl rule__DataFiltering__Group__2
+            // InternalBiLang.g:1337:1: ( rule__DataFiltering__Group__1__Impl rule__DataFiltering__Group__2 )
+            // InternalBiLang.g:1338:2: rule__DataFiltering__Group__1__Impl rule__DataFiltering__Group__2
             {
             pushFollow(FOLLOW_11);
             rule__DataFiltering__Group__1__Impl();
@@ -3878,21 +4392,21 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DataFiltering__Group__1__Impl"
-    // InternalBiLang.g:1190:1: rule__DataFiltering__Group__1__Impl : ( ( rule__DataFiltering__FileextractorAssignment_1 ) ) ;
+    // InternalBiLang.g:1345:1: rule__DataFiltering__Group__1__Impl : ( ( rule__DataFiltering__FileextractorAssignment_1 ) ) ;
     public final void rule__DataFiltering__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1194:1: ( ( ( rule__DataFiltering__FileextractorAssignment_1 ) ) )
-            // InternalBiLang.g:1195:1: ( ( rule__DataFiltering__FileextractorAssignment_1 ) )
+            // InternalBiLang.g:1349:1: ( ( ( rule__DataFiltering__FileextractorAssignment_1 ) ) )
+            // InternalBiLang.g:1350:1: ( ( rule__DataFiltering__FileextractorAssignment_1 ) )
             {
-            // InternalBiLang.g:1195:1: ( ( rule__DataFiltering__FileextractorAssignment_1 ) )
-            // InternalBiLang.g:1196:2: ( rule__DataFiltering__FileextractorAssignment_1 )
+            // InternalBiLang.g:1350:1: ( ( rule__DataFiltering__FileextractorAssignment_1 ) )
+            // InternalBiLang.g:1351:2: ( rule__DataFiltering__FileextractorAssignment_1 )
             {
              before(grammarAccess.getDataFilteringAccess().getFileextractorAssignment_1()); 
-            // InternalBiLang.g:1197:2: ( rule__DataFiltering__FileextractorAssignment_1 )
-            // InternalBiLang.g:1197:3: rule__DataFiltering__FileextractorAssignment_1
+            // InternalBiLang.g:1352:2: ( rule__DataFiltering__FileextractorAssignment_1 )
+            // InternalBiLang.g:1352:3: rule__DataFiltering__FileextractorAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__DataFiltering__FileextractorAssignment_1();
@@ -3925,14 +4439,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DataFiltering__Group__2"
-    // InternalBiLang.g:1205:1: rule__DataFiltering__Group__2 : rule__DataFiltering__Group__2__Impl rule__DataFiltering__Group__3 ;
+    // InternalBiLang.g:1360:1: rule__DataFiltering__Group__2 : rule__DataFiltering__Group__2__Impl rule__DataFiltering__Group__3 ;
     public final void rule__DataFiltering__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1209:1: ( rule__DataFiltering__Group__2__Impl rule__DataFiltering__Group__3 )
-            // InternalBiLang.g:1210:2: rule__DataFiltering__Group__2__Impl rule__DataFiltering__Group__3
+            // InternalBiLang.g:1364:1: ( rule__DataFiltering__Group__2__Impl rule__DataFiltering__Group__3 )
+            // InternalBiLang.g:1365:2: rule__DataFiltering__Group__2__Impl rule__DataFiltering__Group__3
             {
             pushFollow(FOLLOW_11);
             rule__DataFiltering__Group__2__Impl();
@@ -3963,20 +4477,20 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DataFiltering__Group__2__Impl"
-    // InternalBiLang.g:1217:1: rule__DataFiltering__Group__2__Impl : ( ( rule__DataFiltering__Group_2__0 )? ) ;
+    // InternalBiLang.g:1372:1: rule__DataFiltering__Group__2__Impl : ( ( rule__DataFiltering__Group_2__0 )? ) ;
     public final void rule__DataFiltering__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1221:1: ( ( ( rule__DataFiltering__Group_2__0 )? ) )
-            // InternalBiLang.g:1222:1: ( ( rule__DataFiltering__Group_2__0 )? )
+            // InternalBiLang.g:1376:1: ( ( ( rule__DataFiltering__Group_2__0 )? ) )
+            // InternalBiLang.g:1377:1: ( ( rule__DataFiltering__Group_2__0 )? )
             {
-            // InternalBiLang.g:1222:1: ( ( rule__DataFiltering__Group_2__0 )? )
-            // InternalBiLang.g:1223:2: ( rule__DataFiltering__Group_2__0 )?
+            // InternalBiLang.g:1377:1: ( ( rule__DataFiltering__Group_2__0 )? )
+            // InternalBiLang.g:1378:2: ( rule__DataFiltering__Group_2__0 )?
             {
              before(grammarAccess.getDataFilteringAccess().getGroup_2()); 
-            // InternalBiLang.g:1224:2: ( rule__DataFiltering__Group_2__0 )?
+            // InternalBiLang.g:1379:2: ( rule__DataFiltering__Group_2__0 )?
             int alt15=2;
             int LA15_0 = input.LA(1);
 
@@ -3985,7 +4499,7 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
             }
             switch (alt15) {
                 case 1 :
-                    // InternalBiLang.g:1224:3: rule__DataFiltering__Group_2__0
+                    // InternalBiLang.g:1379:3: rule__DataFiltering__Group_2__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__DataFiltering__Group_2__0();
@@ -4021,14 +4535,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DataFiltering__Group__3"
-    // InternalBiLang.g:1232:1: rule__DataFiltering__Group__3 : rule__DataFiltering__Group__3__Impl rule__DataFiltering__Group__4 ;
+    // InternalBiLang.g:1387:1: rule__DataFiltering__Group__3 : rule__DataFiltering__Group__3__Impl rule__DataFiltering__Group__4 ;
     public final void rule__DataFiltering__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1236:1: ( rule__DataFiltering__Group__3__Impl rule__DataFiltering__Group__4 )
-            // InternalBiLang.g:1237:2: rule__DataFiltering__Group__3__Impl rule__DataFiltering__Group__4
+            // InternalBiLang.g:1391:1: ( rule__DataFiltering__Group__3__Impl rule__DataFiltering__Group__4 )
+            // InternalBiLang.g:1392:2: rule__DataFiltering__Group__3__Impl rule__DataFiltering__Group__4
             {
             pushFollow(FOLLOW_6);
             rule__DataFiltering__Group__3__Impl();
@@ -4059,17 +4573,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DataFiltering__Group__3__Impl"
-    // InternalBiLang.g:1244:1: rule__DataFiltering__Group__3__Impl : ( 'filtering=' ) ;
+    // InternalBiLang.g:1399:1: rule__DataFiltering__Group__3__Impl : ( 'filtering=' ) ;
     public final void rule__DataFiltering__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1248:1: ( ( 'filtering=' ) )
-            // InternalBiLang.g:1249:1: ( 'filtering=' )
+            // InternalBiLang.g:1403:1: ( ( 'filtering=' ) )
+            // InternalBiLang.g:1404:1: ( 'filtering=' )
             {
-            // InternalBiLang.g:1249:1: ( 'filtering=' )
-            // InternalBiLang.g:1250:2: 'filtering='
+            // InternalBiLang.g:1404:1: ( 'filtering=' )
+            // InternalBiLang.g:1405:2: 'filtering='
             {
              before(grammarAccess.getDataFilteringAccess().getFilteringKeyword_3()); 
             match(input,31,FOLLOW_2); 
@@ -4096,14 +4610,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DataFiltering__Group__4"
-    // InternalBiLang.g:1259:1: rule__DataFiltering__Group__4 : rule__DataFiltering__Group__4__Impl rule__DataFiltering__Group__5 ;
+    // InternalBiLang.g:1414:1: rule__DataFiltering__Group__4 : rule__DataFiltering__Group__4__Impl rule__DataFiltering__Group__5 ;
     public final void rule__DataFiltering__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1263:1: ( rule__DataFiltering__Group__4__Impl rule__DataFiltering__Group__5 )
-            // InternalBiLang.g:1264:2: rule__DataFiltering__Group__4__Impl rule__DataFiltering__Group__5
+            // InternalBiLang.g:1418:1: ( rule__DataFiltering__Group__4__Impl rule__DataFiltering__Group__5 )
+            // InternalBiLang.g:1419:2: rule__DataFiltering__Group__4__Impl rule__DataFiltering__Group__5
             {
             pushFollow(FOLLOW_12);
             rule__DataFiltering__Group__4__Impl();
@@ -4134,21 +4648,21 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DataFiltering__Group__4__Impl"
-    // InternalBiLang.g:1271:1: rule__DataFiltering__Group__4__Impl : ( ( rule__DataFiltering__FilteringstepAssignment_4 ) ) ;
+    // InternalBiLang.g:1426:1: rule__DataFiltering__Group__4__Impl : ( ( rule__DataFiltering__FilteringstepAssignment_4 ) ) ;
     public final void rule__DataFiltering__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1275:1: ( ( ( rule__DataFiltering__FilteringstepAssignment_4 ) ) )
-            // InternalBiLang.g:1276:1: ( ( rule__DataFiltering__FilteringstepAssignment_4 ) )
+            // InternalBiLang.g:1430:1: ( ( ( rule__DataFiltering__FilteringstepAssignment_4 ) ) )
+            // InternalBiLang.g:1431:1: ( ( rule__DataFiltering__FilteringstepAssignment_4 ) )
             {
-            // InternalBiLang.g:1276:1: ( ( rule__DataFiltering__FilteringstepAssignment_4 ) )
-            // InternalBiLang.g:1277:2: ( rule__DataFiltering__FilteringstepAssignment_4 )
+            // InternalBiLang.g:1431:1: ( ( rule__DataFiltering__FilteringstepAssignment_4 ) )
+            // InternalBiLang.g:1432:2: ( rule__DataFiltering__FilteringstepAssignment_4 )
             {
              before(grammarAccess.getDataFilteringAccess().getFilteringstepAssignment_4()); 
-            // InternalBiLang.g:1278:2: ( rule__DataFiltering__FilteringstepAssignment_4 )
-            // InternalBiLang.g:1278:3: rule__DataFiltering__FilteringstepAssignment_4
+            // InternalBiLang.g:1433:2: ( rule__DataFiltering__FilteringstepAssignment_4 )
+            // InternalBiLang.g:1433:3: rule__DataFiltering__FilteringstepAssignment_4
             {
             pushFollow(FOLLOW_2);
             rule__DataFiltering__FilteringstepAssignment_4();
@@ -4181,14 +4695,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DataFiltering__Group__5"
-    // InternalBiLang.g:1286:1: rule__DataFiltering__Group__5 : rule__DataFiltering__Group__5__Impl ;
+    // InternalBiLang.g:1441:1: rule__DataFiltering__Group__5 : rule__DataFiltering__Group__5__Impl ;
     public final void rule__DataFiltering__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1290:1: ( rule__DataFiltering__Group__5__Impl )
-            // InternalBiLang.g:1291:2: rule__DataFiltering__Group__5__Impl
+            // InternalBiLang.g:1445:1: ( rule__DataFiltering__Group__5__Impl )
+            // InternalBiLang.g:1446:2: rule__DataFiltering__Group__5__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DataFiltering__Group__5__Impl();
@@ -4214,20 +4728,20 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DataFiltering__Group__5__Impl"
-    // InternalBiLang.g:1297:1: rule__DataFiltering__Group__5__Impl : ( ( rule__DataFiltering__Group_5__0 )* ) ;
+    // InternalBiLang.g:1452:1: rule__DataFiltering__Group__5__Impl : ( ( rule__DataFiltering__Group_5__0 )* ) ;
     public final void rule__DataFiltering__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1301:1: ( ( ( rule__DataFiltering__Group_5__0 )* ) )
-            // InternalBiLang.g:1302:1: ( ( rule__DataFiltering__Group_5__0 )* )
+            // InternalBiLang.g:1456:1: ( ( ( rule__DataFiltering__Group_5__0 )* ) )
+            // InternalBiLang.g:1457:1: ( ( rule__DataFiltering__Group_5__0 )* )
             {
-            // InternalBiLang.g:1302:1: ( ( rule__DataFiltering__Group_5__0 )* )
-            // InternalBiLang.g:1303:2: ( rule__DataFiltering__Group_5__0 )*
+            // InternalBiLang.g:1457:1: ( ( rule__DataFiltering__Group_5__0 )* )
+            // InternalBiLang.g:1458:2: ( rule__DataFiltering__Group_5__0 )*
             {
              before(grammarAccess.getDataFilteringAccess().getGroup_5()); 
-            // InternalBiLang.g:1304:2: ( rule__DataFiltering__Group_5__0 )*
+            // InternalBiLang.g:1459:2: ( rule__DataFiltering__Group_5__0 )*
             loop16:
             do {
                 int alt16=2;
@@ -4240,7 +4754,7 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
                 switch (alt16) {
             	case 1 :
-            	    // InternalBiLang.g:1304:3: rule__DataFiltering__Group_5__0
+            	    // InternalBiLang.g:1459:3: rule__DataFiltering__Group_5__0
             	    {
             	    pushFollow(FOLLOW_13);
             	    rule__DataFiltering__Group_5__0();
@@ -4279,14 +4793,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DataFiltering__Group_2__0"
-    // InternalBiLang.g:1313:1: rule__DataFiltering__Group_2__0 : rule__DataFiltering__Group_2__0__Impl rule__DataFiltering__Group_2__1 ;
+    // InternalBiLang.g:1468:1: rule__DataFiltering__Group_2__0 : rule__DataFiltering__Group_2__0__Impl rule__DataFiltering__Group_2__1 ;
     public final void rule__DataFiltering__Group_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1317:1: ( rule__DataFiltering__Group_2__0__Impl rule__DataFiltering__Group_2__1 )
-            // InternalBiLang.g:1318:2: rule__DataFiltering__Group_2__0__Impl rule__DataFiltering__Group_2__1
+            // InternalBiLang.g:1472:1: ( rule__DataFiltering__Group_2__0__Impl rule__DataFiltering__Group_2__1 )
+            // InternalBiLang.g:1473:2: rule__DataFiltering__Group_2__0__Impl rule__DataFiltering__Group_2__1
             {
             pushFollow(FOLLOW_14);
             rule__DataFiltering__Group_2__0__Impl();
@@ -4317,17 +4831,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DataFiltering__Group_2__0__Impl"
-    // InternalBiLang.g:1325:1: rule__DataFiltering__Group_2__0__Impl : ( 'processing=' ) ;
+    // InternalBiLang.g:1480:1: rule__DataFiltering__Group_2__0__Impl : ( 'processing=' ) ;
     public final void rule__DataFiltering__Group_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1329:1: ( ( 'processing=' ) )
-            // InternalBiLang.g:1330:1: ( 'processing=' )
+            // InternalBiLang.g:1484:1: ( ( 'processing=' ) )
+            // InternalBiLang.g:1485:1: ( 'processing=' )
             {
-            // InternalBiLang.g:1330:1: ( 'processing=' )
-            // InternalBiLang.g:1331:2: 'processing='
+            // InternalBiLang.g:1485:1: ( 'processing=' )
+            // InternalBiLang.g:1486:2: 'processing='
             {
              before(grammarAccess.getDataFilteringAccess().getProcessingKeyword_2_0()); 
             match(input,32,FOLLOW_2); 
@@ -4354,14 +4868,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DataFiltering__Group_2__1"
-    // InternalBiLang.g:1340:1: rule__DataFiltering__Group_2__1 : rule__DataFiltering__Group_2__1__Impl rule__DataFiltering__Group_2__2 ;
+    // InternalBiLang.g:1495:1: rule__DataFiltering__Group_2__1 : rule__DataFiltering__Group_2__1__Impl rule__DataFiltering__Group_2__2 ;
     public final void rule__DataFiltering__Group_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1344:1: ( rule__DataFiltering__Group_2__1__Impl rule__DataFiltering__Group_2__2 )
-            // InternalBiLang.g:1345:2: rule__DataFiltering__Group_2__1__Impl rule__DataFiltering__Group_2__2
+            // InternalBiLang.g:1499:1: ( rule__DataFiltering__Group_2__1__Impl rule__DataFiltering__Group_2__2 )
+            // InternalBiLang.g:1500:2: rule__DataFiltering__Group_2__1__Impl rule__DataFiltering__Group_2__2
             {
             pushFollow(FOLLOW_14);
             rule__DataFiltering__Group_2__1__Impl();
@@ -4392,21 +4906,21 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DataFiltering__Group_2__1__Impl"
-    // InternalBiLang.g:1352:1: rule__DataFiltering__Group_2__1__Impl : ( ( rule__DataFiltering__ProcessingstepAssignment_2_1 ) ) ;
+    // InternalBiLang.g:1507:1: rule__DataFiltering__Group_2__1__Impl : ( ( rule__DataFiltering__ProcessingstepAssignment_2_1 ) ) ;
     public final void rule__DataFiltering__Group_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1356:1: ( ( ( rule__DataFiltering__ProcessingstepAssignment_2_1 ) ) )
-            // InternalBiLang.g:1357:1: ( ( rule__DataFiltering__ProcessingstepAssignment_2_1 ) )
+            // InternalBiLang.g:1511:1: ( ( ( rule__DataFiltering__ProcessingstepAssignment_2_1 ) ) )
+            // InternalBiLang.g:1512:1: ( ( rule__DataFiltering__ProcessingstepAssignment_2_1 ) )
             {
-            // InternalBiLang.g:1357:1: ( ( rule__DataFiltering__ProcessingstepAssignment_2_1 ) )
-            // InternalBiLang.g:1358:2: ( rule__DataFiltering__ProcessingstepAssignment_2_1 )
+            // InternalBiLang.g:1512:1: ( ( rule__DataFiltering__ProcessingstepAssignment_2_1 ) )
+            // InternalBiLang.g:1513:2: ( rule__DataFiltering__ProcessingstepAssignment_2_1 )
             {
              before(grammarAccess.getDataFilteringAccess().getProcessingstepAssignment_2_1()); 
-            // InternalBiLang.g:1359:2: ( rule__DataFiltering__ProcessingstepAssignment_2_1 )
-            // InternalBiLang.g:1359:3: rule__DataFiltering__ProcessingstepAssignment_2_1
+            // InternalBiLang.g:1514:2: ( rule__DataFiltering__ProcessingstepAssignment_2_1 )
+            // InternalBiLang.g:1514:3: rule__DataFiltering__ProcessingstepAssignment_2_1
             {
             pushFollow(FOLLOW_2);
             rule__DataFiltering__ProcessingstepAssignment_2_1();
@@ -4439,14 +4953,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DataFiltering__Group_2__2"
-    // InternalBiLang.g:1367:1: rule__DataFiltering__Group_2__2 : rule__DataFiltering__Group_2__2__Impl ;
+    // InternalBiLang.g:1522:1: rule__DataFiltering__Group_2__2 : rule__DataFiltering__Group_2__2__Impl ;
     public final void rule__DataFiltering__Group_2__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1371:1: ( rule__DataFiltering__Group_2__2__Impl )
-            // InternalBiLang.g:1372:2: rule__DataFiltering__Group_2__2__Impl
+            // InternalBiLang.g:1526:1: ( rule__DataFiltering__Group_2__2__Impl )
+            // InternalBiLang.g:1527:2: rule__DataFiltering__Group_2__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DataFiltering__Group_2__2__Impl();
@@ -4472,20 +4986,20 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DataFiltering__Group_2__2__Impl"
-    // InternalBiLang.g:1378:1: rule__DataFiltering__Group_2__2__Impl : ( ( rule__DataFiltering__ProcessingstepAssignment_2_2 )* ) ;
+    // InternalBiLang.g:1533:1: rule__DataFiltering__Group_2__2__Impl : ( ( rule__DataFiltering__ProcessingstepAssignment_2_2 )* ) ;
     public final void rule__DataFiltering__Group_2__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1382:1: ( ( ( rule__DataFiltering__ProcessingstepAssignment_2_2 )* ) )
-            // InternalBiLang.g:1383:1: ( ( rule__DataFiltering__ProcessingstepAssignment_2_2 )* )
+            // InternalBiLang.g:1537:1: ( ( ( rule__DataFiltering__ProcessingstepAssignment_2_2 )* ) )
+            // InternalBiLang.g:1538:1: ( ( rule__DataFiltering__ProcessingstepAssignment_2_2 )* )
             {
-            // InternalBiLang.g:1383:1: ( ( rule__DataFiltering__ProcessingstepAssignment_2_2 )* )
-            // InternalBiLang.g:1384:2: ( rule__DataFiltering__ProcessingstepAssignment_2_2 )*
+            // InternalBiLang.g:1538:1: ( ( rule__DataFiltering__ProcessingstepAssignment_2_2 )* )
+            // InternalBiLang.g:1539:2: ( rule__DataFiltering__ProcessingstepAssignment_2_2 )*
             {
              before(grammarAccess.getDataFilteringAccess().getProcessingstepAssignment_2_2()); 
-            // InternalBiLang.g:1385:2: ( rule__DataFiltering__ProcessingstepAssignment_2_2 )*
+            // InternalBiLang.g:1540:2: ( rule__DataFiltering__ProcessingstepAssignment_2_2 )*
             loop17:
             do {
                 int alt17=2;
@@ -4498,7 +5012,7 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
                 switch (alt17) {
             	case 1 :
-            	    // InternalBiLang.g:1385:3: rule__DataFiltering__ProcessingstepAssignment_2_2
+            	    // InternalBiLang.g:1540:3: rule__DataFiltering__ProcessingstepAssignment_2_2
             	    {
             	    pushFollow(FOLLOW_15);
             	    rule__DataFiltering__ProcessingstepAssignment_2_2();
@@ -4537,14 +5051,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DataFiltering__Group_5__0"
-    // InternalBiLang.g:1394:1: rule__DataFiltering__Group_5__0 : rule__DataFiltering__Group_5__0__Impl rule__DataFiltering__Group_5__1 ;
+    // InternalBiLang.g:1549:1: rule__DataFiltering__Group_5__0 : rule__DataFiltering__Group_5__0__Impl rule__DataFiltering__Group_5__1 ;
     public final void rule__DataFiltering__Group_5__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1398:1: ( rule__DataFiltering__Group_5__0__Impl rule__DataFiltering__Group_5__1 )
-            // InternalBiLang.g:1399:2: rule__DataFiltering__Group_5__0__Impl rule__DataFiltering__Group_5__1
+            // InternalBiLang.g:1553:1: ( rule__DataFiltering__Group_5__0__Impl rule__DataFiltering__Group_5__1 )
+            // InternalBiLang.g:1554:2: rule__DataFiltering__Group_5__0__Impl rule__DataFiltering__Group_5__1
             {
             pushFollow(FOLLOW_6);
             rule__DataFiltering__Group_5__0__Impl();
@@ -4575,17 +5089,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DataFiltering__Group_5__0__Impl"
-    // InternalBiLang.g:1406:1: rule__DataFiltering__Group_5__0__Impl : ( ',' ) ;
+    // InternalBiLang.g:1561:1: rule__DataFiltering__Group_5__0__Impl : ( ',' ) ;
     public final void rule__DataFiltering__Group_5__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1410:1: ( ( ',' ) )
-            // InternalBiLang.g:1411:1: ( ',' )
+            // InternalBiLang.g:1565:1: ( ( ',' ) )
+            // InternalBiLang.g:1566:1: ( ',' )
             {
-            // InternalBiLang.g:1411:1: ( ',' )
-            // InternalBiLang.g:1412:2: ','
+            // InternalBiLang.g:1566:1: ( ',' )
+            // InternalBiLang.g:1567:2: ','
             {
              before(grammarAccess.getDataFilteringAccess().getCommaKeyword_5_0()); 
             match(input,33,FOLLOW_2); 
@@ -4612,14 +5126,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DataFiltering__Group_5__1"
-    // InternalBiLang.g:1421:1: rule__DataFiltering__Group_5__1 : rule__DataFiltering__Group_5__1__Impl ;
+    // InternalBiLang.g:1576:1: rule__DataFiltering__Group_5__1 : rule__DataFiltering__Group_5__1__Impl ;
     public final void rule__DataFiltering__Group_5__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1425:1: ( rule__DataFiltering__Group_5__1__Impl )
-            // InternalBiLang.g:1426:2: rule__DataFiltering__Group_5__1__Impl
+            // InternalBiLang.g:1580:1: ( rule__DataFiltering__Group_5__1__Impl )
+            // InternalBiLang.g:1581:2: rule__DataFiltering__Group_5__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DataFiltering__Group_5__1__Impl();
@@ -4645,21 +5159,21 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DataFiltering__Group_5__1__Impl"
-    // InternalBiLang.g:1432:1: rule__DataFiltering__Group_5__1__Impl : ( ( rule__DataFiltering__FilteringstepAssignment_5_1 ) ) ;
+    // InternalBiLang.g:1587:1: rule__DataFiltering__Group_5__1__Impl : ( ( rule__DataFiltering__FilteringstepAssignment_5_1 ) ) ;
     public final void rule__DataFiltering__Group_5__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1436:1: ( ( ( rule__DataFiltering__FilteringstepAssignment_5_1 ) ) )
-            // InternalBiLang.g:1437:1: ( ( rule__DataFiltering__FilteringstepAssignment_5_1 ) )
+            // InternalBiLang.g:1591:1: ( ( ( rule__DataFiltering__FilteringstepAssignment_5_1 ) ) )
+            // InternalBiLang.g:1592:1: ( ( rule__DataFiltering__FilteringstepAssignment_5_1 ) )
             {
-            // InternalBiLang.g:1437:1: ( ( rule__DataFiltering__FilteringstepAssignment_5_1 ) )
-            // InternalBiLang.g:1438:2: ( rule__DataFiltering__FilteringstepAssignment_5_1 )
+            // InternalBiLang.g:1592:1: ( ( rule__DataFiltering__FilteringstepAssignment_5_1 ) )
+            // InternalBiLang.g:1593:2: ( rule__DataFiltering__FilteringstepAssignment_5_1 )
             {
              before(grammarAccess.getDataFilteringAccess().getFilteringstepAssignment_5_1()); 
-            // InternalBiLang.g:1439:2: ( rule__DataFiltering__FilteringstepAssignment_5_1 )
-            // InternalBiLang.g:1439:3: rule__DataFiltering__FilteringstepAssignment_5_1
+            // InternalBiLang.g:1594:2: ( rule__DataFiltering__FilteringstepAssignment_5_1 )
+            // InternalBiLang.g:1594:3: rule__DataFiltering__FilteringstepAssignment_5_1
             {
             pushFollow(FOLLOW_2);
             rule__DataFiltering__FilteringstepAssignment_5_1();
@@ -4692,14 +5206,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DashBoard__Group__0"
-    // InternalBiLang.g:1448:1: rule__DashBoard__Group__0 : rule__DashBoard__Group__0__Impl rule__DashBoard__Group__1 ;
+    // InternalBiLang.g:1603:1: rule__DashBoard__Group__0 : rule__DashBoard__Group__0__Impl rule__DashBoard__Group__1 ;
     public final void rule__DashBoard__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1452:1: ( rule__DashBoard__Group__0__Impl rule__DashBoard__Group__1 )
-            // InternalBiLang.g:1453:2: rule__DashBoard__Group__0__Impl rule__DashBoard__Group__1
+            // InternalBiLang.g:1607:1: ( rule__DashBoard__Group__0__Impl rule__DashBoard__Group__1 )
+            // InternalBiLang.g:1608:2: rule__DashBoard__Group__0__Impl rule__DashBoard__Group__1
             {
             pushFollow(FOLLOW_10);
             rule__DashBoard__Group__0__Impl();
@@ -4730,21 +5244,21 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DashBoard__Group__0__Impl"
-    // InternalBiLang.g:1460:1: rule__DashBoard__Group__0__Impl : ( ( rule__DashBoard__NameAssignment_0 ) ) ;
+    // InternalBiLang.g:1615:1: rule__DashBoard__Group__0__Impl : ( ( rule__DashBoard__NameAssignment_0 ) ) ;
     public final void rule__DashBoard__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1464:1: ( ( ( rule__DashBoard__NameAssignment_0 ) ) )
-            // InternalBiLang.g:1465:1: ( ( rule__DashBoard__NameAssignment_0 ) )
+            // InternalBiLang.g:1619:1: ( ( ( rule__DashBoard__NameAssignment_0 ) ) )
+            // InternalBiLang.g:1620:1: ( ( rule__DashBoard__NameAssignment_0 ) )
             {
-            // InternalBiLang.g:1465:1: ( ( rule__DashBoard__NameAssignment_0 ) )
-            // InternalBiLang.g:1466:2: ( rule__DashBoard__NameAssignment_0 )
+            // InternalBiLang.g:1620:1: ( ( rule__DashBoard__NameAssignment_0 ) )
+            // InternalBiLang.g:1621:2: ( rule__DashBoard__NameAssignment_0 )
             {
              before(grammarAccess.getDashBoardAccess().getNameAssignment_0()); 
-            // InternalBiLang.g:1467:2: ( rule__DashBoard__NameAssignment_0 )
-            // InternalBiLang.g:1467:3: rule__DashBoard__NameAssignment_0
+            // InternalBiLang.g:1622:2: ( rule__DashBoard__NameAssignment_0 )
+            // InternalBiLang.g:1622:3: rule__DashBoard__NameAssignment_0
             {
             pushFollow(FOLLOW_2);
             rule__DashBoard__NameAssignment_0();
@@ -4777,14 +5291,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DashBoard__Group__1"
-    // InternalBiLang.g:1475:1: rule__DashBoard__Group__1 : rule__DashBoard__Group__1__Impl rule__DashBoard__Group__2 ;
+    // InternalBiLang.g:1630:1: rule__DashBoard__Group__1 : rule__DashBoard__Group__1__Impl rule__DashBoard__Group__2 ;
     public final void rule__DashBoard__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1479:1: ( rule__DashBoard__Group__1__Impl rule__DashBoard__Group__2 )
-            // InternalBiLang.g:1480:2: rule__DashBoard__Group__1__Impl rule__DashBoard__Group__2
+            // InternalBiLang.g:1634:1: ( rule__DashBoard__Group__1__Impl rule__DashBoard__Group__2 )
+            // InternalBiLang.g:1635:2: rule__DashBoard__Group__1__Impl rule__DashBoard__Group__2
             {
             pushFollow(FOLLOW_16);
             rule__DashBoard__Group__1__Impl();
@@ -4815,17 +5329,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DashBoard__Group__1__Impl"
-    // InternalBiLang.g:1487:1: rule__DashBoard__Group__1__Impl : ( '=>' ) ;
+    // InternalBiLang.g:1642:1: rule__DashBoard__Group__1__Impl : ( '=>' ) ;
     public final void rule__DashBoard__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1491:1: ( ( '=>' ) )
-            // InternalBiLang.g:1492:1: ( '=>' )
+            // InternalBiLang.g:1646:1: ( ( '=>' ) )
+            // InternalBiLang.g:1647:1: ( '=>' )
             {
-            // InternalBiLang.g:1492:1: ( '=>' )
-            // InternalBiLang.g:1493:2: '=>'
+            // InternalBiLang.g:1647:1: ( '=>' )
+            // InternalBiLang.g:1648:2: '=>'
             {
              before(grammarAccess.getDashBoardAccess().getEqualsSignGreaterThanSignKeyword_1()); 
             match(input,30,FOLLOW_2); 
@@ -4852,14 +5366,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DashBoard__Group__2"
-    // InternalBiLang.g:1502:1: rule__DashBoard__Group__2 : rule__DashBoard__Group__2__Impl rule__DashBoard__Group__3 ;
+    // InternalBiLang.g:1657:1: rule__DashBoard__Group__2 : rule__DashBoard__Group__2__Impl rule__DashBoard__Group__3 ;
     public final void rule__DashBoard__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1506:1: ( rule__DashBoard__Group__2__Impl rule__DashBoard__Group__3 )
-            // InternalBiLang.g:1507:2: rule__DashBoard__Group__2__Impl rule__DashBoard__Group__3
+            // InternalBiLang.g:1661:1: ( rule__DashBoard__Group__2__Impl rule__DashBoard__Group__3 )
+            // InternalBiLang.g:1662:2: rule__DashBoard__Group__2__Impl rule__DashBoard__Group__3
             {
             pushFollow(FOLLOW_17);
             rule__DashBoard__Group__2__Impl();
@@ -4890,21 +5404,21 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DashBoard__Group__2__Impl"
-    // InternalBiLang.g:1514:1: rule__DashBoard__Group__2__Impl : ( ( rule__DashBoard__Alternatives_2 ) ) ;
+    // InternalBiLang.g:1669:1: rule__DashBoard__Group__2__Impl : ( ( rule__DashBoard__Alternatives_2 ) ) ;
     public final void rule__DashBoard__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1518:1: ( ( ( rule__DashBoard__Alternatives_2 ) ) )
-            // InternalBiLang.g:1519:1: ( ( rule__DashBoard__Alternatives_2 ) )
+            // InternalBiLang.g:1673:1: ( ( ( rule__DashBoard__Alternatives_2 ) ) )
+            // InternalBiLang.g:1674:1: ( ( rule__DashBoard__Alternatives_2 ) )
             {
-            // InternalBiLang.g:1519:1: ( ( rule__DashBoard__Alternatives_2 ) )
-            // InternalBiLang.g:1520:2: ( rule__DashBoard__Alternatives_2 )
+            // InternalBiLang.g:1674:1: ( ( rule__DashBoard__Alternatives_2 ) )
+            // InternalBiLang.g:1675:2: ( rule__DashBoard__Alternatives_2 )
             {
              before(grammarAccess.getDashBoardAccess().getAlternatives_2()); 
-            // InternalBiLang.g:1521:2: ( rule__DashBoard__Alternatives_2 )
-            // InternalBiLang.g:1521:3: rule__DashBoard__Alternatives_2
+            // InternalBiLang.g:1676:2: ( rule__DashBoard__Alternatives_2 )
+            // InternalBiLang.g:1676:3: rule__DashBoard__Alternatives_2
             {
             pushFollow(FOLLOW_2);
             rule__DashBoard__Alternatives_2();
@@ -4937,14 +5451,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DashBoard__Group__3"
-    // InternalBiLang.g:1529:1: rule__DashBoard__Group__3 : rule__DashBoard__Group__3__Impl rule__DashBoard__Group__4 ;
+    // InternalBiLang.g:1684:1: rule__DashBoard__Group__3 : rule__DashBoard__Group__3__Impl rule__DashBoard__Group__4 ;
     public final void rule__DashBoard__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1533:1: ( rule__DashBoard__Group__3__Impl rule__DashBoard__Group__4 )
-            // InternalBiLang.g:1534:2: rule__DashBoard__Group__3__Impl rule__DashBoard__Group__4
+            // InternalBiLang.g:1688:1: ( rule__DashBoard__Group__3__Impl rule__DashBoard__Group__4 )
+            // InternalBiLang.g:1689:2: rule__DashBoard__Group__3__Impl rule__DashBoard__Group__4
             {
             pushFollow(FOLLOW_18);
             rule__DashBoard__Group__3__Impl();
@@ -4975,17 +5489,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DashBoard__Group__3__Impl"
-    // InternalBiLang.g:1541:1: rule__DashBoard__Group__3__Impl : ( 'plots' ) ;
+    // InternalBiLang.g:1696:1: rule__DashBoard__Group__3__Impl : ( 'plots' ) ;
     public final void rule__DashBoard__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1545:1: ( ( 'plots' ) )
-            // InternalBiLang.g:1546:1: ( 'plots' )
+            // InternalBiLang.g:1700:1: ( ( 'plots' ) )
+            // InternalBiLang.g:1701:1: ( 'plots' )
             {
-            // InternalBiLang.g:1546:1: ( 'plots' )
-            // InternalBiLang.g:1547:2: 'plots'
+            // InternalBiLang.g:1701:1: ( 'plots' )
+            // InternalBiLang.g:1702:2: 'plots'
             {
              before(grammarAccess.getDashBoardAccess().getPlotsKeyword_3()); 
             match(input,34,FOLLOW_2); 
@@ -5012,14 +5526,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DashBoard__Group__4"
-    // InternalBiLang.g:1556:1: rule__DashBoard__Group__4 : rule__DashBoard__Group__4__Impl rule__DashBoard__Group__5 ;
+    // InternalBiLang.g:1711:1: rule__DashBoard__Group__4 : rule__DashBoard__Group__4__Impl rule__DashBoard__Group__5 ;
     public final void rule__DashBoard__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1560:1: ( rule__DashBoard__Group__4__Impl rule__DashBoard__Group__5 )
-            // InternalBiLang.g:1561:2: rule__DashBoard__Group__4__Impl rule__DashBoard__Group__5
+            // InternalBiLang.g:1715:1: ( rule__DashBoard__Group__4__Impl rule__DashBoard__Group__5 )
+            // InternalBiLang.g:1716:2: rule__DashBoard__Group__4__Impl rule__DashBoard__Group__5
             {
             pushFollow(FOLLOW_19);
             rule__DashBoard__Group__4__Impl();
@@ -5050,17 +5564,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DashBoard__Group__4__Impl"
-    // InternalBiLang.g:1568:1: rule__DashBoard__Group__4__Impl : ( '{' ) ;
+    // InternalBiLang.g:1723:1: rule__DashBoard__Group__4__Impl : ( '{' ) ;
     public final void rule__DashBoard__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1572:1: ( ( '{' ) )
-            // InternalBiLang.g:1573:1: ( '{' )
+            // InternalBiLang.g:1727:1: ( ( '{' ) )
+            // InternalBiLang.g:1728:1: ( '{' )
             {
-            // InternalBiLang.g:1573:1: ( '{' )
-            // InternalBiLang.g:1574:2: '{'
+            // InternalBiLang.g:1728:1: ( '{' )
+            // InternalBiLang.g:1729:2: '{'
             {
              before(grammarAccess.getDashBoardAccess().getLeftCurlyBracketKeyword_4()); 
             match(input,35,FOLLOW_2); 
@@ -5087,14 +5601,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DashBoard__Group__5"
-    // InternalBiLang.g:1583:1: rule__DashBoard__Group__5 : rule__DashBoard__Group__5__Impl rule__DashBoard__Group__6 ;
+    // InternalBiLang.g:1738:1: rule__DashBoard__Group__5 : rule__DashBoard__Group__5__Impl rule__DashBoard__Group__6 ;
     public final void rule__DashBoard__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1587:1: ( rule__DashBoard__Group__5__Impl rule__DashBoard__Group__6 )
-            // InternalBiLang.g:1588:2: rule__DashBoard__Group__5__Impl rule__DashBoard__Group__6
+            // InternalBiLang.g:1742:1: ( rule__DashBoard__Group__5__Impl rule__DashBoard__Group__6 )
+            // InternalBiLang.g:1743:2: rule__DashBoard__Group__5__Impl rule__DashBoard__Group__6
             {
             pushFollow(FOLLOW_20);
             rule__DashBoard__Group__5__Impl();
@@ -5125,21 +5639,21 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DashBoard__Group__5__Impl"
-    // InternalBiLang.g:1595:1: rule__DashBoard__Group__5__Impl : ( ( rule__DashBoard__PlotAssignment_5 ) ) ;
+    // InternalBiLang.g:1750:1: rule__DashBoard__Group__5__Impl : ( ( rule__DashBoard__PlotAssignment_5 ) ) ;
     public final void rule__DashBoard__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1599:1: ( ( ( rule__DashBoard__PlotAssignment_5 ) ) )
-            // InternalBiLang.g:1600:1: ( ( rule__DashBoard__PlotAssignment_5 ) )
+            // InternalBiLang.g:1754:1: ( ( ( rule__DashBoard__PlotAssignment_5 ) ) )
+            // InternalBiLang.g:1755:1: ( ( rule__DashBoard__PlotAssignment_5 ) )
             {
-            // InternalBiLang.g:1600:1: ( ( rule__DashBoard__PlotAssignment_5 ) )
-            // InternalBiLang.g:1601:2: ( rule__DashBoard__PlotAssignment_5 )
+            // InternalBiLang.g:1755:1: ( ( rule__DashBoard__PlotAssignment_5 ) )
+            // InternalBiLang.g:1756:2: ( rule__DashBoard__PlotAssignment_5 )
             {
              before(grammarAccess.getDashBoardAccess().getPlotAssignment_5()); 
-            // InternalBiLang.g:1602:2: ( rule__DashBoard__PlotAssignment_5 )
-            // InternalBiLang.g:1602:3: rule__DashBoard__PlotAssignment_5
+            // InternalBiLang.g:1757:2: ( rule__DashBoard__PlotAssignment_5 )
+            // InternalBiLang.g:1757:3: rule__DashBoard__PlotAssignment_5
             {
             pushFollow(FOLLOW_2);
             rule__DashBoard__PlotAssignment_5();
@@ -5172,14 +5686,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DashBoard__Group__6"
-    // InternalBiLang.g:1610:1: rule__DashBoard__Group__6 : rule__DashBoard__Group__6__Impl rule__DashBoard__Group__7 ;
+    // InternalBiLang.g:1765:1: rule__DashBoard__Group__6 : rule__DashBoard__Group__6__Impl rule__DashBoard__Group__7 ;
     public final void rule__DashBoard__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1614:1: ( rule__DashBoard__Group__6__Impl rule__DashBoard__Group__7 )
-            // InternalBiLang.g:1615:2: rule__DashBoard__Group__6__Impl rule__DashBoard__Group__7
+            // InternalBiLang.g:1769:1: ( rule__DashBoard__Group__6__Impl rule__DashBoard__Group__7 )
+            // InternalBiLang.g:1770:2: rule__DashBoard__Group__6__Impl rule__DashBoard__Group__7
             {
             pushFollow(FOLLOW_20);
             rule__DashBoard__Group__6__Impl();
@@ -5210,33 +5724,33 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DashBoard__Group__6__Impl"
-    // InternalBiLang.g:1622:1: rule__DashBoard__Group__6__Impl : ( ( rule__DashBoard__PlotAssignment_6 )* ) ;
+    // InternalBiLang.g:1777:1: rule__DashBoard__Group__6__Impl : ( ( rule__DashBoard__PlotAssignment_6 )* ) ;
     public final void rule__DashBoard__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1626:1: ( ( ( rule__DashBoard__PlotAssignment_6 )* ) )
-            // InternalBiLang.g:1627:1: ( ( rule__DashBoard__PlotAssignment_6 )* )
+            // InternalBiLang.g:1781:1: ( ( ( rule__DashBoard__PlotAssignment_6 )* ) )
+            // InternalBiLang.g:1782:1: ( ( rule__DashBoard__PlotAssignment_6 )* )
             {
-            // InternalBiLang.g:1627:1: ( ( rule__DashBoard__PlotAssignment_6 )* )
-            // InternalBiLang.g:1628:2: ( rule__DashBoard__PlotAssignment_6 )*
+            // InternalBiLang.g:1782:1: ( ( rule__DashBoard__PlotAssignment_6 )* )
+            // InternalBiLang.g:1783:2: ( rule__DashBoard__PlotAssignment_6 )*
             {
              before(grammarAccess.getDashBoardAccess().getPlotAssignment_6()); 
-            // InternalBiLang.g:1629:2: ( rule__DashBoard__PlotAssignment_6 )*
+            // InternalBiLang.g:1784:2: ( rule__DashBoard__PlotAssignment_6 )*
             loop18:
             do {
                 int alt18=2;
                 int LA18_0 = input.LA(1);
 
-                if ( (LA18_0==45||LA18_0==52) ) {
+                if ( (LA18_0==45||(LA18_0>=52 && LA18_0<=57)) ) {
                     alt18=1;
                 }
 
 
                 switch (alt18) {
             	case 1 :
-            	    // InternalBiLang.g:1629:3: rule__DashBoard__PlotAssignment_6
+            	    // InternalBiLang.g:1784:3: rule__DashBoard__PlotAssignment_6
             	    {
             	    pushFollow(FOLLOW_21);
             	    rule__DashBoard__PlotAssignment_6();
@@ -5275,14 +5789,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DashBoard__Group__7"
-    // InternalBiLang.g:1637:1: rule__DashBoard__Group__7 : rule__DashBoard__Group__7__Impl ;
+    // InternalBiLang.g:1792:1: rule__DashBoard__Group__7 : rule__DashBoard__Group__7__Impl ;
     public final void rule__DashBoard__Group__7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1641:1: ( rule__DashBoard__Group__7__Impl )
-            // InternalBiLang.g:1642:2: rule__DashBoard__Group__7__Impl
+            // InternalBiLang.g:1796:1: ( rule__DashBoard__Group__7__Impl )
+            // InternalBiLang.g:1797:2: rule__DashBoard__Group__7__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DashBoard__Group__7__Impl();
@@ -5308,17 +5822,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DashBoard__Group__7__Impl"
-    // InternalBiLang.g:1648:1: rule__DashBoard__Group__7__Impl : ( '}' ) ;
+    // InternalBiLang.g:1803:1: rule__DashBoard__Group__7__Impl : ( '}' ) ;
     public final void rule__DashBoard__Group__7__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1652:1: ( ( '}' ) )
-            // InternalBiLang.g:1653:1: ( '}' )
+            // InternalBiLang.g:1807:1: ( ( '}' ) )
+            // InternalBiLang.g:1808:1: ( '}' )
             {
-            // InternalBiLang.g:1653:1: ( '}' )
-            // InternalBiLang.g:1654:2: '}'
+            // InternalBiLang.g:1808:1: ( '}' )
+            // InternalBiLang.g:1809:2: '}'
             {
              before(grammarAccess.getDashBoardAccess().getRightCurlyBracketKeyword_7()); 
             match(input,36,FOLLOW_2); 
@@ -5345,14 +5859,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DashBoard__Group_2_0__0"
-    // InternalBiLang.g:1664:1: rule__DashBoard__Group_2_0__0 : rule__DashBoard__Group_2_0__0__Impl rule__DashBoard__Group_2_0__1 ;
+    // InternalBiLang.g:1819:1: rule__DashBoard__Group_2_0__0 : rule__DashBoard__Group_2_0__0__Impl rule__DashBoard__Group_2_0__1 ;
     public final void rule__DashBoard__Group_2_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1668:1: ( rule__DashBoard__Group_2_0__0__Impl rule__DashBoard__Group_2_0__1 )
-            // InternalBiLang.g:1669:2: rule__DashBoard__Group_2_0__0__Impl rule__DashBoard__Group_2_0__1
+            // InternalBiLang.g:1823:1: ( rule__DashBoard__Group_2_0__0__Impl rule__DashBoard__Group_2_0__1 )
+            // InternalBiLang.g:1824:2: rule__DashBoard__Group_2_0__0__Impl rule__DashBoard__Group_2_0__1
             {
             pushFollow(FOLLOW_6);
             rule__DashBoard__Group_2_0__0__Impl();
@@ -5383,17 +5897,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DashBoard__Group_2_0__0__Impl"
-    // InternalBiLang.g:1676:1: rule__DashBoard__Group_2_0__0__Impl : ( 'e' ) ;
+    // InternalBiLang.g:1831:1: rule__DashBoard__Group_2_0__0__Impl : ( 'e' ) ;
     public final void rule__DashBoard__Group_2_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1680:1: ( ( 'e' ) )
-            // InternalBiLang.g:1681:1: ( 'e' )
+            // InternalBiLang.g:1835:1: ( ( 'e' ) )
+            // InternalBiLang.g:1836:1: ( 'e' )
             {
-            // InternalBiLang.g:1681:1: ( 'e' )
-            // InternalBiLang.g:1682:2: 'e'
+            // InternalBiLang.g:1836:1: ( 'e' )
+            // InternalBiLang.g:1837:2: 'e'
             {
              before(grammarAccess.getDashBoardAccess().getEKeyword_2_0_0()); 
             match(input,12,FOLLOW_2); 
@@ -5420,14 +5934,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DashBoard__Group_2_0__1"
-    // InternalBiLang.g:1691:1: rule__DashBoard__Group_2_0__1 : rule__DashBoard__Group_2_0__1__Impl ;
+    // InternalBiLang.g:1846:1: rule__DashBoard__Group_2_0__1 : rule__DashBoard__Group_2_0__1__Impl ;
     public final void rule__DashBoard__Group_2_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1695:1: ( rule__DashBoard__Group_2_0__1__Impl )
-            // InternalBiLang.g:1696:2: rule__DashBoard__Group_2_0__1__Impl
+            // InternalBiLang.g:1850:1: ( rule__DashBoard__Group_2_0__1__Impl )
+            // InternalBiLang.g:1851:2: rule__DashBoard__Group_2_0__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DashBoard__Group_2_0__1__Impl();
@@ -5453,21 +5967,21 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DashBoard__Group_2_0__1__Impl"
-    // InternalBiLang.g:1702:1: rule__DashBoard__Group_2_0__1__Impl : ( ( rule__DashBoard__FileextractorAssignment_2_0_1 ) ) ;
+    // InternalBiLang.g:1857:1: rule__DashBoard__Group_2_0__1__Impl : ( ( rule__DashBoard__FileextractorAssignment_2_0_1 ) ) ;
     public final void rule__DashBoard__Group_2_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1706:1: ( ( ( rule__DashBoard__FileextractorAssignment_2_0_1 ) ) )
-            // InternalBiLang.g:1707:1: ( ( rule__DashBoard__FileextractorAssignment_2_0_1 ) )
+            // InternalBiLang.g:1861:1: ( ( ( rule__DashBoard__FileextractorAssignment_2_0_1 ) ) )
+            // InternalBiLang.g:1862:1: ( ( rule__DashBoard__FileextractorAssignment_2_0_1 ) )
             {
-            // InternalBiLang.g:1707:1: ( ( rule__DashBoard__FileextractorAssignment_2_0_1 ) )
-            // InternalBiLang.g:1708:2: ( rule__DashBoard__FileextractorAssignment_2_0_1 )
+            // InternalBiLang.g:1862:1: ( ( rule__DashBoard__FileextractorAssignment_2_0_1 ) )
+            // InternalBiLang.g:1863:2: ( rule__DashBoard__FileextractorAssignment_2_0_1 )
             {
              before(grammarAccess.getDashBoardAccess().getFileextractorAssignment_2_0_1()); 
-            // InternalBiLang.g:1709:2: ( rule__DashBoard__FileextractorAssignment_2_0_1 )
-            // InternalBiLang.g:1709:3: rule__DashBoard__FileextractorAssignment_2_0_1
+            // InternalBiLang.g:1864:2: ( rule__DashBoard__FileextractorAssignment_2_0_1 )
+            // InternalBiLang.g:1864:3: rule__DashBoard__FileextractorAssignment_2_0_1
             {
             pushFollow(FOLLOW_2);
             rule__DashBoard__FileextractorAssignment_2_0_1();
@@ -5500,14 +6014,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DashBoard__Group_2_1__0"
-    // InternalBiLang.g:1718:1: rule__DashBoard__Group_2_1__0 : rule__DashBoard__Group_2_1__0__Impl rule__DashBoard__Group_2_1__1 ;
+    // InternalBiLang.g:1873:1: rule__DashBoard__Group_2_1__0 : rule__DashBoard__Group_2_1__0__Impl rule__DashBoard__Group_2_1__1 ;
     public final void rule__DashBoard__Group_2_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1722:1: ( rule__DashBoard__Group_2_1__0__Impl rule__DashBoard__Group_2_1__1 )
-            // InternalBiLang.g:1723:2: rule__DashBoard__Group_2_1__0__Impl rule__DashBoard__Group_2_1__1
+            // InternalBiLang.g:1877:1: ( rule__DashBoard__Group_2_1__0__Impl rule__DashBoard__Group_2_1__1 )
+            // InternalBiLang.g:1878:2: rule__DashBoard__Group_2_1__0__Impl rule__DashBoard__Group_2_1__1
             {
             pushFollow(FOLLOW_6);
             rule__DashBoard__Group_2_1__0__Impl();
@@ -5538,17 +6052,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DashBoard__Group_2_1__0__Impl"
-    // InternalBiLang.g:1730:1: rule__DashBoard__Group_2_1__0__Impl : ( 'df' ) ;
+    // InternalBiLang.g:1885:1: rule__DashBoard__Group_2_1__0__Impl : ( 'df' ) ;
     public final void rule__DashBoard__Group_2_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1734:1: ( ( 'df' ) )
-            // InternalBiLang.g:1735:1: ( 'df' )
+            // InternalBiLang.g:1889:1: ( ( 'df' ) )
+            // InternalBiLang.g:1890:1: ( 'df' )
             {
-            // InternalBiLang.g:1735:1: ( 'df' )
-            // InternalBiLang.g:1736:2: 'df'
+            // InternalBiLang.g:1890:1: ( 'df' )
+            // InternalBiLang.g:1891:2: 'df'
             {
              before(grammarAccess.getDashBoardAccess().getDfKeyword_2_1_0()); 
             match(input,37,FOLLOW_2); 
@@ -5575,14 +6089,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DashBoard__Group_2_1__1"
-    // InternalBiLang.g:1745:1: rule__DashBoard__Group_2_1__1 : rule__DashBoard__Group_2_1__1__Impl ;
+    // InternalBiLang.g:1900:1: rule__DashBoard__Group_2_1__1 : rule__DashBoard__Group_2_1__1__Impl ;
     public final void rule__DashBoard__Group_2_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1749:1: ( rule__DashBoard__Group_2_1__1__Impl )
-            // InternalBiLang.g:1750:2: rule__DashBoard__Group_2_1__1__Impl
+            // InternalBiLang.g:1904:1: ( rule__DashBoard__Group_2_1__1__Impl )
+            // InternalBiLang.g:1905:2: rule__DashBoard__Group_2_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DashBoard__Group_2_1__1__Impl();
@@ -5608,21 +6122,21 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DashBoard__Group_2_1__1__Impl"
-    // InternalBiLang.g:1756:1: rule__DashBoard__Group_2_1__1__Impl : ( ( rule__DashBoard__DatafilteringAssignment_2_1_1 ) ) ;
+    // InternalBiLang.g:1911:1: rule__DashBoard__Group_2_1__1__Impl : ( ( rule__DashBoard__DatafilteringAssignment_2_1_1 ) ) ;
     public final void rule__DashBoard__Group_2_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1760:1: ( ( ( rule__DashBoard__DatafilteringAssignment_2_1_1 ) ) )
-            // InternalBiLang.g:1761:1: ( ( rule__DashBoard__DatafilteringAssignment_2_1_1 ) )
+            // InternalBiLang.g:1915:1: ( ( ( rule__DashBoard__DatafilteringAssignment_2_1_1 ) ) )
+            // InternalBiLang.g:1916:1: ( ( rule__DashBoard__DatafilteringAssignment_2_1_1 ) )
             {
-            // InternalBiLang.g:1761:1: ( ( rule__DashBoard__DatafilteringAssignment_2_1_1 ) )
-            // InternalBiLang.g:1762:2: ( rule__DashBoard__DatafilteringAssignment_2_1_1 )
+            // InternalBiLang.g:1916:1: ( ( rule__DashBoard__DatafilteringAssignment_2_1_1 ) )
+            // InternalBiLang.g:1917:2: ( rule__DashBoard__DatafilteringAssignment_2_1_1 )
             {
              before(grammarAccess.getDashBoardAccess().getDatafilteringAssignment_2_1_1()); 
-            // InternalBiLang.g:1763:2: ( rule__DashBoard__DatafilteringAssignment_2_1_1 )
-            // InternalBiLang.g:1763:3: rule__DashBoard__DatafilteringAssignment_2_1_1
+            // InternalBiLang.g:1918:2: ( rule__DashBoard__DatafilteringAssignment_2_1_1 )
+            // InternalBiLang.g:1918:3: rule__DashBoard__DatafilteringAssignment_2_1_1
             {
             pushFollow(FOLLOW_2);
             rule__DashBoard__DatafilteringAssignment_2_1_1();
@@ -5655,14 +6169,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CsvExtractor__Group__0"
-    // InternalBiLang.g:1772:1: rule__CsvExtractor__Group__0 : rule__CsvExtractor__Group__0__Impl rule__CsvExtractor__Group__1 ;
+    // InternalBiLang.g:1927:1: rule__CsvExtractor__Group__0 : rule__CsvExtractor__Group__0__Impl rule__CsvExtractor__Group__1 ;
     public final void rule__CsvExtractor__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1776:1: ( rule__CsvExtractor__Group__0__Impl rule__CsvExtractor__Group__1 )
-            // InternalBiLang.g:1777:2: rule__CsvExtractor__Group__0__Impl rule__CsvExtractor__Group__1
+            // InternalBiLang.g:1931:1: ( rule__CsvExtractor__Group__0__Impl rule__CsvExtractor__Group__1 )
+            // InternalBiLang.g:1932:2: rule__CsvExtractor__Group__0__Impl rule__CsvExtractor__Group__1
             {
             pushFollow(FOLLOW_6);
             rule__CsvExtractor__Group__0__Impl();
@@ -5693,21 +6207,21 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CsvExtractor__Group__0__Impl"
-    // InternalBiLang.g:1784:1: rule__CsvExtractor__Group__0__Impl : ( () ) ;
+    // InternalBiLang.g:1939:1: rule__CsvExtractor__Group__0__Impl : ( () ) ;
     public final void rule__CsvExtractor__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1788:1: ( ( () ) )
-            // InternalBiLang.g:1789:1: ( () )
+            // InternalBiLang.g:1943:1: ( ( () ) )
+            // InternalBiLang.g:1944:1: ( () )
             {
-            // InternalBiLang.g:1789:1: ( () )
-            // InternalBiLang.g:1790:2: ()
+            // InternalBiLang.g:1944:1: ( () )
+            // InternalBiLang.g:1945:2: ()
             {
              before(grammarAccess.getCsvExtractorAccess().getCsvExtractorAction_0()); 
-            // InternalBiLang.g:1791:2: ()
-            // InternalBiLang.g:1791:3: 
+            // InternalBiLang.g:1946:2: ()
+            // InternalBiLang.g:1946:3: 
             {
             }
 
@@ -5730,14 +6244,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CsvExtractor__Group__1"
-    // InternalBiLang.g:1799:1: rule__CsvExtractor__Group__1 : rule__CsvExtractor__Group__1__Impl rule__CsvExtractor__Group__2 ;
+    // InternalBiLang.g:1954:1: rule__CsvExtractor__Group__1 : rule__CsvExtractor__Group__1__Impl rule__CsvExtractor__Group__2 ;
     public final void rule__CsvExtractor__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1803:1: ( rule__CsvExtractor__Group__1__Impl rule__CsvExtractor__Group__2 )
-            // InternalBiLang.g:1804:2: rule__CsvExtractor__Group__1__Impl rule__CsvExtractor__Group__2
+            // InternalBiLang.g:1958:1: ( rule__CsvExtractor__Group__1__Impl rule__CsvExtractor__Group__2 )
+            // InternalBiLang.g:1959:2: rule__CsvExtractor__Group__1__Impl rule__CsvExtractor__Group__2
             {
             pushFollow(FOLLOW_22);
             rule__CsvExtractor__Group__1__Impl();
@@ -5768,21 +6282,21 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CsvExtractor__Group__1__Impl"
-    // InternalBiLang.g:1811:1: rule__CsvExtractor__Group__1__Impl : ( ( rule__CsvExtractor__NameAssignment_1 ) ) ;
+    // InternalBiLang.g:1966:1: rule__CsvExtractor__Group__1__Impl : ( ( rule__CsvExtractor__NameAssignment_1 ) ) ;
     public final void rule__CsvExtractor__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1815:1: ( ( ( rule__CsvExtractor__NameAssignment_1 ) ) )
-            // InternalBiLang.g:1816:1: ( ( rule__CsvExtractor__NameAssignment_1 ) )
+            // InternalBiLang.g:1970:1: ( ( ( rule__CsvExtractor__NameAssignment_1 ) ) )
+            // InternalBiLang.g:1971:1: ( ( rule__CsvExtractor__NameAssignment_1 ) )
             {
-            // InternalBiLang.g:1816:1: ( ( rule__CsvExtractor__NameAssignment_1 ) )
-            // InternalBiLang.g:1817:2: ( rule__CsvExtractor__NameAssignment_1 )
+            // InternalBiLang.g:1971:1: ( ( rule__CsvExtractor__NameAssignment_1 ) )
+            // InternalBiLang.g:1972:2: ( rule__CsvExtractor__NameAssignment_1 )
             {
              before(grammarAccess.getCsvExtractorAccess().getNameAssignment_1()); 
-            // InternalBiLang.g:1818:2: ( rule__CsvExtractor__NameAssignment_1 )
-            // InternalBiLang.g:1818:3: rule__CsvExtractor__NameAssignment_1
+            // InternalBiLang.g:1973:2: ( rule__CsvExtractor__NameAssignment_1 )
+            // InternalBiLang.g:1973:3: rule__CsvExtractor__NameAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__CsvExtractor__NameAssignment_1();
@@ -5815,14 +6329,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CsvExtractor__Group__2"
-    // InternalBiLang.g:1826:1: rule__CsvExtractor__Group__2 : rule__CsvExtractor__Group__2__Impl rule__CsvExtractor__Group__3 ;
+    // InternalBiLang.g:1981:1: rule__CsvExtractor__Group__2 : rule__CsvExtractor__Group__2__Impl rule__CsvExtractor__Group__3 ;
     public final void rule__CsvExtractor__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1830:1: ( rule__CsvExtractor__Group__2__Impl rule__CsvExtractor__Group__3 )
-            // InternalBiLang.g:1831:2: rule__CsvExtractor__Group__2__Impl rule__CsvExtractor__Group__3
+            // InternalBiLang.g:1985:1: ( rule__CsvExtractor__Group__2__Impl rule__CsvExtractor__Group__3 )
+            // InternalBiLang.g:1986:2: rule__CsvExtractor__Group__2__Impl rule__CsvExtractor__Group__3
             {
             pushFollow(FOLLOW_10);
             rule__CsvExtractor__Group__2__Impl();
@@ -5853,17 +6367,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CsvExtractor__Group__2__Impl"
-    // InternalBiLang.g:1838:1: rule__CsvExtractor__Group__2__Impl : ( '.csv' ) ;
+    // InternalBiLang.g:1993:1: rule__CsvExtractor__Group__2__Impl : ( '.csv' ) ;
     public final void rule__CsvExtractor__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1842:1: ( ( '.csv' ) )
-            // InternalBiLang.g:1843:1: ( '.csv' )
+            // InternalBiLang.g:1997:1: ( ( '.csv' ) )
+            // InternalBiLang.g:1998:1: ( '.csv' )
             {
-            // InternalBiLang.g:1843:1: ( '.csv' )
-            // InternalBiLang.g:1844:2: '.csv'
+            // InternalBiLang.g:1998:1: ( '.csv' )
+            // InternalBiLang.g:1999:2: '.csv'
             {
              before(grammarAccess.getCsvExtractorAccess().getCsvKeyword_2()); 
             match(input,38,FOLLOW_2); 
@@ -5890,14 +6404,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CsvExtractor__Group__3"
-    // InternalBiLang.g:1853:1: rule__CsvExtractor__Group__3 : rule__CsvExtractor__Group__3__Impl rule__CsvExtractor__Group__4 ;
+    // InternalBiLang.g:2008:1: rule__CsvExtractor__Group__3 : rule__CsvExtractor__Group__3__Impl rule__CsvExtractor__Group__4 ;
     public final void rule__CsvExtractor__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1857:1: ( rule__CsvExtractor__Group__3__Impl rule__CsvExtractor__Group__4 )
-            // InternalBiLang.g:1858:2: rule__CsvExtractor__Group__3__Impl rule__CsvExtractor__Group__4
+            // InternalBiLang.g:2012:1: ( rule__CsvExtractor__Group__3__Impl rule__CsvExtractor__Group__4 )
+            // InternalBiLang.g:2013:2: rule__CsvExtractor__Group__3__Impl rule__CsvExtractor__Group__4
             {
             pushFollow(FOLLOW_6);
             rule__CsvExtractor__Group__3__Impl();
@@ -5928,17 +6442,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CsvExtractor__Group__3__Impl"
-    // InternalBiLang.g:1865:1: rule__CsvExtractor__Group__3__Impl : ( '=>' ) ;
+    // InternalBiLang.g:2020:1: rule__CsvExtractor__Group__3__Impl : ( '=>' ) ;
     public final void rule__CsvExtractor__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1869:1: ( ( '=>' ) )
-            // InternalBiLang.g:1870:1: ( '=>' )
+            // InternalBiLang.g:2024:1: ( ( '=>' ) )
+            // InternalBiLang.g:2025:1: ( '=>' )
             {
-            // InternalBiLang.g:1870:1: ( '=>' )
-            // InternalBiLang.g:1871:2: '=>'
+            // InternalBiLang.g:2025:1: ( '=>' )
+            // InternalBiLang.g:2026:2: '=>'
             {
              before(grammarAccess.getCsvExtractorAccess().getEqualsSignGreaterThanSignKeyword_3()); 
             match(input,30,FOLLOW_2); 
@@ -5965,14 +6479,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CsvExtractor__Group__4"
-    // InternalBiLang.g:1880:1: rule__CsvExtractor__Group__4 : rule__CsvExtractor__Group__4__Impl ;
+    // InternalBiLang.g:2035:1: rule__CsvExtractor__Group__4 : rule__CsvExtractor__Group__4__Impl ;
     public final void rule__CsvExtractor__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1884:1: ( rule__CsvExtractor__Group__4__Impl )
-            // InternalBiLang.g:1885:2: rule__CsvExtractor__Group__4__Impl
+            // InternalBiLang.g:2039:1: ( rule__CsvExtractor__Group__4__Impl )
+            // InternalBiLang.g:2040:2: rule__CsvExtractor__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__CsvExtractor__Group__4__Impl();
@@ -5998,21 +6512,21 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CsvExtractor__Group__4__Impl"
-    // InternalBiLang.g:1891:1: rule__CsvExtractor__Group__4__Impl : ( ( rule__CsvExtractor__PathAssignment_4 ) ) ;
+    // InternalBiLang.g:2046:1: rule__CsvExtractor__Group__4__Impl : ( ( rule__CsvExtractor__PathAssignment_4 ) ) ;
     public final void rule__CsvExtractor__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1895:1: ( ( ( rule__CsvExtractor__PathAssignment_4 ) ) )
-            // InternalBiLang.g:1896:1: ( ( rule__CsvExtractor__PathAssignment_4 ) )
+            // InternalBiLang.g:2050:1: ( ( ( rule__CsvExtractor__PathAssignment_4 ) ) )
+            // InternalBiLang.g:2051:1: ( ( rule__CsvExtractor__PathAssignment_4 ) )
             {
-            // InternalBiLang.g:1896:1: ( ( rule__CsvExtractor__PathAssignment_4 ) )
-            // InternalBiLang.g:1897:2: ( rule__CsvExtractor__PathAssignment_4 )
+            // InternalBiLang.g:2051:1: ( ( rule__CsvExtractor__PathAssignment_4 ) )
+            // InternalBiLang.g:2052:2: ( rule__CsvExtractor__PathAssignment_4 )
             {
              before(grammarAccess.getCsvExtractorAccess().getPathAssignment_4()); 
-            // InternalBiLang.g:1898:2: ( rule__CsvExtractor__PathAssignment_4 )
-            // InternalBiLang.g:1898:3: rule__CsvExtractor__PathAssignment_4
+            // InternalBiLang.g:2053:2: ( rule__CsvExtractor__PathAssignment_4 )
+            // InternalBiLang.g:2053:3: rule__CsvExtractor__PathAssignment_4
             {
             pushFollow(FOLLOW_2);
             rule__CsvExtractor__PathAssignment_4();
@@ -6045,14 +6559,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ExcelExtractor__Group__0"
-    // InternalBiLang.g:1907:1: rule__ExcelExtractor__Group__0 : rule__ExcelExtractor__Group__0__Impl rule__ExcelExtractor__Group__1 ;
+    // InternalBiLang.g:2062:1: rule__ExcelExtractor__Group__0 : rule__ExcelExtractor__Group__0__Impl rule__ExcelExtractor__Group__1 ;
     public final void rule__ExcelExtractor__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1911:1: ( rule__ExcelExtractor__Group__0__Impl rule__ExcelExtractor__Group__1 )
-            // InternalBiLang.g:1912:2: rule__ExcelExtractor__Group__0__Impl rule__ExcelExtractor__Group__1
+            // InternalBiLang.g:2066:1: ( rule__ExcelExtractor__Group__0__Impl rule__ExcelExtractor__Group__1 )
+            // InternalBiLang.g:2067:2: rule__ExcelExtractor__Group__0__Impl rule__ExcelExtractor__Group__1
             {
             pushFollow(FOLLOW_6);
             rule__ExcelExtractor__Group__0__Impl();
@@ -6083,21 +6597,21 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ExcelExtractor__Group__0__Impl"
-    // InternalBiLang.g:1919:1: rule__ExcelExtractor__Group__0__Impl : ( () ) ;
+    // InternalBiLang.g:2074:1: rule__ExcelExtractor__Group__0__Impl : ( () ) ;
     public final void rule__ExcelExtractor__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1923:1: ( ( () ) )
-            // InternalBiLang.g:1924:1: ( () )
+            // InternalBiLang.g:2078:1: ( ( () ) )
+            // InternalBiLang.g:2079:1: ( () )
             {
-            // InternalBiLang.g:1924:1: ( () )
-            // InternalBiLang.g:1925:2: ()
+            // InternalBiLang.g:2079:1: ( () )
+            // InternalBiLang.g:2080:2: ()
             {
              before(grammarAccess.getExcelExtractorAccess().getExcelExtractorAction_0()); 
-            // InternalBiLang.g:1926:2: ()
-            // InternalBiLang.g:1926:3: 
+            // InternalBiLang.g:2081:2: ()
+            // InternalBiLang.g:2081:3: 
             {
             }
 
@@ -6120,14 +6634,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ExcelExtractor__Group__1"
-    // InternalBiLang.g:1934:1: rule__ExcelExtractor__Group__1 : rule__ExcelExtractor__Group__1__Impl rule__ExcelExtractor__Group__2 ;
+    // InternalBiLang.g:2089:1: rule__ExcelExtractor__Group__1 : rule__ExcelExtractor__Group__1__Impl rule__ExcelExtractor__Group__2 ;
     public final void rule__ExcelExtractor__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1938:1: ( rule__ExcelExtractor__Group__1__Impl rule__ExcelExtractor__Group__2 )
-            // InternalBiLang.g:1939:2: rule__ExcelExtractor__Group__1__Impl rule__ExcelExtractor__Group__2
+            // InternalBiLang.g:2093:1: ( rule__ExcelExtractor__Group__1__Impl rule__ExcelExtractor__Group__2 )
+            // InternalBiLang.g:2094:2: rule__ExcelExtractor__Group__1__Impl rule__ExcelExtractor__Group__2
             {
             pushFollow(FOLLOW_23);
             rule__ExcelExtractor__Group__1__Impl();
@@ -6158,21 +6672,21 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ExcelExtractor__Group__1__Impl"
-    // InternalBiLang.g:1946:1: rule__ExcelExtractor__Group__1__Impl : ( ( rule__ExcelExtractor__NameAssignment_1 ) ) ;
+    // InternalBiLang.g:2101:1: rule__ExcelExtractor__Group__1__Impl : ( ( rule__ExcelExtractor__NameAssignment_1 ) ) ;
     public final void rule__ExcelExtractor__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1950:1: ( ( ( rule__ExcelExtractor__NameAssignment_1 ) ) )
-            // InternalBiLang.g:1951:1: ( ( rule__ExcelExtractor__NameAssignment_1 ) )
+            // InternalBiLang.g:2105:1: ( ( ( rule__ExcelExtractor__NameAssignment_1 ) ) )
+            // InternalBiLang.g:2106:1: ( ( rule__ExcelExtractor__NameAssignment_1 ) )
             {
-            // InternalBiLang.g:1951:1: ( ( rule__ExcelExtractor__NameAssignment_1 ) )
-            // InternalBiLang.g:1952:2: ( rule__ExcelExtractor__NameAssignment_1 )
+            // InternalBiLang.g:2106:1: ( ( rule__ExcelExtractor__NameAssignment_1 ) )
+            // InternalBiLang.g:2107:2: ( rule__ExcelExtractor__NameAssignment_1 )
             {
              before(grammarAccess.getExcelExtractorAccess().getNameAssignment_1()); 
-            // InternalBiLang.g:1953:2: ( rule__ExcelExtractor__NameAssignment_1 )
-            // InternalBiLang.g:1953:3: rule__ExcelExtractor__NameAssignment_1
+            // InternalBiLang.g:2108:2: ( rule__ExcelExtractor__NameAssignment_1 )
+            // InternalBiLang.g:2108:3: rule__ExcelExtractor__NameAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__ExcelExtractor__NameAssignment_1();
@@ -6205,14 +6719,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ExcelExtractor__Group__2"
-    // InternalBiLang.g:1961:1: rule__ExcelExtractor__Group__2 : rule__ExcelExtractor__Group__2__Impl rule__ExcelExtractor__Group__3 ;
+    // InternalBiLang.g:2116:1: rule__ExcelExtractor__Group__2 : rule__ExcelExtractor__Group__2__Impl rule__ExcelExtractor__Group__3 ;
     public final void rule__ExcelExtractor__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1965:1: ( rule__ExcelExtractor__Group__2__Impl rule__ExcelExtractor__Group__3 )
-            // InternalBiLang.g:1966:2: rule__ExcelExtractor__Group__2__Impl rule__ExcelExtractor__Group__3
+            // InternalBiLang.g:2120:1: ( rule__ExcelExtractor__Group__2__Impl rule__ExcelExtractor__Group__3 )
+            // InternalBiLang.g:2121:2: rule__ExcelExtractor__Group__2__Impl rule__ExcelExtractor__Group__3
             {
             pushFollow(FOLLOW_10);
             rule__ExcelExtractor__Group__2__Impl();
@@ -6243,17 +6757,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ExcelExtractor__Group__2__Impl"
-    // InternalBiLang.g:1973:1: rule__ExcelExtractor__Group__2__Impl : ( '.xlsx' ) ;
+    // InternalBiLang.g:2128:1: rule__ExcelExtractor__Group__2__Impl : ( '.xlsx' ) ;
     public final void rule__ExcelExtractor__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1977:1: ( ( '.xlsx' ) )
-            // InternalBiLang.g:1978:1: ( '.xlsx' )
+            // InternalBiLang.g:2132:1: ( ( '.xlsx' ) )
+            // InternalBiLang.g:2133:1: ( '.xlsx' )
             {
-            // InternalBiLang.g:1978:1: ( '.xlsx' )
-            // InternalBiLang.g:1979:2: '.xlsx'
+            // InternalBiLang.g:2133:1: ( '.xlsx' )
+            // InternalBiLang.g:2134:2: '.xlsx'
             {
              before(grammarAccess.getExcelExtractorAccess().getXlsxKeyword_2()); 
             match(input,39,FOLLOW_2); 
@@ -6280,14 +6794,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ExcelExtractor__Group__3"
-    // InternalBiLang.g:1988:1: rule__ExcelExtractor__Group__3 : rule__ExcelExtractor__Group__3__Impl rule__ExcelExtractor__Group__4 ;
+    // InternalBiLang.g:2143:1: rule__ExcelExtractor__Group__3 : rule__ExcelExtractor__Group__3__Impl rule__ExcelExtractor__Group__4 ;
     public final void rule__ExcelExtractor__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:1992:1: ( rule__ExcelExtractor__Group__3__Impl rule__ExcelExtractor__Group__4 )
-            // InternalBiLang.g:1993:2: rule__ExcelExtractor__Group__3__Impl rule__ExcelExtractor__Group__4
+            // InternalBiLang.g:2147:1: ( rule__ExcelExtractor__Group__3__Impl rule__ExcelExtractor__Group__4 )
+            // InternalBiLang.g:2148:2: rule__ExcelExtractor__Group__3__Impl rule__ExcelExtractor__Group__4
             {
             pushFollow(FOLLOW_6);
             rule__ExcelExtractor__Group__3__Impl();
@@ -6318,17 +6832,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ExcelExtractor__Group__3__Impl"
-    // InternalBiLang.g:2000:1: rule__ExcelExtractor__Group__3__Impl : ( '=>' ) ;
+    // InternalBiLang.g:2155:1: rule__ExcelExtractor__Group__3__Impl : ( '=>' ) ;
     public final void rule__ExcelExtractor__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2004:1: ( ( '=>' ) )
-            // InternalBiLang.g:2005:1: ( '=>' )
+            // InternalBiLang.g:2159:1: ( ( '=>' ) )
+            // InternalBiLang.g:2160:1: ( '=>' )
             {
-            // InternalBiLang.g:2005:1: ( '=>' )
-            // InternalBiLang.g:2006:2: '=>'
+            // InternalBiLang.g:2160:1: ( '=>' )
+            // InternalBiLang.g:2161:2: '=>'
             {
              before(grammarAccess.getExcelExtractorAccess().getEqualsSignGreaterThanSignKeyword_3()); 
             match(input,30,FOLLOW_2); 
@@ -6355,14 +6869,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ExcelExtractor__Group__4"
-    // InternalBiLang.g:2015:1: rule__ExcelExtractor__Group__4 : rule__ExcelExtractor__Group__4__Impl ;
+    // InternalBiLang.g:2170:1: rule__ExcelExtractor__Group__4 : rule__ExcelExtractor__Group__4__Impl ;
     public final void rule__ExcelExtractor__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2019:1: ( rule__ExcelExtractor__Group__4__Impl )
-            // InternalBiLang.g:2020:2: rule__ExcelExtractor__Group__4__Impl
+            // InternalBiLang.g:2174:1: ( rule__ExcelExtractor__Group__4__Impl )
+            // InternalBiLang.g:2175:2: rule__ExcelExtractor__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ExcelExtractor__Group__4__Impl();
@@ -6388,21 +6902,21 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ExcelExtractor__Group__4__Impl"
-    // InternalBiLang.g:2026:1: rule__ExcelExtractor__Group__4__Impl : ( ( rule__ExcelExtractor__PathAssignment_4 ) ) ;
+    // InternalBiLang.g:2181:1: rule__ExcelExtractor__Group__4__Impl : ( ( rule__ExcelExtractor__PathAssignment_4 ) ) ;
     public final void rule__ExcelExtractor__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2030:1: ( ( ( rule__ExcelExtractor__PathAssignment_4 ) ) )
-            // InternalBiLang.g:2031:1: ( ( rule__ExcelExtractor__PathAssignment_4 ) )
+            // InternalBiLang.g:2185:1: ( ( ( rule__ExcelExtractor__PathAssignment_4 ) ) )
+            // InternalBiLang.g:2186:1: ( ( rule__ExcelExtractor__PathAssignment_4 ) )
             {
-            // InternalBiLang.g:2031:1: ( ( rule__ExcelExtractor__PathAssignment_4 ) )
-            // InternalBiLang.g:2032:2: ( rule__ExcelExtractor__PathAssignment_4 )
+            // InternalBiLang.g:2186:1: ( ( rule__ExcelExtractor__PathAssignment_4 ) )
+            // InternalBiLang.g:2187:2: ( rule__ExcelExtractor__PathAssignment_4 )
             {
              before(grammarAccess.getExcelExtractorAccess().getPathAssignment_4()); 
-            // InternalBiLang.g:2033:2: ( rule__ExcelExtractor__PathAssignment_4 )
-            // InternalBiLang.g:2033:3: rule__ExcelExtractor__PathAssignment_4
+            // InternalBiLang.g:2188:2: ( rule__ExcelExtractor__PathAssignment_4 )
+            // InternalBiLang.g:2188:3: rule__ExcelExtractor__PathAssignment_4
             {
             pushFollow(FOLLOW_2);
             rule__ExcelExtractor__PathAssignment_4();
@@ -6435,14 +6949,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QuantitativeFiltering__Group__0"
-    // InternalBiLang.g:2042:1: rule__QuantitativeFiltering__Group__0 : rule__QuantitativeFiltering__Group__0__Impl rule__QuantitativeFiltering__Group__1 ;
+    // InternalBiLang.g:2197:1: rule__QuantitativeFiltering__Group__0 : rule__QuantitativeFiltering__Group__0__Impl rule__QuantitativeFiltering__Group__1 ;
     public final void rule__QuantitativeFiltering__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2046:1: ( rule__QuantitativeFiltering__Group__0__Impl rule__QuantitativeFiltering__Group__1 )
-            // InternalBiLang.g:2047:2: rule__QuantitativeFiltering__Group__0__Impl rule__QuantitativeFiltering__Group__1
+            // InternalBiLang.g:2201:1: ( rule__QuantitativeFiltering__Group__0__Impl rule__QuantitativeFiltering__Group__1 )
+            // InternalBiLang.g:2202:2: rule__QuantitativeFiltering__Group__0__Impl rule__QuantitativeFiltering__Group__1
             {
             pushFollow(FOLLOW_6);
             rule__QuantitativeFiltering__Group__0__Impl();
@@ -6473,21 +6987,21 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QuantitativeFiltering__Group__0__Impl"
-    // InternalBiLang.g:2054:1: rule__QuantitativeFiltering__Group__0__Impl : ( () ) ;
+    // InternalBiLang.g:2209:1: rule__QuantitativeFiltering__Group__0__Impl : ( () ) ;
     public final void rule__QuantitativeFiltering__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2058:1: ( ( () ) )
-            // InternalBiLang.g:2059:1: ( () )
+            // InternalBiLang.g:2213:1: ( ( () ) )
+            // InternalBiLang.g:2214:1: ( () )
             {
-            // InternalBiLang.g:2059:1: ( () )
-            // InternalBiLang.g:2060:2: ()
+            // InternalBiLang.g:2214:1: ( () )
+            // InternalBiLang.g:2215:2: ()
             {
              before(grammarAccess.getQuantitativeFilteringAccess().getQuantitativeFilteringAction_0()); 
-            // InternalBiLang.g:2061:2: ()
-            // InternalBiLang.g:2061:3: 
+            // InternalBiLang.g:2216:2: ()
+            // InternalBiLang.g:2216:3: 
             {
             }
 
@@ -6510,14 +7024,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QuantitativeFiltering__Group__1"
-    // InternalBiLang.g:2069:1: rule__QuantitativeFiltering__Group__1 : rule__QuantitativeFiltering__Group__1__Impl rule__QuantitativeFiltering__Group__2 ;
+    // InternalBiLang.g:2224:1: rule__QuantitativeFiltering__Group__1 : rule__QuantitativeFiltering__Group__1__Impl rule__QuantitativeFiltering__Group__2 ;
     public final void rule__QuantitativeFiltering__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2073:1: ( rule__QuantitativeFiltering__Group__1__Impl rule__QuantitativeFiltering__Group__2 )
-            // InternalBiLang.g:2074:2: rule__QuantitativeFiltering__Group__1__Impl rule__QuantitativeFiltering__Group__2
+            // InternalBiLang.g:2228:1: ( rule__QuantitativeFiltering__Group__1__Impl rule__QuantitativeFiltering__Group__2 )
+            // InternalBiLang.g:2229:2: rule__QuantitativeFiltering__Group__1__Impl rule__QuantitativeFiltering__Group__2
             {
             pushFollow(FOLLOW_24);
             rule__QuantitativeFiltering__Group__1__Impl();
@@ -6548,21 +7062,21 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QuantitativeFiltering__Group__1__Impl"
-    // InternalBiLang.g:2081:1: rule__QuantitativeFiltering__Group__1__Impl : ( ( rule__QuantitativeFiltering__AxisAssignment_1 ) ) ;
+    // InternalBiLang.g:2236:1: rule__QuantitativeFiltering__Group__1__Impl : ( ( rule__QuantitativeFiltering__AxisAssignment_1 ) ) ;
     public final void rule__QuantitativeFiltering__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2085:1: ( ( ( rule__QuantitativeFiltering__AxisAssignment_1 ) ) )
-            // InternalBiLang.g:2086:1: ( ( rule__QuantitativeFiltering__AxisAssignment_1 ) )
+            // InternalBiLang.g:2240:1: ( ( ( rule__QuantitativeFiltering__AxisAssignment_1 ) ) )
+            // InternalBiLang.g:2241:1: ( ( rule__QuantitativeFiltering__AxisAssignment_1 ) )
             {
-            // InternalBiLang.g:2086:1: ( ( rule__QuantitativeFiltering__AxisAssignment_1 ) )
-            // InternalBiLang.g:2087:2: ( rule__QuantitativeFiltering__AxisAssignment_1 )
+            // InternalBiLang.g:2241:1: ( ( rule__QuantitativeFiltering__AxisAssignment_1 ) )
+            // InternalBiLang.g:2242:2: ( rule__QuantitativeFiltering__AxisAssignment_1 )
             {
              before(grammarAccess.getQuantitativeFilteringAccess().getAxisAssignment_1()); 
-            // InternalBiLang.g:2088:2: ( rule__QuantitativeFiltering__AxisAssignment_1 )
-            // InternalBiLang.g:2088:3: rule__QuantitativeFiltering__AxisAssignment_1
+            // InternalBiLang.g:2243:2: ( rule__QuantitativeFiltering__AxisAssignment_1 )
+            // InternalBiLang.g:2243:3: rule__QuantitativeFiltering__AxisAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__QuantitativeFiltering__AxisAssignment_1();
@@ -6595,14 +7109,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QuantitativeFiltering__Group__2"
-    // InternalBiLang.g:2096:1: rule__QuantitativeFiltering__Group__2 : rule__QuantitativeFiltering__Group__2__Impl rule__QuantitativeFiltering__Group__3 ;
+    // InternalBiLang.g:2251:1: rule__QuantitativeFiltering__Group__2 : rule__QuantitativeFiltering__Group__2__Impl rule__QuantitativeFiltering__Group__3 ;
     public final void rule__QuantitativeFiltering__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2100:1: ( rule__QuantitativeFiltering__Group__2__Impl rule__QuantitativeFiltering__Group__3 )
-            // InternalBiLang.g:2101:2: rule__QuantitativeFiltering__Group__2__Impl rule__QuantitativeFiltering__Group__3
+            // InternalBiLang.g:2255:1: ( rule__QuantitativeFiltering__Group__2__Impl rule__QuantitativeFiltering__Group__3 )
+            // InternalBiLang.g:2256:2: rule__QuantitativeFiltering__Group__2__Impl rule__QuantitativeFiltering__Group__3
             {
             pushFollow(FOLLOW_25);
             rule__QuantitativeFiltering__Group__2__Impl();
@@ -6633,21 +7147,21 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QuantitativeFiltering__Group__2__Impl"
-    // InternalBiLang.g:2108:1: rule__QuantitativeFiltering__Group__2__Impl : ( ( rule__QuantitativeFiltering__OperatorAssignment_2 ) ) ;
+    // InternalBiLang.g:2263:1: rule__QuantitativeFiltering__Group__2__Impl : ( ( rule__QuantitativeFiltering__OperatorAssignment_2 ) ) ;
     public final void rule__QuantitativeFiltering__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2112:1: ( ( ( rule__QuantitativeFiltering__OperatorAssignment_2 ) ) )
-            // InternalBiLang.g:2113:1: ( ( rule__QuantitativeFiltering__OperatorAssignment_2 ) )
+            // InternalBiLang.g:2267:1: ( ( ( rule__QuantitativeFiltering__OperatorAssignment_2 ) ) )
+            // InternalBiLang.g:2268:1: ( ( rule__QuantitativeFiltering__OperatorAssignment_2 ) )
             {
-            // InternalBiLang.g:2113:1: ( ( rule__QuantitativeFiltering__OperatorAssignment_2 ) )
-            // InternalBiLang.g:2114:2: ( rule__QuantitativeFiltering__OperatorAssignment_2 )
+            // InternalBiLang.g:2268:1: ( ( rule__QuantitativeFiltering__OperatorAssignment_2 ) )
+            // InternalBiLang.g:2269:2: ( rule__QuantitativeFiltering__OperatorAssignment_2 )
             {
              before(grammarAccess.getQuantitativeFilteringAccess().getOperatorAssignment_2()); 
-            // InternalBiLang.g:2115:2: ( rule__QuantitativeFiltering__OperatorAssignment_2 )
-            // InternalBiLang.g:2115:3: rule__QuantitativeFiltering__OperatorAssignment_2
+            // InternalBiLang.g:2270:2: ( rule__QuantitativeFiltering__OperatorAssignment_2 )
+            // InternalBiLang.g:2270:3: rule__QuantitativeFiltering__OperatorAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__QuantitativeFiltering__OperatorAssignment_2();
@@ -6680,14 +7194,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QuantitativeFiltering__Group__3"
-    // InternalBiLang.g:2123:1: rule__QuantitativeFiltering__Group__3 : rule__QuantitativeFiltering__Group__3__Impl ;
+    // InternalBiLang.g:2278:1: rule__QuantitativeFiltering__Group__3 : rule__QuantitativeFiltering__Group__3__Impl ;
     public final void rule__QuantitativeFiltering__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2127:1: ( rule__QuantitativeFiltering__Group__3__Impl )
-            // InternalBiLang.g:2128:2: rule__QuantitativeFiltering__Group__3__Impl
+            // InternalBiLang.g:2282:1: ( rule__QuantitativeFiltering__Group__3__Impl )
+            // InternalBiLang.g:2283:2: rule__QuantitativeFiltering__Group__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__QuantitativeFiltering__Group__3__Impl();
@@ -6713,21 +7227,21 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QuantitativeFiltering__Group__3__Impl"
-    // InternalBiLang.g:2134:1: rule__QuantitativeFiltering__Group__3__Impl : ( ( rule__QuantitativeFiltering__ValuesAssignment_3 ) ) ;
+    // InternalBiLang.g:2289:1: rule__QuantitativeFiltering__Group__3__Impl : ( ( rule__QuantitativeFiltering__ValuesAssignment_3 ) ) ;
     public final void rule__QuantitativeFiltering__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2138:1: ( ( ( rule__QuantitativeFiltering__ValuesAssignment_3 ) ) )
-            // InternalBiLang.g:2139:1: ( ( rule__QuantitativeFiltering__ValuesAssignment_3 ) )
+            // InternalBiLang.g:2293:1: ( ( ( rule__QuantitativeFiltering__ValuesAssignment_3 ) ) )
+            // InternalBiLang.g:2294:1: ( ( rule__QuantitativeFiltering__ValuesAssignment_3 ) )
             {
-            // InternalBiLang.g:2139:1: ( ( rule__QuantitativeFiltering__ValuesAssignment_3 ) )
-            // InternalBiLang.g:2140:2: ( rule__QuantitativeFiltering__ValuesAssignment_3 )
+            // InternalBiLang.g:2294:1: ( ( rule__QuantitativeFiltering__ValuesAssignment_3 ) )
+            // InternalBiLang.g:2295:2: ( rule__QuantitativeFiltering__ValuesAssignment_3 )
             {
              before(grammarAccess.getQuantitativeFilteringAccess().getValuesAssignment_3()); 
-            // InternalBiLang.g:2141:2: ( rule__QuantitativeFiltering__ValuesAssignment_3 )
-            // InternalBiLang.g:2141:3: rule__QuantitativeFiltering__ValuesAssignment_3
+            // InternalBiLang.g:2296:2: ( rule__QuantitativeFiltering__ValuesAssignment_3 )
+            // InternalBiLang.g:2296:3: rule__QuantitativeFiltering__ValuesAssignment_3
             {
             pushFollow(FOLLOW_2);
             rule__QuantitativeFiltering__ValuesAssignment_3();
@@ -6760,14 +7274,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QualitativeFiltering__Group__0"
-    // InternalBiLang.g:2150:1: rule__QualitativeFiltering__Group__0 : rule__QualitativeFiltering__Group__0__Impl rule__QualitativeFiltering__Group__1 ;
+    // InternalBiLang.g:2305:1: rule__QualitativeFiltering__Group__0 : rule__QualitativeFiltering__Group__0__Impl rule__QualitativeFiltering__Group__1 ;
     public final void rule__QualitativeFiltering__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2154:1: ( rule__QualitativeFiltering__Group__0__Impl rule__QualitativeFiltering__Group__1 )
-            // InternalBiLang.g:2155:2: rule__QualitativeFiltering__Group__0__Impl rule__QualitativeFiltering__Group__1
+            // InternalBiLang.g:2309:1: ( rule__QualitativeFiltering__Group__0__Impl rule__QualitativeFiltering__Group__1 )
+            // InternalBiLang.g:2310:2: rule__QualitativeFiltering__Group__0__Impl rule__QualitativeFiltering__Group__1
             {
             pushFollow(FOLLOW_6);
             rule__QualitativeFiltering__Group__0__Impl();
@@ -6798,21 +7312,21 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QualitativeFiltering__Group__0__Impl"
-    // InternalBiLang.g:2162:1: rule__QualitativeFiltering__Group__0__Impl : ( () ) ;
+    // InternalBiLang.g:2317:1: rule__QualitativeFiltering__Group__0__Impl : ( () ) ;
     public final void rule__QualitativeFiltering__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2166:1: ( ( () ) )
-            // InternalBiLang.g:2167:1: ( () )
+            // InternalBiLang.g:2321:1: ( ( () ) )
+            // InternalBiLang.g:2322:1: ( () )
             {
-            // InternalBiLang.g:2167:1: ( () )
-            // InternalBiLang.g:2168:2: ()
+            // InternalBiLang.g:2322:1: ( () )
+            // InternalBiLang.g:2323:2: ()
             {
              before(grammarAccess.getQualitativeFilteringAccess().getQualitativeFilteringAction_0()); 
-            // InternalBiLang.g:2169:2: ()
-            // InternalBiLang.g:2169:3: 
+            // InternalBiLang.g:2324:2: ()
+            // InternalBiLang.g:2324:3: 
             {
             }
 
@@ -6835,14 +7349,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QualitativeFiltering__Group__1"
-    // InternalBiLang.g:2177:1: rule__QualitativeFiltering__Group__1 : rule__QualitativeFiltering__Group__1__Impl rule__QualitativeFiltering__Group__2 ;
+    // InternalBiLang.g:2332:1: rule__QualitativeFiltering__Group__1 : rule__QualitativeFiltering__Group__1__Impl rule__QualitativeFiltering__Group__2 ;
     public final void rule__QualitativeFiltering__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2181:1: ( rule__QualitativeFiltering__Group__1__Impl rule__QualitativeFiltering__Group__2 )
-            // InternalBiLang.g:2182:2: rule__QualitativeFiltering__Group__1__Impl rule__QualitativeFiltering__Group__2
+            // InternalBiLang.g:2336:1: ( rule__QualitativeFiltering__Group__1__Impl rule__QualitativeFiltering__Group__2 )
+            // InternalBiLang.g:2337:2: rule__QualitativeFiltering__Group__1__Impl rule__QualitativeFiltering__Group__2
             {
             pushFollow(FOLLOW_26);
             rule__QualitativeFiltering__Group__1__Impl();
@@ -6873,21 +7387,21 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QualitativeFiltering__Group__1__Impl"
-    // InternalBiLang.g:2189:1: rule__QualitativeFiltering__Group__1__Impl : ( ( rule__QualitativeFiltering__AxisAssignment_1 ) ) ;
+    // InternalBiLang.g:2344:1: rule__QualitativeFiltering__Group__1__Impl : ( ( rule__QualitativeFiltering__AxisAssignment_1 ) ) ;
     public final void rule__QualitativeFiltering__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2193:1: ( ( ( rule__QualitativeFiltering__AxisAssignment_1 ) ) )
-            // InternalBiLang.g:2194:1: ( ( rule__QualitativeFiltering__AxisAssignment_1 ) )
+            // InternalBiLang.g:2348:1: ( ( ( rule__QualitativeFiltering__AxisAssignment_1 ) ) )
+            // InternalBiLang.g:2349:1: ( ( rule__QualitativeFiltering__AxisAssignment_1 ) )
             {
-            // InternalBiLang.g:2194:1: ( ( rule__QualitativeFiltering__AxisAssignment_1 ) )
-            // InternalBiLang.g:2195:2: ( rule__QualitativeFiltering__AxisAssignment_1 )
+            // InternalBiLang.g:2349:1: ( ( rule__QualitativeFiltering__AxisAssignment_1 ) )
+            // InternalBiLang.g:2350:2: ( rule__QualitativeFiltering__AxisAssignment_1 )
             {
              before(grammarAccess.getQualitativeFilteringAccess().getAxisAssignment_1()); 
-            // InternalBiLang.g:2196:2: ( rule__QualitativeFiltering__AxisAssignment_1 )
-            // InternalBiLang.g:2196:3: rule__QualitativeFiltering__AxisAssignment_1
+            // InternalBiLang.g:2351:2: ( rule__QualitativeFiltering__AxisAssignment_1 )
+            // InternalBiLang.g:2351:3: rule__QualitativeFiltering__AxisAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__QualitativeFiltering__AxisAssignment_1();
@@ -6920,14 +7434,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QualitativeFiltering__Group__2"
-    // InternalBiLang.g:2204:1: rule__QualitativeFiltering__Group__2 : rule__QualitativeFiltering__Group__2__Impl rule__QualitativeFiltering__Group__3 ;
+    // InternalBiLang.g:2359:1: rule__QualitativeFiltering__Group__2 : rule__QualitativeFiltering__Group__2__Impl rule__QualitativeFiltering__Group__3 ;
     public final void rule__QualitativeFiltering__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2208:1: ( rule__QualitativeFiltering__Group__2__Impl rule__QualitativeFiltering__Group__3 )
-            // InternalBiLang.g:2209:2: rule__QualitativeFiltering__Group__2__Impl rule__QualitativeFiltering__Group__3
+            // InternalBiLang.g:2363:1: ( rule__QualitativeFiltering__Group__2__Impl rule__QualitativeFiltering__Group__3 )
+            // InternalBiLang.g:2364:2: rule__QualitativeFiltering__Group__2__Impl rule__QualitativeFiltering__Group__3
             {
             pushFollow(FOLLOW_6);
             rule__QualitativeFiltering__Group__2__Impl();
@@ -6958,21 +7472,21 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QualitativeFiltering__Group__2__Impl"
-    // InternalBiLang.g:2216:1: rule__QualitativeFiltering__Group__2__Impl : ( ( rule__QualitativeFiltering__OperatorAssignment_2 ) ) ;
+    // InternalBiLang.g:2371:1: rule__QualitativeFiltering__Group__2__Impl : ( ( rule__QualitativeFiltering__OperatorAssignment_2 ) ) ;
     public final void rule__QualitativeFiltering__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2220:1: ( ( ( rule__QualitativeFiltering__OperatorAssignment_2 ) ) )
-            // InternalBiLang.g:2221:1: ( ( rule__QualitativeFiltering__OperatorAssignment_2 ) )
+            // InternalBiLang.g:2375:1: ( ( ( rule__QualitativeFiltering__OperatorAssignment_2 ) ) )
+            // InternalBiLang.g:2376:1: ( ( rule__QualitativeFiltering__OperatorAssignment_2 ) )
             {
-            // InternalBiLang.g:2221:1: ( ( rule__QualitativeFiltering__OperatorAssignment_2 ) )
-            // InternalBiLang.g:2222:2: ( rule__QualitativeFiltering__OperatorAssignment_2 )
+            // InternalBiLang.g:2376:1: ( ( rule__QualitativeFiltering__OperatorAssignment_2 ) )
+            // InternalBiLang.g:2377:2: ( rule__QualitativeFiltering__OperatorAssignment_2 )
             {
              before(grammarAccess.getQualitativeFilteringAccess().getOperatorAssignment_2()); 
-            // InternalBiLang.g:2223:2: ( rule__QualitativeFiltering__OperatorAssignment_2 )
-            // InternalBiLang.g:2223:3: rule__QualitativeFiltering__OperatorAssignment_2
+            // InternalBiLang.g:2378:2: ( rule__QualitativeFiltering__OperatorAssignment_2 )
+            // InternalBiLang.g:2378:3: rule__QualitativeFiltering__OperatorAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__QualitativeFiltering__OperatorAssignment_2();
@@ -7005,14 +7519,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QualitativeFiltering__Group__3"
-    // InternalBiLang.g:2231:1: rule__QualitativeFiltering__Group__3 : rule__QualitativeFiltering__Group__3__Impl ;
+    // InternalBiLang.g:2386:1: rule__QualitativeFiltering__Group__3 : rule__QualitativeFiltering__Group__3__Impl ;
     public final void rule__QualitativeFiltering__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2235:1: ( rule__QualitativeFiltering__Group__3__Impl )
-            // InternalBiLang.g:2236:2: rule__QualitativeFiltering__Group__3__Impl
+            // InternalBiLang.g:2390:1: ( rule__QualitativeFiltering__Group__3__Impl )
+            // InternalBiLang.g:2391:2: rule__QualitativeFiltering__Group__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__QualitativeFiltering__Group__3__Impl();
@@ -7038,21 +7552,21 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QualitativeFiltering__Group__3__Impl"
-    // InternalBiLang.g:2242:1: rule__QualitativeFiltering__Group__3__Impl : ( ( rule__QualitativeFiltering__LabelsAssignment_3 ) ) ;
+    // InternalBiLang.g:2397:1: rule__QualitativeFiltering__Group__3__Impl : ( ( rule__QualitativeFiltering__LabelsAssignment_3 ) ) ;
     public final void rule__QualitativeFiltering__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2246:1: ( ( ( rule__QualitativeFiltering__LabelsAssignment_3 ) ) )
-            // InternalBiLang.g:2247:1: ( ( rule__QualitativeFiltering__LabelsAssignment_3 ) )
+            // InternalBiLang.g:2401:1: ( ( ( rule__QualitativeFiltering__LabelsAssignment_3 ) ) )
+            // InternalBiLang.g:2402:1: ( ( rule__QualitativeFiltering__LabelsAssignment_3 ) )
             {
-            // InternalBiLang.g:2247:1: ( ( rule__QualitativeFiltering__LabelsAssignment_3 ) )
-            // InternalBiLang.g:2248:2: ( rule__QualitativeFiltering__LabelsAssignment_3 )
+            // InternalBiLang.g:2402:1: ( ( rule__QualitativeFiltering__LabelsAssignment_3 ) )
+            // InternalBiLang.g:2403:2: ( rule__QualitativeFiltering__LabelsAssignment_3 )
             {
              before(grammarAccess.getQualitativeFilteringAccess().getLabelsAssignment_3()); 
-            // InternalBiLang.g:2249:2: ( rule__QualitativeFiltering__LabelsAssignment_3 )
-            // InternalBiLang.g:2249:3: rule__QualitativeFiltering__LabelsAssignment_3
+            // InternalBiLang.g:2404:2: ( rule__QualitativeFiltering__LabelsAssignment_3 )
+            // InternalBiLang.g:2404:3: rule__QualitativeFiltering__LabelsAssignment_3
             {
             pushFollow(FOLLOW_2);
             rule__QualitativeFiltering__LabelsAssignment_3();
@@ -7085,14 +7599,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MathOperation__Group__0"
-    // InternalBiLang.g:2258:1: rule__MathOperation__Group__0 : rule__MathOperation__Group__0__Impl rule__MathOperation__Group__1 ;
+    // InternalBiLang.g:2413:1: rule__MathOperation__Group__0 : rule__MathOperation__Group__0__Impl rule__MathOperation__Group__1 ;
     public final void rule__MathOperation__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2262:1: ( rule__MathOperation__Group__0__Impl rule__MathOperation__Group__1 )
-            // InternalBiLang.g:2263:2: rule__MathOperation__Group__0__Impl rule__MathOperation__Group__1
+            // InternalBiLang.g:2417:1: ( rule__MathOperation__Group__0__Impl rule__MathOperation__Group__1 )
+            // InternalBiLang.g:2418:2: rule__MathOperation__Group__0__Impl rule__MathOperation__Group__1
             {
             pushFollow(FOLLOW_14);
             rule__MathOperation__Group__0__Impl();
@@ -7123,17 +7637,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MathOperation__Group__0__Impl"
-    // InternalBiLang.g:2270:1: rule__MathOperation__Group__0__Impl : ( 'l' ) ;
+    // InternalBiLang.g:2425:1: rule__MathOperation__Group__0__Impl : ( 'l' ) ;
     public final void rule__MathOperation__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2274:1: ( ( 'l' ) )
-            // InternalBiLang.g:2275:1: ( 'l' )
+            // InternalBiLang.g:2429:1: ( ( 'l' ) )
+            // InternalBiLang.g:2430:1: ( 'l' )
             {
-            // InternalBiLang.g:2275:1: ( 'l' )
-            // InternalBiLang.g:2276:2: 'l'
+            // InternalBiLang.g:2430:1: ( 'l' )
+            // InternalBiLang.g:2431:2: 'l'
             {
              before(grammarAccess.getMathOperationAccess().getLKeyword_0()); 
             match(input,40,FOLLOW_2); 
@@ -7160,14 +7674,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MathOperation__Group__1"
-    // InternalBiLang.g:2285:1: rule__MathOperation__Group__1 : rule__MathOperation__Group__1__Impl rule__MathOperation__Group__2 ;
+    // InternalBiLang.g:2440:1: rule__MathOperation__Group__1 : rule__MathOperation__Group__1__Impl rule__MathOperation__Group__2 ;
     public final void rule__MathOperation__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2289:1: ( rule__MathOperation__Group__1__Impl rule__MathOperation__Group__2 )
-            // InternalBiLang.g:2290:2: rule__MathOperation__Group__1__Impl rule__MathOperation__Group__2
+            // InternalBiLang.g:2444:1: ( rule__MathOperation__Group__1__Impl rule__MathOperation__Group__2 )
+            // InternalBiLang.g:2445:2: rule__MathOperation__Group__1__Impl rule__MathOperation__Group__2
             {
             pushFollow(FOLLOW_27);
             rule__MathOperation__Group__1__Impl();
@@ -7198,21 +7712,21 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MathOperation__Group__1__Impl"
-    // InternalBiLang.g:2297:1: rule__MathOperation__Group__1__Impl : ( ( rule__MathOperation__LsideAssignment_1 ) ) ;
+    // InternalBiLang.g:2452:1: rule__MathOperation__Group__1__Impl : ( ( rule__MathOperation__LsideAssignment_1 ) ) ;
     public final void rule__MathOperation__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2301:1: ( ( ( rule__MathOperation__LsideAssignment_1 ) ) )
-            // InternalBiLang.g:2302:1: ( ( rule__MathOperation__LsideAssignment_1 ) )
+            // InternalBiLang.g:2456:1: ( ( ( rule__MathOperation__LsideAssignment_1 ) ) )
+            // InternalBiLang.g:2457:1: ( ( rule__MathOperation__LsideAssignment_1 ) )
             {
-            // InternalBiLang.g:2302:1: ( ( rule__MathOperation__LsideAssignment_1 ) )
-            // InternalBiLang.g:2303:2: ( rule__MathOperation__LsideAssignment_1 )
+            // InternalBiLang.g:2457:1: ( ( rule__MathOperation__LsideAssignment_1 ) )
+            // InternalBiLang.g:2458:2: ( rule__MathOperation__LsideAssignment_1 )
             {
              before(grammarAccess.getMathOperationAccess().getLsideAssignment_1()); 
-            // InternalBiLang.g:2304:2: ( rule__MathOperation__LsideAssignment_1 )
-            // InternalBiLang.g:2304:3: rule__MathOperation__LsideAssignment_1
+            // InternalBiLang.g:2459:2: ( rule__MathOperation__LsideAssignment_1 )
+            // InternalBiLang.g:2459:3: rule__MathOperation__LsideAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__MathOperation__LsideAssignment_1();
@@ -7245,14 +7759,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MathOperation__Group__2"
-    // InternalBiLang.g:2312:1: rule__MathOperation__Group__2 : rule__MathOperation__Group__2__Impl rule__MathOperation__Group__3 ;
+    // InternalBiLang.g:2467:1: rule__MathOperation__Group__2 : rule__MathOperation__Group__2__Impl rule__MathOperation__Group__3 ;
     public final void rule__MathOperation__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2316:1: ( rule__MathOperation__Group__2__Impl rule__MathOperation__Group__3 )
-            // InternalBiLang.g:2317:2: rule__MathOperation__Group__2__Impl rule__MathOperation__Group__3
+            // InternalBiLang.g:2471:1: ( rule__MathOperation__Group__2__Impl rule__MathOperation__Group__3 )
+            // InternalBiLang.g:2472:2: rule__MathOperation__Group__2__Impl rule__MathOperation__Group__3
             {
             pushFollow(FOLLOW_28);
             rule__MathOperation__Group__2__Impl();
@@ -7283,21 +7797,21 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MathOperation__Group__2__Impl"
-    // InternalBiLang.g:2324:1: rule__MathOperation__Group__2__Impl : ( ( rule__MathOperation__OperatorAssignment_2 ) ) ;
+    // InternalBiLang.g:2479:1: rule__MathOperation__Group__2__Impl : ( ( rule__MathOperation__OperatorAssignment_2 ) ) ;
     public final void rule__MathOperation__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2328:1: ( ( ( rule__MathOperation__OperatorAssignment_2 ) ) )
-            // InternalBiLang.g:2329:1: ( ( rule__MathOperation__OperatorAssignment_2 ) )
+            // InternalBiLang.g:2483:1: ( ( ( rule__MathOperation__OperatorAssignment_2 ) ) )
+            // InternalBiLang.g:2484:1: ( ( rule__MathOperation__OperatorAssignment_2 ) )
             {
-            // InternalBiLang.g:2329:1: ( ( rule__MathOperation__OperatorAssignment_2 ) )
-            // InternalBiLang.g:2330:2: ( rule__MathOperation__OperatorAssignment_2 )
+            // InternalBiLang.g:2484:1: ( ( rule__MathOperation__OperatorAssignment_2 ) )
+            // InternalBiLang.g:2485:2: ( rule__MathOperation__OperatorAssignment_2 )
             {
              before(grammarAccess.getMathOperationAccess().getOperatorAssignment_2()); 
-            // InternalBiLang.g:2331:2: ( rule__MathOperation__OperatorAssignment_2 )
-            // InternalBiLang.g:2331:3: rule__MathOperation__OperatorAssignment_2
+            // InternalBiLang.g:2486:2: ( rule__MathOperation__OperatorAssignment_2 )
+            // InternalBiLang.g:2486:3: rule__MathOperation__OperatorAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__MathOperation__OperatorAssignment_2();
@@ -7330,14 +7844,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MathOperation__Group__3"
-    // InternalBiLang.g:2339:1: rule__MathOperation__Group__3 : rule__MathOperation__Group__3__Impl rule__MathOperation__Group__4 ;
+    // InternalBiLang.g:2494:1: rule__MathOperation__Group__3 : rule__MathOperation__Group__3__Impl rule__MathOperation__Group__4 ;
     public final void rule__MathOperation__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2343:1: ( rule__MathOperation__Group__3__Impl rule__MathOperation__Group__4 )
-            // InternalBiLang.g:2344:2: rule__MathOperation__Group__3__Impl rule__MathOperation__Group__4
+            // InternalBiLang.g:2498:1: ( rule__MathOperation__Group__3__Impl rule__MathOperation__Group__4 )
+            // InternalBiLang.g:2499:2: rule__MathOperation__Group__3__Impl rule__MathOperation__Group__4
             {
             pushFollow(FOLLOW_14);
             rule__MathOperation__Group__3__Impl();
@@ -7368,17 +7882,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MathOperation__Group__3__Impl"
-    // InternalBiLang.g:2351:1: rule__MathOperation__Group__3__Impl : ( 'r' ) ;
+    // InternalBiLang.g:2506:1: rule__MathOperation__Group__3__Impl : ( 'r' ) ;
     public final void rule__MathOperation__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2355:1: ( ( 'r' ) )
-            // InternalBiLang.g:2356:1: ( 'r' )
+            // InternalBiLang.g:2510:1: ( ( 'r' ) )
+            // InternalBiLang.g:2511:1: ( 'r' )
             {
-            // InternalBiLang.g:2356:1: ( 'r' )
-            // InternalBiLang.g:2357:2: 'r'
+            // InternalBiLang.g:2511:1: ( 'r' )
+            // InternalBiLang.g:2512:2: 'r'
             {
              before(grammarAccess.getMathOperationAccess().getRKeyword_3()); 
             match(input,41,FOLLOW_2); 
@@ -7405,14 +7919,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MathOperation__Group__4"
-    // InternalBiLang.g:2366:1: rule__MathOperation__Group__4 : rule__MathOperation__Group__4__Impl ;
+    // InternalBiLang.g:2521:1: rule__MathOperation__Group__4 : rule__MathOperation__Group__4__Impl ;
     public final void rule__MathOperation__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2370:1: ( rule__MathOperation__Group__4__Impl )
-            // InternalBiLang.g:2371:2: rule__MathOperation__Group__4__Impl
+            // InternalBiLang.g:2525:1: ( rule__MathOperation__Group__4__Impl )
+            // InternalBiLang.g:2526:2: rule__MathOperation__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__MathOperation__Group__4__Impl();
@@ -7438,21 +7952,21 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MathOperation__Group__4__Impl"
-    // InternalBiLang.g:2377:1: rule__MathOperation__Group__4__Impl : ( ( rule__MathOperation__RsideAssignment_4 ) ) ;
+    // InternalBiLang.g:2532:1: rule__MathOperation__Group__4__Impl : ( ( rule__MathOperation__RsideAssignment_4 ) ) ;
     public final void rule__MathOperation__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2381:1: ( ( ( rule__MathOperation__RsideAssignment_4 ) ) )
-            // InternalBiLang.g:2382:1: ( ( rule__MathOperation__RsideAssignment_4 ) )
+            // InternalBiLang.g:2536:1: ( ( ( rule__MathOperation__RsideAssignment_4 ) ) )
+            // InternalBiLang.g:2537:1: ( ( rule__MathOperation__RsideAssignment_4 ) )
             {
-            // InternalBiLang.g:2382:1: ( ( rule__MathOperation__RsideAssignment_4 ) )
-            // InternalBiLang.g:2383:2: ( rule__MathOperation__RsideAssignment_4 )
+            // InternalBiLang.g:2537:1: ( ( rule__MathOperation__RsideAssignment_4 ) )
+            // InternalBiLang.g:2538:2: ( rule__MathOperation__RsideAssignment_4 )
             {
              before(grammarAccess.getMathOperationAccess().getRsideAssignment_4()); 
-            // InternalBiLang.g:2384:2: ( rule__MathOperation__RsideAssignment_4 )
-            // InternalBiLang.g:2384:3: rule__MathOperation__RsideAssignment_4
+            // InternalBiLang.g:2539:2: ( rule__MathOperation__RsideAssignment_4 )
+            // InternalBiLang.g:2539:3: rule__MathOperation__RsideAssignment_4
             {
             pushFollow(FOLLOW_2);
             rule__MathOperation__RsideAssignment_4();
@@ -7485,14 +7999,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ColReference__Group__0"
-    // InternalBiLang.g:2393:1: rule__ColReference__Group__0 : rule__ColReference__Group__0__Impl rule__ColReference__Group__1 ;
+    // InternalBiLang.g:2548:1: rule__ColReference__Group__0 : rule__ColReference__Group__0__Impl rule__ColReference__Group__1 ;
     public final void rule__ColReference__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2397:1: ( rule__ColReference__Group__0__Impl rule__ColReference__Group__1 )
-            // InternalBiLang.g:2398:2: rule__ColReference__Group__0__Impl rule__ColReference__Group__1
+            // InternalBiLang.g:2552:1: ( rule__ColReference__Group__0__Impl rule__ColReference__Group__1 )
+            // InternalBiLang.g:2553:2: rule__ColReference__Group__0__Impl rule__ColReference__Group__1
             {
             pushFollow(FOLLOW_6);
             rule__ColReference__Group__0__Impl();
@@ -7523,21 +8037,21 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ColReference__Group__0__Impl"
-    // InternalBiLang.g:2405:1: rule__ColReference__Group__0__Impl : ( () ) ;
+    // InternalBiLang.g:2560:1: rule__ColReference__Group__0__Impl : ( () ) ;
     public final void rule__ColReference__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2409:1: ( ( () ) )
-            // InternalBiLang.g:2410:1: ( () )
+            // InternalBiLang.g:2564:1: ( ( () ) )
+            // InternalBiLang.g:2565:1: ( () )
             {
-            // InternalBiLang.g:2410:1: ( () )
-            // InternalBiLang.g:2411:2: ()
+            // InternalBiLang.g:2565:1: ( () )
+            // InternalBiLang.g:2566:2: ()
             {
              before(grammarAccess.getColReferenceAccess().getColReferenceAction_0()); 
-            // InternalBiLang.g:2412:2: ()
-            // InternalBiLang.g:2412:3: 
+            // InternalBiLang.g:2567:2: ()
+            // InternalBiLang.g:2567:3: 
             {
             }
 
@@ -7560,14 +8074,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ColReference__Group__1"
-    // InternalBiLang.g:2420:1: rule__ColReference__Group__1 : rule__ColReference__Group__1__Impl ;
+    // InternalBiLang.g:2575:1: rule__ColReference__Group__1 : rule__ColReference__Group__1__Impl ;
     public final void rule__ColReference__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2424:1: ( rule__ColReference__Group__1__Impl )
-            // InternalBiLang.g:2425:2: rule__ColReference__Group__1__Impl
+            // InternalBiLang.g:2579:1: ( rule__ColReference__Group__1__Impl )
+            // InternalBiLang.g:2580:2: rule__ColReference__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ColReference__Group__1__Impl();
@@ -7593,21 +8107,21 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ColReference__Group__1__Impl"
-    // InternalBiLang.g:2431:1: rule__ColReference__Group__1__Impl : ( ( rule__ColReference__TargetAssignment_1 ) ) ;
+    // InternalBiLang.g:2586:1: rule__ColReference__Group__1__Impl : ( ( rule__ColReference__TargetAssignment_1 ) ) ;
     public final void rule__ColReference__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2435:1: ( ( ( rule__ColReference__TargetAssignment_1 ) ) )
-            // InternalBiLang.g:2436:1: ( ( rule__ColReference__TargetAssignment_1 ) )
+            // InternalBiLang.g:2590:1: ( ( ( rule__ColReference__TargetAssignment_1 ) ) )
+            // InternalBiLang.g:2591:1: ( ( rule__ColReference__TargetAssignment_1 ) )
             {
-            // InternalBiLang.g:2436:1: ( ( rule__ColReference__TargetAssignment_1 ) )
-            // InternalBiLang.g:2437:2: ( rule__ColReference__TargetAssignment_1 )
+            // InternalBiLang.g:2591:1: ( ( rule__ColReference__TargetAssignment_1 ) )
+            // InternalBiLang.g:2592:2: ( rule__ColReference__TargetAssignment_1 )
             {
              before(grammarAccess.getColReferenceAccess().getTargetAssignment_1()); 
-            // InternalBiLang.g:2438:2: ( rule__ColReference__TargetAssignment_1 )
-            // InternalBiLang.g:2438:3: rule__ColReference__TargetAssignment_1
+            // InternalBiLang.g:2593:2: ( rule__ColReference__TargetAssignment_1 )
+            // InternalBiLang.g:2593:3: rule__ColReference__TargetAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__ColReference__TargetAssignment_1();
@@ -7640,14 +8154,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__StatisticalOperation__Group__0"
-    // InternalBiLang.g:2447:1: rule__StatisticalOperation__Group__0 : rule__StatisticalOperation__Group__0__Impl rule__StatisticalOperation__Group__1 ;
+    // InternalBiLang.g:2602:1: rule__StatisticalOperation__Group__0 : rule__StatisticalOperation__Group__0__Impl rule__StatisticalOperation__Group__1 ;
     public final void rule__StatisticalOperation__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2451:1: ( rule__StatisticalOperation__Group__0__Impl rule__StatisticalOperation__Group__1 )
-            // InternalBiLang.g:2452:2: rule__StatisticalOperation__Group__0__Impl rule__StatisticalOperation__Group__1
+            // InternalBiLang.g:2606:1: ( rule__StatisticalOperation__Group__0__Impl rule__StatisticalOperation__Group__1 )
+            // InternalBiLang.g:2607:2: rule__StatisticalOperation__Group__0__Impl rule__StatisticalOperation__Group__1
             {
             pushFollow(FOLLOW_29);
             rule__StatisticalOperation__Group__0__Impl();
@@ -7678,21 +8192,21 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__StatisticalOperation__Group__0__Impl"
-    // InternalBiLang.g:2459:1: rule__StatisticalOperation__Group__0__Impl : ( ( rule__StatisticalOperation__OperatorAssignment_0 ) ) ;
+    // InternalBiLang.g:2614:1: rule__StatisticalOperation__Group__0__Impl : ( ( rule__StatisticalOperation__OperatorAssignment_0 ) ) ;
     public final void rule__StatisticalOperation__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2463:1: ( ( ( rule__StatisticalOperation__OperatorAssignment_0 ) ) )
-            // InternalBiLang.g:2464:1: ( ( rule__StatisticalOperation__OperatorAssignment_0 ) )
+            // InternalBiLang.g:2618:1: ( ( ( rule__StatisticalOperation__OperatorAssignment_0 ) ) )
+            // InternalBiLang.g:2619:1: ( ( rule__StatisticalOperation__OperatorAssignment_0 ) )
             {
-            // InternalBiLang.g:2464:1: ( ( rule__StatisticalOperation__OperatorAssignment_0 ) )
-            // InternalBiLang.g:2465:2: ( rule__StatisticalOperation__OperatorAssignment_0 )
+            // InternalBiLang.g:2619:1: ( ( rule__StatisticalOperation__OperatorAssignment_0 ) )
+            // InternalBiLang.g:2620:2: ( rule__StatisticalOperation__OperatorAssignment_0 )
             {
              before(grammarAccess.getStatisticalOperationAccess().getOperatorAssignment_0()); 
-            // InternalBiLang.g:2466:2: ( rule__StatisticalOperation__OperatorAssignment_0 )
-            // InternalBiLang.g:2466:3: rule__StatisticalOperation__OperatorAssignment_0
+            // InternalBiLang.g:2621:2: ( rule__StatisticalOperation__OperatorAssignment_0 )
+            // InternalBiLang.g:2621:3: rule__StatisticalOperation__OperatorAssignment_0
             {
             pushFollow(FOLLOW_2);
             rule__StatisticalOperation__OperatorAssignment_0();
@@ -7725,14 +8239,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__StatisticalOperation__Group__1"
-    // InternalBiLang.g:2474:1: rule__StatisticalOperation__Group__1 : rule__StatisticalOperation__Group__1__Impl rule__StatisticalOperation__Group__2 ;
+    // InternalBiLang.g:2629:1: rule__StatisticalOperation__Group__1 : rule__StatisticalOperation__Group__1__Impl rule__StatisticalOperation__Group__2 ;
     public final void rule__StatisticalOperation__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2478:1: ( rule__StatisticalOperation__Group__1__Impl rule__StatisticalOperation__Group__2 )
-            // InternalBiLang.g:2479:2: rule__StatisticalOperation__Group__1__Impl rule__StatisticalOperation__Group__2
+            // InternalBiLang.g:2633:1: ( rule__StatisticalOperation__Group__1__Impl rule__StatisticalOperation__Group__2 )
+            // InternalBiLang.g:2634:2: rule__StatisticalOperation__Group__1__Impl rule__StatisticalOperation__Group__2
             {
             pushFollow(FOLLOW_6);
             rule__StatisticalOperation__Group__1__Impl();
@@ -7763,17 +8277,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__StatisticalOperation__Group__1__Impl"
-    // InternalBiLang.g:2486:1: rule__StatisticalOperation__Group__1__Impl : ( '(' ) ;
+    // InternalBiLang.g:2641:1: rule__StatisticalOperation__Group__1__Impl : ( '(' ) ;
     public final void rule__StatisticalOperation__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2490:1: ( ( '(' ) )
-            // InternalBiLang.g:2491:1: ( '(' )
+            // InternalBiLang.g:2645:1: ( ( '(' ) )
+            // InternalBiLang.g:2646:1: ( '(' )
             {
-            // InternalBiLang.g:2491:1: ( '(' )
-            // InternalBiLang.g:2492:2: '('
+            // InternalBiLang.g:2646:1: ( '(' )
+            // InternalBiLang.g:2647:2: '('
             {
              before(grammarAccess.getStatisticalOperationAccess().getLeftParenthesisKeyword_1()); 
             match(input,42,FOLLOW_2); 
@@ -7800,14 +8314,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__StatisticalOperation__Group__2"
-    // InternalBiLang.g:2501:1: rule__StatisticalOperation__Group__2 : rule__StatisticalOperation__Group__2__Impl rule__StatisticalOperation__Group__3 ;
+    // InternalBiLang.g:2656:1: rule__StatisticalOperation__Group__2 : rule__StatisticalOperation__Group__2__Impl rule__StatisticalOperation__Group__3 ;
     public final void rule__StatisticalOperation__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2505:1: ( rule__StatisticalOperation__Group__2__Impl rule__StatisticalOperation__Group__3 )
-            // InternalBiLang.g:2506:2: rule__StatisticalOperation__Group__2__Impl rule__StatisticalOperation__Group__3
+            // InternalBiLang.g:2660:1: ( rule__StatisticalOperation__Group__2__Impl rule__StatisticalOperation__Group__3 )
+            // InternalBiLang.g:2661:2: rule__StatisticalOperation__Group__2__Impl rule__StatisticalOperation__Group__3
             {
             pushFollow(FOLLOW_30);
             rule__StatisticalOperation__Group__2__Impl();
@@ -7838,21 +8352,21 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__StatisticalOperation__Group__2__Impl"
-    // InternalBiLang.g:2513:1: rule__StatisticalOperation__Group__2__Impl : ( ( rule__StatisticalOperation__ColreferenceAssignment_2 ) ) ;
+    // InternalBiLang.g:2668:1: rule__StatisticalOperation__Group__2__Impl : ( ( rule__StatisticalOperation__ColreferenceAssignment_2 ) ) ;
     public final void rule__StatisticalOperation__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2517:1: ( ( ( rule__StatisticalOperation__ColreferenceAssignment_2 ) ) )
-            // InternalBiLang.g:2518:1: ( ( rule__StatisticalOperation__ColreferenceAssignment_2 ) )
+            // InternalBiLang.g:2672:1: ( ( ( rule__StatisticalOperation__ColreferenceAssignment_2 ) ) )
+            // InternalBiLang.g:2673:1: ( ( rule__StatisticalOperation__ColreferenceAssignment_2 ) )
             {
-            // InternalBiLang.g:2518:1: ( ( rule__StatisticalOperation__ColreferenceAssignment_2 ) )
-            // InternalBiLang.g:2519:2: ( rule__StatisticalOperation__ColreferenceAssignment_2 )
+            // InternalBiLang.g:2673:1: ( ( rule__StatisticalOperation__ColreferenceAssignment_2 ) )
+            // InternalBiLang.g:2674:2: ( rule__StatisticalOperation__ColreferenceAssignment_2 )
             {
              before(grammarAccess.getStatisticalOperationAccess().getColreferenceAssignment_2()); 
-            // InternalBiLang.g:2520:2: ( rule__StatisticalOperation__ColreferenceAssignment_2 )
-            // InternalBiLang.g:2520:3: rule__StatisticalOperation__ColreferenceAssignment_2
+            // InternalBiLang.g:2675:2: ( rule__StatisticalOperation__ColreferenceAssignment_2 )
+            // InternalBiLang.g:2675:3: rule__StatisticalOperation__ColreferenceAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__StatisticalOperation__ColreferenceAssignment_2();
@@ -7885,14 +8399,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__StatisticalOperation__Group__3"
-    // InternalBiLang.g:2528:1: rule__StatisticalOperation__Group__3 : rule__StatisticalOperation__Group__3__Impl ;
+    // InternalBiLang.g:2683:1: rule__StatisticalOperation__Group__3 : rule__StatisticalOperation__Group__3__Impl ;
     public final void rule__StatisticalOperation__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2532:1: ( rule__StatisticalOperation__Group__3__Impl )
-            // InternalBiLang.g:2533:2: rule__StatisticalOperation__Group__3__Impl
+            // InternalBiLang.g:2687:1: ( rule__StatisticalOperation__Group__3__Impl )
+            // InternalBiLang.g:2688:2: rule__StatisticalOperation__Group__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__StatisticalOperation__Group__3__Impl();
@@ -7918,17 +8432,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__StatisticalOperation__Group__3__Impl"
-    // InternalBiLang.g:2539:1: rule__StatisticalOperation__Group__3__Impl : ( ')' ) ;
+    // InternalBiLang.g:2694:1: rule__StatisticalOperation__Group__3__Impl : ( ')' ) ;
     public final void rule__StatisticalOperation__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2543:1: ( ( ')' ) )
-            // InternalBiLang.g:2544:1: ( ')' )
+            // InternalBiLang.g:2698:1: ( ( ')' ) )
+            // InternalBiLang.g:2699:1: ( ')' )
             {
-            // InternalBiLang.g:2544:1: ( ')' )
-            // InternalBiLang.g:2545:2: ')'
+            // InternalBiLang.g:2699:1: ( ')' )
+            // InternalBiLang.g:2700:2: ')'
             {
              before(grammarAccess.getStatisticalOperationAccess().getRightParenthesisKeyword_3()); 
             match(input,43,FOLLOW_2); 
@@ -7955,14 +8469,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EFloat__Group__0"
-    // InternalBiLang.g:2555:1: rule__EFloat__Group__0 : rule__EFloat__Group__0__Impl rule__EFloat__Group__1 ;
+    // InternalBiLang.g:2710:1: rule__EFloat__Group__0 : rule__EFloat__Group__0__Impl rule__EFloat__Group__1 ;
     public final void rule__EFloat__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2559:1: ( rule__EFloat__Group__0__Impl rule__EFloat__Group__1 )
-            // InternalBiLang.g:2560:2: rule__EFloat__Group__0__Impl rule__EFloat__Group__1
+            // InternalBiLang.g:2714:1: ( rule__EFloat__Group__0__Impl rule__EFloat__Group__1 )
+            // InternalBiLang.g:2715:2: rule__EFloat__Group__0__Impl rule__EFloat__Group__1
             {
             pushFollow(FOLLOW_25);
             rule__EFloat__Group__0__Impl();
@@ -7993,20 +8507,20 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EFloat__Group__0__Impl"
-    // InternalBiLang.g:2567:1: rule__EFloat__Group__0__Impl : ( ( '-' )? ) ;
+    // InternalBiLang.g:2722:1: rule__EFloat__Group__0__Impl : ( ( '-' )? ) ;
     public final void rule__EFloat__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2571:1: ( ( ( '-' )? ) )
-            // InternalBiLang.g:2572:1: ( ( '-' )? )
+            // InternalBiLang.g:2726:1: ( ( ( '-' )? ) )
+            // InternalBiLang.g:2727:1: ( ( '-' )? )
             {
-            // InternalBiLang.g:2572:1: ( ( '-' )? )
-            // InternalBiLang.g:2573:2: ( '-' )?
+            // InternalBiLang.g:2727:1: ( ( '-' )? )
+            // InternalBiLang.g:2728:2: ( '-' )?
             {
              before(grammarAccess.getEFloatAccess().getHyphenMinusKeyword_0()); 
-            // InternalBiLang.g:2574:2: ( '-' )?
+            // InternalBiLang.g:2729:2: ( '-' )?
             int alt19=2;
             int LA19_0 = input.LA(1);
 
@@ -8015,7 +8529,7 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
             }
             switch (alt19) {
                 case 1 :
-                    // InternalBiLang.g:2574:3: '-'
+                    // InternalBiLang.g:2729:3: '-'
                     {
                     match(input,14,FOLLOW_2); 
 
@@ -8047,14 +8561,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EFloat__Group__1"
-    // InternalBiLang.g:2582:1: rule__EFloat__Group__1 : rule__EFloat__Group__1__Impl rule__EFloat__Group__2 ;
+    // InternalBiLang.g:2737:1: rule__EFloat__Group__1 : rule__EFloat__Group__1__Impl rule__EFloat__Group__2 ;
     public final void rule__EFloat__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2586:1: ( rule__EFloat__Group__1__Impl rule__EFloat__Group__2 )
-            // InternalBiLang.g:2587:2: rule__EFloat__Group__1__Impl rule__EFloat__Group__2
+            // InternalBiLang.g:2741:1: ( rule__EFloat__Group__1__Impl rule__EFloat__Group__2 )
+            // InternalBiLang.g:2742:2: rule__EFloat__Group__1__Impl rule__EFloat__Group__2
             {
             pushFollow(FOLLOW_25);
             rule__EFloat__Group__1__Impl();
@@ -8085,20 +8599,20 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EFloat__Group__1__Impl"
-    // InternalBiLang.g:2594:1: rule__EFloat__Group__1__Impl : ( ( RULE_INT )? ) ;
+    // InternalBiLang.g:2749:1: rule__EFloat__Group__1__Impl : ( ( RULE_INT )? ) ;
     public final void rule__EFloat__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2598:1: ( ( ( RULE_INT )? ) )
-            // InternalBiLang.g:2599:1: ( ( RULE_INT )? )
+            // InternalBiLang.g:2753:1: ( ( ( RULE_INT )? ) )
+            // InternalBiLang.g:2754:1: ( ( RULE_INT )? )
             {
-            // InternalBiLang.g:2599:1: ( ( RULE_INT )? )
-            // InternalBiLang.g:2600:2: ( RULE_INT )?
+            // InternalBiLang.g:2754:1: ( ( RULE_INT )? )
+            // InternalBiLang.g:2755:2: ( RULE_INT )?
             {
              before(grammarAccess.getEFloatAccess().getINTTerminalRuleCall_1()); 
-            // InternalBiLang.g:2601:2: ( RULE_INT )?
+            // InternalBiLang.g:2756:2: ( RULE_INT )?
             int alt20=2;
             int LA20_0 = input.LA(1);
 
@@ -8107,7 +8621,7 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
             }
             switch (alt20) {
                 case 1 :
-                    // InternalBiLang.g:2601:3: RULE_INT
+                    // InternalBiLang.g:2756:3: RULE_INT
                     {
                     match(input,RULE_INT,FOLLOW_2); 
 
@@ -8139,14 +8653,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EFloat__Group__2"
-    // InternalBiLang.g:2609:1: rule__EFloat__Group__2 : rule__EFloat__Group__2__Impl rule__EFloat__Group__3 ;
+    // InternalBiLang.g:2764:1: rule__EFloat__Group__2 : rule__EFloat__Group__2__Impl rule__EFloat__Group__3 ;
     public final void rule__EFloat__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2613:1: ( rule__EFloat__Group__2__Impl rule__EFloat__Group__3 )
-            // InternalBiLang.g:2614:2: rule__EFloat__Group__2__Impl rule__EFloat__Group__3
+            // InternalBiLang.g:2768:1: ( rule__EFloat__Group__2__Impl rule__EFloat__Group__3 )
+            // InternalBiLang.g:2769:2: rule__EFloat__Group__2__Impl rule__EFloat__Group__3
             {
             pushFollow(FOLLOW_31);
             rule__EFloat__Group__2__Impl();
@@ -8177,17 +8691,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EFloat__Group__2__Impl"
-    // InternalBiLang.g:2621:1: rule__EFloat__Group__2__Impl : ( '.' ) ;
+    // InternalBiLang.g:2776:1: rule__EFloat__Group__2__Impl : ( '.' ) ;
     public final void rule__EFloat__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2625:1: ( ( '.' ) )
-            // InternalBiLang.g:2626:1: ( '.' )
+            // InternalBiLang.g:2780:1: ( ( '.' ) )
+            // InternalBiLang.g:2781:1: ( '.' )
             {
-            // InternalBiLang.g:2626:1: ( '.' )
-            // InternalBiLang.g:2627:2: '.'
+            // InternalBiLang.g:2781:1: ( '.' )
+            // InternalBiLang.g:2782:2: '.'
             {
              before(grammarAccess.getEFloatAccess().getFullStopKeyword_2()); 
             match(input,44,FOLLOW_2); 
@@ -8214,14 +8728,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EFloat__Group__3"
-    // InternalBiLang.g:2636:1: rule__EFloat__Group__3 : rule__EFloat__Group__3__Impl rule__EFloat__Group__4 ;
+    // InternalBiLang.g:2791:1: rule__EFloat__Group__3 : rule__EFloat__Group__3__Impl rule__EFloat__Group__4 ;
     public final void rule__EFloat__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2640:1: ( rule__EFloat__Group__3__Impl rule__EFloat__Group__4 )
-            // InternalBiLang.g:2641:2: rule__EFloat__Group__3__Impl rule__EFloat__Group__4
+            // InternalBiLang.g:2795:1: ( rule__EFloat__Group__3__Impl rule__EFloat__Group__4 )
+            // InternalBiLang.g:2796:2: rule__EFloat__Group__3__Impl rule__EFloat__Group__4
             {
             pushFollow(FOLLOW_32);
             rule__EFloat__Group__3__Impl();
@@ -8252,17 +8766,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EFloat__Group__3__Impl"
-    // InternalBiLang.g:2648:1: rule__EFloat__Group__3__Impl : ( RULE_INT ) ;
+    // InternalBiLang.g:2803:1: rule__EFloat__Group__3__Impl : ( RULE_INT ) ;
     public final void rule__EFloat__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2652:1: ( ( RULE_INT ) )
-            // InternalBiLang.g:2653:1: ( RULE_INT )
+            // InternalBiLang.g:2807:1: ( ( RULE_INT ) )
+            // InternalBiLang.g:2808:1: ( RULE_INT )
             {
-            // InternalBiLang.g:2653:1: ( RULE_INT )
-            // InternalBiLang.g:2654:2: RULE_INT
+            // InternalBiLang.g:2808:1: ( RULE_INT )
+            // InternalBiLang.g:2809:2: RULE_INT
             {
              before(grammarAccess.getEFloatAccess().getINTTerminalRuleCall_3()); 
             match(input,RULE_INT,FOLLOW_2); 
@@ -8289,14 +8803,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EFloat__Group__4"
-    // InternalBiLang.g:2663:1: rule__EFloat__Group__4 : rule__EFloat__Group__4__Impl ;
+    // InternalBiLang.g:2818:1: rule__EFloat__Group__4 : rule__EFloat__Group__4__Impl ;
     public final void rule__EFloat__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2667:1: ( rule__EFloat__Group__4__Impl )
-            // InternalBiLang.g:2668:2: rule__EFloat__Group__4__Impl
+            // InternalBiLang.g:2822:1: ( rule__EFloat__Group__4__Impl )
+            // InternalBiLang.g:2823:2: rule__EFloat__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__EFloat__Group__4__Impl();
@@ -8322,20 +8836,20 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EFloat__Group__4__Impl"
-    // InternalBiLang.g:2674:1: rule__EFloat__Group__4__Impl : ( ( rule__EFloat__Group_4__0 )? ) ;
+    // InternalBiLang.g:2829:1: rule__EFloat__Group__4__Impl : ( ( rule__EFloat__Group_4__0 )? ) ;
     public final void rule__EFloat__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2678:1: ( ( ( rule__EFloat__Group_4__0 )? ) )
-            // InternalBiLang.g:2679:1: ( ( rule__EFloat__Group_4__0 )? )
+            // InternalBiLang.g:2833:1: ( ( ( rule__EFloat__Group_4__0 )? ) )
+            // InternalBiLang.g:2834:1: ( ( rule__EFloat__Group_4__0 )? )
             {
-            // InternalBiLang.g:2679:1: ( ( rule__EFloat__Group_4__0 )? )
-            // InternalBiLang.g:2680:2: ( rule__EFloat__Group_4__0 )?
+            // InternalBiLang.g:2834:1: ( ( rule__EFloat__Group_4__0 )? )
+            // InternalBiLang.g:2835:2: ( rule__EFloat__Group_4__0 )?
             {
              before(grammarAccess.getEFloatAccess().getGroup_4()); 
-            // InternalBiLang.g:2681:2: ( rule__EFloat__Group_4__0 )?
+            // InternalBiLang.g:2836:2: ( rule__EFloat__Group_4__0 )?
             int alt21=2;
             int LA21_0 = input.LA(1);
 
@@ -8344,7 +8858,7 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
             }
             switch (alt21) {
                 case 1 :
-                    // InternalBiLang.g:2681:3: rule__EFloat__Group_4__0
+                    // InternalBiLang.g:2836:3: rule__EFloat__Group_4__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__EFloat__Group_4__0();
@@ -8380,14 +8894,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EFloat__Group_4__0"
-    // InternalBiLang.g:2690:1: rule__EFloat__Group_4__0 : rule__EFloat__Group_4__0__Impl rule__EFloat__Group_4__1 ;
+    // InternalBiLang.g:2845:1: rule__EFloat__Group_4__0 : rule__EFloat__Group_4__0__Impl rule__EFloat__Group_4__1 ;
     public final void rule__EFloat__Group_4__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2694:1: ( rule__EFloat__Group_4__0__Impl rule__EFloat__Group_4__1 )
-            // InternalBiLang.g:2695:2: rule__EFloat__Group_4__0__Impl rule__EFloat__Group_4__1
+            // InternalBiLang.g:2849:1: ( rule__EFloat__Group_4__0__Impl rule__EFloat__Group_4__1 )
+            // InternalBiLang.g:2850:2: rule__EFloat__Group_4__0__Impl rule__EFloat__Group_4__1
             {
             pushFollow(FOLLOW_33);
             rule__EFloat__Group_4__0__Impl();
@@ -8418,21 +8932,21 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EFloat__Group_4__0__Impl"
-    // InternalBiLang.g:2702:1: rule__EFloat__Group_4__0__Impl : ( ( rule__EFloat__Alternatives_4_0 ) ) ;
+    // InternalBiLang.g:2857:1: rule__EFloat__Group_4__0__Impl : ( ( rule__EFloat__Alternatives_4_0 ) ) ;
     public final void rule__EFloat__Group_4__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2706:1: ( ( ( rule__EFloat__Alternatives_4_0 ) ) )
-            // InternalBiLang.g:2707:1: ( ( rule__EFloat__Alternatives_4_0 ) )
+            // InternalBiLang.g:2861:1: ( ( ( rule__EFloat__Alternatives_4_0 ) ) )
+            // InternalBiLang.g:2862:1: ( ( rule__EFloat__Alternatives_4_0 ) )
             {
-            // InternalBiLang.g:2707:1: ( ( rule__EFloat__Alternatives_4_0 ) )
-            // InternalBiLang.g:2708:2: ( rule__EFloat__Alternatives_4_0 )
+            // InternalBiLang.g:2862:1: ( ( rule__EFloat__Alternatives_4_0 ) )
+            // InternalBiLang.g:2863:2: ( rule__EFloat__Alternatives_4_0 )
             {
              before(grammarAccess.getEFloatAccess().getAlternatives_4_0()); 
-            // InternalBiLang.g:2709:2: ( rule__EFloat__Alternatives_4_0 )
-            // InternalBiLang.g:2709:3: rule__EFloat__Alternatives_4_0
+            // InternalBiLang.g:2864:2: ( rule__EFloat__Alternatives_4_0 )
+            // InternalBiLang.g:2864:3: rule__EFloat__Alternatives_4_0
             {
             pushFollow(FOLLOW_2);
             rule__EFloat__Alternatives_4_0();
@@ -8465,14 +8979,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EFloat__Group_4__1"
-    // InternalBiLang.g:2717:1: rule__EFloat__Group_4__1 : rule__EFloat__Group_4__1__Impl rule__EFloat__Group_4__2 ;
+    // InternalBiLang.g:2872:1: rule__EFloat__Group_4__1 : rule__EFloat__Group_4__1__Impl rule__EFloat__Group_4__2 ;
     public final void rule__EFloat__Group_4__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2721:1: ( rule__EFloat__Group_4__1__Impl rule__EFloat__Group_4__2 )
-            // InternalBiLang.g:2722:2: rule__EFloat__Group_4__1__Impl rule__EFloat__Group_4__2
+            // InternalBiLang.g:2876:1: ( rule__EFloat__Group_4__1__Impl rule__EFloat__Group_4__2 )
+            // InternalBiLang.g:2877:2: rule__EFloat__Group_4__1__Impl rule__EFloat__Group_4__2
             {
             pushFollow(FOLLOW_33);
             rule__EFloat__Group_4__1__Impl();
@@ -8503,20 +9017,20 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EFloat__Group_4__1__Impl"
-    // InternalBiLang.g:2729:1: rule__EFloat__Group_4__1__Impl : ( ( '-' )? ) ;
+    // InternalBiLang.g:2884:1: rule__EFloat__Group_4__1__Impl : ( ( '-' )? ) ;
     public final void rule__EFloat__Group_4__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2733:1: ( ( ( '-' )? ) )
-            // InternalBiLang.g:2734:1: ( ( '-' )? )
+            // InternalBiLang.g:2888:1: ( ( ( '-' )? ) )
+            // InternalBiLang.g:2889:1: ( ( '-' )? )
             {
-            // InternalBiLang.g:2734:1: ( ( '-' )? )
-            // InternalBiLang.g:2735:2: ( '-' )?
+            // InternalBiLang.g:2889:1: ( ( '-' )? )
+            // InternalBiLang.g:2890:2: ( '-' )?
             {
              before(grammarAccess.getEFloatAccess().getHyphenMinusKeyword_4_1()); 
-            // InternalBiLang.g:2736:2: ( '-' )?
+            // InternalBiLang.g:2891:2: ( '-' )?
             int alt22=2;
             int LA22_0 = input.LA(1);
 
@@ -8525,7 +9039,7 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
             }
             switch (alt22) {
                 case 1 :
-                    // InternalBiLang.g:2736:3: '-'
+                    // InternalBiLang.g:2891:3: '-'
                     {
                     match(input,14,FOLLOW_2); 
 
@@ -8557,14 +9071,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EFloat__Group_4__2"
-    // InternalBiLang.g:2744:1: rule__EFloat__Group_4__2 : rule__EFloat__Group_4__2__Impl ;
+    // InternalBiLang.g:2899:1: rule__EFloat__Group_4__2 : rule__EFloat__Group_4__2__Impl ;
     public final void rule__EFloat__Group_4__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2748:1: ( rule__EFloat__Group_4__2__Impl )
-            // InternalBiLang.g:2749:2: rule__EFloat__Group_4__2__Impl
+            // InternalBiLang.g:2903:1: ( rule__EFloat__Group_4__2__Impl )
+            // InternalBiLang.g:2904:2: rule__EFloat__Group_4__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__EFloat__Group_4__2__Impl();
@@ -8590,17 +9104,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__EFloat__Group_4__2__Impl"
-    // InternalBiLang.g:2755:1: rule__EFloat__Group_4__2__Impl : ( RULE_INT ) ;
+    // InternalBiLang.g:2910:1: rule__EFloat__Group_4__2__Impl : ( RULE_INT ) ;
     public final void rule__EFloat__Group_4__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2759:1: ( ( RULE_INT ) )
-            // InternalBiLang.g:2760:1: ( RULE_INT )
+            // InternalBiLang.g:2914:1: ( ( RULE_INT ) )
+            // InternalBiLang.g:2915:1: ( RULE_INT )
             {
-            // InternalBiLang.g:2760:1: ( RULE_INT )
-            // InternalBiLang.g:2761:2: RULE_INT
+            // InternalBiLang.g:2915:1: ( RULE_INT )
+            // InternalBiLang.g:2916:2: RULE_INT
             {
              before(grammarAccess.getEFloatAccess().getINTTerminalRuleCall_4_2()); 
             match(input,RULE_INT,FOLLOW_2); 
@@ -8627,14 +9141,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BarPlot__Group__0"
-    // InternalBiLang.g:2771:1: rule__BarPlot__Group__0 : rule__BarPlot__Group__0__Impl rule__BarPlot__Group__1 ;
+    // InternalBiLang.g:2926:1: rule__BarPlot__Group__0 : rule__BarPlot__Group__0__Impl rule__BarPlot__Group__1 ;
     public final void rule__BarPlot__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2775:1: ( rule__BarPlot__Group__0__Impl rule__BarPlot__Group__1 )
-            // InternalBiLang.g:2776:2: rule__BarPlot__Group__0__Impl rule__BarPlot__Group__1
+            // InternalBiLang.g:2930:1: ( rule__BarPlot__Group__0__Impl rule__BarPlot__Group__1 )
+            // InternalBiLang.g:2931:2: rule__BarPlot__Group__0__Impl rule__BarPlot__Group__1
             {
             pushFollow(FOLLOW_34);
             rule__BarPlot__Group__0__Impl();
@@ -8665,21 +9179,21 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BarPlot__Group__0__Impl"
-    // InternalBiLang.g:2783:1: rule__BarPlot__Group__0__Impl : ( () ) ;
+    // InternalBiLang.g:2938:1: rule__BarPlot__Group__0__Impl : ( () ) ;
     public final void rule__BarPlot__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2787:1: ( ( () ) )
-            // InternalBiLang.g:2788:1: ( () )
+            // InternalBiLang.g:2942:1: ( ( () ) )
+            // InternalBiLang.g:2943:1: ( () )
             {
-            // InternalBiLang.g:2788:1: ( () )
-            // InternalBiLang.g:2789:2: ()
+            // InternalBiLang.g:2943:1: ( () )
+            // InternalBiLang.g:2944:2: ()
             {
              before(grammarAccess.getBarPlotAccess().getBarPlotAction_0()); 
-            // InternalBiLang.g:2790:2: ()
-            // InternalBiLang.g:2790:3: 
+            // InternalBiLang.g:2945:2: ()
+            // InternalBiLang.g:2945:3: 
             {
             }
 
@@ -8702,14 +9216,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BarPlot__Group__1"
-    // InternalBiLang.g:2798:1: rule__BarPlot__Group__1 : rule__BarPlot__Group__1__Impl rule__BarPlot__Group__2 ;
+    // InternalBiLang.g:2953:1: rule__BarPlot__Group__1 : rule__BarPlot__Group__1__Impl rule__BarPlot__Group__2 ;
     public final void rule__BarPlot__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2802:1: ( rule__BarPlot__Group__1__Impl rule__BarPlot__Group__2 )
-            // InternalBiLang.g:2803:2: rule__BarPlot__Group__1__Impl rule__BarPlot__Group__2
+            // InternalBiLang.g:2957:1: ( rule__BarPlot__Group__1__Impl rule__BarPlot__Group__2 )
+            // InternalBiLang.g:2958:2: rule__BarPlot__Group__1__Impl rule__BarPlot__Group__2
             {
             pushFollow(FOLLOW_3);
             rule__BarPlot__Group__1__Impl();
@@ -8740,17 +9254,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BarPlot__Group__1__Impl"
-    // InternalBiLang.g:2810:1: rule__BarPlot__Group__1__Impl : ( 'bar' ) ;
+    // InternalBiLang.g:2965:1: rule__BarPlot__Group__1__Impl : ( 'bar' ) ;
     public final void rule__BarPlot__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2814:1: ( ( 'bar' ) )
-            // InternalBiLang.g:2815:1: ( 'bar' )
+            // InternalBiLang.g:2969:1: ( ( 'bar' ) )
+            // InternalBiLang.g:2970:1: ( 'bar' )
             {
-            // InternalBiLang.g:2815:1: ( 'bar' )
-            // InternalBiLang.g:2816:2: 'bar'
+            // InternalBiLang.g:2970:1: ( 'bar' )
+            // InternalBiLang.g:2971:2: 'bar'
             {
              before(grammarAccess.getBarPlotAccess().getBarKeyword_1()); 
             match(input,45,FOLLOW_2); 
@@ -8777,14 +9291,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BarPlot__Group__2"
-    // InternalBiLang.g:2825:1: rule__BarPlot__Group__2 : rule__BarPlot__Group__2__Impl rule__BarPlot__Group__3 ;
+    // InternalBiLang.g:2980:1: rule__BarPlot__Group__2 : rule__BarPlot__Group__2__Impl rule__BarPlot__Group__3 ;
     public final void rule__BarPlot__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2829:1: ( rule__BarPlot__Group__2__Impl rule__BarPlot__Group__3 )
-            // InternalBiLang.g:2830:2: rule__BarPlot__Group__2__Impl rule__BarPlot__Group__3
+            // InternalBiLang.g:2984:1: ( rule__BarPlot__Group__2__Impl rule__BarPlot__Group__3 )
+            // InternalBiLang.g:2985:2: rule__BarPlot__Group__2__Impl rule__BarPlot__Group__3
             {
             pushFollow(FOLLOW_35);
             rule__BarPlot__Group__2__Impl();
@@ -8815,21 +9329,21 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BarPlot__Group__2__Impl"
-    // InternalBiLang.g:2837:1: rule__BarPlot__Group__2__Impl : ( ( rule__BarPlot__NameAssignment_2 ) ) ;
+    // InternalBiLang.g:2992:1: rule__BarPlot__Group__2__Impl : ( ( rule__BarPlot__NameAssignment_2 ) ) ;
     public final void rule__BarPlot__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2841:1: ( ( ( rule__BarPlot__NameAssignment_2 ) ) )
-            // InternalBiLang.g:2842:1: ( ( rule__BarPlot__NameAssignment_2 ) )
+            // InternalBiLang.g:2996:1: ( ( ( rule__BarPlot__NameAssignment_2 ) ) )
+            // InternalBiLang.g:2997:1: ( ( rule__BarPlot__NameAssignment_2 ) )
             {
-            // InternalBiLang.g:2842:1: ( ( rule__BarPlot__NameAssignment_2 ) )
-            // InternalBiLang.g:2843:2: ( rule__BarPlot__NameAssignment_2 )
+            // InternalBiLang.g:2997:1: ( ( rule__BarPlot__NameAssignment_2 ) )
+            // InternalBiLang.g:2998:2: ( rule__BarPlot__NameAssignment_2 )
             {
              before(grammarAccess.getBarPlotAccess().getNameAssignment_2()); 
-            // InternalBiLang.g:2844:2: ( rule__BarPlot__NameAssignment_2 )
-            // InternalBiLang.g:2844:3: rule__BarPlot__NameAssignment_2
+            // InternalBiLang.g:2999:2: ( rule__BarPlot__NameAssignment_2 )
+            // InternalBiLang.g:2999:3: rule__BarPlot__NameAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__BarPlot__NameAssignment_2();
@@ -8862,14 +9376,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BarPlot__Group__3"
-    // InternalBiLang.g:2852:1: rule__BarPlot__Group__3 : rule__BarPlot__Group__3__Impl rule__BarPlot__Group__4 ;
+    // InternalBiLang.g:3007:1: rule__BarPlot__Group__3 : rule__BarPlot__Group__3__Impl rule__BarPlot__Group__4 ;
     public final void rule__BarPlot__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2856:1: ( rule__BarPlot__Group__3__Impl rule__BarPlot__Group__4 )
-            // InternalBiLang.g:2857:2: rule__BarPlot__Group__3__Impl rule__BarPlot__Group__4
+            // InternalBiLang.g:3011:1: ( rule__BarPlot__Group__3__Impl rule__BarPlot__Group__4 )
+            // InternalBiLang.g:3012:2: rule__BarPlot__Group__3__Impl rule__BarPlot__Group__4
             {
             pushFollow(FOLLOW_36);
             rule__BarPlot__Group__3__Impl();
@@ -8900,17 +9414,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BarPlot__Group__3__Impl"
-    // InternalBiLang.g:2864:1: rule__BarPlot__Group__3__Impl : ( '->' ) ;
+    // InternalBiLang.g:3019:1: rule__BarPlot__Group__3__Impl : ( '->' ) ;
     public final void rule__BarPlot__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2868:1: ( ( '->' ) )
-            // InternalBiLang.g:2869:1: ( '->' )
+            // InternalBiLang.g:3023:1: ( ( '->' ) )
+            // InternalBiLang.g:3024:1: ( '->' )
             {
-            // InternalBiLang.g:2869:1: ( '->' )
-            // InternalBiLang.g:2870:2: '->'
+            // InternalBiLang.g:3024:1: ( '->' )
+            // InternalBiLang.g:3025:2: '->'
             {
              before(grammarAccess.getBarPlotAccess().getHyphenMinusGreaterThanSignKeyword_3()); 
             match(input,46,FOLLOW_2); 
@@ -8937,14 +9451,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BarPlot__Group__4"
-    // InternalBiLang.g:2879:1: rule__BarPlot__Group__4 : rule__BarPlot__Group__4__Impl rule__BarPlot__Group__5 ;
+    // InternalBiLang.g:3034:1: rule__BarPlot__Group__4 : rule__BarPlot__Group__4__Impl rule__BarPlot__Group__5 ;
     public final void rule__BarPlot__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2883:1: ( rule__BarPlot__Group__4__Impl rule__BarPlot__Group__5 )
-            // InternalBiLang.g:2884:2: rule__BarPlot__Group__4__Impl rule__BarPlot__Group__5
+            // InternalBiLang.g:3038:1: ( rule__BarPlot__Group__4__Impl rule__BarPlot__Group__5 )
+            // InternalBiLang.g:3039:2: rule__BarPlot__Group__4__Impl rule__BarPlot__Group__5
             {
             pushFollow(FOLLOW_6);
             rule__BarPlot__Group__4__Impl();
@@ -8975,17 +9489,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BarPlot__Group__4__Impl"
-    // InternalBiLang.g:2891:1: rule__BarPlot__Group__4__Impl : ( 'xAx' ) ;
+    // InternalBiLang.g:3046:1: rule__BarPlot__Group__4__Impl : ( 'xAx' ) ;
     public final void rule__BarPlot__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2895:1: ( ( 'xAx' ) )
-            // InternalBiLang.g:2896:1: ( 'xAx' )
+            // InternalBiLang.g:3050:1: ( ( 'xAx' ) )
+            // InternalBiLang.g:3051:1: ( 'xAx' )
             {
-            // InternalBiLang.g:2896:1: ( 'xAx' )
-            // InternalBiLang.g:2897:2: 'xAx'
+            // InternalBiLang.g:3051:1: ( 'xAx' )
+            // InternalBiLang.g:3052:2: 'xAx'
             {
              before(grammarAccess.getBarPlotAccess().getXAxKeyword_4()); 
             match(input,47,FOLLOW_2); 
@@ -9012,14 +9526,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BarPlot__Group__5"
-    // InternalBiLang.g:2906:1: rule__BarPlot__Group__5 : rule__BarPlot__Group__5__Impl rule__BarPlot__Group__6 ;
+    // InternalBiLang.g:3061:1: rule__BarPlot__Group__5 : rule__BarPlot__Group__5__Impl rule__BarPlot__Group__6 ;
     public final void rule__BarPlot__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2910:1: ( rule__BarPlot__Group__5__Impl rule__BarPlot__Group__6 )
-            // InternalBiLang.g:2911:2: rule__BarPlot__Group__5__Impl rule__BarPlot__Group__6
+            // InternalBiLang.g:3065:1: ( rule__BarPlot__Group__5__Impl rule__BarPlot__Group__6 )
+            // InternalBiLang.g:3066:2: rule__BarPlot__Group__5__Impl rule__BarPlot__Group__6
             {
             pushFollow(FOLLOW_37);
             rule__BarPlot__Group__5__Impl();
@@ -9050,21 +9564,21 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BarPlot__Group__5__Impl"
-    // InternalBiLang.g:2918:1: rule__BarPlot__Group__5__Impl : ( ( rule__BarPlot__XAxisAssignment_5 ) ) ;
+    // InternalBiLang.g:3073:1: rule__BarPlot__Group__5__Impl : ( ( rule__BarPlot__XAxisAssignment_5 ) ) ;
     public final void rule__BarPlot__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2922:1: ( ( ( rule__BarPlot__XAxisAssignment_5 ) ) )
-            // InternalBiLang.g:2923:1: ( ( rule__BarPlot__XAxisAssignment_5 ) )
+            // InternalBiLang.g:3077:1: ( ( ( rule__BarPlot__XAxisAssignment_5 ) ) )
+            // InternalBiLang.g:3078:1: ( ( rule__BarPlot__XAxisAssignment_5 ) )
             {
-            // InternalBiLang.g:2923:1: ( ( rule__BarPlot__XAxisAssignment_5 ) )
-            // InternalBiLang.g:2924:2: ( rule__BarPlot__XAxisAssignment_5 )
+            // InternalBiLang.g:3078:1: ( ( rule__BarPlot__XAxisAssignment_5 ) )
+            // InternalBiLang.g:3079:2: ( rule__BarPlot__XAxisAssignment_5 )
             {
              before(grammarAccess.getBarPlotAccess().getXAxisAssignment_5()); 
-            // InternalBiLang.g:2925:2: ( rule__BarPlot__XAxisAssignment_5 )
-            // InternalBiLang.g:2925:3: rule__BarPlot__XAxisAssignment_5
+            // InternalBiLang.g:3080:2: ( rule__BarPlot__XAxisAssignment_5 )
+            // InternalBiLang.g:3080:3: rule__BarPlot__XAxisAssignment_5
             {
             pushFollow(FOLLOW_2);
             rule__BarPlot__XAxisAssignment_5();
@@ -9097,14 +9611,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BarPlot__Group__6"
-    // InternalBiLang.g:2933:1: rule__BarPlot__Group__6 : rule__BarPlot__Group__6__Impl rule__BarPlot__Group__7 ;
+    // InternalBiLang.g:3088:1: rule__BarPlot__Group__6 : rule__BarPlot__Group__6__Impl rule__BarPlot__Group__7 ;
     public final void rule__BarPlot__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2937:1: ( rule__BarPlot__Group__6__Impl rule__BarPlot__Group__7 )
-            // InternalBiLang.g:2938:2: rule__BarPlot__Group__6__Impl rule__BarPlot__Group__7
+            // InternalBiLang.g:3092:1: ( rule__BarPlot__Group__6__Impl rule__BarPlot__Group__7 )
+            // InternalBiLang.g:3093:2: rule__BarPlot__Group__6__Impl rule__BarPlot__Group__7
             {
             pushFollow(FOLLOW_6);
             rule__BarPlot__Group__6__Impl();
@@ -9135,17 +9649,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BarPlot__Group__6__Impl"
-    // InternalBiLang.g:2945:1: rule__BarPlot__Group__6__Impl : ( 'yA' ) ;
+    // InternalBiLang.g:3100:1: rule__BarPlot__Group__6__Impl : ( 'yA' ) ;
     public final void rule__BarPlot__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2949:1: ( ( 'yA' ) )
-            // InternalBiLang.g:2950:1: ( 'yA' )
+            // InternalBiLang.g:3104:1: ( ( 'yA' ) )
+            // InternalBiLang.g:3105:1: ( 'yA' )
             {
-            // InternalBiLang.g:2950:1: ( 'yA' )
-            // InternalBiLang.g:2951:2: 'yA'
+            // InternalBiLang.g:3105:1: ( 'yA' )
+            // InternalBiLang.g:3106:2: 'yA'
             {
              before(grammarAccess.getBarPlotAccess().getYAKeyword_6()); 
             match(input,48,FOLLOW_2); 
@@ -9172,14 +9686,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BarPlot__Group__7"
-    // InternalBiLang.g:2960:1: rule__BarPlot__Group__7 : rule__BarPlot__Group__7__Impl rule__BarPlot__Group__8 ;
+    // InternalBiLang.g:3115:1: rule__BarPlot__Group__7 : rule__BarPlot__Group__7__Impl rule__BarPlot__Group__8 ;
     public final void rule__BarPlot__Group__7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2964:1: ( rule__BarPlot__Group__7__Impl rule__BarPlot__Group__8 )
-            // InternalBiLang.g:2965:2: rule__BarPlot__Group__7__Impl rule__BarPlot__Group__8
+            // InternalBiLang.g:3119:1: ( rule__BarPlot__Group__7__Impl rule__BarPlot__Group__8 )
+            // InternalBiLang.g:3120:2: rule__BarPlot__Group__7__Impl rule__BarPlot__Group__8
             {
             pushFollow(FOLLOW_38);
             rule__BarPlot__Group__7__Impl();
@@ -9210,21 +9724,21 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BarPlot__Group__7__Impl"
-    // InternalBiLang.g:2972:1: rule__BarPlot__Group__7__Impl : ( ( rule__BarPlot__YAxisAssignment_7 ) ) ;
+    // InternalBiLang.g:3127:1: rule__BarPlot__Group__7__Impl : ( ( rule__BarPlot__YAxisAssignment_7 ) ) ;
     public final void rule__BarPlot__Group__7__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2976:1: ( ( ( rule__BarPlot__YAxisAssignment_7 ) ) )
-            // InternalBiLang.g:2977:1: ( ( rule__BarPlot__YAxisAssignment_7 ) )
+            // InternalBiLang.g:3131:1: ( ( ( rule__BarPlot__YAxisAssignment_7 ) ) )
+            // InternalBiLang.g:3132:1: ( ( rule__BarPlot__YAxisAssignment_7 ) )
             {
-            // InternalBiLang.g:2977:1: ( ( rule__BarPlot__YAxisAssignment_7 ) )
-            // InternalBiLang.g:2978:2: ( rule__BarPlot__YAxisAssignment_7 )
+            // InternalBiLang.g:3132:1: ( ( rule__BarPlot__YAxisAssignment_7 ) )
+            // InternalBiLang.g:3133:2: ( rule__BarPlot__YAxisAssignment_7 )
             {
              before(grammarAccess.getBarPlotAccess().getYAxisAssignment_7()); 
-            // InternalBiLang.g:2979:2: ( rule__BarPlot__YAxisAssignment_7 )
-            // InternalBiLang.g:2979:3: rule__BarPlot__YAxisAssignment_7
+            // InternalBiLang.g:3134:2: ( rule__BarPlot__YAxisAssignment_7 )
+            // InternalBiLang.g:3134:3: rule__BarPlot__YAxisAssignment_7
             {
             pushFollow(FOLLOW_2);
             rule__BarPlot__YAxisAssignment_7();
@@ -9257,14 +9771,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BarPlot__Group__8"
-    // InternalBiLang.g:2987:1: rule__BarPlot__Group__8 : rule__BarPlot__Group__8__Impl rule__BarPlot__Group__9 ;
+    // InternalBiLang.g:3142:1: rule__BarPlot__Group__8 : rule__BarPlot__Group__8__Impl rule__BarPlot__Group__9 ;
     public final void rule__BarPlot__Group__8() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:2991:1: ( rule__BarPlot__Group__8__Impl rule__BarPlot__Group__9 )
-            // InternalBiLang.g:2992:2: rule__BarPlot__Group__8__Impl rule__BarPlot__Group__9
+            // InternalBiLang.g:3146:1: ( rule__BarPlot__Group__8__Impl rule__BarPlot__Group__9 )
+            // InternalBiLang.g:3147:2: rule__BarPlot__Group__8__Impl rule__BarPlot__Group__9
             {
             pushFollow(FOLLOW_38);
             rule__BarPlot__Group__8__Impl();
@@ -9295,20 +9809,20 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BarPlot__Group__8__Impl"
-    // InternalBiLang.g:2999:1: rule__BarPlot__Group__8__Impl : ( ( rule__BarPlot__Group_8__0 )? ) ;
+    // InternalBiLang.g:3154:1: rule__BarPlot__Group__8__Impl : ( ( rule__BarPlot__Group_8__0 )? ) ;
     public final void rule__BarPlot__Group__8__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3003:1: ( ( ( rule__BarPlot__Group_8__0 )? ) )
-            // InternalBiLang.g:3004:1: ( ( rule__BarPlot__Group_8__0 )? )
+            // InternalBiLang.g:3158:1: ( ( ( rule__BarPlot__Group_8__0 )? ) )
+            // InternalBiLang.g:3159:1: ( ( rule__BarPlot__Group_8__0 )? )
             {
-            // InternalBiLang.g:3004:1: ( ( rule__BarPlot__Group_8__0 )? )
-            // InternalBiLang.g:3005:2: ( rule__BarPlot__Group_8__0 )?
+            // InternalBiLang.g:3159:1: ( ( rule__BarPlot__Group_8__0 )? )
+            // InternalBiLang.g:3160:2: ( rule__BarPlot__Group_8__0 )?
             {
              before(grammarAccess.getBarPlotAccess().getGroup_8()); 
-            // InternalBiLang.g:3006:2: ( rule__BarPlot__Group_8__0 )?
+            // InternalBiLang.g:3161:2: ( rule__BarPlot__Group_8__0 )?
             int alt23=2;
             int LA23_0 = input.LA(1);
 
@@ -9317,7 +9831,7 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
             }
             switch (alt23) {
                 case 1 :
-                    // InternalBiLang.g:3006:3: rule__BarPlot__Group_8__0
+                    // InternalBiLang.g:3161:3: rule__BarPlot__Group_8__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__BarPlot__Group_8__0();
@@ -9353,14 +9867,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BarPlot__Group__9"
-    // InternalBiLang.g:3014:1: rule__BarPlot__Group__9 : rule__BarPlot__Group__9__Impl rule__BarPlot__Group__10 ;
+    // InternalBiLang.g:3169:1: rule__BarPlot__Group__9 : rule__BarPlot__Group__9__Impl rule__BarPlot__Group__10 ;
     public final void rule__BarPlot__Group__9() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3018:1: ( rule__BarPlot__Group__9__Impl rule__BarPlot__Group__10 )
-            // InternalBiLang.g:3019:2: rule__BarPlot__Group__9__Impl rule__BarPlot__Group__10
+            // InternalBiLang.g:3173:1: ( rule__BarPlot__Group__9__Impl rule__BarPlot__Group__10 )
+            // InternalBiLang.g:3174:2: rule__BarPlot__Group__9__Impl rule__BarPlot__Group__10
             {
             pushFollow(FOLLOW_38);
             rule__BarPlot__Group__9__Impl();
@@ -9391,20 +9905,20 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BarPlot__Group__9__Impl"
-    // InternalBiLang.g:3026:1: rule__BarPlot__Group__9__Impl : ( ( rule__BarPlot__Group_9__0 )? ) ;
+    // InternalBiLang.g:3181:1: rule__BarPlot__Group__9__Impl : ( ( rule__BarPlot__Group_9__0 )? ) ;
     public final void rule__BarPlot__Group__9__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3030:1: ( ( ( rule__BarPlot__Group_9__0 )? ) )
-            // InternalBiLang.g:3031:1: ( ( rule__BarPlot__Group_9__0 )? )
+            // InternalBiLang.g:3185:1: ( ( ( rule__BarPlot__Group_9__0 )? ) )
+            // InternalBiLang.g:3186:1: ( ( rule__BarPlot__Group_9__0 )? )
             {
-            // InternalBiLang.g:3031:1: ( ( rule__BarPlot__Group_9__0 )? )
-            // InternalBiLang.g:3032:2: ( rule__BarPlot__Group_9__0 )?
+            // InternalBiLang.g:3186:1: ( ( rule__BarPlot__Group_9__0 )? )
+            // InternalBiLang.g:3187:2: ( rule__BarPlot__Group_9__0 )?
             {
              before(grammarAccess.getBarPlotAccess().getGroup_9()); 
-            // InternalBiLang.g:3033:2: ( rule__BarPlot__Group_9__0 )?
+            // InternalBiLang.g:3188:2: ( rule__BarPlot__Group_9__0 )?
             int alt24=2;
             int LA24_0 = input.LA(1);
 
@@ -9413,7 +9927,7 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
             }
             switch (alt24) {
                 case 1 :
-                    // InternalBiLang.g:3033:3: rule__BarPlot__Group_9__0
+                    // InternalBiLang.g:3188:3: rule__BarPlot__Group_9__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__BarPlot__Group_9__0();
@@ -9449,14 +9963,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BarPlot__Group__10"
-    // InternalBiLang.g:3041:1: rule__BarPlot__Group__10 : rule__BarPlot__Group__10__Impl ;
+    // InternalBiLang.g:3196:1: rule__BarPlot__Group__10 : rule__BarPlot__Group__10__Impl ;
     public final void rule__BarPlot__Group__10() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3045:1: ( rule__BarPlot__Group__10__Impl )
-            // InternalBiLang.g:3046:2: rule__BarPlot__Group__10__Impl
+            // InternalBiLang.g:3200:1: ( rule__BarPlot__Group__10__Impl )
+            // InternalBiLang.g:3201:2: rule__BarPlot__Group__10__Impl
             {
             pushFollow(FOLLOW_2);
             rule__BarPlot__Group__10__Impl();
@@ -9482,20 +9996,20 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BarPlot__Group__10__Impl"
-    // InternalBiLang.g:3052:1: rule__BarPlot__Group__10__Impl : ( ( rule__BarPlot__Group_10__0 )? ) ;
+    // InternalBiLang.g:3207:1: rule__BarPlot__Group__10__Impl : ( ( rule__BarPlot__Group_10__0 )? ) ;
     public final void rule__BarPlot__Group__10__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3056:1: ( ( ( rule__BarPlot__Group_10__0 )? ) )
-            // InternalBiLang.g:3057:1: ( ( rule__BarPlot__Group_10__0 )? )
+            // InternalBiLang.g:3211:1: ( ( ( rule__BarPlot__Group_10__0 )? ) )
+            // InternalBiLang.g:3212:1: ( ( rule__BarPlot__Group_10__0 )? )
             {
-            // InternalBiLang.g:3057:1: ( ( rule__BarPlot__Group_10__0 )? )
-            // InternalBiLang.g:3058:2: ( rule__BarPlot__Group_10__0 )?
+            // InternalBiLang.g:3212:1: ( ( rule__BarPlot__Group_10__0 )? )
+            // InternalBiLang.g:3213:2: ( rule__BarPlot__Group_10__0 )?
             {
              before(grammarAccess.getBarPlotAccess().getGroup_10()); 
-            // InternalBiLang.g:3059:2: ( rule__BarPlot__Group_10__0 )?
+            // InternalBiLang.g:3214:2: ( rule__BarPlot__Group_10__0 )?
             int alt25=2;
             int LA25_0 = input.LA(1);
 
@@ -9504,7 +10018,7 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
             }
             switch (alt25) {
                 case 1 :
-                    // InternalBiLang.g:3059:3: rule__BarPlot__Group_10__0
+                    // InternalBiLang.g:3214:3: rule__BarPlot__Group_10__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__BarPlot__Group_10__0();
@@ -9540,14 +10054,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BarPlot__Group_8__0"
-    // InternalBiLang.g:3068:1: rule__BarPlot__Group_8__0 : rule__BarPlot__Group_8__0__Impl rule__BarPlot__Group_8__1 ;
+    // InternalBiLang.g:3223:1: rule__BarPlot__Group_8__0 : rule__BarPlot__Group_8__0__Impl rule__BarPlot__Group_8__1 ;
     public final void rule__BarPlot__Group_8__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3072:1: ( rule__BarPlot__Group_8__0__Impl rule__BarPlot__Group_8__1 )
-            // InternalBiLang.g:3073:2: rule__BarPlot__Group_8__0__Impl rule__BarPlot__Group_8__1
+            // InternalBiLang.g:3227:1: ( rule__BarPlot__Group_8__0__Impl rule__BarPlot__Group_8__1 )
+            // InternalBiLang.g:3228:2: rule__BarPlot__Group_8__0__Impl rule__BarPlot__Group_8__1
             {
             pushFollow(FOLLOW_6);
             rule__BarPlot__Group_8__0__Impl();
@@ -9578,17 +10092,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BarPlot__Group_8__0__Impl"
-    // InternalBiLang.g:3080:1: rule__BarPlot__Group_8__0__Impl : ( 'loc' ) ;
+    // InternalBiLang.g:3235:1: rule__BarPlot__Group_8__0__Impl : ( 'loc' ) ;
     public final void rule__BarPlot__Group_8__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3084:1: ( ( 'loc' ) )
-            // InternalBiLang.g:3085:1: ( 'loc' )
+            // InternalBiLang.g:3239:1: ( ( 'loc' ) )
+            // InternalBiLang.g:3240:1: ( 'loc' )
             {
-            // InternalBiLang.g:3085:1: ( 'loc' )
-            // InternalBiLang.g:3086:2: 'loc'
+            // InternalBiLang.g:3240:1: ( 'loc' )
+            // InternalBiLang.g:3241:2: 'loc'
             {
              before(grammarAccess.getBarPlotAccess().getLocKeyword_8_0()); 
             match(input,49,FOLLOW_2); 
@@ -9615,14 +10129,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BarPlot__Group_8__1"
-    // InternalBiLang.g:3095:1: rule__BarPlot__Group_8__1 : rule__BarPlot__Group_8__1__Impl ;
+    // InternalBiLang.g:3250:1: rule__BarPlot__Group_8__1 : rule__BarPlot__Group_8__1__Impl ;
     public final void rule__BarPlot__Group_8__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3099:1: ( rule__BarPlot__Group_8__1__Impl )
-            // InternalBiLang.g:3100:2: rule__BarPlot__Group_8__1__Impl
+            // InternalBiLang.g:3254:1: ( rule__BarPlot__Group_8__1__Impl )
+            // InternalBiLang.g:3255:2: rule__BarPlot__Group_8__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__BarPlot__Group_8__1__Impl();
@@ -9648,21 +10162,21 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BarPlot__Group_8__1__Impl"
-    // InternalBiLang.g:3106:1: rule__BarPlot__Group_8__1__Impl : ( ( rule__BarPlot__LocationAssignment_8_1 ) ) ;
+    // InternalBiLang.g:3261:1: rule__BarPlot__Group_8__1__Impl : ( ( rule__BarPlot__LocationAssignment_8_1 ) ) ;
     public final void rule__BarPlot__Group_8__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3110:1: ( ( ( rule__BarPlot__LocationAssignment_8_1 ) ) )
-            // InternalBiLang.g:3111:1: ( ( rule__BarPlot__LocationAssignment_8_1 ) )
+            // InternalBiLang.g:3265:1: ( ( ( rule__BarPlot__LocationAssignment_8_1 ) ) )
+            // InternalBiLang.g:3266:1: ( ( rule__BarPlot__LocationAssignment_8_1 ) )
             {
-            // InternalBiLang.g:3111:1: ( ( rule__BarPlot__LocationAssignment_8_1 ) )
-            // InternalBiLang.g:3112:2: ( rule__BarPlot__LocationAssignment_8_1 )
+            // InternalBiLang.g:3266:1: ( ( rule__BarPlot__LocationAssignment_8_1 ) )
+            // InternalBiLang.g:3267:2: ( rule__BarPlot__LocationAssignment_8_1 )
             {
              before(grammarAccess.getBarPlotAccess().getLocationAssignment_8_1()); 
-            // InternalBiLang.g:3113:2: ( rule__BarPlot__LocationAssignment_8_1 )
-            // InternalBiLang.g:3113:3: rule__BarPlot__LocationAssignment_8_1
+            // InternalBiLang.g:3268:2: ( rule__BarPlot__LocationAssignment_8_1 )
+            // InternalBiLang.g:3268:3: rule__BarPlot__LocationAssignment_8_1
             {
             pushFollow(FOLLOW_2);
             rule__BarPlot__LocationAssignment_8_1();
@@ -9695,14 +10209,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BarPlot__Group_9__0"
-    // InternalBiLang.g:3122:1: rule__BarPlot__Group_9__0 : rule__BarPlot__Group_9__0__Impl rule__BarPlot__Group_9__1 ;
+    // InternalBiLang.g:3277:1: rule__BarPlot__Group_9__0 : rule__BarPlot__Group_9__0__Impl rule__BarPlot__Group_9__1 ;
     public final void rule__BarPlot__Group_9__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3126:1: ( rule__BarPlot__Group_9__0__Impl rule__BarPlot__Group_9__1 )
-            // InternalBiLang.g:3127:2: rule__BarPlot__Group_9__0__Impl rule__BarPlot__Group_9__1
+            // InternalBiLang.g:3281:1: ( rule__BarPlot__Group_9__0__Impl rule__BarPlot__Group_9__1 )
+            // InternalBiLang.g:3282:2: rule__BarPlot__Group_9__0__Impl rule__BarPlot__Group_9__1
             {
             pushFollow(FOLLOW_6);
             rule__BarPlot__Group_9__0__Impl();
@@ -9733,17 +10247,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BarPlot__Group_9__0__Impl"
-    // InternalBiLang.g:3134:1: rule__BarPlot__Group_9__0__Impl : ( 'colors' ) ;
+    // InternalBiLang.g:3289:1: rule__BarPlot__Group_9__0__Impl : ( 'colors' ) ;
     public final void rule__BarPlot__Group_9__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3138:1: ( ( 'colors' ) )
-            // InternalBiLang.g:3139:1: ( 'colors' )
+            // InternalBiLang.g:3293:1: ( ( 'colors' ) )
+            // InternalBiLang.g:3294:1: ( 'colors' )
             {
-            // InternalBiLang.g:3139:1: ( 'colors' )
-            // InternalBiLang.g:3140:2: 'colors'
+            // InternalBiLang.g:3294:1: ( 'colors' )
+            // InternalBiLang.g:3295:2: 'colors'
             {
              before(grammarAccess.getBarPlotAccess().getColorsKeyword_9_0()); 
             match(input,50,FOLLOW_2); 
@@ -9770,14 +10284,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BarPlot__Group_9__1"
-    // InternalBiLang.g:3149:1: rule__BarPlot__Group_9__1 : rule__BarPlot__Group_9__1__Impl ;
+    // InternalBiLang.g:3304:1: rule__BarPlot__Group_9__1 : rule__BarPlot__Group_9__1__Impl ;
     public final void rule__BarPlot__Group_9__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3153:1: ( rule__BarPlot__Group_9__1__Impl )
-            // InternalBiLang.g:3154:2: rule__BarPlot__Group_9__1__Impl
+            // InternalBiLang.g:3308:1: ( rule__BarPlot__Group_9__1__Impl )
+            // InternalBiLang.g:3309:2: rule__BarPlot__Group_9__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__BarPlot__Group_9__1__Impl();
@@ -9803,21 +10317,21 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BarPlot__Group_9__1__Impl"
-    // InternalBiLang.g:3160:1: rule__BarPlot__Group_9__1__Impl : ( ( rule__BarPlot__ColorsAssignment_9_1 ) ) ;
+    // InternalBiLang.g:3315:1: rule__BarPlot__Group_9__1__Impl : ( ( rule__BarPlot__ColorsAssignment_9_1 ) ) ;
     public final void rule__BarPlot__Group_9__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3164:1: ( ( ( rule__BarPlot__ColorsAssignment_9_1 ) ) )
-            // InternalBiLang.g:3165:1: ( ( rule__BarPlot__ColorsAssignment_9_1 ) )
+            // InternalBiLang.g:3319:1: ( ( ( rule__BarPlot__ColorsAssignment_9_1 ) ) )
+            // InternalBiLang.g:3320:1: ( ( rule__BarPlot__ColorsAssignment_9_1 ) )
             {
-            // InternalBiLang.g:3165:1: ( ( rule__BarPlot__ColorsAssignment_9_1 ) )
-            // InternalBiLang.g:3166:2: ( rule__BarPlot__ColorsAssignment_9_1 )
+            // InternalBiLang.g:3320:1: ( ( rule__BarPlot__ColorsAssignment_9_1 ) )
+            // InternalBiLang.g:3321:2: ( rule__BarPlot__ColorsAssignment_9_1 )
             {
              before(grammarAccess.getBarPlotAccess().getColorsAssignment_9_1()); 
-            // InternalBiLang.g:3167:2: ( rule__BarPlot__ColorsAssignment_9_1 )
-            // InternalBiLang.g:3167:3: rule__BarPlot__ColorsAssignment_9_1
+            // InternalBiLang.g:3322:2: ( rule__BarPlot__ColorsAssignment_9_1 )
+            // InternalBiLang.g:3322:3: rule__BarPlot__ColorsAssignment_9_1
             {
             pushFollow(FOLLOW_2);
             rule__BarPlot__ColorsAssignment_9_1();
@@ -9850,14 +10364,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BarPlot__Group_10__0"
-    // InternalBiLang.g:3176:1: rule__BarPlot__Group_10__0 : rule__BarPlot__Group_10__0__Impl rule__BarPlot__Group_10__1 ;
+    // InternalBiLang.g:3331:1: rule__BarPlot__Group_10__0 : rule__BarPlot__Group_10__0__Impl rule__BarPlot__Group_10__1 ;
     public final void rule__BarPlot__Group_10__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3180:1: ( rule__BarPlot__Group_10__0__Impl rule__BarPlot__Group_10__1 )
-            // InternalBiLang.g:3181:2: rule__BarPlot__Group_10__0__Impl rule__BarPlot__Group_10__1
+            // InternalBiLang.g:3335:1: ( rule__BarPlot__Group_10__0__Impl rule__BarPlot__Group_10__1 )
+            // InternalBiLang.g:3336:2: rule__BarPlot__Group_10__0__Impl rule__BarPlot__Group_10__1
             {
             pushFollow(FOLLOW_25);
             rule__BarPlot__Group_10__0__Impl();
@@ -9888,17 +10402,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BarPlot__Group_10__0__Impl"
-    // InternalBiLang.g:3188:1: rule__BarPlot__Group_10__0__Impl : ( 'thickness' ) ;
+    // InternalBiLang.g:3343:1: rule__BarPlot__Group_10__0__Impl : ( 'thickness' ) ;
     public final void rule__BarPlot__Group_10__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3192:1: ( ( 'thickness' ) )
-            // InternalBiLang.g:3193:1: ( 'thickness' )
+            // InternalBiLang.g:3347:1: ( ( 'thickness' ) )
+            // InternalBiLang.g:3348:1: ( 'thickness' )
             {
-            // InternalBiLang.g:3193:1: ( 'thickness' )
-            // InternalBiLang.g:3194:2: 'thickness'
+            // InternalBiLang.g:3348:1: ( 'thickness' )
+            // InternalBiLang.g:3349:2: 'thickness'
             {
              before(grammarAccess.getBarPlotAccess().getThicknessKeyword_10_0()); 
             match(input,51,FOLLOW_2); 
@@ -9925,14 +10439,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BarPlot__Group_10__1"
-    // InternalBiLang.g:3203:1: rule__BarPlot__Group_10__1 : rule__BarPlot__Group_10__1__Impl ;
+    // InternalBiLang.g:3358:1: rule__BarPlot__Group_10__1 : rule__BarPlot__Group_10__1__Impl ;
     public final void rule__BarPlot__Group_10__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3207:1: ( rule__BarPlot__Group_10__1__Impl )
-            // InternalBiLang.g:3208:2: rule__BarPlot__Group_10__1__Impl
+            // InternalBiLang.g:3362:1: ( rule__BarPlot__Group_10__1__Impl )
+            // InternalBiLang.g:3363:2: rule__BarPlot__Group_10__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__BarPlot__Group_10__1__Impl();
@@ -9958,21 +10472,21 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BarPlot__Group_10__1__Impl"
-    // InternalBiLang.g:3214:1: rule__BarPlot__Group_10__1__Impl : ( ( rule__BarPlot__ThicknessAssignment_10_1 ) ) ;
+    // InternalBiLang.g:3369:1: rule__BarPlot__Group_10__1__Impl : ( ( rule__BarPlot__ThicknessAssignment_10_1 ) ) ;
     public final void rule__BarPlot__Group_10__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3218:1: ( ( ( rule__BarPlot__ThicknessAssignment_10_1 ) ) )
-            // InternalBiLang.g:3219:1: ( ( rule__BarPlot__ThicknessAssignment_10_1 ) )
+            // InternalBiLang.g:3373:1: ( ( ( rule__BarPlot__ThicknessAssignment_10_1 ) ) )
+            // InternalBiLang.g:3374:1: ( ( rule__BarPlot__ThicknessAssignment_10_1 ) )
             {
-            // InternalBiLang.g:3219:1: ( ( rule__BarPlot__ThicknessAssignment_10_1 ) )
-            // InternalBiLang.g:3220:2: ( rule__BarPlot__ThicknessAssignment_10_1 )
+            // InternalBiLang.g:3374:1: ( ( rule__BarPlot__ThicknessAssignment_10_1 ) )
+            // InternalBiLang.g:3375:2: ( rule__BarPlot__ThicknessAssignment_10_1 )
             {
              before(grammarAccess.getBarPlotAccess().getThicknessAssignment_10_1()); 
-            // InternalBiLang.g:3221:2: ( rule__BarPlot__ThicknessAssignment_10_1 )
-            // InternalBiLang.g:3221:3: rule__BarPlot__ThicknessAssignment_10_1
+            // InternalBiLang.g:3376:2: ( rule__BarPlot__ThicknessAssignment_10_1 )
+            // InternalBiLang.g:3376:3: rule__BarPlot__ThicknessAssignment_10_1
             {
             pushFollow(FOLLOW_2);
             rule__BarPlot__ThicknessAssignment_10_1();
@@ -10005,16 +10519,16 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LinePlot__Group__0"
-    // InternalBiLang.g:3230:1: rule__LinePlot__Group__0 : rule__LinePlot__Group__0__Impl rule__LinePlot__Group__1 ;
+    // InternalBiLang.g:3385:1: rule__LinePlot__Group__0 : rule__LinePlot__Group__0__Impl rule__LinePlot__Group__1 ;
     public final void rule__LinePlot__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3234:1: ( rule__LinePlot__Group__0__Impl rule__LinePlot__Group__1 )
-            // InternalBiLang.g:3235:2: rule__LinePlot__Group__0__Impl rule__LinePlot__Group__1
+            // InternalBiLang.g:3389:1: ( rule__LinePlot__Group__0__Impl rule__LinePlot__Group__1 )
+            // InternalBiLang.g:3390:2: rule__LinePlot__Group__0__Impl rule__LinePlot__Group__1
             {
-            pushFollow(FOLLOW_19);
+            pushFollow(FOLLOW_39);
             rule__LinePlot__Group__0__Impl();
 
             state._fsp--;
@@ -10043,21 +10557,21 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LinePlot__Group__0__Impl"
-    // InternalBiLang.g:3242:1: rule__LinePlot__Group__0__Impl : ( () ) ;
+    // InternalBiLang.g:3397:1: rule__LinePlot__Group__0__Impl : ( () ) ;
     public final void rule__LinePlot__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3246:1: ( ( () ) )
-            // InternalBiLang.g:3247:1: ( () )
+            // InternalBiLang.g:3401:1: ( ( () ) )
+            // InternalBiLang.g:3402:1: ( () )
             {
-            // InternalBiLang.g:3247:1: ( () )
-            // InternalBiLang.g:3248:2: ()
+            // InternalBiLang.g:3402:1: ( () )
+            // InternalBiLang.g:3403:2: ()
             {
              before(grammarAccess.getLinePlotAccess().getLinePlotAction_0()); 
-            // InternalBiLang.g:3249:2: ()
-            // InternalBiLang.g:3249:3: 
+            // InternalBiLang.g:3404:2: ()
+            // InternalBiLang.g:3404:3: 
             {
             }
 
@@ -10080,14 +10594,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LinePlot__Group__1"
-    // InternalBiLang.g:3257:1: rule__LinePlot__Group__1 : rule__LinePlot__Group__1__Impl rule__LinePlot__Group__2 ;
+    // InternalBiLang.g:3412:1: rule__LinePlot__Group__1 : rule__LinePlot__Group__1__Impl rule__LinePlot__Group__2 ;
     public final void rule__LinePlot__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3261:1: ( rule__LinePlot__Group__1__Impl rule__LinePlot__Group__2 )
-            // InternalBiLang.g:3262:2: rule__LinePlot__Group__1__Impl rule__LinePlot__Group__2
+            // InternalBiLang.g:3416:1: ( rule__LinePlot__Group__1__Impl rule__LinePlot__Group__2 )
+            // InternalBiLang.g:3417:2: rule__LinePlot__Group__1__Impl rule__LinePlot__Group__2
             {
             pushFollow(FOLLOW_3);
             rule__LinePlot__Group__1__Impl();
@@ -10118,17 +10632,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LinePlot__Group__1__Impl"
-    // InternalBiLang.g:3269:1: rule__LinePlot__Group__1__Impl : ( 'line' ) ;
+    // InternalBiLang.g:3424:1: rule__LinePlot__Group__1__Impl : ( 'line' ) ;
     public final void rule__LinePlot__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3273:1: ( ( 'line' ) )
-            // InternalBiLang.g:3274:1: ( 'line' )
+            // InternalBiLang.g:3428:1: ( ( 'line' ) )
+            // InternalBiLang.g:3429:1: ( 'line' )
             {
-            // InternalBiLang.g:3274:1: ( 'line' )
-            // InternalBiLang.g:3275:2: 'line'
+            // InternalBiLang.g:3429:1: ( 'line' )
+            // InternalBiLang.g:3430:2: 'line'
             {
              before(grammarAccess.getLinePlotAccess().getLineKeyword_1()); 
             match(input,52,FOLLOW_2); 
@@ -10155,14 +10669,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LinePlot__Group__2"
-    // InternalBiLang.g:3284:1: rule__LinePlot__Group__2 : rule__LinePlot__Group__2__Impl rule__LinePlot__Group__3 ;
+    // InternalBiLang.g:3439:1: rule__LinePlot__Group__2 : rule__LinePlot__Group__2__Impl rule__LinePlot__Group__3 ;
     public final void rule__LinePlot__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3288:1: ( rule__LinePlot__Group__2__Impl rule__LinePlot__Group__3 )
-            // InternalBiLang.g:3289:2: rule__LinePlot__Group__2__Impl rule__LinePlot__Group__3
+            // InternalBiLang.g:3443:1: ( rule__LinePlot__Group__2__Impl rule__LinePlot__Group__3 )
+            // InternalBiLang.g:3444:2: rule__LinePlot__Group__2__Impl rule__LinePlot__Group__3
             {
             pushFollow(FOLLOW_35);
             rule__LinePlot__Group__2__Impl();
@@ -10193,21 +10707,21 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LinePlot__Group__2__Impl"
-    // InternalBiLang.g:3296:1: rule__LinePlot__Group__2__Impl : ( ( rule__LinePlot__NameAssignment_2 ) ) ;
+    // InternalBiLang.g:3451:1: rule__LinePlot__Group__2__Impl : ( ( rule__LinePlot__NameAssignment_2 ) ) ;
     public final void rule__LinePlot__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3300:1: ( ( ( rule__LinePlot__NameAssignment_2 ) ) )
-            // InternalBiLang.g:3301:1: ( ( rule__LinePlot__NameAssignment_2 ) )
+            // InternalBiLang.g:3455:1: ( ( ( rule__LinePlot__NameAssignment_2 ) ) )
+            // InternalBiLang.g:3456:1: ( ( rule__LinePlot__NameAssignment_2 ) )
             {
-            // InternalBiLang.g:3301:1: ( ( rule__LinePlot__NameAssignment_2 ) )
-            // InternalBiLang.g:3302:2: ( rule__LinePlot__NameAssignment_2 )
+            // InternalBiLang.g:3456:1: ( ( rule__LinePlot__NameAssignment_2 ) )
+            // InternalBiLang.g:3457:2: ( rule__LinePlot__NameAssignment_2 )
             {
              before(grammarAccess.getLinePlotAccess().getNameAssignment_2()); 
-            // InternalBiLang.g:3303:2: ( rule__LinePlot__NameAssignment_2 )
-            // InternalBiLang.g:3303:3: rule__LinePlot__NameAssignment_2
+            // InternalBiLang.g:3458:2: ( rule__LinePlot__NameAssignment_2 )
+            // InternalBiLang.g:3458:3: rule__LinePlot__NameAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__LinePlot__NameAssignment_2();
@@ -10240,14 +10754,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LinePlot__Group__3"
-    // InternalBiLang.g:3311:1: rule__LinePlot__Group__3 : rule__LinePlot__Group__3__Impl rule__LinePlot__Group__4 ;
+    // InternalBiLang.g:3466:1: rule__LinePlot__Group__3 : rule__LinePlot__Group__3__Impl rule__LinePlot__Group__4 ;
     public final void rule__LinePlot__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3315:1: ( rule__LinePlot__Group__3__Impl rule__LinePlot__Group__4 )
-            // InternalBiLang.g:3316:2: rule__LinePlot__Group__3__Impl rule__LinePlot__Group__4
+            // InternalBiLang.g:3470:1: ( rule__LinePlot__Group__3__Impl rule__LinePlot__Group__4 )
+            // InternalBiLang.g:3471:2: rule__LinePlot__Group__3__Impl rule__LinePlot__Group__4
             {
             pushFollow(FOLLOW_36);
             rule__LinePlot__Group__3__Impl();
@@ -10278,17 +10792,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LinePlot__Group__3__Impl"
-    // InternalBiLang.g:3323:1: rule__LinePlot__Group__3__Impl : ( '->' ) ;
+    // InternalBiLang.g:3478:1: rule__LinePlot__Group__3__Impl : ( '->' ) ;
     public final void rule__LinePlot__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3327:1: ( ( '->' ) )
-            // InternalBiLang.g:3328:1: ( '->' )
+            // InternalBiLang.g:3482:1: ( ( '->' ) )
+            // InternalBiLang.g:3483:1: ( '->' )
             {
-            // InternalBiLang.g:3328:1: ( '->' )
-            // InternalBiLang.g:3329:2: '->'
+            // InternalBiLang.g:3483:1: ( '->' )
+            // InternalBiLang.g:3484:2: '->'
             {
              before(grammarAccess.getLinePlotAccess().getHyphenMinusGreaterThanSignKeyword_3()); 
             match(input,46,FOLLOW_2); 
@@ -10315,14 +10829,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LinePlot__Group__4"
-    // InternalBiLang.g:3338:1: rule__LinePlot__Group__4 : rule__LinePlot__Group__4__Impl rule__LinePlot__Group__5 ;
+    // InternalBiLang.g:3493:1: rule__LinePlot__Group__4 : rule__LinePlot__Group__4__Impl rule__LinePlot__Group__5 ;
     public final void rule__LinePlot__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3342:1: ( rule__LinePlot__Group__4__Impl rule__LinePlot__Group__5 )
-            // InternalBiLang.g:3343:2: rule__LinePlot__Group__4__Impl rule__LinePlot__Group__5
+            // InternalBiLang.g:3497:1: ( rule__LinePlot__Group__4__Impl rule__LinePlot__Group__5 )
+            // InternalBiLang.g:3498:2: rule__LinePlot__Group__4__Impl rule__LinePlot__Group__5
             {
             pushFollow(FOLLOW_6);
             rule__LinePlot__Group__4__Impl();
@@ -10353,17 +10867,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LinePlot__Group__4__Impl"
-    // InternalBiLang.g:3350:1: rule__LinePlot__Group__4__Impl : ( 'xAx' ) ;
+    // InternalBiLang.g:3505:1: rule__LinePlot__Group__4__Impl : ( 'xAx' ) ;
     public final void rule__LinePlot__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3354:1: ( ( 'xAx' ) )
-            // InternalBiLang.g:3355:1: ( 'xAx' )
+            // InternalBiLang.g:3509:1: ( ( 'xAx' ) )
+            // InternalBiLang.g:3510:1: ( 'xAx' )
             {
-            // InternalBiLang.g:3355:1: ( 'xAx' )
-            // InternalBiLang.g:3356:2: 'xAx'
+            // InternalBiLang.g:3510:1: ( 'xAx' )
+            // InternalBiLang.g:3511:2: 'xAx'
             {
              before(grammarAccess.getLinePlotAccess().getXAxKeyword_4()); 
             match(input,47,FOLLOW_2); 
@@ -10390,14 +10904,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LinePlot__Group__5"
-    // InternalBiLang.g:3365:1: rule__LinePlot__Group__5 : rule__LinePlot__Group__5__Impl rule__LinePlot__Group__6 ;
+    // InternalBiLang.g:3520:1: rule__LinePlot__Group__5 : rule__LinePlot__Group__5__Impl rule__LinePlot__Group__6 ;
     public final void rule__LinePlot__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3369:1: ( rule__LinePlot__Group__5__Impl rule__LinePlot__Group__6 )
-            // InternalBiLang.g:3370:2: rule__LinePlot__Group__5__Impl rule__LinePlot__Group__6
+            // InternalBiLang.g:3524:1: ( rule__LinePlot__Group__5__Impl rule__LinePlot__Group__6 )
+            // InternalBiLang.g:3525:2: rule__LinePlot__Group__5__Impl rule__LinePlot__Group__6
             {
             pushFollow(FOLLOW_37);
             rule__LinePlot__Group__5__Impl();
@@ -10428,21 +10942,21 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LinePlot__Group__5__Impl"
-    // InternalBiLang.g:3377:1: rule__LinePlot__Group__5__Impl : ( ( rule__LinePlot__XAxisAssignment_5 ) ) ;
+    // InternalBiLang.g:3532:1: rule__LinePlot__Group__5__Impl : ( ( rule__LinePlot__XAxisAssignment_5 ) ) ;
     public final void rule__LinePlot__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3381:1: ( ( ( rule__LinePlot__XAxisAssignment_5 ) ) )
-            // InternalBiLang.g:3382:1: ( ( rule__LinePlot__XAxisAssignment_5 ) )
+            // InternalBiLang.g:3536:1: ( ( ( rule__LinePlot__XAxisAssignment_5 ) ) )
+            // InternalBiLang.g:3537:1: ( ( rule__LinePlot__XAxisAssignment_5 ) )
             {
-            // InternalBiLang.g:3382:1: ( ( rule__LinePlot__XAxisAssignment_5 ) )
-            // InternalBiLang.g:3383:2: ( rule__LinePlot__XAxisAssignment_5 )
+            // InternalBiLang.g:3537:1: ( ( rule__LinePlot__XAxisAssignment_5 ) )
+            // InternalBiLang.g:3538:2: ( rule__LinePlot__XAxisAssignment_5 )
             {
              before(grammarAccess.getLinePlotAccess().getXAxisAssignment_5()); 
-            // InternalBiLang.g:3384:2: ( rule__LinePlot__XAxisAssignment_5 )
-            // InternalBiLang.g:3384:3: rule__LinePlot__XAxisAssignment_5
+            // InternalBiLang.g:3539:2: ( rule__LinePlot__XAxisAssignment_5 )
+            // InternalBiLang.g:3539:3: rule__LinePlot__XAxisAssignment_5
             {
             pushFollow(FOLLOW_2);
             rule__LinePlot__XAxisAssignment_5();
@@ -10475,14 +10989,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LinePlot__Group__6"
-    // InternalBiLang.g:3392:1: rule__LinePlot__Group__6 : rule__LinePlot__Group__6__Impl rule__LinePlot__Group__7 ;
+    // InternalBiLang.g:3547:1: rule__LinePlot__Group__6 : rule__LinePlot__Group__6__Impl rule__LinePlot__Group__7 ;
     public final void rule__LinePlot__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3396:1: ( rule__LinePlot__Group__6__Impl rule__LinePlot__Group__7 )
-            // InternalBiLang.g:3397:2: rule__LinePlot__Group__6__Impl rule__LinePlot__Group__7
+            // InternalBiLang.g:3551:1: ( rule__LinePlot__Group__6__Impl rule__LinePlot__Group__7 )
+            // InternalBiLang.g:3552:2: rule__LinePlot__Group__6__Impl rule__LinePlot__Group__7
             {
             pushFollow(FOLLOW_6);
             rule__LinePlot__Group__6__Impl();
@@ -10513,17 +11027,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LinePlot__Group__6__Impl"
-    // InternalBiLang.g:3404:1: rule__LinePlot__Group__6__Impl : ( 'yA' ) ;
+    // InternalBiLang.g:3559:1: rule__LinePlot__Group__6__Impl : ( 'yA' ) ;
     public final void rule__LinePlot__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3408:1: ( ( 'yA' ) )
-            // InternalBiLang.g:3409:1: ( 'yA' )
+            // InternalBiLang.g:3563:1: ( ( 'yA' ) )
+            // InternalBiLang.g:3564:1: ( 'yA' )
             {
-            // InternalBiLang.g:3409:1: ( 'yA' )
-            // InternalBiLang.g:3410:2: 'yA'
+            // InternalBiLang.g:3564:1: ( 'yA' )
+            // InternalBiLang.g:3565:2: 'yA'
             {
              before(grammarAccess.getLinePlotAccess().getYAKeyword_6()); 
             match(input,48,FOLLOW_2); 
@@ -10550,14 +11064,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LinePlot__Group__7"
-    // InternalBiLang.g:3419:1: rule__LinePlot__Group__7 : rule__LinePlot__Group__7__Impl rule__LinePlot__Group__8 ;
+    // InternalBiLang.g:3574:1: rule__LinePlot__Group__7 : rule__LinePlot__Group__7__Impl rule__LinePlot__Group__8 ;
     public final void rule__LinePlot__Group__7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3423:1: ( rule__LinePlot__Group__7__Impl rule__LinePlot__Group__8 )
-            // InternalBiLang.g:3424:2: rule__LinePlot__Group__7__Impl rule__LinePlot__Group__8
+            // InternalBiLang.g:3578:1: ( rule__LinePlot__Group__7__Impl rule__LinePlot__Group__8 )
+            // InternalBiLang.g:3579:2: rule__LinePlot__Group__7__Impl rule__LinePlot__Group__8
             {
             pushFollow(FOLLOW_38);
             rule__LinePlot__Group__7__Impl();
@@ -10588,21 +11102,21 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LinePlot__Group__7__Impl"
-    // InternalBiLang.g:3431:1: rule__LinePlot__Group__7__Impl : ( ( rule__LinePlot__YAxisAssignment_7 ) ) ;
+    // InternalBiLang.g:3586:1: rule__LinePlot__Group__7__Impl : ( ( rule__LinePlot__YAxisAssignment_7 ) ) ;
     public final void rule__LinePlot__Group__7__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3435:1: ( ( ( rule__LinePlot__YAxisAssignment_7 ) ) )
-            // InternalBiLang.g:3436:1: ( ( rule__LinePlot__YAxisAssignment_7 ) )
+            // InternalBiLang.g:3590:1: ( ( ( rule__LinePlot__YAxisAssignment_7 ) ) )
+            // InternalBiLang.g:3591:1: ( ( rule__LinePlot__YAxisAssignment_7 ) )
             {
-            // InternalBiLang.g:3436:1: ( ( rule__LinePlot__YAxisAssignment_7 ) )
-            // InternalBiLang.g:3437:2: ( rule__LinePlot__YAxisAssignment_7 )
+            // InternalBiLang.g:3591:1: ( ( rule__LinePlot__YAxisAssignment_7 ) )
+            // InternalBiLang.g:3592:2: ( rule__LinePlot__YAxisAssignment_7 )
             {
              before(grammarAccess.getLinePlotAccess().getYAxisAssignment_7()); 
-            // InternalBiLang.g:3438:2: ( rule__LinePlot__YAxisAssignment_7 )
-            // InternalBiLang.g:3438:3: rule__LinePlot__YAxisAssignment_7
+            // InternalBiLang.g:3593:2: ( rule__LinePlot__YAxisAssignment_7 )
+            // InternalBiLang.g:3593:3: rule__LinePlot__YAxisAssignment_7
             {
             pushFollow(FOLLOW_2);
             rule__LinePlot__YAxisAssignment_7();
@@ -10635,14 +11149,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LinePlot__Group__8"
-    // InternalBiLang.g:3446:1: rule__LinePlot__Group__8 : rule__LinePlot__Group__8__Impl rule__LinePlot__Group__9 ;
+    // InternalBiLang.g:3601:1: rule__LinePlot__Group__8 : rule__LinePlot__Group__8__Impl rule__LinePlot__Group__9 ;
     public final void rule__LinePlot__Group__8() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3450:1: ( rule__LinePlot__Group__8__Impl rule__LinePlot__Group__9 )
-            // InternalBiLang.g:3451:2: rule__LinePlot__Group__8__Impl rule__LinePlot__Group__9
+            // InternalBiLang.g:3605:1: ( rule__LinePlot__Group__8__Impl rule__LinePlot__Group__9 )
+            // InternalBiLang.g:3606:2: rule__LinePlot__Group__8__Impl rule__LinePlot__Group__9
             {
             pushFollow(FOLLOW_38);
             rule__LinePlot__Group__8__Impl();
@@ -10673,20 +11187,20 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LinePlot__Group__8__Impl"
-    // InternalBiLang.g:3458:1: rule__LinePlot__Group__8__Impl : ( ( rule__LinePlot__Group_8__0 )? ) ;
+    // InternalBiLang.g:3613:1: rule__LinePlot__Group__8__Impl : ( ( rule__LinePlot__Group_8__0 )? ) ;
     public final void rule__LinePlot__Group__8__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3462:1: ( ( ( rule__LinePlot__Group_8__0 )? ) )
-            // InternalBiLang.g:3463:1: ( ( rule__LinePlot__Group_8__0 )? )
+            // InternalBiLang.g:3617:1: ( ( ( rule__LinePlot__Group_8__0 )? ) )
+            // InternalBiLang.g:3618:1: ( ( rule__LinePlot__Group_8__0 )? )
             {
-            // InternalBiLang.g:3463:1: ( ( rule__LinePlot__Group_8__0 )? )
-            // InternalBiLang.g:3464:2: ( rule__LinePlot__Group_8__0 )?
+            // InternalBiLang.g:3618:1: ( ( rule__LinePlot__Group_8__0 )? )
+            // InternalBiLang.g:3619:2: ( rule__LinePlot__Group_8__0 )?
             {
              before(grammarAccess.getLinePlotAccess().getGroup_8()); 
-            // InternalBiLang.g:3465:2: ( rule__LinePlot__Group_8__0 )?
+            // InternalBiLang.g:3620:2: ( rule__LinePlot__Group_8__0 )?
             int alt26=2;
             int LA26_0 = input.LA(1);
 
@@ -10695,7 +11209,7 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
             }
             switch (alt26) {
                 case 1 :
-                    // InternalBiLang.g:3465:3: rule__LinePlot__Group_8__0
+                    // InternalBiLang.g:3620:3: rule__LinePlot__Group_8__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__LinePlot__Group_8__0();
@@ -10731,14 +11245,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LinePlot__Group__9"
-    // InternalBiLang.g:3473:1: rule__LinePlot__Group__9 : rule__LinePlot__Group__9__Impl rule__LinePlot__Group__10 ;
+    // InternalBiLang.g:3628:1: rule__LinePlot__Group__9 : rule__LinePlot__Group__9__Impl rule__LinePlot__Group__10 ;
     public final void rule__LinePlot__Group__9() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3477:1: ( rule__LinePlot__Group__9__Impl rule__LinePlot__Group__10 )
-            // InternalBiLang.g:3478:2: rule__LinePlot__Group__9__Impl rule__LinePlot__Group__10
+            // InternalBiLang.g:3632:1: ( rule__LinePlot__Group__9__Impl rule__LinePlot__Group__10 )
+            // InternalBiLang.g:3633:2: rule__LinePlot__Group__9__Impl rule__LinePlot__Group__10
             {
             pushFollow(FOLLOW_38);
             rule__LinePlot__Group__9__Impl();
@@ -10769,20 +11283,20 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LinePlot__Group__9__Impl"
-    // InternalBiLang.g:3485:1: rule__LinePlot__Group__9__Impl : ( ( rule__LinePlot__Group_9__0 )? ) ;
+    // InternalBiLang.g:3640:1: rule__LinePlot__Group__9__Impl : ( ( rule__LinePlot__Group_9__0 )? ) ;
     public final void rule__LinePlot__Group__9__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3489:1: ( ( ( rule__LinePlot__Group_9__0 )? ) )
-            // InternalBiLang.g:3490:1: ( ( rule__LinePlot__Group_9__0 )? )
+            // InternalBiLang.g:3644:1: ( ( ( rule__LinePlot__Group_9__0 )? ) )
+            // InternalBiLang.g:3645:1: ( ( rule__LinePlot__Group_9__0 )? )
             {
-            // InternalBiLang.g:3490:1: ( ( rule__LinePlot__Group_9__0 )? )
-            // InternalBiLang.g:3491:2: ( rule__LinePlot__Group_9__0 )?
+            // InternalBiLang.g:3645:1: ( ( rule__LinePlot__Group_9__0 )? )
+            // InternalBiLang.g:3646:2: ( rule__LinePlot__Group_9__0 )?
             {
              before(grammarAccess.getLinePlotAccess().getGroup_9()); 
-            // InternalBiLang.g:3492:2: ( rule__LinePlot__Group_9__0 )?
+            // InternalBiLang.g:3647:2: ( rule__LinePlot__Group_9__0 )?
             int alt27=2;
             int LA27_0 = input.LA(1);
 
@@ -10791,7 +11305,7 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
             }
             switch (alt27) {
                 case 1 :
-                    // InternalBiLang.g:3492:3: rule__LinePlot__Group_9__0
+                    // InternalBiLang.g:3647:3: rule__LinePlot__Group_9__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__LinePlot__Group_9__0();
@@ -10827,14 +11341,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LinePlot__Group__10"
-    // InternalBiLang.g:3500:1: rule__LinePlot__Group__10 : rule__LinePlot__Group__10__Impl ;
+    // InternalBiLang.g:3655:1: rule__LinePlot__Group__10 : rule__LinePlot__Group__10__Impl ;
     public final void rule__LinePlot__Group__10() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3504:1: ( rule__LinePlot__Group__10__Impl )
-            // InternalBiLang.g:3505:2: rule__LinePlot__Group__10__Impl
+            // InternalBiLang.g:3659:1: ( rule__LinePlot__Group__10__Impl )
+            // InternalBiLang.g:3660:2: rule__LinePlot__Group__10__Impl
             {
             pushFollow(FOLLOW_2);
             rule__LinePlot__Group__10__Impl();
@@ -10860,20 +11374,20 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LinePlot__Group__10__Impl"
-    // InternalBiLang.g:3511:1: rule__LinePlot__Group__10__Impl : ( ( rule__LinePlot__Group_10__0 )? ) ;
+    // InternalBiLang.g:3666:1: rule__LinePlot__Group__10__Impl : ( ( rule__LinePlot__Group_10__0 )? ) ;
     public final void rule__LinePlot__Group__10__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3515:1: ( ( ( rule__LinePlot__Group_10__0 )? ) )
-            // InternalBiLang.g:3516:1: ( ( rule__LinePlot__Group_10__0 )? )
+            // InternalBiLang.g:3670:1: ( ( ( rule__LinePlot__Group_10__0 )? ) )
+            // InternalBiLang.g:3671:1: ( ( rule__LinePlot__Group_10__0 )? )
             {
-            // InternalBiLang.g:3516:1: ( ( rule__LinePlot__Group_10__0 )? )
-            // InternalBiLang.g:3517:2: ( rule__LinePlot__Group_10__0 )?
+            // InternalBiLang.g:3671:1: ( ( rule__LinePlot__Group_10__0 )? )
+            // InternalBiLang.g:3672:2: ( rule__LinePlot__Group_10__0 )?
             {
              before(grammarAccess.getLinePlotAccess().getGroup_10()); 
-            // InternalBiLang.g:3518:2: ( rule__LinePlot__Group_10__0 )?
+            // InternalBiLang.g:3673:2: ( rule__LinePlot__Group_10__0 )?
             int alt28=2;
             int LA28_0 = input.LA(1);
 
@@ -10882,7 +11396,7 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
             }
             switch (alt28) {
                 case 1 :
-                    // InternalBiLang.g:3518:3: rule__LinePlot__Group_10__0
+                    // InternalBiLang.g:3673:3: rule__LinePlot__Group_10__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__LinePlot__Group_10__0();
@@ -10918,14 +11432,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LinePlot__Group_8__0"
-    // InternalBiLang.g:3527:1: rule__LinePlot__Group_8__0 : rule__LinePlot__Group_8__0__Impl rule__LinePlot__Group_8__1 ;
+    // InternalBiLang.g:3682:1: rule__LinePlot__Group_8__0 : rule__LinePlot__Group_8__0__Impl rule__LinePlot__Group_8__1 ;
     public final void rule__LinePlot__Group_8__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3531:1: ( rule__LinePlot__Group_8__0__Impl rule__LinePlot__Group_8__1 )
-            // InternalBiLang.g:3532:2: rule__LinePlot__Group_8__0__Impl rule__LinePlot__Group_8__1
+            // InternalBiLang.g:3686:1: ( rule__LinePlot__Group_8__0__Impl rule__LinePlot__Group_8__1 )
+            // InternalBiLang.g:3687:2: rule__LinePlot__Group_8__0__Impl rule__LinePlot__Group_8__1
             {
             pushFollow(FOLLOW_6);
             rule__LinePlot__Group_8__0__Impl();
@@ -10956,17 +11470,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LinePlot__Group_8__0__Impl"
-    // InternalBiLang.g:3539:1: rule__LinePlot__Group_8__0__Impl : ( 'loc' ) ;
+    // InternalBiLang.g:3694:1: rule__LinePlot__Group_8__0__Impl : ( 'loc' ) ;
     public final void rule__LinePlot__Group_8__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3543:1: ( ( 'loc' ) )
-            // InternalBiLang.g:3544:1: ( 'loc' )
+            // InternalBiLang.g:3698:1: ( ( 'loc' ) )
+            // InternalBiLang.g:3699:1: ( 'loc' )
             {
-            // InternalBiLang.g:3544:1: ( 'loc' )
-            // InternalBiLang.g:3545:2: 'loc'
+            // InternalBiLang.g:3699:1: ( 'loc' )
+            // InternalBiLang.g:3700:2: 'loc'
             {
              before(grammarAccess.getLinePlotAccess().getLocKeyword_8_0()); 
             match(input,49,FOLLOW_2); 
@@ -10993,14 +11507,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LinePlot__Group_8__1"
-    // InternalBiLang.g:3554:1: rule__LinePlot__Group_8__1 : rule__LinePlot__Group_8__1__Impl ;
+    // InternalBiLang.g:3709:1: rule__LinePlot__Group_8__1 : rule__LinePlot__Group_8__1__Impl ;
     public final void rule__LinePlot__Group_8__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3558:1: ( rule__LinePlot__Group_8__1__Impl )
-            // InternalBiLang.g:3559:2: rule__LinePlot__Group_8__1__Impl
+            // InternalBiLang.g:3713:1: ( rule__LinePlot__Group_8__1__Impl )
+            // InternalBiLang.g:3714:2: rule__LinePlot__Group_8__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__LinePlot__Group_8__1__Impl();
@@ -11026,21 +11540,21 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LinePlot__Group_8__1__Impl"
-    // InternalBiLang.g:3565:1: rule__LinePlot__Group_8__1__Impl : ( ( rule__LinePlot__LocationAssignment_8_1 ) ) ;
+    // InternalBiLang.g:3720:1: rule__LinePlot__Group_8__1__Impl : ( ( rule__LinePlot__LocationAssignment_8_1 ) ) ;
     public final void rule__LinePlot__Group_8__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3569:1: ( ( ( rule__LinePlot__LocationAssignment_8_1 ) ) )
-            // InternalBiLang.g:3570:1: ( ( rule__LinePlot__LocationAssignment_8_1 ) )
+            // InternalBiLang.g:3724:1: ( ( ( rule__LinePlot__LocationAssignment_8_1 ) ) )
+            // InternalBiLang.g:3725:1: ( ( rule__LinePlot__LocationAssignment_8_1 ) )
             {
-            // InternalBiLang.g:3570:1: ( ( rule__LinePlot__LocationAssignment_8_1 ) )
-            // InternalBiLang.g:3571:2: ( rule__LinePlot__LocationAssignment_8_1 )
+            // InternalBiLang.g:3725:1: ( ( rule__LinePlot__LocationAssignment_8_1 ) )
+            // InternalBiLang.g:3726:2: ( rule__LinePlot__LocationAssignment_8_1 )
             {
              before(grammarAccess.getLinePlotAccess().getLocationAssignment_8_1()); 
-            // InternalBiLang.g:3572:2: ( rule__LinePlot__LocationAssignment_8_1 )
-            // InternalBiLang.g:3572:3: rule__LinePlot__LocationAssignment_8_1
+            // InternalBiLang.g:3727:2: ( rule__LinePlot__LocationAssignment_8_1 )
+            // InternalBiLang.g:3727:3: rule__LinePlot__LocationAssignment_8_1
             {
             pushFollow(FOLLOW_2);
             rule__LinePlot__LocationAssignment_8_1();
@@ -11073,14 +11587,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LinePlot__Group_9__0"
-    // InternalBiLang.g:3581:1: rule__LinePlot__Group_9__0 : rule__LinePlot__Group_9__0__Impl rule__LinePlot__Group_9__1 ;
+    // InternalBiLang.g:3736:1: rule__LinePlot__Group_9__0 : rule__LinePlot__Group_9__0__Impl rule__LinePlot__Group_9__1 ;
     public final void rule__LinePlot__Group_9__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3585:1: ( rule__LinePlot__Group_9__0__Impl rule__LinePlot__Group_9__1 )
-            // InternalBiLang.g:3586:2: rule__LinePlot__Group_9__0__Impl rule__LinePlot__Group_9__1
+            // InternalBiLang.g:3740:1: ( rule__LinePlot__Group_9__0__Impl rule__LinePlot__Group_9__1 )
+            // InternalBiLang.g:3741:2: rule__LinePlot__Group_9__0__Impl rule__LinePlot__Group_9__1
             {
             pushFollow(FOLLOW_6);
             rule__LinePlot__Group_9__0__Impl();
@@ -11111,17 +11625,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LinePlot__Group_9__0__Impl"
-    // InternalBiLang.g:3593:1: rule__LinePlot__Group_9__0__Impl : ( 'colors' ) ;
+    // InternalBiLang.g:3748:1: rule__LinePlot__Group_9__0__Impl : ( 'colors' ) ;
     public final void rule__LinePlot__Group_9__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3597:1: ( ( 'colors' ) )
-            // InternalBiLang.g:3598:1: ( 'colors' )
+            // InternalBiLang.g:3752:1: ( ( 'colors' ) )
+            // InternalBiLang.g:3753:1: ( 'colors' )
             {
-            // InternalBiLang.g:3598:1: ( 'colors' )
-            // InternalBiLang.g:3599:2: 'colors'
+            // InternalBiLang.g:3753:1: ( 'colors' )
+            // InternalBiLang.g:3754:2: 'colors'
             {
              before(grammarAccess.getLinePlotAccess().getColorsKeyword_9_0()); 
             match(input,50,FOLLOW_2); 
@@ -11148,14 +11662,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LinePlot__Group_9__1"
-    // InternalBiLang.g:3608:1: rule__LinePlot__Group_9__1 : rule__LinePlot__Group_9__1__Impl ;
+    // InternalBiLang.g:3763:1: rule__LinePlot__Group_9__1 : rule__LinePlot__Group_9__1__Impl ;
     public final void rule__LinePlot__Group_9__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3612:1: ( rule__LinePlot__Group_9__1__Impl )
-            // InternalBiLang.g:3613:2: rule__LinePlot__Group_9__1__Impl
+            // InternalBiLang.g:3767:1: ( rule__LinePlot__Group_9__1__Impl )
+            // InternalBiLang.g:3768:2: rule__LinePlot__Group_9__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__LinePlot__Group_9__1__Impl();
@@ -11181,21 +11695,21 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LinePlot__Group_9__1__Impl"
-    // InternalBiLang.g:3619:1: rule__LinePlot__Group_9__1__Impl : ( ( rule__LinePlot__ColorsAssignment_9_1 ) ) ;
+    // InternalBiLang.g:3774:1: rule__LinePlot__Group_9__1__Impl : ( ( rule__LinePlot__ColorsAssignment_9_1 ) ) ;
     public final void rule__LinePlot__Group_9__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3623:1: ( ( ( rule__LinePlot__ColorsAssignment_9_1 ) ) )
-            // InternalBiLang.g:3624:1: ( ( rule__LinePlot__ColorsAssignment_9_1 ) )
+            // InternalBiLang.g:3778:1: ( ( ( rule__LinePlot__ColorsAssignment_9_1 ) ) )
+            // InternalBiLang.g:3779:1: ( ( rule__LinePlot__ColorsAssignment_9_1 ) )
             {
-            // InternalBiLang.g:3624:1: ( ( rule__LinePlot__ColorsAssignment_9_1 ) )
-            // InternalBiLang.g:3625:2: ( rule__LinePlot__ColorsAssignment_9_1 )
+            // InternalBiLang.g:3779:1: ( ( rule__LinePlot__ColorsAssignment_9_1 ) )
+            // InternalBiLang.g:3780:2: ( rule__LinePlot__ColorsAssignment_9_1 )
             {
              before(grammarAccess.getLinePlotAccess().getColorsAssignment_9_1()); 
-            // InternalBiLang.g:3626:2: ( rule__LinePlot__ColorsAssignment_9_1 )
-            // InternalBiLang.g:3626:3: rule__LinePlot__ColorsAssignment_9_1
+            // InternalBiLang.g:3781:2: ( rule__LinePlot__ColorsAssignment_9_1 )
+            // InternalBiLang.g:3781:3: rule__LinePlot__ColorsAssignment_9_1
             {
             pushFollow(FOLLOW_2);
             rule__LinePlot__ColorsAssignment_9_1();
@@ -11228,14 +11742,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LinePlot__Group_10__0"
-    // InternalBiLang.g:3635:1: rule__LinePlot__Group_10__0 : rule__LinePlot__Group_10__0__Impl rule__LinePlot__Group_10__1 ;
+    // InternalBiLang.g:3790:1: rule__LinePlot__Group_10__0 : rule__LinePlot__Group_10__0__Impl rule__LinePlot__Group_10__1 ;
     public final void rule__LinePlot__Group_10__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3639:1: ( rule__LinePlot__Group_10__0__Impl rule__LinePlot__Group_10__1 )
-            // InternalBiLang.g:3640:2: rule__LinePlot__Group_10__0__Impl rule__LinePlot__Group_10__1
+            // InternalBiLang.g:3794:1: ( rule__LinePlot__Group_10__0__Impl rule__LinePlot__Group_10__1 )
+            // InternalBiLang.g:3795:2: rule__LinePlot__Group_10__0__Impl rule__LinePlot__Group_10__1
             {
             pushFollow(FOLLOW_25);
             rule__LinePlot__Group_10__0__Impl();
@@ -11266,17 +11780,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LinePlot__Group_10__0__Impl"
-    // InternalBiLang.g:3647:1: rule__LinePlot__Group_10__0__Impl : ( 'thickness' ) ;
+    // InternalBiLang.g:3802:1: rule__LinePlot__Group_10__0__Impl : ( 'thickness' ) ;
     public final void rule__LinePlot__Group_10__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3651:1: ( ( 'thickness' ) )
-            // InternalBiLang.g:3652:1: ( 'thickness' )
+            // InternalBiLang.g:3806:1: ( ( 'thickness' ) )
+            // InternalBiLang.g:3807:1: ( 'thickness' )
             {
-            // InternalBiLang.g:3652:1: ( 'thickness' )
-            // InternalBiLang.g:3653:2: 'thickness'
+            // InternalBiLang.g:3807:1: ( 'thickness' )
+            // InternalBiLang.g:3808:2: 'thickness'
             {
              before(grammarAccess.getLinePlotAccess().getThicknessKeyword_10_0()); 
             match(input,51,FOLLOW_2); 
@@ -11303,14 +11817,14 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LinePlot__Group_10__1"
-    // InternalBiLang.g:3662:1: rule__LinePlot__Group_10__1 : rule__LinePlot__Group_10__1__Impl ;
+    // InternalBiLang.g:3817:1: rule__LinePlot__Group_10__1 : rule__LinePlot__Group_10__1__Impl ;
     public final void rule__LinePlot__Group_10__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3666:1: ( rule__LinePlot__Group_10__1__Impl )
-            // InternalBiLang.g:3667:2: rule__LinePlot__Group_10__1__Impl
+            // InternalBiLang.g:3821:1: ( rule__LinePlot__Group_10__1__Impl )
+            // InternalBiLang.g:3822:2: rule__LinePlot__Group_10__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__LinePlot__Group_10__1__Impl();
@@ -11336,21 +11850,21 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LinePlot__Group_10__1__Impl"
-    // InternalBiLang.g:3673:1: rule__LinePlot__Group_10__1__Impl : ( ( rule__LinePlot__ThicknessAssignment_10_1 ) ) ;
+    // InternalBiLang.g:3828:1: rule__LinePlot__Group_10__1__Impl : ( ( rule__LinePlot__ThicknessAssignment_10_1 ) ) ;
     public final void rule__LinePlot__Group_10__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3677:1: ( ( ( rule__LinePlot__ThicknessAssignment_10_1 ) ) )
-            // InternalBiLang.g:3678:1: ( ( rule__LinePlot__ThicknessAssignment_10_1 ) )
+            // InternalBiLang.g:3832:1: ( ( ( rule__LinePlot__ThicknessAssignment_10_1 ) ) )
+            // InternalBiLang.g:3833:1: ( ( rule__LinePlot__ThicknessAssignment_10_1 ) )
             {
-            // InternalBiLang.g:3678:1: ( ( rule__LinePlot__ThicknessAssignment_10_1 ) )
-            // InternalBiLang.g:3679:2: ( rule__LinePlot__ThicknessAssignment_10_1 )
+            // InternalBiLang.g:3833:1: ( ( rule__LinePlot__ThicknessAssignment_10_1 ) )
+            // InternalBiLang.g:3834:2: ( rule__LinePlot__ThicknessAssignment_10_1 )
             {
              before(grammarAccess.getLinePlotAccess().getThicknessAssignment_10_1()); 
-            // InternalBiLang.g:3680:2: ( rule__LinePlot__ThicknessAssignment_10_1 )
-            // InternalBiLang.g:3680:3: rule__LinePlot__ThicknessAssignment_10_1
+            // InternalBiLang.g:3835:2: ( rule__LinePlot__ThicknessAssignment_10_1 )
+            // InternalBiLang.g:3835:3: rule__LinePlot__ThicknessAssignment_10_1
             {
             pushFollow(FOLLOW_2);
             rule__LinePlot__ThicknessAssignment_10_1();
@@ -11382,18 +11896,6533 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__LinePlot__Group_10__1__Impl"
 
 
+    // $ANTLR start "rule__DonutPlot__Group__0"
+    // InternalBiLang.g:3844:1: rule__DonutPlot__Group__0 : rule__DonutPlot__Group__0__Impl rule__DonutPlot__Group__1 ;
+    public final void rule__DonutPlot__Group__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:3848:1: ( rule__DonutPlot__Group__0__Impl rule__DonutPlot__Group__1 )
+            // InternalBiLang.g:3849:2: rule__DonutPlot__Group__0__Impl rule__DonutPlot__Group__1
+            {
+            pushFollow(FOLLOW_3);
+            rule__DonutPlot__Group__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__DonutPlot__Group__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DonutPlot__Group__0"
+
+
+    // $ANTLR start "rule__DonutPlot__Group__0__Impl"
+    // InternalBiLang.g:3856:1: rule__DonutPlot__Group__0__Impl : ( 'donut' ) ;
+    public final void rule__DonutPlot__Group__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:3860:1: ( ( 'donut' ) )
+            // InternalBiLang.g:3861:1: ( 'donut' )
+            {
+            // InternalBiLang.g:3861:1: ( 'donut' )
+            // InternalBiLang.g:3862:2: 'donut'
+            {
+             before(grammarAccess.getDonutPlotAccess().getDonutKeyword_0()); 
+            match(input,53,FOLLOW_2); 
+             after(grammarAccess.getDonutPlotAccess().getDonutKeyword_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DonutPlot__Group__0__Impl"
+
+
+    // $ANTLR start "rule__DonutPlot__Group__1"
+    // InternalBiLang.g:3871:1: rule__DonutPlot__Group__1 : rule__DonutPlot__Group__1__Impl rule__DonutPlot__Group__2 ;
+    public final void rule__DonutPlot__Group__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:3875:1: ( rule__DonutPlot__Group__1__Impl rule__DonutPlot__Group__2 )
+            // InternalBiLang.g:3876:2: rule__DonutPlot__Group__1__Impl rule__DonutPlot__Group__2
+            {
+            pushFollow(FOLLOW_35);
+            rule__DonutPlot__Group__1__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__DonutPlot__Group__2();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DonutPlot__Group__1"
+
+
+    // $ANTLR start "rule__DonutPlot__Group__1__Impl"
+    // InternalBiLang.g:3883:1: rule__DonutPlot__Group__1__Impl : ( ( rule__DonutPlot__NameAssignment_1 ) ) ;
+    public final void rule__DonutPlot__Group__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:3887:1: ( ( ( rule__DonutPlot__NameAssignment_1 ) ) )
+            // InternalBiLang.g:3888:1: ( ( rule__DonutPlot__NameAssignment_1 ) )
+            {
+            // InternalBiLang.g:3888:1: ( ( rule__DonutPlot__NameAssignment_1 ) )
+            // InternalBiLang.g:3889:2: ( rule__DonutPlot__NameAssignment_1 )
+            {
+             before(grammarAccess.getDonutPlotAccess().getNameAssignment_1()); 
+            // InternalBiLang.g:3890:2: ( rule__DonutPlot__NameAssignment_1 )
+            // InternalBiLang.g:3890:3: rule__DonutPlot__NameAssignment_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__DonutPlot__NameAssignment_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getDonutPlotAccess().getNameAssignment_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DonutPlot__Group__1__Impl"
+
+
+    // $ANTLR start "rule__DonutPlot__Group__2"
+    // InternalBiLang.g:3898:1: rule__DonutPlot__Group__2 : rule__DonutPlot__Group__2__Impl rule__DonutPlot__Group__3 ;
+    public final void rule__DonutPlot__Group__2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:3902:1: ( rule__DonutPlot__Group__2__Impl rule__DonutPlot__Group__3 )
+            // InternalBiLang.g:3903:2: rule__DonutPlot__Group__2__Impl rule__DonutPlot__Group__3
+            {
+            pushFollow(FOLLOW_36);
+            rule__DonutPlot__Group__2__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__DonutPlot__Group__3();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DonutPlot__Group__2"
+
+
+    // $ANTLR start "rule__DonutPlot__Group__2__Impl"
+    // InternalBiLang.g:3910:1: rule__DonutPlot__Group__2__Impl : ( '->' ) ;
+    public final void rule__DonutPlot__Group__2__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:3914:1: ( ( '->' ) )
+            // InternalBiLang.g:3915:1: ( '->' )
+            {
+            // InternalBiLang.g:3915:1: ( '->' )
+            // InternalBiLang.g:3916:2: '->'
+            {
+             before(grammarAccess.getDonutPlotAccess().getHyphenMinusGreaterThanSignKeyword_2()); 
+            match(input,46,FOLLOW_2); 
+             after(grammarAccess.getDonutPlotAccess().getHyphenMinusGreaterThanSignKeyword_2()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DonutPlot__Group__2__Impl"
+
+
+    // $ANTLR start "rule__DonutPlot__Group__3"
+    // InternalBiLang.g:3925:1: rule__DonutPlot__Group__3 : rule__DonutPlot__Group__3__Impl rule__DonutPlot__Group__4 ;
+    public final void rule__DonutPlot__Group__3() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:3929:1: ( rule__DonutPlot__Group__3__Impl rule__DonutPlot__Group__4 )
+            // InternalBiLang.g:3930:2: rule__DonutPlot__Group__3__Impl rule__DonutPlot__Group__4
+            {
+            pushFollow(FOLLOW_6);
+            rule__DonutPlot__Group__3__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__DonutPlot__Group__4();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DonutPlot__Group__3"
+
+
+    // $ANTLR start "rule__DonutPlot__Group__3__Impl"
+    // InternalBiLang.g:3937:1: rule__DonutPlot__Group__3__Impl : ( 'xAx' ) ;
+    public final void rule__DonutPlot__Group__3__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:3941:1: ( ( 'xAx' ) )
+            // InternalBiLang.g:3942:1: ( 'xAx' )
+            {
+            // InternalBiLang.g:3942:1: ( 'xAx' )
+            // InternalBiLang.g:3943:2: 'xAx'
+            {
+             before(grammarAccess.getDonutPlotAccess().getXAxKeyword_3()); 
+            match(input,47,FOLLOW_2); 
+             after(grammarAccess.getDonutPlotAccess().getXAxKeyword_3()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DonutPlot__Group__3__Impl"
+
+
+    // $ANTLR start "rule__DonutPlot__Group__4"
+    // InternalBiLang.g:3952:1: rule__DonutPlot__Group__4 : rule__DonutPlot__Group__4__Impl rule__DonutPlot__Group__5 ;
+    public final void rule__DonutPlot__Group__4() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:3956:1: ( rule__DonutPlot__Group__4__Impl rule__DonutPlot__Group__5 )
+            // InternalBiLang.g:3957:2: rule__DonutPlot__Group__4__Impl rule__DonutPlot__Group__5
+            {
+            pushFollow(FOLLOW_37);
+            rule__DonutPlot__Group__4__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__DonutPlot__Group__5();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DonutPlot__Group__4"
+
+
+    // $ANTLR start "rule__DonutPlot__Group__4__Impl"
+    // InternalBiLang.g:3964:1: rule__DonutPlot__Group__4__Impl : ( ( rule__DonutPlot__XAxisAssignment_4 ) ) ;
+    public final void rule__DonutPlot__Group__4__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:3968:1: ( ( ( rule__DonutPlot__XAxisAssignment_4 ) ) )
+            // InternalBiLang.g:3969:1: ( ( rule__DonutPlot__XAxisAssignment_4 ) )
+            {
+            // InternalBiLang.g:3969:1: ( ( rule__DonutPlot__XAxisAssignment_4 ) )
+            // InternalBiLang.g:3970:2: ( rule__DonutPlot__XAxisAssignment_4 )
+            {
+             before(grammarAccess.getDonutPlotAccess().getXAxisAssignment_4()); 
+            // InternalBiLang.g:3971:2: ( rule__DonutPlot__XAxisAssignment_4 )
+            // InternalBiLang.g:3971:3: rule__DonutPlot__XAxisAssignment_4
+            {
+            pushFollow(FOLLOW_2);
+            rule__DonutPlot__XAxisAssignment_4();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getDonutPlotAccess().getXAxisAssignment_4()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DonutPlot__Group__4__Impl"
+
+
+    // $ANTLR start "rule__DonutPlot__Group__5"
+    // InternalBiLang.g:3979:1: rule__DonutPlot__Group__5 : rule__DonutPlot__Group__5__Impl rule__DonutPlot__Group__6 ;
+    public final void rule__DonutPlot__Group__5() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:3983:1: ( rule__DonutPlot__Group__5__Impl rule__DonutPlot__Group__6 )
+            // InternalBiLang.g:3984:2: rule__DonutPlot__Group__5__Impl rule__DonutPlot__Group__6
+            {
+            pushFollow(FOLLOW_6);
+            rule__DonutPlot__Group__5__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__DonutPlot__Group__6();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DonutPlot__Group__5"
+
+
+    // $ANTLR start "rule__DonutPlot__Group__5__Impl"
+    // InternalBiLang.g:3991:1: rule__DonutPlot__Group__5__Impl : ( 'yA' ) ;
+    public final void rule__DonutPlot__Group__5__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:3995:1: ( ( 'yA' ) )
+            // InternalBiLang.g:3996:1: ( 'yA' )
+            {
+            // InternalBiLang.g:3996:1: ( 'yA' )
+            // InternalBiLang.g:3997:2: 'yA'
+            {
+             before(grammarAccess.getDonutPlotAccess().getYAKeyword_5()); 
+            match(input,48,FOLLOW_2); 
+             after(grammarAccess.getDonutPlotAccess().getYAKeyword_5()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DonutPlot__Group__5__Impl"
+
+
+    // $ANTLR start "rule__DonutPlot__Group__6"
+    // InternalBiLang.g:4006:1: rule__DonutPlot__Group__6 : rule__DonutPlot__Group__6__Impl rule__DonutPlot__Group__7 ;
+    public final void rule__DonutPlot__Group__6() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4010:1: ( rule__DonutPlot__Group__6__Impl rule__DonutPlot__Group__7 )
+            // InternalBiLang.g:4011:2: rule__DonutPlot__Group__6__Impl rule__DonutPlot__Group__7
+            {
+            pushFollow(FOLLOW_38);
+            rule__DonutPlot__Group__6__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__DonutPlot__Group__7();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DonutPlot__Group__6"
+
+
+    // $ANTLR start "rule__DonutPlot__Group__6__Impl"
+    // InternalBiLang.g:4018:1: rule__DonutPlot__Group__6__Impl : ( ( rule__DonutPlot__YAxisAssignment_6 ) ) ;
+    public final void rule__DonutPlot__Group__6__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4022:1: ( ( ( rule__DonutPlot__YAxisAssignment_6 ) ) )
+            // InternalBiLang.g:4023:1: ( ( rule__DonutPlot__YAxisAssignment_6 ) )
+            {
+            // InternalBiLang.g:4023:1: ( ( rule__DonutPlot__YAxisAssignment_6 ) )
+            // InternalBiLang.g:4024:2: ( rule__DonutPlot__YAxisAssignment_6 )
+            {
+             before(grammarAccess.getDonutPlotAccess().getYAxisAssignment_6()); 
+            // InternalBiLang.g:4025:2: ( rule__DonutPlot__YAxisAssignment_6 )
+            // InternalBiLang.g:4025:3: rule__DonutPlot__YAxisAssignment_6
+            {
+            pushFollow(FOLLOW_2);
+            rule__DonutPlot__YAxisAssignment_6();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getDonutPlotAccess().getYAxisAssignment_6()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DonutPlot__Group__6__Impl"
+
+
+    // $ANTLR start "rule__DonutPlot__Group__7"
+    // InternalBiLang.g:4033:1: rule__DonutPlot__Group__7 : rule__DonutPlot__Group__7__Impl rule__DonutPlot__Group__8 ;
+    public final void rule__DonutPlot__Group__7() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4037:1: ( rule__DonutPlot__Group__7__Impl rule__DonutPlot__Group__8 )
+            // InternalBiLang.g:4038:2: rule__DonutPlot__Group__7__Impl rule__DonutPlot__Group__8
+            {
+            pushFollow(FOLLOW_38);
+            rule__DonutPlot__Group__7__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__DonutPlot__Group__8();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DonutPlot__Group__7"
+
+
+    // $ANTLR start "rule__DonutPlot__Group__7__Impl"
+    // InternalBiLang.g:4045:1: rule__DonutPlot__Group__7__Impl : ( ( rule__DonutPlot__Group_7__0 )? ) ;
+    public final void rule__DonutPlot__Group__7__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4049:1: ( ( ( rule__DonutPlot__Group_7__0 )? ) )
+            // InternalBiLang.g:4050:1: ( ( rule__DonutPlot__Group_7__0 )? )
+            {
+            // InternalBiLang.g:4050:1: ( ( rule__DonutPlot__Group_7__0 )? )
+            // InternalBiLang.g:4051:2: ( rule__DonutPlot__Group_7__0 )?
+            {
+             before(grammarAccess.getDonutPlotAccess().getGroup_7()); 
+            // InternalBiLang.g:4052:2: ( rule__DonutPlot__Group_7__0 )?
+            int alt29=2;
+            int LA29_0 = input.LA(1);
+
+            if ( (LA29_0==49) ) {
+                alt29=1;
+            }
+            switch (alt29) {
+                case 1 :
+                    // InternalBiLang.g:4052:3: rule__DonutPlot__Group_7__0
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__DonutPlot__Group_7__0();
+
+                    state._fsp--;
+
+
+                    }
+                    break;
+
+            }
+
+             after(grammarAccess.getDonutPlotAccess().getGroup_7()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DonutPlot__Group__7__Impl"
+
+
+    // $ANTLR start "rule__DonutPlot__Group__8"
+    // InternalBiLang.g:4060:1: rule__DonutPlot__Group__8 : rule__DonutPlot__Group__8__Impl rule__DonutPlot__Group__9 ;
+    public final void rule__DonutPlot__Group__8() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4064:1: ( rule__DonutPlot__Group__8__Impl rule__DonutPlot__Group__9 )
+            // InternalBiLang.g:4065:2: rule__DonutPlot__Group__8__Impl rule__DonutPlot__Group__9
+            {
+            pushFollow(FOLLOW_38);
+            rule__DonutPlot__Group__8__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__DonutPlot__Group__9();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DonutPlot__Group__8"
+
+
+    // $ANTLR start "rule__DonutPlot__Group__8__Impl"
+    // InternalBiLang.g:4072:1: rule__DonutPlot__Group__8__Impl : ( ( rule__DonutPlot__Group_8__0 )? ) ;
+    public final void rule__DonutPlot__Group__8__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4076:1: ( ( ( rule__DonutPlot__Group_8__0 )? ) )
+            // InternalBiLang.g:4077:1: ( ( rule__DonutPlot__Group_8__0 )? )
+            {
+            // InternalBiLang.g:4077:1: ( ( rule__DonutPlot__Group_8__0 )? )
+            // InternalBiLang.g:4078:2: ( rule__DonutPlot__Group_8__0 )?
+            {
+             before(grammarAccess.getDonutPlotAccess().getGroup_8()); 
+            // InternalBiLang.g:4079:2: ( rule__DonutPlot__Group_8__0 )?
+            int alt30=2;
+            int LA30_0 = input.LA(1);
+
+            if ( (LA30_0==50) ) {
+                alt30=1;
+            }
+            switch (alt30) {
+                case 1 :
+                    // InternalBiLang.g:4079:3: rule__DonutPlot__Group_8__0
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__DonutPlot__Group_8__0();
+
+                    state._fsp--;
+
+
+                    }
+                    break;
+
+            }
+
+             after(grammarAccess.getDonutPlotAccess().getGroup_8()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DonutPlot__Group__8__Impl"
+
+
+    // $ANTLR start "rule__DonutPlot__Group__9"
+    // InternalBiLang.g:4087:1: rule__DonutPlot__Group__9 : rule__DonutPlot__Group__9__Impl ;
+    public final void rule__DonutPlot__Group__9() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4091:1: ( rule__DonutPlot__Group__9__Impl )
+            // InternalBiLang.g:4092:2: rule__DonutPlot__Group__9__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__DonutPlot__Group__9__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DonutPlot__Group__9"
+
+
+    // $ANTLR start "rule__DonutPlot__Group__9__Impl"
+    // InternalBiLang.g:4098:1: rule__DonutPlot__Group__9__Impl : ( ( rule__DonutPlot__Group_9__0 )? ) ;
+    public final void rule__DonutPlot__Group__9__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4102:1: ( ( ( rule__DonutPlot__Group_9__0 )? ) )
+            // InternalBiLang.g:4103:1: ( ( rule__DonutPlot__Group_9__0 )? )
+            {
+            // InternalBiLang.g:4103:1: ( ( rule__DonutPlot__Group_9__0 )? )
+            // InternalBiLang.g:4104:2: ( rule__DonutPlot__Group_9__0 )?
+            {
+             before(grammarAccess.getDonutPlotAccess().getGroup_9()); 
+            // InternalBiLang.g:4105:2: ( rule__DonutPlot__Group_9__0 )?
+            int alt31=2;
+            int LA31_0 = input.LA(1);
+
+            if ( (LA31_0==51) ) {
+                alt31=1;
+            }
+            switch (alt31) {
+                case 1 :
+                    // InternalBiLang.g:4105:3: rule__DonutPlot__Group_9__0
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__DonutPlot__Group_9__0();
+
+                    state._fsp--;
+
+
+                    }
+                    break;
+
+            }
+
+             after(grammarAccess.getDonutPlotAccess().getGroup_9()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DonutPlot__Group__9__Impl"
+
+
+    // $ANTLR start "rule__DonutPlot__Group_7__0"
+    // InternalBiLang.g:4114:1: rule__DonutPlot__Group_7__0 : rule__DonutPlot__Group_7__0__Impl rule__DonutPlot__Group_7__1 ;
+    public final void rule__DonutPlot__Group_7__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4118:1: ( rule__DonutPlot__Group_7__0__Impl rule__DonutPlot__Group_7__1 )
+            // InternalBiLang.g:4119:2: rule__DonutPlot__Group_7__0__Impl rule__DonutPlot__Group_7__1
+            {
+            pushFollow(FOLLOW_6);
+            rule__DonutPlot__Group_7__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__DonutPlot__Group_7__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DonutPlot__Group_7__0"
+
+
+    // $ANTLR start "rule__DonutPlot__Group_7__0__Impl"
+    // InternalBiLang.g:4126:1: rule__DonutPlot__Group_7__0__Impl : ( 'loc' ) ;
+    public final void rule__DonutPlot__Group_7__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4130:1: ( ( 'loc' ) )
+            // InternalBiLang.g:4131:1: ( 'loc' )
+            {
+            // InternalBiLang.g:4131:1: ( 'loc' )
+            // InternalBiLang.g:4132:2: 'loc'
+            {
+             before(grammarAccess.getDonutPlotAccess().getLocKeyword_7_0()); 
+            match(input,49,FOLLOW_2); 
+             after(grammarAccess.getDonutPlotAccess().getLocKeyword_7_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DonutPlot__Group_7__0__Impl"
+
+
+    // $ANTLR start "rule__DonutPlot__Group_7__1"
+    // InternalBiLang.g:4141:1: rule__DonutPlot__Group_7__1 : rule__DonutPlot__Group_7__1__Impl ;
+    public final void rule__DonutPlot__Group_7__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4145:1: ( rule__DonutPlot__Group_7__1__Impl )
+            // InternalBiLang.g:4146:2: rule__DonutPlot__Group_7__1__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__DonutPlot__Group_7__1__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DonutPlot__Group_7__1"
+
+
+    // $ANTLR start "rule__DonutPlot__Group_7__1__Impl"
+    // InternalBiLang.g:4152:1: rule__DonutPlot__Group_7__1__Impl : ( ( rule__DonutPlot__LocationAssignment_7_1 ) ) ;
+    public final void rule__DonutPlot__Group_7__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4156:1: ( ( ( rule__DonutPlot__LocationAssignment_7_1 ) ) )
+            // InternalBiLang.g:4157:1: ( ( rule__DonutPlot__LocationAssignment_7_1 ) )
+            {
+            // InternalBiLang.g:4157:1: ( ( rule__DonutPlot__LocationAssignment_7_1 ) )
+            // InternalBiLang.g:4158:2: ( rule__DonutPlot__LocationAssignment_7_1 )
+            {
+             before(grammarAccess.getDonutPlotAccess().getLocationAssignment_7_1()); 
+            // InternalBiLang.g:4159:2: ( rule__DonutPlot__LocationAssignment_7_1 )
+            // InternalBiLang.g:4159:3: rule__DonutPlot__LocationAssignment_7_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__DonutPlot__LocationAssignment_7_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getDonutPlotAccess().getLocationAssignment_7_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DonutPlot__Group_7__1__Impl"
+
+
+    // $ANTLR start "rule__DonutPlot__Group_8__0"
+    // InternalBiLang.g:4168:1: rule__DonutPlot__Group_8__0 : rule__DonutPlot__Group_8__0__Impl rule__DonutPlot__Group_8__1 ;
+    public final void rule__DonutPlot__Group_8__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4172:1: ( rule__DonutPlot__Group_8__0__Impl rule__DonutPlot__Group_8__1 )
+            // InternalBiLang.g:4173:2: rule__DonutPlot__Group_8__0__Impl rule__DonutPlot__Group_8__1
+            {
+            pushFollow(FOLLOW_6);
+            rule__DonutPlot__Group_8__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__DonutPlot__Group_8__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DonutPlot__Group_8__0"
+
+
+    // $ANTLR start "rule__DonutPlot__Group_8__0__Impl"
+    // InternalBiLang.g:4180:1: rule__DonutPlot__Group_8__0__Impl : ( 'colors' ) ;
+    public final void rule__DonutPlot__Group_8__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4184:1: ( ( 'colors' ) )
+            // InternalBiLang.g:4185:1: ( 'colors' )
+            {
+            // InternalBiLang.g:4185:1: ( 'colors' )
+            // InternalBiLang.g:4186:2: 'colors'
+            {
+             before(grammarAccess.getDonutPlotAccess().getColorsKeyword_8_0()); 
+            match(input,50,FOLLOW_2); 
+             after(grammarAccess.getDonutPlotAccess().getColorsKeyword_8_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DonutPlot__Group_8__0__Impl"
+
+
+    // $ANTLR start "rule__DonutPlot__Group_8__1"
+    // InternalBiLang.g:4195:1: rule__DonutPlot__Group_8__1 : rule__DonutPlot__Group_8__1__Impl ;
+    public final void rule__DonutPlot__Group_8__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4199:1: ( rule__DonutPlot__Group_8__1__Impl )
+            // InternalBiLang.g:4200:2: rule__DonutPlot__Group_8__1__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__DonutPlot__Group_8__1__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DonutPlot__Group_8__1"
+
+
+    // $ANTLR start "rule__DonutPlot__Group_8__1__Impl"
+    // InternalBiLang.g:4206:1: rule__DonutPlot__Group_8__1__Impl : ( ( rule__DonutPlot__ColorsAssignment_8_1 ) ) ;
+    public final void rule__DonutPlot__Group_8__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4210:1: ( ( ( rule__DonutPlot__ColorsAssignment_8_1 ) ) )
+            // InternalBiLang.g:4211:1: ( ( rule__DonutPlot__ColorsAssignment_8_1 ) )
+            {
+            // InternalBiLang.g:4211:1: ( ( rule__DonutPlot__ColorsAssignment_8_1 ) )
+            // InternalBiLang.g:4212:2: ( rule__DonutPlot__ColorsAssignment_8_1 )
+            {
+             before(grammarAccess.getDonutPlotAccess().getColorsAssignment_8_1()); 
+            // InternalBiLang.g:4213:2: ( rule__DonutPlot__ColorsAssignment_8_1 )
+            // InternalBiLang.g:4213:3: rule__DonutPlot__ColorsAssignment_8_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__DonutPlot__ColorsAssignment_8_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getDonutPlotAccess().getColorsAssignment_8_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DonutPlot__Group_8__1__Impl"
+
+
+    // $ANTLR start "rule__DonutPlot__Group_9__0"
+    // InternalBiLang.g:4222:1: rule__DonutPlot__Group_9__0 : rule__DonutPlot__Group_9__0__Impl rule__DonutPlot__Group_9__1 ;
+    public final void rule__DonutPlot__Group_9__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4226:1: ( rule__DonutPlot__Group_9__0__Impl rule__DonutPlot__Group_9__1 )
+            // InternalBiLang.g:4227:2: rule__DonutPlot__Group_9__0__Impl rule__DonutPlot__Group_9__1
+            {
+            pushFollow(FOLLOW_25);
+            rule__DonutPlot__Group_9__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__DonutPlot__Group_9__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DonutPlot__Group_9__0"
+
+
+    // $ANTLR start "rule__DonutPlot__Group_9__0__Impl"
+    // InternalBiLang.g:4234:1: rule__DonutPlot__Group_9__0__Impl : ( 'thickness' ) ;
+    public final void rule__DonutPlot__Group_9__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4238:1: ( ( 'thickness' ) )
+            // InternalBiLang.g:4239:1: ( 'thickness' )
+            {
+            // InternalBiLang.g:4239:1: ( 'thickness' )
+            // InternalBiLang.g:4240:2: 'thickness'
+            {
+             before(grammarAccess.getDonutPlotAccess().getThicknessKeyword_9_0()); 
+            match(input,51,FOLLOW_2); 
+             after(grammarAccess.getDonutPlotAccess().getThicknessKeyword_9_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DonutPlot__Group_9__0__Impl"
+
+
+    // $ANTLR start "rule__DonutPlot__Group_9__1"
+    // InternalBiLang.g:4249:1: rule__DonutPlot__Group_9__1 : rule__DonutPlot__Group_9__1__Impl ;
+    public final void rule__DonutPlot__Group_9__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4253:1: ( rule__DonutPlot__Group_9__1__Impl )
+            // InternalBiLang.g:4254:2: rule__DonutPlot__Group_9__1__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__DonutPlot__Group_9__1__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DonutPlot__Group_9__1"
+
+
+    // $ANTLR start "rule__DonutPlot__Group_9__1__Impl"
+    // InternalBiLang.g:4260:1: rule__DonutPlot__Group_9__1__Impl : ( ( rule__DonutPlot__ThicknessAssignment_9_1 ) ) ;
+    public final void rule__DonutPlot__Group_9__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4264:1: ( ( ( rule__DonutPlot__ThicknessAssignment_9_1 ) ) )
+            // InternalBiLang.g:4265:1: ( ( rule__DonutPlot__ThicknessAssignment_9_1 ) )
+            {
+            // InternalBiLang.g:4265:1: ( ( rule__DonutPlot__ThicknessAssignment_9_1 ) )
+            // InternalBiLang.g:4266:2: ( rule__DonutPlot__ThicknessAssignment_9_1 )
+            {
+             before(grammarAccess.getDonutPlotAccess().getThicknessAssignment_9_1()); 
+            // InternalBiLang.g:4267:2: ( rule__DonutPlot__ThicknessAssignment_9_1 )
+            // InternalBiLang.g:4267:3: rule__DonutPlot__ThicknessAssignment_9_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__DonutPlot__ThicknessAssignment_9_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getDonutPlotAccess().getThicknessAssignment_9_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DonutPlot__Group_9__1__Impl"
+
+
+    // $ANTLR start "rule__PiePlot__Group__0"
+    // InternalBiLang.g:4276:1: rule__PiePlot__Group__0 : rule__PiePlot__Group__0__Impl rule__PiePlot__Group__1 ;
+    public final void rule__PiePlot__Group__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4280:1: ( rule__PiePlot__Group__0__Impl rule__PiePlot__Group__1 )
+            // InternalBiLang.g:4281:2: rule__PiePlot__Group__0__Impl rule__PiePlot__Group__1
+            {
+            pushFollow(FOLLOW_3);
+            rule__PiePlot__Group__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__PiePlot__Group__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PiePlot__Group__0"
+
+
+    // $ANTLR start "rule__PiePlot__Group__0__Impl"
+    // InternalBiLang.g:4288:1: rule__PiePlot__Group__0__Impl : ( 'pie' ) ;
+    public final void rule__PiePlot__Group__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4292:1: ( ( 'pie' ) )
+            // InternalBiLang.g:4293:1: ( 'pie' )
+            {
+            // InternalBiLang.g:4293:1: ( 'pie' )
+            // InternalBiLang.g:4294:2: 'pie'
+            {
+             before(grammarAccess.getPiePlotAccess().getPieKeyword_0()); 
+            match(input,54,FOLLOW_2); 
+             after(grammarAccess.getPiePlotAccess().getPieKeyword_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PiePlot__Group__0__Impl"
+
+
+    // $ANTLR start "rule__PiePlot__Group__1"
+    // InternalBiLang.g:4303:1: rule__PiePlot__Group__1 : rule__PiePlot__Group__1__Impl rule__PiePlot__Group__2 ;
+    public final void rule__PiePlot__Group__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4307:1: ( rule__PiePlot__Group__1__Impl rule__PiePlot__Group__2 )
+            // InternalBiLang.g:4308:2: rule__PiePlot__Group__1__Impl rule__PiePlot__Group__2
+            {
+            pushFollow(FOLLOW_35);
+            rule__PiePlot__Group__1__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__PiePlot__Group__2();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PiePlot__Group__1"
+
+
+    // $ANTLR start "rule__PiePlot__Group__1__Impl"
+    // InternalBiLang.g:4315:1: rule__PiePlot__Group__1__Impl : ( ( rule__PiePlot__NameAssignment_1 ) ) ;
+    public final void rule__PiePlot__Group__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4319:1: ( ( ( rule__PiePlot__NameAssignment_1 ) ) )
+            // InternalBiLang.g:4320:1: ( ( rule__PiePlot__NameAssignment_1 ) )
+            {
+            // InternalBiLang.g:4320:1: ( ( rule__PiePlot__NameAssignment_1 ) )
+            // InternalBiLang.g:4321:2: ( rule__PiePlot__NameAssignment_1 )
+            {
+             before(grammarAccess.getPiePlotAccess().getNameAssignment_1()); 
+            // InternalBiLang.g:4322:2: ( rule__PiePlot__NameAssignment_1 )
+            // InternalBiLang.g:4322:3: rule__PiePlot__NameAssignment_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__PiePlot__NameAssignment_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getPiePlotAccess().getNameAssignment_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PiePlot__Group__1__Impl"
+
+
+    // $ANTLR start "rule__PiePlot__Group__2"
+    // InternalBiLang.g:4330:1: rule__PiePlot__Group__2 : rule__PiePlot__Group__2__Impl rule__PiePlot__Group__3 ;
+    public final void rule__PiePlot__Group__2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4334:1: ( rule__PiePlot__Group__2__Impl rule__PiePlot__Group__3 )
+            // InternalBiLang.g:4335:2: rule__PiePlot__Group__2__Impl rule__PiePlot__Group__3
+            {
+            pushFollow(FOLLOW_36);
+            rule__PiePlot__Group__2__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__PiePlot__Group__3();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PiePlot__Group__2"
+
+
+    // $ANTLR start "rule__PiePlot__Group__2__Impl"
+    // InternalBiLang.g:4342:1: rule__PiePlot__Group__2__Impl : ( '->' ) ;
+    public final void rule__PiePlot__Group__2__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4346:1: ( ( '->' ) )
+            // InternalBiLang.g:4347:1: ( '->' )
+            {
+            // InternalBiLang.g:4347:1: ( '->' )
+            // InternalBiLang.g:4348:2: '->'
+            {
+             before(grammarAccess.getPiePlotAccess().getHyphenMinusGreaterThanSignKeyword_2()); 
+            match(input,46,FOLLOW_2); 
+             after(grammarAccess.getPiePlotAccess().getHyphenMinusGreaterThanSignKeyword_2()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PiePlot__Group__2__Impl"
+
+
+    // $ANTLR start "rule__PiePlot__Group__3"
+    // InternalBiLang.g:4357:1: rule__PiePlot__Group__3 : rule__PiePlot__Group__3__Impl rule__PiePlot__Group__4 ;
+    public final void rule__PiePlot__Group__3() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4361:1: ( rule__PiePlot__Group__3__Impl rule__PiePlot__Group__4 )
+            // InternalBiLang.g:4362:2: rule__PiePlot__Group__3__Impl rule__PiePlot__Group__4
+            {
+            pushFollow(FOLLOW_6);
+            rule__PiePlot__Group__3__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__PiePlot__Group__4();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PiePlot__Group__3"
+
+
+    // $ANTLR start "rule__PiePlot__Group__3__Impl"
+    // InternalBiLang.g:4369:1: rule__PiePlot__Group__3__Impl : ( 'xAx' ) ;
+    public final void rule__PiePlot__Group__3__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4373:1: ( ( 'xAx' ) )
+            // InternalBiLang.g:4374:1: ( 'xAx' )
+            {
+            // InternalBiLang.g:4374:1: ( 'xAx' )
+            // InternalBiLang.g:4375:2: 'xAx'
+            {
+             before(grammarAccess.getPiePlotAccess().getXAxKeyword_3()); 
+            match(input,47,FOLLOW_2); 
+             after(grammarAccess.getPiePlotAccess().getXAxKeyword_3()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PiePlot__Group__3__Impl"
+
+
+    // $ANTLR start "rule__PiePlot__Group__4"
+    // InternalBiLang.g:4384:1: rule__PiePlot__Group__4 : rule__PiePlot__Group__4__Impl rule__PiePlot__Group__5 ;
+    public final void rule__PiePlot__Group__4() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4388:1: ( rule__PiePlot__Group__4__Impl rule__PiePlot__Group__5 )
+            // InternalBiLang.g:4389:2: rule__PiePlot__Group__4__Impl rule__PiePlot__Group__5
+            {
+            pushFollow(FOLLOW_37);
+            rule__PiePlot__Group__4__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__PiePlot__Group__5();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PiePlot__Group__4"
+
+
+    // $ANTLR start "rule__PiePlot__Group__4__Impl"
+    // InternalBiLang.g:4396:1: rule__PiePlot__Group__4__Impl : ( ( rule__PiePlot__XAxisAssignment_4 ) ) ;
+    public final void rule__PiePlot__Group__4__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4400:1: ( ( ( rule__PiePlot__XAxisAssignment_4 ) ) )
+            // InternalBiLang.g:4401:1: ( ( rule__PiePlot__XAxisAssignment_4 ) )
+            {
+            // InternalBiLang.g:4401:1: ( ( rule__PiePlot__XAxisAssignment_4 ) )
+            // InternalBiLang.g:4402:2: ( rule__PiePlot__XAxisAssignment_4 )
+            {
+             before(grammarAccess.getPiePlotAccess().getXAxisAssignment_4()); 
+            // InternalBiLang.g:4403:2: ( rule__PiePlot__XAxisAssignment_4 )
+            // InternalBiLang.g:4403:3: rule__PiePlot__XAxisAssignment_4
+            {
+            pushFollow(FOLLOW_2);
+            rule__PiePlot__XAxisAssignment_4();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getPiePlotAccess().getXAxisAssignment_4()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PiePlot__Group__4__Impl"
+
+
+    // $ANTLR start "rule__PiePlot__Group__5"
+    // InternalBiLang.g:4411:1: rule__PiePlot__Group__5 : rule__PiePlot__Group__5__Impl rule__PiePlot__Group__6 ;
+    public final void rule__PiePlot__Group__5() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4415:1: ( rule__PiePlot__Group__5__Impl rule__PiePlot__Group__6 )
+            // InternalBiLang.g:4416:2: rule__PiePlot__Group__5__Impl rule__PiePlot__Group__6
+            {
+            pushFollow(FOLLOW_6);
+            rule__PiePlot__Group__5__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__PiePlot__Group__6();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PiePlot__Group__5"
+
+
+    // $ANTLR start "rule__PiePlot__Group__5__Impl"
+    // InternalBiLang.g:4423:1: rule__PiePlot__Group__5__Impl : ( 'yA' ) ;
+    public final void rule__PiePlot__Group__5__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4427:1: ( ( 'yA' ) )
+            // InternalBiLang.g:4428:1: ( 'yA' )
+            {
+            // InternalBiLang.g:4428:1: ( 'yA' )
+            // InternalBiLang.g:4429:2: 'yA'
+            {
+             before(grammarAccess.getPiePlotAccess().getYAKeyword_5()); 
+            match(input,48,FOLLOW_2); 
+             after(grammarAccess.getPiePlotAccess().getYAKeyword_5()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PiePlot__Group__5__Impl"
+
+
+    // $ANTLR start "rule__PiePlot__Group__6"
+    // InternalBiLang.g:4438:1: rule__PiePlot__Group__6 : rule__PiePlot__Group__6__Impl rule__PiePlot__Group__7 ;
+    public final void rule__PiePlot__Group__6() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4442:1: ( rule__PiePlot__Group__6__Impl rule__PiePlot__Group__7 )
+            // InternalBiLang.g:4443:2: rule__PiePlot__Group__6__Impl rule__PiePlot__Group__7
+            {
+            pushFollow(FOLLOW_38);
+            rule__PiePlot__Group__6__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__PiePlot__Group__7();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PiePlot__Group__6"
+
+
+    // $ANTLR start "rule__PiePlot__Group__6__Impl"
+    // InternalBiLang.g:4450:1: rule__PiePlot__Group__6__Impl : ( ( rule__PiePlot__YAxisAssignment_6 ) ) ;
+    public final void rule__PiePlot__Group__6__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4454:1: ( ( ( rule__PiePlot__YAxisAssignment_6 ) ) )
+            // InternalBiLang.g:4455:1: ( ( rule__PiePlot__YAxisAssignment_6 ) )
+            {
+            // InternalBiLang.g:4455:1: ( ( rule__PiePlot__YAxisAssignment_6 ) )
+            // InternalBiLang.g:4456:2: ( rule__PiePlot__YAxisAssignment_6 )
+            {
+             before(grammarAccess.getPiePlotAccess().getYAxisAssignment_6()); 
+            // InternalBiLang.g:4457:2: ( rule__PiePlot__YAxisAssignment_6 )
+            // InternalBiLang.g:4457:3: rule__PiePlot__YAxisAssignment_6
+            {
+            pushFollow(FOLLOW_2);
+            rule__PiePlot__YAxisAssignment_6();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getPiePlotAccess().getYAxisAssignment_6()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PiePlot__Group__6__Impl"
+
+
+    // $ANTLR start "rule__PiePlot__Group__7"
+    // InternalBiLang.g:4465:1: rule__PiePlot__Group__7 : rule__PiePlot__Group__7__Impl rule__PiePlot__Group__8 ;
+    public final void rule__PiePlot__Group__7() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4469:1: ( rule__PiePlot__Group__7__Impl rule__PiePlot__Group__8 )
+            // InternalBiLang.g:4470:2: rule__PiePlot__Group__7__Impl rule__PiePlot__Group__8
+            {
+            pushFollow(FOLLOW_38);
+            rule__PiePlot__Group__7__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__PiePlot__Group__8();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PiePlot__Group__7"
+
+
+    // $ANTLR start "rule__PiePlot__Group__7__Impl"
+    // InternalBiLang.g:4477:1: rule__PiePlot__Group__7__Impl : ( ( rule__PiePlot__Group_7__0 )? ) ;
+    public final void rule__PiePlot__Group__7__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4481:1: ( ( ( rule__PiePlot__Group_7__0 )? ) )
+            // InternalBiLang.g:4482:1: ( ( rule__PiePlot__Group_7__0 )? )
+            {
+            // InternalBiLang.g:4482:1: ( ( rule__PiePlot__Group_7__0 )? )
+            // InternalBiLang.g:4483:2: ( rule__PiePlot__Group_7__0 )?
+            {
+             before(grammarAccess.getPiePlotAccess().getGroup_7()); 
+            // InternalBiLang.g:4484:2: ( rule__PiePlot__Group_7__0 )?
+            int alt32=2;
+            int LA32_0 = input.LA(1);
+
+            if ( (LA32_0==49) ) {
+                alt32=1;
+            }
+            switch (alt32) {
+                case 1 :
+                    // InternalBiLang.g:4484:3: rule__PiePlot__Group_7__0
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__PiePlot__Group_7__0();
+
+                    state._fsp--;
+
+
+                    }
+                    break;
+
+            }
+
+             after(grammarAccess.getPiePlotAccess().getGroup_7()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PiePlot__Group__7__Impl"
+
+
+    // $ANTLR start "rule__PiePlot__Group__8"
+    // InternalBiLang.g:4492:1: rule__PiePlot__Group__8 : rule__PiePlot__Group__8__Impl rule__PiePlot__Group__9 ;
+    public final void rule__PiePlot__Group__8() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4496:1: ( rule__PiePlot__Group__8__Impl rule__PiePlot__Group__9 )
+            // InternalBiLang.g:4497:2: rule__PiePlot__Group__8__Impl rule__PiePlot__Group__9
+            {
+            pushFollow(FOLLOW_38);
+            rule__PiePlot__Group__8__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__PiePlot__Group__9();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PiePlot__Group__8"
+
+
+    // $ANTLR start "rule__PiePlot__Group__8__Impl"
+    // InternalBiLang.g:4504:1: rule__PiePlot__Group__8__Impl : ( ( rule__PiePlot__Group_8__0 )? ) ;
+    public final void rule__PiePlot__Group__8__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4508:1: ( ( ( rule__PiePlot__Group_8__0 )? ) )
+            // InternalBiLang.g:4509:1: ( ( rule__PiePlot__Group_8__0 )? )
+            {
+            // InternalBiLang.g:4509:1: ( ( rule__PiePlot__Group_8__0 )? )
+            // InternalBiLang.g:4510:2: ( rule__PiePlot__Group_8__0 )?
+            {
+             before(grammarAccess.getPiePlotAccess().getGroup_8()); 
+            // InternalBiLang.g:4511:2: ( rule__PiePlot__Group_8__0 )?
+            int alt33=2;
+            int LA33_0 = input.LA(1);
+
+            if ( (LA33_0==50) ) {
+                alt33=1;
+            }
+            switch (alt33) {
+                case 1 :
+                    // InternalBiLang.g:4511:3: rule__PiePlot__Group_8__0
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__PiePlot__Group_8__0();
+
+                    state._fsp--;
+
+
+                    }
+                    break;
+
+            }
+
+             after(grammarAccess.getPiePlotAccess().getGroup_8()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PiePlot__Group__8__Impl"
+
+
+    // $ANTLR start "rule__PiePlot__Group__9"
+    // InternalBiLang.g:4519:1: rule__PiePlot__Group__9 : rule__PiePlot__Group__9__Impl ;
+    public final void rule__PiePlot__Group__9() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4523:1: ( rule__PiePlot__Group__9__Impl )
+            // InternalBiLang.g:4524:2: rule__PiePlot__Group__9__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__PiePlot__Group__9__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PiePlot__Group__9"
+
+
+    // $ANTLR start "rule__PiePlot__Group__9__Impl"
+    // InternalBiLang.g:4530:1: rule__PiePlot__Group__9__Impl : ( ( rule__PiePlot__Group_9__0 )? ) ;
+    public final void rule__PiePlot__Group__9__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4534:1: ( ( ( rule__PiePlot__Group_9__0 )? ) )
+            // InternalBiLang.g:4535:1: ( ( rule__PiePlot__Group_9__0 )? )
+            {
+            // InternalBiLang.g:4535:1: ( ( rule__PiePlot__Group_9__0 )? )
+            // InternalBiLang.g:4536:2: ( rule__PiePlot__Group_9__0 )?
+            {
+             before(grammarAccess.getPiePlotAccess().getGroup_9()); 
+            // InternalBiLang.g:4537:2: ( rule__PiePlot__Group_9__0 )?
+            int alt34=2;
+            int LA34_0 = input.LA(1);
+
+            if ( (LA34_0==51) ) {
+                alt34=1;
+            }
+            switch (alt34) {
+                case 1 :
+                    // InternalBiLang.g:4537:3: rule__PiePlot__Group_9__0
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__PiePlot__Group_9__0();
+
+                    state._fsp--;
+
+
+                    }
+                    break;
+
+            }
+
+             after(grammarAccess.getPiePlotAccess().getGroup_9()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PiePlot__Group__9__Impl"
+
+
+    // $ANTLR start "rule__PiePlot__Group_7__0"
+    // InternalBiLang.g:4546:1: rule__PiePlot__Group_7__0 : rule__PiePlot__Group_7__0__Impl rule__PiePlot__Group_7__1 ;
+    public final void rule__PiePlot__Group_7__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4550:1: ( rule__PiePlot__Group_7__0__Impl rule__PiePlot__Group_7__1 )
+            // InternalBiLang.g:4551:2: rule__PiePlot__Group_7__0__Impl rule__PiePlot__Group_7__1
+            {
+            pushFollow(FOLLOW_6);
+            rule__PiePlot__Group_7__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__PiePlot__Group_7__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PiePlot__Group_7__0"
+
+
+    // $ANTLR start "rule__PiePlot__Group_7__0__Impl"
+    // InternalBiLang.g:4558:1: rule__PiePlot__Group_7__0__Impl : ( 'loc' ) ;
+    public final void rule__PiePlot__Group_7__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4562:1: ( ( 'loc' ) )
+            // InternalBiLang.g:4563:1: ( 'loc' )
+            {
+            // InternalBiLang.g:4563:1: ( 'loc' )
+            // InternalBiLang.g:4564:2: 'loc'
+            {
+             before(grammarAccess.getPiePlotAccess().getLocKeyword_7_0()); 
+            match(input,49,FOLLOW_2); 
+             after(grammarAccess.getPiePlotAccess().getLocKeyword_7_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PiePlot__Group_7__0__Impl"
+
+
+    // $ANTLR start "rule__PiePlot__Group_7__1"
+    // InternalBiLang.g:4573:1: rule__PiePlot__Group_7__1 : rule__PiePlot__Group_7__1__Impl ;
+    public final void rule__PiePlot__Group_7__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4577:1: ( rule__PiePlot__Group_7__1__Impl )
+            // InternalBiLang.g:4578:2: rule__PiePlot__Group_7__1__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__PiePlot__Group_7__1__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PiePlot__Group_7__1"
+
+
+    // $ANTLR start "rule__PiePlot__Group_7__1__Impl"
+    // InternalBiLang.g:4584:1: rule__PiePlot__Group_7__1__Impl : ( ( rule__PiePlot__LocationAssignment_7_1 ) ) ;
+    public final void rule__PiePlot__Group_7__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4588:1: ( ( ( rule__PiePlot__LocationAssignment_7_1 ) ) )
+            // InternalBiLang.g:4589:1: ( ( rule__PiePlot__LocationAssignment_7_1 ) )
+            {
+            // InternalBiLang.g:4589:1: ( ( rule__PiePlot__LocationAssignment_7_1 ) )
+            // InternalBiLang.g:4590:2: ( rule__PiePlot__LocationAssignment_7_1 )
+            {
+             before(grammarAccess.getPiePlotAccess().getLocationAssignment_7_1()); 
+            // InternalBiLang.g:4591:2: ( rule__PiePlot__LocationAssignment_7_1 )
+            // InternalBiLang.g:4591:3: rule__PiePlot__LocationAssignment_7_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__PiePlot__LocationAssignment_7_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getPiePlotAccess().getLocationAssignment_7_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PiePlot__Group_7__1__Impl"
+
+
+    // $ANTLR start "rule__PiePlot__Group_8__0"
+    // InternalBiLang.g:4600:1: rule__PiePlot__Group_8__0 : rule__PiePlot__Group_8__0__Impl rule__PiePlot__Group_8__1 ;
+    public final void rule__PiePlot__Group_8__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4604:1: ( rule__PiePlot__Group_8__0__Impl rule__PiePlot__Group_8__1 )
+            // InternalBiLang.g:4605:2: rule__PiePlot__Group_8__0__Impl rule__PiePlot__Group_8__1
+            {
+            pushFollow(FOLLOW_6);
+            rule__PiePlot__Group_8__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__PiePlot__Group_8__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PiePlot__Group_8__0"
+
+
+    // $ANTLR start "rule__PiePlot__Group_8__0__Impl"
+    // InternalBiLang.g:4612:1: rule__PiePlot__Group_8__0__Impl : ( 'colors' ) ;
+    public final void rule__PiePlot__Group_8__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4616:1: ( ( 'colors' ) )
+            // InternalBiLang.g:4617:1: ( 'colors' )
+            {
+            // InternalBiLang.g:4617:1: ( 'colors' )
+            // InternalBiLang.g:4618:2: 'colors'
+            {
+             before(grammarAccess.getPiePlotAccess().getColorsKeyword_8_0()); 
+            match(input,50,FOLLOW_2); 
+             after(grammarAccess.getPiePlotAccess().getColorsKeyword_8_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PiePlot__Group_8__0__Impl"
+
+
+    // $ANTLR start "rule__PiePlot__Group_8__1"
+    // InternalBiLang.g:4627:1: rule__PiePlot__Group_8__1 : rule__PiePlot__Group_8__1__Impl ;
+    public final void rule__PiePlot__Group_8__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4631:1: ( rule__PiePlot__Group_8__1__Impl )
+            // InternalBiLang.g:4632:2: rule__PiePlot__Group_8__1__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__PiePlot__Group_8__1__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PiePlot__Group_8__1"
+
+
+    // $ANTLR start "rule__PiePlot__Group_8__1__Impl"
+    // InternalBiLang.g:4638:1: rule__PiePlot__Group_8__1__Impl : ( ( rule__PiePlot__ColorsAssignment_8_1 ) ) ;
+    public final void rule__PiePlot__Group_8__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4642:1: ( ( ( rule__PiePlot__ColorsAssignment_8_1 ) ) )
+            // InternalBiLang.g:4643:1: ( ( rule__PiePlot__ColorsAssignment_8_1 ) )
+            {
+            // InternalBiLang.g:4643:1: ( ( rule__PiePlot__ColorsAssignment_8_1 ) )
+            // InternalBiLang.g:4644:2: ( rule__PiePlot__ColorsAssignment_8_1 )
+            {
+             before(grammarAccess.getPiePlotAccess().getColorsAssignment_8_1()); 
+            // InternalBiLang.g:4645:2: ( rule__PiePlot__ColorsAssignment_8_1 )
+            // InternalBiLang.g:4645:3: rule__PiePlot__ColorsAssignment_8_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__PiePlot__ColorsAssignment_8_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getPiePlotAccess().getColorsAssignment_8_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PiePlot__Group_8__1__Impl"
+
+
+    // $ANTLR start "rule__PiePlot__Group_9__0"
+    // InternalBiLang.g:4654:1: rule__PiePlot__Group_9__0 : rule__PiePlot__Group_9__0__Impl rule__PiePlot__Group_9__1 ;
+    public final void rule__PiePlot__Group_9__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4658:1: ( rule__PiePlot__Group_9__0__Impl rule__PiePlot__Group_9__1 )
+            // InternalBiLang.g:4659:2: rule__PiePlot__Group_9__0__Impl rule__PiePlot__Group_9__1
+            {
+            pushFollow(FOLLOW_25);
+            rule__PiePlot__Group_9__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__PiePlot__Group_9__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PiePlot__Group_9__0"
+
+
+    // $ANTLR start "rule__PiePlot__Group_9__0__Impl"
+    // InternalBiLang.g:4666:1: rule__PiePlot__Group_9__0__Impl : ( 'thickness' ) ;
+    public final void rule__PiePlot__Group_9__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4670:1: ( ( 'thickness' ) )
+            // InternalBiLang.g:4671:1: ( 'thickness' )
+            {
+            // InternalBiLang.g:4671:1: ( 'thickness' )
+            // InternalBiLang.g:4672:2: 'thickness'
+            {
+             before(grammarAccess.getPiePlotAccess().getThicknessKeyword_9_0()); 
+            match(input,51,FOLLOW_2); 
+             after(grammarAccess.getPiePlotAccess().getThicknessKeyword_9_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PiePlot__Group_9__0__Impl"
+
+
+    // $ANTLR start "rule__PiePlot__Group_9__1"
+    // InternalBiLang.g:4681:1: rule__PiePlot__Group_9__1 : rule__PiePlot__Group_9__1__Impl ;
+    public final void rule__PiePlot__Group_9__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4685:1: ( rule__PiePlot__Group_9__1__Impl )
+            // InternalBiLang.g:4686:2: rule__PiePlot__Group_9__1__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__PiePlot__Group_9__1__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PiePlot__Group_9__1"
+
+
+    // $ANTLR start "rule__PiePlot__Group_9__1__Impl"
+    // InternalBiLang.g:4692:1: rule__PiePlot__Group_9__1__Impl : ( ( rule__PiePlot__ThicknessAssignment_9_1 ) ) ;
+    public final void rule__PiePlot__Group_9__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4696:1: ( ( ( rule__PiePlot__ThicknessAssignment_9_1 ) ) )
+            // InternalBiLang.g:4697:1: ( ( rule__PiePlot__ThicknessAssignment_9_1 ) )
+            {
+            // InternalBiLang.g:4697:1: ( ( rule__PiePlot__ThicknessAssignment_9_1 ) )
+            // InternalBiLang.g:4698:2: ( rule__PiePlot__ThicknessAssignment_9_1 )
+            {
+             before(grammarAccess.getPiePlotAccess().getThicknessAssignment_9_1()); 
+            // InternalBiLang.g:4699:2: ( rule__PiePlot__ThicknessAssignment_9_1 )
+            // InternalBiLang.g:4699:3: rule__PiePlot__ThicknessAssignment_9_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__PiePlot__ThicknessAssignment_9_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getPiePlotAccess().getThicknessAssignment_9_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PiePlot__Group_9__1__Impl"
+
+
+    // $ANTLR start "rule__PolarPlot__Group__0"
+    // InternalBiLang.g:4708:1: rule__PolarPlot__Group__0 : rule__PolarPlot__Group__0__Impl rule__PolarPlot__Group__1 ;
+    public final void rule__PolarPlot__Group__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4712:1: ( rule__PolarPlot__Group__0__Impl rule__PolarPlot__Group__1 )
+            // InternalBiLang.g:4713:2: rule__PolarPlot__Group__0__Impl rule__PolarPlot__Group__1
+            {
+            pushFollow(FOLLOW_3);
+            rule__PolarPlot__Group__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__PolarPlot__Group__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PolarPlot__Group__0"
+
+
+    // $ANTLR start "rule__PolarPlot__Group__0__Impl"
+    // InternalBiLang.g:4720:1: rule__PolarPlot__Group__0__Impl : ( 'polar' ) ;
+    public final void rule__PolarPlot__Group__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4724:1: ( ( 'polar' ) )
+            // InternalBiLang.g:4725:1: ( 'polar' )
+            {
+            // InternalBiLang.g:4725:1: ( 'polar' )
+            // InternalBiLang.g:4726:2: 'polar'
+            {
+             before(grammarAccess.getPolarPlotAccess().getPolarKeyword_0()); 
+            match(input,55,FOLLOW_2); 
+             after(grammarAccess.getPolarPlotAccess().getPolarKeyword_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PolarPlot__Group__0__Impl"
+
+
+    // $ANTLR start "rule__PolarPlot__Group__1"
+    // InternalBiLang.g:4735:1: rule__PolarPlot__Group__1 : rule__PolarPlot__Group__1__Impl rule__PolarPlot__Group__2 ;
+    public final void rule__PolarPlot__Group__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4739:1: ( rule__PolarPlot__Group__1__Impl rule__PolarPlot__Group__2 )
+            // InternalBiLang.g:4740:2: rule__PolarPlot__Group__1__Impl rule__PolarPlot__Group__2
+            {
+            pushFollow(FOLLOW_35);
+            rule__PolarPlot__Group__1__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__PolarPlot__Group__2();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PolarPlot__Group__1"
+
+
+    // $ANTLR start "rule__PolarPlot__Group__1__Impl"
+    // InternalBiLang.g:4747:1: rule__PolarPlot__Group__1__Impl : ( ( rule__PolarPlot__NameAssignment_1 ) ) ;
+    public final void rule__PolarPlot__Group__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4751:1: ( ( ( rule__PolarPlot__NameAssignment_1 ) ) )
+            // InternalBiLang.g:4752:1: ( ( rule__PolarPlot__NameAssignment_1 ) )
+            {
+            // InternalBiLang.g:4752:1: ( ( rule__PolarPlot__NameAssignment_1 ) )
+            // InternalBiLang.g:4753:2: ( rule__PolarPlot__NameAssignment_1 )
+            {
+             before(grammarAccess.getPolarPlotAccess().getNameAssignment_1()); 
+            // InternalBiLang.g:4754:2: ( rule__PolarPlot__NameAssignment_1 )
+            // InternalBiLang.g:4754:3: rule__PolarPlot__NameAssignment_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__PolarPlot__NameAssignment_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getPolarPlotAccess().getNameAssignment_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PolarPlot__Group__1__Impl"
+
+
+    // $ANTLR start "rule__PolarPlot__Group__2"
+    // InternalBiLang.g:4762:1: rule__PolarPlot__Group__2 : rule__PolarPlot__Group__2__Impl rule__PolarPlot__Group__3 ;
+    public final void rule__PolarPlot__Group__2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4766:1: ( rule__PolarPlot__Group__2__Impl rule__PolarPlot__Group__3 )
+            // InternalBiLang.g:4767:2: rule__PolarPlot__Group__2__Impl rule__PolarPlot__Group__3
+            {
+            pushFollow(FOLLOW_36);
+            rule__PolarPlot__Group__2__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__PolarPlot__Group__3();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PolarPlot__Group__2"
+
+
+    // $ANTLR start "rule__PolarPlot__Group__2__Impl"
+    // InternalBiLang.g:4774:1: rule__PolarPlot__Group__2__Impl : ( '->' ) ;
+    public final void rule__PolarPlot__Group__2__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4778:1: ( ( '->' ) )
+            // InternalBiLang.g:4779:1: ( '->' )
+            {
+            // InternalBiLang.g:4779:1: ( '->' )
+            // InternalBiLang.g:4780:2: '->'
+            {
+             before(grammarAccess.getPolarPlotAccess().getHyphenMinusGreaterThanSignKeyword_2()); 
+            match(input,46,FOLLOW_2); 
+             after(grammarAccess.getPolarPlotAccess().getHyphenMinusGreaterThanSignKeyword_2()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PolarPlot__Group__2__Impl"
+
+
+    // $ANTLR start "rule__PolarPlot__Group__3"
+    // InternalBiLang.g:4789:1: rule__PolarPlot__Group__3 : rule__PolarPlot__Group__3__Impl rule__PolarPlot__Group__4 ;
+    public final void rule__PolarPlot__Group__3() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4793:1: ( rule__PolarPlot__Group__3__Impl rule__PolarPlot__Group__4 )
+            // InternalBiLang.g:4794:2: rule__PolarPlot__Group__3__Impl rule__PolarPlot__Group__4
+            {
+            pushFollow(FOLLOW_6);
+            rule__PolarPlot__Group__3__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__PolarPlot__Group__4();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PolarPlot__Group__3"
+
+
+    // $ANTLR start "rule__PolarPlot__Group__3__Impl"
+    // InternalBiLang.g:4801:1: rule__PolarPlot__Group__3__Impl : ( 'xAx' ) ;
+    public final void rule__PolarPlot__Group__3__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4805:1: ( ( 'xAx' ) )
+            // InternalBiLang.g:4806:1: ( 'xAx' )
+            {
+            // InternalBiLang.g:4806:1: ( 'xAx' )
+            // InternalBiLang.g:4807:2: 'xAx'
+            {
+             before(grammarAccess.getPolarPlotAccess().getXAxKeyword_3()); 
+            match(input,47,FOLLOW_2); 
+             after(grammarAccess.getPolarPlotAccess().getXAxKeyword_3()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PolarPlot__Group__3__Impl"
+
+
+    // $ANTLR start "rule__PolarPlot__Group__4"
+    // InternalBiLang.g:4816:1: rule__PolarPlot__Group__4 : rule__PolarPlot__Group__4__Impl rule__PolarPlot__Group__5 ;
+    public final void rule__PolarPlot__Group__4() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4820:1: ( rule__PolarPlot__Group__4__Impl rule__PolarPlot__Group__5 )
+            // InternalBiLang.g:4821:2: rule__PolarPlot__Group__4__Impl rule__PolarPlot__Group__5
+            {
+            pushFollow(FOLLOW_37);
+            rule__PolarPlot__Group__4__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__PolarPlot__Group__5();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PolarPlot__Group__4"
+
+
+    // $ANTLR start "rule__PolarPlot__Group__4__Impl"
+    // InternalBiLang.g:4828:1: rule__PolarPlot__Group__4__Impl : ( ( rule__PolarPlot__XAxisAssignment_4 ) ) ;
+    public final void rule__PolarPlot__Group__4__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4832:1: ( ( ( rule__PolarPlot__XAxisAssignment_4 ) ) )
+            // InternalBiLang.g:4833:1: ( ( rule__PolarPlot__XAxisAssignment_4 ) )
+            {
+            // InternalBiLang.g:4833:1: ( ( rule__PolarPlot__XAxisAssignment_4 ) )
+            // InternalBiLang.g:4834:2: ( rule__PolarPlot__XAxisAssignment_4 )
+            {
+             before(grammarAccess.getPolarPlotAccess().getXAxisAssignment_4()); 
+            // InternalBiLang.g:4835:2: ( rule__PolarPlot__XAxisAssignment_4 )
+            // InternalBiLang.g:4835:3: rule__PolarPlot__XAxisAssignment_4
+            {
+            pushFollow(FOLLOW_2);
+            rule__PolarPlot__XAxisAssignment_4();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getPolarPlotAccess().getXAxisAssignment_4()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PolarPlot__Group__4__Impl"
+
+
+    // $ANTLR start "rule__PolarPlot__Group__5"
+    // InternalBiLang.g:4843:1: rule__PolarPlot__Group__5 : rule__PolarPlot__Group__5__Impl rule__PolarPlot__Group__6 ;
+    public final void rule__PolarPlot__Group__5() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4847:1: ( rule__PolarPlot__Group__5__Impl rule__PolarPlot__Group__6 )
+            // InternalBiLang.g:4848:2: rule__PolarPlot__Group__5__Impl rule__PolarPlot__Group__6
+            {
+            pushFollow(FOLLOW_6);
+            rule__PolarPlot__Group__5__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__PolarPlot__Group__6();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PolarPlot__Group__5"
+
+
+    // $ANTLR start "rule__PolarPlot__Group__5__Impl"
+    // InternalBiLang.g:4855:1: rule__PolarPlot__Group__5__Impl : ( 'yA' ) ;
+    public final void rule__PolarPlot__Group__5__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4859:1: ( ( 'yA' ) )
+            // InternalBiLang.g:4860:1: ( 'yA' )
+            {
+            // InternalBiLang.g:4860:1: ( 'yA' )
+            // InternalBiLang.g:4861:2: 'yA'
+            {
+             before(grammarAccess.getPolarPlotAccess().getYAKeyword_5()); 
+            match(input,48,FOLLOW_2); 
+             after(grammarAccess.getPolarPlotAccess().getYAKeyword_5()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PolarPlot__Group__5__Impl"
+
+
+    // $ANTLR start "rule__PolarPlot__Group__6"
+    // InternalBiLang.g:4870:1: rule__PolarPlot__Group__6 : rule__PolarPlot__Group__6__Impl rule__PolarPlot__Group__7 ;
+    public final void rule__PolarPlot__Group__6() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4874:1: ( rule__PolarPlot__Group__6__Impl rule__PolarPlot__Group__7 )
+            // InternalBiLang.g:4875:2: rule__PolarPlot__Group__6__Impl rule__PolarPlot__Group__7
+            {
+            pushFollow(FOLLOW_38);
+            rule__PolarPlot__Group__6__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__PolarPlot__Group__7();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PolarPlot__Group__6"
+
+
+    // $ANTLR start "rule__PolarPlot__Group__6__Impl"
+    // InternalBiLang.g:4882:1: rule__PolarPlot__Group__6__Impl : ( ( rule__PolarPlot__YAxisAssignment_6 ) ) ;
+    public final void rule__PolarPlot__Group__6__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4886:1: ( ( ( rule__PolarPlot__YAxisAssignment_6 ) ) )
+            // InternalBiLang.g:4887:1: ( ( rule__PolarPlot__YAxisAssignment_6 ) )
+            {
+            // InternalBiLang.g:4887:1: ( ( rule__PolarPlot__YAxisAssignment_6 ) )
+            // InternalBiLang.g:4888:2: ( rule__PolarPlot__YAxisAssignment_6 )
+            {
+             before(grammarAccess.getPolarPlotAccess().getYAxisAssignment_6()); 
+            // InternalBiLang.g:4889:2: ( rule__PolarPlot__YAxisAssignment_6 )
+            // InternalBiLang.g:4889:3: rule__PolarPlot__YAxisAssignment_6
+            {
+            pushFollow(FOLLOW_2);
+            rule__PolarPlot__YAxisAssignment_6();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getPolarPlotAccess().getYAxisAssignment_6()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PolarPlot__Group__6__Impl"
+
+
+    // $ANTLR start "rule__PolarPlot__Group__7"
+    // InternalBiLang.g:4897:1: rule__PolarPlot__Group__7 : rule__PolarPlot__Group__7__Impl rule__PolarPlot__Group__8 ;
+    public final void rule__PolarPlot__Group__7() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4901:1: ( rule__PolarPlot__Group__7__Impl rule__PolarPlot__Group__8 )
+            // InternalBiLang.g:4902:2: rule__PolarPlot__Group__7__Impl rule__PolarPlot__Group__8
+            {
+            pushFollow(FOLLOW_38);
+            rule__PolarPlot__Group__7__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__PolarPlot__Group__8();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PolarPlot__Group__7"
+
+
+    // $ANTLR start "rule__PolarPlot__Group__7__Impl"
+    // InternalBiLang.g:4909:1: rule__PolarPlot__Group__7__Impl : ( ( rule__PolarPlot__Group_7__0 )? ) ;
+    public final void rule__PolarPlot__Group__7__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4913:1: ( ( ( rule__PolarPlot__Group_7__0 )? ) )
+            // InternalBiLang.g:4914:1: ( ( rule__PolarPlot__Group_7__0 )? )
+            {
+            // InternalBiLang.g:4914:1: ( ( rule__PolarPlot__Group_7__0 )? )
+            // InternalBiLang.g:4915:2: ( rule__PolarPlot__Group_7__0 )?
+            {
+             before(grammarAccess.getPolarPlotAccess().getGroup_7()); 
+            // InternalBiLang.g:4916:2: ( rule__PolarPlot__Group_7__0 )?
+            int alt35=2;
+            int LA35_0 = input.LA(1);
+
+            if ( (LA35_0==49) ) {
+                alt35=1;
+            }
+            switch (alt35) {
+                case 1 :
+                    // InternalBiLang.g:4916:3: rule__PolarPlot__Group_7__0
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__PolarPlot__Group_7__0();
+
+                    state._fsp--;
+
+
+                    }
+                    break;
+
+            }
+
+             after(grammarAccess.getPolarPlotAccess().getGroup_7()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PolarPlot__Group__7__Impl"
+
+
+    // $ANTLR start "rule__PolarPlot__Group__8"
+    // InternalBiLang.g:4924:1: rule__PolarPlot__Group__8 : rule__PolarPlot__Group__8__Impl rule__PolarPlot__Group__9 ;
+    public final void rule__PolarPlot__Group__8() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4928:1: ( rule__PolarPlot__Group__8__Impl rule__PolarPlot__Group__9 )
+            // InternalBiLang.g:4929:2: rule__PolarPlot__Group__8__Impl rule__PolarPlot__Group__9
+            {
+            pushFollow(FOLLOW_38);
+            rule__PolarPlot__Group__8__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__PolarPlot__Group__9();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PolarPlot__Group__8"
+
+
+    // $ANTLR start "rule__PolarPlot__Group__8__Impl"
+    // InternalBiLang.g:4936:1: rule__PolarPlot__Group__8__Impl : ( ( rule__PolarPlot__Group_8__0 )? ) ;
+    public final void rule__PolarPlot__Group__8__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4940:1: ( ( ( rule__PolarPlot__Group_8__0 )? ) )
+            // InternalBiLang.g:4941:1: ( ( rule__PolarPlot__Group_8__0 )? )
+            {
+            // InternalBiLang.g:4941:1: ( ( rule__PolarPlot__Group_8__0 )? )
+            // InternalBiLang.g:4942:2: ( rule__PolarPlot__Group_8__0 )?
+            {
+             before(grammarAccess.getPolarPlotAccess().getGroup_8()); 
+            // InternalBiLang.g:4943:2: ( rule__PolarPlot__Group_8__0 )?
+            int alt36=2;
+            int LA36_0 = input.LA(1);
+
+            if ( (LA36_0==50) ) {
+                alt36=1;
+            }
+            switch (alt36) {
+                case 1 :
+                    // InternalBiLang.g:4943:3: rule__PolarPlot__Group_8__0
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__PolarPlot__Group_8__0();
+
+                    state._fsp--;
+
+
+                    }
+                    break;
+
+            }
+
+             after(grammarAccess.getPolarPlotAccess().getGroup_8()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PolarPlot__Group__8__Impl"
+
+
+    // $ANTLR start "rule__PolarPlot__Group__9"
+    // InternalBiLang.g:4951:1: rule__PolarPlot__Group__9 : rule__PolarPlot__Group__9__Impl ;
+    public final void rule__PolarPlot__Group__9() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4955:1: ( rule__PolarPlot__Group__9__Impl )
+            // InternalBiLang.g:4956:2: rule__PolarPlot__Group__9__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__PolarPlot__Group__9__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PolarPlot__Group__9"
+
+
+    // $ANTLR start "rule__PolarPlot__Group__9__Impl"
+    // InternalBiLang.g:4962:1: rule__PolarPlot__Group__9__Impl : ( ( rule__PolarPlot__Group_9__0 )? ) ;
+    public final void rule__PolarPlot__Group__9__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4966:1: ( ( ( rule__PolarPlot__Group_9__0 )? ) )
+            // InternalBiLang.g:4967:1: ( ( rule__PolarPlot__Group_9__0 )? )
+            {
+            // InternalBiLang.g:4967:1: ( ( rule__PolarPlot__Group_9__0 )? )
+            // InternalBiLang.g:4968:2: ( rule__PolarPlot__Group_9__0 )?
+            {
+             before(grammarAccess.getPolarPlotAccess().getGroup_9()); 
+            // InternalBiLang.g:4969:2: ( rule__PolarPlot__Group_9__0 )?
+            int alt37=2;
+            int LA37_0 = input.LA(1);
+
+            if ( (LA37_0==51) ) {
+                alt37=1;
+            }
+            switch (alt37) {
+                case 1 :
+                    // InternalBiLang.g:4969:3: rule__PolarPlot__Group_9__0
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__PolarPlot__Group_9__0();
+
+                    state._fsp--;
+
+
+                    }
+                    break;
+
+            }
+
+             after(grammarAccess.getPolarPlotAccess().getGroup_9()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PolarPlot__Group__9__Impl"
+
+
+    // $ANTLR start "rule__PolarPlot__Group_7__0"
+    // InternalBiLang.g:4978:1: rule__PolarPlot__Group_7__0 : rule__PolarPlot__Group_7__0__Impl rule__PolarPlot__Group_7__1 ;
+    public final void rule__PolarPlot__Group_7__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4982:1: ( rule__PolarPlot__Group_7__0__Impl rule__PolarPlot__Group_7__1 )
+            // InternalBiLang.g:4983:2: rule__PolarPlot__Group_7__0__Impl rule__PolarPlot__Group_7__1
+            {
+            pushFollow(FOLLOW_6);
+            rule__PolarPlot__Group_7__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__PolarPlot__Group_7__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PolarPlot__Group_7__0"
+
+
+    // $ANTLR start "rule__PolarPlot__Group_7__0__Impl"
+    // InternalBiLang.g:4990:1: rule__PolarPlot__Group_7__0__Impl : ( 'loc' ) ;
+    public final void rule__PolarPlot__Group_7__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:4994:1: ( ( 'loc' ) )
+            // InternalBiLang.g:4995:1: ( 'loc' )
+            {
+            // InternalBiLang.g:4995:1: ( 'loc' )
+            // InternalBiLang.g:4996:2: 'loc'
+            {
+             before(grammarAccess.getPolarPlotAccess().getLocKeyword_7_0()); 
+            match(input,49,FOLLOW_2); 
+             after(grammarAccess.getPolarPlotAccess().getLocKeyword_7_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PolarPlot__Group_7__0__Impl"
+
+
+    // $ANTLR start "rule__PolarPlot__Group_7__1"
+    // InternalBiLang.g:5005:1: rule__PolarPlot__Group_7__1 : rule__PolarPlot__Group_7__1__Impl ;
+    public final void rule__PolarPlot__Group_7__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5009:1: ( rule__PolarPlot__Group_7__1__Impl )
+            // InternalBiLang.g:5010:2: rule__PolarPlot__Group_7__1__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__PolarPlot__Group_7__1__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PolarPlot__Group_7__1"
+
+
+    // $ANTLR start "rule__PolarPlot__Group_7__1__Impl"
+    // InternalBiLang.g:5016:1: rule__PolarPlot__Group_7__1__Impl : ( ( rule__PolarPlot__LocationAssignment_7_1 ) ) ;
+    public final void rule__PolarPlot__Group_7__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5020:1: ( ( ( rule__PolarPlot__LocationAssignment_7_1 ) ) )
+            // InternalBiLang.g:5021:1: ( ( rule__PolarPlot__LocationAssignment_7_1 ) )
+            {
+            // InternalBiLang.g:5021:1: ( ( rule__PolarPlot__LocationAssignment_7_1 ) )
+            // InternalBiLang.g:5022:2: ( rule__PolarPlot__LocationAssignment_7_1 )
+            {
+             before(grammarAccess.getPolarPlotAccess().getLocationAssignment_7_1()); 
+            // InternalBiLang.g:5023:2: ( rule__PolarPlot__LocationAssignment_7_1 )
+            // InternalBiLang.g:5023:3: rule__PolarPlot__LocationAssignment_7_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__PolarPlot__LocationAssignment_7_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getPolarPlotAccess().getLocationAssignment_7_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PolarPlot__Group_7__1__Impl"
+
+
+    // $ANTLR start "rule__PolarPlot__Group_8__0"
+    // InternalBiLang.g:5032:1: rule__PolarPlot__Group_8__0 : rule__PolarPlot__Group_8__0__Impl rule__PolarPlot__Group_8__1 ;
+    public final void rule__PolarPlot__Group_8__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5036:1: ( rule__PolarPlot__Group_8__0__Impl rule__PolarPlot__Group_8__1 )
+            // InternalBiLang.g:5037:2: rule__PolarPlot__Group_8__0__Impl rule__PolarPlot__Group_8__1
+            {
+            pushFollow(FOLLOW_6);
+            rule__PolarPlot__Group_8__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__PolarPlot__Group_8__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PolarPlot__Group_8__0"
+
+
+    // $ANTLR start "rule__PolarPlot__Group_8__0__Impl"
+    // InternalBiLang.g:5044:1: rule__PolarPlot__Group_8__0__Impl : ( 'colors' ) ;
+    public final void rule__PolarPlot__Group_8__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5048:1: ( ( 'colors' ) )
+            // InternalBiLang.g:5049:1: ( 'colors' )
+            {
+            // InternalBiLang.g:5049:1: ( 'colors' )
+            // InternalBiLang.g:5050:2: 'colors'
+            {
+             before(grammarAccess.getPolarPlotAccess().getColorsKeyword_8_0()); 
+            match(input,50,FOLLOW_2); 
+             after(grammarAccess.getPolarPlotAccess().getColorsKeyword_8_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PolarPlot__Group_8__0__Impl"
+
+
+    // $ANTLR start "rule__PolarPlot__Group_8__1"
+    // InternalBiLang.g:5059:1: rule__PolarPlot__Group_8__1 : rule__PolarPlot__Group_8__1__Impl ;
+    public final void rule__PolarPlot__Group_8__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5063:1: ( rule__PolarPlot__Group_8__1__Impl )
+            // InternalBiLang.g:5064:2: rule__PolarPlot__Group_8__1__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__PolarPlot__Group_8__1__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PolarPlot__Group_8__1"
+
+
+    // $ANTLR start "rule__PolarPlot__Group_8__1__Impl"
+    // InternalBiLang.g:5070:1: rule__PolarPlot__Group_8__1__Impl : ( ( rule__PolarPlot__ColorsAssignment_8_1 ) ) ;
+    public final void rule__PolarPlot__Group_8__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5074:1: ( ( ( rule__PolarPlot__ColorsAssignment_8_1 ) ) )
+            // InternalBiLang.g:5075:1: ( ( rule__PolarPlot__ColorsAssignment_8_1 ) )
+            {
+            // InternalBiLang.g:5075:1: ( ( rule__PolarPlot__ColorsAssignment_8_1 ) )
+            // InternalBiLang.g:5076:2: ( rule__PolarPlot__ColorsAssignment_8_1 )
+            {
+             before(grammarAccess.getPolarPlotAccess().getColorsAssignment_8_1()); 
+            // InternalBiLang.g:5077:2: ( rule__PolarPlot__ColorsAssignment_8_1 )
+            // InternalBiLang.g:5077:3: rule__PolarPlot__ColorsAssignment_8_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__PolarPlot__ColorsAssignment_8_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getPolarPlotAccess().getColorsAssignment_8_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PolarPlot__Group_8__1__Impl"
+
+
+    // $ANTLR start "rule__PolarPlot__Group_9__0"
+    // InternalBiLang.g:5086:1: rule__PolarPlot__Group_9__0 : rule__PolarPlot__Group_9__0__Impl rule__PolarPlot__Group_9__1 ;
+    public final void rule__PolarPlot__Group_9__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5090:1: ( rule__PolarPlot__Group_9__0__Impl rule__PolarPlot__Group_9__1 )
+            // InternalBiLang.g:5091:2: rule__PolarPlot__Group_9__0__Impl rule__PolarPlot__Group_9__1
+            {
+            pushFollow(FOLLOW_25);
+            rule__PolarPlot__Group_9__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__PolarPlot__Group_9__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PolarPlot__Group_9__0"
+
+
+    // $ANTLR start "rule__PolarPlot__Group_9__0__Impl"
+    // InternalBiLang.g:5098:1: rule__PolarPlot__Group_9__0__Impl : ( 'thickness' ) ;
+    public final void rule__PolarPlot__Group_9__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5102:1: ( ( 'thickness' ) )
+            // InternalBiLang.g:5103:1: ( 'thickness' )
+            {
+            // InternalBiLang.g:5103:1: ( 'thickness' )
+            // InternalBiLang.g:5104:2: 'thickness'
+            {
+             before(grammarAccess.getPolarPlotAccess().getThicknessKeyword_9_0()); 
+            match(input,51,FOLLOW_2); 
+             after(grammarAccess.getPolarPlotAccess().getThicknessKeyword_9_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PolarPlot__Group_9__0__Impl"
+
+
+    // $ANTLR start "rule__PolarPlot__Group_9__1"
+    // InternalBiLang.g:5113:1: rule__PolarPlot__Group_9__1 : rule__PolarPlot__Group_9__1__Impl ;
+    public final void rule__PolarPlot__Group_9__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5117:1: ( rule__PolarPlot__Group_9__1__Impl )
+            // InternalBiLang.g:5118:2: rule__PolarPlot__Group_9__1__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__PolarPlot__Group_9__1__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PolarPlot__Group_9__1"
+
+
+    // $ANTLR start "rule__PolarPlot__Group_9__1__Impl"
+    // InternalBiLang.g:5124:1: rule__PolarPlot__Group_9__1__Impl : ( ( rule__PolarPlot__ThicknessAssignment_9_1 ) ) ;
+    public final void rule__PolarPlot__Group_9__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5128:1: ( ( ( rule__PolarPlot__ThicknessAssignment_9_1 ) ) )
+            // InternalBiLang.g:5129:1: ( ( rule__PolarPlot__ThicknessAssignment_9_1 ) )
+            {
+            // InternalBiLang.g:5129:1: ( ( rule__PolarPlot__ThicknessAssignment_9_1 ) )
+            // InternalBiLang.g:5130:2: ( rule__PolarPlot__ThicknessAssignment_9_1 )
+            {
+             before(grammarAccess.getPolarPlotAccess().getThicknessAssignment_9_1()); 
+            // InternalBiLang.g:5131:2: ( rule__PolarPlot__ThicknessAssignment_9_1 )
+            // InternalBiLang.g:5131:3: rule__PolarPlot__ThicknessAssignment_9_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__PolarPlot__ThicknessAssignment_9_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getPolarPlotAccess().getThicknessAssignment_9_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PolarPlot__Group_9__1__Impl"
+
+
+    // $ANTLR start "rule__ScatterPlot__Group__0"
+    // InternalBiLang.g:5140:1: rule__ScatterPlot__Group__0 : rule__ScatterPlot__Group__0__Impl rule__ScatterPlot__Group__1 ;
+    public final void rule__ScatterPlot__Group__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5144:1: ( rule__ScatterPlot__Group__0__Impl rule__ScatterPlot__Group__1 )
+            // InternalBiLang.g:5145:2: rule__ScatterPlot__Group__0__Impl rule__ScatterPlot__Group__1
+            {
+            pushFollow(FOLLOW_3);
+            rule__ScatterPlot__Group__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__ScatterPlot__Group__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ScatterPlot__Group__0"
+
+
+    // $ANTLR start "rule__ScatterPlot__Group__0__Impl"
+    // InternalBiLang.g:5152:1: rule__ScatterPlot__Group__0__Impl : ( 'scatter' ) ;
+    public final void rule__ScatterPlot__Group__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5156:1: ( ( 'scatter' ) )
+            // InternalBiLang.g:5157:1: ( 'scatter' )
+            {
+            // InternalBiLang.g:5157:1: ( 'scatter' )
+            // InternalBiLang.g:5158:2: 'scatter'
+            {
+             before(grammarAccess.getScatterPlotAccess().getScatterKeyword_0()); 
+            match(input,56,FOLLOW_2); 
+             after(grammarAccess.getScatterPlotAccess().getScatterKeyword_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ScatterPlot__Group__0__Impl"
+
+
+    // $ANTLR start "rule__ScatterPlot__Group__1"
+    // InternalBiLang.g:5167:1: rule__ScatterPlot__Group__1 : rule__ScatterPlot__Group__1__Impl rule__ScatterPlot__Group__2 ;
+    public final void rule__ScatterPlot__Group__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5171:1: ( rule__ScatterPlot__Group__1__Impl rule__ScatterPlot__Group__2 )
+            // InternalBiLang.g:5172:2: rule__ScatterPlot__Group__1__Impl rule__ScatterPlot__Group__2
+            {
+            pushFollow(FOLLOW_35);
+            rule__ScatterPlot__Group__1__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__ScatterPlot__Group__2();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ScatterPlot__Group__1"
+
+
+    // $ANTLR start "rule__ScatterPlot__Group__1__Impl"
+    // InternalBiLang.g:5179:1: rule__ScatterPlot__Group__1__Impl : ( ( rule__ScatterPlot__NameAssignment_1 ) ) ;
+    public final void rule__ScatterPlot__Group__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5183:1: ( ( ( rule__ScatterPlot__NameAssignment_1 ) ) )
+            // InternalBiLang.g:5184:1: ( ( rule__ScatterPlot__NameAssignment_1 ) )
+            {
+            // InternalBiLang.g:5184:1: ( ( rule__ScatterPlot__NameAssignment_1 ) )
+            // InternalBiLang.g:5185:2: ( rule__ScatterPlot__NameAssignment_1 )
+            {
+             before(grammarAccess.getScatterPlotAccess().getNameAssignment_1()); 
+            // InternalBiLang.g:5186:2: ( rule__ScatterPlot__NameAssignment_1 )
+            // InternalBiLang.g:5186:3: rule__ScatterPlot__NameAssignment_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__ScatterPlot__NameAssignment_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getScatterPlotAccess().getNameAssignment_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ScatterPlot__Group__1__Impl"
+
+
+    // $ANTLR start "rule__ScatterPlot__Group__2"
+    // InternalBiLang.g:5194:1: rule__ScatterPlot__Group__2 : rule__ScatterPlot__Group__2__Impl rule__ScatterPlot__Group__3 ;
+    public final void rule__ScatterPlot__Group__2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5198:1: ( rule__ScatterPlot__Group__2__Impl rule__ScatterPlot__Group__3 )
+            // InternalBiLang.g:5199:2: rule__ScatterPlot__Group__2__Impl rule__ScatterPlot__Group__3
+            {
+            pushFollow(FOLLOW_36);
+            rule__ScatterPlot__Group__2__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__ScatterPlot__Group__3();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ScatterPlot__Group__2"
+
+
+    // $ANTLR start "rule__ScatterPlot__Group__2__Impl"
+    // InternalBiLang.g:5206:1: rule__ScatterPlot__Group__2__Impl : ( '->' ) ;
+    public final void rule__ScatterPlot__Group__2__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5210:1: ( ( '->' ) )
+            // InternalBiLang.g:5211:1: ( '->' )
+            {
+            // InternalBiLang.g:5211:1: ( '->' )
+            // InternalBiLang.g:5212:2: '->'
+            {
+             before(grammarAccess.getScatterPlotAccess().getHyphenMinusGreaterThanSignKeyword_2()); 
+            match(input,46,FOLLOW_2); 
+             after(grammarAccess.getScatterPlotAccess().getHyphenMinusGreaterThanSignKeyword_2()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ScatterPlot__Group__2__Impl"
+
+
+    // $ANTLR start "rule__ScatterPlot__Group__3"
+    // InternalBiLang.g:5221:1: rule__ScatterPlot__Group__3 : rule__ScatterPlot__Group__3__Impl rule__ScatterPlot__Group__4 ;
+    public final void rule__ScatterPlot__Group__3() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5225:1: ( rule__ScatterPlot__Group__3__Impl rule__ScatterPlot__Group__4 )
+            // InternalBiLang.g:5226:2: rule__ScatterPlot__Group__3__Impl rule__ScatterPlot__Group__4
+            {
+            pushFollow(FOLLOW_6);
+            rule__ScatterPlot__Group__3__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__ScatterPlot__Group__4();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ScatterPlot__Group__3"
+
+
+    // $ANTLR start "rule__ScatterPlot__Group__3__Impl"
+    // InternalBiLang.g:5233:1: rule__ScatterPlot__Group__3__Impl : ( 'xAx' ) ;
+    public final void rule__ScatterPlot__Group__3__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5237:1: ( ( 'xAx' ) )
+            // InternalBiLang.g:5238:1: ( 'xAx' )
+            {
+            // InternalBiLang.g:5238:1: ( 'xAx' )
+            // InternalBiLang.g:5239:2: 'xAx'
+            {
+             before(grammarAccess.getScatterPlotAccess().getXAxKeyword_3()); 
+            match(input,47,FOLLOW_2); 
+             after(grammarAccess.getScatterPlotAccess().getXAxKeyword_3()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ScatterPlot__Group__3__Impl"
+
+
+    // $ANTLR start "rule__ScatterPlot__Group__4"
+    // InternalBiLang.g:5248:1: rule__ScatterPlot__Group__4 : rule__ScatterPlot__Group__4__Impl rule__ScatterPlot__Group__5 ;
+    public final void rule__ScatterPlot__Group__4() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5252:1: ( rule__ScatterPlot__Group__4__Impl rule__ScatterPlot__Group__5 )
+            // InternalBiLang.g:5253:2: rule__ScatterPlot__Group__4__Impl rule__ScatterPlot__Group__5
+            {
+            pushFollow(FOLLOW_37);
+            rule__ScatterPlot__Group__4__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__ScatterPlot__Group__5();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ScatterPlot__Group__4"
+
+
+    // $ANTLR start "rule__ScatterPlot__Group__4__Impl"
+    // InternalBiLang.g:5260:1: rule__ScatterPlot__Group__4__Impl : ( ( rule__ScatterPlot__XAxisAssignment_4 ) ) ;
+    public final void rule__ScatterPlot__Group__4__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5264:1: ( ( ( rule__ScatterPlot__XAxisAssignment_4 ) ) )
+            // InternalBiLang.g:5265:1: ( ( rule__ScatterPlot__XAxisAssignment_4 ) )
+            {
+            // InternalBiLang.g:5265:1: ( ( rule__ScatterPlot__XAxisAssignment_4 ) )
+            // InternalBiLang.g:5266:2: ( rule__ScatterPlot__XAxisAssignment_4 )
+            {
+             before(grammarAccess.getScatterPlotAccess().getXAxisAssignment_4()); 
+            // InternalBiLang.g:5267:2: ( rule__ScatterPlot__XAxisAssignment_4 )
+            // InternalBiLang.g:5267:3: rule__ScatterPlot__XAxisAssignment_4
+            {
+            pushFollow(FOLLOW_2);
+            rule__ScatterPlot__XAxisAssignment_4();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getScatterPlotAccess().getXAxisAssignment_4()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ScatterPlot__Group__4__Impl"
+
+
+    // $ANTLR start "rule__ScatterPlot__Group__5"
+    // InternalBiLang.g:5275:1: rule__ScatterPlot__Group__5 : rule__ScatterPlot__Group__5__Impl rule__ScatterPlot__Group__6 ;
+    public final void rule__ScatterPlot__Group__5() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5279:1: ( rule__ScatterPlot__Group__5__Impl rule__ScatterPlot__Group__6 )
+            // InternalBiLang.g:5280:2: rule__ScatterPlot__Group__5__Impl rule__ScatterPlot__Group__6
+            {
+            pushFollow(FOLLOW_6);
+            rule__ScatterPlot__Group__5__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__ScatterPlot__Group__6();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ScatterPlot__Group__5"
+
+
+    // $ANTLR start "rule__ScatterPlot__Group__5__Impl"
+    // InternalBiLang.g:5287:1: rule__ScatterPlot__Group__5__Impl : ( 'yA' ) ;
+    public final void rule__ScatterPlot__Group__5__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5291:1: ( ( 'yA' ) )
+            // InternalBiLang.g:5292:1: ( 'yA' )
+            {
+            // InternalBiLang.g:5292:1: ( 'yA' )
+            // InternalBiLang.g:5293:2: 'yA'
+            {
+             before(grammarAccess.getScatterPlotAccess().getYAKeyword_5()); 
+            match(input,48,FOLLOW_2); 
+             after(grammarAccess.getScatterPlotAccess().getYAKeyword_5()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ScatterPlot__Group__5__Impl"
+
+
+    // $ANTLR start "rule__ScatterPlot__Group__6"
+    // InternalBiLang.g:5302:1: rule__ScatterPlot__Group__6 : rule__ScatterPlot__Group__6__Impl rule__ScatterPlot__Group__7 ;
+    public final void rule__ScatterPlot__Group__6() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5306:1: ( rule__ScatterPlot__Group__6__Impl rule__ScatterPlot__Group__7 )
+            // InternalBiLang.g:5307:2: rule__ScatterPlot__Group__6__Impl rule__ScatterPlot__Group__7
+            {
+            pushFollow(FOLLOW_38);
+            rule__ScatterPlot__Group__6__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__ScatterPlot__Group__7();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ScatterPlot__Group__6"
+
+
+    // $ANTLR start "rule__ScatterPlot__Group__6__Impl"
+    // InternalBiLang.g:5314:1: rule__ScatterPlot__Group__6__Impl : ( ( rule__ScatterPlot__YAxisAssignment_6 ) ) ;
+    public final void rule__ScatterPlot__Group__6__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5318:1: ( ( ( rule__ScatterPlot__YAxisAssignment_6 ) ) )
+            // InternalBiLang.g:5319:1: ( ( rule__ScatterPlot__YAxisAssignment_6 ) )
+            {
+            // InternalBiLang.g:5319:1: ( ( rule__ScatterPlot__YAxisAssignment_6 ) )
+            // InternalBiLang.g:5320:2: ( rule__ScatterPlot__YAxisAssignment_6 )
+            {
+             before(grammarAccess.getScatterPlotAccess().getYAxisAssignment_6()); 
+            // InternalBiLang.g:5321:2: ( rule__ScatterPlot__YAxisAssignment_6 )
+            // InternalBiLang.g:5321:3: rule__ScatterPlot__YAxisAssignment_6
+            {
+            pushFollow(FOLLOW_2);
+            rule__ScatterPlot__YAxisAssignment_6();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getScatterPlotAccess().getYAxisAssignment_6()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ScatterPlot__Group__6__Impl"
+
+
+    // $ANTLR start "rule__ScatterPlot__Group__7"
+    // InternalBiLang.g:5329:1: rule__ScatterPlot__Group__7 : rule__ScatterPlot__Group__7__Impl rule__ScatterPlot__Group__8 ;
+    public final void rule__ScatterPlot__Group__7() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5333:1: ( rule__ScatterPlot__Group__7__Impl rule__ScatterPlot__Group__8 )
+            // InternalBiLang.g:5334:2: rule__ScatterPlot__Group__7__Impl rule__ScatterPlot__Group__8
+            {
+            pushFollow(FOLLOW_38);
+            rule__ScatterPlot__Group__7__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__ScatterPlot__Group__8();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ScatterPlot__Group__7"
+
+
+    // $ANTLR start "rule__ScatterPlot__Group__7__Impl"
+    // InternalBiLang.g:5341:1: rule__ScatterPlot__Group__7__Impl : ( ( rule__ScatterPlot__Group_7__0 )? ) ;
+    public final void rule__ScatterPlot__Group__7__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5345:1: ( ( ( rule__ScatterPlot__Group_7__0 )? ) )
+            // InternalBiLang.g:5346:1: ( ( rule__ScatterPlot__Group_7__0 )? )
+            {
+            // InternalBiLang.g:5346:1: ( ( rule__ScatterPlot__Group_7__0 )? )
+            // InternalBiLang.g:5347:2: ( rule__ScatterPlot__Group_7__0 )?
+            {
+             before(grammarAccess.getScatterPlotAccess().getGroup_7()); 
+            // InternalBiLang.g:5348:2: ( rule__ScatterPlot__Group_7__0 )?
+            int alt38=2;
+            int LA38_0 = input.LA(1);
+
+            if ( (LA38_0==49) ) {
+                alt38=1;
+            }
+            switch (alt38) {
+                case 1 :
+                    // InternalBiLang.g:5348:3: rule__ScatterPlot__Group_7__0
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__ScatterPlot__Group_7__0();
+
+                    state._fsp--;
+
+
+                    }
+                    break;
+
+            }
+
+             after(grammarAccess.getScatterPlotAccess().getGroup_7()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ScatterPlot__Group__7__Impl"
+
+
+    // $ANTLR start "rule__ScatterPlot__Group__8"
+    // InternalBiLang.g:5356:1: rule__ScatterPlot__Group__8 : rule__ScatterPlot__Group__8__Impl rule__ScatterPlot__Group__9 ;
+    public final void rule__ScatterPlot__Group__8() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5360:1: ( rule__ScatterPlot__Group__8__Impl rule__ScatterPlot__Group__9 )
+            // InternalBiLang.g:5361:2: rule__ScatterPlot__Group__8__Impl rule__ScatterPlot__Group__9
+            {
+            pushFollow(FOLLOW_38);
+            rule__ScatterPlot__Group__8__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__ScatterPlot__Group__9();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ScatterPlot__Group__8"
+
+
+    // $ANTLR start "rule__ScatterPlot__Group__8__Impl"
+    // InternalBiLang.g:5368:1: rule__ScatterPlot__Group__8__Impl : ( ( rule__ScatterPlot__Group_8__0 )? ) ;
+    public final void rule__ScatterPlot__Group__8__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5372:1: ( ( ( rule__ScatterPlot__Group_8__0 )? ) )
+            // InternalBiLang.g:5373:1: ( ( rule__ScatterPlot__Group_8__0 )? )
+            {
+            // InternalBiLang.g:5373:1: ( ( rule__ScatterPlot__Group_8__0 )? )
+            // InternalBiLang.g:5374:2: ( rule__ScatterPlot__Group_8__0 )?
+            {
+             before(grammarAccess.getScatterPlotAccess().getGroup_8()); 
+            // InternalBiLang.g:5375:2: ( rule__ScatterPlot__Group_8__0 )?
+            int alt39=2;
+            int LA39_0 = input.LA(1);
+
+            if ( (LA39_0==50) ) {
+                alt39=1;
+            }
+            switch (alt39) {
+                case 1 :
+                    // InternalBiLang.g:5375:3: rule__ScatterPlot__Group_8__0
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__ScatterPlot__Group_8__0();
+
+                    state._fsp--;
+
+
+                    }
+                    break;
+
+            }
+
+             after(grammarAccess.getScatterPlotAccess().getGroup_8()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ScatterPlot__Group__8__Impl"
+
+
+    // $ANTLR start "rule__ScatterPlot__Group__9"
+    // InternalBiLang.g:5383:1: rule__ScatterPlot__Group__9 : rule__ScatterPlot__Group__9__Impl ;
+    public final void rule__ScatterPlot__Group__9() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5387:1: ( rule__ScatterPlot__Group__9__Impl )
+            // InternalBiLang.g:5388:2: rule__ScatterPlot__Group__9__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__ScatterPlot__Group__9__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ScatterPlot__Group__9"
+
+
+    // $ANTLR start "rule__ScatterPlot__Group__9__Impl"
+    // InternalBiLang.g:5394:1: rule__ScatterPlot__Group__9__Impl : ( ( rule__ScatterPlot__Group_9__0 )? ) ;
+    public final void rule__ScatterPlot__Group__9__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5398:1: ( ( ( rule__ScatterPlot__Group_9__0 )? ) )
+            // InternalBiLang.g:5399:1: ( ( rule__ScatterPlot__Group_9__0 )? )
+            {
+            // InternalBiLang.g:5399:1: ( ( rule__ScatterPlot__Group_9__0 )? )
+            // InternalBiLang.g:5400:2: ( rule__ScatterPlot__Group_9__0 )?
+            {
+             before(grammarAccess.getScatterPlotAccess().getGroup_9()); 
+            // InternalBiLang.g:5401:2: ( rule__ScatterPlot__Group_9__0 )?
+            int alt40=2;
+            int LA40_0 = input.LA(1);
+
+            if ( (LA40_0==51) ) {
+                alt40=1;
+            }
+            switch (alt40) {
+                case 1 :
+                    // InternalBiLang.g:5401:3: rule__ScatterPlot__Group_9__0
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__ScatterPlot__Group_9__0();
+
+                    state._fsp--;
+
+
+                    }
+                    break;
+
+            }
+
+             after(grammarAccess.getScatterPlotAccess().getGroup_9()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ScatterPlot__Group__9__Impl"
+
+
+    // $ANTLR start "rule__ScatterPlot__Group_7__0"
+    // InternalBiLang.g:5410:1: rule__ScatterPlot__Group_7__0 : rule__ScatterPlot__Group_7__0__Impl rule__ScatterPlot__Group_7__1 ;
+    public final void rule__ScatterPlot__Group_7__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5414:1: ( rule__ScatterPlot__Group_7__0__Impl rule__ScatterPlot__Group_7__1 )
+            // InternalBiLang.g:5415:2: rule__ScatterPlot__Group_7__0__Impl rule__ScatterPlot__Group_7__1
+            {
+            pushFollow(FOLLOW_6);
+            rule__ScatterPlot__Group_7__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__ScatterPlot__Group_7__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ScatterPlot__Group_7__0"
+
+
+    // $ANTLR start "rule__ScatterPlot__Group_7__0__Impl"
+    // InternalBiLang.g:5422:1: rule__ScatterPlot__Group_7__0__Impl : ( 'loc' ) ;
+    public final void rule__ScatterPlot__Group_7__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5426:1: ( ( 'loc' ) )
+            // InternalBiLang.g:5427:1: ( 'loc' )
+            {
+            // InternalBiLang.g:5427:1: ( 'loc' )
+            // InternalBiLang.g:5428:2: 'loc'
+            {
+             before(grammarAccess.getScatterPlotAccess().getLocKeyword_7_0()); 
+            match(input,49,FOLLOW_2); 
+             after(grammarAccess.getScatterPlotAccess().getLocKeyword_7_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ScatterPlot__Group_7__0__Impl"
+
+
+    // $ANTLR start "rule__ScatterPlot__Group_7__1"
+    // InternalBiLang.g:5437:1: rule__ScatterPlot__Group_7__1 : rule__ScatterPlot__Group_7__1__Impl ;
+    public final void rule__ScatterPlot__Group_7__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5441:1: ( rule__ScatterPlot__Group_7__1__Impl )
+            // InternalBiLang.g:5442:2: rule__ScatterPlot__Group_7__1__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__ScatterPlot__Group_7__1__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ScatterPlot__Group_7__1"
+
+
+    // $ANTLR start "rule__ScatterPlot__Group_7__1__Impl"
+    // InternalBiLang.g:5448:1: rule__ScatterPlot__Group_7__1__Impl : ( ( rule__ScatterPlot__LocationAssignment_7_1 ) ) ;
+    public final void rule__ScatterPlot__Group_7__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5452:1: ( ( ( rule__ScatterPlot__LocationAssignment_7_1 ) ) )
+            // InternalBiLang.g:5453:1: ( ( rule__ScatterPlot__LocationAssignment_7_1 ) )
+            {
+            // InternalBiLang.g:5453:1: ( ( rule__ScatterPlot__LocationAssignment_7_1 ) )
+            // InternalBiLang.g:5454:2: ( rule__ScatterPlot__LocationAssignment_7_1 )
+            {
+             before(grammarAccess.getScatterPlotAccess().getLocationAssignment_7_1()); 
+            // InternalBiLang.g:5455:2: ( rule__ScatterPlot__LocationAssignment_7_1 )
+            // InternalBiLang.g:5455:3: rule__ScatterPlot__LocationAssignment_7_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__ScatterPlot__LocationAssignment_7_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getScatterPlotAccess().getLocationAssignment_7_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ScatterPlot__Group_7__1__Impl"
+
+
+    // $ANTLR start "rule__ScatterPlot__Group_8__0"
+    // InternalBiLang.g:5464:1: rule__ScatterPlot__Group_8__0 : rule__ScatterPlot__Group_8__0__Impl rule__ScatterPlot__Group_8__1 ;
+    public final void rule__ScatterPlot__Group_8__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5468:1: ( rule__ScatterPlot__Group_8__0__Impl rule__ScatterPlot__Group_8__1 )
+            // InternalBiLang.g:5469:2: rule__ScatterPlot__Group_8__0__Impl rule__ScatterPlot__Group_8__1
+            {
+            pushFollow(FOLLOW_6);
+            rule__ScatterPlot__Group_8__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__ScatterPlot__Group_8__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ScatterPlot__Group_8__0"
+
+
+    // $ANTLR start "rule__ScatterPlot__Group_8__0__Impl"
+    // InternalBiLang.g:5476:1: rule__ScatterPlot__Group_8__0__Impl : ( 'colors' ) ;
+    public final void rule__ScatterPlot__Group_8__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5480:1: ( ( 'colors' ) )
+            // InternalBiLang.g:5481:1: ( 'colors' )
+            {
+            // InternalBiLang.g:5481:1: ( 'colors' )
+            // InternalBiLang.g:5482:2: 'colors'
+            {
+             before(grammarAccess.getScatterPlotAccess().getColorsKeyword_8_0()); 
+            match(input,50,FOLLOW_2); 
+             after(grammarAccess.getScatterPlotAccess().getColorsKeyword_8_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ScatterPlot__Group_8__0__Impl"
+
+
+    // $ANTLR start "rule__ScatterPlot__Group_8__1"
+    // InternalBiLang.g:5491:1: rule__ScatterPlot__Group_8__1 : rule__ScatterPlot__Group_8__1__Impl ;
+    public final void rule__ScatterPlot__Group_8__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5495:1: ( rule__ScatterPlot__Group_8__1__Impl )
+            // InternalBiLang.g:5496:2: rule__ScatterPlot__Group_8__1__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__ScatterPlot__Group_8__1__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ScatterPlot__Group_8__1"
+
+
+    // $ANTLR start "rule__ScatterPlot__Group_8__1__Impl"
+    // InternalBiLang.g:5502:1: rule__ScatterPlot__Group_8__1__Impl : ( ( rule__ScatterPlot__ColorsAssignment_8_1 ) ) ;
+    public final void rule__ScatterPlot__Group_8__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5506:1: ( ( ( rule__ScatterPlot__ColorsAssignment_8_1 ) ) )
+            // InternalBiLang.g:5507:1: ( ( rule__ScatterPlot__ColorsAssignment_8_1 ) )
+            {
+            // InternalBiLang.g:5507:1: ( ( rule__ScatterPlot__ColorsAssignment_8_1 ) )
+            // InternalBiLang.g:5508:2: ( rule__ScatterPlot__ColorsAssignment_8_1 )
+            {
+             before(grammarAccess.getScatterPlotAccess().getColorsAssignment_8_1()); 
+            // InternalBiLang.g:5509:2: ( rule__ScatterPlot__ColorsAssignment_8_1 )
+            // InternalBiLang.g:5509:3: rule__ScatterPlot__ColorsAssignment_8_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__ScatterPlot__ColorsAssignment_8_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getScatterPlotAccess().getColorsAssignment_8_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ScatterPlot__Group_8__1__Impl"
+
+
+    // $ANTLR start "rule__ScatterPlot__Group_9__0"
+    // InternalBiLang.g:5518:1: rule__ScatterPlot__Group_9__0 : rule__ScatterPlot__Group_9__0__Impl rule__ScatterPlot__Group_9__1 ;
+    public final void rule__ScatterPlot__Group_9__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5522:1: ( rule__ScatterPlot__Group_9__0__Impl rule__ScatterPlot__Group_9__1 )
+            // InternalBiLang.g:5523:2: rule__ScatterPlot__Group_9__0__Impl rule__ScatterPlot__Group_9__1
+            {
+            pushFollow(FOLLOW_25);
+            rule__ScatterPlot__Group_9__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__ScatterPlot__Group_9__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ScatterPlot__Group_9__0"
+
+
+    // $ANTLR start "rule__ScatterPlot__Group_9__0__Impl"
+    // InternalBiLang.g:5530:1: rule__ScatterPlot__Group_9__0__Impl : ( 'thickness' ) ;
+    public final void rule__ScatterPlot__Group_9__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5534:1: ( ( 'thickness' ) )
+            // InternalBiLang.g:5535:1: ( 'thickness' )
+            {
+            // InternalBiLang.g:5535:1: ( 'thickness' )
+            // InternalBiLang.g:5536:2: 'thickness'
+            {
+             before(grammarAccess.getScatterPlotAccess().getThicknessKeyword_9_0()); 
+            match(input,51,FOLLOW_2); 
+             after(grammarAccess.getScatterPlotAccess().getThicknessKeyword_9_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ScatterPlot__Group_9__0__Impl"
+
+
+    // $ANTLR start "rule__ScatterPlot__Group_9__1"
+    // InternalBiLang.g:5545:1: rule__ScatterPlot__Group_9__1 : rule__ScatterPlot__Group_9__1__Impl ;
+    public final void rule__ScatterPlot__Group_9__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5549:1: ( rule__ScatterPlot__Group_9__1__Impl )
+            // InternalBiLang.g:5550:2: rule__ScatterPlot__Group_9__1__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__ScatterPlot__Group_9__1__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ScatterPlot__Group_9__1"
+
+
+    // $ANTLR start "rule__ScatterPlot__Group_9__1__Impl"
+    // InternalBiLang.g:5556:1: rule__ScatterPlot__Group_9__1__Impl : ( ( rule__ScatterPlot__ThicknessAssignment_9_1 ) ) ;
+    public final void rule__ScatterPlot__Group_9__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5560:1: ( ( ( rule__ScatterPlot__ThicknessAssignment_9_1 ) ) )
+            // InternalBiLang.g:5561:1: ( ( rule__ScatterPlot__ThicknessAssignment_9_1 ) )
+            {
+            // InternalBiLang.g:5561:1: ( ( rule__ScatterPlot__ThicknessAssignment_9_1 ) )
+            // InternalBiLang.g:5562:2: ( rule__ScatterPlot__ThicknessAssignment_9_1 )
+            {
+             before(grammarAccess.getScatterPlotAccess().getThicknessAssignment_9_1()); 
+            // InternalBiLang.g:5563:2: ( rule__ScatterPlot__ThicknessAssignment_9_1 )
+            // InternalBiLang.g:5563:3: rule__ScatterPlot__ThicknessAssignment_9_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__ScatterPlot__ThicknessAssignment_9_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getScatterPlotAccess().getThicknessAssignment_9_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ScatterPlot__Group_9__1__Impl"
+
+
+    // $ANTLR start "rule__RadarPlot__Group__0"
+    // InternalBiLang.g:5572:1: rule__RadarPlot__Group__0 : rule__RadarPlot__Group__0__Impl rule__RadarPlot__Group__1 ;
+    public final void rule__RadarPlot__Group__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5576:1: ( rule__RadarPlot__Group__0__Impl rule__RadarPlot__Group__1 )
+            // InternalBiLang.g:5577:2: rule__RadarPlot__Group__0__Impl rule__RadarPlot__Group__1
+            {
+            pushFollow(FOLLOW_3);
+            rule__RadarPlot__Group__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__RadarPlot__Group__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RadarPlot__Group__0"
+
+
+    // $ANTLR start "rule__RadarPlot__Group__0__Impl"
+    // InternalBiLang.g:5584:1: rule__RadarPlot__Group__0__Impl : ( 'radar' ) ;
+    public final void rule__RadarPlot__Group__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5588:1: ( ( 'radar' ) )
+            // InternalBiLang.g:5589:1: ( 'radar' )
+            {
+            // InternalBiLang.g:5589:1: ( 'radar' )
+            // InternalBiLang.g:5590:2: 'radar'
+            {
+             before(grammarAccess.getRadarPlotAccess().getRadarKeyword_0()); 
+            match(input,57,FOLLOW_2); 
+             after(grammarAccess.getRadarPlotAccess().getRadarKeyword_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RadarPlot__Group__0__Impl"
+
+
+    // $ANTLR start "rule__RadarPlot__Group__1"
+    // InternalBiLang.g:5599:1: rule__RadarPlot__Group__1 : rule__RadarPlot__Group__1__Impl rule__RadarPlot__Group__2 ;
+    public final void rule__RadarPlot__Group__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5603:1: ( rule__RadarPlot__Group__1__Impl rule__RadarPlot__Group__2 )
+            // InternalBiLang.g:5604:2: rule__RadarPlot__Group__1__Impl rule__RadarPlot__Group__2
+            {
+            pushFollow(FOLLOW_35);
+            rule__RadarPlot__Group__1__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__RadarPlot__Group__2();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RadarPlot__Group__1"
+
+
+    // $ANTLR start "rule__RadarPlot__Group__1__Impl"
+    // InternalBiLang.g:5611:1: rule__RadarPlot__Group__1__Impl : ( ( rule__RadarPlot__NameAssignment_1 ) ) ;
+    public final void rule__RadarPlot__Group__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5615:1: ( ( ( rule__RadarPlot__NameAssignment_1 ) ) )
+            // InternalBiLang.g:5616:1: ( ( rule__RadarPlot__NameAssignment_1 ) )
+            {
+            // InternalBiLang.g:5616:1: ( ( rule__RadarPlot__NameAssignment_1 ) )
+            // InternalBiLang.g:5617:2: ( rule__RadarPlot__NameAssignment_1 )
+            {
+             before(grammarAccess.getRadarPlotAccess().getNameAssignment_1()); 
+            // InternalBiLang.g:5618:2: ( rule__RadarPlot__NameAssignment_1 )
+            // InternalBiLang.g:5618:3: rule__RadarPlot__NameAssignment_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__RadarPlot__NameAssignment_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getRadarPlotAccess().getNameAssignment_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RadarPlot__Group__1__Impl"
+
+
+    // $ANTLR start "rule__RadarPlot__Group__2"
+    // InternalBiLang.g:5626:1: rule__RadarPlot__Group__2 : rule__RadarPlot__Group__2__Impl rule__RadarPlot__Group__3 ;
+    public final void rule__RadarPlot__Group__2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5630:1: ( rule__RadarPlot__Group__2__Impl rule__RadarPlot__Group__3 )
+            // InternalBiLang.g:5631:2: rule__RadarPlot__Group__2__Impl rule__RadarPlot__Group__3
+            {
+            pushFollow(FOLLOW_36);
+            rule__RadarPlot__Group__2__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__RadarPlot__Group__3();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RadarPlot__Group__2"
+
+
+    // $ANTLR start "rule__RadarPlot__Group__2__Impl"
+    // InternalBiLang.g:5638:1: rule__RadarPlot__Group__2__Impl : ( '->' ) ;
+    public final void rule__RadarPlot__Group__2__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5642:1: ( ( '->' ) )
+            // InternalBiLang.g:5643:1: ( '->' )
+            {
+            // InternalBiLang.g:5643:1: ( '->' )
+            // InternalBiLang.g:5644:2: '->'
+            {
+             before(grammarAccess.getRadarPlotAccess().getHyphenMinusGreaterThanSignKeyword_2()); 
+            match(input,46,FOLLOW_2); 
+             after(grammarAccess.getRadarPlotAccess().getHyphenMinusGreaterThanSignKeyword_2()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RadarPlot__Group__2__Impl"
+
+
+    // $ANTLR start "rule__RadarPlot__Group__3"
+    // InternalBiLang.g:5653:1: rule__RadarPlot__Group__3 : rule__RadarPlot__Group__3__Impl rule__RadarPlot__Group__4 ;
+    public final void rule__RadarPlot__Group__3() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5657:1: ( rule__RadarPlot__Group__3__Impl rule__RadarPlot__Group__4 )
+            // InternalBiLang.g:5658:2: rule__RadarPlot__Group__3__Impl rule__RadarPlot__Group__4
+            {
+            pushFollow(FOLLOW_6);
+            rule__RadarPlot__Group__3__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__RadarPlot__Group__4();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RadarPlot__Group__3"
+
+
+    // $ANTLR start "rule__RadarPlot__Group__3__Impl"
+    // InternalBiLang.g:5665:1: rule__RadarPlot__Group__3__Impl : ( 'xAx' ) ;
+    public final void rule__RadarPlot__Group__3__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5669:1: ( ( 'xAx' ) )
+            // InternalBiLang.g:5670:1: ( 'xAx' )
+            {
+            // InternalBiLang.g:5670:1: ( 'xAx' )
+            // InternalBiLang.g:5671:2: 'xAx'
+            {
+             before(grammarAccess.getRadarPlotAccess().getXAxKeyword_3()); 
+            match(input,47,FOLLOW_2); 
+             after(grammarAccess.getRadarPlotAccess().getXAxKeyword_3()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RadarPlot__Group__3__Impl"
+
+
+    // $ANTLR start "rule__RadarPlot__Group__4"
+    // InternalBiLang.g:5680:1: rule__RadarPlot__Group__4 : rule__RadarPlot__Group__4__Impl rule__RadarPlot__Group__5 ;
+    public final void rule__RadarPlot__Group__4() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5684:1: ( rule__RadarPlot__Group__4__Impl rule__RadarPlot__Group__5 )
+            // InternalBiLang.g:5685:2: rule__RadarPlot__Group__4__Impl rule__RadarPlot__Group__5
+            {
+            pushFollow(FOLLOW_37);
+            rule__RadarPlot__Group__4__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__RadarPlot__Group__5();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RadarPlot__Group__4"
+
+
+    // $ANTLR start "rule__RadarPlot__Group__4__Impl"
+    // InternalBiLang.g:5692:1: rule__RadarPlot__Group__4__Impl : ( ( rule__RadarPlot__XAxisAssignment_4 ) ) ;
+    public final void rule__RadarPlot__Group__4__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5696:1: ( ( ( rule__RadarPlot__XAxisAssignment_4 ) ) )
+            // InternalBiLang.g:5697:1: ( ( rule__RadarPlot__XAxisAssignment_4 ) )
+            {
+            // InternalBiLang.g:5697:1: ( ( rule__RadarPlot__XAxisAssignment_4 ) )
+            // InternalBiLang.g:5698:2: ( rule__RadarPlot__XAxisAssignment_4 )
+            {
+             before(grammarAccess.getRadarPlotAccess().getXAxisAssignment_4()); 
+            // InternalBiLang.g:5699:2: ( rule__RadarPlot__XAxisAssignment_4 )
+            // InternalBiLang.g:5699:3: rule__RadarPlot__XAxisAssignment_4
+            {
+            pushFollow(FOLLOW_2);
+            rule__RadarPlot__XAxisAssignment_4();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getRadarPlotAccess().getXAxisAssignment_4()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RadarPlot__Group__4__Impl"
+
+
+    // $ANTLR start "rule__RadarPlot__Group__5"
+    // InternalBiLang.g:5707:1: rule__RadarPlot__Group__5 : rule__RadarPlot__Group__5__Impl rule__RadarPlot__Group__6 ;
+    public final void rule__RadarPlot__Group__5() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5711:1: ( rule__RadarPlot__Group__5__Impl rule__RadarPlot__Group__6 )
+            // InternalBiLang.g:5712:2: rule__RadarPlot__Group__5__Impl rule__RadarPlot__Group__6
+            {
+            pushFollow(FOLLOW_6);
+            rule__RadarPlot__Group__5__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__RadarPlot__Group__6();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RadarPlot__Group__5"
+
+
+    // $ANTLR start "rule__RadarPlot__Group__5__Impl"
+    // InternalBiLang.g:5719:1: rule__RadarPlot__Group__5__Impl : ( 'yA' ) ;
+    public final void rule__RadarPlot__Group__5__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5723:1: ( ( 'yA' ) )
+            // InternalBiLang.g:5724:1: ( 'yA' )
+            {
+            // InternalBiLang.g:5724:1: ( 'yA' )
+            // InternalBiLang.g:5725:2: 'yA'
+            {
+             before(grammarAccess.getRadarPlotAccess().getYAKeyword_5()); 
+            match(input,48,FOLLOW_2); 
+             after(grammarAccess.getRadarPlotAccess().getYAKeyword_5()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RadarPlot__Group__5__Impl"
+
+
+    // $ANTLR start "rule__RadarPlot__Group__6"
+    // InternalBiLang.g:5734:1: rule__RadarPlot__Group__6 : rule__RadarPlot__Group__6__Impl rule__RadarPlot__Group__7 ;
+    public final void rule__RadarPlot__Group__6() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5738:1: ( rule__RadarPlot__Group__6__Impl rule__RadarPlot__Group__7 )
+            // InternalBiLang.g:5739:2: rule__RadarPlot__Group__6__Impl rule__RadarPlot__Group__7
+            {
+            pushFollow(FOLLOW_38);
+            rule__RadarPlot__Group__6__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__RadarPlot__Group__7();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RadarPlot__Group__6"
+
+
+    // $ANTLR start "rule__RadarPlot__Group__6__Impl"
+    // InternalBiLang.g:5746:1: rule__RadarPlot__Group__6__Impl : ( ( rule__RadarPlot__YAxisAssignment_6 ) ) ;
+    public final void rule__RadarPlot__Group__6__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5750:1: ( ( ( rule__RadarPlot__YAxisAssignment_6 ) ) )
+            // InternalBiLang.g:5751:1: ( ( rule__RadarPlot__YAxisAssignment_6 ) )
+            {
+            // InternalBiLang.g:5751:1: ( ( rule__RadarPlot__YAxisAssignment_6 ) )
+            // InternalBiLang.g:5752:2: ( rule__RadarPlot__YAxisAssignment_6 )
+            {
+             before(grammarAccess.getRadarPlotAccess().getYAxisAssignment_6()); 
+            // InternalBiLang.g:5753:2: ( rule__RadarPlot__YAxisAssignment_6 )
+            // InternalBiLang.g:5753:3: rule__RadarPlot__YAxisAssignment_6
+            {
+            pushFollow(FOLLOW_2);
+            rule__RadarPlot__YAxisAssignment_6();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getRadarPlotAccess().getYAxisAssignment_6()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RadarPlot__Group__6__Impl"
+
+
+    // $ANTLR start "rule__RadarPlot__Group__7"
+    // InternalBiLang.g:5761:1: rule__RadarPlot__Group__7 : rule__RadarPlot__Group__7__Impl rule__RadarPlot__Group__8 ;
+    public final void rule__RadarPlot__Group__7() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5765:1: ( rule__RadarPlot__Group__7__Impl rule__RadarPlot__Group__8 )
+            // InternalBiLang.g:5766:2: rule__RadarPlot__Group__7__Impl rule__RadarPlot__Group__8
+            {
+            pushFollow(FOLLOW_38);
+            rule__RadarPlot__Group__7__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__RadarPlot__Group__8();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RadarPlot__Group__7"
+
+
+    // $ANTLR start "rule__RadarPlot__Group__7__Impl"
+    // InternalBiLang.g:5773:1: rule__RadarPlot__Group__7__Impl : ( ( rule__RadarPlot__Group_7__0 )? ) ;
+    public final void rule__RadarPlot__Group__7__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5777:1: ( ( ( rule__RadarPlot__Group_7__0 )? ) )
+            // InternalBiLang.g:5778:1: ( ( rule__RadarPlot__Group_7__0 )? )
+            {
+            // InternalBiLang.g:5778:1: ( ( rule__RadarPlot__Group_7__0 )? )
+            // InternalBiLang.g:5779:2: ( rule__RadarPlot__Group_7__0 )?
+            {
+             before(grammarAccess.getRadarPlotAccess().getGroup_7()); 
+            // InternalBiLang.g:5780:2: ( rule__RadarPlot__Group_7__0 )?
+            int alt41=2;
+            int LA41_0 = input.LA(1);
+
+            if ( (LA41_0==49) ) {
+                alt41=1;
+            }
+            switch (alt41) {
+                case 1 :
+                    // InternalBiLang.g:5780:3: rule__RadarPlot__Group_7__0
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__RadarPlot__Group_7__0();
+
+                    state._fsp--;
+
+
+                    }
+                    break;
+
+            }
+
+             after(grammarAccess.getRadarPlotAccess().getGroup_7()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RadarPlot__Group__7__Impl"
+
+
+    // $ANTLR start "rule__RadarPlot__Group__8"
+    // InternalBiLang.g:5788:1: rule__RadarPlot__Group__8 : rule__RadarPlot__Group__8__Impl rule__RadarPlot__Group__9 ;
+    public final void rule__RadarPlot__Group__8() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5792:1: ( rule__RadarPlot__Group__8__Impl rule__RadarPlot__Group__9 )
+            // InternalBiLang.g:5793:2: rule__RadarPlot__Group__8__Impl rule__RadarPlot__Group__9
+            {
+            pushFollow(FOLLOW_38);
+            rule__RadarPlot__Group__8__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__RadarPlot__Group__9();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RadarPlot__Group__8"
+
+
+    // $ANTLR start "rule__RadarPlot__Group__8__Impl"
+    // InternalBiLang.g:5800:1: rule__RadarPlot__Group__8__Impl : ( ( rule__RadarPlot__Group_8__0 )? ) ;
+    public final void rule__RadarPlot__Group__8__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5804:1: ( ( ( rule__RadarPlot__Group_8__0 )? ) )
+            // InternalBiLang.g:5805:1: ( ( rule__RadarPlot__Group_8__0 )? )
+            {
+            // InternalBiLang.g:5805:1: ( ( rule__RadarPlot__Group_8__0 )? )
+            // InternalBiLang.g:5806:2: ( rule__RadarPlot__Group_8__0 )?
+            {
+             before(grammarAccess.getRadarPlotAccess().getGroup_8()); 
+            // InternalBiLang.g:5807:2: ( rule__RadarPlot__Group_8__0 )?
+            int alt42=2;
+            int LA42_0 = input.LA(1);
+
+            if ( (LA42_0==50) ) {
+                alt42=1;
+            }
+            switch (alt42) {
+                case 1 :
+                    // InternalBiLang.g:5807:3: rule__RadarPlot__Group_8__0
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__RadarPlot__Group_8__0();
+
+                    state._fsp--;
+
+
+                    }
+                    break;
+
+            }
+
+             after(grammarAccess.getRadarPlotAccess().getGroup_8()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RadarPlot__Group__8__Impl"
+
+
+    // $ANTLR start "rule__RadarPlot__Group__9"
+    // InternalBiLang.g:5815:1: rule__RadarPlot__Group__9 : rule__RadarPlot__Group__9__Impl ;
+    public final void rule__RadarPlot__Group__9() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5819:1: ( rule__RadarPlot__Group__9__Impl )
+            // InternalBiLang.g:5820:2: rule__RadarPlot__Group__9__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__RadarPlot__Group__9__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RadarPlot__Group__9"
+
+
+    // $ANTLR start "rule__RadarPlot__Group__9__Impl"
+    // InternalBiLang.g:5826:1: rule__RadarPlot__Group__9__Impl : ( ( rule__RadarPlot__Group_9__0 )? ) ;
+    public final void rule__RadarPlot__Group__9__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5830:1: ( ( ( rule__RadarPlot__Group_9__0 )? ) )
+            // InternalBiLang.g:5831:1: ( ( rule__RadarPlot__Group_9__0 )? )
+            {
+            // InternalBiLang.g:5831:1: ( ( rule__RadarPlot__Group_9__0 )? )
+            // InternalBiLang.g:5832:2: ( rule__RadarPlot__Group_9__0 )?
+            {
+             before(grammarAccess.getRadarPlotAccess().getGroup_9()); 
+            // InternalBiLang.g:5833:2: ( rule__RadarPlot__Group_9__0 )?
+            int alt43=2;
+            int LA43_0 = input.LA(1);
+
+            if ( (LA43_0==51) ) {
+                alt43=1;
+            }
+            switch (alt43) {
+                case 1 :
+                    // InternalBiLang.g:5833:3: rule__RadarPlot__Group_9__0
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__RadarPlot__Group_9__0();
+
+                    state._fsp--;
+
+
+                    }
+                    break;
+
+            }
+
+             after(grammarAccess.getRadarPlotAccess().getGroup_9()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RadarPlot__Group__9__Impl"
+
+
+    // $ANTLR start "rule__RadarPlot__Group_7__0"
+    // InternalBiLang.g:5842:1: rule__RadarPlot__Group_7__0 : rule__RadarPlot__Group_7__0__Impl rule__RadarPlot__Group_7__1 ;
+    public final void rule__RadarPlot__Group_7__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5846:1: ( rule__RadarPlot__Group_7__0__Impl rule__RadarPlot__Group_7__1 )
+            // InternalBiLang.g:5847:2: rule__RadarPlot__Group_7__0__Impl rule__RadarPlot__Group_7__1
+            {
+            pushFollow(FOLLOW_6);
+            rule__RadarPlot__Group_7__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__RadarPlot__Group_7__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RadarPlot__Group_7__0"
+
+
+    // $ANTLR start "rule__RadarPlot__Group_7__0__Impl"
+    // InternalBiLang.g:5854:1: rule__RadarPlot__Group_7__0__Impl : ( 'loc' ) ;
+    public final void rule__RadarPlot__Group_7__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5858:1: ( ( 'loc' ) )
+            // InternalBiLang.g:5859:1: ( 'loc' )
+            {
+            // InternalBiLang.g:5859:1: ( 'loc' )
+            // InternalBiLang.g:5860:2: 'loc'
+            {
+             before(grammarAccess.getRadarPlotAccess().getLocKeyword_7_0()); 
+            match(input,49,FOLLOW_2); 
+             after(grammarAccess.getRadarPlotAccess().getLocKeyword_7_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RadarPlot__Group_7__0__Impl"
+
+
+    // $ANTLR start "rule__RadarPlot__Group_7__1"
+    // InternalBiLang.g:5869:1: rule__RadarPlot__Group_7__1 : rule__RadarPlot__Group_7__1__Impl ;
+    public final void rule__RadarPlot__Group_7__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5873:1: ( rule__RadarPlot__Group_7__1__Impl )
+            // InternalBiLang.g:5874:2: rule__RadarPlot__Group_7__1__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__RadarPlot__Group_7__1__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RadarPlot__Group_7__1"
+
+
+    // $ANTLR start "rule__RadarPlot__Group_7__1__Impl"
+    // InternalBiLang.g:5880:1: rule__RadarPlot__Group_7__1__Impl : ( ( rule__RadarPlot__LocationAssignment_7_1 ) ) ;
+    public final void rule__RadarPlot__Group_7__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5884:1: ( ( ( rule__RadarPlot__LocationAssignment_7_1 ) ) )
+            // InternalBiLang.g:5885:1: ( ( rule__RadarPlot__LocationAssignment_7_1 ) )
+            {
+            // InternalBiLang.g:5885:1: ( ( rule__RadarPlot__LocationAssignment_7_1 ) )
+            // InternalBiLang.g:5886:2: ( rule__RadarPlot__LocationAssignment_7_1 )
+            {
+             before(grammarAccess.getRadarPlotAccess().getLocationAssignment_7_1()); 
+            // InternalBiLang.g:5887:2: ( rule__RadarPlot__LocationAssignment_7_1 )
+            // InternalBiLang.g:5887:3: rule__RadarPlot__LocationAssignment_7_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__RadarPlot__LocationAssignment_7_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getRadarPlotAccess().getLocationAssignment_7_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RadarPlot__Group_7__1__Impl"
+
+
+    // $ANTLR start "rule__RadarPlot__Group_8__0"
+    // InternalBiLang.g:5896:1: rule__RadarPlot__Group_8__0 : rule__RadarPlot__Group_8__0__Impl rule__RadarPlot__Group_8__1 ;
+    public final void rule__RadarPlot__Group_8__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5900:1: ( rule__RadarPlot__Group_8__0__Impl rule__RadarPlot__Group_8__1 )
+            // InternalBiLang.g:5901:2: rule__RadarPlot__Group_8__0__Impl rule__RadarPlot__Group_8__1
+            {
+            pushFollow(FOLLOW_6);
+            rule__RadarPlot__Group_8__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__RadarPlot__Group_8__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RadarPlot__Group_8__0"
+
+
+    // $ANTLR start "rule__RadarPlot__Group_8__0__Impl"
+    // InternalBiLang.g:5908:1: rule__RadarPlot__Group_8__0__Impl : ( 'colors' ) ;
+    public final void rule__RadarPlot__Group_8__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5912:1: ( ( 'colors' ) )
+            // InternalBiLang.g:5913:1: ( 'colors' )
+            {
+            // InternalBiLang.g:5913:1: ( 'colors' )
+            // InternalBiLang.g:5914:2: 'colors'
+            {
+             before(grammarAccess.getRadarPlotAccess().getColorsKeyword_8_0()); 
+            match(input,50,FOLLOW_2); 
+             after(grammarAccess.getRadarPlotAccess().getColorsKeyword_8_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RadarPlot__Group_8__0__Impl"
+
+
+    // $ANTLR start "rule__RadarPlot__Group_8__1"
+    // InternalBiLang.g:5923:1: rule__RadarPlot__Group_8__1 : rule__RadarPlot__Group_8__1__Impl ;
+    public final void rule__RadarPlot__Group_8__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5927:1: ( rule__RadarPlot__Group_8__1__Impl )
+            // InternalBiLang.g:5928:2: rule__RadarPlot__Group_8__1__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__RadarPlot__Group_8__1__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RadarPlot__Group_8__1"
+
+
+    // $ANTLR start "rule__RadarPlot__Group_8__1__Impl"
+    // InternalBiLang.g:5934:1: rule__RadarPlot__Group_8__1__Impl : ( ( rule__RadarPlot__ColorsAssignment_8_1 ) ) ;
+    public final void rule__RadarPlot__Group_8__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5938:1: ( ( ( rule__RadarPlot__ColorsAssignment_8_1 ) ) )
+            // InternalBiLang.g:5939:1: ( ( rule__RadarPlot__ColorsAssignment_8_1 ) )
+            {
+            // InternalBiLang.g:5939:1: ( ( rule__RadarPlot__ColorsAssignment_8_1 ) )
+            // InternalBiLang.g:5940:2: ( rule__RadarPlot__ColorsAssignment_8_1 )
+            {
+             before(grammarAccess.getRadarPlotAccess().getColorsAssignment_8_1()); 
+            // InternalBiLang.g:5941:2: ( rule__RadarPlot__ColorsAssignment_8_1 )
+            // InternalBiLang.g:5941:3: rule__RadarPlot__ColorsAssignment_8_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__RadarPlot__ColorsAssignment_8_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getRadarPlotAccess().getColorsAssignment_8_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RadarPlot__Group_8__1__Impl"
+
+
+    // $ANTLR start "rule__RadarPlot__Group_9__0"
+    // InternalBiLang.g:5950:1: rule__RadarPlot__Group_9__0 : rule__RadarPlot__Group_9__0__Impl rule__RadarPlot__Group_9__1 ;
+    public final void rule__RadarPlot__Group_9__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5954:1: ( rule__RadarPlot__Group_9__0__Impl rule__RadarPlot__Group_9__1 )
+            // InternalBiLang.g:5955:2: rule__RadarPlot__Group_9__0__Impl rule__RadarPlot__Group_9__1
+            {
+            pushFollow(FOLLOW_25);
+            rule__RadarPlot__Group_9__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__RadarPlot__Group_9__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RadarPlot__Group_9__0"
+
+
+    // $ANTLR start "rule__RadarPlot__Group_9__0__Impl"
+    // InternalBiLang.g:5962:1: rule__RadarPlot__Group_9__0__Impl : ( 'thickness' ) ;
+    public final void rule__RadarPlot__Group_9__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5966:1: ( ( 'thickness' ) )
+            // InternalBiLang.g:5967:1: ( 'thickness' )
+            {
+            // InternalBiLang.g:5967:1: ( 'thickness' )
+            // InternalBiLang.g:5968:2: 'thickness'
+            {
+             before(grammarAccess.getRadarPlotAccess().getThicknessKeyword_9_0()); 
+            match(input,51,FOLLOW_2); 
+             after(grammarAccess.getRadarPlotAccess().getThicknessKeyword_9_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RadarPlot__Group_9__0__Impl"
+
+
+    // $ANTLR start "rule__RadarPlot__Group_9__1"
+    // InternalBiLang.g:5977:1: rule__RadarPlot__Group_9__1 : rule__RadarPlot__Group_9__1__Impl ;
+    public final void rule__RadarPlot__Group_9__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5981:1: ( rule__RadarPlot__Group_9__1__Impl )
+            // InternalBiLang.g:5982:2: rule__RadarPlot__Group_9__1__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__RadarPlot__Group_9__1__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RadarPlot__Group_9__1"
+
+
+    // $ANTLR start "rule__RadarPlot__Group_9__1__Impl"
+    // InternalBiLang.g:5988:1: rule__RadarPlot__Group_9__1__Impl : ( ( rule__RadarPlot__ThicknessAssignment_9_1 ) ) ;
+    public final void rule__RadarPlot__Group_9__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:5992:1: ( ( ( rule__RadarPlot__ThicknessAssignment_9_1 ) ) )
+            // InternalBiLang.g:5993:1: ( ( rule__RadarPlot__ThicknessAssignment_9_1 ) )
+            {
+            // InternalBiLang.g:5993:1: ( ( rule__RadarPlot__ThicknessAssignment_9_1 ) )
+            // InternalBiLang.g:5994:2: ( rule__RadarPlot__ThicknessAssignment_9_1 )
+            {
+             before(grammarAccess.getRadarPlotAccess().getThicknessAssignment_9_1()); 
+            // InternalBiLang.g:5995:2: ( rule__RadarPlot__ThicknessAssignment_9_1 )
+            // InternalBiLang.g:5995:3: rule__RadarPlot__ThicknessAssignment_9_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__RadarPlot__ThicknessAssignment_9_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getRadarPlotAccess().getThicknessAssignment_9_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RadarPlot__Group_9__1__Impl"
+
+
     // $ANTLR start "rule__Task__NameAssignment_1"
-    // InternalBiLang.g:3689:1: rule__Task__NameAssignment_1 : ( RULE_ID ) ;
+    // InternalBiLang.g:6004:1: rule__Task__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__Task__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3693:1: ( ( RULE_ID ) )
-            // InternalBiLang.g:3694:2: ( RULE_ID )
+            // InternalBiLang.g:6008:1: ( ( RULE_ID ) )
+            // InternalBiLang.g:6009:2: ( RULE_ID )
             {
-            // InternalBiLang.g:3694:2: ( RULE_ID )
-            // InternalBiLang.g:3695:3: RULE_ID
+            // InternalBiLang.g:6009:2: ( RULE_ID )
+            // InternalBiLang.g:6010:3: RULE_ID
             {
              before(grammarAccess.getTaskAccess().getNameIDTerminalRuleCall_1_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -11420,17 +18449,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Task__FileextractorAssignment_4"
-    // InternalBiLang.g:3704:1: rule__Task__FileextractorAssignment_4 : ( ruleFileExtractor ) ;
+    // InternalBiLang.g:6019:1: rule__Task__FileextractorAssignment_4 : ( ruleFileExtractor ) ;
     public final void rule__Task__FileextractorAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3708:1: ( ( ruleFileExtractor ) )
-            // InternalBiLang.g:3709:2: ( ruleFileExtractor )
+            // InternalBiLang.g:6023:1: ( ( ruleFileExtractor ) )
+            // InternalBiLang.g:6024:2: ( ruleFileExtractor )
             {
-            // InternalBiLang.g:3709:2: ( ruleFileExtractor )
-            // InternalBiLang.g:3710:3: ruleFileExtractor
+            // InternalBiLang.g:6024:2: ( ruleFileExtractor )
+            // InternalBiLang.g:6025:3: ruleFileExtractor
             {
              before(grammarAccess.getTaskAccess().getFileextractorFileExtractorParserRuleCall_4_0()); 
             pushFollow(FOLLOW_2);
@@ -11461,17 +18490,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Task__DatafilteringAssignment_5"
-    // InternalBiLang.g:3719:1: rule__Task__DatafilteringAssignment_5 : ( ruleDataFiltering ) ;
+    // InternalBiLang.g:6034:1: rule__Task__DatafilteringAssignment_5 : ( ruleDataFiltering ) ;
     public final void rule__Task__DatafilteringAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3723:1: ( ( ruleDataFiltering ) )
-            // InternalBiLang.g:3724:2: ( ruleDataFiltering )
+            // InternalBiLang.g:6038:1: ( ( ruleDataFiltering ) )
+            // InternalBiLang.g:6039:2: ( ruleDataFiltering )
             {
-            // InternalBiLang.g:3724:2: ( ruleDataFiltering )
-            // InternalBiLang.g:3725:3: ruleDataFiltering
+            // InternalBiLang.g:6039:2: ( ruleDataFiltering )
+            // InternalBiLang.g:6040:3: ruleDataFiltering
             {
              before(grammarAccess.getTaskAccess().getDatafilteringDataFilteringParserRuleCall_5_0()); 
             pushFollow(FOLLOW_2);
@@ -11502,17 +18531,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Task__FileextractorAssignment_6_0"
-    // InternalBiLang.g:3734:1: rule__Task__FileextractorAssignment_6_0 : ( ruleFileExtractor ) ;
+    // InternalBiLang.g:6049:1: rule__Task__FileextractorAssignment_6_0 : ( ruleFileExtractor ) ;
     public final void rule__Task__FileextractorAssignment_6_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3738:1: ( ( ruleFileExtractor ) )
-            // InternalBiLang.g:3739:2: ( ruleFileExtractor )
+            // InternalBiLang.g:6053:1: ( ( ruleFileExtractor ) )
+            // InternalBiLang.g:6054:2: ( ruleFileExtractor )
             {
-            // InternalBiLang.g:3739:2: ( ruleFileExtractor )
-            // InternalBiLang.g:3740:3: ruleFileExtractor
+            // InternalBiLang.g:6054:2: ( ruleFileExtractor )
+            // InternalBiLang.g:6055:3: ruleFileExtractor
             {
              before(grammarAccess.getTaskAccess().getFileextractorFileExtractorParserRuleCall_6_0_0()); 
             pushFollow(FOLLOW_2);
@@ -11543,17 +18572,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Task__DatafilteringAssignment_6_1"
-    // InternalBiLang.g:3749:1: rule__Task__DatafilteringAssignment_6_1 : ( ruleDataFiltering ) ;
+    // InternalBiLang.g:6064:1: rule__Task__DatafilteringAssignment_6_1 : ( ruleDataFiltering ) ;
     public final void rule__Task__DatafilteringAssignment_6_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3753:1: ( ( ruleDataFiltering ) )
-            // InternalBiLang.g:3754:2: ( ruleDataFiltering )
+            // InternalBiLang.g:6068:1: ( ( ruleDataFiltering ) )
+            // InternalBiLang.g:6069:2: ( ruleDataFiltering )
             {
-            // InternalBiLang.g:3754:2: ( ruleDataFiltering )
-            // InternalBiLang.g:3755:3: ruleDataFiltering
+            // InternalBiLang.g:6069:2: ( ruleDataFiltering )
+            // InternalBiLang.g:6070:3: ruleDataFiltering
             {
              before(grammarAccess.getTaskAccess().getDatafilteringDataFilteringParserRuleCall_6_1_0()); 
             pushFollow(FOLLOW_2);
@@ -11584,17 +18613,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Task__DashboardAssignment_8"
-    // InternalBiLang.g:3764:1: rule__Task__DashboardAssignment_8 : ( ruleDashBoard ) ;
+    // InternalBiLang.g:6079:1: rule__Task__DashboardAssignment_8 : ( ruleDashBoard ) ;
     public final void rule__Task__DashboardAssignment_8() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3768:1: ( ( ruleDashBoard ) )
-            // InternalBiLang.g:3769:2: ( ruleDashBoard )
+            // InternalBiLang.g:6083:1: ( ( ruleDashBoard ) )
+            // InternalBiLang.g:6084:2: ( ruleDashBoard )
             {
-            // InternalBiLang.g:3769:2: ( ruleDashBoard )
-            // InternalBiLang.g:3770:3: ruleDashBoard
+            // InternalBiLang.g:6084:2: ( ruleDashBoard )
+            // InternalBiLang.g:6085:3: ruleDashBoard
             {
              before(grammarAccess.getTaskAccess().getDashboardDashBoardParserRuleCall_8_0()); 
             pushFollow(FOLLOW_2);
@@ -11625,21 +18654,21 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DataFiltering__FileextractorAssignment_1"
-    // InternalBiLang.g:3779:1: rule__DataFiltering__FileextractorAssignment_1 : ( ( ruleEString ) ) ;
+    // InternalBiLang.g:6094:1: rule__DataFiltering__FileextractorAssignment_1 : ( ( ruleEString ) ) ;
     public final void rule__DataFiltering__FileextractorAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3783:1: ( ( ( ruleEString ) ) )
-            // InternalBiLang.g:3784:2: ( ( ruleEString ) )
+            // InternalBiLang.g:6098:1: ( ( ( ruleEString ) ) )
+            // InternalBiLang.g:6099:2: ( ( ruleEString ) )
             {
-            // InternalBiLang.g:3784:2: ( ( ruleEString ) )
-            // InternalBiLang.g:3785:3: ( ruleEString )
+            // InternalBiLang.g:6099:2: ( ( ruleEString ) )
+            // InternalBiLang.g:6100:3: ( ruleEString )
             {
              before(grammarAccess.getDataFilteringAccess().getFileextractorFileExtractorCrossReference_1_0()); 
-            // InternalBiLang.g:3786:3: ( ruleEString )
-            // InternalBiLang.g:3787:4: ruleEString
+            // InternalBiLang.g:6101:3: ( ruleEString )
+            // InternalBiLang.g:6102:4: ruleEString
             {
              before(grammarAccess.getDataFilteringAccess().getFileextractorFileExtractorEStringParserRuleCall_1_0_1()); 
             pushFollow(FOLLOW_2);
@@ -11674,17 +18703,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DataFiltering__ProcessingstepAssignment_2_1"
-    // InternalBiLang.g:3798:1: rule__DataFiltering__ProcessingstepAssignment_2_1 : ( rulePreprocessingStep ) ;
+    // InternalBiLang.g:6113:1: rule__DataFiltering__ProcessingstepAssignment_2_1 : ( rulePreprocessingStep ) ;
     public final void rule__DataFiltering__ProcessingstepAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3802:1: ( ( rulePreprocessingStep ) )
-            // InternalBiLang.g:3803:2: ( rulePreprocessingStep )
+            // InternalBiLang.g:6117:1: ( ( rulePreprocessingStep ) )
+            // InternalBiLang.g:6118:2: ( rulePreprocessingStep )
             {
-            // InternalBiLang.g:3803:2: ( rulePreprocessingStep )
-            // InternalBiLang.g:3804:3: rulePreprocessingStep
+            // InternalBiLang.g:6118:2: ( rulePreprocessingStep )
+            // InternalBiLang.g:6119:3: rulePreprocessingStep
             {
              before(grammarAccess.getDataFilteringAccess().getProcessingstepPreprocessingStepParserRuleCall_2_1_0()); 
             pushFollow(FOLLOW_2);
@@ -11715,17 +18744,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DataFiltering__ProcessingstepAssignment_2_2"
-    // InternalBiLang.g:3813:1: rule__DataFiltering__ProcessingstepAssignment_2_2 : ( rulePreprocessingStep ) ;
+    // InternalBiLang.g:6128:1: rule__DataFiltering__ProcessingstepAssignment_2_2 : ( rulePreprocessingStep ) ;
     public final void rule__DataFiltering__ProcessingstepAssignment_2_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3817:1: ( ( rulePreprocessingStep ) )
-            // InternalBiLang.g:3818:2: ( rulePreprocessingStep )
+            // InternalBiLang.g:6132:1: ( ( rulePreprocessingStep ) )
+            // InternalBiLang.g:6133:2: ( rulePreprocessingStep )
             {
-            // InternalBiLang.g:3818:2: ( rulePreprocessingStep )
-            // InternalBiLang.g:3819:3: rulePreprocessingStep
+            // InternalBiLang.g:6133:2: ( rulePreprocessingStep )
+            // InternalBiLang.g:6134:3: rulePreprocessingStep
             {
              before(grammarAccess.getDataFilteringAccess().getProcessingstepPreprocessingStepParserRuleCall_2_2_0()); 
             pushFollow(FOLLOW_2);
@@ -11756,17 +18785,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DataFiltering__FilteringstepAssignment_4"
-    // InternalBiLang.g:3828:1: rule__DataFiltering__FilteringstepAssignment_4 : ( ruleFilteringStep ) ;
+    // InternalBiLang.g:6143:1: rule__DataFiltering__FilteringstepAssignment_4 : ( ruleFilteringStep ) ;
     public final void rule__DataFiltering__FilteringstepAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3832:1: ( ( ruleFilteringStep ) )
-            // InternalBiLang.g:3833:2: ( ruleFilteringStep )
+            // InternalBiLang.g:6147:1: ( ( ruleFilteringStep ) )
+            // InternalBiLang.g:6148:2: ( ruleFilteringStep )
             {
-            // InternalBiLang.g:3833:2: ( ruleFilteringStep )
-            // InternalBiLang.g:3834:3: ruleFilteringStep
+            // InternalBiLang.g:6148:2: ( ruleFilteringStep )
+            // InternalBiLang.g:6149:3: ruleFilteringStep
             {
              before(grammarAccess.getDataFilteringAccess().getFilteringstepFilteringStepParserRuleCall_4_0()); 
             pushFollow(FOLLOW_2);
@@ -11797,17 +18826,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DataFiltering__FilteringstepAssignment_5_1"
-    // InternalBiLang.g:3843:1: rule__DataFiltering__FilteringstepAssignment_5_1 : ( ruleFilteringStep ) ;
+    // InternalBiLang.g:6158:1: rule__DataFiltering__FilteringstepAssignment_5_1 : ( ruleFilteringStep ) ;
     public final void rule__DataFiltering__FilteringstepAssignment_5_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3847:1: ( ( ruleFilteringStep ) )
-            // InternalBiLang.g:3848:2: ( ruleFilteringStep )
+            // InternalBiLang.g:6162:1: ( ( ruleFilteringStep ) )
+            // InternalBiLang.g:6163:2: ( ruleFilteringStep )
             {
-            // InternalBiLang.g:3848:2: ( ruleFilteringStep )
-            // InternalBiLang.g:3849:3: ruleFilteringStep
+            // InternalBiLang.g:6163:2: ( ruleFilteringStep )
+            // InternalBiLang.g:6164:3: ruleFilteringStep
             {
              before(grammarAccess.getDataFilteringAccess().getFilteringstepFilteringStepParserRuleCall_5_1_0()); 
             pushFollow(FOLLOW_2);
@@ -11838,17 +18867,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DashBoard__NameAssignment_0"
-    // InternalBiLang.g:3858:1: rule__DashBoard__NameAssignment_0 : ( ruleEString ) ;
+    // InternalBiLang.g:6173:1: rule__DashBoard__NameAssignment_0 : ( ruleEString ) ;
     public final void rule__DashBoard__NameAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3862:1: ( ( ruleEString ) )
-            // InternalBiLang.g:3863:2: ( ruleEString )
+            // InternalBiLang.g:6177:1: ( ( ruleEString ) )
+            // InternalBiLang.g:6178:2: ( ruleEString )
             {
-            // InternalBiLang.g:3863:2: ( ruleEString )
-            // InternalBiLang.g:3864:3: ruleEString
+            // InternalBiLang.g:6178:2: ( ruleEString )
+            // InternalBiLang.g:6179:3: ruleEString
             {
              before(grammarAccess.getDashBoardAccess().getNameEStringParserRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
@@ -11879,21 +18908,21 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DashBoard__FileextractorAssignment_2_0_1"
-    // InternalBiLang.g:3873:1: rule__DashBoard__FileextractorAssignment_2_0_1 : ( ( ruleEString ) ) ;
+    // InternalBiLang.g:6188:1: rule__DashBoard__FileextractorAssignment_2_0_1 : ( ( ruleEString ) ) ;
     public final void rule__DashBoard__FileextractorAssignment_2_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3877:1: ( ( ( ruleEString ) ) )
-            // InternalBiLang.g:3878:2: ( ( ruleEString ) )
+            // InternalBiLang.g:6192:1: ( ( ( ruleEString ) ) )
+            // InternalBiLang.g:6193:2: ( ( ruleEString ) )
             {
-            // InternalBiLang.g:3878:2: ( ( ruleEString ) )
-            // InternalBiLang.g:3879:3: ( ruleEString )
+            // InternalBiLang.g:6193:2: ( ( ruleEString ) )
+            // InternalBiLang.g:6194:3: ( ruleEString )
             {
              before(grammarAccess.getDashBoardAccess().getFileextractorFileExtractorCrossReference_2_0_1_0()); 
-            // InternalBiLang.g:3880:3: ( ruleEString )
-            // InternalBiLang.g:3881:4: ruleEString
+            // InternalBiLang.g:6195:3: ( ruleEString )
+            // InternalBiLang.g:6196:4: ruleEString
             {
              before(grammarAccess.getDashBoardAccess().getFileextractorFileExtractorEStringParserRuleCall_2_0_1_0_1()); 
             pushFollow(FOLLOW_2);
@@ -11928,21 +18957,21 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DashBoard__DatafilteringAssignment_2_1_1"
-    // InternalBiLang.g:3892:1: rule__DashBoard__DatafilteringAssignment_2_1_1 : ( ( ruleEString ) ) ;
+    // InternalBiLang.g:6207:1: rule__DashBoard__DatafilteringAssignment_2_1_1 : ( ( ruleEString ) ) ;
     public final void rule__DashBoard__DatafilteringAssignment_2_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3896:1: ( ( ( ruleEString ) ) )
-            // InternalBiLang.g:3897:2: ( ( ruleEString ) )
+            // InternalBiLang.g:6211:1: ( ( ( ruleEString ) ) )
+            // InternalBiLang.g:6212:2: ( ( ruleEString ) )
             {
-            // InternalBiLang.g:3897:2: ( ( ruleEString ) )
-            // InternalBiLang.g:3898:3: ( ruleEString )
+            // InternalBiLang.g:6212:2: ( ( ruleEString ) )
+            // InternalBiLang.g:6213:3: ( ruleEString )
             {
              before(grammarAccess.getDashBoardAccess().getDatafilteringDataFilteringCrossReference_2_1_1_0()); 
-            // InternalBiLang.g:3899:3: ( ruleEString )
-            // InternalBiLang.g:3900:4: ruleEString
+            // InternalBiLang.g:6214:3: ( ruleEString )
+            // InternalBiLang.g:6215:4: ruleEString
             {
              before(grammarAccess.getDashBoardAccess().getDatafilteringDataFilteringEStringParserRuleCall_2_1_1_0_1()); 
             pushFollow(FOLLOW_2);
@@ -11977,17 +19006,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DashBoard__PlotAssignment_5"
-    // InternalBiLang.g:3911:1: rule__DashBoard__PlotAssignment_5 : ( rulePlot ) ;
+    // InternalBiLang.g:6226:1: rule__DashBoard__PlotAssignment_5 : ( rulePlot ) ;
     public final void rule__DashBoard__PlotAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3915:1: ( ( rulePlot ) )
-            // InternalBiLang.g:3916:2: ( rulePlot )
+            // InternalBiLang.g:6230:1: ( ( rulePlot ) )
+            // InternalBiLang.g:6231:2: ( rulePlot )
             {
-            // InternalBiLang.g:3916:2: ( rulePlot )
-            // InternalBiLang.g:3917:3: rulePlot
+            // InternalBiLang.g:6231:2: ( rulePlot )
+            // InternalBiLang.g:6232:3: rulePlot
             {
              before(grammarAccess.getDashBoardAccess().getPlotPlotParserRuleCall_5_0()); 
             pushFollow(FOLLOW_2);
@@ -12018,17 +19047,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__DashBoard__PlotAssignment_6"
-    // InternalBiLang.g:3926:1: rule__DashBoard__PlotAssignment_6 : ( rulePlot ) ;
+    // InternalBiLang.g:6241:1: rule__DashBoard__PlotAssignment_6 : ( rulePlot ) ;
     public final void rule__DashBoard__PlotAssignment_6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3930:1: ( ( rulePlot ) )
-            // InternalBiLang.g:3931:2: ( rulePlot )
+            // InternalBiLang.g:6245:1: ( ( rulePlot ) )
+            // InternalBiLang.g:6246:2: ( rulePlot )
             {
-            // InternalBiLang.g:3931:2: ( rulePlot )
-            // InternalBiLang.g:3932:3: rulePlot
+            // InternalBiLang.g:6246:2: ( rulePlot )
+            // InternalBiLang.g:6247:3: rulePlot
             {
              before(grammarAccess.getDashBoardAccess().getPlotPlotParserRuleCall_6_0()); 
             pushFollow(FOLLOW_2);
@@ -12059,17 +19088,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CsvExtractor__NameAssignment_1"
-    // InternalBiLang.g:3941:1: rule__CsvExtractor__NameAssignment_1 : ( ruleEString ) ;
+    // InternalBiLang.g:6256:1: rule__CsvExtractor__NameAssignment_1 : ( ruleEString ) ;
     public final void rule__CsvExtractor__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3945:1: ( ( ruleEString ) )
-            // InternalBiLang.g:3946:2: ( ruleEString )
+            // InternalBiLang.g:6260:1: ( ( ruleEString ) )
+            // InternalBiLang.g:6261:2: ( ruleEString )
             {
-            // InternalBiLang.g:3946:2: ( ruleEString )
-            // InternalBiLang.g:3947:3: ruleEString
+            // InternalBiLang.g:6261:2: ( ruleEString )
+            // InternalBiLang.g:6262:3: ruleEString
             {
              before(grammarAccess.getCsvExtractorAccess().getNameEStringParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -12100,17 +19129,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__CsvExtractor__PathAssignment_4"
-    // InternalBiLang.g:3956:1: rule__CsvExtractor__PathAssignment_4 : ( ruleEString ) ;
+    // InternalBiLang.g:6271:1: rule__CsvExtractor__PathAssignment_4 : ( ruleEString ) ;
     public final void rule__CsvExtractor__PathAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3960:1: ( ( ruleEString ) )
-            // InternalBiLang.g:3961:2: ( ruleEString )
+            // InternalBiLang.g:6275:1: ( ( ruleEString ) )
+            // InternalBiLang.g:6276:2: ( ruleEString )
             {
-            // InternalBiLang.g:3961:2: ( ruleEString )
-            // InternalBiLang.g:3962:3: ruleEString
+            // InternalBiLang.g:6276:2: ( ruleEString )
+            // InternalBiLang.g:6277:3: ruleEString
             {
              before(grammarAccess.getCsvExtractorAccess().getPathEStringParserRuleCall_4_0()); 
             pushFollow(FOLLOW_2);
@@ -12141,17 +19170,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ExcelExtractor__NameAssignment_1"
-    // InternalBiLang.g:3971:1: rule__ExcelExtractor__NameAssignment_1 : ( ruleEString ) ;
+    // InternalBiLang.g:6286:1: rule__ExcelExtractor__NameAssignment_1 : ( ruleEString ) ;
     public final void rule__ExcelExtractor__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3975:1: ( ( ruleEString ) )
-            // InternalBiLang.g:3976:2: ( ruleEString )
+            // InternalBiLang.g:6290:1: ( ( ruleEString ) )
+            // InternalBiLang.g:6291:2: ( ruleEString )
             {
-            // InternalBiLang.g:3976:2: ( ruleEString )
-            // InternalBiLang.g:3977:3: ruleEString
+            // InternalBiLang.g:6291:2: ( ruleEString )
+            // InternalBiLang.g:6292:3: ruleEString
             {
              before(grammarAccess.getExcelExtractorAccess().getNameEStringParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -12182,17 +19211,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ExcelExtractor__PathAssignment_4"
-    // InternalBiLang.g:3986:1: rule__ExcelExtractor__PathAssignment_4 : ( ruleEString ) ;
+    // InternalBiLang.g:6301:1: rule__ExcelExtractor__PathAssignment_4 : ( ruleEString ) ;
     public final void rule__ExcelExtractor__PathAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:3990:1: ( ( ruleEString ) )
-            // InternalBiLang.g:3991:2: ( ruleEString )
+            // InternalBiLang.g:6305:1: ( ( ruleEString ) )
+            // InternalBiLang.g:6306:2: ( ruleEString )
             {
-            // InternalBiLang.g:3991:2: ( ruleEString )
-            // InternalBiLang.g:3992:3: ruleEString
+            // InternalBiLang.g:6306:2: ( ruleEString )
+            // InternalBiLang.g:6307:3: ruleEString
             {
              before(grammarAccess.getExcelExtractorAccess().getPathEStringParserRuleCall_4_0()); 
             pushFollow(FOLLOW_2);
@@ -12223,17 +19252,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QuantitativeFiltering__AxisAssignment_1"
-    // InternalBiLang.g:4001:1: rule__QuantitativeFiltering__AxisAssignment_1 : ( ruleEString ) ;
+    // InternalBiLang.g:6316:1: rule__QuantitativeFiltering__AxisAssignment_1 : ( ruleEString ) ;
     public final void rule__QuantitativeFiltering__AxisAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:4005:1: ( ( ruleEString ) )
-            // InternalBiLang.g:4006:2: ( ruleEString )
+            // InternalBiLang.g:6320:1: ( ( ruleEString ) )
+            // InternalBiLang.g:6321:2: ( ruleEString )
             {
-            // InternalBiLang.g:4006:2: ( ruleEString )
-            // InternalBiLang.g:4007:3: ruleEString
+            // InternalBiLang.g:6321:2: ( ruleEString )
+            // InternalBiLang.g:6322:3: ruleEString
             {
              before(grammarAccess.getQuantitativeFilteringAccess().getAxisEStringParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -12264,17 +19293,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QuantitativeFiltering__OperatorAssignment_2"
-    // InternalBiLang.g:4016:1: rule__QuantitativeFiltering__OperatorAssignment_2 : ( ruleQuantitativeOperator ) ;
+    // InternalBiLang.g:6331:1: rule__QuantitativeFiltering__OperatorAssignment_2 : ( ruleQuantitativeOperator ) ;
     public final void rule__QuantitativeFiltering__OperatorAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:4020:1: ( ( ruleQuantitativeOperator ) )
-            // InternalBiLang.g:4021:2: ( ruleQuantitativeOperator )
+            // InternalBiLang.g:6335:1: ( ( ruleQuantitativeOperator ) )
+            // InternalBiLang.g:6336:2: ( ruleQuantitativeOperator )
             {
-            // InternalBiLang.g:4021:2: ( ruleQuantitativeOperator )
-            // InternalBiLang.g:4022:3: ruleQuantitativeOperator
+            // InternalBiLang.g:6336:2: ( ruleQuantitativeOperator )
+            // InternalBiLang.g:6337:3: ruleQuantitativeOperator
             {
              before(grammarAccess.getQuantitativeFilteringAccess().getOperatorQuantitativeOperatorEnumRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -12305,17 +19334,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QuantitativeFiltering__ValuesAssignment_3"
-    // InternalBiLang.g:4031:1: rule__QuantitativeFiltering__ValuesAssignment_3 : ( ruleEFloat ) ;
+    // InternalBiLang.g:6346:1: rule__QuantitativeFiltering__ValuesAssignment_3 : ( ruleEFloat ) ;
     public final void rule__QuantitativeFiltering__ValuesAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:4035:1: ( ( ruleEFloat ) )
-            // InternalBiLang.g:4036:2: ( ruleEFloat )
+            // InternalBiLang.g:6350:1: ( ( ruleEFloat ) )
+            // InternalBiLang.g:6351:2: ( ruleEFloat )
             {
-            // InternalBiLang.g:4036:2: ( ruleEFloat )
-            // InternalBiLang.g:4037:3: ruleEFloat
+            // InternalBiLang.g:6351:2: ( ruleEFloat )
+            // InternalBiLang.g:6352:3: ruleEFloat
             {
              before(grammarAccess.getQuantitativeFilteringAccess().getValuesEFloatParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -12346,17 +19375,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QualitativeFiltering__AxisAssignment_1"
-    // InternalBiLang.g:4046:1: rule__QualitativeFiltering__AxisAssignment_1 : ( ruleEString ) ;
+    // InternalBiLang.g:6361:1: rule__QualitativeFiltering__AxisAssignment_1 : ( ruleEString ) ;
     public final void rule__QualitativeFiltering__AxisAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:4050:1: ( ( ruleEString ) )
-            // InternalBiLang.g:4051:2: ( ruleEString )
+            // InternalBiLang.g:6365:1: ( ( ruleEString ) )
+            // InternalBiLang.g:6366:2: ( ruleEString )
             {
-            // InternalBiLang.g:4051:2: ( ruleEString )
-            // InternalBiLang.g:4052:3: ruleEString
+            // InternalBiLang.g:6366:2: ( ruleEString )
+            // InternalBiLang.g:6367:3: ruleEString
             {
              before(grammarAccess.getQualitativeFilteringAccess().getAxisEStringParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -12387,17 +19416,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QualitativeFiltering__OperatorAssignment_2"
-    // InternalBiLang.g:4061:1: rule__QualitativeFiltering__OperatorAssignment_2 : ( ruleQualitativeOperator ) ;
+    // InternalBiLang.g:6376:1: rule__QualitativeFiltering__OperatorAssignment_2 : ( ruleQualitativeOperator ) ;
     public final void rule__QualitativeFiltering__OperatorAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:4065:1: ( ( ruleQualitativeOperator ) )
-            // InternalBiLang.g:4066:2: ( ruleQualitativeOperator )
+            // InternalBiLang.g:6380:1: ( ( ruleQualitativeOperator ) )
+            // InternalBiLang.g:6381:2: ( ruleQualitativeOperator )
             {
-            // InternalBiLang.g:4066:2: ( ruleQualitativeOperator )
-            // InternalBiLang.g:4067:3: ruleQualitativeOperator
+            // InternalBiLang.g:6381:2: ( ruleQualitativeOperator )
+            // InternalBiLang.g:6382:3: ruleQualitativeOperator
             {
              before(grammarAccess.getQualitativeFilteringAccess().getOperatorQualitativeOperatorEnumRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -12428,17 +19457,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__QualitativeFiltering__LabelsAssignment_3"
-    // InternalBiLang.g:4076:1: rule__QualitativeFiltering__LabelsAssignment_3 : ( ruleEString ) ;
+    // InternalBiLang.g:6391:1: rule__QualitativeFiltering__LabelsAssignment_3 : ( ruleEString ) ;
     public final void rule__QualitativeFiltering__LabelsAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:4080:1: ( ( ruleEString ) )
-            // InternalBiLang.g:4081:2: ( ruleEString )
+            // InternalBiLang.g:6395:1: ( ( ruleEString ) )
+            // InternalBiLang.g:6396:2: ( ruleEString )
             {
-            // InternalBiLang.g:4081:2: ( ruleEString )
-            // InternalBiLang.g:4082:3: ruleEString
+            // InternalBiLang.g:6396:2: ( ruleEString )
+            // InternalBiLang.g:6397:3: ruleEString
             {
              before(grammarAccess.getQualitativeFilteringAccess().getLabelsEStringParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -12469,17 +19498,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MathOperation__LsideAssignment_1"
-    // InternalBiLang.g:4091:1: rule__MathOperation__LsideAssignment_1 : ( rulePreprocessingStep ) ;
+    // InternalBiLang.g:6406:1: rule__MathOperation__LsideAssignment_1 : ( rulePreprocessingStep ) ;
     public final void rule__MathOperation__LsideAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:4095:1: ( ( rulePreprocessingStep ) )
-            // InternalBiLang.g:4096:2: ( rulePreprocessingStep )
+            // InternalBiLang.g:6410:1: ( ( rulePreprocessingStep ) )
+            // InternalBiLang.g:6411:2: ( rulePreprocessingStep )
             {
-            // InternalBiLang.g:4096:2: ( rulePreprocessingStep )
-            // InternalBiLang.g:4097:3: rulePreprocessingStep
+            // InternalBiLang.g:6411:2: ( rulePreprocessingStep )
+            // InternalBiLang.g:6412:3: rulePreprocessingStep
             {
              before(grammarAccess.getMathOperationAccess().getLsidePreprocessingStepParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -12510,17 +19539,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MathOperation__OperatorAssignment_2"
-    // InternalBiLang.g:4106:1: rule__MathOperation__OperatorAssignment_2 : ( ruleMathOperator ) ;
+    // InternalBiLang.g:6421:1: rule__MathOperation__OperatorAssignment_2 : ( ruleMathOperator ) ;
     public final void rule__MathOperation__OperatorAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:4110:1: ( ( ruleMathOperator ) )
-            // InternalBiLang.g:4111:2: ( ruleMathOperator )
+            // InternalBiLang.g:6425:1: ( ( ruleMathOperator ) )
+            // InternalBiLang.g:6426:2: ( ruleMathOperator )
             {
-            // InternalBiLang.g:4111:2: ( ruleMathOperator )
-            // InternalBiLang.g:4112:3: ruleMathOperator
+            // InternalBiLang.g:6426:2: ( ruleMathOperator )
+            // InternalBiLang.g:6427:3: ruleMathOperator
             {
              before(grammarAccess.getMathOperationAccess().getOperatorMathOperatorEnumRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -12551,17 +19580,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MathOperation__RsideAssignment_4"
-    // InternalBiLang.g:4121:1: rule__MathOperation__RsideAssignment_4 : ( rulePreprocessingStep ) ;
+    // InternalBiLang.g:6436:1: rule__MathOperation__RsideAssignment_4 : ( rulePreprocessingStep ) ;
     public final void rule__MathOperation__RsideAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:4125:1: ( ( rulePreprocessingStep ) )
-            // InternalBiLang.g:4126:2: ( rulePreprocessingStep )
+            // InternalBiLang.g:6440:1: ( ( rulePreprocessingStep ) )
+            // InternalBiLang.g:6441:2: ( rulePreprocessingStep )
             {
-            // InternalBiLang.g:4126:2: ( rulePreprocessingStep )
-            // InternalBiLang.g:4127:3: rulePreprocessingStep
+            // InternalBiLang.g:6441:2: ( rulePreprocessingStep )
+            // InternalBiLang.g:6442:3: rulePreprocessingStep
             {
              before(grammarAccess.getMathOperationAccess().getRsidePreprocessingStepParserRuleCall_4_0()); 
             pushFollow(FOLLOW_2);
@@ -12592,17 +19621,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ColReference__TargetAssignment_1"
-    // InternalBiLang.g:4136:1: rule__ColReference__TargetAssignment_1 : ( ruleEString ) ;
+    // InternalBiLang.g:6451:1: rule__ColReference__TargetAssignment_1 : ( ruleEString ) ;
     public final void rule__ColReference__TargetAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:4140:1: ( ( ruleEString ) )
-            // InternalBiLang.g:4141:2: ( ruleEString )
+            // InternalBiLang.g:6455:1: ( ( ruleEString ) )
+            // InternalBiLang.g:6456:2: ( ruleEString )
             {
-            // InternalBiLang.g:4141:2: ( ruleEString )
-            // InternalBiLang.g:4142:3: ruleEString
+            // InternalBiLang.g:6456:2: ( ruleEString )
+            // InternalBiLang.g:6457:3: ruleEString
             {
              before(grammarAccess.getColReferenceAccess().getTargetEStringParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -12633,17 +19662,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__StatisticalOperation__OperatorAssignment_0"
-    // InternalBiLang.g:4151:1: rule__StatisticalOperation__OperatorAssignment_0 : ( ruleStatisticalOperator ) ;
+    // InternalBiLang.g:6466:1: rule__StatisticalOperation__OperatorAssignment_0 : ( ruleStatisticalOperator ) ;
     public final void rule__StatisticalOperation__OperatorAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:4155:1: ( ( ruleStatisticalOperator ) )
-            // InternalBiLang.g:4156:2: ( ruleStatisticalOperator )
+            // InternalBiLang.g:6470:1: ( ( ruleStatisticalOperator ) )
+            // InternalBiLang.g:6471:2: ( ruleStatisticalOperator )
             {
-            // InternalBiLang.g:4156:2: ( ruleStatisticalOperator )
-            // InternalBiLang.g:4157:3: ruleStatisticalOperator
+            // InternalBiLang.g:6471:2: ( ruleStatisticalOperator )
+            // InternalBiLang.g:6472:3: ruleStatisticalOperator
             {
              before(grammarAccess.getStatisticalOperationAccess().getOperatorStatisticalOperatorEnumRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
@@ -12674,17 +19703,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__StatisticalOperation__ColreferenceAssignment_2"
-    // InternalBiLang.g:4166:1: rule__StatisticalOperation__ColreferenceAssignment_2 : ( ruleColReference ) ;
+    // InternalBiLang.g:6481:1: rule__StatisticalOperation__ColreferenceAssignment_2 : ( ruleColReference ) ;
     public final void rule__StatisticalOperation__ColreferenceAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:4170:1: ( ( ruleColReference ) )
-            // InternalBiLang.g:4171:2: ( ruleColReference )
+            // InternalBiLang.g:6485:1: ( ( ruleColReference ) )
+            // InternalBiLang.g:6486:2: ( ruleColReference )
             {
-            // InternalBiLang.g:4171:2: ( ruleColReference )
-            // InternalBiLang.g:4172:3: ruleColReference
+            // InternalBiLang.g:6486:2: ( ruleColReference )
+            // InternalBiLang.g:6487:3: ruleColReference
             {
              before(grammarAccess.getStatisticalOperationAccess().getColreferenceColReferenceParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -12715,17 +19744,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BarPlot__NameAssignment_2"
-    // InternalBiLang.g:4181:1: rule__BarPlot__NameAssignment_2 : ( RULE_ID ) ;
+    // InternalBiLang.g:6496:1: rule__BarPlot__NameAssignment_2 : ( RULE_ID ) ;
     public final void rule__BarPlot__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:4185:1: ( ( RULE_ID ) )
-            // InternalBiLang.g:4186:2: ( RULE_ID )
+            // InternalBiLang.g:6500:1: ( ( RULE_ID ) )
+            // InternalBiLang.g:6501:2: ( RULE_ID )
             {
-            // InternalBiLang.g:4186:2: ( RULE_ID )
-            // InternalBiLang.g:4187:3: RULE_ID
+            // InternalBiLang.g:6501:2: ( RULE_ID )
+            // InternalBiLang.g:6502:3: RULE_ID
             {
              before(grammarAccess.getBarPlotAccess().getNameIDTerminalRuleCall_2_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -12752,17 +19781,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BarPlot__XAxisAssignment_5"
-    // InternalBiLang.g:4196:1: rule__BarPlot__XAxisAssignment_5 : ( ruleEString ) ;
+    // InternalBiLang.g:6511:1: rule__BarPlot__XAxisAssignment_5 : ( ruleEString ) ;
     public final void rule__BarPlot__XAxisAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:4200:1: ( ( ruleEString ) )
-            // InternalBiLang.g:4201:2: ( ruleEString )
+            // InternalBiLang.g:6515:1: ( ( ruleEString ) )
+            // InternalBiLang.g:6516:2: ( ruleEString )
             {
-            // InternalBiLang.g:4201:2: ( ruleEString )
-            // InternalBiLang.g:4202:3: ruleEString
+            // InternalBiLang.g:6516:2: ( ruleEString )
+            // InternalBiLang.g:6517:3: ruleEString
             {
              before(grammarAccess.getBarPlotAccess().getXAxisEStringParserRuleCall_5_0()); 
             pushFollow(FOLLOW_2);
@@ -12793,17 +19822,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BarPlot__YAxisAssignment_7"
-    // InternalBiLang.g:4211:1: rule__BarPlot__YAxisAssignment_7 : ( ruleEString ) ;
+    // InternalBiLang.g:6526:1: rule__BarPlot__YAxisAssignment_7 : ( ruleEString ) ;
     public final void rule__BarPlot__YAxisAssignment_7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:4215:1: ( ( ruleEString ) )
-            // InternalBiLang.g:4216:2: ( ruleEString )
+            // InternalBiLang.g:6530:1: ( ( ruleEString ) )
+            // InternalBiLang.g:6531:2: ( ruleEString )
             {
-            // InternalBiLang.g:4216:2: ( ruleEString )
-            // InternalBiLang.g:4217:3: ruleEString
+            // InternalBiLang.g:6531:2: ( ruleEString )
+            // InternalBiLang.g:6532:3: ruleEString
             {
              before(grammarAccess.getBarPlotAccess().getYAxisEStringParserRuleCall_7_0()); 
             pushFollow(FOLLOW_2);
@@ -12834,17 +19863,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BarPlot__LocationAssignment_8_1"
-    // InternalBiLang.g:4226:1: rule__BarPlot__LocationAssignment_8_1 : ( ruleEString ) ;
+    // InternalBiLang.g:6541:1: rule__BarPlot__LocationAssignment_8_1 : ( ruleEString ) ;
     public final void rule__BarPlot__LocationAssignment_8_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:4230:1: ( ( ruleEString ) )
-            // InternalBiLang.g:4231:2: ( ruleEString )
+            // InternalBiLang.g:6545:1: ( ( ruleEString ) )
+            // InternalBiLang.g:6546:2: ( ruleEString )
             {
-            // InternalBiLang.g:4231:2: ( ruleEString )
-            // InternalBiLang.g:4232:3: ruleEString
+            // InternalBiLang.g:6546:2: ( ruleEString )
+            // InternalBiLang.g:6547:3: ruleEString
             {
              before(grammarAccess.getBarPlotAccess().getLocationEStringParserRuleCall_8_1_0()); 
             pushFollow(FOLLOW_2);
@@ -12875,17 +19904,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BarPlot__ColorsAssignment_9_1"
-    // InternalBiLang.g:4241:1: rule__BarPlot__ColorsAssignment_9_1 : ( ruleEString ) ;
+    // InternalBiLang.g:6556:1: rule__BarPlot__ColorsAssignment_9_1 : ( ruleEString ) ;
     public final void rule__BarPlot__ColorsAssignment_9_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:4245:1: ( ( ruleEString ) )
-            // InternalBiLang.g:4246:2: ( ruleEString )
+            // InternalBiLang.g:6560:1: ( ( ruleEString ) )
+            // InternalBiLang.g:6561:2: ( ruleEString )
             {
-            // InternalBiLang.g:4246:2: ( ruleEString )
-            // InternalBiLang.g:4247:3: ruleEString
+            // InternalBiLang.g:6561:2: ( ruleEString )
+            // InternalBiLang.g:6562:3: ruleEString
             {
              before(grammarAccess.getBarPlotAccess().getColorsEStringParserRuleCall_9_1_0()); 
             pushFollow(FOLLOW_2);
@@ -12916,17 +19945,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__BarPlot__ThicknessAssignment_10_1"
-    // InternalBiLang.g:4256:1: rule__BarPlot__ThicknessAssignment_10_1 : ( ruleEFloat ) ;
+    // InternalBiLang.g:6571:1: rule__BarPlot__ThicknessAssignment_10_1 : ( ruleEFloat ) ;
     public final void rule__BarPlot__ThicknessAssignment_10_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:4260:1: ( ( ruleEFloat ) )
-            // InternalBiLang.g:4261:2: ( ruleEFloat )
+            // InternalBiLang.g:6575:1: ( ( ruleEFloat ) )
+            // InternalBiLang.g:6576:2: ( ruleEFloat )
             {
-            // InternalBiLang.g:4261:2: ( ruleEFloat )
-            // InternalBiLang.g:4262:3: ruleEFloat
+            // InternalBiLang.g:6576:2: ( ruleEFloat )
+            // InternalBiLang.g:6577:3: ruleEFloat
             {
              before(grammarAccess.getBarPlotAccess().getThicknessEFloatParserRuleCall_10_1_0()); 
             pushFollow(FOLLOW_2);
@@ -12957,17 +19986,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LinePlot__NameAssignment_2"
-    // InternalBiLang.g:4271:1: rule__LinePlot__NameAssignment_2 : ( RULE_ID ) ;
+    // InternalBiLang.g:6586:1: rule__LinePlot__NameAssignment_2 : ( RULE_ID ) ;
     public final void rule__LinePlot__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:4275:1: ( ( RULE_ID ) )
-            // InternalBiLang.g:4276:2: ( RULE_ID )
+            // InternalBiLang.g:6590:1: ( ( RULE_ID ) )
+            // InternalBiLang.g:6591:2: ( RULE_ID )
             {
-            // InternalBiLang.g:4276:2: ( RULE_ID )
-            // InternalBiLang.g:4277:3: RULE_ID
+            // InternalBiLang.g:6591:2: ( RULE_ID )
+            // InternalBiLang.g:6592:3: RULE_ID
             {
              before(grammarAccess.getLinePlotAccess().getNameIDTerminalRuleCall_2_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -12994,17 +20023,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LinePlot__XAxisAssignment_5"
-    // InternalBiLang.g:4286:1: rule__LinePlot__XAxisAssignment_5 : ( ruleEString ) ;
+    // InternalBiLang.g:6601:1: rule__LinePlot__XAxisAssignment_5 : ( ruleEString ) ;
     public final void rule__LinePlot__XAxisAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:4290:1: ( ( ruleEString ) )
-            // InternalBiLang.g:4291:2: ( ruleEString )
+            // InternalBiLang.g:6605:1: ( ( ruleEString ) )
+            // InternalBiLang.g:6606:2: ( ruleEString )
             {
-            // InternalBiLang.g:4291:2: ( ruleEString )
-            // InternalBiLang.g:4292:3: ruleEString
+            // InternalBiLang.g:6606:2: ( ruleEString )
+            // InternalBiLang.g:6607:3: ruleEString
             {
              before(grammarAccess.getLinePlotAccess().getXAxisEStringParserRuleCall_5_0()); 
             pushFollow(FOLLOW_2);
@@ -13035,17 +20064,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LinePlot__YAxisAssignment_7"
-    // InternalBiLang.g:4301:1: rule__LinePlot__YAxisAssignment_7 : ( ruleEString ) ;
+    // InternalBiLang.g:6616:1: rule__LinePlot__YAxisAssignment_7 : ( ruleEString ) ;
     public final void rule__LinePlot__YAxisAssignment_7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:4305:1: ( ( ruleEString ) )
-            // InternalBiLang.g:4306:2: ( ruleEString )
+            // InternalBiLang.g:6620:1: ( ( ruleEString ) )
+            // InternalBiLang.g:6621:2: ( ruleEString )
             {
-            // InternalBiLang.g:4306:2: ( ruleEString )
-            // InternalBiLang.g:4307:3: ruleEString
+            // InternalBiLang.g:6621:2: ( ruleEString )
+            // InternalBiLang.g:6622:3: ruleEString
             {
              before(grammarAccess.getLinePlotAccess().getYAxisEStringParserRuleCall_7_0()); 
             pushFollow(FOLLOW_2);
@@ -13076,17 +20105,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LinePlot__LocationAssignment_8_1"
-    // InternalBiLang.g:4316:1: rule__LinePlot__LocationAssignment_8_1 : ( ruleEString ) ;
+    // InternalBiLang.g:6631:1: rule__LinePlot__LocationAssignment_8_1 : ( ruleEString ) ;
     public final void rule__LinePlot__LocationAssignment_8_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:4320:1: ( ( ruleEString ) )
-            // InternalBiLang.g:4321:2: ( ruleEString )
+            // InternalBiLang.g:6635:1: ( ( ruleEString ) )
+            // InternalBiLang.g:6636:2: ( ruleEString )
             {
-            // InternalBiLang.g:4321:2: ( ruleEString )
-            // InternalBiLang.g:4322:3: ruleEString
+            // InternalBiLang.g:6636:2: ( ruleEString )
+            // InternalBiLang.g:6637:3: ruleEString
             {
              before(grammarAccess.getLinePlotAccess().getLocationEStringParserRuleCall_8_1_0()); 
             pushFollow(FOLLOW_2);
@@ -13117,17 +20146,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LinePlot__ColorsAssignment_9_1"
-    // InternalBiLang.g:4331:1: rule__LinePlot__ColorsAssignment_9_1 : ( ruleEString ) ;
+    // InternalBiLang.g:6646:1: rule__LinePlot__ColorsAssignment_9_1 : ( ruleEString ) ;
     public final void rule__LinePlot__ColorsAssignment_9_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:4335:1: ( ( ruleEString ) )
-            // InternalBiLang.g:4336:2: ( ruleEString )
+            // InternalBiLang.g:6650:1: ( ( ruleEString ) )
+            // InternalBiLang.g:6651:2: ( ruleEString )
             {
-            // InternalBiLang.g:4336:2: ( ruleEString )
-            // InternalBiLang.g:4337:3: ruleEString
+            // InternalBiLang.g:6651:2: ( ruleEString )
+            // InternalBiLang.g:6652:3: ruleEString
             {
              before(grammarAccess.getLinePlotAccess().getColorsEStringParserRuleCall_9_1_0()); 
             pushFollow(FOLLOW_2);
@@ -13158,17 +20187,17 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__LinePlot__ThicknessAssignment_10_1"
-    // InternalBiLang.g:4346:1: rule__LinePlot__ThicknessAssignment_10_1 : ( ruleEFloat ) ;
+    // InternalBiLang.g:6661:1: rule__LinePlot__ThicknessAssignment_10_1 : ( ruleEFloat ) ;
     public final void rule__LinePlot__ThicknessAssignment_10_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalBiLang.g:4350:1: ( ( ruleEFloat ) )
-            // InternalBiLang.g:4351:2: ( ruleEFloat )
+            // InternalBiLang.g:6665:1: ( ( ruleEFloat ) )
+            // InternalBiLang.g:6666:2: ( ruleEFloat )
             {
-            // InternalBiLang.g:4351:2: ( ruleEFloat )
-            // InternalBiLang.g:4352:3: ruleEFloat
+            // InternalBiLang.g:6666:2: ( ruleEFloat )
+            // InternalBiLang.g:6667:3: ruleEFloat
             {
              before(grammarAccess.getLinePlotAccess().getThicknessEFloatParserRuleCall_10_1_0()); 
             pushFollow(FOLLOW_2);
@@ -13197,6 +20226,1216 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
     }
     // $ANTLR end "rule__LinePlot__ThicknessAssignment_10_1"
 
+
+    // $ANTLR start "rule__DonutPlot__NameAssignment_1"
+    // InternalBiLang.g:6676:1: rule__DonutPlot__NameAssignment_1 : ( RULE_ID ) ;
+    public final void rule__DonutPlot__NameAssignment_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:6680:1: ( ( RULE_ID ) )
+            // InternalBiLang.g:6681:2: ( RULE_ID )
+            {
+            // InternalBiLang.g:6681:2: ( RULE_ID )
+            // InternalBiLang.g:6682:3: RULE_ID
+            {
+             before(grammarAccess.getDonutPlotAccess().getNameIDTerminalRuleCall_1_0()); 
+            match(input,RULE_ID,FOLLOW_2); 
+             after(grammarAccess.getDonutPlotAccess().getNameIDTerminalRuleCall_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DonutPlot__NameAssignment_1"
+
+
+    // $ANTLR start "rule__DonutPlot__XAxisAssignment_4"
+    // InternalBiLang.g:6691:1: rule__DonutPlot__XAxisAssignment_4 : ( ruleEString ) ;
+    public final void rule__DonutPlot__XAxisAssignment_4() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:6695:1: ( ( ruleEString ) )
+            // InternalBiLang.g:6696:2: ( ruleEString )
+            {
+            // InternalBiLang.g:6696:2: ( ruleEString )
+            // InternalBiLang.g:6697:3: ruleEString
+            {
+             before(grammarAccess.getDonutPlotAccess().getXAxisEStringParserRuleCall_4_0()); 
+            pushFollow(FOLLOW_2);
+            ruleEString();
+
+            state._fsp--;
+
+             after(grammarAccess.getDonutPlotAccess().getXAxisEStringParserRuleCall_4_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DonutPlot__XAxisAssignment_4"
+
+
+    // $ANTLR start "rule__DonutPlot__YAxisAssignment_6"
+    // InternalBiLang.g:6706:1: rule__DonutPlot__YAxisAssignment_6 : ( ruleEString ) ;
+    public final void rule__DonutPlot__YAxisAssignment_6() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:6710:1: ( ( ruleEString ) )
+            // InternalBiLang.g:6711:2: ( ruleEString )
+            {
+            // InternalBiLang.g:6711:2: ( ruleEString )
+            // InternalBiLang.g:6712:3: ruleEString
+            {
+             before(grammarAccess.getDonutPlotAccess().getYAxisEStringParserRuleCall_6_0()); 
+            pushFollow(FOLLOW_2);
+            ruleEString();
+
+            state._fsp--;
+
+             after(grammarAccess.getDonutPlotAccess().getYAxisEStringParserRuleCall_6_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DonutPlot__YAxisAssignment_6"
+
+
+    // $ANTLR start "rule__DonutPlot__LocationAssignment_7_1"
+    // InternalBiLang.g:6721:1: rule__DonutPlot__LocationAssignment_7_1 : ( ruleEString ) ;
+    public final void rule__DonutPlot__LocationAssignment_7_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:6725:1: ( ( ruleEString ) )
+            // InternalBiLang.g:6726:2: ( ruleEString )
+            {
+            // InternalBiLang.g:6726:2: ( ruleEString )
+            // InternalBiLang.g:6727:3: ruleEString
+            {
+             before(grammarAccess.getDonutPlotAccess().getLocationEStringParserRuleCall_7_1_0()); 
+            pushFollow(FOLLOW_2);
+            ruleEString();
+
+            state._fsp--;
+
+             after(grammarAccess.getDonutPlotAccess().getLocationEStringParserRuleCall_7_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DonutPlot__LocationAssignment_7_1"
+
+
+    // $ANTLR start "rule__DonutPlot__ColorsAssignment_8_1"
+    // InternalBiLang.g:6736:1: rule__DonutPlot__ColorsAssignment_8_1 : ( ruleEString ) ;
+    public final void rule__DonutPlot__ColorsAssignment_8_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:6740:1: ( ( ruleEString ) )
+            // InternalBiLang.g:6741:2: ( ruleEString )
+            {
+            // InternalBiLang.g:6741:2: ( ruleEString )
+            // InternalBiLang.g:6742:3: ruleEString
+            {
+             before(grammarAccess.getDonutPlotAccess().getColorsEStringParserRuleCall_8_1_0()); 
+            pushFollow(FOLLOW_2);
+            ruleEString();
+
+            state._fsp--;
+
+             after(grammarAccess.getDonutPlotAccess().getColorsEStringParserRuleCall_8_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DonutPlot__ColorsAssignment_8_1"
+
+
+    // $ANTLR start "rule__DonutPlot__ThicknessAssignment_9_1"
+    // InternalBiLang.g:6751:1: rule__DonutPlot__ThicknessAssignment_9_1 : ( ruleEFloat ) ;
+    public final void rule__DonutPlot__ThicknessAssignment_9_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:6755:1: ( ( ruleEFloat ) )
+            // InternalBiLang.g:6756:2: ( ruleEFloat )
+            {
+            // InternalBiLang.g:6756:2: ( ruleEFloat )
+            // InternalBiLang.g:6757:3: ruleEFloat
+            {
+             before(grammarAccess.getDonutPlotAccess().getThicknessEFloatParserRuleCall_9_1_0()); 
+            pushFollow(FOLLOW_2);
+            ruleEFloat();
+
+            state._fsp--;
+
+             after(grammarAccess.getDonutPlotAccess().getThicknessEFloatParserRuleCall_9_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DonutPlot__ThicknessAssignment_9_1"
+
+
+    // $ANTLR start "rule__PiePlot__NameAssignment_1"
+    // InternalBiLang.g:6766:1: rule__PiePlot__NameAssignment_1 : ( RULE_ID ) ;
+    public final void rule__PiePlot__NameAssignment_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:6770:1: ( ( RULE_ID ) )
+            // InternalBiLang.g:6771:2: ( RULE_ID )
+            {
+            // InternalBiLang.g:6771:2: ( RULE_ID )
+            // InternalBiLang.g:6772:3: RULE_ID
+            {
+             before(grammarAccess.getPiePlotAccess().getNameIDTerminalRuleCall_1_0()); 
+            match(input,RULE_ID,FOLLOW_2); 
+             after(grammarAccess.getPiePlotAccess().getNameIDTerminalRuleCall_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PiePlot__NameAssignment_1"
+
+
+    // $ANTLR start "rule__PiePlot__XAxisAssignment_4"
+    // InternalBiLang.g:6781:1: rule__PiePlot__XAxisAssignment_4 : ( ruleEString ) ;
+    public final void rule__PiePlot__XAxisAssignment_4() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:6785:1: ( ( ruleEString ) )
+            // InternalBiLang.g:6786:2: ( ruleEString )
+            {
+            // InternalBiLang.g:6786:2: ( ruleEString )
+            // InternalBiLang.g:6787:3: ruleEString
+            {
+             before(grammarAccess.getPiePlotAccess().getXAxisEStringParserRuleCall_4_0()); 
+            pushFollow(FOLLOW_2);
+            ruleEString();
+
+            state._fsp--;
+
+             after(grammarAccess.getPiePlotAccess().getXAxisEStringParserRuleCall_4_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PiePlot__XAxisAssignment_4"
+
+
+    // $ANTLR start "rule__PiePlot__YAxisAssignment_6"
+    // InternalBiLang.g:6796:1: rule__PiePlot__YAxisAssignment_6 : ( ruleEString ) ;
+    public final void rule__PiePlot__YAxisAssignment_6() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:6800:1: ( ( ruleEString ) )
+            // InternalBiLang.g:6801:2: ( ruleEString )
+            {
+            // InternalBiLang.g:6801:2: ( ruleEString )
+            // InternalBiLang.g:6802:3: ruleEString
+            {
+             before(grammarAccess.getPiePlotAccess().getYAxisEStringParserRuleCall_6_0()); 
+            pushFollow(FOLLOW_2);
+            ruleEString();
+
+            state._fsp--;
+
+             after(grammarAccess.getPiePlotAccess().getYAxisEStringParserRuleCall_6_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PiePlot__YAxisAssignment_6"
+
+
+    // $ANTLR start "rule__PiePlot__LocationAssignment_7_1"
+    // InternalBiLang.g:6811:1: rule__PiePlot__LocationAssignment_7_1 : ( ruleEString ) ;
+    public final void rule__PiePlot__LocationAssignment_7_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:6815:1: ( ( ruleEString ) )
+            // InternalBiLang.g:6816:2: ( ruleEString )
+            {
+            // InternalBiLang.g:6816:2: ( ruleEString )
+            // InternalBiLang.g:6817:3: ruleEString
+            {
+             before(grammarAccess.getPiePlotAccess().getLocationEStringParserRuleCall_7_1_0()); 
+            pushFollow(FOLLOW_2);
+            ruleEString();
+
+            state._fsp--;
+
+             after(grammarAccess.getPiePlotAccess().getLocationEStringParserRuleCall_7_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PiePlot__LocationAssignment_7_1"
+
+
+    // $ANTLR start "rule__PiePlot__ColorsAssignment_8_1"
+    // InternalBiLang.g:6826:1: rule__PiePlot__ColorsAssignment_8_1 : ( ruleEString ) ;
+    public final void rule__PiePlot__ColorsAssignment_8_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:6830:1: ( ( ruleEString ) )
+            // InternalBiLang.g:6831:2: ( ruleEString )
+            {
+            // InternalBiLang.g:6831:2: ( ruleEString )
+            // InternalBiLang.g:6832:3: ruleEString
+            {
+             before(grammarAccess.getPiePlotAccess().getColorsEStringParserRuleCall_8_1_0()); 
+            pushFollow(FOLLOW_2);
+            ruleEString();
+
+            state._fsp--;
+
+             after(grammarAccess.getPiePlotAccess().getColorsEStringParserRuleCall_8_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PiePlot__ColorsAssignment_8_1"
+
+
+    // $ANTLR start "rule__PiePlot__ThicknessAssignment_9_1"
+    // InternalBiLang.g:6841:1: rule__PiePlot__ThicknessAssignment_9_1 : ( ruleEFloat ) ;
+    public final void rule__PiePlot__ThicknessAssignment_9_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:6845:1: ( ( ruleEFloat ) )
+            // InternalBiLang.g:6846:2: ( ruleEFloat )
+            {
+            // InternalBiLang.g:6846:2: ( ruleEFloat )
+            // InternalBiLang.g:6847:3: ruleEFloat
+            {
+             before(grammarAccess.getPiePlotAccess().getThicknessEFloatParserRuleCall_9_1_0()); 
+            pushFollow(FOLLOW_2);
+            ruleEFloat();
+
+            state._fsp--;
+
+             after(grammarAccess.getPiePlotAccess().getThicknessEFloatParserRuleCall_9_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PiePlot__ThicknessAssignment_9_1"
+
+
+    // $ANTLR start "rule__PolarPlot__NameAssignment_1"
+    // InternalBiLang.g:6856:1: rule__PolarPlot__NameAssignment_1 : ( RULE_ID ) ;
+    public final void rule__PolarPlot__NameAssignment_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:6860:1: ( ( RULE_ID ) )
+            // InternalBiLang.g:6861:2: ( RULE_ID )
+            {
+            // InternalBiLang.g:6861:2: ( RULE_ID )
+            // InternalBiLang.g:6862:3: RULE_ID
+            {
+             before(grammarAccess.getPolarPlotAccess().getNameIDTerminalRuleCall_1_0()); 
+            match(input,RULE_ID,FOLLOW_2); 
+             after(grammarAccess.getPolarPlotAccess().getNameIDTerminalRuleCall_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PolarPlot__NameAssignment_1"
+
+
+    // $ANTLR start "rule__PolarPlot__XAxisAssignment_4"
+    // InternalBiLang.g:6871:1: rule__PolarPlot__XAxisAssignment_4 : ( ruleEString ) ;
+    public final void rule__PolarPlot__XAxisAssignment_4() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:6875:1: ( ( ruleEString ) )
+            // InternalBiLang.g:6876:2: ( ruleEString )
+            {
+            // InternalBiLang.g:6876:2: ( ruleEString )
+            // InternalBiLang.g:6877:3: ruleEString
+            {
+             before(grammarAccess.getPolarPlotAccess().getXAxisEStringParserRuleCall_4_0()); 
+            pushFollow(FOLLOW_2);
+            ruleEString();
+
+            state._fsp--;
+
+             after(grammarAccess.getPolarPlotAccess().getXAxisEStringParserRuleCall_4_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PolarPlot__XAxisAssignment_4"
+
+
+    // $ANTLR start "rule__PolarPlot__YAxisAssignment_6"
+    // InternalBiLang.g:6886:1: rule__PolarPlot__YAxisAssignment_6 : ( ruleEString ) ;
+    public final void rule__PolarPlot__YAxisAssignment_6() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:6890:1: ( ( ruleEString ) )
+            // InternalBiLang.g:6891:2: ( ruleEString )
+            {
+            // InternalBiLang.g:6891:2: ( ruleEString )
+            // InternalBiLang.g:6892:3: ruleEString
+            {
+             before(grammarAccess.getPolarPlotAccess().getYAxisEStringParserRuleCall_6_0()); 
+            pushFollow(FOLLOW_2);
+            ruleEString();
+
+            state._fsp--;
+
+             after(grammarAccess.getPolarPlotAccess().getYAxisEStringParserRuleCall_6_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PolarPlot__YAxisAssignment_6"
+
+
+    // $ANTLR start "rule__PolarPlot__LocationAssignment_7_1"
+    // InternalBiLang.g:6901:1: rule__PolarPlot__LocationAssignment_7_1 : ( ruleEString ) ;
+    public final void rule__PolarPlot__LocationAssignment_7_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:6905:1: ( ( ruleEString ) )
+            // InternalBiLang.g:6906:2: ( ruleEString )
+            {
+            // InternalBiLang.g:6906:2: ( ruleEString )
+            // InternalBiLang.g:6907:3: ruleEString
+            {
+             before(grammarAccess.getPolarPlotAccess().getLocationEStringParserRuleCall_7_1_0()); 
+            pushFollow(FOLLOW_2);
+            ruleEString();
+
+            state._fsp--;
+
+             after(grammarAccess.getPolarPlotAccess().getLocationEStringParserRuleCall_7_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PolarPlot__LocationAssignment_7_1"
+
+
+    // $ANTLR start "rule__PolarPlot__ColorsAssignment_8_1"
+    // InternalBiLang.g:6916:1: rule__PolarPlot__ColorsAssignment_8_1 : ( ruleEString ) ;
+    public final void rule__PolarPlot__ColorsAssignment_8_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:6920:1: ( ( ruleEString ) )
+            // InternalBiLang.g:6921:2: ( ruleEString )
+            {
+            // InternalBiLang.g:6921:2: ( ruleEString )
+            // InternalBiLang.g:6922:3: ruleEString
+            {
+             before(grammarAccess.getPolarPlotAccess().getColorsEStringParserRuleCall_8_1_0()); 
+            pushFollow(FOLLOW_2);
+            ruleEString();
+
+            state._fsp--;
+
+             after(grammarAccess.getPolarPlotAccess().getColorsEStringParserRuleCall_8_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PolarPlot__ColorsAssignment_8_1"
+
+
+    // $ANTLR start "rule__PolarPlot__ThicknessAssignment_9_1"
+    // InternalBiLang.g:6931:1: rule__PolarPlot__ThicknessAssignment_9_1 : ( ruleEFloat ) ;
+    public final void rule__PolarPlot__ThicknessAssignment_9_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:6935:1: ( ( ruleEFloat ) )
+            // InternalBiLang.g:6936:2: ( ruleEFloat )
+            {
+            // InternalBiLang.g:6936:2: ( ruleEFloat )
+            // InternalBiLang.g:6937:3: ruleEFloat
+            {
+             before(grammarAccess.getPolarPlotAccess().getThicknessEFloatParserRuleCall_9_1_0()); 
+            pushFollow(FOLLOW_2);
+            ruleEFloat();
+
+            state._fsp--;
+
+             after(grammarAccess.getPolarPlotAccess().getThicknessEFloatParserRuleCall_9_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__PolarPlot__ThicknessAssignment_9_1"
+
+
+    // $ANTLR start "rule__ScatterPlot__NameAssignment_1"
+    // InternalBiLang.g:6946:1: rule__ScatterPlot__NameAssignment_1 : ( RULE_ID ) ;
+    public final void rule__ScatterPlot__NameAssignment_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:6950:1: ( ( RULE_ID ) )
+            // InternalBiLang.g:6951:2: ( RULE_ID )
+            {
+            // InternalBiLang.g:6951:2: ( RULE_ID )
+            // InternalBiLang.g:6952:3: RULE_ID
+            {
+             before(grammarAccess.getScatterPlotAccess().getNameIDTerminalRuleCall_1_0()); 
+            match(input,RULE_ID,FOLLOW_2); 
+             after(grammarAccess.getScatterPlotAccess().getNameIDTerminalRuleCall_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ScatterPlot__NameAssignment_1"
+
+
+    // $ANTLR start "rule__ScatterPlot__XAxisAssignment_4"
+    // InternalBiLang.g:6961:1: rule__ScatterPlot__XAxisAssignment_4 : ( ruleEString ) ;
+    public final void rule__ScatterPlot__XAxisAssignment_4() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:6965:1: ( ( ruleEString ) )
+            // InternalBiLang.g:6966:2: ( ruleEString )
+            {
+            // InternalBiLang.g:6966:2: ( ruleEString )
+            // InternalBiLang.g:6967:3: ruleEString
+            {
+             before(grammarAccess.getScatterPlotAccess().getXAxisEStringParserRuleCall_4_0()); 
+            pushFollow(FOLLOW_2);
+            ruleEString();
+
+            state._fsp--;
+
+             after(grammarAccess.getScatterPlotAccess().getXAxisEStringParserRuleCall_4_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ScatterPlot__XAxisAssignment_4"
+
+
+    // $ANTLR start "rule__ScatterPlot__YAxisAssignment_6"
+    // InternalBiLang.g:6976:1: rule__ScatterPlot__YAxisAssignment_6 : ( ruleEString ) ;
+    public final void rule__ScatterPlot__YAxisAssignment_6() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:6980:1: ( ( ruleEString ) )
+            // InternalBiLang.g:6981:2: ( ruleEString )
+            {
+            // InternalBiLang.g:6981:2: ( ruleEString )
+            // InternalBiLang.g:6982:3: ruleEString
+            {
+             before(grammarAccess.getScatterPlotAccess().getYAxisEStringParserRuleCall_6_0()); 
+            pushFollow(FOLLOW_2);
+            ruleEString();
+
+            state._fsp--;
+
+             after(grammarAccess.getScatterPlotAccess().getYAxisEStringParserRuleCall_6_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ScatterPlot__YAxisAssignment_6"
+
+
+    // $ANTLR start "rule__ScatterPlot__LocationAssignment_7_1"
+    // InternalBiLang.g:6991:1: rule__ScatterPlot__LocationAssignment_7_1 : ( ruleEString ) ;
+    public final void rule__ScatterPlot__LocationAssignment_7_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:6995:1: ( ( ruleEString ) )
+            // InternalBiLang.g:6996:2: ( ruleEString )
+            {
+            // InternalBiLang.g:6996:2: ( ruleEString )
+            // InternalBiLang.g:6997:3: ruleEString
+            {
+             before(grammarAccess.getScatterPlotAccess().getLocationEStringParserRuleCall_7_1_0()); 
+            pushFollow(FOLLOW_2);
+            ruleEString();
+
+            state._fsp--;
+
+             after(grammarAccess.getScatterPlotAccess().getLocationEStringParserRuleCall_7_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ScatterPlot__LocationAssignment_7_1"
+
+
+    // $ANTLR start "rule__ScatterPlot__ColorsAssignment_8_1"
+    // InternalBiLang.g:7006:1: rule__ScatterPlot__ColorsAssignment_8_1 : ( ruleEString ) ;
+    public final void rule__ScatterPlot__ColorsAssignment_8_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:7010:1: ( ( ruleEString ) )
+            // InternalBiLang.g:7011:2: ( ruleEString )
+            {
+            // InternalBiLang.g:7011:2: ( ruleEString )
+            // InternalBiLang.g:7012:3: ruleEString
+            {
+             before(grammarAccess.getScatterPlotAccess().getColorsEStringParserRuleCall_8_1_0()); 
+            pushFollow(FOLLOW_2);
+            ruleEString();
+
+            state._fsp--;
+
+             after(grammarAccess.getScatterPlotAccess().getColorsEStringParserRuleCall_8_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ScatterPlot__ColorsAssignment_8_1"
+
+
+    // $ANTLR start "rule__ScatterPlot__ThicknessAssignment_9_1"
+    // InternalBiLang.g:7021:1: rule__ScatterPlot__ThicknessAssignment_9_1 : ( ruleEFloat ) ;
+    public final void rule__ScatterPlot__ThicknessAssignment_9_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:7025:1: ( ( ruleEFloat ) )
+            // InternalBiLang.g:7026:2: ( ruleEFloat )
+            {
+            // InternalBiLang.g:7026:2: ( ruleEFloat )
+            // InternalBiLang.g:7027:3: ruleEFloat
+            {
+             before(grammarAccess.getScatterPlotAccess().getThicknessEFloatParserRuleCall_9_1_0()); 
+            pushFollow(FOLLOW_2);
+            ruleEFloat();
+
+            state._fsp--;
+
+             after(grammarAccess.getScatterPlotAccess().getThicknessEFloatParserRuleCall_9_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ScatterPlot__ThicknessAssignment_9_1"
+
+
+    // $ANTLR start "rule__RadarPlot__NameAssignment_1"
+    // InternalBiLang.g:7036:1: rule__RadarPlot__NameAssignment_1 : ( RULE_ID ) ;
+    public final void rule__RadarPlot__NameAssignment_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:7040:1: ( ( RULE_ID ) )
+            // InternalBiLang.g:7041:2: ( RULE_ID )
+            {
+            // InternalBiLang.g:7041:2: ( RULE_ID )
+            // InternalBiLang.g:7042:3: RULE_ID
+            {
+             before(grammarAccess.getRadarPlotAccess().getNameIDTerminalRuleCall_1_0()); 
+            match(input,RULE_ID,FOLLOW_2); 
+             after(grammarAccess.getRadarPlotAccess().getNameIDTerminalRuleCall_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RadarPlot__NameAssignment_1"
+
+
+    // $ANTLR start "rule__RadarPlot__XAxisAssignment_4"
+    // InternalBiLang.g:7051:1: rule__RadarPlot__XAxisAssignment_4 : ( ruleEString ) ;
+    public final void rule__RadarPlot__XAxisAssignment_4() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:7055:1: ( ( ruleEString ) )
+            // InternalBiLang.g:7056:2: ( ruleEString )
+            {
+            // InternalBiLang.g:7056:2: ( ruleEString )
+            // InternalBiLang.g:7057:3: ruleEString
+            {
+             before(grammarAccess.getRadarPlotAccess().getXAxisEStringParserRuleCall_4_0()); 
+            pushFollow(FOLLOW_2);
+            ruleEString();
+
+            state._fsp--;
+
+             after(grammarAccess.getRadarPlotAccess().getXAxisEStringParserRuleCall_4_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RadarPlot__XAxisAssignment_4"
+
+
+    // $ANTLR start "rule__RadarPlot__YAxisAssignment_6"
+    // InternalBiLang.g:7066:1: rule__RadarPlot__YAxisAssignment_6 : ( ruleEString ) ;
+    public final void rule__RadarPlot__YAxisAssignment_6() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:7070:1: ( ( ruleEString ) )
+            // InternalBiLang.g:7071:2: ( ruleEString )
+            {
+            // InternalBiLang.g:7071:2: ( ruleEString )
+            // InternalBiLang.g:7072:3: ruleEString
+            {
+             before(grammarAccess.getRadarPlotAccess().getYAxisEStringParserRuleCall_6_0()); 
+            pushFollow(FOLLOW_2);
+            ruleEString();
+
+            state._fsp--;
+
+             after(grammarAccess.getRadarPlotAccess().getYAxisEStringParserRuleCall_6_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RadarPlot__YAxisAssignment_6"
+
+
+    // $ANTLR start "rule__RadarPlot__LocationAssignment_7_1"
+    // InternalBiLang.g:7081:1: rule__RadarPlot__LocationAssignment_7_1 : ( ruleEString ) ;
+    public final void rule__RadarPlot__LocationAssignment_7_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:7085:1: ( ( ruleEString ) )
+            // InternalBiLang.g:7086:2: ( ruleEString )
+            {
+            // InternalBiLang.g:7086:2: ( ruleEString )
+            // InternalBiLang.g:7087:3: ruleEString
+            {
+             before(grammarAccess.getRadarPlotAccess().getLocationEStringParserRuleCall_7_1_0()); 
+            pushFollow(FOLLOW_2);
+            ruleEString();
+
+            state._fsp--;
+
+             after(grammarAccess.getRadarPlotAccess().getLocationEStringParserRuleCall_7_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RadarPlot__LocationAssignment_7_1"
+
+
+    // $ANTLR start "rule__RadarPlot__ColorsAssignment_8_1"
+    // InternalBiLang.g:7096:1: rule__RadarPlot__ColorsAssignment_8_1 : ( ruleEString ) ;
+    public final void rule__RadarPlot__ColorsAssignment_8_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:7100:1: ( ( ruleEString ) )
+            // InternalBiLang.g:7101:2: ( ruleEString )
+            {
+            // InternalBiLang.g:7101:2: ( ruleEString )
+            // InternalBiLang.g:7102:3: ruleEString
+            {
+             before(grammarAccess.getRadarPlotAccess().getColorsEStringParserRuleCall_8_1_0()); 
+            pushFollow(FOLLOW_2);
+            ruleEString();
+
+            state._fsp--;
+
+             after(grammarAccess.getRadarPlotAccess().getColorsEStringParserRuleCall_8_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RadarPlot__ColorsAssignment_8_1"
+
+
+    // $ANTLR start "rule__RadarPlot__ThicknessAssignment_9_1"
+    // InternalBiLang.g:7111:1: rule__RadarPlot__ThicknessAssignment_9_1 : ( ruleEFloat ) ;
+    public final void rule__RadarPlot__ThicknessAssignment_9_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalBiLang.g:7115:1: ( ( ruleEFloat ) )
+            // InternalBiLang.g:7116:2: ( ruleEFloat )
+            {
+            // InternalBiLang.g:7116:2: ( ruleEFloat )
+            // InternalBiLang.g:7117:3: ruleEFloat
+            {
+             before(grammarAccess.getRadarPlotAccess().getThicknessEFloatParserRuleCall_9_1_0()); 
+            pushFollow(FOLLOW_2);
+            ruleEFloat();
+
+            state._fsp--;
+
+             after(grammarAccess.getRadarPlotAccess().getThicknessEFloatParserRuleCall_9_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__RadarPlot__ThicknessAssignment_9_1"
+
     // Delegated rules
 
 
@@ -13220,9 +21459,9 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000002000001000L});
     public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000400000000L});
     public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000800000000L});
-    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0010200000000000L});
-    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0010201000000000L});
-    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0010200000000002L});
+    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x03F0200000000000L});
+    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x03F0201000000000L});
+    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x03F0200000000002L});
     public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000004000000000L});
     public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000008000000000L});
     public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000001C00000L});
@@ -13240,5 +21479,6 @@ public class InternalBiLangParser extends AbstractInternalContentAssistParser {
     public static final BitSet FOLLOW_36 = new BitSet(new long[]{0x0000800000000000L});
     public static final BitSet FOLLOW_37 = new BitSet(new long[]{0x0001000000000000L});
     public static final BitSet FOLLOW_38 = new BitSet(new long[]{0x000E000000000000L});
+    public static final BitSet FOLLOW_39 = new BitSet(new long[]{0x0010000000000000L});
 
 }

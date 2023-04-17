@@ -196,6 +196,7 @@ public class BiLangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Contexts:
+	 *     Plot returns DonutPlot
 	 *     DonutPlot returns DonutPlot
 	 *
 	 * Constraint:
@@ -282,6 +283,7 @@ public class BiLangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Contexts:
+	 *     Plot returns PiePlot
 	 *     PiePlot returns PiePlot
 	 *
 	 * Constraint:
@@ -301,6 +303,7 @@ public class BiLangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Contexts:
+	 *     Plot returns PolarPlot
 	 *     PolarPlot returns PolarPlot
 	 *
 	 * Constraint:
@@ -370,6 +373,7 @@ public class BiLangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Contexts:
+	 *     Plot returns RadarPlot
 	 *     RadarPlot returns RadarPlot
 	 *
 	 * Constraint:
@@ -389,6 +393,7 @@ public class BiLangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Contexts:
+	 *     Plot returns ScatterPlot
 	 *     ScatterPlot returns ScatterPlot
 	 *
 	 * Constraint:

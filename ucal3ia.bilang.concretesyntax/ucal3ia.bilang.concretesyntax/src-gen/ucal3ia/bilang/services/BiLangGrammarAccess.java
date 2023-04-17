@@ -181,12 +181,17 @@ public class BiLangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cBarPlotParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cLinePlotParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cDonutPlotParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cScatterPlotParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cPolarPlotParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cRadarPlotParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
+		private final RuleCall cPiePlotParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
 		
 		//Plot returns Plot:
-		//    BarPlot | LinePlot;
+		//    BarPlot | LinePlot | DonutPlot | ScatterPlot | PolarPlot | RadarPlot | PiePlot;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//BarPlot | LinePlot
+		//BarPlot | LinePlot | DonutPlot | ScatterPlot | PolarPlot | RadarPlot | PiePlot
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//BarPlot
@@ -194,6 +199,21 @@ public class BiLangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		
 		//LinePlot
 		public RuleCall getLinePlotParserRuleCall_1() { return cLinePlotParserRuleCall_1; }
+		
+		//DonutPlot
+		public RuleCall getDonutPlotParserRuleCall_2() { return cDonutPlotParserRuleCall_2; }
+		
+		//ScatterPlot
+		public RuleCall getScatterPlotParserRuleCall_3() { return cScatterPlotParserRuleCall_3; }
+		
+		//PolarPlot
+		public RuleCall getPolarPlotParserRuleCall_4() { return cPolarPlotParserRuleCall_4; }
+		
+		//RadarPlot
+		public RuleCall getRadarPlotParserRuleCall_5() { return cRadarPlotParserRuleCall_5; }
+		
+		//PiePlot
+		public RuleCall getPiePlotParserRuleCall_6() { return cPiePlotParserRuleCall_6; }
 	}
 	public class EStringElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ucal3ia.bilang.BiLang.EString");
@@ -1711,7 +1731,7 @@ public class BiLangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 	}
 	
 	//Plot returns Plot:
-	//    BarPlot | LinePlot;
+	//    BarPlot | LinePlot | DonutPlot | ScatterPlot | PolarPlot | RadarPlot | PiePlot;
 	public PlotElements getPlotAccess() {
 		return pPlot;
 	}

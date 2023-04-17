@@ -499,6 +499,131 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+// Entry rule entryRuleDonutPlot
+entryRuleDonutPlot
+:
+{ before(grammarAccess.getDonutPlotRule()); }
+	 ruleDonutPlot
+{ after(grammarAccess.getDonutPlotRule()); } 
+	 EOF 
+;
+
+// Rule DonutPlot
+ruleDonutPlot 
+	@init {
+		int stackSize = keepStackSize();
+	}
+	:
+	(
+		{ before(grammarAccess.getDonutPlotAccess().getGroup()); }
+		(rule__DonutPlot__Group__0)
+		{ after(grammarAccess.getDonutPlotAccess().getGroup()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+// Entry rule entryRulePiePlot
+entryRulePiePlot
+:
+{ before(grammarAccess.getPiePlotRule()); }
+	 rulePiePlot
+{ after(grammarAccess.getPiePlotRule()); } 
+	 EOF 
+;
+
+// Rule PiePlot
+rulePiePlot 
+	@init {
+		int stackSize = keepStackSize();
+	}
+	:
+	(
+		{ before(grammarAccess.getPiePlotAccess().getGroup()); }
+		(rule__PiePlot__Group__0)
+		{ after(grammarAccess.getPiePlotAccess().getGroup()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+// Entry rule entryRulePolarPlot
+entryRulePolarPlot
+:
+{ before(grammarAccess.getPolarPlotRule()); }
+	 rulePolarPlot
+{ after(grammarAccess.getPolarPlotRule()); } 
+	 EOF 
+;
+
+// Rule PolarPlot
+rulePolarPlot 
+	@init {
+		int stackSize = keepStackSize();
+	}
+	:
+	(
+		{ before(grammarAccess.getPolarPlotAccess().getGroup()); }
+		(rule__PolarPlot__Group__0)
+		{ after(grammarAccess.getPolarPlotAccess().getGroup()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+// Entry rule entryRuleScatterPlot
+entryRuleScatterPlot
+:
+{ before(grammarAccess.getScatterPlotRule()); }
+	 ruleScatterPlot
+{ after(grammarAccess.getScatterPlotRule()); } 
+	 EOF 
+;
+
+// Rule ScatterPlot
+ruleScatterPlot 
+	@init {
+		int stackSize = keepStackSize();
+	}
+	:
+	(
+		{ before(grammarAccess.getScatterPlotAccess().getGroup()); }
+		(rule__ScatterPlot__Group__0)
+		{ after(grammarAccess.getScatterPlotAccess().getGroup()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+// Entry rule entryRuleRadarPlot
+entryRuleRadarPlot
+:
+{ before(grammarAccess.getRadarPlotRule()); }
+	 ruleRadarPlot
+{ after(grammarAccess.getRadarPlotRule()); } 
+	 EOF 
+;
+
+// Rule RadarPlot
+ruleRadarPlot 
+	@init {
+		int stackSize = keepStackSize();
+	}
+	:
+	(
+		{ before(grammarAccess.getRadarPlotAccess().getGroup()); }
+		(rule__RadarPlot__Group__0)
+		{ after(grammarAccess.getRadarPlotAccess().getGroup()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 // Rule MathOperator
 ruleMathOperator
 	@init {
@@ -647,6 +772,36 @@ rule__Plot__Alternatives
 		{ before(grammarAccess.getPlotAccess().getLinePlotParserRuleCall_1()); }
 		ruleLinePlot
 		{ after(grammarAccess.getPlotAccess().getLinePlotParserRuleCall_1()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getPlotAccess().getDonutPlotParserRuleCall_2()); }
+		ruleDonutPlot
+		{ after(grammarAccess.getPlotAccess().getDonutPlotParserRuleCall_2()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getPlotAccess().getScatterPlotParserRuleCall_3()); }
+		ruleScatterPlot
+		{ after(grammarAccess.getPlotAccess().getScatterPlotParserRuleCall_3()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getPlotAccess().getPolarPlotParserRuleCall_4()); }
+		rulePolarPlot
+		{ after(grammarAccess.getPlotAccess().getPolarPlotParserRuleCall_4()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getPlotAccess().getRadarPlotParserRuleCall_5()); }
+		ruleRadarPlot
+		{ after(grammarAccess.getPlotAccess().getRadarPlotParserRuleCall_5()); }
+	)
+	|
+	(
+		{ before(grammarAccess.getPlotAccess().getPiePlotParserRuleCall_6()); }
+		rulePiePlot
+		{ after(grammarAccess.getPlotAccess().getPiePlotParserRuleCall_6()); }
 	)
 ;
 finally {
@@ -3686,6 +3841,2166 @@ finally {
 }
 
 
+rule__DonutPlot__Group__0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__DonutPlot__Group__0__Impl
+	rule__DonutPlot__Group__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__DonutPlot__Group__0__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getDonutPlotAccess().getDonutKeyword_0()); }
+	'donut'
+	{ after(grammarAccess.getDonutPlotAccess().getDonutKeyword_0()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__DonutPlot__Group__1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__DonutPlot__Group__1__Impl
+	rule__DonutPlot__Group__2
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__DonutPlot__Group__1__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getDonutPlotAccess().getNameAssignment_1()); }
+	(rule__DonutPlot__NameAssignment_1)
+	{ after(grammarAccess.getDonutPlotAccess().getNameAssignment_1()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__DonutPlot__Group__2
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__DonutPlot__Group__2__Impl
+	rule__DonutPlot__Group__3
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__DonutPlot__Group__2__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getDonutPlotAccess().getHyphenMinusGreaterThanSignKeyword_2()); }
+	'->'
+	{ after(grammarAccess.getDonutPlotAccess().getHyphenMinusGreaterThanSignKeyword_2()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__DonutPlot__Group__3
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__DonutPlot__Group__3__Impl
+	rule__DonutPlot__Group__4
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__DonutPlot__Group__3__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getDonutPlotAccess().getXAxKeyword_3()); }
+	'xAx'
+	{ after(grammarAccess.getDonutPlotAccess().getXAxKeyword_3()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__DonutPlot__Group__4
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__DonutPlot__Group__4__Impl
+	rule__DonutPlot__Group__5
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__DonutPlot__Group__4__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getDonutPlotAccess().getXAxisAssignment_4()); }
+	(rule__DonutPlot__XAxisAssignment_4)
+	{ after(grammarAccess.getDonutPlotAccess().getXAxisAssignment_4()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__DonutPlot__Group__5
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__DonutPlot__Group__5__Impl
+	rule__DonutPlot__Group__6
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__DonutPlot__Group__5__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getDonutPlotAccess().getYAKeyword_5()); }
+	'yA'
+	{ after(grammarAccess.getDonutPlotAccess().getYAKeyword_5()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__DonutPlot__Group__6
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__DonutPlot__Group__6__Impl
+	rule__DonutPlot__Group__7
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__DonutPlot__Group__6__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getDonutPlotAccess().getYAxisAssignment_6()); }
+	(rule__DonutPlot__YAxisAssignment_6)
+	{ after(grammarAccess.getDonutPlotAccess().getYAxisAssignment_6()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__DonutPlot__Group__7
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__DonutPlot__Group__7__Impl
+	rule__DonutPlot__Group__8
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__DonutPlot__Group__7__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getDonutPlotAccess().getGroup_7()); }
+	(rule__DonutPlot__Group_7__0)?
+	{ after(grammarAccess.getDonutPlotAccess().getGroup_7()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__DonutPlot__Group__8
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__DonutPlot__Group__8__Impl
+	rule__DonutPlot__Group__9
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__DonutPlot__Group__8__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getDonutPlotAccess().getGroup_8()); }
+	(rule__DonutPlot__Group_8__0)?
+	{ after(grammarAccess.getDonutPlotAccess().getGroup_8()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__DonutPlot__Group__9
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__DonutPlot__Group__9__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__DonutPlot__Group__9__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getDonutPlotAccess().getGroup_9()); }
+	(rule__DonutPlot__Group_9__0)?
+	{ after(grammarAccess.getDonutPlotAccess().getGroup_9()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__DonutPlot__Group_7__0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__DonutPlot__Group_7__0__Impl
+	rule__DonutPlot__Group_7__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__DonutPlot__Group_7__0__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getDonutPlotAccess().getLocKeyword_7_0()); }
+	'loc'
+	{ after(grammarAccess.getDonutPlotAccess().getLocKeyword_7_0()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__DonutPlot__Group_7__1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__DonutPlot__Group_7__1__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__DonutPlot__Group_7__1__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getDonutPlotAccess().getLocationAssignment_7_1()); }
+	(rule__DonutPlot__LocationAssignment_7_1)
+	{ after(grammarAccess.getDonutPlotAccess().getLocationAssignment_7_1()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__DonutPlot__Group_8__0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__DonutPlot__Group_8__0__Impl
+	rule__DonutPlot__Group_8__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__DonutPlot__Group_8__0__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getDonutPlotAccess().getColorsKeyword_8_0()); }
+	'colors'
+	{ after(grammarAccess.getDonutPlotAccess().getColorsKeyword_8_0()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__DonutPlot__Group_8__1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__DonutPlot__Group_8__1__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__DonutPlot__Group_8__1__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getDonutPlotAccess().getColorsAssignment_8_1()); }
+	(rule__DonutPlot__ColorsAssignment_8_1)
+	{ after(grammarAccess.getDonutPlotAccess().getColorsAssignment_8_1()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__DonutPlot__Group_9__0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__DonutPlot__Group_9__0__Impl
+	rule__DonutPlot__Group_9__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__DonutPlot__Group_9__0__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getDonutPlotAccess().getThicknessKeyword_9_0()); }
+	'thickness'
+	{ after(grammarAccess.getDonutPlotAccess().getThicknessKeyword_9_0()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__DonutPlot__Group_9__1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__DonutPlot__Group_9__1__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__DonutPlot__Group_9__1__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getDonutPlotAccess().getThicknessAssignment_9_1()); }
+	(rule__DonutPlot__ThicknessAssignment_9_1)
+	{ after(grammarAccess.getDonutPlotAccess().getThicknessAssignment_9_1()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__PiePlot__Group__0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__PiePlot__Group__0__Impl
+	rule__PiePlot__Group__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PiePlot__Group__0__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getPiePlotAccess().getPieKeyword_0()); }
+	'pie'
+	{ after(grammarAccess.getPiePlotAccess().getPieKeyword_0()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PiePlot__Group__1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__PiePlot__Group__1__Impl
+	rule__PiePlot__Group__2
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PiePlot__Group__1__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getPiePlotAccess().getNameAssignment_1()); }
+	(rule__PiePlot__NameAssignment_1)
+	{ after(grammarAccess.getPiePlotAccess().getNameAssignment_1()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PiePlot__Group__2
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__PiePlot__Group__2__Impl
+	rule__PiePlot__Group__3
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PiePlot__Group__2__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getPiePlotAccess().getHyphenMinusGreaterThanSignKeyword_2()); }
+	'->'
+	{ after(grammarAccess.getPiePlotAccess().getHyphenMinusGreaterThanSignKeyword_2()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PiePlot__Group__3
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__PiePlot__Group__3__Impl
+	rule__PiePlot__Group__4
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PiePlot__Group__3__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getPiePlotAccess().getXAxKeyword_3()); }
+	'xAx'
+	{ after(grammarAccess.getPiePlotAccess().getXAxKeyword_3()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PiePlot__Group__4
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__PiePlot__Group__4__Impl
+	rule__PiePlot__Group__5
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PiePlot__Group__4__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getPiePlotAccess().getXAxisAssignment_4()); }
+	(rule__PiePlot__XAxisAssignment_4)
+	{ after(grammarAccess.getPiePlotAccess().getXAxisAssignment_4()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PiePlot__Group__5
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__PiePlot__Group__5__Impl
+	rule__PiePlot__Group__6
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PiePlot__Group__5__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getPiePlotAccess().getYAKeyword_5()); }
+	'yA'
+	{ after(grammarAccess.getPiePlotAccess().getYAKeyword_5()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PiePlot__Group__6
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__PiePlot__Group__6__Impl
+	rule__PiePlot__Group__7
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PiePlot__Group__6__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getPiePlotAccess().getYAxisAssignment_6()); }
+	(rule__PiePlot__YAxisAssignment_6)
+	{ after(grammarAccess.getPiePlotAccess().getYAxisAssignment_6()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PiePlot__Group__7
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__PiePlot__Group__7__Impl
+	rule__PiePlot__Group__8
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PiePlot__Group__7__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getPiePlotAccess().getGroup_7()); }
+	(rule__PiePlot__Group_7__0)?
+	{ after(grammarAccess.getPiePlotAccess().getGroup_7()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PiePlot__Group__8
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__PiePlot__Group__8__Impl
+	rule__PiePlot__Group__9
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PiePlot__Group__8__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getPiePlotAccess().getGroup_8()); }
+	(rule__PiePlot__Group_8__0)?
+	{ after(grammarAccess.getPiePlotAccess().getGroup_8()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PiePlot__Group__9
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__PiePlot__Group__9__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PiePlot__Group__9__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getPiePlotAccess().getGroup_9()); }
+	(rule__PiePlot__Group_9__0)?
+	{ after(grammarAccess.getPiePlotAccess().getGroup_9()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__PiePlot__Group_7__0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__PiePlot__Group_7__0__Impl
+	rule__PiePlot__Group_7__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PiePlot__Group_7__0__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getPiePlotAccess().getLocKeyword_7_0()); }
+	'loc'
+	{ after(grammarAccess.getPiePlotAccess().getLocKeyword_7_0()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PiePlot__Group_7__1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__PiePlot__Group_7__1__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PiePlot__Group_7__1__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getPiePlotAccess().getLocationAssignment_7_1()); }
+	(rule__PiePlot__LocationAssignment_7_1)
+	{ after(grammarAccess.getPiePlotAccess().getLocationAssignment_7_1()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__PiePlot__Group_8__0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__PiePlot__Group_8__0__Impl
+	rule__PiePlot__Group_8__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PiePlot__Group_8__0__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getPiePlotAccess().getColorsKeyword_8_0()); }
+	'colors'
+	{ after(grammarAccess.getPiePlotAccess().getColorsKeyword_8_0()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PiePlot__Group_8__1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__PiePlot__Group_8__1__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PiePlot__Group_8__1__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getPiePlotAccess().getColorsAssignment_8_1()); }
+	(rule__PiePlot__ColorsAssignment_8_1)
+	{ after(grammarAccess.getPiePlotAccess().getColorsAssignment_8_1()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__PiePlot__Group_9__0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__PiePlot__Group_9__0__Impl
+	rule__PiePlot__Group_9__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PiePlot__Group_9__0__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getPiePlotAccess().getThicknessKeyword_9_0()); }
+	'thickness'
+	{ after(grammarAccess.getPiePlotAccess().getThicknessKeyword_9_0()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PiePlot__Group_9__1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__PiePlot__Group_9__1__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PiePlot__Group_9__1__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getPiePlotAccess().getThicknessAssignment_9_1()); }
+	(rule__PiePlot__ThicknessAssignment_9_1)
+	{ after(grammarAccess.getPiePlotAccess().getThicknessAssignment_9_1()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__PolarPlot__Group__0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__PolarPlot__Group__0__Impl
+	rule__PolarPlot__Group__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PolarPlot__Group__0__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getPolarPlotAccess().getPolarKeyword_0()); }
+	'polar'
+	{ after(grammarAccess.getPolarPlotAccess().getPolarKeyword_0()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PolarPlot__Group__1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__PolarPlot__Group__1__Impl
+	rule__PolarPlot__Group__2
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PolarPlot__Group__1__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getPolarPlotAccess().getNameAssignment_1()); }
+	(rule__PolarPlot__NameAssignment_1)
+	{ after(grammarAccess.getPolarPlotAccess().getNameAssignment_1()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PolarPlot__Group__2
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__PolarPlot__Group__2__Impl
+	rule__PolarPlot__Group__3
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PolarPlot__Group__2__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getPolarPlotAccess().getHyphenMinusGreaterThanSignKeyword_2()); }
+	'->'
+	{ after(grammarAccess.getPolarPlotAccess().getHyphenMinusGreaterThanSignKeyword_2()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PolarPlot__Group__3
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__PolarPlot__Group__3__Impl
+	rule__PolarPlot__Group__4
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PolarPlot__Group__3__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getPolarPlotAccess().getXAxKeyword_3()); }
+	'xAx'
+	{ after(grammarAccess.getPolarPlotAccess().getXAxKeyword_3()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PolarPlot__Group__4
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__PolarPlot__Group__4__Impl
+	rule__PolarPlot__Group__5
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PolarPlot__Group__4__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getPolarPlotAccess().getXAxisAssignment_4()); }
+	(rule__PolarPlot__XAxisAssignment_4)
+	{ after(grammarAccess.getPolarPlotAccess().getXAxisAssignment_4()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PolarPlot__Group__5
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__PolarPlot__Group__5__Impl
+	rule__PolarPlot__Group__6
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PolarPlot__Group__5__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getPolarPlotAccess().getYAKeyword_5()); }
+	'yA'
+	{ after(grammarAccess.getPolarPlotAccess().getYAKeyword_5()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PolarPlot__Group__6
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__PolarPlot__Group__6__Impl
+	rule__PolarPlot__Group__7
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PolarPlot__Group__6__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getPolarPlotAccess().getYAxisAssignment_6()); }
+	(rule__PolarPlot__YAxisAssignment_6)
+	{ after(grammarAccess.getPolarPlotAccess().getYAxisAssignment_6()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PolarPlot__Group__7
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__PolarPlot__Group__7__Impl
+	rule__PolarPlot__Group__8
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PolarPlot__Group__7__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getPolarPlotAccess().getGroup_7()); }
+	(rule__PolarPlot__Group_7__0)?
+	{ after(grammarAccess.getPolarPlotAccess().getGroup_7()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PolarPlot__Group__8
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__PolarPlot__Group__8__Impl
+	rule__PolarPlot__Group__9
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PolarPlot__Group__8__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getPolarPlotAccess().getGroup_8()); }
+	(rule__PolarPlot__Group_8__0)?
+	{ after(grammarAccess.getPolarPlotAccess().getGroup_8()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PolarPlot__Group__9
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__PolarPlot__Group__9__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PolarPlot__Group__9__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getPolarPlotAccess().getGroup_9()); }
+	(rule__PolarPlot__Group_9__0)?
+	{ after(grammarAccess.getPolarPlotAccess().getGroup_9()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__PolarPlot__Group_7__0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__PolarPlot__Group_7__0__Impl
+	rule__PolarPlot__Group_7__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PolarPlot__Group_7__0__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getPolarPlotAccess().getLocKeyword_7_0()); }
+	'loc'
+	{ after(grammarAccess.getPolarPlotAccess().getLocKeyword_7_0()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PolarPlot__Group_7__1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__PolarPlot__Group_7__1__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PolarPlot__Group_7__1__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getPolarPlotAccess().getLocationAssignment_7_1()); }
+	(rule__PolarPlot__LocationAssignment_7_1)
+	{ after(grammarAccess.getPolarPlotAccess().getLocationAssignment_7_1()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__PolarPlot__Group_8__0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__PolarPlot__Group_8__0__Impl
+	rule__PolarPlot__Group_8__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PolarPlot__Group_8__0__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getPolarPlotAccess().getColorsKeyword_8_0()); }
+	'colors'
+	{ after(grammarAccess.getPolarPlotAccess().getColorsKeyword_8_0()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PolarPlot__Group_8__1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__PolarPlot__Group_8__1__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PolarPlot__Group_8__1__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getPolarPlotAccess().getColorsAssignment_8_1()); }
+	(rule__PolarPlot__ColorsAssignment_8_1)
+	{ after(grammarAccess.getPolarPlotAccess().getColorsAssignment_8_1()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__PolarPlot__Group_9__0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__PolarPlot__Group_9__0__Impl
+	rule__PolarPlot__Group_9__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PolarPlot__Group_9__0__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getPolarPlotAccess().getThicknessKeyword_9_0()); }
+	'thickness'
+	{ after(grammarAccess.getPolarPlotAccess().getThicknessKeyword_9_0()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PolarPlot__Group_9__1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__PolarPlot__Group_9__1__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PolarPlot__Group_9__1__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getPolarPlotAccess().getThicknessAssignment_9_1()); }
+	(rule__PolarPlot__ThicknessAssignment_9_1)
+	{ after(grammarAccess.getPolarPlotAccess().getThicknessAssignment_9_1()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__ScatterPlot__Group__0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__ScatterPlot__Group__0__Impl
+	rule__ScatterPlot__Group__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ScatterPlot__Group__0__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getScatterPlotAccess().getScatterKeyword_0()); }
+	'scatter'
+	{ after(grammarAccess.getScatterPlotAccess().getScatterKeyword_0()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ScatterPlot__Group__1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__ScatterPlot__Group__1__Impl
+	rule__ScatterPlot__Group__2
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ScatterPlot__Group__1__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getScatterPlotAccess().getNameAssignment_1()); }
+	(rule__ScatterPlot__NameAssignment_1)
+	{ after(grammarAccess.getScatterPlotAccess().getNameAssignment_1()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ScatterPlot__Group__2
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__ScatterPlot__Group__2__Impl
+	rule__ScatterPlot__Group__3
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ScatterPlot__Group__2__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getScatterPlotAccess().getHyphenMinusGreaterThanSignKeyword_2()); }
+	'->'
+	{ after(grammarAccess.getScatterPlotAccess().getHyphenMinusGreaterThanSignKeyword_2()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ScatterPlot__Group__3
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__ScatterPlot__Group__3__Impl
+	rule__ScatterPlot__Group__4
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ScatterPlot__Group__3__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getScatterPlotAccess().getXAxKeyword_3()); }
+	'xAx'
+	{ after(grammarAccess.getScatterPlotAccess().getXAxKeyword_3()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ScatterPlot__Group__4
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__ScatterPlot__Group__4__Impl
+	rule__ScatterPlot__Group__5
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ScatterPlot__Group__4__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getScatterPlotAccess().getXAxisAssignment_4()); }
+	(rule__ScatterPlot__XAxisAssignment_4)
+	{ after(grammarAccess.getScatterPlotAccess().getXAxisAssignment_4()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ScatterPlot__Group__5
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__ScatterPlot__Group__5__Impl
+	rule__ScatterPlot__Group__6
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ScatterPlot__Group__5__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getScatterPlotAccess().getYAKeyword_5()); }
+	'yA'
+	{ after(grammarAccess.getScatterPlotAccess().getYAKeyword_5()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ScatterPlot__Group__6
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__ScatterPlot__Group__6__Impl
+	rule__ScatterPlot__Group__7
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ScatterPlot__Group__6__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getScatterPlotAccess().getYAxisAssignment_6()); }
+	(rule__ScatterPlot__YAxisAssignment_6)
+	{ after(grammarAccess.getScatterPlotAccess().getYAxisAssignment_6()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ScatterPlot__Group__7
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__ScatterPlot__Group__7__Impl
+	rule__ScatterPlot__Group__8
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ScatterPlot__Group__7__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getScatterPlotAccess().getGroup_7()); }
+	(rule__ScatterPlot__Group_7__0)?
+	{ after(grammarAccess.getScatterPlotAccess().getGroup_7()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ScatterPlot__Group__8
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__ScatterPlot__Group__8__Impl
+	rule__ScatterPlot__Group__9
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ScatterPlot__Group__8__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getScatterPlotAccess().getGroup_8()); }
+	(rule__ScatterPlot__Group_8__0)?
+	{ after(grammarAccess.getScatterPlotAccess().getGroup_8()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ScatterPlot__Group__9
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__ScatterPlot__Group__9__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ScatterPlot__Group__9__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getScatterPlotAccess().getGroup_9()); }
+	(rule__ScatterPlot__Group_9__0)?
+	{ after(grammarAccess.getScatterPlotAccess().getGroup_9()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__ScatterPlot__Group_7__0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__ScatterPlot__Group_7__0__Impl
+	rule__ScatterPlot__Group_7__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ScatterPlot__Group_7__0__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getScatterPlotAccess().getLocKeyword_7_0()); }
+	'loc'
+	{ after(grammarAccess.getScatterPlotAccess().getLocKeyword_7_0()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ScatterPlot__Group_7__1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__ScatterPlot__Group_7__1__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ScatterPlot__Group_7__1__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getScatterPlotAccess().getLocationAssignment_7_1()); }
+	(rule__ScatterPlot__LocationAssignment_7_1)
+	{ after(grammarAccess.getScatterPlotAccess().getLocationAssignment_7_1()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__ScatterPlot__Group_8__0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__ScatterPlot__Group_8__0__Impl
+	rule__ScatterPlot__Group_8__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ScatterPlot__Group_8__0__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getScatterPlotAccess().getColorsKeyword_8_0()); }
+	'colors'
+	{ after(grammarAccess.getScatterPlotAccess().getColorsKeyword_8_0()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ScatterPlot__Group_8__1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__ScatterPlot__Group_8__1__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ScatterPlot__Group_8__1__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getScatterPlotAccess().getColorsAssignment_8_1()); }
+	(rule__ScatterPlot__ColorsAssignment_8_1)
+	{ after(grammarAccess.getScatterPlotAccess().getColorsAssignment_8_1()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__ScatterPlot__Group_9__0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__ScatterPlot__Group_9__0__Impl
+	rule__ScatterPlot__Group_9__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ScatterPlot__Group_9__0__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getScatterPlotAccess().getThicknessKeyword_9_0()); }
+	'thickness'
+	{ after(grammarAccess.getScatterPlotAccess().getThicknessKeyword_9_0()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ScatterPlot__Group_9__1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__ScatterPlot__Group_9__1__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ScatterPlot__Group_9__1__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getScatterPlotAccess().getThicknessAssignment_9_1()); }
+	(rule__ScatterPlot__ThicknessAssignment_9_1)
+	{ after(grammarAccess.getScatterPlotAccess().getThicknessAssignment_9_1()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__RadarPlot__Group__0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__RadarPlot__Group__0__Impl
+	rule__RadarPlot__Group__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__RadarPlot__Group__0__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getRadarPlotAccess().getRadarKeyword_0()); }
+	'radar'
+	{ after(grammarAccess.getRadarPlotAccess().getRadarKeyword_0()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__RadarPlot__Group__1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__RadarPlot__Group__1__Impl
+	rule__RadarPlot__Group__2
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__RadarPlot__Group__1__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getRadarPlotAccess().getNameAssignment_1()); }
+	(rule__RadarPlot__NameAssignment_1)
+	{ after(grammarAccess.getRadarPlotAccess().getNameAssignment_1()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__RadarPlot__Group__2
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__RadarPlot__Group__2__Impl
+	rule__RadarPlot__Group__3
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__RadarPlot__Group__2__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getRadarPlotAccess().getHyphenMinusGreaterThanSignKeyword_2()); }
+	'->'
+	{ after(grammarAccess.getRadarPlotAccess().getHyphenMinusGreaterThanSignKeyword_2()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__RadarPlot__Group__3
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__RadarPlot__Group__3__Impl
+	rule__RadarPlot__Group__4
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__RadarPlot__Group__3__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getRadarPlotAccess().getXAxKeyword_3()); }
+	'xAx'
+	{ after(grammarAccess.getRadarPlotAccess().getXAxKeyword_3()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__RadarPlot__Group__4
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__RadarPlot__Group__4__Impl
+	rule__RadarPlot__Group__5
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__RadarPlot__Group__4__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getRadarPlotAccess().getXAxisAssignment_4()); }
+	(rule__RadarPlot__XAxisAssignment_4)
+	{ after(grammarAccess.getRadarPlotAccess().getXAxisAssignment_4()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__RadarPlot__Group__5
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__RadarPlot__Group__5__Impl
+	rule__RadarPlot__Group__6
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__RadarPlot__Group__5__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getRadarPlotAccess().getYAKeyword_5()); }
+	'yA'
+	{ after(grammarAccess.getRadarPlotAccess().getYAKeyword_5()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__RadarPlot__Group__6
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__RadarPlot__Group__6__Impl
+	rule__RadarPlot__Group__7
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__RadarPlot__Group__6__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getRadarPlotAccess().getYAxisAssignment_6()); }
+	(rule__RadarPlot__YAxisAssignment_6)
+	{ after(grammarAccess.getRadarPlotAccess().getYAxisAssignment_6()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__RadarPlot__Group__7
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__RadarPlot__Group__7__Impl
+	rule__RadarPlot__Group__8
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__RadarPlot__Group__7__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getRadarPlotAccess().getGroup_7()); }
+	(rule__RadarPlot__Group_7__0)?
+	{ after(grammarAccess.getRadarPlotAccess().getGroup_7()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__RadarPlot__Group__8
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__RadarPlot__Group__8__Impl
+	rule__RadarPlot__Group__9
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__RadarPlot__Group__8__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getRadarPlotAccess().getGroup_8()); }
+	(rule__RadarPlot__Group_8__0)?
+	{ after(grammarAccess.getRadarPlotAccess().getGroup_8()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__RadarPlot__Group__9
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__RadarPlot__Group__9__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__RadarPlot__Group__9__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getRadarPlotAccess().getGroup_9()); }
+	(rule__RadarPlot__Group_9__0)?
+	{ after(grammarAccess.getRadarPlotAccess().getGroup_9()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__RadarPlot__Group_7__0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__RadarPlot__Group_7__0__Impl
+	rule__RadarPlot__Group_7__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__RadarPlot__Group_7__0__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getRadarPlotAccess().getLocKeyword_7_0()); }
+	'loc'
+	{ after(grammarAccess.getRadarPlotAccess().getLocKeyword_7_0()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__RadarPlot__Group_7__1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__RadarPlot__Group_7__1__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__RadarPlot__Group_7__1__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getRadarPlotAccess().getLocationAssignment_7_1()); }
+	(rule__RadarPlot__LocationAssignment_7_1)
+	{ after(grammarAccess.getRadarPlotAccess().getLocationAssignment_7_1()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__RadarPlot__Group_8__0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__RadarPlot__Group_8__0__Impl
+	rule__RadarPlot__Group_8__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__RadarPlot__Group_8__0__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getRadarPlotAccess().getColorsKeyword_8_0()); }
+	'colors'
+	{ after(grammarAccess.getRadarPlotAccess().getColorsKeyword_8_0()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__RadarPlot__Group_8__1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__RadarPlot__Group_8__1__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__RadarPlot__Group_8__1__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getRadarPlotAccess().getColorsAssignment_8_1()); }
+	(rule__RadarPlot__ColorsAssignment_8_1)
+	{ after(grammarAccess.getRadarPlotAccess().getColorsAssignment_8_1()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__RadarPlot__Group_9__0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__RadarPlot__Group_9__0__Impl
+	rule__RadarPlot__Group_9__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__RadarPlot__Group_9__0__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getRadarPlotAccess().getThicknessKeyword_9_0()); }
+	'thickness'
+	{ after(grammarAccess.getRadarPlotAccess().getThicknessKeyword_9_0()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__RadarPlot__Group_9__1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__RadarPlot__Group_9__1__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__RadarPlot__Group_9__1__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getRadarPlotAccess().getThicknessAssignment_9_1()); }
+	(rule__RadarPlot__ThicknessAssignment_9_1)
+	{ after(grammarAccess.getRadarPlotAccess().getThicknessAssignment_9_1()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
 rule__Task__NameAssignment_1
 	@init {
 		int stackSize = keepStackSize();
@@ -4352,6 +6667,456 @@ rule__LinePlot__ThicknessAssignment_10_1
 		{ before(grammarAccess.getLinePlotAccess().getThicknessEFloatParserRuleCall_10_1_0()); }
 		ruleEFloat
 		{ after(grammarAccess.getLinePlotAccess().getThicknessEFloatParserRuleCall_10_1_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__DonutPlot__NameAssignment_1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getDonutPlotAccess().getNameIDTerminalRuleCall_1_0()); }
+		RULE_ID
+		{ after(grammarAccess.getDonutPlotAccess().getNameIDTerminalRuleCall_1_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__DonutPlot__XAxisAssignment_4
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getDonutPlotAccess().getXAxisEStringParserRuleCall_4_0()); }
+		ruleEString
+		{ after(grammarAccess.getDonutPlotAccess().getXAxisEStringParserRuleCall_4_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__DonutPlot__YAxisAssignment_6
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getDonutPlotAccess().getYAxisEStringParserRuleCall_6_0()); }
+		ruleEString
+		{ after(grammarAccess.getDonutPlotAccess().getYAxisEStringParserRuleCall_6_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__DonutPlot__LocationAssignment_7_1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getDonutPlotAccess().getLocationEStringParserRuleCall_7_1_0()); }
+		ruleEString
+		{ after(grammarAccess.getDonutPlotAccess().getLocationEStringParserRuleCall_7_1_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__DonutPlot__ColorsAssignment_8_1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getDonutPlotAccess().getColorsEStringParserRuleCall_8_1_0()); }
+		ruleEString
+		{ after(grammarAccess.getDonutPlotAccess().getColorsEStringParserRuleCall_8_1_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__DonutPlot__ThicknessAssignment_9_1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getDonutPlotAccess().getThicknessEFloatParserRuleCall_9_1_0()); }
+		ruleEFloat
+		{ after(grammarAccess.getDonutPlotAccess().getThicknessEFloatParserRuleCall_9_1_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PiePlot__NameAssignment_1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getPiePlotAccess().getNameIDTerminalRuleCall_1_0()); }
+		RULE_ID
+		{ after(grammarAccess.getPiePlotAccess().getNameIDTerminalRuleCall_1_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PiePlot__XAxisAssignment_4
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getPiePlotAccess().getXAxisEStringParserRuleCall_4_0()); }
+		ruleEString
+		{ after(grammarAccess.getPiePlotAccess().getXAxisEStringParserRuleCall_4_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PiePlot__YAxisAssignment_6
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getPiePlotAccess().getYAxisEStringParserRuleCall_6_0()); }
+		ruleEString
+		{ after(grammarAccess.getPiePlotAccess().getYAxisEStringParserRuleCall_6_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PiePlot__LocationAssignment_7_1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getPiePlotAccess().getLocationEStringParserRuleCall_7_1_0()); }
+		ruleEString
+		{ after(grammarAccess.getPiePlotAccess().getLocationEStringParserRuleCall_7_1_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PiePlot__ColorsAssignment_8_1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getPiePlotAccess().getColorsEStringParserRuleCall_8_1_0()); }
+		ruleEString
+		{ after(grammarAccess.getPiePlotAccess().getColorsEStringParserRuleCall_8_1_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PiePlot__ThicknessAssignment_9_1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getPiePlotAccess().getThicknessEFloatParserRuleCall_9_1_0()); }
+		ruleEFloat
+		{ after(grammarAccess.getPiePlotAccess().getThicknessEFloatParserRuleCall_9_1_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PolarPlot__NameAssignment_1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getPolarPlotAccess().getNameIDTerminalRuleCall_1_0()); }
+		RULE_ID
+		{ after(grammarAccess.getPolarPlotAccess().getNameIDTerminalRuleCall_1_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PolarPlot__XAxisAssignment_4
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getPolarPlotAccess().getXAxisEStringParserRuleCall_4_0()); }
+		ruleEString
+		{ after(grammarAccess.getPolarPlotAccess().getXAxisEStringParserRuleCall_4_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PolarPlot__YAxisAssignment_6
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getPolarPlotAccess().getYAxisEStringParserRuleCall_6_0()); }
+		ruleEString
+		{ after(grammarAccess.getPolarPlotAccess().getYAxisEStringParserRuleCall_6_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PolarPlot__LocationAssignment_7_1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getPolarPlotAccess().getLocationEStringParserRuleCall_7_1_0()); }
+		ruleEString
+		{ after(grammarAccess.getPolarPlotAccess().getLocationEStringParserRuleCall_7_1_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PolarPlot__ColorsAssignment_8_1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getPolarPlotAccess().getColorsEStringParserRuleCall_8_1_0()); }
+		ruleEString
+		{ after(grammarAccess.getPolarPlotAccess().getColorsEStringParserRuleCall_8_1_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__PolarPlot__ThicknessAssignment_9_1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getPolarPlotAccess().getThicknessEFloatParserRuleCall_9_1_0()); }
+		ruleEFloat
+		{ after(grammarAccess.getPolarPlotAccess().getThicknessEFloatParserRuleCall_9_1_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ScatterPlot__NameAssignment_1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getScatterPlotAccess().getNameIDTerminalRuleCall_1_0()); }
+		RULE_ID
+		{ after(grammarAccess.getScatterPlotAccess().getNameIDTerminalRuleCall_1_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ScatterPlot__XAxisAssignment_4
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getScatterPlotAccess().getXAxisEStringParserRuleCall_4_0()); }
+		ruleEString
+		{ after(grammarAccess.getScatterPlotAccess().getXAxisEStringParserRuleCall_4_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ScatterPlot__YAxisAssignment_6
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getScatterPlotAccess().getYAxisEStringParserRuleCall_6_0()); }
+		ruleEString
+		{ after(grammarAccess.getScatterPlotAccess().getYAxisEStringParserRuleCall_6_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ScatterPlot__LocationAssignment_7_1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getScatterPlotAccess().getLocationEStringParserRuleCall_7_1_0()); }
+		ruleEString
+		{ after(grammarAccess.getScatterPlotAccess().getLocationEStringParserRuleCall_7_1_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ScatterPlot__ColorsAssignment_8_1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getScatterPlotAccess().getColorsEStringParserRuleCall_8_1_0()); }
+		ruleEString
+		{ after(grammarAccess.getScatterPlotAccess().getColorsEStringParserRuleCall_8_1_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__ScatterPlot__ThicknessAssignment_9_1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getScatterPlotAccess().getThicknessEFloatParserRuleCall_9_1_0()); }
+		ruleEFloat
+		{ after(grammarAccess.getScatterPlotAccess().getThicknessEFloatParserRuleCall_9_1_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__RadarPlot__NameAssignment_1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getRadarPlotAccess().getNameIDTerminalRuleCall_1_0()); }
+		RULE_ID
+		{ after(grammarAccess.getRadarPlotAccess().getNameIDTerminalRuleCall_1_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__RadarPlot__XAxisAssignment_4
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getRadarPlotAccess().getXAxisEStringParserRuleCall_4_0()); }
+		ruleEString
+		{ after(grammarAccess.getRadarPlotAccess().getXAxisEStringParserRuleCall_4_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__RadarPlot__YAxisAssignment_6
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getRadarPlotAccess().getYAxisEStringParserRuleCall_6_0()); }
+		ruleEString
+		{ after(grammarAccess.getRadarPlotAccess().getYAxisEStringParserRuleCall_6_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__RadarPlot__LocationAssignment_7_1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getRadarPlotAccess().getLocationEStringParserRuleCall_7_1_0()); }
+		ruleEString
+		{ after(grammarAccess.getRadarPlotAccess().getLocationEStringParserRuleCall_7_1_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__RadarPlot__ColorsAssignment_8_1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getRadarPlotAccess().getColorsEStringParserRuleCall_8_1_0()); }
+		ruleEString
+		{ after(grammarAccess.getRadarPlotAccess().getColorsEStringParserRuleCall_8_1_0()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__RadarPlot__ThicknessAssignment_9_1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	(
+		{ before(grammarAccess.getRadarPlotAccess().getThicknessEFloatParserRuleCall_9_1_0()); }
+		ruleEFloat
+		{ after(grammarAccess.getRadarPlotAccess().getThicknessEFloatParserRuleCall_9_1_0()); }
 	)
 ;
 finally {

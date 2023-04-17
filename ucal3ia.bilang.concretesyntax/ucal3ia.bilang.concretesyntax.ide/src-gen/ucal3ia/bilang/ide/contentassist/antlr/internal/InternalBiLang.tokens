@@ -23,6 +23,7 @@
 'bar'=45
 'colors'=50
 'df'=37
+'donut'=53
 'e'=12
 'filtering='=31
 'l'=40
@@ -31,9 +32,13 @@
 'loc'=49
 'mean'=17
 'median'=18
+'pie'=54
 'plots'=34
+'polar'=55
 'processing='=32
 'r'=41
+'radar'=57
+'scatter'=56
 'std'=19
 'thickness'=51
 'xAx'=47
@@ -89,3 +94,8 @@ T__49=49
 T__50=50
 T__51=51
 T__52=52
+T__53=53
+T__54=54
+T__55=55
+T__56=56
+T__57=57

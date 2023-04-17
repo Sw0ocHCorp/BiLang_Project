@@ -21,7 +21,7 @@ PreprocessingStep returns PreprocessingStep:
 	MathOperation | ColReference | StatisticalOperation;
 
 Plot returns Plot:
-	BarPlot | LinePlot;
+	BarPlot | LinePlot | DonutPlot | ScatterPlot | PolarPlot | RadarPlot | PiePlot;
 
 
 EString returns ecore::EString:
