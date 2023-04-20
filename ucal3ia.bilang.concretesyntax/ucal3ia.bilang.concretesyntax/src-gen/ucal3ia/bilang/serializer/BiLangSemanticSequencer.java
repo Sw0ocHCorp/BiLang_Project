@@ -185,8 +185,7 @@ public class BiLangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     (
 	 *         fileextractor=[FileExtractor|EString] 
 	 *         (processingstep+=PreprocessingStep processingstep+=PreprocessingStep*)? 
-	 *         filteringstep+=FilteringStep 
-	 *         filteringstep+=FilteringStep*
+	 *         (filteringstep+=FilteringStep filteringstep+=FilteringStep*)?
 	 *     )
 	 */
 	protected void sequence_DataFiltering(ISerializationContext context, DataFiltering semanticObject) {
@@ -274,9 +273,9 @@ public class BiLangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AbstractsyntaxPackage.Literals.MATH_OPERATION__RSIDE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getMathOperationAccess().getLsidePreprocessingStepParserRuleCall_1_0(), semanticObject.getLside());
-		feeder.accept(grammarAccess.getMathOperationAccess().getOperatorMathOperatorEnumRuleCall_2_0(), semanticObject.getOperator());
-		feeder.accept(grammarAccess.getMathOperationAccess().getRsidePreprocessingStepParserRuleCall_4_0(), semanticObject.getRside());
+		feeder.accept(grammarAccess.getMathOperationAccess().getLsidePreprocessingStepParserRuleCall_2_0(), semanticObject.getLside());
+		feeder.accept(grammarAccess.getMathOperationAccess().getOperatorMathOperatorEnumRuleCall_3_0(), semanticObject.getOperator());
+		feeder.accept(grammarAccess.getMathOperationAccess().getRsidePreprocessingStepParserRuleCall_5_0(), semanticObject.getRside());
 		feeder.finish();
 	}
 	

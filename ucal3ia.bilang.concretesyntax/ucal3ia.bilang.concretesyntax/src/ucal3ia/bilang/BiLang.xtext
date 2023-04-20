@@ -29,8 +29,8 @@ EString returns ecore::EString:
 
 DataFiltering returns DataFiltering:
 	"=>" fileextractor=[FileExtractor|EString]
-		('processing=' processingstep+=PreprocessingStep ( processingstep+=PreprocessingStep)* )?
-		'filtering=' filteringstep+=FilteringStep ( "," filteringstep+=FilteringStep)* ;
+		('processing=' processingstep+=PreprocessingStep ("," processingstep+=PreprocessingStep)* )?
+		('filtering=' filteringstep+=FilteringStep ( "," filteringstep+=FilteringStep)*)? ;
 
 DashBoard returns DashBoard:
 	
@@ -59,7 +59,7 @@ QualitativeFiltering returns QualitativeFiltering:
 	;
 
 MathOperation returns MathOperation:
-	'l' lside=PreprocessingStep operator=MathOperator 'r' rside=PreprocessingStep;
+	("(")? 'l' lside=PreprocessingStep operator=MathOperator 'r' rside=PreprocessingStep (")")?;
 
 
 ColReference returns ColReference:

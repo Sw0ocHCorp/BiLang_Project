@@ -245,25 +245,28 @@ public class BiLangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		private final Keyword cProcessingKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
 		private final Assignment cProcessingstepAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
 		private final RuleCall cProcessingstepPreprocessingStepParserRuleCall_2_1_0 = (RuleCall)cProcessingstepAssignment_2_1.eContents().get(0);
-		private final Assignment cProcessingstepAssignment_2_2 = (Assignment)cGroup_2.eContents().get(2);
-		private final RuleCall cProcessingstepPreprocessingStepParserRuleCall_2_2_0 = (RuleCall)cProcessingstepAssignment_2_2.eContents().get(0);
-		private final Keyword cFilteringKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cFilteringstepAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cFilteringstepFilteringStepParserRuleCall_4_0 = (RuleCall)cFilteringstepAssignment_4.eContents().get(0);
-		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
-		private final Keyword cCommaKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final Assignment cFilteringstepAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final RuleCall cFilteringstepFilteringStepParserRuleCall_5_1_0 = (RuleCall)cFilteringstepAssignment_5_1.eContents().get(0);
+		private final Group cGroup_2_2 = (Group)cGroup_2.eContents().get(2);
+		private final Keyword cCommaKeyword_2_2_0 = (Keyword)cGroup_2_2.eContents().get(0);
+		private final Assignment cProcessingstepAssignment_2_2_1 = (Assignment)cGroup_2_2.eContents().get(1);
+		private final RuleCall cProcessingstepPreprocessingStepParserRuleCall_2_2_1_0 = (RuleCall)cProcessingstepAssignment_2_2_1.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cFilteringKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cFilteringstepAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cFilteringstepFilteringStepParserRuleCall_3_1_0 = (RuleCall)cFilteringstepAssignment_3_1.eContents().get(0);
+		private final Group cGroup_3_2 = (Group)cGroup_3.eContents().get(2);
+		private final Keyword cCommaKeyword_3_2_0 = (Keyword)cGroup_3_2.eContents().get(0);
+		private final Assignment cFilteringstepAssignment_3_2_1 = (Assignment)cGroup_3_2.eContents().get(1);
+		private final RuleCall cFilteringstepFilteringStepParserRuleCall_3_2_1_0 = (RuleCall)cFilteringstepAssignment_3_2_1.eContents().get(0);
 		
 		//DataFiltering returns DataFiltering:
 		//    "=>" fileextractor=[FileExtractor|EString]
-		//        ('processing=' processingstep+=PreprocessingStep ( processingstep+=PreprocessingStep)* )?
-		//        'filtering=' filteringstep+=FilteringStep ( "," filteringstep+=FilteringStep)* ;
+		//        ('processing=' processingstep+=PreprocessingStep ("," processingstep+=PreprocessingStep)* )?
+		//        ('filtering=' filteringstep+=FilteringStep ( "," filteringstep+=FilteringStep)*)? ;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//"=>" fileextractor=[FileExtractor|EString]
-		//    ('processing=' processingstep+=PreprocessingStep ( processingstep+=PreprocessingStep)* )?
-		//    'filtering=' filteringstep+=FilteringStep ( "," filteringstep+=FilteringStep)*
+		//    ('processing=' processingstep+=PreprocessingStep ("," processingstep+=PreprocessingStep)* )?
+		//    ('filtering=' filteringstep+=FilteringStep ( "," filteringstep+=FilteringStep)*)?
 		public Group getGroup() { return cGroup; }
 		
 		//"=>"
@@ -278,7 +281,7 @@ public class BiLangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		//EString
 		public RuleCall getFileextractorFileExtractorEStringParserRuleCall_1_0_1() { return cFileextractorFileExtractorEStringParserRuleCall_1_0_1; }
 		
-		//('processing=' processingstep+=PreprocessingStep ( processingstep+=PreprocessingStep)* )?
+		//('processing=' processingstep+=PreprocessingStep ("," processingstep+=PreprocessingStep)* )?
 		public Group getGroup_2() { return cGroup_2; }
 		
 		//'processing='
@@ -290,32 +293,41 @@ public class BiLangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		//PreprocessingStep
 		public RuleCall getProcessingstepPreprocessingStepParserRuleCall_2_1_0() { return cProcessingstepPreprocessingStepParserRuleCall_2_1_0; }
 		
-		//( processingstep+=PreprocessingStep)*
-		public Assignment getProcessingstepAssignment_2_2() { return cProcessingstepAssignment_2_2; }
-		
-		//PreprocessingStep
-		public RuleCall getProcessingstepPreprocessingStepParserRuleCall_2_2_0() { return cProcessingstepPreprocessingStepParserRuleCall_2_2_0; }
-		
-		//'filtering='
-		public Keyword getFilteringKeyword_3() { return cFilteringKeyword_3; }
-		
-		//filteringstep+=FilteringStep
-		public Assignment getFilteringstepAssignment_4() { return cFilteringstepAssignment_4; }
-		
-		//FilteringStep
-		public RuleCall getFilteringstepFilteringStepParserRuleCall_4_0() { return cFilteringstepFilteringStepParserRuleCall_4_0; }
-		
-		//( "," filteringstep+=FilteringStep)*
-		public Group getGroup_5() { return cGroup_5; }
+		//("," processingstep+=PreprocessingStep)*
+		public Group getGroup_2_2() { return cGroup_2_2; }
 		
 		//","
-		public Keyword getCommaKeyword_5_0() { return cCommaKeyword_5_0; }
+		public Keyword getCommaKeyword_2_2_0() { return cCommaKeyword_2_2_0; }
+		
+		//processingstep+=PreprocessingStep
+		public Assignment getProcessingstepAssignment_2_2_1() { return cProcessingstepAssignment_2_2_1; }
+		
+		//PreprocessingStep
+		public RuleCall getProcessingstepPreprocessingStepParserRuleCall_2_2_1_0() { return cProcessingstepPreprocessingStepParserRuleCall_2_2_1_0; }
+		
+		//('filtering=' filteringstep+=FilteringStep ( "," filteringstep+=FilteringStep)*)?
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//'filtering='
+		public Keyword getFilteringKeyword_3_0() { return cFilteringKeyword_3_0; }
 		
 		//filteringstep+=FilteringStep
-		public Assignment getFilteringstepAssignment_5_1() { return cFilteringstepAssignment_5_1; }
+		public Assignment getFilteringstepAssignment_3_1() { return cFilteringstepAssignment_3_1; }
 		
 		//FilteringStep
-		public RuleCall getFilteringstepFilteringStepParserRuleCall_5_1_0() { return cFilteringstepFilteringStepParserRuleCall_5_1_0; }
+		public RuleCall getFilteringstepFilteringStepParserRuleCall_3_1_0() { return cFilteringstepFilteringStepParserRuleCall_3_1_0; }
+		
+		//( "," filteringstep+=FilteringStep)*
+		public Group getGroup_3_2() { return cGroup_3_2; }
+		
+		//","
+		public Keyword getCommaKeyword_3_2_0() { return cCommaKeyword_3_2_0; }
+		
+		//filteringstep+=FilteringStep
+		public Assignment getFilteringstepAssignment_3_2_1() { return cFilteringstepAssignment_3_2_1; }
+		
+		//FilteringStep
+		public RuleCall getFilteringstepFilteringStepParserRuleCall_3_2_1_0() { return cFilteringstepFilteringStepParserRuleCall_3_2_1_0; }
 	}
 	public class DashBoardElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ucal3ia.bilang.BiLang.DashBoard");
@@ -589,45 +601,53 @@ public class BiLangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 	public class MathOperationElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ucal3ia.bilang.BiLang.MathOperation");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cLKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cLsideAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cLsidePreprocessingStepParserRuleCall_1_0 = (RuleCall)cLsideAssignment_1.eContents().get(0);
-		private final Assignment cOperatorAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cOperatorMathOperatorEnumRuleCall_2_0 = (RuleCall)cOperatorAssignment_2.eContents().get(0);
-		private final Keyword cRKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cRsideAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cRsidePreprocessingStepParserRuleCall_4_0 = (RuleCall)cRsideAssignment_4.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cLKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cLsideAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cLsidePreprocessingStepParserRuleCall_2_0 = (RuleCall)cLsideAssignment_2.eContents().get(0);
+		private final Assignment cOperatorAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cOperatorMathOperatorEnumRuleCall_3_0 = (RuleCall)cOperatorAssignment_3.eContents().get(0);
+		private final Keyword cRKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cRsideAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cRsidePreprocessingStepParserRuleCall_5_0 = (RuleCall)cRsideAssignment_5.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//MathOperation returns MathOperation:
-		//    'l' lside=PreprocessingStep operator=MathOperator 'r' rside=PreprocessingStep;
+		//    ("(")? 'l' lside=PreprocessingStep operator=MathOperator 'r' rside=PreprocessingStep (")")?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'l' lside=PreprocessingStep operator=MathOperator 'r' rside=PreprocessingStep
+		//("(")? 'l' lside=PreprocessingStep operator=MathOperator 'r' rside=PreprocessingStep (")")?
 		public Group getGroup() { return cGroup; }
 		
+		//("(")?
+		public Keyword getLeftParenthesisKeyword_0() { return cLeftParenthesisKeyword_0; }
+		
 		//'l'
-		public Keyword getLKeyword_0() { return cLKeyword_0; }
+		public Keyword getLKeyword_1() { return cLKeyword_1; }
 		
 		//lside=PreprocessingStep
-		public Assignment getLsideAssignment_1() { return cLsideAssignment_1; }
+		public Assignment getLsideAssignment_2() { return cLsideAssignment_2; }
 		
 		//PreprocessingStep
-		public RuleCall getLsidePreprocessingStepParserRuleCall_1_0() { return cLsidePreprocessingStepParserRuleCall_1_0; }
+		public RuleCall getLsidePreprocessingStepParserRuleCall_2_0() { return cLsidePreprocessingStepParserRuleCall_2_0; }
 		
 		//operator=MathOperator
-		public Assignment getOperatorAssignment_2() { return cOperatorAssignment_2; }
+		public Assignment getOperatorAssignment_3() { return cOperatorAssignment_3; }
 		
 		//MathOperator
-		public RuleCall getOperatorMathOperatorEnumRuleCall_2_0() { return cOperatorMathOperatorEnumRuleCall_2_0; }
+		public RuleCall getOperatorMathOperatorEnumRuleCall_3_0() { return cOperatorMathOperatorEnumRuleCall_3_0; }
 		
 		//'r'
-		public Keyword getRKeyword_3() { return cRKeyword_3; }
+		public Keyword getRKeyword_4() { return cRKeyword_4; }
 		
 		//rside=PreprocessingStep
-		public Assignment getRsideAssignment_4() { return cRsideAssignment_4; }
+		public Assignment getRsideAssignment_5() { return cRsideAssignment_5; }
 		
 		//PreprocessingStep
-		public RuleCall getRsidePreprocessingStepParserRuleCall_4_0() { return cRsidePreprocessingStepParserRuleCall_4_0; }
+		public RuleCall getRsidePreprocessingStepParserRuleCall_5_0() { return cRsidePreprocessingStepParserRuleCall_5_0; }
+		
+		//(")")?
+		public Keyword getRightParenthesisKeyword_6() { return cRightParenthesisKeyword_6; }
 	}
 	public class ColReferenceElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ucal3ia.bilang.BiLang.ColReference");
@@ -1752,8 +1772,8 @@ public class BiLangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 	
 	//DataFiltering returns DataFiltering:
 	//    "=>" fileextractor=[FileExtractor|EString]
-	//        ('processing=' processingstep+=PreprocessingStep ( processingstep+=PreprocessingStep)* )?
-	//        'filtering=' filteringstep+=FilteringStep ( "," filteringstep+=FilteringStep)* ;
+	//        ('processing=' processingstep+=PreprocessingStep ("," processingstep+=PreprocessingStep)* )?
+	//        ('filtering=' filteringstep+=FilteringStep ( "," filteringstep+=FilteringStep)*)? ;
 	public DataFilteringElements getDataFilteringAccess() {
 		return pDataFiltering;
 	}
@@ -1823,7 +1843,7 @@ public class BiLangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 	}
 	
 	//MathOperation returns MathOperation:
-	//    'l' lside=PreprocessingStep operator=MathOperator 'r' rside=PreprocessingStep;
+	//    ("(")? 'l' lside=PreprocessingStep operator=MathOperator 'r' rside=PreprocessingStep (")")?;
 	public MathOperationElements getMathOperationAccess() {
 		return pMathOperation;
 	}

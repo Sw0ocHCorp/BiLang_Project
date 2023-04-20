@@ -5,7 +5,7 @@
     <semanticResources>abstractsyntax.genmodel</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_u_kzQNl3Ee28os8tpEBEMQ">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_vACGQNl3Ee28os8tpEBEMQ" name="abstractsyntax" repPath="#_vAARENl3Ee28os8tpEBEMQ" changeId="f684e337-d6f8-4a69-ae78-9c03cd2ffcc7">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_vACGQNl3Ee28os8tpEBEMQ" name="abstractsyntax" repPath="#_vAARENl3Ee28os8tpEBEMQ" changeId="9ee11ff6-e1d0-4a5e-b057-1488c86d90d8">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="abstractsyntax.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -1449,14 +1449,12 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC%20ESupertypes']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_mWjdNNl5Ee28os8tpEBEMQ" name="[1..*] filteringstep" sourceNode="_3iQmANl3Ee28os8tpEBEMQ" targetNode="_yjX0sNl4Ee28os8tpEBEMQ">
+    <ownedDiagramElements xmi:type="diagram:DEdge" uid="_mWjdNNl5Ee28os8tpEBEMQ" name="[0..*] filteringstep" sourceNode="_3iQmANl3Ee28os8tpEBEMQ" targetNode="_yjX0sNl4Ee28os8tpEBEMQ">
       <target xmi:type="ecore:EReference" href="abstractsyntax.ecore#//DataFiltering/filteringstep"/>
       <semanticElements xmi:type="ecore:EReference" href="abstractsyntax.ecore#//DataFiltering/filteringstep"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_nhg0Ytl5Ee28os8tpEBEMQ" description="_G-S2MNl4Ee28os8tpEBEMQ" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
-        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_nhg0ZNl5Ee28os8tpEBEMQ" showIcon="false">
-          <labelFormat>bold</labelFormat>
-        </centerLabelStyle>
-        <endLabelStyle xmi:type="diagram:EndLabelStyle" uid="_nhg0Y9l5Ee28os8tpEBEMQ" labelSize="6" showIcon="false" labelColor="39,76,114"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_iGa31t8PEe2ZSrP5FI47xA" description="_u2n2INl4Ee28os8tpEBEMQ" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
+        <centerLabelStyle xmi:type="diagram:CenterLabelStyle" uid="_iGa32N8PEe2ZSrP5FI47xA" showIcon="false"/>
+        <endLabelStyle xmi:type="diagram:EndLabelStyle" uid="_iGa3198PEe2ZSrP5FI47xA" labelSize="6" showIcon="false" labelColor="39,76,114"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
     </ownedDiagramElements>

@@ -19,8 +19,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="DataFiltering">
     <eStructuralFeatures xsi:type="ecore:EReference" name="fileextractor" lowerBound="1"
         eType="#//FileExtractor"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="filteringstep" lowerBound="1"
-        upperBound="-1" eType="#//FilteringStep" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="filteringstep" upperBound="-1"
+        eType="#//FilteringStep" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="processingstep" upperBound="-1"
         eType="#//PreprocessingStep" containment="true"/>
   </eClassifiers>
@@ -77,7 +77,7 @@
   <eClassifiers xsi:type="ecore:EEnum" name="StatisticalOperator">
     <eLiterals name="MEAN"/>
     <eLiterals name="MEDIAN" value="1"/>
-    <eLiterals name="STD" value="2"/>
+    <eLiterals name="STD" value="2" literal="STD"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="QuantitativeOperator">
     <eLiterals name="EQUAL" literal="="/>

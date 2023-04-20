@@ -951,7 +951,7 @@ public class AbstractsyntaxPackageImpl extends EPackageImpl implements Abstracts
 		initEReference(getDataFiltering_Fileextractor(), this.getFileExtractor(), null, "fileextractor", null, 1, 1,
 				DataFiltering.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDataFiltering_Filteringstep(), this.getFilteringStep(), null, "filteringstep", null, 1, -1,
+		initEReference(getDataFiltering_Filteringstep(), this.getFilteringStep(), null, "filteringstep", null, 0, -1,
 				DataFiltering.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDataFiltering_Processingstep(), this.getPreprocessingStep(), null, "processingstep", null, 0,

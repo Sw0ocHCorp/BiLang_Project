@@ -46,7 +46,9 @@ public class BiLangParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getTaskAccess().getGroup_6(), "rule__Task__Group_6__0");
 			builder.put(grammarAccess.getDataFilteringAccess().getGroup(), "rule__DataFiltering__Group__0");
 			builder.put(grammarAccess.getDataFilteringAccess().getGroup_2(), "rule__DataFiltering__Group_2__0");
-			builder.put(grammarAccess.getDataFilteringAccess().getGroup_5(), "rule__DataFiltering__Group_5__0");
+			builder.put(grammarAccess.getDataFilteringAccess().getGroup_2_2(), "rule__DataFiltering__Group_2_2__0");
+			builder.put(grammarAccess.getDataFilteringAccess().getGroup_3(), "rule__DataFiltering__Group_3__0");
+			builder.put(grammarAccess.getDataFilteringAccess().getGroup_3_2(), "rule__DataFiltering__Group_3_2__0");
 			builder.put(grammarAccess.getDashBoardAccess().getGroup(), "rule__DashBoard__Group__0");
 			builder.put(grammarAccess.getDashBoardAccess().getGroup_2_0(), "rule__DashBoard__Group_2_0__0");
 			builder.put(grammarAccess.getDashBoardAccess().getGroup_2_1(), "rule__DashBoard__Group_2_1__0");
@@ -95,9 +97,9 @@ public class BiLangParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getTaskAccess().getDashboardAssignment_8(), "rule__Task__DashboardAssignment_8");
 			builder.put(grammarAccess.getDataFilteringAccess().getFileextractorAssignment_1(), "rule__DataFiltering__FileextractorAssignment_1");
 			builder.put(grammarAccess.getDataFilteringAccess().getProcessingstepAssignment_2_1(), "rule__DataFiltering__ProcessingstepAssignment_2_1");
-			builder.put(grammarAccess.getDataFilteringAccess().getProcessingstepAssignment_2_2(), "rule__DataFiltering__ProcessingstepAssignment_2_2");
-			builder.put(grammarAccess.getDataFilteringAccess().getFilteringstepAssignment_4(), "rule__DataFiltering__FilteringstepAssignment_4");
-			builder.put(grammarAccess.getDataFilteringAccess().getFilteringstepAssignment_5_1(), "rule__DataFiltering__FilteringstepAssignment_5_1");
+			builder.put(grammarAccess.getDataFilteringAccess().getProcessingstepAssignment_2_2_1(), "rule__DataFiltering__ProcessingstepAssignment_2_2_1");
+			builder.put(grammarAccess.getDataFilteringAccess().getFilteringstepAssignment_3_1(), "rule__DataFiltering__FilteringstepAssignment_3_1");
+			builder.put(grammarAccess.getDataFilteringAccess().getFilteringstepAssignment_3_2_1(), "rule__DataFiltering__FilteringstepAssignment_3_2_1");
 			builder.put(grammarAccess.getDashBoardAccess().getNameAssignment_0(), "rule__DashBoard__NameAssignment_0");
 			builder.put(grammarAccess.getDashBoardAccess().getFileextractorAssignment_2_0_1(), "rule__DashBoard__FileextractorAssignment_2_0_1");
 			builder.put(grammarAccess.getDashBoardAccess().getDatafilteringAssignment_2_1_1(), "rule__DashBoard__DatafilteringAssignment_2_1_1");
@@ -113,9 +115,9 @@ public class BiLangParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getQualitativeFilteringAccess().getAxisAssignment_1(), "rule__QualitativeFiltering__AxisAssignment_1");
 			builder.put(grammarAccess.getQualitativeFilteringAccess().getOperatorAssignment_2(), "rule__QualitativeFiltering__OperatorAssignment_2");
 			builder.put(grammarAccess.getQualitativeFilteringAccess().getLabelsAssignment_3(), "rule__QualitativeFiltering__LabelsAssignment_3");
-			builder.put(grammarAccess.getMathOperationAccess().getLsideAssignment_1(), "rule__MathOperation__LsideAssignment_1");
-			builder.put(grammarAccess.getMathOperationAccess().getOperatorAssignment_2(), "rule__MathOperation__OperatorAssignment_2");
-			builder.put(grammarAccess.getMathOperationAccess().getRsideAssignment_4(), "rule__MathOperation__RsideAssignment_4");
+			builder.put(grammarAccess.getMathOperationAccess().getLsideAssignment_2(), "rule__MathOperation__LsideAssignment_2");
+			builder.put(grammarAccess.getMathOperationAccess().getOperatorAssignment_3(), "rule__MathOperation__OperatorAssignment_3");
+			builder.put(grammarAccess.getMathOperationAccess().getRsideAssignment_5(), "rule__MathOperation__RsideAssignment_5");
 			builder.put(grammarAccess.getColReferenceAccess().getTargetAssignment_1(), "rule__ColReference__TargetAssignment_1");
 			builder.put(grammarAccess.getStatisticalOperationAccess().getOperatorAssignment_0(), "rule__StatisticalOperation__OperatorAssignment_0");
 			builder.put(grammarAccess.getStatisticalOperationAccess().getColreferenceAssignment_2(), "rule__StatisticalOperation__ColreferenceAssignment_2");

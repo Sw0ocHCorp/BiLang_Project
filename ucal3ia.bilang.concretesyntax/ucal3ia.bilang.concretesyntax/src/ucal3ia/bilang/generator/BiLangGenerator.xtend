@@ -30,6 +30,7 @@ import ucal3ia.bilang.abstractsyntax.PiePlot
 import ucal3ia.bilang.abstractsyntax.ScatterPlot
 import ucal3ia.bilang.abstractsyntax.PolarPlot
 import ucal3ia.bilang.abstractsyntax.DonutPlot
+import java.util.Collections
 
 /**
  * Generates code from your model files on save.
@@ -140,6 +141,7 @@ class BiLangGenerator extends AbstractGenerator {
 		var filteredData= new HashMap<String, ArrayList<String>>;
 		var targets= new ArrayList<String>()	
 		var operationContent= new ArrayList<String>()
+		var formulaMap= new HashMap<Object, Object>
 		/* Copie du contenu du fichier CSV / EXCEL */
 		for (lab:fileData.keySet()) {
 			filteredData.put(lab, (fileData.get(lab)));
@@ -149,85 +151,12 @@ class BiLangGenerator extends AbstractGenerator {
 			for (preprocess:df.processingstep) {
 				var newFieldData= new ArrayList<String>();
 				if (preprocess instanceof MathOperation) {
-					var lSide= preprocess.lside
-					var rSide= preprocess.rside
-					if (lSide instanceof ColReference) {
-						operationContent.add(lSide.target)
-						operationContent.add(preprocess.operator.literal)
-					}if (rSide instanceof ColReference) {
-						operationContent.add(rSide.target)
-					}
-					System.out.println(operationContent)
-					var keyList= new ArrayList<String>(filteredData.keySet());
-					for (var i= 0; i<filteredData.get(keyList.get(0)).size(); i++) {
-						var sum= 0;
-						var floatSum= 0.0;
-						var isDouble= false;
-						var addition= false;
-						var substraction= false;
-						var multiplication= false;
-						var division= false;
-						for (var j= 0; j<operationContent.size(); j++) {
-							if (j == 0) {
-								var stringValue= filteredData.get(operationContent.get(0)).get(i);
-								if (Character.isDigit(stringValue.charAt(0))) {
-									if (stringValue.contains(".")) {
-										isDouble= true;
-										floatSum+= Double.valueOf(stringValue);
-									}
-									else {
-										isDouble= false;
-										sum+= Integer.valueOf(stringValue);
-									}
-								}
-							} else if (operationContent.get(j).equals("+")) {
-								addition= true;
-							} else if (operationContent.get(j).equals("-")) {
-								substraction= true;
-							} else if (operationContent.get(j).equals("*")) {
-								multiplication= true;
-							} else if (operationContent.get(j).equals("/")) {
-								division= true;	
-							} else {
-								var stringValue= filteredData.get(operationContent.get(j)).get(i);
-								if (Character.isDigit(stringValue.charAt(0))) {
-									if (stringValue.contains(".")) {
-										isDouble= true;
-										if (addition == true) {
-											floatSum+= Double.valueOf(stringValue);
-										} else if (substraction == true) {
-											floatSum-= Double.valueOf(stringValue);
-										} else if (multiplication == true) {
-											floatSum*= Double.valueOf(stringValue);
-										} else if (division == true) {
-											floatSum/= Double.valueOf(stringValue);
-										}
-									}
-									else {
-										isDouble= false;
-										if (addition == true) {
-											sum+= Integer.valueOf(stringValue);
-										} else if (substraction == true) {
-											sum-= Integer.valueOf(stringValue);
-										} else if (multiplication == true) {
-											sum*= Integer.valueOf(stringValue);
-										} else if (division == true) {
-											sum/= Integer.valueOf(stringValue);
-										}
-									}
-								}
-							}
-						}
-						if (isDouble == false) {
-							newFieldData.add(Integer.toString(sum));
-						} else {
-							newFieldData.add(Double.toString(floatSum));
-						}
-					}
+					newFieldData= MathOperationAlgorithm(preprocess as MathOperation, filteredData)
 					filteredData.put("TEST", newFieldData);
+					System.out.println(newFieldData)
 				} else if (preprocess instanceof StatisticalOperation) {
-					var ref= preprocess.colreference
-					var operator= preprocess.operator
+					
+					//filteredData.put(operator.literal, statVal);
 				}
 			
 			}
@@ -239,6 +168,7 @@ class BiLangGenerator extends AbstractGenerator {
 				var targetCondition= false
 				var main_operator= ""
 				if (filter instanceof QuantitativeFiltering) {
+					stopLoop= false;
 					main_operator= filter.operator.literal
 					var targetValue= filter.values
 					for(var i= 0; i<targetCol.size(); i++) {
@@ -265,16 +195,20 @@ class BiLangGenerator extends AbstractGenerator {
 									if (i == targetCol.size()) {
 										stopLoop= true;
 									}
-									filteredData.get(lab).remove(i);
+									if (filteredData.get(lab).size() > i)
+										filteredData.get(lab).remove(i)	
 								}
 							}
 						}	
 					}
 				} if (filter instanceof QualitativeFiltering) {
+					stopLoop= false
 					if (filter.labels.contains(", "))
 						targets= new ArrayList<String>(Arrays.asList(filter.labels.split(", ")))
 					else if (filter.labels.contains(","))
 						targets= new ArrayList<String>(Arrays.asList(filter.labels.split(",")))
+					else 
+						targets.add(filter.labels)
 					main_operator= filter.operator.literal
 					if (main_operator.equals("!=")) {
 						targetCondition= true
@@ -286,7 +220,8 @@ class BiLangGenerator extends AbstractGenerator {
 								if (i == targetCol.size()) {
 									stopLoop= true;
 								}
-								filteredData.get(lab).remove(i)	
+								if (filteredData.get(lab).size() > i)
+									filteredData.get(lab).remove(i)	
 							}
 						}
 					}
@@ -540,5 +475,353 @@ class BiLangGenerator extends AbstractGenerator {
 		}
 		return content
 	}
+	
+	def ArrayList<String> computeStatisticOperation(String targetCol, String operator, HashMap<String, ArrayList<String>> fileData){
+		var colRef= new ArrayList<Float>()
+		for (value: fileData.get(targetCol)) {
+			colRef.add(Float.parseFloat(value))
+		}
+		Collections.sort(colRef)
+		var sum= 0 as float
+		var statVal= new ArrayList<String>
+		if (operator.equals("MEAN")) {
+			for (var i= 0; i < colRef.size(); i++) {
+				sum+= colRef.get(i)
+			}	
+			statVal.add((sum / colRef.size()).toString())
+			
+									
+		} else if (operator.equals("MEDIAN")) {
+			if (colRef.size() % 2 != 0) {
+				statVal.add((colRef.get((colRef.size() / 2) +1)).toString()) 
+			}
+			else {
+				var fval= colRef.get(colRef.size() / 2)
+				var sval= colRef.get((colRef.size() / 2) +1)
+				statVal.add(((fval + sval) / 2).toString)
+			}
+						
+		} else {
+	        var standardDeviation = 0 as float;
+	
+	        for(num : colRef) {
+	            sum += num;
+	        }
+	
+	        var mean = sum/colRef.size();
+	
+	        for(num: colRef) {
+	        	
+	            standardDeviation += Math.pow(num - mean, 2) as float;
+	        }
+	
+	        statVal.add(Math.sqrt(standardDeviation/colRef.size()).toString());
+	        
+	    }
+	    return statVal 
+    }
+	
+	def ArrayList<String> computeColsOperation(Object lSide, String operator, Object rSide, HashMap<String, ArrayList<String>> csvData) {
+        var newFieldData= new ArrayList<String>();
+        var lData= new ArrayList<String>();
+        var rData= new ArrayList<String>();
+        var isStatistic= false
+        if (lSide instanceof StatisticalOperation && rSide instanceof StatisticalOperation) {
+        	
+        } else if ((lSide instanceof String) && (rSide instanceof String)) {
+            lData= csvData.get(lSide);
+            rData= csvData.get(rSide);
+        }
+        else if (lSide instanceof String) {
+        	lData= csvData.get(lSide);
+        	if (rSide instanceof ArrayList) {
+            	rData= rSide as ArrayList<String>;	
+            } else {
+            	rData= computeStatisticOperation((rSide as StatisticalOperation).colreference.target, (rSide as StatisticalOperation).operator.literal, csvData)
+            	isStatistic= true
+            }
+            
+        } else if (rSide instanceof String){
+        	rData= csvData.get(rSide);
+        	if (lSide instanceof ArrayList) {
+            	lData= lSide as ArrayList<String>;	
+            } else {
+            	lData= computeStatisticOperation((lSide as StatisticalOperation).colreference.target, (lSide as StatisticalOperation).operator.literal, csvData)
+            	isStatistic= true
+            }
+        } else {
+            lData= lSide as ArrayList<String>;
+            rData= rSide as ArrayList<String>;
+        }
+        
+        if (isStatistic) {
+        	if (lSide instanceof StatisticalOperation) {
+        		var lSideValue= lData.get(0);
+        		for (var i= 0; i < rData.size(); i++) {
+        			var rSideValue= rData.get(i);
+		            var result= 0 as float;
+		            if (operator.equals("+")) {
+		                result= Float.parseFloat(lSideValue) + Float.parseFloat(rSideValue);
+		            } else if (operator.equals("-")) {
+		                result= Float.parseFloat(lSideValue) - Float.parseFloat(rSideValue);
+		            } else if (operator.equals("*")) {
+		                result= Float.parseFloat(lSideValue) * Float.parseFloat(rSideValue);
+		            } else if (operator.equals("/")) {
+		                result= Float.parseFloat(lSideValue) / Float.parseFloat(rSideValue);
+		            }
+		            newFieldData.add(Float.toString(result));
+        		}
+        	} else {
+        		var rSideValue= rData.get(0);
+        		for (var i= 0; i < lData.size(); i++) {
+        			var lSideValue= lData.get(i);
+		            var result= 0 as float;
+		            if (operator.equals("+")) {
+		                result= Float.parseFloat(lSideValue) + Float.parseFloat(rSideValue);
+		            } else if (operator.equals("-")) {
+		                result= Float.parseFloat(lSideValue) - Float.parseFloat(rSideValue);
+		            } else if (operator.equals("*")) {
+		                result= Float.parseFloat(lSideValue) * Float.parseFloat(rSideValue);
+		            } else if (operator.equals("/")) {
+		                result= Float.parseFloat(lSideValue) / Float.parseFloat(rSideValue);
+		            }
+		            newFieldData.add(Float.toString(result));
+        		}
+        	}
+        	
+        } else {
+	        for (var i= 0; i < lData.size(); i++) {
+	            var lSideValue= lData.get(i);
+	            var rSideValue= rData.get(i);
+	            var result= 0 as float;
+	            if (operator.equals("+")) {
+	                result= Float.parseFloat(lSideValue) + Float.parseFloat(rSideValue);
+	            } else if (operator.equals("-")) {
+	                result= Float.parseFloat(lSideValue) - Float.parseFloat(rSideValue);
+	            } else if (operator.equals("*")) {
+	                result= Float.parseFloat(lSideValue) * Float.parseFloat(rSideValue);
+	            } else if (operator.equals("/")) {
+	                result= Float.parseFloat(lSideValue) / Float.parseFloat(rSideValue);
+	            }
+	            newFieldData.add(Float.toString(result));
+	        }   
+	    }
+        return newFieldData;
+    }
+
+
+    def ArrayList<String> MathOperationAlgorithm(MathOperation mainOp, HashMap<String, ArrayList<String>> csvData) {
+        var formulaMap= new HashMap<MathOperation, Object>();
+        var newFieldData= new ArrayList<String>();
+        var mainColRef= 0;
+        var lSide= mainOp.lside;
+        var rSide= mainOp.rside;
+        var operator= mainOp.operator;
+        var currentOp= mainOp;
+        var operation= new HashMap<String, Object>();
+                operation.put("l", lSide);
+                operation.put("o", operator.literal);
+                operation.put("r", rSide);
+                operation.put("isMapped", false);
+        formulaMap.put(mainOp, operation);
+        var status1= false;
+        var status2= false
+        if (lSide instanceof MathOperation || rSide instanceof MathOperation) {
+            while (status1 == false) {
+                var prevOp= currentOp;
+                var lState= false as Boolean;
+                var rState= false as Boolean;
+                if (formulaMap.containsKey(currentOp.lside)) {
+                    lState= (formulaMap.get(currentOp.lside) as HashMap<String, Object>).get("isMapped") as Boolean;
+                } if (formulaMap.containsKey(currentOp.rside)) {
+                  	rState= (formulaMap.get(currentOp.rside) as HashMap<String, Object>).get("isMapped") as Boolean;
+                }
+                if (currentOp.lside instanceof MathOperation && lState == false){
+                    currentOp= currentOp.lside as MathOperation;    
+                }
+                else if (currentOp.rside instanceof MathOperation && rState == false) {
+                    currentOp= currentOp.rside as MathOperation;    
+                }
+                else if ((lState && rState) || ((currentOp.lside instanceof ColReference) && rState) || (lState && !(currentOp.rside instanceof ColReference))) {
+                    if (currentOp.lside instanceof MathOperation && currentOp.rside instanceof MathOperation) {
+                        var lSideOperation= formulaMap.get(currentOp.lside);
+                        var rSideOperation= formulaMap.get(currentOp.rside);
+                        var preprocess_data= computeColsOperation((lSideOperation as HashMap<String, Object>).get("preprocess_data"), currentOp.operator.literal, (rSideOperation as HashMap<String, Object>).get("preprocess_data"), csvData);
+                        var mainData= formulaMap.get(currentOp) as HashMap<String, Object>;
+                        mainData.put("preprocess_data", preprocess_data);
+                        formulaMap.put(currentOp, mainData);
+                    } else if (currentOp.lside instanceof MathOperation) {
+                        var lSideOperation= formulaMap.get(currentOp.lside);
+                        var rSideOperation= (currentOp.rside as ColReference).target;
+                        var preprocess_data= computeColsOperation((lSideOperation as HashMap<String, Object>).get("preprocess_data"), currentOp.operator.literal, rSideOperation, csvData);
+                        var mainData= formulaMap.get(currentOp) as HashMap<String, Object>;
+                        mainData.put("preprocess_data", preprocess_data);
+                        formulaMap.put(currentOp, mainData);
+                    } else {
+                        var lSideOperation= (currentOp.lside as ColReference).target;
+                        var rSideOperation= formulaMap.get(currentOp.rside);
+                        var preprocess_data= computeColsOperation(lSideOperation, currentOp.operator.literal, (rSideOperation as HashMap<String, Object>).get("preprocess_data"), csvData);
+                        var mainData= formulaMap.get(currentOp) as HashMap<String, Object>;
+                        mainData.put("preprocess_data", preprocess_data);
+                        formulaMap.put(currentOp, mainData);
+                    }
+                    status1= true;
+                }
+                var currentLSide= currentOp.lside;
+                var currentRSide= currentOp.rside;
+                var currentOperator= currentOp.operator;
+                   
+                operation= new HashMap<String, Object>();
+                operation.put("l", currentLSide);
+                operation.put("o", currentOperator.literal);
+                operation.put("r", currentRSide);
+                operation.put("parent", prevOp);
+                if ((currentLSide instanceof ColReference || currentLSide instanceof StatisticalOperation) && (currentRSide instanceof ColReference || currentRSide instanceof StatisticalOperation)) {
+                    operation.put("isMapped", true);
+                    var l= new Object()
+                    var r= new Object()
+                    if  (currentLSide instanceof ColReference && currentRSide instanceof ColReference) {
+                    	l= (currentLSide as ColReference).target
+                    	r= (currentRSide as ColReference).target	
+                    } else if (currentLSide instanceof StatisticalOperation && currentRSide instanceof StatisticalOperation) {
+                    	l= currentLSide
+                    	r= currentRSide
+                    }
+                    else if (currentRSide instanceof StatisticalOperation) {
+                    	l= (currentLSide as ColReference).target
+                    	r= currentRSide
+                    } else {
+                    	l= currentLSide
+                    	r= (currentRSide as ColReference).target
+                    }
+                    var preprocess_data= computeColsOperation(l, currentOperator.literal, r, csvData);
+                    operation.put("preprocess_data", preprocess_data);
+                    formulaMap.put(currentOp, operation);
+                    var mainlSide= (formulaMap.get(mainOp.lside))
+                    status2= false
+                    while (status2 == false) {
+                        var parentOperation= formulaMap.get(currentOp) as HashMap<String, Object>;
+                        var parentObject= parentOperation.get("parent");
+                        parentOperation= (formulaMap.get(parentOperation.get("parent")) as HashMap<String, Object>);
+                        if(currentOp == mainOp) {
+                            status2= true
+                        } else if ((parentOperation.get("isMapped") as Boolean) == true) {
+                            currentOp= parentOperation.get("parent") as MathOperation;
+                            if (currentOp.lside instanceof MathOperation) {
+                                lState= ((formulaMap.get(currentOp.lside) as HashMap<String, Object>).get("isMapped") as Boolean);
+                                if (lState == false) {
+                                    currentOp= currentOp.lside as MathOperation;
+                                }
+                            }
+                            if (currentOp.rside instanceof MathOperation){
+                                rState= (formulaMap.get(currentOp.rside as MathOperation) as HashMap<String, Object>).get("isMapped") as Boolean;
+                                if (rState == false) {
+                                    currentOp= currentOp.rside as MathOperation;
+                                }
+                            } 
+                        } else {
+                            currentOp= parentObject as MathOperation;
+                            status2= true;
+                        }
+                    }
+
+                } else {
+                    if (formulaMap.containsKey(currentOp)) {
+                        operation= formulaMap.get(currentOp) as HashMap<String, Object>;
+                        var lSideOperation= new Object();
+                        var rSideOperation= new Object();
+                        var nbOperation= 0;
+                        if (operation.get("l") instanceof MathOperation) {
+                            lSideOperation= formulaMap.get(operation.get("l"));
+                            nbOperation++;
+                        }
+                        else if (operation.get("l") instanceof ColReference) {
+                            lSideOperation= operation.get("l") as ColReference;
+                        }
+                        if (operation.get("r") instanceof MathOperation) {
+                            rSideOperation= formulaMap.get(operation.get("r")) as HashMap<String, Object>;
+                            nbOperation++;
+                        }
+                        else if (operation.get("r") instanceof ColReference) {
+                            rSideOperation= operation.get("r");
+                        }
+                        var operationOperator= operation.get("o") as String;
+                        if (nbOperation == 2){ 
+                            if ((lSideOperation as HashMap<String, Object>).containsKey("preprocess_data") && (rSideOperation as HashMap<String, Object>).containsKey("preprocess_data")) {
+                                var preprocess_data= computeColsOperation(((lSideOperation as HashMap<String, Object>).get("preprocess_data") as ArrayList<String>), operationOperator, ((rSideOperation as HashMap<String, Object>).get("preprocess_data") as ArrayList<String>), csvData);
+                                operation.put("preprocess_data", preprocess_data);
+                                operation.put("isMapped", true);
+                                currentOp= operation.get("parent") as MathOperation;
+                            }
+                        } 
+                        else if (nbOperation == 1) {
+                            if (operation.get("l") instanceof ColReference) {
+                                var preprocess_data= computeColsOperation((lSideOperation as ColReference).target, operationOperator, ((rSideOperation as HashMap<String, Object>).get("preprocess_data") as ArrayList<String>), csvData);
+                                operation.put("preprocess_data", preprocess_data);
+                                operation.put("isMapped", true);
+                                currentOp= operation.get("parent") as MathOperation;
+                            } else {
+                                var preprocess_data= computeColsOperation(((lSideOperation as HashMap<String, Object>).get("preprocess_data") as ArrayList<String>), operationOperator, (rSideOperation as ColReference).target, csvData);
+                                operation.put("preprocess_data", preprocess_data);
+                                operation.put("isMapped", true);
+                                currentOp= operation.get("parent") as MathOperation;
+                            }
+                        } else if (nbOperation == 0) {
+                            var preprocess_data= computeColsOperation((lSideOperation as ColReference).target, operationOperator, (rSideOperation as ColReference).target, csvData);
+                            operation.put("preprocess_data", preprocess_data);
+                            operation.put("isMapped", true);
+                        } else {
+                            operation.put("isMapped", false);
+                        }
+                    } else {
+                        operation.put("isMapped", false);
+                        formulaMap.put(currentOp, operation);
+                    }
+                } 
+                    
+            }
+        } else if (lSide instanceof StatisticalOperation && rSide instanceof StatisticalOperation) {
+                var lStat= computeStatisticOperation((lSide as StatisticalOperation).colreference.target, (lSide as StatisticalOperation).operator.literal, csvData);
+                var rStat= computeStatisticOperation((rSide as StatisticalOperation).colreference.target, (rSide as StatisticalOperation).operator.literal, csvData);
+                var preprocess_data= new ArrayList<String>
+                if ((mainOp.operator.literal).equals("+")) {
+                	preprocess_data.add((Float.parseFloat(lStat.get(0)) + Float.parseFloat(rStat.get(0))).toString)
+                } else if ((mainOp.operator.literal).equals("-")) {
+                	preprocess_data.add((Float.parseFloat(lStat.get(0)) - Float.parseFloat(rStat.get(0))).toString)
+                }  else if ((mainOp.operator.literal).equals("*")) {
+                	preprocess_data.add((Float.parseFloat(lStat.get(0)) * Float.parseFloat(rStat.get(0))).toString)
+                } else {
+                	preprocess_data.add((Float.parseFloat(lStat.get(0)) / Float.parseFloat(rStat.get(0))).toString)
+                }
+                operation.put("preprocess_data", preprocess_data)
+        		formulaMap.put(mainOp, operation)
+                
+        } else if (lSide instanceof ColReference && rSide instanceof ColReference) {
+        	var lSideOperation= operation.get("l")
+        	var rSideOperation= operation.get("r")
+        	var operationOperator= operation.get("o") as String
+          	var preprocess_data= computeColsOperation((lSideOperation as ColReference).target, operationOperator, (rSideOperation as ColReference).target, csvData);
+        	operation.put("preprocess_data", preprocess_data)
+        	formulaMap.put(mainOp, operation)
+        } else {
+        	if (lSide instanceof StatisticalOperation) {
+        		var lSideOperation= operation.get("l")
+        		var rSideOperation= operation.get("r")
+        		var operationOperator= operation.get("o") as String
+        		var preprocess_data= computeColsOperation(lSideOperation, operationOperator, (rSideOperation as ColReference).target, csvData)
+        		operation.put("preprocess_data", preprocess_data)
+        		formulaMap.put(mainOp, operation)
+        	} else  {
+        		var lSideOperation= operation.get("l")
+        		var rSideOperation= operation.get("r")
+        		var operationOperator= operation.get("o") as String
+        		var preprocess_data= computeColsOperation((lSideOperation as ColReference).target, operationOperator, rSideOperation, csvData)
+        		operation.put("preprocess_data", preprocess_data)
+        		formulaMap.put(mainOp, operation)
+        	}
+        }
+        newFieldData= (formulaMap.get(mainOp) as HashMap<String, Object>).get("preprocess_data") as ArrayList<String>;
+        return newFieldData;
+    }
 	
 }

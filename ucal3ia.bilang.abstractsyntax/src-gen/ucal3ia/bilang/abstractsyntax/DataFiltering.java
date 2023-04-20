@@ -53,7 +53,7 @@ public interface DataFiltering extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Filteringstep</em>' containment reference list.
 	 * @see ucal3ia.bilang.abstractsyntax.AbstractsyntaxPackage#getDataFiltering_Filteringstep()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<FilteringStep> getFilteringstep();

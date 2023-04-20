@@ -508,59 +508,42 @@ ruleDataFiltering returns [EObject current=null]
 				)
 			)
 			(
+				otherlv_4=','
+				{
+					newLeafNode(otherlv_4, grammarAccess.getDataFilteringAccess().getCommaKeyword_2_2_0());
+				}
 				(
-					{
-						newCompositeNode(grammarAccess.getDataFilteringAccess().getProcessingstepPreprocessingStepParserRuleCall_2_2_0());
-					}
-					lv_processingstep_4_0=rulePreprocessingStep
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getDataFilteringRule());
+					(
+						{
+							newCompositeNode(grammarAccess.getDataFilteringAccess().getProcessingstepPreprocessingStepParserRuleCall_2_2_1_0());
 						}
-						add(
-							$current,
-							"processingstep",
-							lv_processingstep_4_0,
-							"ucal3ia.bilang.BiLang.PreprocessingStep");
-						afterParserOrEnumRuleCall();
-					}
+						lv_processingstep_5_0=rulePreprocessingStep
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getDataFilteringRule());
+							}
+							add(
+								$current,
+								"processingstep",
+								lv_processingstep_5_0,
+								"ucal3ia.bilang.BiLang.PreprocessingStep");
+							afterParserOrEnumRuleCall();
+						}
+					)
 				)
 			)*
 		)?
-		otherlv_5='filtering='
-		{
-			newLeafNode(otherlv_5, grammarAccess.getDataFilteringAccess().getFilteringKeyword_3());
-		}
 		(
-			(
-				{
-					newCompositeNode(grammarAccess.getDataFilteringAccess().getFilteringstepFilteringStepParserRuleCall_4_0());
-				}
-				lv_filteringstep_6_0=ruleFilteringStep
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getDataFilteringRule());
-					}
-					add(
-						$current,
-						"filteringstep",
-						lv_filteringstep_6_0,
-						"ucal3ia.bilang.BiLang.FilteringStep");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		(
-			otherlv_7=','
+			otherlv_6='filtering='
 			{
-				newLeafNode(otherlv_7, grammarAccess.getDataFilteringAccess().getCommaKeyword_5_0());
+				newLeafNode(otherlv_6, grammarAccess.getDataFilteringAccess().getFilteringKeyword_3_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getDataFilteringAccess().getFilteringstepFilteringStepParserRuleCall_5_1_0());
+						newCompositeNode(grammarAccess.getDataFilteringAccess().getFilteringstepFilteringStepParserRuleCall_3_1_0());
 					}
-					lv_filteringstep_8_0=ruleFilteringStep
+					lv_filteringstep_7_0=ruleFilteringStep
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getDataFilteringRule());
@@ -568,13 +551,38 @@ ruleDataFiltering returns [EObject current=null]
 						add(
 							$current,
 							"filteringstep",
-							lv_filteringstep_8_0,
+							lv_filteringstep_7_0,
 							"ucal3ia.bilang.BiLang.FilteringStep");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
-		)*
+			(
+				otherlv_8=','
+				{
+					newLeafNode(otherlv_8, grammarAccess.getDataFilteringAccess().getCommaKeyword_3_2_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getDataFilteringAccess().getFilteringstepFilteringStepParserRuleCall_3_2_1_0());
+						}
+						lv_filteringstep_9_0=ruleFilteringStep
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getDataFilteringRule());
+							}
+							add(
+								$current,
+								"filteringstep",
+								lv_filteringstep_9_0,
+								"ucal3ia.bilang.BiLang.FilteringStep");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)*
+		)?
 	)
 ;
 
@@ -1043,16 +1051,22 @@ ruleMathOperation returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='l'
+		(
+			otherlv_0='('
+			{
+				newLeafNode(otherlv_0, grammarAccess.getMathOperationAccess().getLeftParenthesisKeyword_0());
+			}
+		)?
+		otherlv_1='l'
 		{
-			newLeafNode(otherlv_0, grammarAccess.getMathOperationAccess().getLKeyword_0());
+			newLeafNode(otherlv_1, grammarAccess.getMathOperationAccess().getLKeyword_1());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getMathOperationAccess().getLsidePreprocessingStepParserRuleCall_1_0());
+					newCompositeNode(grammarAccess.getMathOperationAccess().getLsidePreprocessingStepParserRuleCall_2_0());
 				}
-				lv_lside_1_0=rulePreprocessingStep
+				lv_lside_2_0=rulePreprocessingStep
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getMathOperationRule());
@@ -1060,7 +1074,7 @@ ruleMathOperation returns [EObject current=null]
 					set(
 						$current,
 						"lside",
-						lv_lside_1_0,
+						lv_lside_2_0,
 						"ucal3ia.bilang.BiLang.PreprocessingStep");
 					afterParserOrEnumRuleCall();
 				}
@@ -1069,9 +1083,9 @@ ruleMathOperation returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getMathOperationAccess().getOperatorMathOperatorEnumRuleCall_2_0());
+					newCompositeNode(grammarAccess.getMathOperationAccess().getOperatorMathOperatorEnumRuleCall_3_0());
 				}
-				lv_operator_2_0=ruleMathOperator
+				lv_operator_3_0=ruleMathOperator
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getMathOperationRule());
@@ -1079,22 +1093,22 @@ ruleMathOperation returns [EObject current=null]
 					set(
 						$current,
 						"operator",
-						lv_operator_2_0,
+						lv_operator_3_0,
 						"ucal3ia.bilang.BiLang.MathOperator");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
-		otherlv_3='r'
+		otherlv_4='r'
 		{
-			newLeafNode(otherlv_3, grammarAccess.getMathOperationAccess().getRKeyword_3());
+			newLeafNode(otherlv_4, grammarAccess.getMathOperationAccess().getRKeyword_4());
 		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getMathOperationAccess().getRsidePreprocessingStepParserRuleCall_4_0());
+					newCompositeNode(grammarAccess.getMathOperationAccess().getRsidePreprocessingStepParserRuleCall_5_0());
 				}
-				lv_rside_4_0=rulePreprocessingStep
+				lv_rside_5_0=rulePreprocessingStep
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getMathOperationRule());
@@ -1102,12 +1116,18 @@ ruleMathOperation returns [EObject current=null]
 					set(
 						$current,
 						"rside",
-						lv_rside_4_0,
+						lv_rside_5_0,
 						"ucal3ia.bilang.BiLang.PreprocessingStep");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
+		(
+			otherlv_6=')'
+			{
+				newLeafNode(otherlv_6, grammarAccess.getMathOperationAccess().getRightParenthesisKeyword_6());
+			}
+		)?
 	)
 ;
 

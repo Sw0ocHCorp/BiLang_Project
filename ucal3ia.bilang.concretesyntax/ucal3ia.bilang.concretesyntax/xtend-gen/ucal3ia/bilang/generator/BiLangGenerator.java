@@ -8,6 +8,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
@@ -32,6 +33,7 @@ import ucal3ia.bilang.abstractsyntax.FileExtractor;
 import ucal3ia.bilang.abstractsyntax.FilteringStep;
 import ucal3ia.bilang.abstractsyntax.LinePlot;
 import ucal3ia.bilang.abstractsyntax.MathOperation;
+import ucal3ia.bilang.abstractsyntax.MathOperator;
 import ucal3ia.bilang.abstractsyntax.PiePlot;
 import ucal3ia.bilang.abstractsyntax.Plot;
 import ucal3ia.bilang.abstractsyntax.PolarPlot;
@@ -41,7 +43,6 @@ import ucal3ia.bilang.abstractsyntax.QuantitativeFiltering;
 import ucal3ia.bilang.abstractsyntax.RadarPlot;
 import ucal3ia.bilang.abstractsyntax.ScatterPlot;
 import ucal3ia.bilang.abstractsyntax.StatisticalOperation;
-import ucal3ia.bilang.abstractsyntax.StatisticalOperator;
 import ucal3ia.bilang.abstractsyntax.Task;
 
 /**
@@ -190,6 +191,7 @@ public class BiLangGenerator extends AbstractGenerator {
     HashMap<String, ArrayList<String>> filteredData = new HashMap<String, ArrayList<String>>();
     ArrayList<String> targets = new ArrayList<String>();
     ArrayList<String> operationContent = new ArrayList<String>();
+    HashMap<Object, Object> formulaMap = new HashMap<Object, Object>();
     Set<String> _keySet = fileData.keySet();
     for (final String lab : _keySet) {
       filteredData.put(lab, fileData.get(lab));
@@ -201,136 +203,11 @@ public class BiLangGenerator extends AbstractGenerator {
         {
           ArrayList<String> newFieldData = new ArrayList<String>();
           if ((preprocess instanceof MathOperation)) {
-            PreprocessingStep lSide = ((MathOperation)preprocess).getLside();
-            PreprocessingStep rSide = ((MathOperation)preprocess).getRside();
-            if ((lSide instanceof ColReference)) {
-              operationContent.add(((ColReference)lSide).getTarget());
-              operationContent.add(((MathOperation)preprocess).getOperator().getLiteral());
-            }
-            if ((rSide instanceof ColReference)) {
-              operationContent.add(((ColReference)rSide).getTarget());
-            }
-            System.out.println(operationContent);
-            Set<String> _keySet_1 = filteredData.keySet();
-            ArrayList<String> keyList = new ArrayList<String>(_keySet_1);
-            for (int i = 0; (i < filteredData.get(keyList.get(0)).size()); i++) {
-              {
-                int sum = 0;
-                double floatSum = 0.0;
-                boolean isDouble = false;
-                boolean addition = false;
-                boolean substraction = false;
-                boolean multiplication = false;
-                boolean division = false;
-                for (int j = 0; (j < operationContent.size()); j++) {
-                  if ((j == 0)) {
-                    String stringValue = filteredData.get(operationContent.get(0)).get(i);
-                    boolean _isDigit = Character.isDigit(stringValue.charAt(0));
-                    if (_isDigit) {
-                      boolean _contains = stringValue.contains(".");
-                      if (_contains) {
-                        isDouble = true;
-                        double _floatSum = floatSum;
-                        Double _valueOf = Double.valueOf(stringValue);
-                        floatSum = (_floatSum + (_valueOf).doubleValue());
-                      } else {
-                        isDouble = false;
-                        int _sum = sum;
-                        Integer _valueOf_1 = Integer.valueOf(stringValue);
-                        sum = (_sum + (_valueOf_1).intValue());
-                      }
-                    }
-                  } else {
-                    boolean _equals = operationContent.get(j).equals("+");
-                    if (_equals) {
-                      addition = true;
-                    } else {
-                      boolean _equals_1 = operationContent.get(j).equals("-");
-                      if (_equals_1) {
-                        substraction = true;
-                      } else {
-                        boolean _equals_2 = operationContent.get(j).equals("*");
-                        if (_equals_2) {
-                          multiplication = true;
-                        } else {
-                          boolean _equals_3 = operationContent.get(j).equals("/");
-                          if (_equals_3) {
-                            division = true;
-                          } else {
-                            String stringValue_1 = filteredData.get(operationContent.get(j)).get(i);
-                            boolean _isDigit_1 = Character.isDigit(stringValue_1.charAt(0));
-                            if (_isDigit_1) {
-                              boolean _contains_1 = stringValue_1.contains(".");
-                              if (_contains_1) {
-                                isDouble = true;
-                                if ((addition == true)) {
-                                  double _floatSum_1 = floatSum;
-                                  Double _valueOf_2 = Double.valueOf(stringValue_1);
-                                  floatSum = (_floatSum_1 + (_valueOf_2).doubleValue());
-                                } else {
-                                  if ((substraction == true)) {
-                                    double _floatSum_2 = floatSum;
-                                    Double _valueOf_3 = Double.valueOf(stringValue_1);
-                                    floatSum = (_floatSum_2 - (_valueOf_3).doubleValue());
-                                  } else {
-                                    if ((multiplication == true)) {
-                                      double _floatSum_3 = floatSum;
-                                      Double _valueOf_4 = Double.valueOf(stringValue_1);
-                                      floatSum = (_floatSum_3 * (_valueOf_4).doubleValue());
-                                    } else {
-                                      if ((division == true)) {
-                                        double _floatSum_4 = floatSum;
-                                        Double _valueOf_5 = Double.valueOf(stringValue_1);
-                                        floatSum = (_floatSum_4 / (_valueOf_5).doubleValue());
-                                      }
-                                    }
-                                  }
-                                }
-                              } else {
-                                isDouble = false;
-                                if ((addition == true)) {
-                                  int _sum_1 = sum;
-                                  Integer _valueOf_6 = Integer.valueOf(stringValue_1);
-                                  sum = (_sum_1 + (_valueOf_6).intValue());
-                                } else {
-                                  if ((substraction == true)) {
-                                    int _sum_2 = sum;
-                                    Integer _valueOf_7 = Integer.valueOf(stringValue_1);
-                                    sum = (_sum_2 - (_valueOf_7).intValue());
-                                  } else {
-                                    if ((multiplication == true)) {
-                                      int _sum_3 = sum;
-                                      Integer _valueOf_8 = Integer.valueOf(stringValue_1);
-                                      sum = (_sum_3 * (_valueOf_8).intValue());
-                                    } else {
-                                      if ((division == true)) {
-                                        int _sum_4 = sum;
-                                        Integer _valueOf_9 = Integer.valueOf(stringValue_1);
-                                        sum = (_sum_4 / (_valueOf_9).intValue());
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-                if ((isDouble == false)) {
-                  newFieldData.add(Integer.toString(sum));
-                } else {
-                  newFieldData.add(Double.toString(floatSum));
-                }
-              }
-            }
+            newFieldData = this.MathOperationAlgorithm(((MathOperation) preprocess), filteredData);
             filteredData.put("TEST", newFieldData);
+            System.out.println(newFieldData);
           } else {
             if ((preprocess instanceof StatisticalOperation)) {
-              ColReference ref = ((StatisticalOperation)preprocess).getColreference();
-              StatisticalOperator operator = ((StatisticalOperation)preprocess).getOperator();
             }
           }
         }
@@ -343,6 +220,7 @@ public class BiLangGenerator extends AbstractGenerator {
           boolean targetCondition = false;
           String main_operator = "";
           if ((filter instanceof QuantitativeFiltering)) {
+            stopLoop = false;
             main_operator = ((QuantitativeFiltering)filter).getOperator().getLiteral();
             float targetValue = ((QuantitativeFiltering)filter).getValues();
             for (int i = 0; (i < targetCol.size()); i++) {
@@ -392,7 +270,11 @@ public class BiLangGenerator extends AbstractGenerator {
                           if (_equals_6) {
                             stopLoop = true;
                           }
-                          filteredData.get(lab_1).remove(i);
+                          int _size_1 = filteredData.get(lab_1).size();
+                          boolean _greaterThan_2 = (_size_1 > i);
+                          if (_greaterThan_2) {
+                            filteredData.get(lab_1).remove(i);
+                          }
                         }
                       }
                     }
@@ -402,6 +284,7 @@ public class BiLangGenerator extends AbstractGenerator {
             }
           }
           if ((filter instanceof QualitativeFiltering)) {
+            stopLoop = false;
             boolean _contains = ((QualitativeFiltering)filter).getLabels().contains(", ");
             if (_contains) {
               List<String> _asList = Arrays.<String>asList(((QualitativeFiltering)filter).getLabels().split(", "));
@@ -413,6 +296,8 @@ public class BiLangGenerator extends AbstractGenerator {
                 List<String> _asList_1 = Arrays.<String>asList(((QualitativeFiltering)filter).getLabels().split(","));
                 ArrayList<String> _arrayList_1 = new ArrayList<String>(_asList_1);
                 targets = _arrayList_1;
+              } else {
+                targets.add(((QualitativeFiltering)filter).getLabels());
               }
             }
             main_operator = ((QualitativeFiltering)filter).getOperator().getLiteral();
@@ -430,7 +315,11 @@ public class BiLangGenerator extends AbstractGenerator {
                     if (_equals_1) {
                       stopLoop = true;
                     }
-                    filteredData.get(lab_1).remove(i);
+                    int _size_1 = filteredData.get(lab_1).size();
+                    boolean _greaterThan = (_size_1 > i);
+                    if (_greaterThan) {
+                      filteredData.get(lab_1).remove(i);
+                    }
                   }
                 }
               }
@@ -988,5 +877,526 @@ public class BiLangGenerator extends AbstractGenerator {
       }
     }
     return content;
+  }
+  
+  public ArrayList<String> computeStatisticOperation(final String targetCol, final String operator, final HashMap<String, ArrayList<String>> fileData) {
+    ArrayList<Float> colRef = new ArrayList<Float>();
+    ArrayList<String> _get = fileData.get(targetCol);
+    for (final String value : _get) {
+      colRef.add(Float.valueOf(Float.parseFloat(value)));
+    }
+    Collections.<Float>sort(colRef);
+    float sum = ((float) 0);
+    ArrayList<String> statVal = new ArrayList<String>();
+    boolean _equals = operator.equals("MEAN");
+    if (_equals) {
+      for (int i = 0; (i < colRef.size()); i++) {
+        float _sum = sum;
+        Float _get_1 = colRef.get(i);
+        sum = (_sum + (_get_1).floatValue());
+      }
+      int _size = colRef.size();
+      statVal.add(Float.valueOf((sum / _size)).toString());
+    } else {
+      boolean _equals_1 = operator.equals("MEDIAN");
+      if (_equals_1) {
+        int _size_1 = colRef.size();
+        int _modulo = (_size_1 % 2);
+        boolean _notEquals = (_modulo != 0);
+        if (_notEquals) {
+          int _size_2 = colRef.size();
+          int _divide = (_size_2 / 2);
+          int _plus = (_divide + 1);
+          statVal.add(colRef.get(_plus).toString());
+        } else {
+          int _size_3 = colRef.size();
+          int _divide_1 = (_size_3 / 2);
+          Float fval = colRef.get(_divide_1);
+          int _size_4 = colRef.size();
+          int _divide_2 = (_size_4 / 2);
+          int _plus_1 = (_divide_2 + 1);
+          Float sval = colRef.get(_plus_1);
+          statVal.add(Float.valueOf((((fval).floatValue() + (sval).floatValue()) / 2)).toString());
+        }
+      } else {
+        float standardDeviation = ((float) 0);
+        for (final Float num : colRef) {
+          float _sum = sum;
+          sum = (_sum + (num).floatValue());
+        }
+        int _size_5 = colRef.size();
+        float mean = (sum / _size_5);
+        for (final Float num_1 : colRef) {
+          float _standardDeviation = standardDeviation;
+          double _pow = Math.pow(((num_1).floatValue() - mean), 2);
+          standardDeviation = (_standardDeviation + ((float) _pow));
+        }
+        int _size_6 = colRef.size();
+        float _divide_3 = (standardDeviation / _size_6);
+        statVal.add(Double.valueOf(Math.sqrt(_divide_3)).toString());
+      }
+    }
+    return statVal;
+  }
+  
+  public ArrayList<String> computeColsOperation(final Object lSide, final String operator, final Object rSide, final HashMap<String, ArrayList<String>> csvData) {
+    ArrayList<String> newFieldData = new ArrayList<String>();
+    ArrayList<String> lData = new ArrayList<String>();
+    ArrayList<String> rData = new ArrayList<String>();
+    boolean isStatistic = false;
+    if (((lSide instanceof StatisticalOperation) && (rSide instanceof StatisticalOperation))) {
+    } else {
+      if (((lSide instanceof String) && (rSide instanceof String))) {
+        lData = csvData.get(lSide);
+        rData = csvData.get(rSide);
+      } else {
+        if ((lSide instanceof String)) {
+          lData = csvData.get(lSide);
+          if ((rSide instanceof ArrayList)) {
+            rData = ((ArrayList<String>) rSide);
+          } else {
+            rData = this.computeStatisticOperation(((StatisticalOperation) rSide).getColreference().getTarget(), ((StatisticalOperation) rSide).getOperator().getLiteral(), csvData);
+            isStatistic = true;
+          }
+        } else {
+          if ((rSide instanceof String)) {
+            rData = csvData.get(rSide);
+            if ((lSide instanceof ArrayList)) {
+              lData = ((ArrayList<String>) lSide);
+            } else {
+              lData = this.computeStatisticOperation(((StatisticalOperation) lSide).getColreference().getTarget(), ((StatisticalOperation) lSide).getOperator().getLiteral(), csvData);
+              isStatistic = true;
+            }
+          } else {
+            lData = ((ArrayList<String>) lSide);
+            rData = ((ArrayList<String>) rSide);
+          }
+        }
+      }
+    }
+    if (isStatistic) {
+      if ((lSide instanceof StatisticalOperation)) {
+        String lSideValue = lData.get(0);
+        for (int i = 0; (i < rData.size()); i++) {
+          {
+            String rSideValue = rData.get(i);
+            float result = ((float) 0);
+            boolean _equals = operator.equals("+");
+            if (_equals) {
+              float _parseFloat = Float.parseFloat(lSideValue);
+              float _parseFloat_1 = Float.parseFloat(rSideValue);
+              float _plus = (_parseFloat + _parseFloat_1);
+              result = _plus;
+            } else {
+              boolean _equals_1 = operator.equals("-");
+              if (_equals_1) {
+                float _parseFloat_2 = Float.parseFloat(lSideValue);
+                float _parseFloat_3 = Float.parseFloat(rSideValue);
+                float _minus = (_parseFloat_2 - _parseFloat_3);
+                result = _minus;
+              } else {
+                boolean _equals_2 = operator.equals("*");
+                if (_equals_2) {
+                  float _parseFloat_4 = Float.parseFloat(lSideValue);
+                  float _parseFloat_5 = Float.parseFloat(rSideValue);
+                  float _multiply = (_parseFloat_4 * _parseFloat_5);
+                  result = _multiply;
+                } else {
+                  boolean _equals_3 = operator.equals("/");
+                  if (_equals_3) {
+                    float _parseFloat_6 = Float.parseFloat(lSideValue);
+                    float _parseFloat_7 = Float.parseFloat(rSideValue);
+                    float _divide = (_parseFloat_6 / _parseFloat_7);
+                    result = _divide;
+                  }
+                }
+              }
+            }
+            newFieldData.add(Float.toString(result));
+          }
+        }
+      } else {
+        String rSideValue = rData.get(0);
+        for (int i = 0; (i < lData.size()); i++) {
+          {
+            String lSideValue_1 = lData.get(i);
+            float result = ((float) 0);
+            boolean _equals = operator.equals("+");
+            if (_equals) {
+              float _parseFloat = Float.parseFloat(lSideValue_1);
+              float _parseFloat_1 = Float.parseFloat(rSideValue);
+              float _plus = (_parseFloat + _parseFloat_1);
+              result = _plus;
+            } else {
+              boolean _equals_1 = operator.equals("-");
+              if (_equals_1) {
+                float _parseFloat_2 = Float.parseFloat(lSideValue_1);
+                float _parseFloat_3 = Float.parseFloat(rSideValue);
+                float _minus = (_parseFloat_2 - _parseFloat_3);
+                result = _minus;
+              } else {
+                boolean _equals_2 = operator.equals("*");
+                if (_equals_2) {
+                  float _parseFloat_4 = Float.parseFloat(lSideValue_1);
+                  float _parseFloat_5 = Float.parseFloat(rSideValue);
+                  float _multiply = (_parseFloat_4 * _parseFloat_5);
+                  result = _multiply;
+                } else {
+                  boolean _equals_3 = operator.equals("/");
+                  if (_equals_3) {
+                    float _parseFloat_6 = Float.parseFloat(lSideValue_1);
+                    float _parseFloat_7 = Float.parseFloat(rSideValue);
+                    float _divide = (_parseFloat_6 / _parseFloat_7);
+                    result = _divide;
+                  }
+                }
+              }
+            }
+            newFieldData.add(Float.toString(result));
+          }
+        }
+      }
+    } else {
+      for (int i = 0; (i < lData.size()); i++) {
+        {
+          String lSideValue_1 = lData.get(i);
+          String rSideValue_1 = rData.get(i);
+          float result = ((float) 0);
+          boolean _equals = operator.equals("+");
+          if (_equals) {
+            float _parseFloat = Float.parseFloat(lSideValue_1);
+            float _parseFloat_1 = Float.parseFloat(rSideValue_1);
+            float _plus = (_parseFloat + _parseFloat_1);
+            result = _plus;
+          } else {
+            boolean _equals_1 = operator.equals("-");
+            if (_equals_1) {
+              float _parseFloat_2 = Float.parseFloat(lSideValue_1);
+              float _parseFloat_3 = Float.parseFloat(rSideValue_1);
+              float _minus = (_parseFloat_2 - _parseFloat_3);
+              result = _minus;
+            } else {
+              boolean _equals_2 = operator.equals("*");
+              if (_equals_2) {
+                float _parseFloat_4 = Float.parseFloat(lSideValue_1);
+                float _parseFloat_5 = Float.parseFloat(rSideValue_1);
+                float _multiply = (_parseFloat_4 * _parseFloat_5);
+                result = _multiply;
+              } else {
+                boolean _equals_3 = operator.equals("/");
+                if (_equals_3) {
+                  float _parseFloat_6 = Float.parseFloat(lSideValue_1);
+                  float _parseFloat_7 = Float.parseFloat(rSideValue_1);
+                  float _divide = (_parseFloat_6 / _parseFloat_7);
+                  result = _divide;
+                }
+              }
+            }
+          }
+          newFieldData.add(Float.toString(result));
+        }
+      }
+    }
+    return newFieldData;
+  }
+  
+  public ArrayList<String> MathOperationAlgorithm(final MathOperation mainOp, final HashMap<String, ArrayList<String>> csvData) {
+    HashMap<MathOperation, Object> formulaMap = new HashMap<MathOperation, Object>();
+    ArrayList<String> newFieldData = new ArrayList<String>();
+    int mainColRef = 0;
+    PreprocessingStep lSide = mainOp.getLside();
+    PreprocessingStep rSide = mainOp.getRside();
+    MathOperator operator = mainOp.getOperator();
+    MathOperation currentOp = mainOp;
+    HashMap<String, Object> operation = new HashMap<String, Object>();
+    operation.put("l", lSide);
+    operation.put("o", operator.getLiteral());
+    operation.put("r", rSide);
+    operation.put("isMapped", Boolean.valueOf(false));
+    formulaMap.put(mainOp, operation);
+    boolean status1 = false;
+    boolean status2 = false;
+    if (((lSide instanceof MathOperation) || (rSide instanceof MathOperation))) {
+      while ((status1 == false)) {
+        {
+          MathOperation prevOp = currentOp;
+          Boolean lState = ((Boolean) Boolean.valueOf(false));
+          Boolean rState = ((Boolean) Boolean.valueOf(false));
+          boolean _containsKey = formulaMap.containsKey(currentOp.getLside());
+          if (_containsKey) {
+            Object _get = formulaMap.get(currentOp.getLside());
+            Object _get_1 = ((HashMap<String, Object>) _get).get("isMapped");
+            lState = ((Boolean) _get_1);
+          }
+          boolean _containsKey_1 = formulaMap.containsKey(currentOp.getRside());
+          if (_containsKey_1) {
+            Object _get_2 = formulaMap.get(currentOp.getRside());
+            Object _get_3 = ((HashMap<String, Object>) _get_2).get("isMapped");
+            rState = ((Boolean) _get_3);
+          }
+          if (((currentOp.getLside() instanceof MathOperation) && ((lState).booleanValue() == false))) {
+            PreprocessingStep _lside = currentOp.getLside();
+            currentOp = ((MathOperation) _lside);
+          } else {
+            if (((currentOp.getRside() instanceof MathOperation) && ((rState).booleanValue() == false))) {
+              PreprocessingStep _rside = currentOp.getRside();
+              currentOp = ((MathOperation) _rside);
+            } else {
+              if (((((lState).booleanValue() && (rState).booleanValue()) || ((currentOp.getLside() instanceof ColReference) && (rState).booleanValue())) || ((lState).booleanValue() && (!(currentOp.getRside() instanceof ColReference))))) {
+                if (((currentOp.getLside() instanceof MathOperation) && (currentOp.getRside() instanceof MathOperation))) {
+                  Object lSideOperation = formulaMap.get(currentOp.getLside());
+                  Object rSideOperation = formulaMap.get(currentOp.getRside());
+                  ArrayList<String> preprocess_data = this.computeColsOperation(((HashMap<String, Object>) lSideOperation).get("preprocess_data"), currentOp.getOperator().getLiteral(), ((HashMap<String, Object>) rSideOperation).get("preprocess_data"), csvData);
+                  Object _get_4 = formulaMap.get(currentOp);
+                  HashMap<String, Object> mainData = ((HashMap<String, Object>) _get_4);
+                  mainData.put("preprocess_data", preprocess_data);
+                  formulaMap.put(currentOp, mainData);
+                } else {
+                  PreprocessingStep _lside_1 = currentOp.getLside();
+                  if ((_lside_1 instanceof MathOperation)) {
+                    Object lSideOperation_1 = formulaMap.get(currentOp.getLside());
+                    PreprocessingStep _rside_1 = currentOp.getRside();
+                    String rSideOperation_1 = ((ColReference) _rside_1).getTarget();
+                    ArrayList<String> preprocess_data_1 = this.computeColsOperation(((HashMap<String, Object>) lSideOperation_1).get("preprocess_data"), currentOp.getOperator().getLiteral(), rSideOperation_1, csvData);
+                    Object _get_5 = formulaMap.get(currentOp);
+                    HashMap<String, Object> mainData_1 = ((HashMap<String, Object>) _get_5);
+                    mainData_1.put("preprocess_data", preprocess_data_1);
+                    formulaMap.put(currentOp, mainData_1);
+                  } else {
+                    PreprocessingStep _lside_2 = currentOp.getLside();
+                    String lSideOperation_2 = ((ColReference) _lside_2).getTarget();
+                    Object rSideOperation_2 = formulaMap.get(currentOp.getRside());
+                    ArrayList<String> preprocess_data_2 = this.computeColsOperation(lSideOperation_2, currentOp.getOperator().getLiteral(), ((HashMap<String, Object>) rSideOperation_2).get("preprocess_data"), csvData);
+                    Object _get_6 = formulaMap.get(currentOp);
+                    HashMap<String, Object> mainData_2 = ((HashMap<String, Object>) _get_6);
+                    mainData_2.put("preprocess_data", preprocess_data_2);
+                    formulaMap.put(currentOp, mainData_2);
+                  }
+                }
+                status1 = true;
+              }
+            }
+          }
+          PreprocessingStep currentLSide = currentOp.getLside();
+          PreprocessingStep currentRSide = currentOp.getRside();
+          MathOperator currentOperator = currentOp.getOperator();
+          HashMap<String, Object> _hashMap = new HashMap<String, Object>();
+          operation = _hashMap;
+          operation.put("l", currentLSide);
+          operation.put("o", currentOperator.getLiteral());
+          operation.put("r", currentRSide);
+          operation.put("parent", prevOp);
+          if ((((currentLSide instanceof ColReference) || (currentLSide instanceof StatisticalOperation)) && ((currentRSide instanceof ColReference) || (currentRSide instanceof StatisticalOperation)))) {
+            operation.put("isMapped", Boolean.valueOf(true));
+            Object l = new Object();
+            Object r = new Object();
+            if (((currentLSide instanceof ColReference) && (currentRSide instanceof ColReference))) {
+              l = ((ColReference) currentLSide).getTarget();
+              r = ((ColReference) currentRSide).getTarget();
+            } else {
+              if (((currentLSide instanceof StatisticalOperation) && (currentRSide instanceof StatisticalOperation))) {
+                l = currentLSide;
+                r = currentRSide;
+              } else {
+                if ((currentRSide instanceof StatisticalOperation)) {
+                  l = ((ColReference) currentLSide).getTarget();
+                  r = currentRSide;
+                } else {
+                  l = currentLSide;
+                  r = ((ColReference) currentRSide).getTarget();
+                }
+              }
+            }
+            ArrayList<String> preprocess_data_3 = this.computeColsOperation(l, currentOperator.getLiteral(), r, csvData);
+            operation.put("preprocess_data", preprocess_data_3);
+            formulaMap.put(currentOp, operation);
+            Object mainlSide = formulaMap.get(mainOp.getLside());
+            status2 = false;
+            while ((status2 == false)) {
+              {
+                Object _get_7 = formulaMap.get(currentOp);
+                HashMap<String, Object> parentOperation = ((HashMap<String, Object>) _get_7);
+                Object parentObject = parentOperation.get("parent");
+                Object _get_8 = formulaMap.get(parentOperation.get("parent"));
+                parentOperation = ((HashMap<String, Object>) _get_8);
+                boolean _equals = Objects.equal(currentOp, mainOp);
+                if (_equals) {
+                  status2 = true;
+                } else {
+                  Object _get_9 = parentOperation.get("isMapped");
+                  boolean _equals_1 = ((((Boolean) _get_9)).booleanValue() == true);
+                  if (_equals_1) {
+                    Object _get_10 = parentOperation.get("parent");
+                    currentOp = ((MathOperation) _get_10);
+                    PreprocessingStep _lside_3 = currentOp.getLside();
+                    if ((_lside_3 instanceof MathOperation)) {
+                      Object _get_11 = formulaMap.get(currentOp.getLside());
+                      Object _get_12 = ((HashMap<String, Object>) _get_11).get("isMapped");
+                      lState = ((Boolean) _get_12);
+                      if (((lState).booleanValue() == false)) {
+                        PreprocessingStep _lside_4 = currentOp.getLside();
+                        currentOp = ((MathOperation) _lside_4);
+                      }
+                    }
+                    PreprocessingStep _rside_2 = currentOp.getRside();
+                    if ((_rside_2 instanceof MathOperation)) {
+                      PreprocessingStep _rside_3 = currentOp.getRside();
+                      Object _get_13 = formulaMap.get(((MathOperation) _rside_3));
+                      Object _get_14 = ((HashMap<String, Object>) _get_13).get("isMapped");
+                      rState = ((Boolean) _get_14);
+                      if (((rState).booleanValue() == false)) {
+                        PreprocessingStep _rside_4 = currentOp.getRside();
+                        currentOp = ((MathOperation) _rside_4);
+                      }
+                    }
+                  } else {
+                    currentOp = ((MathOperation) parentObject);
+                    status2 = true;
+                  }
+                }
+              }
+            }
+          } else {
+            boolean _containsKey_2 = formulaMap.containsKey(currentOp);
+            if (_containsKey_2) {
+              Object _get_7 = formulaMap.get(currentOp);
+              operation = ((HashMap<String, Object>) _get_7);
+              Object lSideOperation_3 = new Object();
+              Object rSideOperation_3 = new Object();
+              int nbOperation = 0;
+              Object _get_8 = operation.get("l");
+              if ((_get_8 instanceof MathOperation)) {
+                lSideOperation_3 = formulaMap.get(operation.get("l"));
+                nbOperation++;
+              } else {
+                Object _get_9 = operation.get("l");
+                if ((_get_9 instanceof ColReference)) {
+                  Object _get_10 = operation.get("l");
+                  lSideOperation_3 = ((ColReference) _get_10);
+                }
+              }
+              Object _get_11 = operation.get("r");
+              if ((_get_11 instanceof MathOperation)) {
+                Object _get_12 = formulaMap.get(operation.get("r"));
+                rSideOperation_3 = ((HashMap<String, Object>) _get_12);
+                nbOperation++;
+              } else {
+                Object _get_13 = operation.get("r");
+                if ((_get_13 instanceof ColReference)) {
+                  rSideOperation_3 = operation.get("r");
+                }
+              }
+              Object _get_14 = operation.get("o");
+              String operationOperator = ((String) _get_14);
+              if ((nbOperation == 2)) {
+                if ((((HashMap<String, Object>) lSideOperation_3).containsKey("preprocess_data") && ((HashMap<String, Object>) rSideOperation_3).containsKey("preprocess_data"))) {
+                  Object _get_15 = ((HashMap<String, Object>) lSideOperation_3).get("preprocess_data");
+                  Object _get_16 = ((HashMap<String, Object>) rSideOperation_3).get("preprocess_data");
+                  ArrayList<String> preprocess_data_4 = this.computeColsOperation(((ArrayList<String>) _get_15), operationOperator, ((ArrayList<String>) _get_16), csvData);
+                  operation.put("preprocess_data", preprocess_data_4);
+                  operation.put("isMapped", Boolean.valueOf(true));
+                  Object _get_17 = operation.get("parent");
+                  currentOp = ((MathOperation) _get_17);
+                }
+              } else {
+                if ((nbOperation == 1)) {
+                  Object _get_18 = operation.get("l");
+                  if ((_get_18 instanceof ColReference)) {
+                    Object _get_19 = ((HashMap<String, Object>) rSideOperation_3).get("preprocess_data");
+                    ArrayList<String> preprocess_data_5 = this.computeColsOperation(((ColReference) lSideOperation_3).getTarget(), operationOperator, ((ArrayList<String>) _get_19), csvData);
+                    operation.put("preprocess_data", preprocess_data_5);
+                    operation.put("isMapped", Boolean.valueOf(true));
+                    Object _get_20 = operation.get("parent");
+                    currentOp = ((MathOperation) _get_20);
+                  } else {
+                    Object _get_21 = ((HashMap<String, Object>) lSideOperation_3).get("preprocess_data");
+                    ArrayList<String> preprocess_data_6 = this.computeColsOperation(((ArrayList<String>) _get_21), operationOperator, ((ColReference) rSideOperation_3).getTarget(), csvData);
+                    operation.put("preprocess_data", preprocess_data_6);
+                    operation.put("isMapped", Boolean.valueOf(true));
+                    Object _get_22 = operation.get("parent");
+                    currentOp = ((MathOperation) _get_22);
+                  }
+                } else {
+                  if ((nbOperation == 0)) {
+                    ArrayList<String> preprocess_data_7 = this.computeColsOperation(((ColReference) lSideOperation_3).getTarget(), operationOperator, ((ColReference) rSideOperation_3).getTarget(), csvData);
+                    operation.put("preprocess_data", preprocess_data_7);
+                    operation.put("isMapped", Boolean.valueOf(true));
+                  } else {
+                    operation.put("isMapped", Boolean.valueOf(false));
+                  }
+                }
+              }
+            } else {
+              operation.put("isMapped", Boolean.valueOf(false));
+              formulaMap.put(currentOp, operation);
+            }
+          }
+        }
+      }
+    } else {
+      if (((lSide instanceof StatisticalOperation) && (rSide instanceof StatisticalOperation))) {
+        ArrayList<String> lStat = this.computeStatisticOperation(((StatisticalOperation) lSide).getColreference().getTarget(), ((StatisticalOperation) lSide).getOperator().getLiteral(), csvData);
+        ArrayList<String> rStat = this.computeStatisticOperation(((StatisticalOperation) rSide).getColreference().getTarget(), ((StatisticalOperation) rSide).getOperator().getLiteral(), csvData);
+        ArrayList<String> preprocess_data = new ArrayList<String>();
+        boolean _equals = mainOp.getOperator().getLiteral().equals("+");
+        if (_equals) {
+          float _parseFloat = Float.parseFloat(lStat.get(0));
+          float _parseFloat_1 = Float.parseFloat(rStat.get(0));
+          preprocess_data.add(Float.valueOf((_parseFloat + _parseFloat_1)).toString());
+        } else {
+          boolean _equals_1 = mainOp.getOperator().getLiteral().equals("-");
+          if (_equals_1) {
+            float _parseFloat_2 = Float.parseFloat(lStat.get(0));
+            float _parseFloat_3 = Float.parseFloat(rStat.get(0));
+            preprocess_data.add(Float.valueOf((_parseFloat_2 - _parseFloat_3)).toString());
+          } else {
+            boolean _equals_2 = mainOp.getOperator().getLiteral().equals("*");
+            if (_equals_2) {
+              float _parseFloat_4 = Float.parseFloat(lStat.get(0));
+              float _parseFloat_5 = Float.parseFloat(rStat.get(0));
+              preprocess_data.add(Float.valueOf((_parseFloat_4 * _parseFloat_5)).toString());
+            } else {
+              float _parseFloat_6 = Float.parseFloat(lStat.get(0));
+              float _parseFloat_7 = Float.parseFloat(rStat.get(0));
+              preprocess_data.add(Float.valueOf((_parseFloat_6 / _parseFloat_7)).toString());
+            }
+          }
+        }
+        operation.put("preprocess_data", preprocess_data);
+        formulaMap.put(mainOp, operation);
+      } else {
+        if (((lSide instanceof ColReference) && (rSide instanceof ColReference))) {
+          Object lSideOperation = operation.get("l");
+          Object rSideOperation = operation.get("r");
+          Object _get = operation.get("o");
+          String operationOperator = ((String) _get);
+          ArrayList<String> preprocess_data_1 = this.computeColsOperation(((ColReference) lSideOperation).getTarget(), operationOperator, ((ColReference) rSideOperation).getTarget(), csvData);
+          operation.put("preprocess_data", preprocess_data_1);
+          formulaMap.put(mainOp, operation);
+        } else {
+          if ((lSide instanceof StatisticalOperation)) {
+            Object lSideOperation_1 = operation.get("l");
+            Object rSideOperation_1 = operation.get("r");
+            Object _get_1 = operation.get("o");
+            String operationOperator_1 = ((String) _get_1);
+            ArrayList<String> preprocess_data_2 = this.computeColsOperation(lSideOperation_1, operationOperator_1, ((ColReference) rSideOperation_1).getTarget(), csvData);
+            operation.put("preprocess_data", preprocess_data_2);
+            formulaMap.put(mainOp, operation);
+          } else {
+            Object lSideOperation_2 = operation.get("l");
+            Object rSideOperation_2 = operation.get("r");
+            Object _get_2 = operation.get("o");
+            String operationOperator_2 = ((String) _get_2);
+            ArrayList<String> preprocess_data_3 = this.computeColsOperation(((ColReference) lSideOperation_2).getTarget(), operationOperator_2, rSideOperation_2, csvData);
+            operation.put("preprocess_data", preprocess_data_3);
+            formulaMap.put(mainOp, operation);
+          }
+        }
+      }
+    }
+    Object _get_3 = formulaMap.get(mainOp);
+    Object _get_4 = ((HashMap<String, Object>) _get_3).get("preprocess_data");
+    newFieldData = ((ArrayList<String>) _get_4);
+    return newFieldData;
   }
 }
