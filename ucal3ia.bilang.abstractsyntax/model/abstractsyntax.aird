@@ -5,7 +5,7 @@
     <semanticResources>abstractsyntax.genmodel</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" uid="_u_kzQNl3Ee28os8tpEBEMQ">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_vACGQNl3Ee28os8tpEBEMQ" name="abstractsyntax" repPath="#_vAARENl3Ee28os8tpEBEMQ" changeId="9ee11ff6-e1d0-4a5e-b057-1488c86d90d8">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" uid="_vACGQNl3Ee28os8tpEBEMQ" name="abstractsyntax" repPath="#_vAARENl3Ee28os8tpEBEMQ" changeId="601e3b78-eba5-4c9f-9fd0-4cd030e12466">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="abstractsyntax.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -1063,7 +1063,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" uid="_ab1M8Nl4Ee28os8tpEBEMQ" name="location : EString" tooltipText="">
+      <ownedElements xmi:type="diagram:DNodeListElement" uid="_ab1M8Nl4Ee28os8tpEBEMQ" name="location : EInt = -1" tooltipText="">
         <target xmi:type="ecore:EAttribute" href="abstractsyntax.ecore#//Plot/location"/>
         <semanticElements xmi:type="ecore:EAttribute" href="abstractsyntax.ecore#//Plot/location"/>
         <ownedStyle xmi:type="diagram:BundledImage" uid="_cGjpY9l4Ee28os8tpEBEMQ" labelAlignment="LEFT">

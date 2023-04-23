@@ -61,6 +61,7 @@ public class BiLangParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getStatisticalOperationAccess().getGroup(), "rule__StatisticalOperation__Group__0");
 			builder.put(grammarAccess.getEFloatAccess().getGroup(), "rule__EFloat__Group__0");
 			builder.put(grammarAccess.getEFloatAccess().getGroup_4(), "rule__EFloat__Group_4__0");
+			builder.put(grammarAccess.getEIntAccess().getGroup(), "rule__EInt__Group__0");
 			builder.put(grammarAccess.getBarPlotAccess().getGroup(), "rule__BarPlot__Group__0");
 			builder.put(grammarAccess.getBarPlotAccess().getGroup_8(), "rule__BarPlot__Group_8__0");
 			builder.put(grammarAccess.getBarPlotAccess().getGroup_9(), "rule__BarPlot__Group_9__0");

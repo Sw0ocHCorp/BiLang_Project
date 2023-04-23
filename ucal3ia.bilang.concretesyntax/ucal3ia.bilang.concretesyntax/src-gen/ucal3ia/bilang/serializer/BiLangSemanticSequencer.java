@@ -114,7 +114,7 @@ public class BiLangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *         name=ID 
 	 *         xAxis=EString 
 	 *         yAxis=EString 
-	 *         location=EString? 
+	 *         location=EInt? 
 	 *         colors=EString? 
 	 *         thickness=EFloat?
 	 *     )
@@ -203,7 +203,7 @@ public class BiLangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *         name=ID 
 	 *         xAxis=EString 
 	 *         yAxis=EString 
-	 *         location=EString? 
+	 *         location=EInt? 
 	 *         colors=EString? 
 	 *         thickness=EFloat?
 	 *     )
@@ -245,7 +245,7 @@ public class BiLangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *         name=ID 
 	 *         xAxis=EString 
 	 *         yAxis=EString 
-	 *         location=EString? 
+	 *         location=EInt? 
 	 *         colors=EString? 
 	 *         thickness=EFloat?
 	 *     )
@@ -290,7 +290,7 @@ public class BiLangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *         name=ID 
 	 *         xAxis=EString 
 	 *         yAxis=EString 
-	 *         location=EString? 
+	 *         location=EInt? 
 	 *         colors=EString? 
 	 *         thickness=EFloat?
 	 *     )
@@ -310,7 +310,7 @@ public class BiLangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *         name=ID 
 	 *         xAxis=EString 
 	 *         yAxis=EString 
-	 *         location=EString? 
+	 *         location=EInt? 
 	 *         colors=EString? 
 	 *         thickness=EFloat?
 	 *     )
@@ -380,7 +380,7 @@ public class BiLangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *         name=ID 
 	 *         xAxis=EString 
 	 *         yAxis=EString 
-	 *         location=EString? 
+	 *         location=EInt? 
 	 *         colors=EString? 
 	 *         thickness=EFloat?
 	 *     )
@@ -400,7 +400,7 @@ public class BiLangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *         name=ID 
 	 *         xAxis=EString 
 	 *         yAxis=EString 
-	 *         location=EString? 
+	 *         location=EInt? 
 	 *         colors=EString? 
 	 *         thickness=EFloat?
 	 *     )

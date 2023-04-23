@@ -95,7 +95,7 @@ public class PlotItemProvider extends NamedElementItemProvider {
 						getResourceLocator(), getString("_UI_Plot_location_feature"),
 						getString("_UI_PropertyDescriptor_description", "_UI_Plot_location_feature", "_UI_Plot_type"),
 						AbstractsyntaxPackage.Literals.PLOT__LOCATION, true, false, false,
-						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+						ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE, null, null));
 	}
 
 	/**

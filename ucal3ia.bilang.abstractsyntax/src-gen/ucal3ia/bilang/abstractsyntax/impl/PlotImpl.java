@@ -77,7 +77,7 @@ public abstract class PlotImpl extends NamedElementImpl implements Plot {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String LOCATION_EDEFAULT = null;
+	protected static final int LOCATION_EDEFAULT = -1;
 
 	/**
 	 * The cached value of the '{@link #getLocation() <em>Location</em>}' attribute.
@@ -87,7 +87,7 @@ public abstract class PlotImpl extends NamedElementImpl implements Plot {
 	 * @generated
 	 * @ordered
 	 */
-	protected String location = LOCATION_EDEFAULT;
+	protected int location = LOCATION_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getColors() <em>Colors</em>}' attribute.
@@ -195,7 +195,7 @@ public abstract class PlotImpl extends NamedElementImpl implements Plot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getLocation() {
+	public int getLocation() {
 		return location;
 	}
 
@@ -204,8 +204,8 @@ public abstract class PlotImpl extends NamedElementImpl implements Plot {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setLocation(String newLocation) {
-		String oldLocation = location;
+	public void setLocation(int newLocation) {
+		int oldLocation = location;
 		location = newLocation;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, AbstractsyntaxPackage.PLOT__LOCATION, oldLocation,
@@ -293,7 +293,7 @@ public abstract class PlotImpl extends NamedElementImpl implements Plot {
 			setYAxis((String) newValue);
 			return;
 		case AbstractsyntaxPackage.PLOT__LOCATION:
-			setLocation((String) newValue);
+			setLocation((Integer) newValue);
 			return;
 		case AbstractsyntaxPackage.PLOT__COLORS:
 			setColors((String) newValue);
@@ -345,7 +345,7 @@ public abstract class PlotImpl extends NamedElementImpl implements Plot {
 		case AbstractsyntaxPackage.PLOT__YAXIS:
 			return YAXIS_EDEFAULT == null ? yAxis != null : !YAXIS_EDEFAULT.equals(yAxis);
 		case AbstractsyntaxPackage.PLOT__LOCATION:
-			return LOCATION_EDEFAULT == null ? location != null : !LOCATION_EDEFAULT.equals(location);
+			return location != LOCATION_EDEFAULT;
 		case AbstractsyntaxPackage.PLOT__COLORS:
 			return COLORS_EDEFAULT == null ? colors != null : !COLORS_EDEFAULT.equals(colors);
 		case AbstractsyntaxPackage.PLOT__THICKNESS:

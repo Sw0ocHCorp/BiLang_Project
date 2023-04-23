@@ -69,15 +69,16 @@ public interface Plot extends NamedElement {
 
 	/**
 	 * Returns the value of the '<em><b>Location</b></em>' attribute.
+	 * The default value is <code>"-1"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Location</em>' attribute.
-	 * @see #setLocation(String)
+	 * @see #setLocation(int)
 	 * @see ucal3ia.bilang.abstractsyntax.AbstractsyntaxPackage#getPlot_Location()
-	 * @model
+	 * @model default="-1"
 	 * @generated
 	 */
-	String getLocation();
+	int getLocation();
 
 	/**
 	 * Sets the value of the '{@link ucal3ia.bilang.abstractsyntax.Plot#getLocation <em>Location</em>}' attribute.
@@ -87,7 +88,7 @@ public interface Plot extends NamedElement {
 	 * @see #getLocation()
 	 * @generated
 	 */
-	void setLocation(String value);
+	void setLocation(int value);
 
 	/**
 	 * Returns the value of the '<em><b>Colors</b></em>' attribute.

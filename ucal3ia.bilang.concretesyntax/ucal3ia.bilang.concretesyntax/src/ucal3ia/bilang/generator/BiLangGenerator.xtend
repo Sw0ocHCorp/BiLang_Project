@@ -53,6 +53,14 @@ class BiLangGenerator extends AbstractGenerator {
 		  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 		  <script src="./fs"></script>
 		  <script src="./csv-parser"></script>
+		  <style>
+		      .chart-container {
+		        display: inline-block;
+		        width: 600px;
+		        height: 600px;
+		        margin: 10px;
+		      }
+		  </style>
 		
 		</head>
 		<body>
@@ -277,7 +285,7 @@ class BiLangGenerator extends AbstractGenerator {
 			else if (plot instanceof PiePlot)
 				plotContent.put("type", "pie")
 			else if (plot instanceof PolarPlot)
-				plotContent.put("type", "polar")
+				plotContent.put("type", "polarArea")
 			else if (plot instanceof DonutPlot)
 				plotContent.put("type", "doughnut")
 			else if (plot instanceof RadarPlot)
@@ -315,7 +323,7 @@ class BiLangGenerator extends AbstractGenerator {
 				plotContent.put("yAxis", plot.YAxis)
 			}
 			//Récupération de la position du graphique, epaisseur des lignes / barres / etc...
-			if (plot.location != null) {
+			if (plot.location != -1) {
 				plotContent.put("location", plot.location)	
 			}
 			if (plot.thickness != 0.0) {
@@ -332,14 +340,21 @@ class BiLangGenerator extends AbstractGenerator {
 	def displayDashboard(HashMap<String, HashMap<String, Object>> dashboardContent, HashMap<String, ArrayList<String>> fileData) {
 		var displayDashboard= ""
 		
-		var content= '''
-		<div>
-				  '''
-				  for (key:dashboardContent.keySet()) {
-				  	content+= '''<canvas id="''' + key + '''"></canvas>'''
-				  }
+		var content= ""
+		var targetkey= "" 
+		for (var i= 0; i < (dashboardContent.keySet()).length(); i++) {
+			for (key:dashboardContent.keySet()) {
+				if ((dashboardContent.get(key)).containsKey("location") && (dashboardContent.get(key)).get("location") == i) {
+					targetkey= key	
+				}
+			}
+			content+= '''<div class="chart-container">
+			<canvas id="''' + targetkey + '''"></canvas>
+			</div>'''
+			content+= "\n"
+		}
 		content+='''
-				</div>
+				
 				<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 				<script>
 				  	const CHART_COLORS = {

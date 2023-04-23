@@ -761,6 +761,25 @@ public class BiLangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		//INT
 		public RuleCall getINTTerminalRuleCall_4_2() { return cINTTerminalRuleCall_4_2; }
 	}
+	public class EIntElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ucal3ia.bilang.BiLang.EInt");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cHyphenMinusKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final RuleCall cINTTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		
+		//EInt returns ecore::EInt:
+		//    '-'? INT;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'-'? INT
+		public Group getGroup() { return cGroup; }
+		
+		//'-'?
+		public Keyword getHyphenMinusKeyword_0() { return cHyphenMinusKeyword_0; }
+		
+		//INT
+		public RuleCall getINTTerminalRuleCall_1() { return cINTTerminalRuleCall_1; }
+	}
 	public class BarPlotElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ucal3ia.bilang.BiLang.BarPlot");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -778,7 +797,7 @@ public class BiLangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
 		private final Keyword cLocKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
 		private final Assignment cLocationAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
-		private final RuleCall cLocationEStringParserRuleCall_8_1_0 = (RuleCall)cLocationAssignment_8_1.eContents().get(0);
+		private final RuleCall cLocationEIntParserRuleCall_8_1_0 = (RuleCall)cLocationAssignment_8_1.eContents().get(0);
 		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
 		private final Keyword cColorsKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
 		private final Assignment cColorsAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
@@ -790,11 +809,11 @@ public class BiLangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		
 		//BarPlot returns BarPlot:
 		//    {BarPlot}
-		//    'bar' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EString)? ('colors' colors=EString)? ('thickness' thickness=EFloat)?;
+		//    'bar' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EInt)? ('colors' colors=EString)? ('thickness' thickness=EFloat)?;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{BarPlot}
-		//'bar' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EString)? ('colors' colors=EString)? ('thickness' thickness=EFloat)?
+		//'bar' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EInt)? ('colors' colors=EString)? ('thickness' thickness=EFloat)?
 		public Group getGroup() { return cGroup; }
 		
 		//{BarPlot}
@@ -830,17 +849,17 @@ public class BiLangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		//EString
 		public RuleCall getYAxisEStringParserRuleCall_7_0() { return cYAxisEStringParserRuleCall_7_0; }
 		
-		//('loc' location=EString)?
+		//('loc' location=EInt)?
 		public Group getGroup_8() { return cGroup_8; }
 		
 		//'loc'
 		public Keyword getLocKeyword_8_0() { return cLocKeyword_8_0; }
 		
-		//location=EString
+		//location=EInt
 		public Assignment getLocationAssignment_8_1() { return cLocationAssignment_8_1; }
 		
-		//EString
-		public RuleCall getLocationEStringParserRuleCall_8_1_0() { return cLocationEStringParserRuleCall_8_1_0; }
+		//EInt
+		public RuleCall getLocationEIntParserRuleCall_8_1_0() { return cLocationEIntParserRuleCall_8_1_0; }
 		
 		//('colors' colors=EString)?
 		public Group getGroup_9() { return cGroup_9; }
@@ -883,7 +902,7 @@ public class BiLangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
 		private final Keyword cLocKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
 		private final Assignment cLocationAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
-		private final RuleCall cLocationEStringParserRuleCall_8_1_0 = (RuleCall)cLocationAssignment_8_1.eContents().get(0);
+		private final RuleCall cLocationEIntParserRuleCall_8_1_0 = (RuleCall)cLocationAssignment_8_1.eContents().get(0);
 		private final Group cGroup_9 = (Group)cGroup.eContents().get(9);
 		private final Keyword cColorsKeyword_9_0 = (Keyword)cGroup_9.eContents().get(0);
 		private final Assignment cColorsAssignment_9_1 = (Assignment)cGroup_9.eContents().get(1);
@@ -895,11 +914,11 @@ public class BiLangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		
 		//LinePlot returns LinePlot:
 		//    {LinePlot}
-		//    'line' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EString)? ('colors' colors=EString)? ('thickness' thickness=EFloat)?;
+		//    'line' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EInt)? ('colors' colors=EString)? ('thickness' thickness=EFloat)?;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{LinePlot}
-		//'line' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EString)? ('colors' colors=EString)? ('thickness' thickness=EFloat)?
+		//'line' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EInt)? ('colors' colors=EString)? ('thickness' thickness=EFloat)?
 		public Group getGroup() { return cGroup; }
 		
 		//{LinePlot}
@@ -935,17 +954,17 @@ public class BiLangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		//EString
 		public RuleCall getYAxisEStringParserRuleCall_7_0() { return cYAxisEStringParserRuleCall_7_0; }
 		
-		//('loc' location=EString)?
+		//('loc' location=EInt)?
 		public Group getGroup_8() { return cGroup_8; }
 		
 		//'loc'
 		public Keyword getLocKeyword_8_0() { return cLocKeyword_8_0; }
 		
-		//location=EString
+		//location=EInt
 		public Assignment getLocationAssignment_8_1() { return cLocationAssignment_8_1; }
 		
-		//EString
-		public RuleCall getLocationEStringParserRuleCall_8_1_0() { return cLocationEStringParserRuleCall_8_1_0; }
+		//EInt
+		public RuleCall getLocationEIntParserRuleCall_8_1_0() { return cLocationEIntParserRuleCall_8_1_0; }
 		
 		//('colors' colors=EString)?
 		public Group getGroup_9() { return cGroup_9; }
@@ -987,7 +1006,7 @@ public class BiLangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
 		private final Keyword cLocKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
 		private final Assignment cLocationAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
-		private final RuleCall cLocationEStringParserRuleCall_7_1_0 = (RuleCall)cLocationAssignment_7_1.eContents().get(0);
+		private final RuleCall cLocationEIntParserRuleCall_7_1_0 = (RuleCall)cLocationAssignment_7_1.eContents().get(0);
 		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
 		private final Keyword cColorsKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
 		private final Assignment cColorsAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
@@ -998,10 +1017,10 @@ public class BiLangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		private final RuleCall cThicknessEFloatParserRuleCall_9_1_0 = (RuleCall)cThicknessAssignment_9_1.eContents().get(0);
 		
 		//DonutPlot returns DonutPlot:
-		//     'donut' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EString)? ('colors' colors=EString)? ('thickness' thickness=EFloat)?;
+		//     'donut' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EInt)? ('colors' colors=EString)? ('thickness' thickness=EFloat)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'donut' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EString)? ('colors' colors=EString)? ('thickness' thickness=EFloat)?
+		//'donut' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EInt)? ('colors' colors=EString)? ('thickness' thickness=EFloat)?
 		public Group getGroup() { return cGroup; }
 		
 		//'donut'
@@ -1034,17 +1053,17 @@ public class BiLangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		//EString
 		public RuleCall getYAxisEStringParserRuleCall_6_0() { return cYAxisEStringParserRuleCall_6_0; }
 		
-		//('loc' location=EString)?
+		//('loc' location=EInt)?
 		public Group getGroup_7() { return cGroup_7; }
 		
 		//'loc'
 		public Keyword getLocKeyword_7_0() { return cLocKeyword_7_0; }
 		
-		//location=EString
+		//location=EInt
 		public Assignment getLocationAssignment_7_1() { return cLocationAssignment_7_1; }
 		
-		//EString
-		public RuleCall getLocationEStringParserRuleCall_7_1_0() { return cLocationEStringParserRuleCall_7_1_0; }
+		//EInt
+		public RuleCall getLocationEIntParserRuleCall_7_1_0() { return cLocationEIntParserRuleCall_7_1_0; }
 		
 		//('colors' colors=EString)?
 		public Group getGroup_8() { return cGroup_8; }
@@ -1086,7 +1105,7 @@ public class BiLangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
 		private final Keyword cLocKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
 		private final Assignment cLocationAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
-		private final RuleCall cLocationEStringParserRuleCall_7_1_0 = (RuleCall)cLocationAssignment_7_1.eContents().get(0);
+		private final RuleCall cLocationEIntParserRuleCall_7_1_0 = (RuleCall)cLocationAssignment_7_1.eContents().get(0);
 		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
 		private final Keyword cColorsKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
 		private final Assignment cColorsAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
@@ -1097,11 +1116,11 @@ public class BiLangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		private final RuleCall cThicknessEFloatParserRuleCall_9_1_0 = (RuleCall)cThicknessAssignment_9_1.eContents().get(0);
 		
 		//PiePlot returns PiePlot:
-		//    'pie' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EString)? ('colors' colors=EString)? ('thickness' thickness=EFloat)?
+		//    'pie' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EInt)? ('colors' colors=EString)? ('thickness' thickness=EFloat)?
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'pie' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EString)? ('colors' colors=EString)? ('thickness' thickness=EFloat)?
+		//'pie' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EInt)? ('colors' colors=EString)? ('thickness' thickness=EFloat)?
 		public Group getGroup() { return cGroup; }
 		
 		//'pie'
@@ -1134,17 +1153,17 @@ public class BiLangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		//EString
 		public RuleCall getYAxisEStringParserRuleCall_6_0() { return cYAxisEStringParserRuleCall_6_0; }
 		
-		//('loc' location=EString)?
+		//('loc' location=EInt)?
 		public Group getGroup_7() { return cGroup_7; }
 		
 		//'loc'
 		public Keyword getLocKeyword_7_0() { return cLocKeyword_7_0; }
 		
-		//location=EString
+		//location=EInt
 		public Assignment getLocationAssignment_7_1() { return cLocationAssignment_7_1; }
 		
-		//EString
-		public RuleCall getLocationEStringParserRuleCall_7_1_0() { return cLocationEStringParserRuleCall_7_1_0; }
+		//EInt
+		public RuleCall getLocationEIntParserRuleCall_7_1_0() { return cLocationEIntParserRuleCall_7_1_0; }
 		
 		//('colors' colors=EString)?
 		public Group getGroup_8() { return cGroup_8; }
@@ -1186,7 +1205,7 @@ public class BiLangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
 		private final Keyword cLocKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
 		private final Assignment cLocationAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
-		private final RuleCall cLocationEStringParserRuleCall_7_1_0 = (RuleCall)cLocationAssignment_7_1.eContents().get(0);
+		private final RuleCall cLocationEIntParserRuleCall_7_1_0 = (RuleCall)cLocationAssignment_7_1.eContents().get(0);
 		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
 		private final Keyword cColorsKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
 		private final Assignment cColorsAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
@@ -1197,11 +1216,11 @@ public class BiLangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		private final RuleCall cThicknessEFloatParserRuleCall_9_1_0 = (RuleCall)cThicknessAssignment_9_1.eContents().get(0);
 		
 		//PolarPlot returns PolarPlot:
-		//    'polar' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EString)? ('colors' colors=EString)? ('thickness' thickness=EFloat)?
+		//    'polar' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EInt)? ('colors' colors=EString)? ('thickness' thickness=EFloat)?
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'polar' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EString)? ('colors' colors=EString)? ('thickness' thickness=EFloat)?
+		//'polar' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EInt)? ('colors' colors=EString)? ('thickness' thickness=EFloat)?
 		public Group getGroup() { return cGroup; }
 		
 		//'polar'
@@ -1234,17 +1253,17 @@ public class BiLangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		//EString
 		public RuleCall getYAxisEStringParserRuleCall_6_0() { return cYAxisEStringParserRuleCall_6_0; }
 		
-		//('loc' location=EString)?
+		//('loc' location=EInt)?
 		public Group getGroup_7() { return cGroup_7; }
 		
 		//'loc'
 		public Keyword getLocKeyword_7_0() { return cLocKeyword_7_0; }
 		
-		//location=EString
+		//location=EInt
 		public Assignment getLocationAssignment_7_1() { return cLocationAssignment_7_1; }
 		
-		//EString
-		public RuleCall getLocationEStringParserRuleCall_7_1_0() { return cLocationEStringParserRuleCall_7_1_0; }
+		//EInt
+		public RuleCall getLocationEIntParserRuleCall_7_1_0() { return cLocationEIntParserRuleCall_7_1_0; }
 		
 		//('colors' colors=EString)?
 		public Group getGroup_8() { return cGroup_8; }
@@ -1286,7 +1305,7 @@ public class BiLangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
 		private final Keyword cLocKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
 		private final Assignment cLocationAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
-		private final RuleCall cLocationEStringParserRuleCall_7_1_0 = (RuleCall)cLocationAssignment_7_1.eContents().get(0);
+		private final RuleCall cLocationEIntParserRuleCall_7_1_0 = (RuleCall)cLocationAssignment_7_1.eContents().get(0);
 		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
 		private final Keyword cColorsKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
 		private final Assignment cColorsAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
@@ -1297,11 +1316,11 @@ public class BiLangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		private final RuleCall cThicknessEFloatParserRuleCall_9_1_0 = (RuleCall)cThicknessAssignment_9_1.eContents().get(0);
 		
 		//ScatterPlot returns ScatterPlot:
-		//    'scatter' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EString)? ('colors' colors=EString)? ('thickness' thickness=EFloat)?
+		//    'scatter' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EInt)? ('colors' colors=EString)? ('thickness' thickness=EFloat)?
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'scatter' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EString)? ('colors' colors=EString)? ('thickness' thickness=EFloat)?
+		//'scatter' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EInt)? ('colors' colors=EString)? ('thickness' thickness=EFloat)?
 		public Group getGroup() { return cGroup; }
 		
 		//'scatter'
@@ -1334,17 +1353,17 @@ public class BiLangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		//EString
 		public RuleCall getYAxisEStringParserRuleCall_6_0() { return cYAxisEStringParserRuleCall_6_0; }
 		
-		//('loc' location=EString)?
+		//('loc' location=EInt)?
 		public Group getGroup_7() { return cGroup_7; }
 		
 		//'loc'
 		public Keyword getLocKeyword_7_0() { return cLocKeyword_7_0; }
 		
-		//location=EString
+		//location=EInt
 		public Assignment getLocationAssignment_7_1() { return cLocationAssignment_7_1; }
 		
-		//EString
-		public RuleCall getLocationEStringParserRuleCall_7_1_0() { return cLocationEStringParserRuleCall_7_1_0; }
+		//EInt
+		public RuleCall getLocationEIntParserRuleCall_7_1_0() { return cLocationEIntParserRuleCall_7_1_0; }
 		
 		//('colors' colors=EString)?
 		public Group getGroup_8() { return cGroup_8; }
@@ -1386,7 +1405,7 @@ public class BiLangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
 		private final Keyword cLocKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
 		private final Assignment cLocationAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
-		private final RuleCall cLocationEStringParserRuleCall_7_1_0 = (RuleCall)cLocationAssignment_7_1.eContents().get(0);
+		private final RuleCall cLocationEIntParserRuleCall_7_1_0 = (RuleCall)cLocationAssignment_7_1.eContents().get(0);
 		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
 		private final Keyword cColorsKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
 		private final Assignment cColorsAssignment_8_1 = (Assignment)cGroup_8.eContents().get(1);
@@ -1397,11 +1416,11 @@ public class BiLangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		private final RuleCall cThicknessEFloatParserRuleCall_9_1_0 = (RuleCall)cThicknessAssignment_9_1.eContents().get(0);
 		
 		//RadarPlot returns RadarPlot:
-		//    'radar' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EString)? ('colors' colors=EString)? ('thickness' thickness=EFloat)?
+		//    'radar' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EInt)? ('colors' colors=EString)? ('thickness' thickness=EFloat)?
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'radar' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EString)? ('colors' colors=EString)? ('thickness' thickness=EFloat)?
+		//'radar' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EInt)? ('colors' colors=EString)? ('thickness' thickness=EFloat)?
 		public Group getGroup() { return cGroup; }
 		
 		//'radar'
@@ -1434,17 +1453,17 @@ public class BiLangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		//EString
 		public RuleCall getYAxisEStringParserRuleCall_6_0() { return cYAxisEStringParserRuleCall_6_0; }
 		
-		//('loc' location=EString)?
+		//('loc' location=EInt)?
 		public Group getGroup_7() { return cGroup_7; }
 		
 		//'loc'
 		public Keyword getLocKeyword_7_0() { return cLocKeyword_7_0; }
 		
-		//location=EString
+		//location=EInt
 		public Assignment getLocationAssignment_7_1() { return cLocationAssignment_7_1; }
 		
-		//EString
-		public RuleCall getLocationEStringParserRuleCall_7_1_0() { return cLocationEStringParserRuleCall_7_1_0; }
+		//EInt
+		public RuleCall getLocationEIntParserRuleCall_7_1_0() { return cLocationEIntParserRuleCall_7_1_0; }
 		
 		//('colors' colors=EString)?
 		public Group getGroup_8() { return cGroup_8; }
@@ -1630,6 +1649,7 @@ public class BiLangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 	private final ColReferenceElements pColReference;
 	private final StatisticalOperationElements pStatisticalOperation;
 	private final EFloatElements pEFloat;
+	private final EIntElements pEInt;
 	private final BarPlotElements pBarPlot;
 	private final LinePlotElements pLinePlot;
 	private final DonutPlotElements pDonutPlot;
@@ -1667,6 +1687,7 @@ public class BiLangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		this.pColReference = new ColReferenceElements();
 		this.pStatisticalOperation = new StatisticalOperationElements();
 		this.pEFloat = new EFloatElements();
+		this.pEInt = new EIntElements();
 		this.pBarPlot = new BarPlotElements();
 		this.pLinePlot = new LinePlotElements();
 		this.pDonutPlot = new DonutPlotElements();
@@ -1884,9 +1905,19 @@ public class BiLangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		return getEFloatAccess().getRule();
 	}
 	
+	//EInt returns ecore::EInt:
+	//    '-'? INT;
+	public EIntElements getEIntAccess() {
+		return pEInt;
+	}
+	
+	public ParserRule getEIntRule() {
+		return getEIntAccess().getRule();
+	}
+	
 	//BarPlot returns BarPlot:
 	//    {BarPlot}
-	//    'bar' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EString)? ('colors' colors=EString)? ('thickness' thickness=EFloat)?;
+	//    'bar' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EInt)? ('colors' colors=EString)? ('thickness' thickness=EFloat)?;
 	public BarPlotElements getBarPlotAccess() {
 		return pBarPlot;
 	}
@@ -1897,7 +1928,7 @@ public class BiLangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 	
 	//LinePlot returns LinePlot:
 	//    {LinePlot}
-	//    'line' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EString)? ('colors' colors=EString)? ('thickness' thickness=EFloat)?;
+	//    'line' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EInt)? ('colors' colors=EString)? ('thickness' thickness=EFloat)?;
 	public LinePlotElements getLinePlotAccess() {
 		return pLinePlot;
 	}
@@ -1907,7 +1938,7 @@ public class BiLangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 	}
 	
 	//DonutPlot returns DonutPlot:
-	//     'donut' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EString)? ('colors' colors=EString)? ('thickness' thickness=EFloat)?;
+	//     'donut' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EInt)? ('colors' colors=EString)? ('thickness' thickness=EFloat)?;
 	public DonutPlotElements getDonutPlotAccess() {
 		return pDonutPlot;
 	}
@@ -1917,7 +1948,7 @@ public class BiLangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 	}
 	
 	//PiePlot returns PiePlot:
-	//    'pie' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EString)? ('colors' colors=EString)? ('thickness' thickness=EFloat)?
+	//    'pie' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EInt)? ('colors' colors=EString)? ('thickness' thickness=EFloat)?
 	//;
 	public PiePlotElements getPiePlotAccess() {
 		return pPiePlot;
@@ -1928,7 +1959,7 @@ public class BiLangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 	}
 	
 	//PolarPlot returns PolarPlot:
-	//    'polar' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EString)? ('colors' colors=EString)? ('thickness' thickness=EFloat)?
+	//    'polar' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EInt)? ('colors' colors=EString)? ('thickness' thickness=EFloat)?
 	//;
 	public PolarPlotElements getPolarPlotAccess() {
 		return pPolarPlot;
@@ -1939,7 +1970,7 @@ public class BiLangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 	}
 	
 	//ScatterPlot returns ScatterPlot:
-	//    'scatter' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EString)? ('colors' colors=EString)? ('thickness' thickness=EFloat)?
+	//    'scatter' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EInt)? ('colors' colors=EString)? ('thickness' thickness=EFloat)?
 	//;
 	public ScatterPlotElements getScatterPlotAccess() {
 		return pScatterPlot;
@@ -1950,7 +1981,7 @@ public class BiLangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 	}
 	
 	//RadarPlot returns RadarPlot:
-	//    'radar' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EString)? ('colors' colors=EString)? ('thickness' thickness=EFloat)?
+	//    'radar' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EInt)? ('colors' colors=EString)? ('thickness' thickness=EFloat)?
 	//;
 	public RadarPlotElements getRadarPlotAccess() {
 		return pRadarPlot;

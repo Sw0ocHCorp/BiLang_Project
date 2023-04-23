@@ -73,31 +73,34 @@ StatisticalOperation returns StatisticalOperation:
 EFloat returns ecore::EFloat:
 	'-'? INT? '.' INT (('E'|'e') '-'? INT)?;
 
+EInt returns ecore::EInt:
+	'-'? INT;
+
 BarPlot returns BarPlot:
 	{BarPlot}
-	'bar' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EString)? ('colors' colors=EString)? ('thickness' thickness=EFloat)?;
+	'bar' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EInt)? ('colors' colors=EString)? ('thickness' thickness=EFloat)?;
 
 LinePlot returns LinePlot:
 	{LinePlot}
-	'line' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EString)? ('colors' colors=EString)? ('thickness' thickness=EFloat)?;
+	'line' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EInt)? ('colors' colors=EString)? ('thickness' thickness=EFloat)?;
 
 DonutPlot returns DonutPlot:
-	 'donut' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EString)? ('colors' colors=EString)? ('thickness' thickness=EFloat)?;
+	 'donut' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EInt)? ('colors' colors=EString)? ('thickness' thickness=EFloat)?;
 
 PiePlot returns PiePlot: 
-	'pie' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EString)? ('colors' colors=EString)? ('thickness' thickness=EFloat)?
+	'pie' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EInt)? ('colors' colors=EString)? ('thickness' thickness=EFloat)?
 ;
 
 PolarPlot returns PolarPlot:
-	'polar' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EString)? ('colors' colors=EString)? ('thickness' thickness=EFloat)? 
+	'polar' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EInt)? ('colors' colors=EString)? ('thickness' thickness=EFloat)? 
 ;
 
 ScatterPlot returns ScatterPlot:
-	'scatter' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EString)? ('colors' colors=EString)? ('thickness' thickness=EFloat)? 
+	'scatter' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EInt)? ('colors' colors=EString)? ('thickness' thickness=EFloat)? 
 ;
 
 RadarPlot returns RadarPlot:
-	'radar' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EString)? ('colors' colors=EString)? ('thickness' thickness=EFloat)? 
+	'radar' name=ID "->" 'xAx' xAxis=EString 'yA' yAxis=EString ('loc' location=EInt)? ('colors' colors=EString)? ('thickness' thickness=EFloat)? 
 ;
 
 enum MathOperator returns MathOperator:

@@ -1317,6 +1317,39 @@ ruleEFloat returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
 	)
 ;
 
+// Entry rule entryRuleEInt
+entryRuleEInt returns [String current=null]:
+	{ newCompositeNode(grammarAccess.getEIntRule()); }
+	iv_ruleEInt=ruleEInt
+	{ $current=$iv_ruleEInt.current.getText(); }
+	EOF;
+
+// Rule EInt
+ruleEInt returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			kw='-'
+			{
+				$current.merge(kw);
+				newLeafNode(kw, grammarAccess.getEIntAccess().getHyphenMinusKeyword_0());
+			}
+		)?
+		this_INT_1=RULE_INT
+		{
+			$current.merge(this_INT_1);
+		}
+		{
+			newLeafNode(this_INT_1, grammarAccess.getEIntAccess().getINTTerminalRuleCall_1());
+		}
+	)
+;
+
 // Entry rule entryRuleBarPlot
 entryRuleBarPlot returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getBarPlotRule()); }
@@ -1420,9 +1453,9 @@ ruleBarPlot returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getBarPlotAccess().getLocationEStringParserRuleCall_8_1_0());
+						newCompositeNode(grammarAccess.getBarPlotAccess().getLocationEIntParserRuleCall_8_1_0());
 					}
-					lv_location_9_0=ruleEString
+					lv_location_9_0=ruleEInt
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getBarPlotRule());
@@ -1431,7 +1464,7 @@ ruleBarPlot returns [EObject current=null]
 							$current,
 							"location",
 							lv_location_9_0,
-							"ucal3ia.bilang.BiLang.EString");
+							"ucal3ia.bilang.BiLang.EInt");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -1593,9 +1626,9 @@ ruleLinePlot returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getLinePlotAccess().getLocationEStringParserRuleCall_8_1_0());
+						newCompositeNode(grammarAccess.getLinePlotAccess().getLocationEIntParserRuleCall_8_1_0());
 					}
-					lv_location_9_0=ruleEString
+					lv_location_9_0=ruleEInt
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getLinePlotRule());
@@ -1604,7 +1637,7 @@ ruleLinePlot returns [EObject current=null]
 							$current,
 							"location",
 							lv_location_9_0,
-							"ucal3ia.bilang.BiLang.EString");
+							"ucal3ia.bilang.BiLang.EInt");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -1759,9 +1792,9 @@ ruleDonutPlot returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getDonutPlotAccess().getLocationEStringParserRuleCall_7_1_0());
+						newCompositeNode(grammarAccess.getDonutPlotAccess().getLocationEIntParserRuleCall_7_1_0());
 					}
-					lv_location_8_0=ruleEString
+					lv_location_8_0=ruleEInt
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getDonutPlotRule());
@@ -1770,7 +1803,7 @@ ruleDonutPlot returns [EObject current=null]
 							$current,
 							"location",
 							lv_location_8_0,
-							"ucal3ia.bilang.BiLang.EString");
+							"ucal3ia.bilang.BiLang.EInt");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -1925,9 +1958,9 @@ rulePiePlot returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getPiePlotAccess().getLocationEStringParserRuleCall_7_1_0());
+						newCompositeNode(grammarAccess.getPiePlotAccess().getLocationEIntParserRuleCall_7_1_0());
 					}
-					lv_location_8_0=ruleEString
+					lv_location_8_0=ruleEInt
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getPiePlotRule());
@@ -1936,7 +1969,7 @@ rulePiePlot returns [EObject current=null]
 							$current,
 							"location",
 							lv_location_8_0,
-							"ucal3ia.bilang.BiLang.EString");
+							"ucal3ia.bilang.BiLang.EInt");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -2091,9 +2124,9 @@ rulePolarPlot returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getPolarPlotAccess().getLocationEStringParserRuleCall_7_1_0());
+						newCompositeNode(grammarAccess.getPolarPlotAccess().getLocationEIntParserRuleCall_7_1_0());
 					}
-					lv_location_8_0=ruleEString
+					lv_location_8_0=ruleEInt
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getPolarPlotRule());
@@ -2102,7 +2135,7 @@ rulePolarPlot returns [EObject current=null]
 							$current,
 							"location",
 							lv_location_8_0,
-							"ucal3ia.bilang.BiLang.EString");
+							"ucal3ia.bilang.BiLang.EInt");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -2257,9 +2290,9 @@ ruleScatterPlot returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getScatterPlotAccess().getLocationEStringParserRuleCall_7_1_0());
+						newCompositeNode(grammarAccess.getScatterPlotAccess().getLocationEIntParserRuleCall_7_1_0());
 					}
-					lv_location_8_0=ruleEString
+					lv_location_8_0=ruleEInt
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getScatterPlotRule());
@@ -2268,7 +2301,7 @@ ruleScatterPlot returns [EObject current=null]
 							$current,
 							"location",
 							lv_location_8_0,
-							"ucal3ia.bilang.BiLang.EString");
+							"ucal3ia.bilang.BiLang.EInt");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -2423,9 +2456,9 @@ ruleRadarPlot returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getRadarPlotAccess().getLocationEStringParserRuleCall_7_1_0());
+						newCompositeNode(grammarAccess.getRadarPlotAccess().getLocationEIntParserRuleCall_7_1_0());
 					}
-					lv_location_8_0=ruleEString
+					lv_location_8_0=ruleEInt
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getRadarPlotRule());
@@ -2434,7 +2467,7 @@ ruleRadarPlot returns [EObject current=null]
 							$current,
 							"location",
 							lv_location_8_0,
-							"ucal3ia.bilang.BiLang.EString");
+							"ucal3ia.bilang.BiLang.EInt");
 						afterParserOrEnumRuleCall();
 					}
 				)

@@ -1054,10 +1054,10 @@ public class InternalBiLangLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalBiLang.g:7261:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // InternalBiLang.g:7261:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalBiLang.g:7340:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // InternalBiLang.g:7340:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // InternalBiLang.g:7261:11: ( '^' )?
+            // InternalBiLang.g:7340:11: ( '^' )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -1066,7 +1066,7 @@ public class InternalBiLangLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // InternalBiLang.g:7261:11: '^'
+                    // InternalBiLang.g:7340:11: '^'
                     {
                     match('^'); 
 
@@ -1084,7 +1084,7 @@ public class InternalBiLangLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // InternalBiLang.g:7261:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // InternalBiLang.g:7340:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop2:
             do {
                 int alt2=2;
@@ -1133,10 +1133,10 @@ public class InternalBiLangLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalBiLang.g:7263:10: ( ( '0' .. '9' )+ )
-            // InternalBiLang.g:7263:12: ( '0' .. '9' )+
+            // InternalBiLang.g:7342:10: ( ( '0' .. '9' )+ )
+            // InternalBiLang.g:7342:12: ( '0' .. '9' )+
             {
-            // InternalBiLang.g:7263:12: ( '0' .. '9' )+
+            // InternalBiLang.g:7342:12: ( '0' .. '9' )+
             int cnt3=0;
             loop3:
             do {
@@ -1150,7 +1150,7 @@ public class InternalBiLangLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // InternalBiLang.g:7263:13: '0' .. '9'
+            	    // InternalBiLang.g:7342:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -1182,10 +1182,10 @@ public class InternalBiLangLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalBiLang.g:7265:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // InternalBiLang.g:7265:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalBiLang.g:7344:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // InternalBiLang.g:7344:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // InternalBiLang.g:7265:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // InternalBiLang.g:7344:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -1203,10 +1203,10 @@ public class InternalBiLangLexer extends Lexer {
             }
             switch (alt6) {
                 case 1 :
-                    // InternalBiLang.g:7265:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // InternalBiLang.g:7344:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // InternalBiLang.g:7265:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // InternalBiLang.g:7344:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop4:
                     do {
                         int alt4=3;
@@ -1222,7 +1222,7 @@ public class InternalBiLangLexer extends Lexer {
 
                         switch (alt4) {
                     	case 1 :
-                    	    // InternalBiLang.g:7265:21: '\\\\' .
+                    	    // InternalBiLang.g:7344:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -1230,7 +1230,7 @@ public class InternalBiLangLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalBiLang.g:7265:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // InternalBiLang.g:7344:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -1255,10 +1255,10 @@ public class InternalBiLangLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // InternalBiLang.g:7265:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // InternalBiLang.g:7344:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // InternalBiLang.g:7265:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // InternalBiLang.g:7344:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop5:
                     do {
                         int alt5=3;
@@ -1274,7 +1274,7 @@ public class InternalBiLangLexer extends Lexer {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // InternalBiLang.g:7265:54: '\\\\' .
+                    	    // InternalBiLang.g:7344:54: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -1282,7 +1282,7 @@ public class InternalBiLangLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // InternalBiLang.g:7265:61: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // InternalBiLang.g:7344:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -1325,12 +1325,12 @@ public class InternalBiLangLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalBiLang.g:7267:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // InternalBiLang.g:7267:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // InternalBiLang.g:7346:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // InternalBiLang.g:7346:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // InternalBiLang.g:7267:24: ( options {greedy=false; } : . )*
+            // InternalBiLang.g:7346:24: ( options {greedy=false; } : . )*
             loop7:
             do {
                 int alt7=2;
@@ -1355,7 +1355,7 @@ public class InternalBiLangLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // InternalBiLang.g:7267:52: .
+            	    // InternalBiLang.g:7346:52: .
             	    {
             	    matchAny(); 
 
@@ -1385,12 +1385,12 @@ public class InternalBiLangLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalBiLang.g:7269:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // InternalBiLang.g:7269:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // InternalBiLang.g:7348:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // InternalBiLang.g:7348:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // InternalBiLang.g:7269:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // InternalBiLang.g:7348:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop8:
             do {
                 int alt8=2;
@@ -1403,7 +1403,7 @@ public class InternalBiLangLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // InternalBiLang.g:7269:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // InternalBiLang.g:7348:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -1423,7 +1423,7 @@ public class InternalBiLangLexer extends Lexer {
                 }
             } while (true);
 
-            // InternalBiLang.g:7269:40: ( ( '\\r' )? '\\n' )?
+            // InternalBiLang.g:7348:40: ( ( '\\r' )? '\\n' )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -1432,9 +1432,9 @@ public class InternalBiLangLexer extends Lexer {
             }
             switch (alt10) {
                 case 1 :
-                    // InternalBiLang.g:7269:41: ( '\\r' )? '\\n'
+                    // InternalBiLang.g:7348:41: ( '\\r' )? '\\n'
                     {
-                    // InternalBiLang.g:7269:41: ( '\\r' )?
+                    // InternalBiLang.g:7348:41: ( '\\r' )?
                     int alt9=2;
                     int LA9_0 = input.LA(1);
 
@@ -1443,7 +1443,7 @@ public class InternalBiLangLexer extends Lexer {
                     }
                     switch (alt9) {
                         case 1 :
-                            // InternalBiLang.g:7269:41: '\\r'
+                            // InternalBiLang.g:7348:41: '\\r'
                             {
                             match('\r'); 
 
@@ -1475,10 +1475,10 @@ public class InternalBiLangLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalBiLang.g:7271:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // InternalBiLang.g:7271:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalBiLang.g:7350:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // InternalBiLang.g:7350:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // InternalBiLang.g:7271:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalBiLang.g:7350:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt11=0;
             loop11:
             do {
@@ -1532,8 +1532,8 @@ public class InternalBiLangLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // InternalBiLang.g:7273:16: ( . )
-            // InternalBiLang.g:7273:18: .
+            // InternalBiLang.g:7352:16: ( . )
+            // InternalBiLang.g:7352:18: .
             {
             matchAny(); 
 

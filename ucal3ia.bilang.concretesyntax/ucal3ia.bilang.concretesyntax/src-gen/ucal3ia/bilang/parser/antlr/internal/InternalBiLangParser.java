@@ -686,11 +686,11 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
             else if ( (LA5_0==RULE_ID) ) {
                 int LA5_2 = input.LA(2);
 
-                if ( ((LA5_2>=55 && LA5_2<=57)) ) {
-                    alt5=1;
-                }
-                else if ( ((LA5_2>=53 && LA5_2<=54)) ) {
+                if ( ((LA5_2>=53 && LA5_2<=54)) ) {
                     alt5=2;
+                }
+                else if ( ((LA5_2>=55 && LA5_2<=57)) ) {
+                    alt5=1;
                 }
                 else {
                     NoViableAltException nvae =
@@ -3369,8 +3369,113 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleEFloat"
 
 
+    // $ANTLR start "entryRuleEInt"
+    // InternalBiLang.g:1321:1: entryRuleEInt returns [String current=null] : iv_ruleEInt= ruleEInt EOF ;
+    public final String entryRuleEInt() throws RecognitionException {
+        String current = null;
+
+        AntlrDatatypeRuleToken iv_ruleEInt = null;
+
+
+        try {
+            // InternalBiLang.g:1321:44: (iv_ruleEInt= ruleEInt EOF )
+            // InternalBiLang.g:1322:2: iv_ruleEInt= ruleEInt EOF
+            {
+             newCompositeNode(grammarAccess.getEIntRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleEInt=ruleEInt();
+
+            state._fsp--;
+
+             current =iv_ruleEInt.getText(); 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleEInt"
+
+
+    // $ANTLR start "ruleEInt"
+    // InternalBiLang.g:1328:1: ruleEInt returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( (kw= '-' )? this_INT_1= RULE_INT ) ;
+    public final AntlrDatatypeRuleToken ruleEInt() throws RecognitionException {
+        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
+
+        Token kw=null;
+        Token this_INT_1=null;
+
+
+        	enterRule();
+
+        try {
+            // InternalBiLang.g:1334:2: ( ( (kw= '-' )? this_INT_1= RULE_INT ) )
+            // InternalBiLang.g:1335:2: ( (kw= '-' )? this_INT_1= RULE_INT )
+            {
+            // InternalBiLang.g:1335:2: ( (kw= '-' )? this_INT_1= RULE_INT )
+            // InternalBiLang.g:1336:3: (kw= '-' )? this_INT_1= RULE_INT
+            {
+            // InternalBiLang.g:1336:3: (kw= '-' )?
+            int alt22=2;
+            int LA22_0 = input.LA(1);
+
+            if ( (LA22_0==31) ) {
+                alt22=1;
+            }
+            switch (alt22) {
+                case 1 :
+                    // InternalBiLang.g:1337:4: kw= '-'
+                    {
+                    kw=(Token)match(input,31,FOLLOW_33); 
+
+                    				current.merge(kw);
+                    				newLeafNode(kw, grammarAccess.getEIntAccess().getHyphenMinusKeyword_0());
+                    			
+
+                    }
+                    break;
+
+            }
+
+            this_INT_1=(Token)match(input,RULE_INT,FOLLOW_2); 
+
+            			current.merge(this_INT_1);
+            		
+
+            			newLeafNode(this_INT_1, grammarAccess.getEIntAccess().getINTTerminalRuleCall_1());
+            		
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleEInt"
+
+
     // $ANTLR start "entryRuleBarPlot"
-    // InternalBiLang.g:1321:1: entryRuleBarPlot returns [EObject current=null] : iv_ruleBarPlot= ruleBarPlot EOF ;
+    // InternalBiLang.g:1354:1: entryRuleBarPlot returns [EObject current=null] : iv_ruleBarPlot= ruleBarPlot EOF ;
     public final EObject entryRuleBarPlot() throws RecognitionException {
         EObject current = null;
 
@@ -3378,8 +3483,8 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBiLang.g:1321:48: (iv_ruleBarPlot= ruleBarPlot EOF )
-            // InternalBiLang.g:1322:2: iv_ruleBarPlot= ruleBarPlot EOF
+            // InternalBiLang.g:1354:48: (iv_ruleBarPlot= ruleBarPlot EOF )
+            // InternalBiLang.g:1355:2: iv_ruleBarPlot= ruleBarPlot EOF
             {
              newCompositeNode(grammarAccess.getBarPlotRule()); 
             pushFollow(FOLLOW_1);
@@ -3406,7 +3511,7 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleBarPlot"
-    // InternalBiLang.g:1328:1: ruleBarPlot returns [EObject current=null] : ( () otherlv_1= 'bar' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '->' otherlv_4= 'xAx' ( (lv_xAxis_5_0= ruleEString ) ) otherlv_6= 'yA' ( (lv_yAxis_7_0= ruleEString ) ) (otherlv_8= 'loc' ( (lv_location_9_0= ruleEString ) ) )? (otherlv_10= 'colors' ( (lv_colors_11_0= ruleEString ) ) )? (otherlv_12= 'thickness' ( (lv_thickness_13_0= ruleEFloat ) ) )? ) ;
+    // InternalBiLang.g:1361:1: ruleBarPlot returns [EObject current=null] : ( () otherlv_1= 'bar' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '->' otherlv_4= 'xAx' ( (lv_xAxis_5_0= ruleEString ) ) otherlv_6= 'yA' ( (lv_yAxis_7_0= ruleEString ) ) (otherlv_8= 'loc' ( (lv_location_9_0= ruleEInt ) ) )? (otherlv_10= 'colors' ( (lv_colors_11_0= ruleEString ) ) )? (otherlv_12= 'thickness' ( (lv_thickness_13_0= ruleEFloat ) ) )? ) ;
     public final EObject ruleBarPlot() throws RecognitionException {
         EObject current = null;
 
@@ -3433,14 +3538,14 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBiLang.g:1334:2: ( ( () otherlv_1= 'bar' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '->' otherlv_4= 'xAx' ( (lv_xAxis_5_0= ruleEString ) ) otherlv_6= 'yA' ( (lv_yAxis_7_0= ruleEString ) ) (otherlv_8= 'loc' ( (lv_location_9_0= ruleEString ) ) )? (otherlv_10= 'colors' ( (lv_colors_11_0= ruleEString ) ) )? (otherlv_12= 'thickness' ( (lv_thickness_13_0= ruleEFloat ) ) )? ) )
-            // InternalBiLang.g:1335:2: ( () otherlv_1= 'bar' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '->' otherlv_4= 'xAx' ( (lv_xAxis_5_0= ruleEString ) ) otherlv_6= 'yA' ( (lv_yAxis_7_0= ruleEString ) ) (otherlv_8= 'loc' ( (lv_location_9_0= ruleEString ) ) )? (otherlv_10= 'colors' ( (lv_colors_11_0= ruleEString ) ) )? (otherlv_12= 'thickness' ( (lv_thickness_13_0= ruleEFloat ) ) )? )
+            // InternalBiLang.g:1367:2: ( ( () otherlv_1= 'bar' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '->' otherlv_4= 'xAx' ( (lv_xAxis_5_0= ruleEString ) ) otherlv_6= 'yA' ( (lv_yAxis_7_0= ruleEString ) ) (otherlv_8= 'loc' ( (lv_location_9_0= ruleEInt ) ) )? (otherlv_10= 'colors' ( (lv_colors_11_0= ruleEString ) ) )? (otherlv_12= 'thickness' ( (lv_thickness_13_0= ruleEFloat ) ) )? ) )
+            // InternalBiLang.g:1368:2: ( () otherlv_1= 'bar' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '->' otherlv_4= 'xAx' ( (lv_xAxis_5_0= ruleEString ) ) otherlv_6= 'yA' ( (lv_yAxis_7_0= ruleEString ) ) (otherlv_8= 'loc' ( (lv_location_9_0= ruleEInt ) ) )? (otherlv_10= 'colors' ( (lv_colors_11_0= ruleEString ) ) )? (otherlv_12= 'thickness' ( (lv_thickness_13_0= ruleEFloat ) ) )? )
             {
-            // InternalBiLang.g:1335:2: ( () otherlv_1= 'bar' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '->' otherlv_4= 'xAx' ( (lv_xAxis_5_0= ruleEString ) ) otherlv_6= 'yA' ( (lv_yAxis_7_0= ruleEString ) ) (otherlv_8= 'loc' ( (lv_location_9_0= ruleEString ) ) )? (otherlv_10= 'colors' ( (lv_colors_11_0= ruleEString ) ) )? (otherlv_12= 'thickness' ( (lv_thickness_13_0= ruleEFloat ) ) )? )
-            // InternalBiLang.g:1336:3: () otherlv_1= 'bar' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '->' otherlv_4= 'xAx' ( (lv_xAxis_5_0= ruleEString ) ) otherlv_6= 'yA' ( (lv_yAxis_7_0= ruleEString ) ) (otherlv_8= 'loc' ( (lv_location_9_0= ruleEString ) ) )? (otherlv_10= 'colors' ( (lv_colors_11_0= ruleEString ) ) )? (otherlv_12= 'thickness' ( (lv_thickness_13_0= ruleEFloat ) ) )?
+            // InternalBiLang.g:1368:2: ( () otherlv_1= 'bar' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '->' otherlv_4= 'xAx' ( (lv_xAxis_5_0= ruleEString ) ) otherlv_6= 'yA' ( (lv_yAxis_7_0= ruleEString ) ) (otherlv_8= 'loc' ( (lv_location_9_0= ruleEInt ) ) )? (otherlv_10= 'colors' ( (lv_colors_11_0= ruleEString ) ) )? (otherlv_12= 'thickness' ( (lv_thickness_13_0= ruleEFloat ) ) )? )
+            // InternalBiLang.g:1369:3: () otherlv_1= 'bar' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '->' otherlv_4= 'xAx' ( (lv_xAxis_5_0= ruleEString ) ) otherlv_6= 'yA' ( (lv_yAxis_7_0= ruleEString ) ) (otherlv_8= 'loc' ( (lv_location_9_0= ruleEInt ) ) )? (otherlv_10= 'colors' ( (lv_colors_11_0= ruleEString ) ) )? (otherlv_12= 'thickness' ( (lv_thickness_13_0= ruleEFloat ) ) )?
             {
-            // InternalBiLang.g:1336:3: ()
-            // InternalBiLang.g:1337:4: 
+            // InternalBiLang.g:1369:3: ()
+            // InternalBiLang.g:1370:4: 
             {
 
             				current = forceCreateModelElement(
@@ -3454,11 +3559,11 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_1, grammarAccess.getBarPlotAccess().getBarKeyword_1());
             		
-            // InternalBiLang.g:1347:3: ( (lv_name_2_0= RULE_ID ) )
-            // InternalBiLang.g:1348:4: (lv_name_2_0= RULE_ID )
+            // InternalBiLang.g:1380:3: ( (lv_name_2_0= RULE_ID ) )
+            // InternalBiLang.g:1381:4: (lv_name_2_0= RULE_ID )
             {
-            // InternalBiLang.g:1348:4: (lv_name_2_0= RULE_ID )
-            // InternalBiLang.g:1349:5: lv_name_2_0= RULE_ID
+            // InternalBiLang.g:1381:4: (lv_name_2_0= RULE_ID )
+            // InternalBiLang.g:1382:5: lv_name_2_0= RULE_ID
             {
             lv_name_2_0=(Token)match(input,RULE_ID,FOLLOW_36); 
 
@@ -3488,11 +3593,11 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_4, grammarAccess.getBarPlotAccess().getXAxKeyword_4());
             		
-            // InternalBiLang.g:1373:3: ( (lv_xAxis_5_0= ruleEString ) )
-            // InternalBiLang.g:1374:4: (lv_xAxis_5_0= ruleEString )
+            // InternalBiLang.g:1406:3: ( (lv_xAxis_5_0= ruleEString ) )
+            // InternalBiLang.g:1407:4: (lv_xAxis_5_0= ruleEString )
             {
-            // InternalBiLang.g:1374:4: (lv_xAxis_5_0= ruleEString )
-            // InternalBiLang.g:1375:5: lv_xAxis_5_0= ruleEString
+            // InternalBiLang.g:1407:4: (lv_xAxis_5_0= ruleEString )
+            // InternalBiLang.g:1408:5: lv_xAxis_5_0= ruleEString
             {
 
             					newCompositeNode(grammarAccess.getBarPlotAccess().getXAxisEStringParserRuleCall_5_0());
@@ -3523,11 +3628,11 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_6, grammarAccess.getBarPlotAccess().getYAKeyword_6());
             		
-            // InternalBiLang.g:1396:3: ( (lv_yAxis_7_0= ruleEString ) )
-            // InternalBiLang.g:1397:4: (lv_yAxis_7_0= ruleEString )
+            // InternalBiLang.g:1429:3: ( (lv_yAxis_7_0= ruleEString ) )
+            // InternalBiLang.g:1430:4: (lv_yAxis_7_0= ruleEString )
             {
-            // InternalBiLang.g:1397:4: (lv_yAxis_7_0= ruleEString )
-            // InternalBiLang.g:1398:5: lv_yAxis_7_0= ruleEString
+            // InternalBiLang.g:1430:4: (lv_yAxis_7_0= ruleEString )
+            // InternalBiLang.g:1431:5: lv_yAxis_7_0= ruleEString
             {
 
             					newCompositeNode(grammarAccess.getBarPlotAccess().getYAxisEStringParserRuleCall_7_0());
@@ -3554,32 +3659,32 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalBiLang.g:1415:3: (otherlv_8= 'loc' ( (lv_location_9_0= ruleEString ) ) )?
-            int alt22=2;
-            int LA22_0 = input.LA(1);
+            // InternalBiLang.g:1448:3: (otherlv_8= 'loc' ( (lv_location_9_0= ruleEInt ) ) )?
+            int alt23=2;
+            int LA23_0 = input.LA(1);
 
-            if ( (LA22_0==38) ) {
-                alt22=1;
+            if ( (LA23_0==38) ) {
+                alt23=1;
             }
-            switch (alt22) {
+            switch (alt23) {
                 case 1 :
-                    // InternalBiLang.g:1416:4: otherlv_8= 'loc' ( (lv_location_9_0= ruleEString ) )
+                    // InternalBiLang.g:1449:4: otherlv_8= 'loc' ( (lv_location_9_0= ruleEInt ) )
                     {
-                    otherlv_8=(Token)match(input,38,FOLLOW_6); 
+                    otherlv_8=(Token)match(input,38,FOLLOW_35); 
 
                     				newLeafNode(otherlv_8, grammarAccess.getBarPlotAccess().getLocKeyword_8_0());
                     			
-                    // InternalBiLang.g:1420:4: ( (lv_location_9_0= ruleEString ) )
-                    // InternalBiLang.g:1421:5: (lv_location_9_0= ruleEString )
+                    // InternalBiLang.g:1453:4: ( (lv_location_9_0= ruleEInt ) )
+                    // InternalBiLang.g:1454:5: (lv_location_9_0= ruleEInt )
                     {
-                    // InternalBiLang.g:1421:5: (lv_location_9_0= ruleEString )
-                    // InternalBiLang.g:1422:6: lv_location_9_0= ruleEString
+                    // InternalBiLang.g:1454:5: (lv_location_9_0= ruleEInt )
+                    // InternalBiLang.g:1455:6: lv_location_9_0= ruleEInt
                     {
 
-                    						newCompositeNode(grammarAccess.getBarPlotAccess().getLocationEStringParserRuleCall_8_1_0());
+                    						newCompositeNode(grammarAccess.getBarPlotAccess().getLocationEIntParserRuleCall_8_1_0());
                     					
                     pushFollow(FOLLOW_40);
-                    lv_location_9_0=ruleEString();
+                    lv_location_9_0=ruleEInt();
 
                     state._fsp--;
 
@@ -3591,7 +3696,7 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
                     							current,
                     							"location",
                     							lv_location_9_0,
-                    							"ucal3ia.bilang.BiLang.EString");
+                    							"ucal3ia.bilang.BiLang.EInt");
                     						afterParserOrEnumRuleCall();
                     					
 
@@ -3606,26 +3711,26 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalBiLang.g:1440:3: (otherlv_10= 'colors' ( (lv_colors_11_0= ruleEString ) ) )?
-            int alt23=2;
-            int LA23_0 = input.LA(1);
+            // InternalBiLang.g:1473:3: (otherlv_10= 'colors' ( (lv_colors_11_0= ruleEString ) ) )?
+            int alt24=2;
+            int LA24_0 = input.LA(1);
 
-            if ( (LA23_0==39) ) {
-                alt23=1;
+            if ( (LA24_0==39) ) {
+                alt24=1;
             }
-            switch (alt23) {
+            switch (alt24) {
                 case 1 :
-                    // InternalBiLang.g:1441:4: otherlv_10= 'colors' ( (lv_colors_11_0= ruleEString ) )
+                    // InternalBiLang.g:1474:4: otherlv_10= 'colors' ( (lv_colors_11_0= ruleEString ) )
                     {
                     otherlv_10=(Token)match(input,39,FOLLOW_6); 
 
                     				newLeafNode(otherlv_10, grammarAccess.getBarPlotAccess().getColorsKeyword_9_0());
                     			
-                    // InternalBiLang.g:1445:4: ( (lv_colors_11_0= ruleEString ) )
-                    // InternalBiLang.g:1446:5: (lv_colors_11_0= ruleEString )
+                    // InternalBiLang.g:1478:4: ( (lv_colors_11_0= ruleEString ) )
+                    // InternalBiLang.g:1479:5: (lv_colors_11_0= ruleEString )
                     {
-                    // InternalBiLang.g:1446:5: (lv_colors_11_0= ruleEString )
-                    // InternalBiLang.g:1447:6: lv_colors_11_0= ruleEString
+                    // InternalBiLang.g:1479:5: (lv_colors_11_0= ruleEString )
+                    // InternalBiLang.g:1480:6: lv_colors_11_0= ruleEString
                     {
 
                     						newCompositeNode(grammarAccess.getBarPlotAccess().getColorsEStringParserRuleCall_9_1_0());
@@ -3658,26 +3763,26 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalBiLang.g:1465:3: (otherlv_12= 'thickness' ( (lv_thickness_13_0= ruleEFloat ) ) )?
-            int alt24=2;
-            int LA24_0 = input.LA(1);
+            // InternalBiLang.g:1498:3: (otherlv_12= 'thickness' ( (lv_thickness_13_0= ruleEFloat ) ) )?
+            int alt25=2;
+            int LA25_0 = input.LA(1);
 
-            if ( (LA24_0==40) ) {
-                alt24=1;
+            if ( (LA25_0==40) ) {
+                alt25=1;
             }
-            switch (alt24) {
+            switch (alt25) {
                 case 1 :
-                    // InternalBiLang.g:1466:4: otherlv_12= 'thickness' ( (lv_thickness_13_0= ruleEFloat ) )
+                    // InternalBiLang.g:1499:4: otherlv_12= 'thickness' ( (lv_thickness_13_0= ruleEFloat ) )
                     {
                     otherlv_12=(Token)match(input,40,FOLLOW_23); 
 
                     				newLeafNode(otherlv_12, grammarAccess.getBarPlotAccess().getThicknessKeyword_10_0());
                     			
-                    // InternalBiLang.g:1470:4: ( (lv_thickness_13_0= ruleEFloat ) )
-                    // InternalBiLang.g:1471:5: (lv_thickness_13_0= ruleEFloat )
+                    // InternalBiLang.g:1503:4: ( (lv_thickness_13_0= ruleEFloat ) )
+                    // InternalBiLang.g:1504:5: (lv_thickness_13_0= ruleEFloat )
                     {
-                    // InternalBiLang.g:1471:5: (lv_thickness_13_0= ruleEFloat )
-                    // InternalBiLang.g:1472:6: lv_thickness_13_0= ruleEFloat
+                    // InternalBiLang.g:1504:5: (lv_thickness_13_0= ruleEFloat )
+                    // InternalBiLang.g:1505:6: lv_thickness_13_0= ruleEFloat
                     {
 
                     						newCompositeNode(grammarAccess.getBarPlotAccess().getThicknessEFloatParserRuleCall_10_1_0());
@@ -3733,7 +3838,7 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleLinePlot"
-    // InternalBiLang.g:1494:1: entryRuleLinePlot returns [EObject current=null] : iv_ruleLinePlot= ruleLinePlot EOF ;
+    // InternalBiLang.g:1527:1: entryRuleLinePlot returns [EObject current=null] : iv_ruleLinePlot= ruleLinePlot EOF ;
     public final EObject entryRuleLinePlot() throws RecognitionException {
         EObject current = null;
 
@@ -3741,8 +3846,8 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBiLang.g:1494:49: (iv_ruleLinePlot= ruleLinePlot EOF )
-            // InternalBiLang.g:1495:2: iv_ruleLinePlot= ruleLinePlot EOF
+            // InternalBiLang.g:1527:49: (iv_ruleLinePlot= ruleLinePlot EOF )
+            // InternalBiLang.g:1528:2: iv_ruleLinePlot= ruleLinePlot EOF
             {
              newCompositeNode(grammarAccess.getLinePlotRule()); 
             pushFollow(FOLLOW_1);
@@ -3769,7 +3874,7 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleLinePlot"
-    // InternalBiLang.g:1501:1: ruleLinePlot returns [EObject current=null] : ( () otherlv_1= 'line' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '->' otherlv_4= 'xAx' ( (lv_xAxis_5_0= ruleEString ) ) otherlv_6= 'yA' ( (lv_yAxis_7_0= ruleEString ) ) (otherlv_8= 'loc' ( (lv_location_9_0= ruleEString ) ) )? (otherlv_10= 'colors' ( (lv_colors_11_0= ruleEString ) ) )? (otherlv_12= 'thickness' ( (lv_thickness_13_0= ruleEFloat ) ) )? ) ;
+    // InternalBiLang.g:1534:1: ruleLinePlot returns [EObject current=null] : ( () otherlv_1= 'line' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '->' otherlv_4= 'xAx' ( (lv_xAxis_5_0= ruleEString ) ) otherlv_6= 'yA' ( (lv_yAxis_7_0= ruleEString ) ) (otherlv_8= 'loc' ( (lv_location_9_0= ruleEInt ) ) )? (otherlv_10= 'colors' ( (lv_colors_11_0= ruleEString ) ) )? (otherlv_12= 'thickness' ( (lv_thickness_13_0= ruleEFloat ) ) )? ) ;
     public final EObject ruleLinePlot() throws RecognitionException {
         EObject current = null;
 
@@ -3796,14 +3901,14 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBiLang.g:1507:2: ( ( () otherlv_1= 'line' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '->' otherlv_4= 'xAx' ( (lv_xAxis_5_0= ruleEString ) ) otherlv_6= 'yA' ( (lv_yAxis_7_0= ruleEString ) ) (otherlv_8= 'loc' ( (lv_location_9_0= ruleEString ) ) )? (otherlv_10= 'colors' ( (lv_colors_11_0= ruleEString ) ) )? (otherlv_12= 'thickness' ( (lv_thickness_13_0= ruleEFloat ) ) )? ) )
-            // InternalBiLang.g:1508:2: ( () otherlv_1= 'line' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '->' otherlv_4= 'xAx' ( (lv_xAxis_5_0= ruleEString ) ) otherlv_6= 'yA' ( (lv_yAxis_7_0= ruleEString ) ) (otherlv_8= 'loc' ( (lv_location_9_0= ruleEString ) ) )? (otherlv_10= 'colors' ( (lv_colors_11_0= ruleEString ) ) )? (otherlv_12= 'thickness' ( (lv_thickness_13_0= ruleEFloat ) ) )? )
+            // InternalBiLang.g:1540:2: ( ( () otherlv_1= 'line' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '->' otherlv_4= 'xAx' ( (lv_xAxis_5_0= ruleEString ) ) otherlv_6= 'yA' ( (lv_yAxis_7_0= ruleEString ) ) (otherlv_8= 'loc' ( (lv_location_9_0= ruleEInt ) ) )? (otherlv_10= 'colors' ( (lv_colors_11_0= ruleEString ) ) )? (otherlv_12= 'thickness' ( (lv_thickness_13_0= ruleEFloat ) ) )? ) )
+            // InternalBiLang.g:1541:2: ( () otherlv_1= 'line' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '->' otherlv_4= 'xAx' ( (lv_xAxis_5_0= ruleEString ) ) otherlv_6= 'yA' ( (lv_yAxis_7_0= ruleEString ) ) (otherlv_8= 'loc' ( (lv_location_9_0= ruleEInt ) ) )? (otherlv_10= 'colors' ( (lv_colors_11_0= ruleEString ) ) )? (otherlv_12= 'thickness' ( (lv_thickness_13_0= ruleEFloat ) ) )? )
             {
-            // InternalBiLang.g:1508:2: ( () otherlv_1= 'line' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '->' otherlv_4= 'xAx' ( (lv_xAxis_5_0= ruleEString ) ) otherlv_6= 'yA' ( (lv_yAxis_7_0= ruleEString ) ) (otherlv_8= 'loc' ( (lv_location_9_0= ruleEString ) ) )? (otherlv_10= 'colors' ( (lv_colors_11_0= ruleEString ) ) )? (otherlv_12= 'thickness' ( (lv_thickness_13_0= ruleEFloat ) ) )? )
-            // InternalBiLang.g:1509:3: () otherlv_1= 'line' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '->' otherlv_4= 'xAx' ( (lv_xAxis_5_0= ruleEString ) ) otherlv_6= 'yA' ( (lv_yAxis_7_0= ruleEString ) ) (otherlv_8= 'loc' ( (lv_location_9_0= ruleEString ) ) )? (otherlv_10= 'colors' ( (lv_colors_11_0= ruleEString ) ) )? (otherlv_12= 'thickness' ( (lv_thickness_13_0= ruleEFloat ) ) )?
+            // InternalBiLang.g:1541:2: ( () otherlv_1= 'line' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '->' otherlv_4= 'xAx' ( (lv_xAxis_5_0= ruleEString ) ) otherlv_6= 'yA' ( (lv_yAxis_7_0= ruleEString ) ) (otherlv_8= 'loc' ( (lv_location_9_0= ruleEInt ) ) )? (otherlv_10= 'colors' ( (lv_colors_11_0= ruleEString ) ) )? (otherlv_12= 'thickness' ( (lv_thickness_13_0= ruleEFloat ) ) )? )
+            // InternalBiLang.g:1542:3: () otherlv_1= 'line' ( (lv_name_2_0= RULE_ID ) ) otherlv_3= '->' otherlv_4= 'xAx' ( (lv_xAxis_5_0= ruleEString ) ) otherlv_6= 'yA' ( (lv_yAxis_7_0= ruleEString ) ) (otherlv_8= 'loc' ( (lv_location_9_0= ruleEInt ) ) )? (otherlv_10= 'colors' ( (lv_colors_11_0= ruleEString ) ) )? (otherlv_12= 'thickness' ( (lv_thickness_13_0= ruleEFloat ) ) )?
             {
-            // InternalBiLang.g:1509:3: ()
-            // InternalBiLang.g:1510:4: 
+            // InternalBiLang.g:1542:3: ()
+            // InternalBiLang.g:1543:4: 
             {
 
             				current = forceCreateModelElement(
@@ -3817,11 +3922,11 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_1, grammarAccess.getLinePlotAccess().getLineKeyword_1());
             		
-            // InternalBiLang.g:1520:3: ( (lv_name_2_0= RULE_ID ) )
-            // InternalBiLang.g:1521:4: (lv_name_2_0= RULE_ID )
+            // InternalBiLang.g:1553:3: ( (lv_name_2_0= RULE_ID ) )
+            // InternalBiLang.g:1554:4: (lv_name_2_0= RULE_ID )
             {
-            // InternalBiLang.g:1521:4: (lv_name_2_0= RULE_ID )
-            // InternalBiLang.g:1522:5: lv_name_2_0= RULE_ID
+            // InternalBiLang.g:1554:4: (lv_name_2_0= RULE_ID )
+            // InternalBiLang.g:1555:5: lv_name_2_0= RULE_ID
             {
             lv_name_2_0=(Token)match(input,RULE_ID,FOLLOW_36); 
 
@@ -3851,11 +3956,11 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_4, grammarAccess.getLinePlotAccess().getXAxKeyword_4());
             		
-            // InternalBiLang.g:1546:3: ( (lv_xAxis_5_0= ruleEString ) )
-            // InternalBiLang.g:1547:4: (lv_xAxis_5_0= ruleEString )
+            // InternalBiLang.g:1579:3: ( (lv_xAxis_5_0= ruleEString ) )
+            // InternalBiLang.g:1580:4: (lv_xAxis_5_0= ruleEString )
             {
-            // InternalBiLang.g:1547:4: (lv_xAxis_5_0= ruleEString )
-            // InternalBiLang.g:1548:5: lv_xAxis_5_0= ruleEString
+            // InternalBiLang.g:1580:4: (lv_xAxis_5_0= ruleEString )
+            // InternalBiLang.g:1581:5: lv_xAxis_5_0= ruleEString
             {
 
             					newCompositeNode(grammarAccess.getLinePlotAccess().getXAxisEStringParserRuleCall_5_0());
@@ -3886,11 +3991,11 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_6, grammarAccess.getLinePlotAccess().getYAKeyword_6());
             		
-            // InternalBiLang.g:1569:3: ( (lv_yAxis_7_0= ruleEString ) )
-            // InternalBiLang.g:1570:4: (lv_yAxis_7_0= ruleEString )
+            // InternalBiLang.g:1602:3: ( (lv_yAxis_7_0= ruleEString ) )
+            // InternalBiLang.g:1603:4: (lv_yAxis_7_0= ruleEString )
             {
-            // InternalBiLang.g:1570:4: (lv_yAxis_7_0= ruleEString )
-            // InternalBiLang.g:1571:5: lv_yAxis_7_0= ruleEString
+            // InternalBiLang.g:1603:4: (lv_yAxis_7_0= ruleEString )
+            // InternalBiLang.g:1604:5: lv_yAxis_7_0= ruleEString
             {
 
             					newCompositeNode(grammarAccess.getLinePlotAccess().getYAxisEStringParserRuleCall_7_0());
@@ -3917,32 +4022,32 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalBiLang.g:1588:3: (otherlv_8= 'loc' ( (lv_location_9_0= ruleEString ) ) )?
-            int alt25=2;
-            int LA25_0 = input.LA(1);
+            // InternalBiLang.g:1621:3: (otherlv_8= 'loc' ( (lv_location_9_0= ruleEInt ) ) )?
+            int alt26=2;
+            int LA26_0 = input.LA(1);
 
-            if ( (LA25_0==38) ) {
-                alt25=1;
+            if ( (LA26_0==38) ) {
+                alt26=1;
             }
-            switch (alt25) {
+            switch (alt26) {
                 case 1 :
-                    // InternalBiLang.g:1589:4: otherlv_8= 'loc' ( (lv_location_9_0= ruleEString ) )
+                    // InternalBiLang.g:1622:4: otherlv_8= 'loc' ( (lv_location_9_0= ruleEInt ) )
                     {
-                    otherlv_8=(Token)match(input,38,FOLLOW_6); 
+                    otherlv_8=(Token)match(input,38,FOLLOW_35); 
 
                     				newLeafNode(otherlv_8, grammarAccess.getLinePlotAccess().getLocKeyword_8_0());
                     			
-                    // InternalBiLang.g:1593:4: ( (lv_location_9_0= ruleEString ) )
-                    // InternalBiLang.g:1594:5: (lv_location_9_0= ruleEString )
+                    // InternalBiLang.g:1626:4: ( (lv_location_9_0= ruleEInt ) )
+                    // InternalBiLang.g:1627:5: (lv_location_9_0= ruleEInt )
                     {
-                    // InternalBiLang.g:1594:5: (lv_location_9_0= ruleEString )
-                    // InternalBiLang.g:1595:6: lv_location_9_0= ruleEString
+                    // InternalBiLang.g:1627:5: (lv_location_9_0= ruleEInt )
+                    // InternalBiLang.g:1628:6: lv_location_9_0= ruleEInt
                     {
 
-                    						newCompositeNode(grammarAccess.getLinePlotAccess().getLocationEStringParserRuleCall_8_1_0());
+                    						newCompositeNode(grammarAccess.getLinePlotAccess().getLocationEIntParserRuleCall_8_1_0());
                     					
                     pushFollow(FOLLOW_40);
-                    lv_location_9_0=ruleEString();
+                    lv_location_9_0=ruleEInt();
 
                     state._fsp--;
 
@@ -3954,7 +4059,7 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
                     							current,
                     							"location",
                     							lv_location_9_0,
-                    							"ucal3ia.bilang.BiLang.EString");
+                    							"ucal3ia.bilang.BiLang.EInt");
                     						afterParserOrEnumRuleCall();
                     					
 
@@ -3969,26 +4074,26 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalBiLang.g:1613:3: (otherlv_10= 'colors' ( (lv_colors_11_0= ruleEString ) ) )?
-            int alt26=2;
-            int LA26_0 = input.LA(1);
+            // InternalBiLang.g:1646:3: (otherlv_10= 'colors' ( (lv_colors_11_0= ruleEString ) ) )?
+            int alt27=2;
+            int LA27_0 = input.LA(1);
 
-            if ( (LA26_0==39) ) {
-                alt26=1;
+            if ( (LA27_0==39) ) {
+                alt27=1;
             }
-            switch (alt26) {
+            switch (alt27) {
                 case 1 :
-                    // InternalBiLang.g:1614:4: otherlv_10= 'colors' ( (lv_colors_11_0= ruleEString ) )
+                    // InternalBiLang.g:1647:4: otherlv_10= 'colors' ( (lv_colors_11_0= ruleEString ) )
                     {
                     otherlv_10=(Token)match(input,39,FOLLOW_6); 
 
                     				newLeafNode(otherlv_10, grammarAccess.getLinePlotAccess().getColorsKeyword_9_0());
                     			
-                    // InternalBiLang.g:1618:4: ( (lv_colors_11_0= ruleEString ) )
-                    // InternalBiLang.g:1619:5: (lv_colors_11_0= ruleEString )
+                    // InternalBiLang.g:1651:4: ( (lv_colors_11_0= ruleEString ) )
+                    // InternalBiLang.g:1652:5: (lv_colors_11_0= ruleEString )
                     {
-                    // InternalBiLang.g:1619:5: (lv_colors_11_0= ruleEString )
-                    // InternalBiLang.g:1620:6: lv_colors_11_0= ruleEString
+                    // InternalBiLang.g:1652:5: (lv_colors_11_0= ruleEString )
+                    // InternalBiLang.g:1653:6: lv_colors_11_0= ruleEString
                     {
 
                     						newCompositeNode(grammarAccess.getLinePlotAccess().getColorsEStringParserRuleCall_9_1_0());
@@ -4021,26 +4126,26 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalBiLang.g:1638:3: (otherlv_12= 'thickness' ( (lv_thickness_13_0= ruleEFloat ) ) )?
-            int alt27=2;
-            int LA27_0 = input.LA(1);
+            // InternalBiLang.g:1671:3: (otherlv_12= 'thickness' ( (lv_thickness_13_0= ruleEFloat ) ) )?
+            int alt28=2;
+            int LA28_0 = input.LA(1);
 
-            if ( (LA27_0==40) ) {
-                alt27=1;
+            if ( (LA28_0==40) ) {
+                alt28=1;
             }
-            switch (alt27) {
+            switch (alt28) {
                 case 1 :
-                    // InternalBiLang.g:1639:4: otherlv_12= 'thickness' ( (lv_thickness_13_0= ruleEFloat ) )
+                    // InternalBiLang.g:1672:4: otherlv_12= 'thickness' ( (lv_thickness_13_0= ruleEFloat ) )
                     {
                     otherlv_12=(Token)match(input,40,FOLLOW_23); 
 
                     				newLeafNode(otherlv_12, grammarAccess.getLinePlotAccess().getThicknessKeyword_10_0());
                     			
-                    // InternalBiLang.g:1643:4: ( (lv_thickness_13_0= ruleEFloat ) )
-                    // InternalBiLang.g:1644:5: (lv_thickness_13_0= ruleEFloat )
+                    // InternalBiLang.g:1676:4: ( (lv_thickness_13_0= ruleEFloat ) )
+                    // InternalBiLang.g:1677:5: (lv_thickness_13_0= ruleEFloat )
                     {
-                    // InternalBiLang.g:1644:5: (lv_thickness_13_0= ruleEFloat )
-                    // InternalBiLang.g:1645:6: lv_thickness_13_0= ruleEFloat
+                    // InternalBiLang.g:1677:5: (lv_thickness_13_0= ruleEFloat )
+                    // InternalBiLang.g:1678:6: lv_thickness_13_0= ruleEFloat
                     {
 
                     						newCompositeNode(grammarAccess.getLinePlotAccess().getThicknessEFloatParserRuleCall_10_1_0());
@@ -4096,7 +4201,7 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDonutPlot"
-    // InternalBiLang.g:1667:1: entryRuleDonutPlot returns [EObject current=null] : iv_ruleDonutPlot= ruleDonutPlot EOF ;
+    // InternalBiLang.g:1700:1: entryRuleDonutPlot returns [EObject current=null] : iv_ruleDonutPlot= ruleDonutPlot EOF ;
     public final EObject entryRuleDonutPlot() throws RecognitionException {
         EObject current = null;
 
@@ -4104,8 +4209,8 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBiLang.g:1667:50: (iv_ruleDonutPlot= ruleDonutPlot EOF )
-            // InternalBiLang.g:1668:2: iv_ruleDonutPlot= ruleDonutPlot EOF
+            // InternalBiLang.g:1700:50: (iv_ruleDonutPlot= ruleDonutPlot EOF )
+            // InternalBiLang.g:1701:2: iv_ruleDonutPlot= ruleDonutPlot EOF
             {
              newCompositeNode(grammarAccess.getDonutPlotRule()); 
             pushFollow(FOLLOW_1);
@@ -4132,7 +4237,7 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDonutPlot"
-    // InternalBiLang.g:1674:1: ruleDonutPlot returns [EObject current=null] : (otherlv_0= 'donut' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '->' otherlv_3= 'xAx' ( (lv_xAxis_4_0= ruleEString ) ) otherlv_5= 'yA' ( (lv_yAxis_6_0= ruleEString ) ) (otherlv_7= 'loc' ( (lv_location_8_0= ruleEString ) ) )? (otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) ) )? (otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) ) )? ) ;
+    // InternalBiLang.g:1707:1: ruleDonutPlot returns [EObject current=null] : (otherlv_0= 'donut' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '->' otherlv_3= 'xAx' ( (lv_xAxis_4_0= ruleEString ) ) otherlv_5= 'yA' ( (lv_yAxis_6_0= ruleEString ) ) (otherlv_7= 'loc' ( (lv_location_8_0= ruleEInt ) ) )? (otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) ) )? (otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) ) )? ) ;
     public final EObject ruleDonutPlot() throws RecognitionException {
         EObject current = null;
 
@@ -4159,21 +4264,21 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBiLang.g:1680:2: ( (otherlv_0= 'donut' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '->' otherlv_3= 'xAx' ( (lv_xAxis_4_0= ruleEString ) ) otherlv_5= 'yA' ( (lv_yAxis_6_0= ruleEString ) ) (otherlv_7= 'loc' ( (lv_location_8_0= ruleEString ) ) )? (otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) ) )? (otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) ) )? ) )
-            // InternalBiLang.g:1681:2: (otherlv_0= 'donut' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '->' otherlv_3= 'xAx' ( (lv_xAxis_4_0= ruleEString ) ) otherlv_5= 'yA' ( (lv_yAxis_6_0= ruleEString ) ) (otherlv_7= 'loc' ( (lv_location_8_0= ruleEString ) ) )? (otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) ) )? (otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) ) )? )
+            // InternalBiLang.g:1713:2: ( (otherlv_0= 'donut' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '->' otherlv_3= 'xAx' ( (lv_xAxis_4_0= ruleEString ) ) otherlv_5= 'yA' ( (lv_yAxis_6_0= ruleEString ) ) (otherlv_7= 'loc' ( (lv_location_8_0= ruleEInt ) ) )? (otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) ) )? (otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) ) )? ) )
+            // InternalBiLang.g:1714:2: (otherlv_0= 'donut' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '->' otherlv_3= 'xAx' ( (lv_xAxis_4_0= ruleEString ) ) otherlv_5= 'yA' ( (lv_yAxis_6_0= ruleEString ) ) (otherlv_7= 'loc' ( (lv_location_8_0= ruleEInt ) ) )? (otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) ) )? (otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) ) )? )
             {
-            // InternalBiLang.g:1681:2: (otherlv_0= 'donut' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '->' otherlv_3= 'xAx' ( (lv_xAxis_4_0= ruleEString ) ) otherlv_5= 'yA' ( (lv_yAxis_6_0= ruleEString ) ) (otherlv_7= 'loc' ( (lv_location_8_0= ruleEString ) ) )? (otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) ) )? (otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) ) )? )
-            // InternalBiLang.g:1682:3: otherlv_0= 'donut' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '->' otherlv_3= 'xAx' ( (lv_xAxis_4_0= ruleEString ) ) otherlv_5= 'yA' ( (lv_yAxis_6_0= ruleEString ) ) (otherlv_7= 'loc' ( (lv_location_8_0= ruleEString ) ) )? (otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) ) )? (otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) ) )?
+            // InternalBiLang.g:1714:2: (otherlv_0= 'donut' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '->' otherlv_3= 'xAx' ( (lv_xAxis_4_0= ruleEString ) ) otherlv_5= 'yA' ( (lv_yAxis_6_0= ruleEString ) ) (otherlv_7= 'loc' ( (lv_location_8_0= ruleEInt ) ) )? (otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) ) )? (otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) ) )? )
+            // InternalBiLang.g:1715:3: otherlv_0= 'donut' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '->' otherlv_3= 'xAx' ( (lv_xAxis_4_0= ruleEString ) ) otherlv_5= 'yA' ( (lv_yAxis_6_0= ruleEString ) ) (otherlv_7= 'loc' ( (lv_location_8_0= ruleEInt ) ) )? (otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) ) )? (otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) ) )?
             {
             otherlv_0=(Token)match(input,42,FOLLOW_3); 
 
             			newLeafNode(otherlv_0, grammarAccess.getDonutPlotAccess().getDonutKeyword_0());
             		
-            // InternalBiLang.g:1686:3: ( (lv_name_1_0= RULE_ID ) )
-            // InternalBiLang.g:1687:4: (lv_name_1_0= RULE_ID )
+            // InternalBiLang.g:1719:3: ( (lv_name_1_0= RULE_ID ) )
+            // InternalBiLang.g:1720:4: (lv_name_1_0= RULE_ID )
             {
-            // InternalBiLang.g:1687:4: (lv_name_1_0= RULE_ID )
-            // InternalBiLang.g:1688:5: lv_name_1_0= RULE_ID
+            // InternalBiLang.g:1720:4: (lv_name_1_0= RULE_ID )
+            // InternalBiLang.g:1721:5: lv_name_1_0= RULE_ID
             {
             lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_36); 
 
@@ -4203,11 +4308,11 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_3, grammarAccess.getDonutPlotAccess().getXAxKeyword_3());
             		
-            // InternalBiLang.g:1712:3: ( (lv_xAxis_4_0= ruleEString ) )
-            // InternalBiLang.g:1713:4: (lv_xAxis_4_0= ruleEString )
+            // InternalBiLang.g:1745:3: ( (lv_xAxis_4_0= ruleEString ) )
+            // InternalBiLang.g:1746:4: (lv_xAxis_4_0= ruleEString )
             {
-            // InternalBiLang.g:1713:4: (lv_xAxis_4_0= ruleEString )
-            // InternalBiLang.g:1714:5: lv_xAxis_4_0= ruleEString
+            // InternalBiLang.g:1746:4: (lv_xAxis_4_0= ruleEString )
+            // InternalBiLang.g:1747:5: lv_xAxis_4_0= ruleEString
             {
 
             					newCompositeNode(grammarAccess.getDonutPlotAccess().getXAxisEStringParserRuleCall_4_0());
@@ -4238,11 +4343,11 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_5, grammarAccess.getDonutPlotAccess().getYAKeyword_5());
             		
-            // InternalBiLang.g:1735:3: ( (lv_yAxis_6_0= ruleEString ) )
-            // InternalBiLang.g:1736:4: (lv_yAxis_6_0= ruleEString )
+            // InternalBiLang.g:1768:3: ( (lv_yAxis_6_0= ruleEString ) )
+            // InternalBiLang.g:1769:4: (lv_yAxis_6_0= ruleEString )
             {
-            // InternalBiLang.g:1736:4: (lv_yAxis_6_0= ruleEString )
-            // InternalBiLang.g:1737:5: lv_yAxis_6_0= ruleEString
+            // InternalBiLang.g:1769:4: (lv_yAxis_6_0= ruleEString )
+            // InternalBiLang.g:1770:5: lv_yAxis_6_0= ruleEString
             {
 
             					newCompositeNode(grammarAccess.getDonutPlotAccess().getYAxisEStringParserRuleCall_6_0());
@@ -4269,32 +4374,32 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalBiLang.g:1754:3: (otherlv_7= 'loc' ( (lv_location_8_0= ruleEString ) ) )?
-            int alt28=2;
-            int LA28_0 = input.LA(1);
+            // InternalBiLang.g:1787:3: (otherlv_7= 'loc' ( (lv_location_8_0= ruleEInt ) ) )?
+            int alt29=2;
+            int LA29_0 = input.LA(1);
 
-            if ( (LA28_0==38) ) {
-                alt28=1;
+            if ( (LA29_0==38) ) {
+                alt29=1;
             }
-            switch (alt28) {
+            switch (alt29) {
                 case 1 :
-                    // InternalBiLang.g:1755:4: otherlv_7= 'loc' ( (lv_location_8_0= ruleEString ) )
+                    // InternalBiLang.g:1788:4: otherlv_7= 'loc' ( (lv_location_8_0= ruleEInt ) )
                     {
-                    otherlv_7=(Token)match(input,38,FOLLOW_6); 
+                    otherlv_7=(Token)match(input,38,FOLLOW_35); 
 
                     				newLeafNode(otherlv_7, grammarAccess.getDonutPlotAccess().getLocKeyword_7_0());
                     			
-                    // InternalBiLang.g:1759:4: ( (lv_location_8_0= ruleEString ) )
-                    // InternalBiLang.g:1760:5: (lv_location_8_0= ruleEString )
+                    // InternalBiLang.g:1792:4: ( (lv_location_8_0= ruleEInt ) )
+                    // InternalBiLang.g:1793:5: (lv_location_8_0= ruleEInt )
                     {
-                    // InternalBiLang.g:1760:5: (lv_location_8_0= ruleEString )
-                    // InternalBiLang.g:1761:6: lv_location_8_0= ruleEString
+                    // InternalBiLang.g:1793:5: (lv_location_8_0= ruleEInt )
+                    // InternalBiLang.g:1794:6: lv_location_8_0= ruleEInt
                     {
 
-                    						newCompositeNode(grammarAccess.getDonutPlotAccess().getLocationEStringParserRuleCall_7_1_0());
+                    						newCompositeNode(grammarAccess.getDonutPlotAccess().getLocationEIntParserRuleCall_7_1_0());
                     					
                     pushFollow(FOLLOW_40);
-                    lv_location_8_0=ruleEString();
+                    lv_location_8_0=ruleEInt();
 
                     state._fsp--;
 
@@ -4306,7 +4411,7 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
                     							current,
                     							"location",
                     							lv_location_8_0,
-                    							"ucal3ia.bilang.BiLang.EString");
+                    							"ucal3ia.bilang.BiLang.EInt");
                     						afterParserOrEnumRuleCall();
                     					
 
@@ -4321,26 +4426,26 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalBiLang.g:1779:3: (otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) ) )?
-            int alt29=2;
-            int LA29_0 = input.LA(1);
+            // InternalBiLang.g:1812:3: (otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) ) )?
+            int alt30=2;
+            int LA30_0 = input.LA(1);
 
-            if ( (LA29_0==39) ) {
-                alt29=1;
+            if ( (LA30_0==39) ) {
+                alt30=1;
             }
-            switch (alt29) {
+            switch (alt30) {
                 case 1 :
-                    // InternalBiLang.g:1780:4: otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) )
+                    // InternalBiLang.g:1813:4: otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) )
                     {
                     otherlv_9=(Token)match(input,39,FOLLOW_6); 
 
                     				newLeafNode(otherlv_9, grammarAccess.getDonutPlotAccess().getColorsKeyword_8_0());
                     			
-                    // InternalBiLang.g:1784:4: ( (lv_colors_10_0= ruleEString ) )
-                    // InternalBiLang.g:1785:5: (lv_colors_10_0= ruleEString )
+                    // InternalBiLang.g:1817:4: ( (lv_colors_10_0= ruleEString ) )
+                    // InternalBiLang.g:1818:5: (lv_colors_10_0= ruleEString )
                     {
-                    // InternalBiLang.g:1785:5: (lv_colors_10_0= ruleEString )
-                    // InternalBiLang.g:1786:6: lv_colors_10_0= ruleEString
+                    // InternalBiLang.g:1818:5: (lv_colors_10_0= ruleEString )
+                    // InternalBiLang.g:1819:6: lv_colors_10_0= ruleEString
                     {
 
                     						newCompositeNode(grammarAccess.getDonutPlotAccess().getColorsEStringParserRuleCall_8_1_0());
@@ -4373,26 +4478,26 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalBiLang.g:1804:3: (otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) ) )?
-            int alt30=2;
-            int LA30_0 = input.LA(1);
+            // InternalBiLang.g:1837:3: (otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) ) )?
+            int alt31=2;
+            int LA31_0 = input.LA(1);
 
-            if ( (LA30_0==40) ) {
-                alt30=1;
+            if ( (LA31_0==40) ) {
+                alt31=1;
             }
-            switch (alt30) {
+            switch (alt31) {
                 case 1 :
-                    // InternalBiLang.g:1805:4: otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) )
+                    // InternalBiLang.g:1838:4: otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) )
                     {
                     otherlv_11=(Token)match(input,40,FOLLOW_23); 
 
                     				newLeafNode(otherlv_11, grammarAccess.getDonutPlotAccess().getThicknessKeyword_9_0());
                     			
-                    // InternalBiLang.g:1809:4: ( (lv_thickness_12_0= ruleEFloat ) )
-                    // InternalBiLang.g:1810:5: (lv_thickness_12_0= ruleEFloat )
+                    // InternalBiLang.g:1842:4: ( (lv_thickness_12_0= ruleEFloat ) )
+                    // InternalBiLang.g:1843:5: (lv_thickness_12_0= ruleEFloat )
                     {
-                    // InternalBiLang.g:1810:5: (lv_thickness_12_0= ruleEFloat )
-                    // InternalBiLang.g:1811:6: lv_thickness_12_0= ruleEFloat
+                    // InternalBiLang.g:1843:5: (lv_thickness_12_0= ruleEFloat )
+                    // InternalBiLang.g:1844:6: lv_thickness_12_0= ruleEFloat
                     {
 
                     						newCompositeNode(grammarAccess.getDonutPlotAccess().getThicknessEFloatParserRuleCall_9_1_0());
@@ -4448,7 +4553,7 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRulePiePlot"
-    // InternalBiLang.g:1833:1: entryRulePiePlot returns [EObject current=null] : iv_rulePiePlot= rulePiePlot EOF ;
+    // InternalBiLang.g:1866:1: entryRulePiePlot returns [EObject current=null] : iv_rulePiePlot= rulePiePlot EOF ;
     public final EObject entryRulePiePlot() throws RecognitionException {
         EObject current = null;
 
@@ -4456,8 +4561,8 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBiLang.g:1833:48: (iv_rulePiePlot= rulePiePlot EOF )
-            // InternalBiLang.g:1834:2: iv_rulePiePlot= rulePiePlot EOF
+            // InternalBiLang.g:1866:48: (iv_rulePiePlot= rulePiePlot EOF )
+            // InternalBiLang.g:1867:2: iv_rulePiePlot= rulePiePlot EOF
             {
              newCompositeNode(grammarAccess.getPiePlotRule()); 
             pushFollow(FOLLOW_1);
@@ -4484,7 +4589,7 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePiePlot"
-    // InternalBiLang.g:1840:1: rulePiePlot returns [EObject current=null] : (otherlv_0= 'pie' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '->' otherlv_3= 'xAx' ( (lv_xAxis_4_0= ruleEString ) ) otherlv_5= 'yA' ( (lv_yAxis_6_0= ruleEString ) ) (otherlv_7= 'loc' ( (lv_location_8_0= ruleEString ) ) )? (otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) ) )? (otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) ) )? ) ;
+    // InternalBiLang.g:1873:1: rulePiePlot returns [EObject current=null] : (otherlv_0= 'pie' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '->' otherlv_3= 'xAx' ( (lv_xAxis_4_0= ruleEString ) ) otherlv_5= 'yA' ( (lv_yAxis_6_0= ruleEString ) ) (otherlv_7= 'loc' ( (lv_location_8_0= ruleEInt ) ) )? (otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) ) )? (otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) ) )? ) ;
     public final EObject rulePiePlot() throws RecognitionException {
         EObject current = null;
 
@@ -4511,21 +4616,21 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBiLang.g:1846:2: ( (otherlv_0= 'pie' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '->' otherlv_3= 'xAx' ( (lv_xAxis_4_0= ruleEString ) ) otherlv_5= 'yA' ( (lv_yAxis_6_0= ruleEString ) ) (otherlv_7= 'loc' ( (lv_location_8_0= ruleEString ) ) )? (otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) ) )? (otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) ) )? ) )
-            // InternalBiLang.g:1847:2: (otherlv_0= 'pie' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '->' otherlv_3= 'xAx' ( (lv_xAxis_4_0= ruleEString ) ) otherlv_5= 'yA' ( (lv_yAxis_6_0= ruleEString ) ) (otherlv_7= 'loc' ( (lv_location_8_0= ruleEString ) ) )? (otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) ) )? (otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) ) )? )
+            // InternalBiLang.g:1879:2: ( (otherlv_0= 'pie' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '->' otherlv_3= 'xAx' ( (lv_xAxis_4_0= ruleEString ) ) otherlv_5= 'yA' ( (lv_yAxis_6_0= ruleEString ) ) (otherlv_7= 'loc' ( (lv_location_8_0= ruleEInt ) ) )? (otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) ) )? (otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) ) )? ) )
+            // InternalBiLang.g:1880:2: (otherlv_0= 'pie' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '->' otherlv_3= 'xAx' ( (lv_xAxis_4_0= ruleEString ) ) otherlv_5= 'yA' ( (lv_yAxis_6_0= ruleEString ) ) (otherlv_7= 'loc' ( (lv_location_8_0= ruleEInt ) ) )? (otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) ) )? (otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) ) )? )
             {
-            // InternalBiLang.g:1847:2: (otherlv_0= 'pie' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '->' otherlv_3= 'xAx' ( (lv_xAxis_4_0= ruleEString ) ) otherlv_5= 'yA' ( (lv_yAxis_6_0= ruleEString ) ) (otherlv_7= 'loc' ( (lv_location_8_0= ruleEString ) ) )? (otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) ) )? (otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) ) )? )
-            // InternalBiLang.g:1848:3: otherlv_0= 'pie' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '->' otherlv_3= 'xAx' ( (lv_xAxis_4_0= ruleEString ) ) otherlv_5= 'yA' ( (lv_yAxis_6_0= ruleEString ) ) (otherlv_7= 'loc' ( (lv_location_8_0= ruleEString ) ) )? (otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) ) )? (otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) ) )?
+            // InternalBiLang.g:1880:2: (otherlv_0= 'pie' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '->' otherlv_3= 'xAx' ( (lv_xAxis_4_0= ruleEString ) ) otherlv_5= 'yA' ( (lv_yAxis_6_0= ruleEString ) ) (otherlv_7= 'loc' ( (lv_location_8_0= ruleEInt ) ) )? (otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) ) )? (otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) ) )? )
+            // InternalBiLang.g:1881:3: otherlv_0= 'pie' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '->' otherlv_3= 'xAx' ( (lv_xAxis_4_0= ruleEString ) ) otherlv_5= 'yA' ( (lv_yAxis_6_0= ruleEString ) ) (otherlv_7= 'loc' ( (lv_location_8_0= ruleEInt ) ) )? (otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) ) )? (otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) ) )?
             {
             otherlv_0=(Token)match(input,43,FOLLOW_3); 
 
             			newLeafNode(otherlv_0, grammarAccess.getPiePlotAccess().getPieKeyword_0());
             		
-            // InternalBiLang.g:1852:3: ( (lv_name_1_0= RULE_ID ) )
-            // InternalBiLang.g:1853:4: (lv_name_1_0= RULE_ID )
+            // InternalBiLang.g:1885:3: ( (lv_name_1_0= RULE_ID ) )
+            // InternalBiLang.g:1886:4: (lv_name_1_0= RULE_ID )
             {
-            // InternalBiLang.g:1853:4: (lv_name_1_0= RULE_ID )
-            // InternalBiLang.g:1854:5: lv_name_1_0= RULE_ID
+            // InternalBiLang.g:1886:4: (lv_name_1_0= RULE_ID )
+            // InternalBiLang.g:1887:5: lv_name_1_0= RULE_ID
             {
             lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_36); 
 
@@ -4555,11 +4660,11 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_3, grammarAccess.getPiePlotAccess().getXAxKeyword_3());
             		
-            // InternalBiLang.g:1878:3: ( (lv_xAxis_4_0= ruleEString ) )
-            // InternalBiLang.g:1879:4: (lv_xAxis_4_0= ruleEString )
+            // InternalBiLang.g:1911:3: ( (lv_xAxis_4_0= ruleEString ) )
+            // InternalBiLang.g:1912:4: (lv_xAxis_4_0= ruleEString )
             {
-            // InternalBiLang.g:1879:4: (lv_xAxis_4_0= ruleEString )
-            // InternalBiLang.g:1880:5: lv_xAxis_4_0= ruleEString
+            // InternalBiLang.g:1912:4: (lv_xAxis_4_0= ruleEString )
+            // InternalBiLang.g:1913:5: lv_xAxis_4_0= ruleEString
             {
 
             					newCompositeNode(grammarAccess.getPiePlotAccess().getXAxisEStringParserRuleCall_4_0());
@@ -4590,11 +4695,11 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_5, grammarAccess.getPiePlotAccess().getYAKeyword_5());
             		
-            // InternalBiLang.g:1901:3: ( (lv_yAxis_6_0= ruleEString ) )
-            // InternalBiLang.g:1902:4: (lv_yAxis_6_0= ruleEString )
+            // InternalBiLang.g:1934:3: ( (lv_yAxis_6_0= ruleEString ) )
+            // InternalBiLang.g:1935:4: (lv_yAxis_6_0= ruleEString )
             {
-            // InternalBiLang.g:1902:4: (lv_yAxis_6_0= ruleEString )
-            // InternalBiLang.g:1903:5: lv_yAxis_6_0= ruleEString
+            // InternalBiLang.g:1935:4: (lv_yAxis_6_0= ruleEString )
+            // InternalBiLang.g:1936:5: lv_yAxis_6_0= ruleEString
             {
 
             					newCompositeNode(grammarAccess.getPiePlotAccess().getYAxisEStringParserRuleCall_6_0());
@@ -4621,32 +4726,32 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalBiLang.g:1920:3: (otherlv_7= 'loc' ( (lv_location_8_0= ruleEString ) ) )?
-            int alt31=2;
-            int LA31_0 = input.LA(1);
+            // InternalBiLang.g:1953:3: (otherlv_7= 'loc' ( (lv_location_8_0= ruleEInt ) ) )?
+            int alt32=2;
+            int LA32_0 = input.LA(1);
 
-            if ( (LA31_0==38) ) {
-                alt31=1;
+            if ( (LA32_0==38) ) {
+                alt32=1;
             }
-            switch (alt31) {
+            switch (alt32) {
                 case 1 :
-                    // InternalBiLang.g:1921:4: otherlv_7= 'loc' ( (lv_location_8_0= ruleEString ) )
+                    // InternalBiLang.g:1954:4: otherlv_7= 'loc' ( (lv_location_8_0= ruleEInt ) )
                     {
-                    otherlv_7=(Token)match(input,38,FOLLOW_6); 
+                    otherlv_7=(Token)match(input,38,FOLLOW_35); 
 
                     				newLeafNode(otherlv_7, grammarAccess.getPiePlotAccess().getLocKeyword_7_0());
                     			
-                    // InternalBiLang.g:1925:4: ( (lv_location_8_0= ruleEString ) )
-                    // InternalBiLang.g:1926:5: (lv_location_8_0= ruleEString )
+                    // InternalBiLang.g:1958:4: ( (lv_location_8_0= ruleEInt ) )
+                    // InternalBiLang.g:1959:5: (lv_location_8_0= ruleEInt )
                     {
-                    // InternalBiLang.g:1926:5: (lv_location_8_0= ruleEString )
-                    // InternalBiLang.g:1927:6: lv_location_8_0= ruleEString
+                    // InternalBiLang.g:1959:5: (lv_location_8_0= ruleEInt )
+                    // InternalBiLang.g:1960:6: lv_location_8_0= ruleEInt
                     {
 
-                    						newCompositeNode(grammarAccess.getPiePlotAccess().getLocationEStringParserRuleCall_7_1_0());
+                    						newCompositeNode(grammarAccess.getPiePlotAccess().getLocationEIntParserRuleCall_7_1_0());
                     					
                     pushFollow(FOLLOW_40);
-                    lv_location_8_0=ruleEString();
+                    lv_location_8_0=ruleEInt();
 
                     state._fsp--;
 
@@ -4658,7 +4763,7 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
                     							current,
                     							"location",
                     							lv_location_8_0,
-                    							"ucal3ia.bilang.BiLang.EString");
+                    							"ucal3ia.bilang.BiLang.EInt");
                     						afterParserOrEnumRuleCall();
                     					
 
@@ -4673,26 +4778,26 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalBiLang.g:1945:3: (otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) ) )?
-            int alt32=2;
-            int LA32_0 = input.LA(1);
+            // InternalBiLang.g:1978:3: (otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) ) )?
+            int alt33=2;
+            int LA33_0 = input.LA(1);
 
-            if ( (LA32_0==39) ) {
-                alt32=1;
+            if ( (LA33_0==39) ) {
+                alt33=1;
             }
-            switch (alt32) {
+            switch (alt33) {
                 case 1 :
-                    // InternalBiLang.g:1946:4: otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) )
+                    // InternalBiLang.g:1979:4: otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) )
                     {
                     otherlv_9=(Token)match(input,39,FOLLOW_6); 
 
                     				newLeafNode(otherlv_9, grammarAccess.getPiePlotAccess().getColorsKeyword_8_0());
                     			
-                    // InternalBiLang.g:1950:4: ( (lv_colors_10_0= ruleEString ) )
-                    // InternalBiLang.g:1951:5: (lv_colors_10_0= ruleEString )
+                    // InternalBiLang.g:1983:4: ( (lv_colors_10_0= ruleEString ) )
+                    // InternalBiLang.g:1984:5: (lv_colors_10_0= ruleEString )
                     {
-                    // InternalBiLang.g:1951:5: (lv_colors_10_0= ruleEString )
-                    // InternalBiLang.g:1952:6: lv_colors_10_0= ruleEString
+                    // InternalBiLang.g:1984:5: (lv_colors_10_0= ruleEString )
+                    // InternalBiLang.g:1985:6: lv_colors_10_0= ruleEString
                     {
 
                     						newCompositeNode(grammarAccess.getPiePlotAccess().getColorsEStringParserRuleCall_8_1_0());
@@ -4725,26 +4830,26 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalBiLang.g:1970:3: (otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) ) )?
-            int alt33=2;
-            int LA33_0 = input.LA(1);
+            // InternalBiLang.g:2003:3: (otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) ) )?
+            int alt34=2;
+            int LA34_0 = input.LA(1);
 
-            if ( (LA33_0==40) ) {
-                alt33=1;
+            if ( (LA34_0==40) ) {
+                alt34=1;
             }
-            switch (alt33) {
+            switch (alt34) {
                 case 1 :
-                    // InternalBiLang.g:1971:4: otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) )
+                    // InternalBiLang.g:2004:4: otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) )
                     {
                     otherlv_11=(Token)match(input,40,FOLLOW_23); 
 
                     				newLeafNode(otherlv_11, grammarAccess.getPiePlotAccess().getThicknessKeyword_9_0());
                     			
-                    // InternalBiLang.g:1975:4: ( (lv_thickness_12_0= ruleEFloat ) )
-                    // InternalBiLang.g:1976:5: (lv_thickness_12_0= ruleEFloat )
+                    // InternalBiLang.g:2008:4: ( (lv_thickness_12_0= ruleEFloat ) )
+                    // InternalBiLang.g:2009:5: (lv_thickness_12_0= ruleEFloat )
                     {
-                    // InternalBiLang.g:1976:5: (lv_thickness_12_0= ruleEFloat )
-                    // InternalBiLang.g:1977:6: lv_thickness_12_0= ruleEFloat
+                    // InternalBiLang.g:2009:5: (lv_thickness_12_0= ruleEFloat )
+                    // InternalBiLang.g:2010:6: lv_thickness_12_0= ruleEFloat
                     {
 
                     						newCompositeNode(grammarAccess.getPiePlotAccess().getThicknessEFloatParserRuleCall_9_1_0());
@@ -4800,7 +4905,7 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRulePolarPlot"
-    // InternalBiLang.g:1999:1: entryRulePolarPlot returns [EObject current=null] : iv_rulePolarPlot= rulePolarPlot EOF ;
+    // InternalBiLang.g:2032:1: entryRulePolarPlot returns [EObject current=null] : iv_rulePolarPlot= rulePolarPlot EOF ;
     public final EObject entryRulePolarPlot() throws RecognitionException {
         EObject current = null;
 
@@ -4808,8 +4913,8 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBiLang.g:1999:50: (iv_rulePolarPlot= rulePolarPlot EOF )
-            // InternalBiLang.g:2000:2: iv_rulePolarPlot= rulePolarPlot EOF
+            // InternalBiLang.g:2032:50: (iv_rulePolarPlot= rulePolarPlot EOF )
+            // InternalBiLang.g:2033:2: iv_rulePolarPlot= rulePolarPlot EOF
             {
              newCompositeNode(grammarAccess.getPolarPlotRule()); 
             pushFollow(FOLLOW_1);
@@ -4836,7 +4941,7 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePolarPlot"
-    // InternalBiLang.g:2006:1: rulePolarPlot returns [EObject current=null] : (otherlv_0= 'polar' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '->' otherlv_3= 'xAx' ( (lv_xAxis_4_0= ruleEString ) ) otherlv_5= 'yA' ( (lv_yAxis_6_0= ruleEString ) ) (otherlv_7= 'loc' ( (lv_location_8_0= ruleEString ) ) )? (otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) ) )? (otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) ) )? ) ;
+    // InternalBiLang.g:2039:1: rulePolarPlot returns [EObject current=null] : (otherlv_0= 'polar' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '->' otherlv_3= 'xAx' ( (lv_xAxis_4_0= ruleEString ) ) otherlv_5= 'yA' ( (lv_yAxis_6_0= ruleEString ) ) (otherlv_7= 'loc' ( (lv_location_8_0= ruleEInt ) ) )? (otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) ) )? (otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) ) )? ) ;
     public final EObject rulePolarPlot() throws RecognitionException {
         EObject current = null;
 
@@ -4863,21 +4968,21 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBiLang.g:2012:2: ( (otherlv_0= 'polar' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '->' otherlv_3= 'xAx' ( (lv_xAxis_4_0= ruleEString ) ) otherlv_5= 'yA' ( (lv_yAxis_6_0= ruleEString ) ) (otherlv_7= 'loc' ( (lv_location_8_0= ruleEString ) ) )? (otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) ) )? (otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) ) )? ) )
-            // InternalBiLang.g:2013:2: (otherlv_0= 'polar' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '->' otherlv_3= 'xAx' ( (lv_xAxis_4_0= ruleEString ) ) otherlv_5= 'yA' ( (lv_yAxis_6_0= ruleEString ) ) (otherlv_7= 'loc' ( (lv_location_8_0= ruleEString ) ) )? (otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) ) )? (otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) ) )? )
+            // InternalBiLang.g:2045:2: ( (otherlv_0= 'polar' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '->' otherlv_3= 'xAx' ( (lv_xAxis_4_0= ruleEString ) ) otherlv_5= 'yA' ( (lv_yAxis_6_0= ruleEString ) ) (otherlv_7= 'loc' ( (lv_location_8_0= ruleEInt ) ) )? (otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) ) )? (otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) ) )? ) )
+            // InternalBiLang.g:2046:2: (otherlv_0= 'polar' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '->' otherlv_3= 'xAx' ( (lv_xAxis_4_0= ruleEString ) ) otherlv_5= 'yA' ( (lv_yAxis_6_0= ruleEString ) ) (otherlv_7= 'loc' ( (lv_location_8_0= ruleEInt ) ) )? (otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) ) )? (otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) ) )? )
             {
-            // InternalBiLang.g:2013:2: (otherlv_0= 'polar' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '->' otherlv_3= 'xAx' ( (lv_xAxis_4_0= ruleEString ) ) otherlv_5= 'yA' ( (lv_yAxis_6_0= ruleEString ) ) (otherlv_7= 'loc' ( (lv_location_8_0= ruleEString ) ) )? (otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) ) )? (otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) ) )? )
-            // InternalBiLang.g:2014:3: otherlv_0= 'polar' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '->' otherlv_3= 'xAx' ( (lv_xAxis_4_0= ruleEString ) ) otherlv_5= 'yA' ( (lv_yAxis_6_0= ruleEString ) ) (otherlv_7= 'loc' ( (lv_location_8_0= ruleEString ) ) )? (otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) ) )? (otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) ) )?
+            // InternalBiLang.g:2046:2: (otherlv_0= 'polar' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '->' otherlv_3= 'xAx' ( (lv_xAxis_4_0= ruleEString ) ) otherlv_5= 'yA' ( (lv_yAxis_6_0= ruleEString ) ) (otherlv_7= 'loc' ( (lv_location_8_0= ruleEInt ) ) )? (otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) ) )? (otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) ) )? )
+            // InternalBiLang.g:2047:3: otherlv_0= 'polar' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '->' otherlv_3= 'xAx' ( (lv_xAxis_4_0= ruleEString ) ) otherlv_5= 'yA' ( (lv_yAxis_6_0= ruleEString ) ) (otherlv_7= 'loc' ( (lv_location_8_0= ruleEInt ) ) )? (otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) ) )? (otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) ) )?
             {
             otherlv_0=(Token)match(input,44,FOLLOW_3); 
 
             			newLeafNode(otherlv_0, grammarAccess.getPolarPlotAccess().getPolarKeyword_0());
             		
-            // InternalBiLang.g:2018:3: ( (lv_name_1_0= RULE_ID ) )
-            // InternalBiLang.g:2019:4: (lv_name_1_0= RULE_ID )
+            // InternalBiLang.g:2051:3: ( (lv_name_1_0= RULE_ID ) )
+            // InternalBiLang.g:2052:4: (lv_name_1_0= RULE_ID )
             {
-            // InternalBiLang.g:2019:4: (lv_name_1_0= RULE_ID )
-            // InternalBiLang.g:2020:5: lv_name_1_0= RULE_ID
+            // InternalBiLang.g:2052:4: (lv_name_1_0= RULE_ID )
+            // InternalBiLang.g:2053:5: lv_name_1_0= RULE_ID
             {
             lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_36); 
 
@@ -4907,11 +5012,11 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_3, grammarAccess.getPolarPlotAccess().getXAxKeyword_3());
             		
-            // InternalBiLang.g:2044:3: ( (lv_xAxis_4_0= ruleEString ) )
-            // InternalBiLang.g:2045:4: (lv_xAxis_4_0= ruleEString )
+            // InternalBiLang.g:2077:3: ( (lv_xAxis_4_0= ruleEString ) )
+            // InternalBiLang.g:2078:4: (lv_xAxis_4_0= ruleEString )
             {
-            // InternalBiLang.g:2045:4: (lv_xAxis_4_0= ruleEString )
-            // InternalBiLang.g:2046:5: lv_xAxis_4_0= ruleEString
+            // InternalBiLang.g:2078:4: (lv_xAxis_4_0= ruleEString )
+            // InternalBiLang.g:2079:5: lv_xAxis_4_0= ruleEString
             {
 
             					newCompositeNode(grammarAccess.getPolarPlotAccess().getXAxisEStringParserRuleCall_4_0());
@@ -4942,11 +5047,11 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_5, grammarAccess.getPolarPlotAccess().getYAKeyword_5());
             		
-            // InternalBiLang.g:2067:3: ( (lv_yAxis_6_0= ruleEString ) )
-            // InternalBiLang.g:2068:4: (lv_yAxis_6_0= ruleEString )
+            // InternalBiLang.g:2100:3: ( (lv_yAxis_6_0= ruleEString ) )
+            // InternalBiLang.g:2101:4: (lv_yAxis_6_0= ruleEString )
             {
-            // InternalBiLang.g:2068:4: (lv_yAxis_6_0= ruleEString )
-            // InternalBiLang.g:2069:5: lv_yAxis_6_0= ruleEString
+            // InternalBiLang.g:2101:4: (lv_yAxis_6_0= ruleEString )
+            // InternalBiLang.g:2102:5: lv_yAxis_6_0= ruleEString
             {
 
             					newCompositeNode(grammarAccess.getPolarPlotAccess().getYAxisEStringParserRuleCall_6_0());
@@ -4973,32 +5078,32 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalBiLang.g:2086:3: (otherlv_7= 'loc' ( (lv_location_8_0= ruleEString ) ) )?
-            int alt34=2;
-            int LA34_0 = input.LA(1);
+            // InternalBiLang.g:2119:3: (otherlv_7= 'loc' ( (lv_location_8_0= ruleEInt ) ) )?
+            int alt35=2;
+            int LA35_0 = input.LA(1);
 
-            if ( (LA34_0==38) ) {
-                alt34=1;
+            if ( (LA35_0==38) ) {
+                alt35=1;
             }
-            switch (alt34) {
+            switch (alt35) {
                 case 1 :
-                    // InternalBiLang.g:2087:4: otherlv_7= 'loc' ( (lv_location_8_0= ruleEString ) )
+                    // InternalBiLang.g:2120:4: otherlv_7= 'loc' ( (lv_location_8_0= ruleEInt ) )
                     {
-                    otherlv_7=(Token)match(input,38,FOLLOW_6); 
+                    otherlv_7=(Token)match(input,38,FOLLOW_35); 
 
                     				newLeafNode(otherlv_7, grammarAccess.getPolarPlotAccess().getLocKeyword_7_0());
                     			
-                    // InternalBiLang.g:2091:4: ( (lv_location_8_0= ruleEString ) )
-                    // InternalBiLang.g:2092:5: (lv_location_8_0= ruleEString )
+                    // InternalBiLang.g:2124:4: ( (lv_location_8_0= ruleEInt ) )
+                    // InternalBiLang.g:2125:5: (lv_location_8_0= ruleEInt )
                     {
-                    // InternalBiLang.g:2092:5: (lv_location_8_0= ruleEString )
-                    // InternalBiLang.g:2093:6: lv_location_8_0= ruleEString
+                    // InternalBiLang.g:2125:5: (lv_location_8_0= ruleEInt )
+                    // InternalBiLang.g:2126:6: lv_location_8_0= ruleEInt
                     {
 
-                    						newCompositeNode(grammarAccess.getPolarPlotAccess().getLocationEStringParserRuleCall_7_1_0());
+                    						newCompositeNode(grammarAccess.getPolarPlotAccess().getLocationEIntParserRuleCall_7_1_0());
                     					
                     pushFollow(FOLLOW_40);
-                    lv_location_8_0=ruleEString();
+                    lv_location_8_0=ruleEInt();
 
                     state._fsp--;
 
@@ -5010,7 +5115,7 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
                     							current,
                     							"location",
                     							lv_location_8_0,
-                    							"ucal3ia.bilang.BiLang.EString");
+                    							"ucal3ia.bilang.BiLang.EInt");
                     						afterParserOrEnumRuleCall();
                     					
 
@@ -5025,26 +5130,26 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalBiLang.g:2111:3: (otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) ) )?
-            int alt35=2;
-            int LA35_0 = input.LA(1);
+            // InternalBiLang.g:2144:3: (otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) ) )?
+            int alt36=2;
+            int LA36_0 = input.LA(1);
 
-            if ( (LA35_0==39) ) {
-                alt35=1;
+            if ( (LA36_0==39) ) {
+                alt36=1;
             }
-            switch (alt35) {
+            switch (alt36) {
                 case 1 :
-                    // InternalBiLang.g:2112:4: otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) )
+                    // InternalBiLang.g:2145:4: otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) )
                     {
                     otherlv_9=(Token)match(input,39,FOLLOW_6); 
 
                     				newLeafNode(otherlv_9, grammarAccess.getPolarPlotAccess().getColorsKeyword_8_0());
                     			
-                    // InternalBiLang.g:2116:4: ( (lv_colors_10_0= ruleEString ) )
-                    // InternalBiLang.g:2117:5: (lv_colors_10_0= ruleEString )
+                    // InternalBiLang.g:2149:4: ( (lv_colors_10_0= ruleEString ) )
+                    // InternalBiLang.g:2150:5: (lv_colors_10_0= ruleEString )
                     {
-                    // InternalBiLang.g:2117:5: (lv_colors_10_0= ruleEString )
-                    // InternalBiLang.g:2118:6: lv_colors_10_0= ruleEString
+                    // InternalBiLang.g:2150:5: (lv_colors_10_0= ruleEString )
+                    // InternalBiLang.g:2151:6: lv_colors_10_0= ruleEString
                     {
 
                     						newCompositeNode(grammarAccess.getPolarPlotAccess().getColorsEStringParserRuleCall_8_1_0());
@@ -5077,26 +5182,26 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalBiLang.g:2136:3: (otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) ) )?
-            int alt36=2;
-            int LA36_0 = input.LA(1);
+            // InternalBiLang.g:2169:3: (otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) ) )?
+            int alt37=2;
+            int LA37_0 = input.LA(1);
 
-            if ( (LA36_0==40) ) {
-                alt36=1;
+            if ( (LA37_0==40) ) {
+                alt37=1;
             }
-            switch (alt36) {
+            switch (alt37) {
                 case 1 :
-                    // InternalBiLang.g:2137:4: otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) )
+                    // InternalBiLang.g:2170:4: otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) )
                     {
                     otherlv_11=(Token)match(input,40,FOLLOW_23); 
 
                     				newLeafNode(otherlv_11, grammarAccess.getPolarPlotAccess().getThicknessKeyword_9_0());
                     			
-                    // InternalBiLang.g:2141:4: ( (lv_thickness_12_0= ruleEFloat ) )
-                    // InternalBiLang.g:2142:5: (lv_thickness_12_0= ruleEFloat )
+                    // InternalBiLang.g:2174:4: ( (lv_thickness_12_0= ruleEFloat ) )
+                    // InternalBiLang.g:2175:5: (lv_thickness_12_0= ruleEFloat )
                     {
-                    // InternalBiLang.g:2142:5: (lv_thickness_12_0= ruleEFloat )
-                    // InternalBiLang.g:2143:6: lv_thickness_12_0= ruleEFloat
+                    // InternalBiLang.g:2175:5: (lv_thickness_12_0= ruleEFloat )
+                    // InternalBiLang.g:2176:6: lv_thickness_12_0= ruleEFloat
                     {
 
                     						newCompositeNode(grammarAccess.getPolarPlotAccess().getThicknessEFloatParserRuleCall_9_1_0());
@@ -5152,7 +5257,7 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleScatterPlot"
-    // InternalBiLang.g:2165:1: entryRuleScatterPlot returns [EObject current=null] : iv_ruleScatterPlot= ruleScatterPlot EOF ;
+    // InternalBiLang.g:2198:1: entryRuleScatterPlot returns [EObject current=null] : iv_ruleScatterPlot= ruleScatterPlot EOF ;
     public final EObject entryRuleScatterPlot() throws RecognitionException {
         EObject current = null;
 
@@ -5160,8 +5265,8 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBiLang.g:2165:52: (iv_ruleScatterPlot= ruleScatterPlot EOF )
-            // InternalBiLang.g:2166:2: iv_ruleScatterPlot= ruleScatterPlot EOF
+            // InternalBiLang.g:2198:52: (iv_ruleScatterPlot= ruleScatterPlot EOF )
+            // InternalBiLang.g:2199:2: iv_ruleScatterPlot= ruleScatterPlot EOF
             {
              newCompositeNode(grammarAccess.getScatterPlotRule()); 
             pushFollow(FOLLOW_1);
@@ -5188,7 +5293,7 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleScatterPlot"
-    // InternalBiLang.g:2172:1: ruleScatterPlot returns [EObject current=null] : (otherlv_0= 'scatter' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '->' otherlv_3= 'xAx' ( (lv_xAxis_4_0= ruleEString ) ) otherlv_5= 'yA' ( (lv_yAxis_6_0= ruleEString ) ) (otherlv_7= 'loc' ( (lv_location_8_0= ruleEString ) ) )? (otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) ) )? (otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) ) )? ) ;
+    // InternalBiLang.g:2205:1: ruleScatterPlot returns [EObject current=null] : (otherlv_0= 'scatter' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '->' otherlv_3= 'xAx' ( (lv_xAxis_4_0= ruleEString ) ) otherlv_5= 'yA' ( (lv_yAxis_6_0= ruleEString ) ) (otherlv_7= 'loc' ( (lv_location_8_0= ruleEInt ) ) )? (otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) ) )? (otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) ) )? ) ;
     public final EObject ruleScatterPlot() throws RecognitionException {
         EObject current = null;
 
@@ -5215,21 +5320,21 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBiLang.g:2178:2: ( (otherlv_0= 'scatter' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '->' otherlv_3= 'xAx' ( (lv_xAxis_4_0= ruleEString ) ) otherlv_5= 'yA' ( (lv_yAxis_6_0= ruleEString ) ) (otherlv_7= 'loc' ( (lv_location_8_0= ruleEString ) ) )? (otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) ) )? (otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) ) )? ) )
-            // InternalBiLang.g:2179:2: (otherlv_0= 'scatter' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '->' otherlv_3= 'xAx' ( (lv_xAxis_4_0= ruleEString ) ) otherlv_5= 'yA' ( (lv_yAxis_6_0= ruleEString ) ) (otherlv_7= 'loc' ( (lv_location_8_0= ruleEString ) ) )? (otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) ) )? (otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) ) )? )
+            // InternalBiLang.g:2211:2: ( (otherlv_0= 'scatter' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '->' otherlv_3= 'xAx' ( (lv_xAxis_4_0= ruleEString ) ) otherlv_5= 'yA' ( (lv_yAxis_6_0= ruleEString ) ) (otherlv_7= 'loc' ( (lv_location_8_0= ruleEInt ) ) )? (otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) ) )? (otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) ) )? ) )
+            // InternalBiLang.g:2212:2: (otherlv_0= 'scatter' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '->' otherlv_3= 'xAx' ( (lv_xAxis_4_0= ruleEString ) ) otherlv_5= 'yA' ( (lv_yAxis_6_0= ruleEString ) ) (otherlv_7= 'loc' ( (lv_location_8_0= ruleEInt ) ) )? (otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) ) )? (otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) ) )? )
             {
-            // InternalBiLang.g:2179:2: (otherlv_0= 'scatter' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '->' otherlv_3= 'xAx' ( (lv_xAxis_4_0= ruleEString ) ) otherlv_5= 'yA' ( (lv_yAxis_6_0= ruleEString ) ) (otherlv_7= 'loc' ( (lv_location_8_0= ruleEString ) ) )? (otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) ) )? (otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) ) )? )
-            // InternalBiLang.g:2180:3: otherlv_0= 'scatter' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '->' otherlv_3= 'xAx' ( (lv_xAxis_4_0= ruleEString ) ) otherlv_5= 'yA' ( (lv_yAxis_6_0= ruleEString ) ) (otherlv_7= 'loc' ( (lv_location_8_0= ruleEString ) ) )? (otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) ) )? (otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) ) )?
+            // InternalBiLang.g:2212:2: (otherlv_0= 'scatter' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '->' otherlv_3= 'xAx' ( (lv_xAxis_4_0= ruleEString ) ) otherlv_5= 'yA' ( (lv_yAxis_6_0= ruleEString ) ) (otherlv_7= 'loc' ( (lv_location_8_0= ruleEInt ) ) )? (otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) ) )? (otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) ) )? )
+            // InternalBiLang.g:2213:3: otherlv_0= 'scatter' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '->' otherlv_3= 'xAx' ( (lv_xAxis_4_0= ruleEString ) ) otherlv_5= 'yA' ( (lv_yAxis_6_0= ruleEString ) ) (otherlv_7= 'loc' ( (lv_location_8_0= ruleEInt ) ) )? (otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) ) )? (otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) ) )?
             {
             otherlv_0=(Token)match(input,45,FOLLOW_3); 
 
             			newLeafNode(otherlv_0, grammarAccess.getScatterPlotAccess().getScatterKeyword_0());
             		
-            // InternalBiLang.g:2184:3: ( (lv_name_1_0= RULE_ID ) )
-            // InternalBiLang.g:2185:4: (lv_name_1_0= RULE_ID )
+            // InternalBiLang.g:2217:3: ( (lv_name_1_0= RULE_ID ) )
+            // InternalBiLang.g:2218:4: (lv_name_1_0= RULE_ID )
             {
-            // InternalBiLang.g:2185:4: (lv_name_1_0= RULE_ID )
-            // InternalBiLang.g:2186:5: lv_name_1_0= RULE_ID
+            // InternalBiLang.g:2218:4: (lv_name_1_0= RULE_ID )
+            // InternalBiLang.g:2219:5: lv_name_1_0= RULE_ID
             {
             lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_36); 
 
@@ -5259,11 +5364,11 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_3, grammarAccess.getScatterPlotAccess().getXAxKeyword_3());
             		
-            // InternalBiLang.g:2210:3: ( (lv_xAxis_4_0= ruleEString ) )
-            // InternalBiLang.g:2211:4: (lv_xAxis_4_0= ruleEString )
+            // InternalBiLang.g:2243:3: ( (lv_xAxis_4_0= ruleEString ) )
+            // InternalBiLang.g:2244:4: (lv_xAxis_4_0= ruleEString )
             {
-            // InternalBiLang.g:2211:4: (lv_xAxis_4_0= ruleEString )
-            // InternalBiLang.g:2212:5: lv_xAxis_4_0= ruleEString
+            // InternalBiLang.g:2244:4: (lv_xAxis_4_0= ruleEString )
+            // InternalBiLang.g:2245:5: lv_xAxis_4_0= ruleEString
             {
 
             					newCompositeNode(grammarAccess.getScatterPlotAccess().getXAxisEStringParserRuleCall_4_0());
@@ -5294,11 +5399,11 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_5, grammarAccess.getScatterPlotAccess().getYAKeyword_5());
             		
-            // InternalBiLang.g:2233:3: ( (lv_yAxis_6_0= ruleEString ) )
-            // InternalBiLang.g:2234:4: (lv_yAxis_6_0= ruleEString )
+            // InternalBiLang.g:2266:3: ( (lv_yAxis_6_0= ruleEString ) )
+            // InternalBiLang.g:2267:4: (lv_yAxis_6_0= ruleEString )
             {
-            // InternalBiLang.g:2234:4: (lv_yAxis_6_0= ruleEString )
-            // InternalBiLang.g:2235:5: lv_yAxis_6_0= ruleEString
+            // InternalBiLang.g:2267:4: (lv_yAxis_6_0= ruleEString )
+            // InternalBiLang.g:2268:5: lv_yAxis_6_0= ruleEString
             {
 
             					newCompositeNode(grammarAccess.getScatterPlotAccess().getYAxisEStringParserRuleCall_6_0());
@@ -5325,32 +5430,32 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalBiLang.g:2252:3: (otherlv_7= 'loc' ( (lv_location_8_0= ruleEString ) ) )?
-            int alt37=2;
-            int LA37_0 = input.LA(1);
+            // InternalBiLang.g:2285:3: (otherlv_7= 'loc' ( (lv_location_8_0= ruleEInt ) ) )?
+            int alt38=2;
+            int LA38_0 = input.LA(1);
 
-            if ( (LA37_0==38) ) {
-                alt37=1;
+            if ( (LA38_0==38) ) {
+                alt38=1;
             }
-            switch (alt37) {
+            switch (alt38) {
                 case 1 :
-                    // InternalBiLang.g:2253:4: otherlv_7= 'loc' ( (lv_location_8_0= ruleEString ) )
+                    // InternalBiLang.g:2286:4: otherlv_7= 'loc' ( (lv_location_8_0= ruleEInt ) )
                     {
-                    otherlv_7=(Token)match(input,38,FOLLOW_6); 
+                    otherlv_7=(Token)match(input,38,FOLLOW_35); 
 
                     				newLeafNode(otherlv_7, grammarAccess.getScatterPlotAccess().getLocKeyword_7_0());
                     			
-                    // InternalBiLang.g:2257:4: ( (lv_location_8_0= ruleEString ) )
-                    // InternalBiLang.g:2258:5: (lv_location_8_0= ruleEString )
+                    // InternalBiLang.g:2290:4: ( (lv_location_8_0= ruleEInt ) )
+                    // InternalBiLang.g:2291:5: (lv_location_8_0= ruleEInt )
                     {
-                    // InternalBiLang.g:2258:5: (lv_location_8_0= ruleEString )
-                    // InternalBiLang.g:2259:6: lv_location_8_0= ruleEString
+                    // InternalBiLang.g:2291:5: (lv_location_8_0= ruleEInt )
+                    // InternalBiLang.g:2292:6: lv_location_8_0= ruleEInt
                     {
 
-                    						newCompositeNode(grammarAccess.getScatterPlotAccess().getLocationEStringParserRuleCall_7_1_0());
+                    						newCompositeNode(grammarAccess.getScatterPlotAccess().getLocationEIntParserRuleCall_7_1_0());
                     					
                     pushFollow(FOLLOW_40);
-                    lv_location_8_0=ruleEString();
+                    lv_location_8_0=ruleEInt();
 
                     state._fsp--;
 
@@ -5362,7 +5467,7 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
                     							current,
                     							"location",
                     							lv_location_8_0,
-                    							"ucal3ia.bilang.BiLang.EString");
+                    							"ucal3ia.bilang.BiLang.EInt");
                     						afterParserOrEnumRuleCall();
                     					
 
@@ -5377,26 +5482,26 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalBiLang.g:2277:3: (otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) ) )?
-            int alt38=2;
-            int LA38_0 = input.LA(1);
+            // InternalBiLang.g:2310:3: (otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) ) )?
+            int alt39=2;
+            int LA39_0 = input.LA(1);
 
-            if ( (LA38_0==39) ) {
-                alt38=1;
+            if ( (LA39_0==39) ) {
+                alt39=1;
             }
-            switch (alt38) {
+            switch (alt39) {
                 case 1 :
-                    // InternalBiLang.g:2278:4: otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) )
+                    // InternalBiLang.g:2311:4: otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) )
                     {
                     otherlv_9=(Token)match(input,39,FOLLOW_6); 
 
                     				newLeafNode(otherlv_9, grammarAccess.getScatterPlotAccess().getColorsKeyword_8_0());
                     			
-                    // InternalBiLang.g:2282:4: ( (lv_colors_10_0= ruleEString ) )
-                    // InternalBiLang.g:2283:5: (lv_colors_10_0= ruleEString )
+                    // InternalBiLang.g:2315:4: ( (lv_colors_10_0= ruleEString ) )
+                    // InternalBiLang.g:2316:5: (lv_colors_10_0= ruleEString )
                     {
-                    // InternalBiLang.g:2283:5: (lv_colors_10_0= ruleEString )
-                    // InternalBiLang.g:2284:6: lv_colors_10_0= ruleEString
+                    // InternalBiLang.g:2316:5: (lv_colors_10_0= ruleEString )
+                    // InternalBiLang.g:2317:6: lv_colors_10_0= ruleEString
                     {
 
                     						newCompositeNode(grammarAccess.getScatterPlotAccess().getColorsEStringParserRuleCall_8_1_0());
@@ -5429,26 +5534,26 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalBiLang.g:2302:3: (otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) ) )?
-            int alt39=2;
-            int LA39_0 = input.LA(1);
+            // InternalBiLang.g:2335:3: (otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) ) )?
+            int alt40=2;
+            int LA40_0 = input.LA(1);
 
-            if ( (LA39_0==40) ) {
-                alt39=1;
+            if ( (LA40_0==40) ) {
+                alt40=1;
             }
-            switch (alt39) {
+            switch (alt40) {
                 case 1 :
-                    // InternalBiLang.g:2303:4: otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) )
+                    // InternalBiLang.g:2336:4: otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) )
                     {
                     otherlv_11=(Token)match(input,40,FOLLOW_23); 
 
                     				newLeafNode(otherlv_11, grammarAccess.getScatterPlotAccess().getThicknessKeyword_9_0());
                     			
-                    // InternalBiLang.g:2307:4: ( (lv_thickness_12_0= ruleEFloat ) )
-                    // InternalBiLang.g:2308:5: (lv_thickness_12_0= ruleEFloat )
+                    // InternalBiLang.g:2340:4: ( (lv_thickness_12_0= ruleEFloat ) )
+                    // InternalBiLang.g:2341:5: (lv_thickness_12_0= ruleEFloat )
                     {
-                    // InternalBiLang.g:2308:5: (lv_thickness_12_0= ruleEFloat )
-                    // InternalBiLang.g:2309:6: lv_thickness_12_0= ruleEFloat
+                    // InternalBiLang.g:2341:5: (lv_thickness_12_0= ruleEFloat )
+                    // InternalBiLang.g:2342:6: lv_thickness_12_0= ruleEFloat
                     {
 
                     						newCompositeNode(grammarAccess.getScatterPlotAccess().getThicknessEFloatParserRuleCall_9_1_0());
@@ -5504,7 +5609,7 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleRadarPlot"
-    // InternalBiLang.g:2331:1: entryRuleRadarPlot returns [EObject current=null] : iv_ruleRadarPlot= ruleRadarPlot EOF ;
+    // InternalBiLang.g:2364:1: entryRuleRadarPlot returns [EObject current=null] : iv_ruleRadarPlot= ruleRadarPlot EOF ;
     public final EObject entryRuleRadarPlot() throws RecognitionException {
         EObject current = null;
 
@@ -5512,8 +5617,8 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalBiLang.g:2331:50: (iv_ruleRadarPlot= ruleRadarPlot EOF )
-            // InternalBiLang.g:2332:2: iv_ruleRadarPlot= ruleRadarPlot EOF
+            // InternalBiLang.g:2364:50: (iv_ruleRadarPlot= ruleRadarPlot EOF )
+            // InternalBiLang.g:2365:2: iv_ruleRadarPlot= ruleRadarPlot EOF
             {
              newCompositeNode(grammarAccess.getRadarPlotRule()); 
             pushFollow(FOLLOW_1);
@@ -5540,7 +5645,7 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleRadarPlot"
-    // InternalBiLang.g:2338:1: ruleRadarPlot returns [EObject current=null] : (otherlv_0= 'radar' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '->' otherlv_3= 'xAx' ( (lv_xAxis_4_0= ruleEString ) ) otherlv_5= 'yA' ( (lv_yAxis_6_0= ruleEString ) ) (otherlv_7= 'loc' ( (lv_location_8_0= ruleEString ) ) )? (otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) ) )? (otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) ) )? ) ;
+    // InternalBiLang.g:2371:1: ruleRadarPlot returns [EObject current=null] : (otherlv_0= 'radar' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '->' otherlv_3= 'xAx' ( (lv_xAxis_4_0= ruleEString ) ) otherlv_5= 'yA' ( (lv_yAxis_6_0= ruleEString ) ) (otherlv_7= 'loc' ( (lv_location_8_0= ruleEInt ) ) )? (otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) ) )? (otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) ) )? ) ;
     public final EObject ruleRadarPlot() throws RecognitionException {
         EObject current = null;
 
@@ -5567,21 +5672,21 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBiLang.g:2344:2: ( (otherlv_0= 'radar' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '->' otherlv_3= 'xAx' ( (lv_xAxis_4_0= ruleEString ) ) otherlv_5= 'yA' ( (lv_yAxis_6_0= ruleEString ) ) (otherlv_7= 'loc' ( (lv_location_8_0= ruleEString ) ) )? (otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) ) )? (otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) ) )? ) )
-            // InternalBiLang.g:2345:2: (otherlv_0= 'radar' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '->' otherlv_3= 'xAx' ( (lv_xAxis_4_0= ruleEString ) ) otherlv_5= 'yA' ( (lv_yAxis_6_0= ruleEString ) ) (otherlv_7= 'loc' ( (lv_location_8_0= ruleEString ) ) )? (otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) ) )? (otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) ) )? )
+            // InternalBiLang.g:2377:2: ( (otherlv_0= 'radar' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '->' otherlv_3= 'xAx' ( (lv_xAxis_4_0= ruleEString ) ) otherlv_5= 'yA' ( (lv_yAxis_6_0= ruleEString ) ) (otherlv_7= 'loc' ( (lv_location_8_0= ruleEInt ) ) )? (otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) ) )? (otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) ) )? ) )
+            // InternalBiLang.g:2378:2: (otherlv_0= 'radar' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '->' otherlv_3= 'xAx' ( (lv_xAxis_4_0= ruleEString ) ) otherlv_5= 'yA' ( (lv_yAxis_6_0= ruleEString ) ) (otherlv_7= 'loc' ( (lv_location_8_0= ruleEInt ) ) )? (otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) ) )? (otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) ) )? )
             {
-            // InternalBiLang.g:2345:2: (otherlv_0= 'radar' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '->' otherlv_3= 'xAx' ( (lv_xAxis_4_0= ruleEString ) ) otherlv_5= 'yA' ( (lv_yAxis_6_0= ruleEString ) ) (otherlv_7= 'loc' ( (lv_location_8_0= ruleEString ) ) )? (otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) ) )? (otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) ) )? )
-            // InternalBiLang.g:2346:3: otherlv_0= 'radar' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '->' otherlv_3= 'xAx' ( (lv_xAxis_4_0= ruleEString ) ) otherlv_5= 'yA' ( (lv_yAxis_6_0= ruleEString ) ) (otherlv_7= 'loc' ( (lv_location_8_0= ruleEString ) ) )? (otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) ) )? (otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) ) )?
+            // InternalBiLang.g:2378:2: (otherlv_0= 'radar' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '->' otherlv_3= 'xAx' ( (lv_xAxis_4_0= ruleEString ) ) otherlv_5= 'yA' ( (lv_yAxis_6_0= ruleEString ) ) (otherlv_7= 'loc' ( (lv_location_8_0= ruleEInt ) ) )? (otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) ) )? (otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) ) )? )
+            // InternalBiLang.g:2379:3: otherlv_0= 'radar' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '->' otherlv_3= 'xAx' ( (lv_xAxis_4_0= ruleEString ) ) otherlv_5= 'yA' ( (lv_yAxis_6_0= ruleEString ) ) (otherlv_7= 'loc' ( (lv_location_8_0= ruleEInt ) ) )? (otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) ) )? (otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) ) )?
             {
             otherlv_0=(Token)match(input,46,FOLLOW_3); 
 
             			newLeafNode(otherlv_0, grammarAccess.getRadarPlotAccess().getRadarKeyword_0());
             		
-            // InternalBiLang.g:2350:3: ( (lv_name_1_0= RULE_ID ) )
-            // InternalBiLang.g:2351:4: (lv_name_1_0= RULE_ID )
+            // InternalBiLang.g:2383:3: ( (lv_name_1_0= RULE_ID ) )
+            // InternalBiLang.g:2384:4: (lv_name_1_0= RULE_ID )
             {
-            // InternalBiLang.g:2351:4: (lv_name_1_0= RULE_ID )
-            // InternalBiLang.g:2352:5: lv_name_1_0= RULE_ID
+            // InternalBiLang.g:2384:4: (lv_name_1_0= RULE_ID )
+            // InternalBiLang.g:2385:5: lv_name_1_0= RULE_ID
             {
             lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_36); 
 
@@ -5611,11 +5716,11 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_3, grammarAccess.getRadarPlotAccess().getXAxKeyword_3());
             		
-            // InternalBiLang.g:2376:3: ( (lv_xAxis_4_0= ruleEString ) )
-            // InternalBiLang.g:2377:4: (lv_xAxis_4_0= ruleEString )
+            // InternalBiLang.g:2409:3: ( (lv_xAxis_4_0= ruleEString ) )
+            // InternalBiLang.g:2410:4: (lv_xAxis_4_0= ruleEString )
             {
-            // InternalBiLang.g:2377:4: (lv_xAxis_4_0= ruleEString )
-            // InternalBiLang.g:2378:5: lv_xAxis_4_0= ruleEString
+            // InternalBiLang.g:2410:4: (lv_xAxis_4_0= ruleEString )
+            // InternalBiLang.g:2411:5: lv_xAxis_4_0= ruleEString
             {
 
             					newCompositeNode(grammarAccess.getRadarPlotAccess().getXAxisEStringParserRuleCall_4_0());
@@ -5646,11 +5751,11 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_5, grammarAccess.getRadarPlotAccess().getYAKeyword_5());
             		
-            // InternalBiLang.g:2399:3: ( (lv_yAxis_6_0= ruleEString ) )
-            // InternalBiLang.g:2400:4: (lv_yAxis_6_0= ruleEString )
+            // InternalBiLang.g:2432:3: ( (lv_yAxis_6_0= ruleEString ) )
+            // InternalBiLang.g:2433:4: (lv_yAxis_6_0= ruleEString )
             {
-            // InternalBiLang.g:2400:4: (lv_yAxis_6_0= ruleEString )
-            // InternalBiLang.g:2401:5: lv_yAxis_6_0= ruleEString
+            // InternalBiLang.g:2433:4: (lv_yAxis_6_0= ruleEString )
+            // InternalBiLang.g:2434:5: lv_yAxis_6_0= ruleEString
             {
 
             					newCompositeNode(grammarAccess.getRadarPlotAccess().getYAxisEStringParserRuleCall_6_0());
@@ -5677,32 +5782,32 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalBiLang.g:2418:3: (otherlv_7= 'loc' ( (lv_location_8_0= ruleEString ) ) )?
-            int alt40=2;
-            int LA40_0 = input.LA(1);
+            // InternalBiLang.g:2451:3: (otherlv_7= 'loc' ( (lv_location_8_0= ruleEInt ) ) )?
+            int alt41=2;
+            int LA41_0 = input.LA(1);
 
-            if ( (LA40_0==38) ) {
-                alt40=1;
+            if ( (LA41_0==38) ) {
+                alt41=1;
             }
-            switch (alt40) {
+            switch (alt41) {
                 case 1 :
-                    // InternalBiLang.g:2419:4: otherlv_7= 'loc' ( (lv_location_8_0= ruleEString ) )
+                    // InternalBiLang.g:2452:4: otherlv_7= 'loc' ( (lv_location_8_0= ruleEInt ) )
                     {
-                    otherlv_7=(Token)match(input,38,FOLLOW_6); 
+                    otherlv_7=(Token)match(input,38,FOLLOW_35); 
 
                     				newLeafNode(otherlv_7, grammarAccess.getRadarPlotAccess().getLocKeyword_7_0());
                     			
-                    // InternalBiLang.g:2423:4: ( (lv_location_8_0= ruleEString ) )
-                    // InternalBiLang.g:2424:5: (lv_location_8_0= ruleEString )
+                    // InternalBiLang.g:2456:4: ( (lv_location_8_0= ruleEInt ) )
+                    // InternalBiLang.g:2457:5: (lv_location_8_0= ruleEInt )
                     {
-                    // InternalBiLang.g:2424:5: (lv_location_8_0= ruleEString )
-                    // InternalBiLang.g:2425:6: lv_location_8_0= ruleEString
+                    // InternalBiLang.g:2457:5: (lv_location_8_0= ruleEInt )
+                    // InternalBiLang.g:2458:6: lv_location_8_0= ruleEInt
                     {
 
-                    						newCompositeNode(grammarAccess.getRadarPlotAccess().getLocationEStringParserRuleCall_7_1_0());
+                    						newCompositeNode(grammarAccess.getRadarPlotAccess().getLocationEIntParserRuleCall_7_1_0());
                     					
                     pushFollow(FOLLOW_40);
-                    lv_location_8_0=ruleEString();
+                    lv_location_8_0=ruleEInt();
 
                     state._fsp--;
 
@@ -5714,7 +5819,7 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
                     							current,
                     							"location",
                     							lv_location_8_0,
-                    							"ucal3ia.bilang.BiLang.EString");
+                    							"ucal3ia.bilang.BiLang.EInt");
                     						afterParserOrEnumRuleCall();
                     					
 
@@ -5729,26 +5834,26 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalBiLang.g:2443:3: (otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) ) )?
-            int alt41=2;
-            int LA41_0 = input.LA(1);
+            // InternalBiLang.g:2476:3: (otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) ) )?
+            int alt42=2;
+            int LA42_0 = input.LA(1);
 
-            if ( (LA41_0==39) ) {
-                alt41=1;
+            if ( (LA42_0==39) ) {
+                alt42=1;
             }
-            switch (alt41) {
+            switch (alt42) {
                 case 1 :
-                    // InternalBiLang.g:2444:4: otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) )
+                    // InternalBiLang.g:2477:4: otherlv_9= 'colors' ( (lv_colors_10_0= ruleEString ) )
                     {
                     otherlv_9=(Token)match(input,39,FOLLOW_6); 
 
                     				newLeafNode(otherlv_9, grammarAccess.getRadarPlotAccess().getColorsKeyword_8_0());
                     			
-                    // InternalBiLang.g:2448:4: ( (lv_colors_10_0= ruleEString ) )
-                    // InternalBiLang.g:2449:5: (lv_colors_10_0= ruleEString )
+                    // InternalBiLang.g:2481:4: ( (lv_colors_10_0= ruleEString ) )
+                    // InternalBiLang.g:2482:5: (lv_colors_10_0= ruleEString )
                     {
-                    // InternalBiLang.g:2449:5: (lv_colors_10_0= ruleEString )
-                    // InternalBiLang.g:2450:6: lv_colors_10_0= ruleEString
+                    // InternalBiLang.g:2482:5: (lv_colors_10_0= ruleEString )
+                    // InternalBiLang.g:2483:6: lv_colors_10_0= ruleEString
                     {
 
                     						newCompositeNode(grammarAccess.getRadarPlotAccess().getColorsEStringParserRuleCall_8_1_0());
@@ -5781,26 +5886,26 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalBiLang.g:2468:3: (otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) ) )?
-            int alt42=2;
-            int LA42_0 = input.LA(1);
+            // InternalBiLang.g:2501:3: (otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) ) )?
+            int alt43=2;
+            int LA43_0 = input.LA(1);
 
-            if ( (LA42_0==40) ) {
-                alt42=1;
+            if ( (LA43_0==40) ) {
+                alt43=1;
             }
-            switch (alt42) {
+            switch (alt43) {
                 case 1 :
-                    // InternalBiLang.g:2469:4: otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) )
+                    // InternalBiLang.g:2502:4: otherlv_11= 'thickness' ( (lv_thickness_12_0= ruleEFloat ) )
                     {
                     otherlv_11=(Token)match(input,40,FOLLOW_23); 
 
                     				newLeafNode(otherlv_11, grammarAccess.getRadarPlotAccess().getThicknessKeyword_9_0());
                     			
-                    // InternalBiLang.g:2473:4: ( (lv_thickness_12_0= ruleEFloat ) )
-                    // InternalBiLang.g:2474:5: (lv_thickness_12_0= ruleEFloat )
+                    // InternalBiLang.g:2506:4: ( (lv_thickness_12_0= ruleEFloat ) )
+                    // InternalBiLang.g:2507:5: (lv_thickness_12_0= ruleEFloat )
                     {
-                    // InternalBiLang.g:2474:5: (lv_thickness_12_0= ruleEFloat )
-                    // InternalBiLang.g:2475:6: lv_thickness_12_0= ruleEFloat
+                    // InternalBiLang.g:2507:5: (lv_thickness_12_0= ruleEFloat )
+                    // InternalBiLang.g:2508:6: lv_thickness_12_0= ruleEFloat
                     {
 
                     						newCompositeNode(grammarAccess.getRadarPlotAccess().getThicknessEFloatParserRuleCall_9_1_0());
@@ -5856,7 +5961,7 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleMathOperator"
-    // InternalBiLang.g:2497:1: ruleMathOperator returns [Enumerator current=null] : ( (enumLiteral_0= '+' ) | (enumLiteral_1= '-' ) | (enumLiteral_2= '*' ) | (enumLiteral_3= '/' ) ) ;
+    // InternalBiLang.g:2530:1: ruleMathOperator returns [Enumerator current=null] : ( (enumLiteral_0= '+' ) | (enumLiteral_1= '-' ) | (enumLiteral_2= '*' ) | (enumLiteral_3= '/' ) ) ;
     public final Enumerator ruleMathOperator() throws RecognitionException {
         Enumerator current = null;
 
@@ -5869,45 +5974,45 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBiLang.g:2503:2: ( ( (enumLiteral_0= '+' ) | (enumLiteral_1= '-' ) | (enumLiteral_2= '*' ) | (enumLiteral_3= '/' ) ) )
-            // InternalBiLang.g:2504:2: ( (enumLiteral_0= '+' ) | (enumLiteral_1= '-' ) | (enumLiteral_2= '*' ) | (enumLiteral_3= '/' ) )
+            // InternalBiLang.g:2536:2: ( ( (enumLiteral_0= '+' ) | (enumLiteral_1= '-' ) | (enumLiteral_2= '*' ) | (enumLiteral_3= '/' ) ) )
+            // InternalBiLang.g:2537:2: ( (enumLiteral_0= '+' ) | (enumLiteral_1= '-' ) | (enumLiteral_2= '*' ) | (enumLiteral_3= '/' ) )
             {
-            // InternalBiLang.g:2504:2: ( (enumLiteral_0= '+' ) | (enumLiteral_1= '-' ) | (enumLiteral_2= '*' ) | (enumLiteral_3= '/' ) )
-            int alt43=4;
+            // InternalBiLang.g:2537:2: ( (enumLiteral_0= '+' ) | (enumLiteral_1= '-' ) | (enumLiteral_2= '*' ) | (enumLiteral_3= '/' ) )
+            int alt44=4;
             switch ( input.LA(1) ) {
             case 47:
                 {
-                alt43=1;
+                alt44=1;
                 }
                 break;
             case 31:
                 {
-                alt43=2;
+                alt44=2;
                 }
                 break;
             case 48:
                 {
-                alt43=3;
+                alt44=3;
                 }
                 break;
             case 49:
                 {
-                alt43=4;
+                alt44=4;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 43, 0, input);
+                    new NoViableAltException("", 44, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt43) {
+            switch (alt44) {
                 case 1 :
-                    // InternalBiLang.g:2505:3: (enumLiteral_0= '+' )
+                    // InternalBiLang.g:2538:3: (enumLiteral_0= '+' )
                     {
-                    // InternalBiLang.g:2505:3: (enumLiteral_0= '+' )
-                    // InternalBiLang.g:2506:4: enumLiteral_0= '+'
+                    // InternalBiLang.g:2538:3: (enumLiteral_0= '+' )
+                    // InternalBiLang.g:2539:4: enumLiteral_0= '+'
                     {
                     enumLiteral_0=(Token)match(input,47,FOLLOW_2); 
 
@@ -5921,10 +6026,10 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalBiLang.g:2513:3: (enumLiteral_1= '-' )
+                    // InternalBiLang.g:2546:3: (enumLiteral_1= '-' )
                     {
-                    // InternalBiLang.g:2513:3: (enumLiteral_1= '-' )
-                    // InternalBiLang.g:2514:4: enumLiteral_1= '-'
+                    // InternalBiLang.g:2546:3: (enumLiteral_1= '-' )
+                    // InternalBiLang.g:2547:4: enumLiteral_1= '-'
                     {
                     enumLiteral_1=(Token)match(input,31,FOLLOW_2); 
 
@@ -5938,10 +6043,10 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalBiLang.g:2521:3: (enumLiteral_2= '*' )
+                    // InternalBiLang.g:2554:3: (enumLiteral_2= '*' )
                     {
-                    // InternalBiLang.g:2521:3: (enumLiteral_2= '*' )
-                    // InternalBiLang.g:2522:4: enumLiteral_2= '*'
+                    // InternalBiLang.g:2554:3: (enumLiteral_2= '*' )
+                    // InternalBiLang.g:2555:4: enumLiteral_2= '*'
                     {
                     enumLiteral_2=(Token)match(input,48,FOLLOW_2); 
 
@@ -5955,10 +6060,10 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalBiLang.g:2529:3: (enumLiteral_3= '/' )
+                    // InternalBiLang.g:2562:3: (enumLiteral_3= '/' )
                     {
-                    // InternalBiLang.g:2529:3: (enumLiteral_3= '/' )
-                    // InternalBiLang.g:2530:4: enumLiteral_3= '/'
+                    // InternalBiLang.g:2562:3: (enumLiteral_3= '/' )
+                    // InternalBiLang.g:2563:4: enumLiteral_3= '/'
                     {
                     enumLiteral_3=(Token)match(input,49,FOLLOW_2); 
 
@@ -5994,7 +6099,7 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleStatisticalOperator"
-    // InternalBiLang.g:2540:1: ruleStatisticalOperator returns [Enumerator current=null] : ( (enumLiteral_0= 'mean' ) | (enumLiteral_1= 'median' ) | (enumLiteral_2= 'std' ) ) ;
+    // InternalBiLang.g:2573:1: ruleStatisticalOperator returns [Enumerator current=null] : ( (enumLiteral_0= 'mean' ) | (enumLiteral_1= 'median' ) | (enumLiteral_2= 'std' ) ) ;
     public final Enumerator ruleStatisticalOperator() throws RecognitionException {
         Enumerator current = null;
 
@@ -6006,40 +6111,40 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBiLang.g:2546:2: ( ( (enumLiteral_0= 'mean' ) | (enumLiteral_1= 'median' ) | (enumLiteral_2= 'std' ) ) )
-            // InternalBiLang.g:2547:2: ( (enumLiteral_0= 'mean' ) | (enumLiteral_1= 'median' ) | (enumLiteral_2= 'std' ) )
+            // InternalBiLang.g:2579:2: ( ( (enumLiteral_0= 'mean' ) | (enumLiteral_1= 'median' ) | (enumLiteral_2= 'std' ) ) )
+            // InternalBiLang.g:2580:2: ( (enumLiteral_0= 'mean' ) | (enumLiteral_1= 'median' ) | (enumLiteral_2= 'std' ) )
             {
-            // InternalBiLang.g:2547:2: ( (enumLiteral_0= 'mean' ) | (enumLiteral_1= 'median' ) | (enumLiteral_2= 'std' ) )
-            int alt44=3;
+            // InternalBiLang.g:2580:2: ( (enumLiteral_0= 'mean' ) | (enumLiteral_1= 'median' ) | (enumLiteral_2= 'std' ) )
+            int alt45=3;
             switch ( input.LA(1) ) {
             case 50:
                 {
-                alt44=1;
+                alt45=1;
                 }
                 break;
             case 51:
                 {
-                alt44=2;
+                alt45=2;
                 }
                 break;
             case 52:
                 {
-                alt44=3;
+                alt45=3;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 44, 0, input);
+                    new NoViableAltException("", 45, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt44) {
+            switch (alt45) {
                 case 1 :
-                    // InternalBiLang.g:2548:3: (enumLiteral_0= 'mean' )
+                    // InternalBiLang.g:2581:3: (enumLiteral_0= 'mean' )
                     {
-                    // InternalBiLang.g:2548:3: (enumLiteral_0= 'mean' )
-                    // InternalBiLang.g:2549:4: enumLiteral_0= 'mean'
+                    // InternalBiLang.g:2581:3: (enumLiteral_0= 'mean' )
+                    // InternalBiLang.g:2582:4: enumLiteral_0= 'mean'
                     {
                     enumLiteral_0=(Token)match(input,50,FOLLOW_2); 
 
@@ -6053,10 +6158,10 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalBiLang.g:2556:3: (enumLiteral_1= 'median' )
+                    // InternalBiLang.g:2589:3: (enumLiteral_1= 'median' )
                     {
-                    // InternalBiLang.g:2556:3: (enumLiteral_1= 'median' )
-                    // InternalBiLang.g:2557:4: enumLiteral_1= 'median'
+                    // InternalBiLang.g:2589:3: (enumLiteral_1= 'median' )
+                    // InternalBiLang.g:2590:4: enumLiteral_1= 'median'
                     {
                     enumLiteral_1=(Token)match(input,51,FOLLOW_2); 
 
@@ -6070,10 +6175,10 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalBiLang.g:2564:3: (enumLiteral_2= 'std' )
+                    // InternalBiLang.g:2597:3: (enumLiteral_2= 'std' )
                     {
-                    // InternalBiLang.g:2564:3: (enumLiteral_2= 'std' )
-                    // InternalBiLang.g:2565:4: enumLiteral_2= 'std'
+                    // InternalBiLang.g:2597:3: (enumLiteral_2= 'std' )
+                    // InternalBiLang.g:2598:4: enumLiteral_2= 'std'
                     {
                     enumLiteral_2=(Token)match(input,52,FOLLOW_2); 
 
@@ -6109,7 +6214,7 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleQualitativeOperator"
-    // InternalBiLang.g:2575:1: ruleQualitativeOperator returns [Enumerator current=null] : ( (enumLiteral_0= '= ' ) | (enumLiteral_1= '!= ' ) ) ;
+    // InternalBiLang.g:2608:1: ruleQualitativeOperator returns [Enumerator current=null] : ( (enumLiteral_0= '= ' ) | (enumLiteral_1= '!= ' ) ) ;
     public final Enumerator ruleQualitativeOperator() throws RecognitionException {
         Enumerator current = null;
 
@@ -6120,31 +6225,31 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBiLang.g:2581:2: ( ( (enumLiteral_0= '= ' ) | (enumLiteral_1= '!= ' ) ) )
-            // InternalBiLang.g:2582:2: ( (enumLiteral_0= '= ' ) | (enumLiteral_1= '!= ' ) )
+            // InternalBiLang.g:2614:2: ( ( (enumLiteral_0= '= ' ) | (enumLiteral_1= '!= ' ) ) )
+            // InternalBiLang.g:2615:2: ( (enumLiteral_0= '= ' ) | (enumLiteral_1= '!= ' ) )
             {
-            // InternalBiLang.g:2582:2: ( (enumLiteral_0= '= ' ) | (enumLiteral_1= '!= ' ) )
-            int alt45=2;
-            int LA45_0 = input.LA(1);
+            // InternalBiLang.g:2615:2: ( (enumLiteral_0= '= ' ) | (enumLiteral_1= '!= ' ) )
+            int alt46=2;
+            int LA46_0 = input.LA(1);
 
-            if ( (LA45_0==53) ) {
-                alt45=1;
+            if ( (LA46_0==53) ) {
+                alt46=1;
             }
-            else if ( (LA45_0==54) ) {
-                alt45=2;
+            else if ( (LA46_0==54) ) {
+                alt46=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 45, 0, input);
+                    new NoViableAltException("", 46, 0, input);
 
                 throw nvae;
             }
-            switch (alt45) {
+            switch (alt46) {
                 case 1 :
-                    // InternalBiLang.g:2583:3: (enumLiteral_0= '= ' )
+                    // InternalBiLang.g:2616:3: (enumLiteral_0= '= ' )
                     {
-                    // InternalBiLang.g:2583:3: (enumLiteral_0= '= ' )
-                    // InternalBiLang.g:2584:4: enumLiteral_0= '= '
+                    // InternalBiLang.g:2616:3: (enumLiteral_0= '= ' )
+                    // InternalBiLang.g:2617:4: enumLiteral_0= '= '
                     {
                     enumLiteral_0=(Token)match(input,53,FOLLOW_2); 
 
@@ -6158,10 +6263,10 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalBiLang.g:2591:3: (enumLiteral_1= '!= ' )
+                    // InternalBiLang.g:2624:3: (enumLiteral_1= '!= ' )
                     {
-                    // InternalBiLang.g:2591:3: (enumLiteral_1= '!= ' )
-                    // InternalBiLang.g:2592:4: enumLiteral_1= '!= '
+                    // InternalBiLang.g:2624:3: (enumLiteral_1= '!= ' )
+                    // InternalBiLang.g:2625:4: enumLiteral_1= '!= '
                     {
                     enumLiteral_1=(Token)match(input,54,FOLLOW_2); 
 
@@ -6197,7 +6302,7 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleQuantitativeOperator"
-    // InternalBiLang.g:2602:1: ruleQuantitativeOperator returns [Enumerator current=null] : ( (enumLiteral_0= '=' ) | (enumLiteral_1= '<' ) | (enumLiteral_2= '>' ) ) ;
+    // InternalBiLang.g:2635:1: ruleQuantitativeOperator returns [Enumerator current=null] : ( (enumLiteral_0= '=' ) | (enumLiteral_1= '<' ) | (enumLiteral_2= '>' ) ) ;
     public final Enumerator ruleQuantitativeOperator() throws RecognitionException {
         Enumerator current = null;
 
@@ -6209,40 +6314,40 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalBiLang.g:2608:2: ( ( (enumLiteral_0= '=' ) | (enumLiteral_1= '<' ) | (enumLiteral_2= '>' ) ) )
-            // InternalBiLang.g:2609:2: ( (enumLiteral_0= '=' ) | (enumLiteral_1= '<' ) | (enumLiteral_2= '>' ) )
+            // InternalBiLang.g:2641:2: ( ( (enumLiteral_0= '=' ) | (enumLiteral_1= '<' ) | (enumLiteral_2= '>' ) ) )
+            // InternalBiLang.g:2642:2: ( (enumLiteral_0= '=' ) | (enumLiteral_1= '<' ) | (enumLiteral_2= '>' ) )
             {
-            // InternalBiLang.g:2609:2: ( (enumLiteral_0= '=' ) | (enumLiteral_1= '<' ) | (enumLiteral_2= '>' ) )
-            int alt46=3;
+            // InternalBiLang.g:2642:2: ( (enumLiteral_0= '=' ) | (enumLiteral_1= '<' ) | (enumLiteral_2= '>' ) )
+            int alt47=3;
             switch ( input.LA(1) ) {
             case 55:
                 {
-                alt46=1;
+                alt47=1;
                 }
                 break;
             case 56:
                 {
-                alt46=2;
+                alt47=2;
                 }
                 break;
             case 57:
                 {
-                alt46=3;
+                alt47=3;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 46, 0, input);
+                    new NoViableAltException("", 47, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt46) {
+            switch (alt47) {
                 case 1 :
-                    // InternalBiLang.g:2610:3: (enumLiteral_0= '=' )
+                    // InternalBiLang.g:2643:3: (enumLiteral_0= '=' )
                     {
-                    // InternalBiLang.g:2610:3: (enumLiteral_0= '=' )
-                    // InternalBiLang.g:2611:4: enumLiteral_0= '='
+                    // InternalBiLang.g:2643:3: (enumLiteral_0= '=' )
+                    // InternalBiLang.g:2644:4: enumLiteral_0= '='
                     {
                     enumLiteral_0=(Token)match(input,55,FOLLOW_2); 
 
@@ -6256,10 +6361,10 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalBiLang.g:2618:3: (enumLiteral_1= '<' )
+                    // InternalBiLang.g:2651:3: (enumLiteral_1= '<' )
                     {
-                    // InternalBiLang.g:2618:3: (enumLiteral_1= '<' )
-                    // InternalBiLang.g:2619:4: enumLiteral_1= '<'
+                    // InternalBiLang.g:2651:3: (enumLiteral_1= '<' )
+                    // InternalBiLang.g:2652:4: enumLiteral_1= '<'
                     {
                     enumLiteral_1=(Token)match(input,56,FOLLOW_2); 
 
@@ -6273,10 +6378,10 @@ public class InternalBiLangParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalBiLang.g:2626:3: (enumLiteral_2= '>' )
+                    // InternalBiLang.g:2659:3: (enumLiteral_2= '>' )
                     {
-                    // InternalBiLang.g:2626:3: (enumLiteral_2= '>' )
-                    // InternalBiLang.g:2627:4: enumLiteral_2= '>'
+                    // InternalBiLang.g:2659:3: (enumLiteral_2= '>' )
+                    // InternalBiLang.g:2660:4: enumLiteral_2= '>'
                     {
                     enumLiteral_2=(Token)match(input,57,FOLLOW_2); 
 

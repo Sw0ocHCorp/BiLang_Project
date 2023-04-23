@@ -449,6 +449,31 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+// Entry rule entryRuleEInt
+entryRuleEInt
+:
+{ before(grammarAccess.getEIntRule()); }
+	 ruleEInt
+{ after(grammarAccess.getEIntRule()); } 
+	 EOF 
+;
+
+// Rule EInt
+ruleEInt 
+	@init {
+		int stackSize = keepStackSize();
+	}
+	:
+	(
+		{ before(grammarAccess.getEIntAccess().getGroup()); }
+		(rule__EInt__Group__0)
+		{ after(grammarAccess.getEIntAccess().getGroup()); }
+	)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 // Entry rule entryRuleBarPlot
 entryRuleBarPlot
 :
@@ -3051,6 +3076,60 @@ rule__EFloat__Group_4__2__Impl
 	{ before(grammarAccess.getEFloatAccess().getINTTerminalRuleCall_4_2()); }
 	RULE_INT
 	{ after(grammarAccess.getEFloatAccess().getINTTerminalRuleCall_4_2()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__EInt__Group__0
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__EInt__Group__0__Impl
+	rule__EInt__Group__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__EInt__Group__0__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getEIntAccess().getHyphenMinusKeyword_0()); }
+	('-')?
+	{ after(grammarAccess.getEIntAccess().getHyphenMinusKeyword_0()); }
+)
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__EInt__Group__1
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+	rule__EInt__Group__1__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__EInt__Group__1__Impl
+	@init {
+		int stackSize = keepStackSize();
+	}
+:
+(
+	{ before(grammarAccess.getEIntAccess().getINTTerminalRuleCall_1()); }
+	RULE_INT
+	{ after(grammarAccess.getEIntAccess().getINTTerminalRuleCall_1()); }
 )
 ;
 finally {
@@ -6679,9 +6758,9 @@ rule__BarPlot__LocationAssignment_8_1
 	}
 :
 	(
-		{ before(grammarAccess.getBarPlotAccess().getLocationEStringParserRuleCall_8_1_0()); }
-		ruleEString
-		{ after(grammarAccess.getBarPlotAccess().getLocationEStringParserRuleCall_8_1_0()); }
+		{ before(grammarAccess.getBarPlotAccess().getLocationEIntParserRuleCall_8_1_0()); }
+		ruleEInt
+		{ after(grammarAccess.getBarPlotAccess().getLocationEIntParserRuleCall_8_1_0()); }
 	)
 ;
 finally {
@@ -6769,9 +6848,9 @@ rule__LinePlot__LocationAssignment_8_1
 	}
 :
 	(
-		{ before(grammarAccess.getLinePlotAccess().getLocationEStringParserRuleCall_8_1_0()); }
-		ruleEString
-		{ after(grammarAccess.getLinePlotAccess().getLocationEStringParserRuleCall_8_1_0()); }
+		{ before(grammarAccess.getLinePlotAccess().getLocationEIntParserRuleCall_8_1_0()); }
+		ruleEInt
+		{ after(grammarAccess.getLinePlotAccess().getLocationEIntParserRuleCall_8_1_0()); }
 	)
 ;
 finally {
@@ -6859,9 +6938,9 @@ rule__DonutPlot__LocationAssignment_7_1
 	}
 :
 	(
-		{ before(grammarAccess.getDonutPlotAccess().getLocationEStringParserRuleCall_7_1_0()); }
-		ruleEString
-		{ after(grammarAccess.getDonutPlotAccess().getLocationEStringParserRuleCall_7_1_0()); }
+		{ before(grammarAccess.getDonutPlotAccess().getLocationEIntParserRuleCall_7_1_0()); }
+		ruleEInt
+		{ after(grammarAccess.getDonutPlotAccess().getLocationEIntParserRuleCall_7_1_0()); }
 	)
 ;
 finally {
@@ -6949,9 +7028,9 @@ rule__PiePlot__LocationAssignment_7_1
 	}
 :
 	(
-		{ before(grammarAccess.getPiePlotAccess().getLocationEStringParserRuleCall_7_1_0()); }
-		ruleEString
-		{ after(grammarAccess.getPiePlotAccess().getLocationEStringParserRuleCall_7_1_0()); }
+		{ before(grammarAccess.getPiePlotAccess().getLocationEIntParserRuleCall_7_1_0()); }
+		ruleEInt
+		{ after(grammarAccess.getPiePlotAccess().getLocationEIntParserRuleCall_7_1_0()); }
 	)
 ;
 finally {
@@ -7039,9 +7118,9 @@ rule__PolarPlot__LocationAssignment_7_1
 	}
 :
 	(
-		{ before(grammarAccess.getPolarPlotAccess().getLocationEStringParserRuleCall_7_1_0()); }
-		ruleEString
-		{ after(grammarAccess.getPolarPlotAccess().getLocationEStringParserRuleCall_7_1_0()); }
+		{ before(grammarAccess.getPolarPlotAccess().getLocationEIntParserRuleCall_7_1_0()); }
+		ruleEInt
+		{ after(grammarAccess.getPolarPlotAccess().getLocationEIntParserRuleCall_7_1_0()); }
 	)
 ;
 finally {
@@ -7129,9 +7208,9 @@ rule__ScatterPlot__LocationAssignment_7_1
 	}
 :
 	(
-		{ before(grammarAccess.getScatterPlotAccess().getLocationEStringParserRuleCall_7_1_0()); }
-		ruleEString
-		{ after(grammarAccess.getScatterPlotAccess().getLocationEStringParserRuleCall_7_1_0()); }
+		{ before(grammarAccess.getScatterPlotAccess().getLocationEIntParserRuleCall_7_1_0()); }
+		ruleEInt
+		{ after(grammarAccess.getScatterPlotAccess().getLocationEIntParserRuleCall_7_1_0()); }
 	)
 ;
 finally {
@@ -7219,9 +7298,9 @@ rule__RadarPlot__LocationAssignment_7_1
 	}
 :
 	(
-		{ before(grammarAccess.getRadarPlotAccess().getLocationEStringParserRuleCall_7_1_0()); }
-		ruleEString
-		{ after(grammarAccess.getRadarPlotAccess().getLocationEStringParserRuleCall_7_1_0()); }
+		{ before(grammarAccess.getRadarPlotAccess().getLocationEIntParserRuleCall_7_1_0()); }
+		ruleEInt
+		{ after(grammarAccess.getRadarPlotAccess().getLocationEIntParserRuleCall_7_1_0()); }
 	)
 ;
 finally {

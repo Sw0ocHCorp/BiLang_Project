@@ -981,7 +981,7 @@ public class AbstractsyntaxPackageImpl extends EPackageImpl implements Abstracts
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPlot_YAxis(), ecorePackage.getEString(), "yAxis", null, 0, 1, Plot.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPlot_Location(), ecorePackage.getEString(), "location", null, 0, 1, Plot.class, !IS_TRANSIENT,
+		initEAttribute(getPlot_Location(), ecorePackage.getEInt(), "location", "-1", 0, 1, Plot.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPlot_Colors(), ecorePackage.getEString(), "colors", null, 0, 1, Plot.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
