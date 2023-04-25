@@ -176,9 +176,6 @@ public class DataFilteringItemProvider extends ItemProviderAdapter implements IE
 				AbstractsyntaxFactory.eINSTANCE.createQualitativeFiltering()));
 
 		newChildDescriptors.add(createChildParameter(AbstractsyntaxPackage.Literals.DATA_FILTERING__PROCESSINGSTEP,
-				AbstractsyntaxFactory.eINSTANCE.createPreprocessingStep()));
-
-		newChildDescriptors.add(createChildParameter(AbstractsyntaxPackage.Literals.DATA_FILTERING__PROCESSINGSTEP,
 				AbstractsyntaxFactory.eINSTANCE.createMathOperation()));
 
 		newChildDescriptors.add(createChildParameter(AbstractsyntaxPackage.Literals.DATA_FILTERING__PROCESSINGSTEP,

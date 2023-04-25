@@ -25,6 +25,7 @@ import ucal3ia.bilang.abstractsyntax.LinePlot;
 import ucal3ia.bilang.abstractsyntax.MathOperation;
 import ucal3ia.bilang.abstractsyntax.MathOperator;
 import ucal3ia.bilang.abstractsyntax.NamedElement;
+import ucal3ia.bilang.abstractsyntax.NullReplacement;
 import ucal3ia.bilang.abstractsyntax.PiePlot;
 import ucal3ia.bilang.abstractsyntax.Plot;
 import ucal3ia.bilang.abstractsyntax.PolarPlot;
@@ -205,6 +206,13 @@ public class AbstractsyntaxPackageImpl extends EPackageImpl implements Abstracts
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass nullReplacementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum mathOperatorEEnum = null;
 
 	/**
@@ -369,6 +377,15 @@ public class AbstractsyntaxPackageImpl extends EPackageImpl implements Abstracts
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getFileExtractor_Nullreplacement() {
+		return (EReference) fileExtractorEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getDataFiltering() {
 		return dataFilteringEClass;
 	}
@@ -423,17 +440,8 @@ public class AbstractsyntaxPackageImpl extends EPackageImpl implements Abstracts
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getDashBoard_Datafiltering() {
-		return (EReference) dashBoardEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getDashBoard_Plot() {
-		return (EReference) dashBoardEClass.getEStructuralFeatures().get(2);
+		return (EReference) dashBoardEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -738,6 +746,42 @@ public class AbstractsyntaxPackageImpl extends EPackageImpl implements Abstracts
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getNullReplacement() {
+		return nullReplacementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getNullReplacement_ColName() {
+		return (EAttribute) nullReplacementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getNullReplacement_Label() {
+		return (EAttribute) nullReplacementEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getNullReplacement_Statisticaloperation() {
+		return (EReference) nullReplacementEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getMathOperator() {
 		return mathOperatorEEnum;
 	}
@@ -808,6 +852,7 @@ public class AbstractsyntaxPackageImpl extends EPackageImpl implements Abstracts
 
 		fileExtractorEClass = createEClass(FILE_EXTRACTOR);
 		createEAttribute(fileExtractorEClass, FILE_EXTRACTOR__PATH);
+		createEReference(fileExtractorEClass, FILE_EXTRACTOR__NULLREPLACEMENT);
 
 		dataFilteringEClass = createEClass(DATA_FILTERING);
 		createEReference(dataFilteringEClass, DATA_FILTERING__FILEEXTRACTOR);
@@ -816,7 +861,6 @@ public class AbstractsyntaxPackageImpl extends EPackageImpl implements Abstracts
 
 		dashBoardEClass = createEClass(DASH_BOARD);
 		createEReference(dashBoardEClass, DASH_BOARD__FILEEXTRACTOR);
-		createEReference(dashBoardEClass, DASH_BOARD__DATAFILTERING);
 		createEReference(dashBoardEClass, DASH_BOARD__PLOT);
 
 		csvExtractorEClass = createEClass(CSV_EXTRACTOR);
@@ -868,6 +912,11 @@ public class AbstractsyntaxPackageImpl extends EPackageImpl implements Abstracts
 		radarPlotEClass = createEClass(RADAR_PLOT);
 
 		donutPlotEClass = createEClass(DONUT_PLOT);
+
+		nullReplacementEClass = createEClass(NULL_REPLACEMENT);
+		createEAttribute(nullReplacementEClass, NULL_REPLACEMENT__COL_NAME);
+		createEAttribute(nullReplacementEClass, NULL_REPLACEMENT__LABEL);
+		createEReference(nullReplacementEClass, NULL_REPLACEMENT__STATISTICALOPERATION);
 
 		// Create enums
 		mathOperatorEEnum = createEEnum(MATH_OPERATOR);
@@ -945,6 +994,9 @@ public class AbstractsyntaxPackageImpl extends EPackageImpl implements Abstracts
 				IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getFileExtractor_Path(), ecorePackage.getEString(), "path", null, 0, 1, FileExtractor.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFileExtractor_Nullreplacement(), this.getNullReplacement(), null, "nullreplacement", null, 0,
+				-1, FileExtractor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dataFilteringEClass, DataFiltering.class, "DataFiltering", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -960,10 +1012,7 @@ public class AbstractsyntaxPackageImpl extends EPackageImpl implements Abstracts
 
 		initEClass(dashBoardEClass, DashBoard.class, "DashBoard", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDashBoard_Fileextractor(), this.getFileExtractor(), null, "fileextractor", null, 0, 1,
-				DashBoard.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
-				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getDashBoard_Datafiltering(), this.getDataFiltering(), null, "datafiltering", null, 0, 1,
+		initEReference(getDashBoard_Fileextractor(), this.getFileExtractor(), null, "fileextractor", null, 1, 1,
 				DashBoard.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDashBoard_Plot(), this.getPlot(), null, "plot", null, 1, -1, DashBoard.class, !IS_TRANSIENT,
@@ -998,7 +1047,7 @@ public class AbstractsyntaxPackageImpl extends EPackageImpl implements Abstracts
 		initEAttribute(getFilteringStep_Axis(), ecorePackage.getEString(), "axis", null, 0, 1, FilteringStep.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(preprocessingStepEClass, PreprocessingStep.class, "PreprocessingStep", !IS_ABSTRACT, !IS_INTERFACE,
+		initEClass(preprocessingStepEClass, PreprocessingStep.class, "PreprocessingStep", IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(quantitativeFilteringEClass, QuantitativeFiltering.class, "QuantitativeFiltering", !IS_ABSTRACT,
@@ -1057,6 +1106,18 @@ public class AbstractsyntaxPackageImpl extends EPackageImpl implements Abstracts
 
 		initEClass(donutPlotEClass, DonutPlot.class, "DonutPlot", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(nullReplacementEClass, NullReplacement.class, "NullReplacement", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getNullReplacement_ColName(), ecorePackage.getEString(), "colName", null, 0, 1,
+				NullReplacement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getNullReplacement_Label(), ecorePackage.getEString(), "label", null, 0, 1,
+				NullReplacement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEReference(getNullReplacement_Statisticaloperation(), this.getStatisticalOperation(), null,
+				"statisticaloperation", null, 0, 1, NullReplacement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(mathOperatorEEnum, MathOperator.class, "MathOperator");

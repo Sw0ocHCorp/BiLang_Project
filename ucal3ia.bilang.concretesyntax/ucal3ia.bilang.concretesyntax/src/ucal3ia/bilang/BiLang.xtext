@@ -34,7 +34,7 @@ DataFiltering returns DataFiltering:
 
 DashBoard returns DashBoard:
 	
-	name=EString "=>" ("e" fileextractor=[FileExtractor|EString] | 'df' datafiltering=[DataFiltering|EString])
+	name=EString "=>" fileextractor=[FileExtractor|EString] 
 		'plots' '{' 
 			plot+=Plot 
 			(plot+=Plot)* 
@@ -42,11 +42,16 @@ DashBoard returns DashBoard:
 
 CsvExtractor returns CsvExtractor:
 	{CsvExtractor}
-	name=EString".csv" "=>" path=EString;
+	name=EString".csv" "=>" path=EString ("null replacement->" nullreplacement+= NullReplacement ("," nullreplacement+=NullReplacement)*)?;
 
 ExcelExtractor returns ExcelExtractor:
 	{ExcelExtractor}
-	name=EString".xlsx" "=>" path=EString;
+	name=EString".xlsx" "=>" path=EString ("null replacement->" nullreplacement+= NullReplacement ("," nullreplacement+=NullReplacement)*)?;
+	
+NullReplacement returns NullReplacement:
+	colName= EString "=" (label= EString |  statisticaloperation= StatisticalOperation) 
+;
+
 
 QuantitativeFiltering returns QuantitativeFiltering:
 	{QuantitativeFiltering}

@@ -234,29 +234,6 @@ public class AbstractsyntaxItemProviderAdapterFactory extends AbstractsyntaxAdap
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link ucal3ia.bilang.abstractsyntax.PreprocessingStep} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected PreprocessingStepItemProvider preprocessingStepItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link ucal3ia.bilang.abstractsyntax.PreprocessingStep}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createPreprocessingStepAdapter() {
-		if (preprocessingStepItemProvider == null) {
-			preprocessingStepItemProvider = new PreprocessingStepItemProvider(this);
-		}
-
-		return preprocessingStepItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link ucal3ia.bilang.abstractsyntax.QuantitativeFiltering} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -487,6 +464,29 @@ public class AbstractsyntaxItemProviderAdapterFactory extends AbstractsyntaxAdap
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link ucal3ia.bilang.abstractsyntax.NullReplacement} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected NullReplacementItemProvider nullReplacementItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ucal3ia.bilang.abstractsyntax.NullReplacement}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createNullReplacementAdapter() {
+		if (nullReplacementItemProvider == null) {
+			nullReplacementItemProvider = new NullReplacementItemProvider(this);
+		}
+
+		return nullReplacementItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -599,8 +599,6 @@ public class AbstractsyntaxItemProviderAdapterFactory extends AbstractsyntaxAdap
 			barPlotItemProvider.dispose();
 		if (linePlotItemProvider != null)
 			linePlotItemProvider.dispose();
-		if (preprocessingStepItemProvider != null)
-			preprocessingStepItemProvider.dispose();
 		if (quantitativeFilteringItemProvider != null)
 			quantitativeFilteringItemProvider.dispose();
 		if (qualitativeFilteringItemProvider != null)
@@ -621,6 +619,8 @@ public class AbstractsyntaxItemProviderAdapterFactory extends AbstractsyntaxAdap
 			radarPlotItemProvider.dispose();
 		if (donutPlotItemProvider != null)
 			donutPlotItemProvider.dispose();
+		if (nullReplacementItemProvider != null)
+			nullReplacementItemProvider.dispose();
 	}
 
 }

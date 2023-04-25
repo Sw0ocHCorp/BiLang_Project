@@ -15,6 +15,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FileExtractor" abstract="true" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nullreplacement" upperBound="-1"
+        eType="#//NullReplacement" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DataFiltering">
     <eStructuralFeatures xsi:type="ecore:EReference" name="fileextractor" lowerBound="1"
@@ -25,8 +27,8 @@
         eType="#//PreprocessingStep" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DashBoard" eSuperTypes="#//NamedElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="fileextractor" eType="#//FileExtractor"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="datafiltering" eType="#//DataFiltering"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fileextractor" lowerBound="1"
+        eType="#//FileExtractor"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="plot" lowerBound="1" upperBound="-1"
         eType="#//Plot" containment="true"/>
   </eClassifiers>
@@ -45,7 +47,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="FilteringStep" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="axis" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PreprocessingStep"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PreprocessingStep" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="QuantitativeFiltering" eSuperTypes="#//FilteringStep">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="values" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" eType="#//QuantitativeOperator"/>
@@ -94,4 +96,10 @@
   <eClassifiers xsi:type="ecore:EClass" name="PiePlot" eSuperTypes="#//Plot"/>
   <eClassifiers xsi:type="ecore:EClass" name="RadarPlot" eSuperTypes="#//Plot"/>
   <eClassifiers xsi:type="ecore:EClass" name="DonutPlot" eSuperTypes="#//Plot"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NullReplacement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="colName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="statisticaloperation" eType="#//StatisticalOperation"
+        containment="true"/>
+  </eClassifiers>
 </ecore:EPackage>

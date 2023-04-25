@@ -177,6 +177,11 @@ public class AbstractsyntaxAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseNullReplacement(NullReplacement object) {
+			return createNullReplacementAdapter();
+		}
+
+		@Override
 		public Adapter defaultCase(EObject object) {
 			return createEObjectAdapter();
 		}
@@ -500,6 +505,20 @@ public class AbstractsyntaxAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDonutPlotAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ucal3ia.bilang.abstractsyntax.NullReplacement <em>Null Replacement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ucal3ia.bilang.abstractsyntax.NullReplacement
+	 * @generated
+	 */
+	public Adapter createNullReplacementAdapter() {
 		return null;
 	}
 

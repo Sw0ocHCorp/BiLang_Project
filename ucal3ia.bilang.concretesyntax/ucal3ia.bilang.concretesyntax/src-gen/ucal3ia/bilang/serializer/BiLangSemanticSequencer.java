@@ -24,6 +24,7 @@ import ucal3ia.bilang.abstractsyntax.DonutPlot;
 import ucal3ia.bilang.abstractsyntax.ExcelExtractor;
 import ucal3ia.bilang.abstractsyntax.LinePlot;
 import ucal3ia.bilang.abstractsyntax.MathOperation;
+import ucal3ia.bilang.abstractsyntax.NullReplacement;
 import ucal3ia.bilang.abstractsyntax.PiePlot;
 import ucal3ia.bilang.abstractsyntax.PolarPlot;
 import ucal3ia.bilang.abstractsyntax.QualitativeFiltering;
@@ -74,6 +75,9 @@ public class BiLangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 				return; 
 			case AbstractsyntaxPackage.MATH_OPERATION:
 				sequence_MathOperation(context, (MathOperation) semanticObject); 
+				return; 
+			case AbstractsyntaxPackage.NULL_REPLACEMENT:
+				sequence_NullReplacement(context, (NullReplacement) semanticObject); 
 				return; 
 			case AbstractsyntaxPackage.PIE_PLOT:
 				sequence_PiePlot(context, (PiePlot) semanticObject); 
@@ -149,19 +153,10 @@ public class BiLangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     CsvExtractor returns CsvExtractor
 	 *
 	 * Constraint:
-	 *     (name=EString path=EString)
+	 *     (name=EString path=EString (nullreplacement+=NullReplacement nullreplacement+=NullReplacement*)?)
 	 */
 	protected void sequence_CsvExtractor(ISerializationContext context, CsvExtractor semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, AbstractsyntaxPackage.Literals.NAMED_ELEMENT__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AbstractsyntaxPackage.Literals.NAMED_ELEMENT__NAME));
-			if (transientValues.isValueTransient(semanticObject, AbstractsyntaxPackage.Literals.FILE_EXTRACTOR__PATH) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AbstractsyntaxPackage.Literals.FILE_EXTRACTOR__PATH));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getCsvExtractorAccess().getNameEStringParserRuleCall_1_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getCsvExtractorAccess().getPathEStringParserRuleCall_4_0(), semanticObject.getPath());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -170,7 +165,7 @@ public class BiLangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     DashBoard returns DashBoard
 	 *
 	 * Constraint:
-	 *     (name=EString (fileextractor=[FileExtractor|EString] | datafiltering=[DataFiltering|EString]) plot+=Plot plot+=Plot*)
+	 *     (name=EString fileextractor=[FileExtractor|EString] plot+=Plot plot+=Plot*)
 	 */
 	protected void sequence_DashBoard(ISerializationContext context, DashBoard semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -219,19 +214,10 @@ public class BiLangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     ExcelExtractor returns ExcelExtractor
 	 *
 	 * Constraint:
-	 *     (name=EString path=EString)
+	 *     (name=EString path=EString (nullreplacement+=NullReplacement nullreplacement+=NullReplacement*)?)
 	 */
 	protected void sequence_ExcelExtractor(ISerializationContext context, ExcelExtractor semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, AbstractsyntaxPackage.Literals.NAMED_ELEMENT__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AbstractsyntaxPackage.Literals.NAMED_ELEMENT__NAME));
-			if (transientValues.isValueTransient(semanticObject, AbstractsyntaxPackage.Literals.FILE_EXTRACTOR__PATH) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AbstractsyntaxPackage.Literals.FILE_EXTRACTOR__PATH));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getExcelExtractorAccess().getNameEStringParserRuleCall_1_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getExcelExtractorAccess().getPathEStringParserRuleCall_4_0(), semanticObject.getPath());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -277,6 +263,18 @@ public class BiLangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 		feeder.accept(grammarAccess.getMathOperationAccess().getOperatorMathOperatorEnumRuleCall_3_0(), semanticObject.getOperator());
 		feeder.accept(grammarAccess.getMathOperationAccess().getRsidePreprocessingStepParserRuleCall_5_0(), semanticObject.getRside());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     NullReplacement returns NullReplacement
+	 *
+	 * Constraint:
+	 *     (colName=EString (label=EString | statisticaloperation=StatisticalOperation))
+	 */
+	protected void sequence_NullReplacement(ISerializationContext context, NullReplacement semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

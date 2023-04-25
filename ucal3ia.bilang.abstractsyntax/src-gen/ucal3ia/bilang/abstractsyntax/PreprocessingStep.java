@@ -11,7 +11,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  *
  * @see ucal3ia.bilang.abstractsyntax.AbstractsyntaxPackage#getPreprocessingStep()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface PreprocessingStep extends EObject {

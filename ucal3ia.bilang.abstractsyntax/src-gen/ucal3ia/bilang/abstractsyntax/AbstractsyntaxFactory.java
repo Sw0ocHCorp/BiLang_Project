@@ -85,15 +85,6 @@ public interface AbstractsyntaxFactory extends EFactory {
 	LinePlot createLinePlot();
 
 	/**
-	 * Returns a new object of class '<em>Preprocessing Step</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Preprocessing Step</em>'.
-	 * @generated
-	 */
-	PreprocessingStep createPreprocessingStep();
-
-	/**
 	 * Returns a new object of class '<em>Quantitative Filtering</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -182,6 +173,15 @@ public interface AbstractsyntaxFactory extends EFactory {
 	 * @generated
 	 */
 	DonutPlot createDonutPlot();
+
+	/**
+	 * Returns a new object of class '<em>Null Replacement</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Null Replacement</em>'.
+	 * @generated
+	 */
+	NullReplacement createNullReplacement();
 
 	/**
 	 * Returns the package supported by this factory.

@@ -16,7 +16,7 @@ import ucal3ia.bilang.abstractsyntax.PreprocessingStep;
  *
  * @generated
  */
-public class PreprocessingStepImpl extends MinimalEObjectImpl.Container implements PreprocessingStep {
+public abstract class PreprocessingStepImpl extends MinimalEObjectImpl.Container implements PreprocessingStep {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

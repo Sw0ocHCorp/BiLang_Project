@@ -2,6 +2,8 @@
  */
 package ucal3ia.bilang.abstractsyntax;
 
+import org.eclipse.emf.common.util.EList;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>File Extractor</b></em>'.
@@ -12,6 +14,7 @@ package ucal3ia.bilang.abstractsyntax;
  * </p>
  * <ul>
  *   <li>{@link ucal3ia.bilang.abstractsyntax.FileExtractor#getPath <em>Path</em>}</li>
+ *   <li>{@link ucal3ia.bilang.abstractsyntax.FileExtractor#getNullreplacement <em>Nullreplacement</em>}</li>
  * </ul>
  *
  * @see ucal3ia.bilang.abstractsyntax.AbstractsyntaxPackage#getFileExtractor()
@@ -40,5 +43,17 @@ public interface FileExtractor extends NamedElement {
 	 * @generated
 	 */
 	void setPath(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Nullreplacement</b></em>' containment reference list.
+	 * The list contents are of type {@link ucal3ia.bilang.abstractsyntax.NullReplacement}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Nullreplacement</em>' containment reference list.
+	 * @see ucal3ia.bilang.abstractsyntax.AbstractsyntaxPackage#getFileExtractor_Nullreplacement()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<NullReplacement> getNullreplacement();
 
 } // FileExtractor

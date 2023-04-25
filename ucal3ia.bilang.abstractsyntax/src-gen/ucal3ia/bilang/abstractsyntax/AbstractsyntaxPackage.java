@@ -187,13 +187,22 @@ public interface AbstractsyntaxPackage extends EPackage {
 	int FILE_EXTRACTOR__PATH = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Nullreplacement</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FILE_EXTRACTOR__NULLREPLACEMENT = NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>File Extractor</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FILE_EXTRACTOR_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
+	int FILE_EXTRACTOR_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>File Extractor</em>' class.
@@ -288,22 +297,13 @@ public interface AbstractsyntaxPackage extends EPackage {
 	int DASH_BOARD__FILEEXTRACTOR = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Datafiltering</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DASH_BOARD__DATAFILTERING = NAMED_ELEMENT_FEATURE_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Plot</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DASH_BOARD__PLOT = NAMED_ELEMENT_FEATURE_COUNT + 2;
+	int DASH_BOARD__PLOT = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Dash Board</em>' class.
@@ -312,7 +312,7 @@ public interface AbstractsyntaxPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int DASH_BOARD_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 3;
+	int DASH_BOARD_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Dash Board</em>' class.
@@ -350,6 +350,15 @@ public interface AbstractsyntaxPackage extends EPackage {
 	 * @ordered
 	 */
 	int CSV_EXTRACTOR__PATH = FILE_EXTRACTOR__PATH;
+
+	/**
+	 * The feature id for the '<em><b>Nullreplacement</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CSV_EXTRACTOR__NULLREPLACEMENT = FILE_EXTRACTOR__NULLREPLACEMENT;
 
 	/**
 	 * The number of structural features of the '<em>Csv Extractor</em>' class.
@@ -396,6 +405,15 @@ public interface AbstractsyntaxPackage extends EPackage {
 	 * @ordered
 	 */
 	int EXCEL_EXTRACTOR__PATH = FILE_EXTRACTOR__PATH;
+
+	/**
+	 * The feature id for the '<em><b>Nullreplacement</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXCEL_EXTRACTOR__NULLREPLACEMENT = FILE_EXTRACTOR__NULLREPLACEMENT;
 
 	/**
 	 * The number of structural features of the '<em>Excel Extractor</em>' class.
@@ -1385,6 +1403,61 @@ public interface AbstractsyntaxPackage extends EPackage {
 	int DONUT_PLOT_OPERATION_COUNT = PLOT_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link ucal3ia.bilang.abstractsyntax.impl.NullReplacementImpl <em>Null Replacement</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ucal3ia.bilang.abstractsyntax.impl.NullReplacementImpl
+	 * @see ucal3ia.bilang.abstractsyntax.impl.AbstractsyntaxPackageImpl#getNullReplacement()
+	 * @generated
+	 */
+	int NULL_REPLACEMENT = 22;
+
+	/**
+	 * The feature id for the '<em><b>Col Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NULL_REPLACEMENT__COL_NAME = 0;
+
+	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NULL_REPLACEMENT__LABEL = 1;
+
+	/**
+	 * The feature id for the '<em><b>Statisticaloperation</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NULL_REPLACEMENT__STATISTICALOPERATION = 2;
+
+	/**
+	 * The number of structural features of the '<em>Null Replacement</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NULL_REPLACEMENT_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of operations of the '<em>Null Replacement</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NULL_REPLACEMENT_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link ucal3ia.bilang.abstractsyntax.MathOperator <em>Math Operator</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1392,7 +1465,7 @@ public interface AbstractsyntaxPackage extends EPackage {
 	 * @see ucal3ia.bilang.abstractsyntax.impl.AbstractsyntaxPackageImpl#getMathOperator()
 	 * @generated
 	 */
-	int MATH_OPERATOR = 22;
+	int MATH_OPERATOR = 23;
 
 	/**
 	 * The meta object id for the '{@link ucal3ia.bilang.abstractsyntax.StatisticalOperator <em>Statistical Operator</em>}' enum.
@@ -1402,7 +1475,7 @@ public interface AbstractsyntaxPackage extends EPackage {
 	 * @see ucal3ia.bilang.abstractsyntax.impl.AbstractsyntaxPackageImpl#getStatisticalOperator()
 	 * @generated
 	 */
-	int STATISTICAL_OPERATOR = 23;
+	int STATISTICAL_OPERATOR = 24;
 
 	/**
 	 * The meta object id for the '{@link ucal3ia.bilang.abstractsyntax.QuantitativeOperator <em>Quantitative Operator</em>}' enum.
@@ -1412,7 +1485,7 @@ public interface AbstractsyntaxPackage extends EPackage {
 	 * @see ucal3ia.bilang.abstractsyntax.impl.AbstractsyntaxPackageImpl#getQuantitativeOperator()
 	 * @generated
 	 */
-	int QUANTITATIVE_OPERATOR = 24;
+	int QUANTITATIVE_OPERATOR = 25;
 
 	/**
 	 * The meta object id for the '{@link ucal3ia.bilang.abstractsyntax.QualitativeOperator <em>Qualitative Operator</em>}' enum.
@@ -1422,7 +1495,7 @@ public interface AbstractsyntaxPackage extends EPackage {
 	 * @see ucal3ia.bilang.abstractsyntax.impl.AbstractsyntaxPackageImpl#getQualitativeOperator()
 	 * @generated
 	 */
-	int QUALITATIVE_OPERATOR = 25;
+	int QUALITATIVE_OPERATOR = 26;
 
 	/**
 	 * Returns the meta object for class '{@link ucal3ia.bilang.abstractsyntax.NamedElement <em>Named Element</em>}'.
@@ -1510,6 +1583,17 @@ public interface AbstractsyntaxPackage extends EPackage {
 	EAttribute getFileExtractor_Path();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link ucal3ia.bilang.abstractsyntax.FileExtractor#getNullreplacement <em>Nullreplacement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Nullreplacement</em>'.
+	 * @see ucal3ia.bilang.abstractsyntax.FileExtractor#getNullreplacement()
+	 * @see #getFileExtractor()
+	 * @generated
+	 */
+	EReference getFileExtractor_Nullreplacement();
+
+	/**
 	 * Returns the meta object for class '{@link ucal3ia.bilang.abstractsyntax.DataFiltering <em>Data Filtering</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1572,17 +1656,6 @@ public interface AbstractsyntaxPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getDashBoard_Fileextractor();
-
-	/**
-	 * Returns the meta object for the reference '{@link ucal3ia.bilang.abstractsyntax.DashBoard#getDatafiltering <em>Datafiltering</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Datafiltering</em>'.
-	 * @see ucal3ia.bilang.abstractsyntax.DashBoard#getDatafiltering()
-	 * @see #getDashBoard()
-	 * @generated
-	 */
-	EReference getDashBoard_Datafiltering();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link ucal3ia.bilang.abstractsyntax.DashBoard#getPlot <em>Plot</em>}'.
@@ -1942,6 +2015,49 @@ public interface AbstractsyntaxPackage extends EPackage {
 	EClass getDonutPlot();
 
 	/**
+	 * Returns the meta object for class '{@link ucal3ia.bilang.abstractsyntax.NullReplacement <em>Null Replacement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Null Replacement</em>'.
+	 * @see ucal3ia.bilang.abstractsyntax.NullReplacement
+	 * @generated
+	 */
+	EClass getNullReplacement();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ucal3ia.bilang.abstractsyntax.NullReplacement#getColName <em>Col Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Col Name</em>'.
+	 * @see ucal3ia.bilang.abstractsyntax.NullReplacement#getColName()
+	 * @see #getNullReplacement()
+	 * @generated
+	 */
+	EAttribute getNullReplacement_ColName();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ucal3ia.bilang.abstractsyntax.NullReplacement#getLabel <em>Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Label</em>'.
+	 * @see ucal3ia.bilang.abstractsyntax.NullReplacement#getLabel()
+	 * @see #getNullReplacement()
+	 * @generated
+	 */
+	EAttribute getNullReplacement_Label();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link ucal3ia.bilang.abstractsyntax.NullReplacement#getStatisticaloperation <em>Statisticaloperation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Statisticaloperation</em>'.
+	 * @see ucal3ia.bilang.abstractsyntax.NullReplacement#getStatisticaloperation()
+	 * @see #getNullReplacement()
+	 * @generated
+	 */
+	EReference getNullReplacement_Statisticaloperation();
+
+	/**
 	 * Returns the meta object for enum '{@link ucal3ia.bilang.abstractsyntax.MathOperator <em>Math Operator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2075,6 +2191,14 @@ public interface AbstractsyntaxPackage extends EPackage {
 		EAttribute FILE_EXTRACTOR__PATH = eINSTANCE.getFileExtractor_Path();
 
 		/**
+		 * The meta object literal for the '<em><b>Nullreplacement</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FILE_EXTRACTOR__NULLREPLACEMENT = eINSTANCE.getFileExtractor_Nullreplacement();
+
+		/**
 		 * The meta object literal for the '{@link ucal3ia.bilang.abstractsyntax.impl.DataFilteringImpl <em>Data Filtering</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2125,14 +2249,6 @@ public interface AbstractsyntaxPackage extends EPackage {
 		 * @generated
 		 */
 		EReference DASH_BOARD__FILEEXTRACTOR = eINSTANCE.getDashBoard_Fileextractor();
-
-		/**
-		 * The meta object literal for the '<em><b>Datafiltering</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DASH_BOARD__DATAFILTERING = eINSTANCE.getDashBoard_Datafiltering();
 
 		/**
 		 * The meta object literal for the '<em><b>Plot</b></em>' containment reference list feature.
@@ -2439,6 +2555,40 @@ public interface AbstractsyntaxPackage extends EPackage {
 		 * @generated
 		 */
 		EClass DONUT_PLOT = eINSTANCE.getDonutPlot();
+
+		/**
+		 * The meta object literal for the '{@link ucal3ia.bilang.abstractsyntax.impl.NullReplacementImpl <em>Null Replacement</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ucal3ia.bilang.abstractsyntax.impl.NullReplacementImpl
+		 * @see ucal3ia.bilang.abstractsyntax.impl.AbstractsyntaxPackageImpl#getNullReplacement()
+		 * @generated
+		 */
+		EClass NULL_REPLACEMENT = eINSTANCE.getNullReplacement();
+
+		/**
+		 * The meta object literal for the '<em><b>Col Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NULL_REPLACEMENT__COL_NAME = eINSTANCE.getNullReplacement_ColName();
+
+		/**
+		 * The meta object literal for the '<em><b>Label</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NULL_REPLACEMENT__LABEL = eINSTANCE.getNullReplacement_Label();
+
+		/**
+		 * The meta object literal for the '<em><b>Statisticaloperation</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NULL_REPLACEMENT__STATISTICALOPERATION = eINSTANCE.getNullReplacement_Statisticaloperation();
 
 		/**
 		 * The meta object literal for the '{@link ucal3ia.bilang.abstractsyntax.MathOperator <em>Math Operator</em>}' enum.

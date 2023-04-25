@@ -129,10 +129,53 @@ class BiLangGenerator extends AbstractGenerator {
 			for (String lab: labels) {
 				var colData= new ArrayList<String>();
 				for (var j=0; j<csvData.size(); j++) {
-					colData.add(csvData.get(j).get(k));
+					if (k >= (csvData.get(j)).length()) {
+						colData.add("");
+					} else
+						colData.add(csvData.get(j).get(k));
 				}
 				allData.put(lab, colData);
             	k++;
+			}
+			for (preprocess: fe.nullreplacement) {
+				if (allData.containsKey(preprocess.colName)) {
+					var colData= allData.get(preprocess.colName)
+					if (preprocess.label != null) {
+						for (var j= 0; i < colData.size(); i++) {
+							if ((colData.get(j)).equals("")) {
+								colData.set(j, preprocess.label)
+							}
+						}
+					} else if (preprocess.statisticaloperation != null) {
+						var value= (computeStatisticOperation((preprocess.statisticaloperation.colreference).target, (preprocess.statisticaloperation).operator.literal, allData)).get(0)
+						for (var j= 0; i < colData.size(); i++) {
+							if ((colData.get(j)).equals("")) {
+								colData.set(j,value)
+							}
+						}
+					}
+					allData.replace(preprocess.colName, colData) 
+				} else if ((preprocess.colName). equals("ALL")) {
+					for (String label: allData.keySet()) {
+						var colData= allData.get(label)
+						if (preprocess.label != null) {
+							for (var j= 0; j < colData.size(); j++) {
+								var value= colData.get(j)
+								if ((colData.get(j)).equals("")) {
+									colData.set(j, preprocess.label)
+								}
+							}
+						} else if (preprocess.statisticaloperation != null) {
+							var value= (computeStatisticOperation((preprocess.statisticaloperation.colreference).target, (preprocess.statisticaloperation).operator.literal, allData)).get(0)
+							for (var j= 0; i < colData.size(); i++) {
+								if ((colData.get(j)).equals("")) {
+									colData.set(j,value)
+								}
+							}
+						}
+						allData.replace(label, colData)	
+					}
+				}
 			}
 			
 			return allData
@@ -150,9 +193,11 @@ class BiLangGenerator extends AbstractGenerator {
 		var targets= new ArrayList<String>()	
 		var operationContent= new ArrayList<String>()
 		var formulaMap= new HashMap<Object, Object>
+		var colLenght= 0
 		/* Copie du contenu du fichier CSV / EXCEL */
 		for (lab:fileData.keySet()) {
 			filteredData.put(lab, (fileData.get(lab)));
+			colLenght= (fileData.get(lab)).size()
 		}
 		if (df.fileextractor instanceof CsvExtractor){
 			//PHASE DE PREPROCESSING 
@@ -211,27 +256,52 @@ class BiLangGenerator extends AbstractGenerator {
 					}
 				} if (filter instanceof QualitativeFiltering) {
 					stopLoop= false
-					if (filter.labels.contains(", "))
-						targets= new ArrayList<String>(Arrays.asList(filter.labels.split(", ")))
-					else if (filter.labels.contains(","))
-						targets= new ArrayList<String>(Arrays.asList(filter.labels.split(",")))
-					else 
-						targets.add(filter.labels)
-					main_operator= filter.operator.literal
-					if (main_operator.equals("!=")) {
-						targetCondition= true
-					}
-					//NETTOYAGE DES DONNÈES SELON LES CA
-					for(var i= 0; i<targetCol.size(); i++) {
-						while ((stopLoop == false) && (targets.contains(targetCol.get(i)) == targetCondition)){
-							for (lab:filteredData.keySet()){
-								if (i == targetCol.size()) {
-									stopLoop= true;
-								}
-								if (filteredData.get(lab).size() > i)
-									filteredData.get(lab).remove(i)	
-							}
+					if ((filter.axis).equals("ALL")) {
+						main_operator= filter.operator.literal
+						if (main_operator.equals("!=")) {
+							targetCondition= true
 						}
+						//NETTOYAGE DES DONNÈES SELON LES CA
+						var haveDelete= false
+						var updateLenght= colLenght-1
+						for(var i= 0; i<colLenght; i++) {			
+							for (lab:filteredData.keySet()){
+								haveDelete= false
+								while ((stopLoop == false) && (((filteredData.get(lab)).get(i)).equals(filter.labels) == targetCondition)){
+									if (i == updateLenght) 
+										stopLoop= true;
+									for (l: filteredData.keySet()) {	
+										if (filteredData.get(l).size() > i)
+											filteredData.get(l).remove(i)		
+									}
+									updateLenght--
+								}
+							}
+							
+						}
+					} else {
+						if (filter.labels.contains(", "))
+							targets= new ArrayList<String>(Arrays.asList(filter.labels.split(", ")))
+						else if (filter.labels.contains(","))
+							targets= new ArrayList<String>(Arrays.asList(filter.labels.split(",")))
+						else 
+							targets.add(filter.labels)
+						main_operator= filter.operator.literal
+						if (main_operator.equals("!=")) {
+							targetCondition= true
+						}
+						//NETTOYAGE DES DONNÈES SELON LES CA
+						for(var i= 0; i<targetCol.size(); i++) {
+							while ((stopLoop == false) && (targets.contains(targetCol.get(i)) == targetCondition)){
+								for (lab:filteredData.keySet()){
+									if (i == targetCol.size()) {
+										stopLoop= true;
+									}
+									if (filteredData.get(lab).size() > i)
+										filteredData.get(lab).remove(i)	
+								}
+							}
+						}	
 					}
 				}
 				
@@ -254,6 +324,7 @@ class BiLangGenerator extends AbstractGenerator {
 	def translateDashBoard(DashBoard db, HashMap<String, ArrayList<String>> fileData) {
 		var dashBoardContent= new HashMap<String, HashMap<String, Object>>
 		var plotType= ""
+		var p= 0
 		for (plot:db.plot) {
 			var plotContent= new HashMap<String, Object>
 			var key= plot.name
@@ -325,12 +396,14 @@ class BiLangGenerator extends AbstractGenerator {
 			//RÈcupÈration de la position du graphique, epaisseur des lignes / barres / etc...
 			if (plot.location != -1) {
 				plotContent.put("location", plot.location)	
-			}
+			} else
+				plotContent.put("location", p)	
 			if (plot.thickness != 0.0) {
 				plotContent.put("thickness", Float.toString(plot.thickness))	
 			}
 			// Stockage dans la map globale du dashboard
 			dashBoardContent.put(key, plotContent)
+			p++
 			System.out.println(dashBoardContent)
 		}
 		return dashBoardContent
@@ -345,7 +418,7 @@ class BiLangGenerator extends AbstractGenerator {
 		for (var i= 0; i < (dashboardContent.keySet()).length(); i++) {
 			for (key:dashboardContent.keySet()) {
 				if ((dashboardContent.get(key)).containsKey("location") && (dashboardContent.get(key)).get("location") == i) {
-					targetkey= key	
+					targetkey= key
 				}
 			}
 			content+= '''<div class="chart-container">
@@ -447,13 +520,10 @@ class BiLangGenerator extends AbstractGenerator {
 						content+= '''					{
 				    		label: "''' + yLabs.get(a) + '''",
 				        	data: file''' + j+1 + '''.map(row => row.''' + yLabs.get(a) + '''),
-				        	borderColor: "''' + convertColors.get(a) 
+				        	borderColor: "''' + convertColors.get(a) + '''",''' + "\n"
 				        	if (dashboardContent.get(keyPlot).containsKey("thickness"))
-				        		content+='''",
-				        	borderWidth: ''' + dashboardContent.get(keyPlot).get("thickness")
-				        	content+=  ''',
-				    	},
-				    	'''  
+				        		content+='''				borderWidth: ''' + dashboardContent.get(keyPlot).get("thickness") + ",\n"
+				        	content+=  '''			},'''  
 				   	} else if (convertColors.size() == 1) {
 				   		content+= '''					{
 				    		label: "''' + yLabs.get(a) + '''",

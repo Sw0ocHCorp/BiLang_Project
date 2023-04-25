@@ -170,9 +170,6 @@ public class MathOperationItemProvider extends PreprocessingStepItemProvider {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
 		newChildDescriptors.add(createChildParameter(AbstractsyntaxPackage.Literals.MATH_OPERATION__LSIDE,
-				AbstractsyntaxFactory.eINSTANCE.createPreprocessingStep()));
-
-		newChildDescriptors.add(createChildParameter(AbstractsyntaxPackage.Literals.MATH_OPERATION__LSIDE,
 				AbstractsyntaxFactory.eINSTANCE.createMathOperation()));
 
 		newChildDescriptors.add(createChildParameter(AbstractsyntaxPackage.Literals.MATH_OPERATION__LSIDE,
@@ -180,9 +177,6 @@ public class MathOperationItemProvider extends PreprocessingStepItemProvider {
 
 		newChildDescriptors.add(createChildParameter(AbstractsyntaxPackage.Literals.MATH_OPERATION__LSIDE,
 				AbstractsyntaxFactory.eINSTANCE.createStatisticalOperation()));
-
-		newChildDescriptors.add(createChildParameter(AbstractsyntaxPackage.Literals.MATH_OPERATION__RSIDE,
-				AbstractsyntaxFactory.eINSTANCE.createPreprocessingStep()));
 
 		newChildDescriptors.add(createChildParameter(AbstractsyntaxPackage.Literals.MATH_OPERATION__RSIDE,
 				AbstractsyntaxFactory.eINSTANCE.createMathOperation()));

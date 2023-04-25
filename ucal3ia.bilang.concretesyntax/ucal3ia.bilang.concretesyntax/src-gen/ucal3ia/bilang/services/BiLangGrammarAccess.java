@@ -335,17 +335,9 @@ public class BiLangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cNameEStringParserRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
 		private final Keyword cEqualsSignGreaterThanSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Alternatives cAlternatives_2 = (Alternatives)cGroup.eContents().get(2);
-		private final Group cGroup_2_0 = (Group)cAlternatives_2.eContents().get(0);
-		private final Keyword cEKeyword_2_0_0 = (Keyword)cGroup_2_0.eContents().get(0);
-		private final Assignment cFileextractorAssignment_2_0_1 = (Assignment)cGroup_2_0.eContents().get(1);
-		private final CrossReference cFileextractorFileExtractorCrossReference_2_0_1_0 = (CrossReference)cFileextractorAssignment_2_0_1.eContents().get(0);
-		private final RuleCall cFileextractorFileExtractorEStringParserRuleCall_2_0_1_0_1 = (RuleCall)cFileextractorFileExtractorCrossReference_2_0_1_0.eContents().get(1);
-		private final Group cGroup_2_1 = (Group)cAlternatives_2.eContents().get(1);
-		private final Keyword cDfKeyword_2_1_0 = (Keyword)cGroup_2_1.eContents().get(0);
-		private final Assignment cDatafilteringAssignment_2_1_1 = (Assignment)cGroup_2_1.eContents().get(1);
-		private final CrossReference cDatafilteringDataFilteringCrossReference_2_1_1_0 = (CrossReference)cDatafilteringAssignment_2_1_1.eContents().get(0);
-		private final RuleCall cDatafilteringDataFilteringEStringParserRuleCall_2_1_1_0_1 = (RuleCall)cDatafilteringDataFilteringCrossReference_2_1_1_0.eContents().get(1);
+		private final Assignment cFileextractorAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final CrossReference cFileextractorFileExtractorCrossReference_2_0 = (CrossReference)cFileextractorAssignment_2.eContents().get(0);
+		private final RuleCall cFileextractorFileExtractorEStringParserRuleCall_2_0_1 = (RuleCall)cFileextractorFileExtractorCrossReference_2_0.eContents().get(1);
 		private final Keyword cPlotsKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Keyword cLeftCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final Assignment cPlotAssignment_5 = (Assignment)cGroup.eContents().get(5);
@@ -355,14 +347,14 @@ public class BiLangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		//DashBoard returns DashBoard:
-		//    name=EString "=>" ("e" fileextractor=[FileExtractor|EString] | 'df' datafiltering=[DataFiltering|EString])
+		//    name=EString "=>" fileextractor=[FileExtractor|EString]
 		//        'plots' '{'
 		//            plot+=Plot
 		//            (plot+=Plot)*
 		//            '}' ;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//name=EString "=>" ("e" fileextractor=[FileExtractor|EString] | 'df' datafiltering=[DataFiltering|EString])
+		//name=EString "=>" fileextractor=[FileExtractor|EString]
 		//    'plots' '{'
 		//        plot+=Plot
 		//        (plot+=Plot)*
@@ -378,38 +370,14 @@ public class BiLangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		//"=>"
 		public Keyword getEqualsSignGreaterThanSignKeyword_1() { return cEqualsSignGreaterThanSignKeyword_1; }
 		
-		//("e" fileextractor=[FileExtractor|EString] | 'df' datafiltering=[DataFiltering|EString])
-		public Alternatives getAlternatives_2() { return cAlternatives_2; }
-		
-		//"e" fileextractor=[FileExtractor|EString]
-		public Group getGroup_2_0() { return cGroup_2_0; }
-		
-		//"e"
-		public Keyword getEKeyword_2_0_0() { return cEKeyword_2_0_0; }
-		
 		//fileextractor=[FileExtractor|EString]
-		public Assignment getFileextractorAssignment_2_0_1() { return cFileextractorAssignment_2_0_1; }
+		public Assignment getFileextractorAssignment_2() { return cFileextractorAssignment_2; }
 		
 		//[FileExtractor|EString]
-		public CrossReference getFileextractorFileExtractorCrossReference_2_0_1_0() { return cFileextractorFileExtractorCrossReference_2_0_1_0; }
+		public CrossReference getFileextractorFileExtractorCrossReference_2_0() { return cFileextractorFileExtractorCrossReference_2_0; }
 		
 		//EString
-		public RuleCall getFileextractorFileExtractorEStringParserRuleCall_2_0_1_0_1() { return cFileextractorFileExtractorEStringParserRuleCall_2_0_1_0_1; }
-		
-		//'df' datafiltering=[DataFiltering|EString]
-		public Group getGroup_2_1() { return cGroup_2_1; }
-		
-		//'df'
-		public Keyword getDfKeyword_2_1_0() { return cDfKeyword_2_1_0; }
-		
-		//datafiltering=[DataFiltering|EString]
-		public Assignment getDatafilteringAssignment_2_1_1() { return cDatafilteringAssignment_2_1_1; }
-		
-		//[DataFiltering|EString]
-		public CrossReference getDatafilteringDataFilteringCrossReference_2_1_1_0() { return cDatafilteringDataFilteringCrossReference_2_1_1_0; }
-		
-		//EString
-		public RuleCall getDatafilteringDataFilteringEStringParserRuleCall_2_1_1_0_1() { return cDatafilteringDataFilteringEStringParserRuleCall_2_1_1_0_1; }
+		public RuleCall getFileextractorFileExtractorEStringParserRuleCall_2_0_1() { return cFileextractorFileExtractorEStringParserRuleCall_2_0_1; }
 		
 		//'plots'
 		public Keyword getPlotsKeyword_3() { return cPlotsKeyword_3; }
@@ -442,14 +410,22 @@ public class BiLangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		private final Keyword cEqualsSignGreaterThanSignKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cPathAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cPathEStringParserRuleCall_4_0 = (RuleCall)cPathAssignment_4.eContents().get(0);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cNullReplacementKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cNullreplacementAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cNullreplacementNullReplacementParserRuleCall_5_1_0 = (RuleCall)cNullreplacementAssignment_5_1.eContents().get(0);
+		private final Group cGroup_5_2 = (Group)cGroup_5.eContents().get(2);
+		private final Keyword cCommaKeyword_5_2_0 = (Keyword)cGroup_5_2.eContents().get(0);
+		private final Assignment cNullreplacementAssignment_5_2_1 = (Assignment)cGroup_5_2.eContents().get(1);
+		private final RuleCall cNullreplacementNullReplacementParserRuleCall_5_2_1_0 = (RuleCall)cNullreplacementAssignment_5_2_1.eContents().get(0);
 		
 		//CsvExtractor returns CsvExtractor:
 		//    {CsvExtractor}
-		//    name=EString".csv" "=>" path=EString;
+		//    name=EString".csv" "=>" path=EString ("null replacement->" nullreplacement+= NullReplacement ("," nullreplacement+=NullReplacement)*)?;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{CsvExtractor}
-		//name=EString".csv" "=>" path=EString
+		//name=EString".csv" "=>" path=EString ("null replacement->" nullreplacement+= NullReplacement ("," nullreplacement+=NullReplacement)*)?
 		public Group getGroup() { return cGroup; }
 		
 		//{CsvExtractor}
@@ -472,6 +448,30 @@ public class BiLangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		
 		//EString
 		public RuleCall getPathEStringParserRuleCall_4_0() { return cPathEStringParserRuleCall_4_0; }
+		
+		//("null replacement->" nullreplacement+= NullReplacement ("," nullreplacement+=NullReplacement)*)?
+		public Group getGroup_5() { return cGroup_5; }
+		
+		//"null replacement->"
+		public Keyword getNullReplacementKeyword_5_0() { return cNullReplacementKeyword_5_0; }
+		
+		//nullreplacement+= NullReplacement
+		public Assignment getNullreplacementAssignment_5_1() { return cNullreplacementAssignment_5_1; }
+		
+		//NullReplacement
+		public RuleCall getNullreplacementNullReplacementParserRuleCall_5_1_0() { return cNullreplacementNullReplacementParserRuleCall_5_1_0; }
+		
+		//("," nullreplacement+=NullReplacement)*
+		public Group getGroup_5_2() { return cGroup_5_2; }
+		
+		//","
+		public Keyword getCommaKeyword_5_2_0() { return cCommaKeyword_5_2_0; }
+		
+		//nullreplacement+=NullReplacement
+		public Assignment getNullreplacementAssignment_5_2_1() { return cNullreplacementAssignment_5_2_1; }
+		
+		//NullReplacement
+		public RuleCall getNullreplacementNullReplacementParserRuleCall_5_2_1_0() { return cNullreplacementNullReplacementParserRuleCall_5_2_1_0; }
 	}
 	public class ExcelExtractorElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ucal3ia.bilang.BiLang.ExcelExtractor");
@@ -483,14 +483,22 @@ public class BiLangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		private final Keyword cEqualsSignGreaterThanSignKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cPathAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cPathEStringParserRuleCall_4_0 = (RuleCall)cPathAssignment_4.eContents().get(0);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cNullReplacementKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cNullreplacementAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cNullreplacementNullReplacementParserRuleCall_5_1_0 = (RuleCall)cNullreplacementAssignment_5_1.eContents().get(0);
+		private final Group cGroup_5_2 = (Group)cGroup_5.eContents().get(2);
+		private final Keyword cCommaKeyword_5_2_0 = (Keyword)cGroup_5_2.eContents().get(0);
+		private final Assignment cNullreplacementAssignment_5_2_1 = (Assignment)cGroup_5_2.eContents().get(1);
+		private final RuleCall cNullreplacementNullReplacementParserRuleCall_5_2_1_0 = (RuleCall)cNullreplacementAssignment_5_2_1.eContents().get(0);
 		
 		//ExcelExtractor returns ExcelExtractor:
 		//    {ExcelExtractor}
-		//    name=EString".xlsx" "=>" path=EString;
+		//    name=EString".xlsx" "=>" path=EString ("null replacement->" nullreplacement+= NullReplacement ("," nullreplacement+=NullReplacement)*)?;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//{ExcelExtractor}
-		//name=EString".xlsx" "=>" path=EString
+		//name=EString".xlsx" "=>" path=EString ("null replacement->" nullreplacement+= NullReplacement ("," nullreplacement+=NullReplacement)*)?
 		public Group getGroup() { return cGroup; }
 		
 		//{ExcelExtractor}
@@ -513,6 +521,74 @@ public class BiLangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		
 		//EString
 		public RuleCall getPathEStringParserRuleCall_4_0() { return cPathEStringParserRuleCall_4_0; }
+		
+		//("null replacement->" nullreplacement+= NullReplacement ("," nullreplacement+=NullReplacement)*)?
+		public Group getGroup_5() { return cGroup_5; }
+		
+		//"null replacement->"
+		public Keyword getNullReplacementKeyword_5_0() { return cNullReplacementKeyword_5_0; }
+		
+		//nullreplacement+= NullReplacement
+		public Assignment getNullreplacementAssignment_5_1() { return cNullreplacementAssignment_5_1; }
+		
+		//NullReplacement
+		public RuleCall getNullreplacementNullReplacementParserRuleCall_5_1_0() { return cNullreplacementNullReplacementParserRuleCall_5_1_0; }
+		
+		//("," nullreplacement+=NullReplacement)*
+		public Group getGroup_5_2() { return cGroup_5_2; }
+		
+		//","
+		public Keyword getCommaKeyword_5_2_0() { return cCommaKeyword_5_2_0; }
+		
+		//nullreplacement+=NullReplacement
+		public Assignment getNullreplacementAssignment_5_2_1() { return cNullreplacementAssignment_5_2_1; }
+		
+		//NullReplacement
+		public RuleCall getNullreplacementNullReplacementParserRuleCall_5_2_1_0() { return cNullreplacementNullReplacementParserRuleCall_5_2_1_0; }
+	}
+	public class NullReplacementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ucal3ia.bilang.BiLang.NullReplacement");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cColNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cColNameEStringParserRuleCall_0_0 = (RuleCall)cColNameAssignment_0.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Alternatives cAlternatives_2 = (Alternatives)cGroup.eContents().get(2);
+		private final Assignment cLabelAssignment_2_0 = (Assignment)cAlternatives_2.eContents().get(0);
+		private final RuleCall cLabelEStringParserRuleCall_2_0_0 = (RuleCall)cLabelAssignment_2_0.eContents().get(0);
+		private final Assignment cStatisticaloperationAssignment_2_1 = (Assignment)cAlternatives_2.eContents().get(1);
+		private final RuleCall cStatisticaloperationStatisticalOperationParserRuleCall_2_1_0 = (RuleCall)cStatisticaloperationAssignment_2_1.eContents().get(0);
+		
+		//NullReplacement returns NullReplacement:
+		//    colName= EString "=" (label= EString |  statisticaloperation= StatisticalOperation)
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//colName= EString "=" (label= EString |  statisticaloperation= StatisticalOperation)
+		public Group getGroup() { return cGroup; }
+		
+		//colName= EString
+		public Assignment getColNameAssignment_0() { return cColNameAssignment_0; }
+		
+		//EString
+		public RuleCall getColNameEStringParserRuleCall_0_0() { return cColNameEStringParserRuleCall_0_0; }
+		
+		//"="
+		public Keyword getEqualsSignKeyword_1() { return cEqualsSignKeyword_1; }
+		
+		//(label= EString |  statisticaloperation= StatisticalOperation)
+		public Alternatives getAlternatives_2() { return cAlternatives_2; }
+		
+		//label= EString
+		public Assignment getLabelAssignment_2_0() { return cLabelAssignment_2_0; }
+		
+		//EString
+		public RuleCall getLabelEStringParserRuleCall_2_0_0() { return cLabelEStringParserRuleCall_2_0_0; }
+		
+		//statisticaloperation= StatisticalOperation
+		public Assignment getStatisticaloperationAssignment_2_1() { return cStatisticaloperationAssignment_2_1; }
+		
+		//StatisticalOperation
+		public RuleCall getStatisticaloperationStatisticalOperationParserRuleCall_2_1_0() { return cStatisticaloperationStatisticalOperationParserRuleCall_2_1_0; }
 	}
 	public class QuantitativeFilteringElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ucal3ia.bilang.BiLang.QuantitativeFiltering");
@@ -1643,6 +1719,7 @@ public class BiLangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 	private final DashBoardElements pDashBoard;
 	private final CsvExtractorElements pCsvExtractor;
 	private final ExcelExtractorElements pExcelExtractor;
+	private final NullReplacementElements pNullReplacement;
 	private final QuantitativeFilteringElements pQuantitativeFiltering;
 	private final QualitativeFilteringElements pQualitativeFiltering;
 	private final MathOperationElements pMathOperation;
@@ -1681,6 +1758,7 @@ public class BiLangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 		this.pDashBoard = new DashBoardElements();
 		this.pCsvExtractor = new CsvExtractorElements();
 		this.pExcelExtractor = new ExcelExtractorElements();
+		this.pNullReplacement = new NullReplacementElements();
 		this.pQuantitativeFiltering = new QuantitativeFilteringElements();
 		this.pQualitativeFiltering = new QualitativeFilteringElements();
 		this.pMathOperation = new MathOperationElements();
@@ -1804,7 +1882,7 @@ public class BiLangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 	}
 	
 	//DashBoard returns DashBoard:
-	//    name=EString "=>" ("e" fileextractor=[FileExtractor|EString] | 'df' datafiltering=[DataFiltering|EString])
+	//    name=EString "=>" fileextractor=[FileExtractor|EString]
 	//        'plots' '{'
 	//            plot+=Plot
 	//            (plot+=Plot)*
@@ -1819,7 +1897,7 @@ public class BiLangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 	
 	//CsvExtractor returns CsvExtractor:
 	//    {CsvExtractor}
-	//    name=EString".csv" "=>" path=EString;
+	//    name=EString".csv" "=>" path=EString ("null replacement->" nullreplacement+= NullReplacement ("," nullreplacement+=NullReplacement)*)?;
 	public CsvExtractorElements getCsvExtractorAccess() {
 		return pCsvExtractor;
 	}
@@ -1830,13 +1908,24 @@ public class BiLangGrammarAccess extends AbstractElementFinder.AbstractGrammarEl
 	
 	//ExcelExtractor returns ExcelExtractor:
 	//    {ExcelExtractor}
-	//    name=EString".xlsx" "=>" path=EString;
+	//    name=EString".xlsx" "=>" path=EString ("null replacement->" nullreplacement+= NullReplacement ("," nullreplacement+=NullReplacement)*)?;
 	public ExcelExtractorElements getExcelExtractorAccess() {
 		return pExcelExtractor;
 	}
 	
 	public ParserRule getExcelExtractorRule() {
 		return getExcelExtractorAccess().getRule();
+	}
+	
+	//NullReplacement returns NullReplacement:
+	//    colName= EString "=" (label= EString |  statisticaloperation= StatisticalOperation)
+	//;
+	public NullReplacementElements getNullReplacementAccess() {
+		return pNullReplacement;
+	}
+	
+	public ParserRule getNullReplacementRule() {
+		return getNullReplacementAccess().getRule();
 	}
 	
 	//QuantitativeFiltering returns QuantitativeFiltering:

@@ -627,65 +627,34 @@ ruleDashBoard returns [EObject current=null]
 		}
 		(
 			(
-				otherlv_2='e'
 				{
-					newLeafNode(otherlv_2, grammarAccess.getDashBoardAccess().getEKeyword_2_0_0());
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getDashBoardRule());
+					}
 				}
-				(
-					(
-						{
-							if ($current==null) {
-								$current = createModelElement(grammarAccess.getDashBoardRule());
-							}
-						}
-						{
-							newCompositeNode(grammarAccess.getDashBoardAccess().getFileextractorFileExtractorCrossReference_2_0_1_0());
-						}
-						ruleEString
-						{
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)
-			    |
-			(
-				otherlv_4='df'
 				{
-					newLeafNode(otherlv_4, grammarAccess.getDashBoardAccess().getDfKeyword_2_1_0());
+					newCompositeNode(grammarAccess.getDashBoardAccess().getFileextractorFileExtractorCrossReference_2_0());
 				}
-				(
-					(
-						{
-							if ($current==null) {
-								$current = createModelElement(grammarAccess.getDashBoardRule());
-							}
-						}
-						{
-							newCompositeNode(grammarAccess.getDashBoardAccess().getDatafilteringDataFilteringCrossReference_2_1_1_0());
-						}
-						ruleEString
-						{
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
+				ruleEString
+				{
+					afterParserOrEnumRuleCall();
+				}
 			)
 		)
-		otherlv_6='plots'
+		otherlv_3='plots'
 		{
-			newLeafNode(otherlv_6, grammarAccess.getDashBoardAccess().getPlotsKeyword_3());
+			newLeafNode(otherlv_3, grammarAccess.getDashBoardAccess().getPlotsKeyword_3());
 		}
-		otherlv_7='{'
+		otherlv_4='{'
 		{
-			newLeafNode(otherlv_7, grammarAccess.getDashBoardAccess().getLeftCurlyBracketKeyword_4());
+			newLeafNode(otherlv_4, grammarAccess.getDashBoardAccess().getLeftCurlyBracketKeyword_4());
 		}
 		(
 			(
 				{
 					newCompositeNode(grammarAccess.getDashBoardAccess().getPlotPlotParserRuleCall_5_0());
 				}
-				lv_plot_8_0=rulePlot
+				lv_plot_5_0=rulePlot
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getDashBoardRule());
@@ -693,7 +662,7 @@ ruleDashBoard returns [EObject current=null]
 					add(
 						$current,
 						"plot",
-						lv_plot_8_0,
+						lv_plot_5_0,
 						"ucal3ia.bilang.BiLang.Plot");
 					afterParserOrEnumRuleCall();
 				}
@@ -704,7 +673,7 @@ ruleDashBoard returns [EObject current=null]
 				{
 					newCompositeNode(grammarAccess.getDashBoardAccess().getPlotPlotParserRuleCall_6_0());
 				}
-				lv_plot_9_0=rulePlot
+				lv_plot_6_0=rulePlot
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getDashBoardRule());
@@ -712,15 +681,15 @@ ruleDashBoard returns [EObject current=null]
 					add(
 						$current,
 						"plot",
-						lv_plot_9_0,
+						lv_plot_6_0,
 						"ucal3ia.bilang.BiLang.Plot");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)*
-		otherlv_10='}'
+		otherlv_7='}'
 		{
-			newLeafNode(otherlv_10, grammarAccess.getDashBoardAccess().getRightCurlyBracketKeyword_7());
+			newLeafNode(otherlv_7, grammarAccess.getDashBoardAccess().getRightCurlyBracketKeyword_7());
 		}
 	)
 ;
@@ -794,6 +763,56 @@ ruleCsvExtractor returns [EObject current=null]
 				}
 			)
 		)
+		(
+			otherlv_5='null replacement->'
+			{
+				newLeafNode(otherlv_5, grammarAccess.getCsvExtractorAccess().getNullReplacementKeyword_5_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getCsvExtractorAccess().getNullreplacementNullReplacementParserRuleCall_5_1_0());
+					}
+					lv_nullreplacement_6_0=ruleNullReplacement
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getCsvExtractorRule());
+						}
+						add(
+							$current,
+							"nullreplacement",
+							lv_nullreplacement_6_0,
+							"ucal3ia.bilang.BiLang.NullReplacement");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				otherlv_7=','
+				{
+					newLeafNode(otherlv_7, grammarAccess.getCsvExtractorAccess().getCommaKeyword_5_2_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getCsvExtractorAccess().getNullreplacementNullReplacementParserRuleCall_5_2_1_0());
+						}
+						lv_nullreplacement_8_0=ruleNullReplacement
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getCsvExtractorRule());
+							}
+							add(
+								$current,
+								"nullreplacement",
+								lv_nullreplacement_8_0,
+								"ucal3ia.bilang.BiLang.NullReplacement");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)*
+		)?
 	)
 ;
 
@@ -864,6 +883,139 @@ ruleExcelExtractor returns [EObject current=null]
 						"ucal3ia.bilang.BiLang.EString");
 					afterParserOrEnumRuleCall();
 				}
+			)
+		)
+		(
+			otherlv_5='null replacement->'
+			{
+				newLeafNode(otherlv_5, grammarAccess.getExcelExtractorAccess().getNullReplacementKeyword_5_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getExcelExtractorAccess().getNullreplacementNullReplacementParserRuleCall_5_1_0());
+					}
+					lv_nullreplacement_6_0=ruleNullReplacement
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getExcelExtractorRule());
+						}
+						add(
+							$current,
+							"nullreplacement",
+							lv_nullreplacement_6_0,
+							"ucal3ia.bilang.BiLang.NullReplacement");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				otherlv_7=','
+				{
+					newLeafNode(otherlv_7, grammarAccess.getExcelExtractorAccess().getCommaKeyword_5_2_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getExcelExtractorAccess().getNullreplacementNullReplacementParserRuleCall_5_2_1_0());
+						}
+						lv_nullreplacement_8_0=ruleNullReplacement
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getExcelExtractorRule());
+							}
+							add(
+								$current,
+								"nullreplacement",
+								lv_nullreplacement_8_0,
+								"ucal3ia.bilang.BiLang.NullReplacement");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)*
+		)?
+	)
+;
+
+// Entry rule entryRuleNullReplacement
+entryRuleNullReplacement returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getNullReplacementRule()); }
+	iv_ruleNullReplacement=ruleNullReplacement
+	{ $current=$iv_ruleNullReplacement.current; }
+	EOF;
+
+// Rule NullReplacement
+ruleNullReplacement returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getNullReplacementAccess().getColNameEStringParserRuleCall_0_0());
+				}
+				lv_colName_0_0=ruleEString
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getNullReplacementRule());
+					}
+					set(
+						$current,
+						"colName",
+						lv_colName_0_0,
+						"ucal3ia.bilang.BiLang.EString");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_1='='
+		{
+			newLeafNode(otherlv_1, grammarAccess.getNullReplacementAccess().getEqualsSignKeyword_1());
+		}
+		(
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getNullReplacementAccess().getLabelEStringParserRuleCall_2_0_0());
+					}
+					lv_label_2_0=ruleEString
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getNullReplacementRule());
+						}
+						set(
+							$current,
+							"label",
+							lv_label_2_0,
+							"ucal3ia.bilang.BiLang.EString");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			    |
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getNullReplacementAccess().getStatisticaloperationStatisticalOperationParserRuleCall_2_1_0());
+					}
+					lv_statisticaloperation_3_0=ruleStatisticalOperation
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getNullReplacementRule());
+						}
+						set(
+							$current,
+							"statisticaloperation",
+							lv_statisticaloperation_3_0,
+							"ucal3ia.bilang.BiLang.StatisticalOperation");
+						afterParserOrEnumRuleCall();
+					}
+				)
 			)
 		)
 	)

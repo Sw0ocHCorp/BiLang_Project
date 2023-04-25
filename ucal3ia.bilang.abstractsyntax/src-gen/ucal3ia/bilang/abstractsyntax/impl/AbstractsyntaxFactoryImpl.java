@@ -71,8 +71,6 @@ public class AbstractsyntaxFactoryImpl extends EFactoryImpl implements Abstracts
 			return createBarPlot();
 		case AbstractsyntaxPackage.LINE_PLOT:
 			return createLinePlot();
-		case AbstractsyntaxPackage.PREPROCESSING_STEP:
-			return createPreprocessingStep();
 		case AbstractsyntaxPackage.QUANTITATIVE_FILTERING:
 			return createQuantitativeFiltering();
 		case AbstractsyntaxPackage.QUALITATIVE_FILTERING:
@@ -93,6 +91,8 @@ public class AbstractsyntaxFactoryImpl extends EFactoryImpl implements Abstracts
 			return createRadarPlot();
 		case AbstractsyntaxPackage.DONUT_PLOT:
 			return createDonutPlot();
+		case AbstractsyntaxPackage.NULL_REPLACEMENT:
+			return createNullReplacement();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -215,16 +215,6 @@ public class AbstractsyntaxFactoryImpl extends EFactoryImpl implements Abstracts
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PreprocessingStep createPreprocessingStep() {
-		PreprocessingStepImpl preprocessingStep = new PreprocessingStepImpl();
-		return preprocessingStep;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public QuantitativeFiltering createQuantitativeFiltering() {
 		QuantitativeFilteringImpl quantitativeFiltering = new QuantitativeFilteringImpl();
 		return quantitativeFiltering;
@@ -318,6 +308,16 @@ public class AbstractsyntaxFactoryImpl extends EFactoryImpl implements Abstracts
 	public DonutPlot createDonutPlot() {
 		DonutPlotImpl donutPlot = new DonutPlotImpl();
 		return donutPlot;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NullReplacement createNullReplacement() {
+		NullReplacementImpl nullReplacement = new NullReplacementImpl();
+		return nullReplacement;
 	}
 
 	/**

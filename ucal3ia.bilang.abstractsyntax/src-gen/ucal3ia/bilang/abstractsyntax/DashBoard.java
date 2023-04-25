@@ -14,7 +14,6 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link ucal3ia.bilang.abstractsyntax.DashBoard#getFileextractor <em>Fileextractor</em>}</li>
- *   <li>{@link ucal3ia.bilang.abstractsyntax.DashBoard#getDatafiltering <em>Datafiltering</em>}</li>
  *   <li>{@link ucal3ia.bilang.abstractsyntax.DashBoard#getPlot <em>Plot</em>}</li>
  * </ul>
  *
@@ -30,7 +29,7 @@ public interface DashBoard extends NamedElement {
 	 * @return the value of the '<em>Fileextractor</em>' reference.
 	 * @see #setFileextractor(FileExtractor)
 	 * @see ucal3ia.bilang.abstractsyntax.AbstractsyntaxPackage#getDashBoard_Fileextractor()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	FileExtractor getFileextractor();
@@ -44,28 +43,6 @@ public interface DashBoard extends NamedElement {
 	 * @generated
 	 */
 	void setFileextractor(FileExtractor value);
-
-	/**
-	 * Returns the value of the '<em><b>Datafiltering</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Datafiltering</em>' reference.
-	 * @see #setDatafiltering(DataFiltering)
-	 * @see ucal3ia.bilang.abstractsyntax.AbstractsyntaxPackage#getDashBoard_Datafiltering()
-	 * @model
-	 * @generated
-	 */
-	DataFiltering getDatafiltering();
-
-	/**
-	 * Sets the value of the '{@link ucal3ia.bilang.abstractsyntax.DashBoard#getDatafiltering <em>Datafiltering</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Datafiltering</em>' reference.
-	 * @see #getDatafiltering()
-	 * @generated
-	 */
-	void setDatafiltering(DataFiltering value);
 
 	/**
 	 * Returns the value of the '<em><b>Plot</b></em>' containment reference list.

@@ -19,7 +19,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
 
 import ucal3ia.bilang.abstractsyntax.AbstractsyntaxPackage;
 import ucal3ia.bilang.abstractsyntax.DashBoard;
-import ucal3ia.bilang.abstractsyntax.DataFiltering;
 import ucal3ia.bilang.abstractsyntax.FileExtractor;
 import ucal3ia.bilang.abstractsyntax.Plot;
 
@@ -32,7 +31,6 @@ import ucal3ia.bilang.abstractsyntax.Plot;
  * </p>
  * <ul>
  *   <li>{@link ucal3ia.bilang.abstractsyntax.impl.DashBoardImpl#getFileextractor <em>Fileextractor</em>}</li>
- *   <li>{@link ucal3ia.bilang.abstractsyntax.impl.DashBoardImpl#getDatafiltering <em>Datafiltering</em>}</li>
  *   <li>{@link ucal3ia.bilang.abstractsyntax.impl.DashBoardImpl#getPlot <em>Plot</em>}</li>
  * </ul>
  *
@@ -48,16 +46,6 @@ public class DashBoardImpl extends NamedElementImpl implements DashBoard {
 	 * @ordered
 	 */
 	protected FileExtractor fileextractor;
-
-	/**
-	 * The cached value of the '{@link #getDatafiltering() <em>Datafiltering</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDatafiltering()
-	 * @generated
-	 * @ordered
-	 */
-	protected DataFiltering datafiltering;
 
 	/**
 	 * The cached value of the '{@link #getPlot() <em>Plot</em>}' containment reference list.
@@ -133,46 +121,6 @@ public class DashBoardImpl extends NamedElementImpl implements DashBoard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DataFiltering getDatafiltering() {
-		if (datafiltering != null && datafiltering.eIsProxy()) {
-			InternalEObject oldDatafiltering = (InternalEObject) datafiltering;
-			datafiltering = (DataFiltering) eResolveProxy(oldDatafiltering);
-			if (datafiltering != oldDatafiltering) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-							AbstractsyntaxPackage.DASH_BOARD__DATAFILTERING, oldDatafiltering, datafiltering));
-			}
-		}
-		return datafiltering;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DataFiltering basicGetDatafiltering() {
-		return datafiltering;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setDatafiltering(DataFiltering newDatafiltering) {
-		DataFiltering oldDatafiltering = datafiltering;
-		datafiltering = newDatafiltering;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AbstractsyntaxPackage.DASH_BOARD__DATAFILTERING,
-					oldDatafiltering, datafiltering));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EList<Plot> getPlot() {
 		if (plot == null) {
 			plot = new EObjectContainmentEList<Plot>(Plot.class, this, AbstractsyntaxPackage.DASH_BOARD__PLOT);
@@ -206,10 +154,6 @@ public class DashBoardImpl extends NamedElementImpl implements DashBoard {
 			if (resolve)
 				return getFileextractor();
 			return basicGetFileextractor();
-		case AbstractsyntaxPackage.DASH_BOARD__DATAFILTERING:
-			if (resolve)
-				return getDatafiltering();
-			return basicGetDatafiltering();
 		case AbstractsyntaxPackage.DASH_BOARD__PLOT:
 			return getPlot();
 		}
@@ -227,9 +171,6 @@ public class DashBoardImpl extends NamedElementImpl implements DashBoard {
 		switch (featureID) {
 		case AbstractsyntaxPackage.DASH_BOARD__FILEEXTRACTOR:
 			setFileextractor((FileExtractor) newValue);
-			return;
-		case AbstractsyntaxPackage.DASH_BOARD__DATAFILTERING:
-			setDatafiltering((DataFiltering) newValue);
 			return;
 		case AbstractsyntaxPackage.DASH_BOARD__PLOT:
 			getPlot().clear();
@@ -250,9 +191,6 @@ public class DashBoardImpl extends NamedElementImpl implements DashBoard {
 		case AbstractsyntaxPackage.DASH_BOARD__FILEEXTRACTOR:
 			setFileextractor((FileExtractor) null);
 			return;
-		case AbstractsyntaxPackage.DASH_BOARD__DATAFILTERING:
-			setDatafiltering((DataFiltering) null);
-			return;
 		case AbstractsyntaxPackage.DASH_BOARD__PLOT:
 			getPlot().clear();
 			return;
@@ -270,8 +208,6 @@ public class DashBoardImpl extends NamedElementImpl implements DashBoard {
 		switch (featureID) {
 		case AbstractsyntaxPackage.DASH_BOARD__FILEEXTRACTOR:
 			return fileextractor != null;
-		case AbstractsyntaxPackage.DASH_BOARD__DATAFILTERING:
-			return datafiltering != null;
 		case AbstractsyntaxPackage.DASH_BOARD__PLOT:
 			return plot != null && !plot.isEmpty();
 		}
