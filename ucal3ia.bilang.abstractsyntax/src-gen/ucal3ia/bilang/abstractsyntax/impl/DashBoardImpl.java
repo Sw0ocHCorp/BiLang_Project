@@ -3,18 +3,14 @@
 package ucal3ia.bilang.abstractsyntax.impl;
 
 import java.util.Collection;
-
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import ucal3ia.bilang.abstractsyntax.AbstractsyntaxPackage;
@@ -38,14 +34,14 @@ import ucal3ia.bilang.abstractsyntax.Plot;
  */
 public class DashBoardImpl extends NamedElementImpl implements DashBoard {
 	/**
-	 * The cached value of the '{@link #getFileextractor() <em>Fileextractor</em>}' reference.
+	 * The cached value of the '{@link #getFileextractor() <em>Fileextractor</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getFileextractor()
 	 * @generated
 	 * @ordered
 	 */
-	protected FileExtractor fileextractor;
+	protected EList<FileExtractor> fileextractor;
 
 	/**
 	 * The cached value of the '{@link #getPlot() <em>Plot</em>}' containment reference list.
@@ -81,39 +77,12 @@ public class DashBoardImpl extends NamedElementImpl implements DashBoard {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public FileExtractor getFileextractor() {
-		if (fileextractor != null && fileextractor.eIsProxy()) {
-			InternalEObject oldFileextractor = (InternalEObject) fileextractor;
-			fileextractor = (FileExtractor) eResolveProxy(oldFileextractor);
-			if (fileextractor != oldFileextractor) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE,
-							AbstractsyntaxPackage.DASH_BOARD__FILEEXTRACTOR, oldFileextractor, fileextractor));
-			}
+	public EList<FileExtractor> getFileextractor() {
+		if (fileextractor == null) {
+			fileextractor = new EObjectResolvingEList<FileExtractor>(FileExtractor.class, this,
+					AbstractsyntaxPackage.DASH_BOARD__FILEEXTRACTOR);
 		}
 		return fileextractor;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public FileExtractor basicGetFileextractor() {
-		return fileextractor;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setFileextractor(FileExtractor newFileextractor) {
-		FileExtractor oldFileextractor = fileextractor;
-		fileextractor = newFileextractor;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, AbstractsyntaxPackage.DASH_BOARD__FILEEXTRACTOR,
-					oldFileextractor, fileextractor));
 	}
 
 	/**
@@ -151,9 +120,7 @@ public class DashBoardImpl extends NamedElementImpl implements DashBoard {
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 		case AbstractsyntaxPackage.DASH_BOARD__FILEEXTRACTOR:
-			if (resolve)
-				return getFileextractor();
-			return basicGetFileextractor();
+			return getFileextractor();
 		case AbstractsyntaxPackage.DASH_BOARD__PLOT:
 			return getPlot();
 		}
@@ -170,7 +137,8 @@ public class DashBoardImpl extends NamedElementImpl implements DashBoard {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 		case AbstractsyntaxPackage.DASH_BOARD__FILEEXTRACTOR:
-			setFileextractor((FileExtractor) newValue);
+			getFileextractor().clear();
+			getFileextractor().addAll((Collection<? extends FileExtractor>) newValue);
 			return;
 		case AbstractsyntaxPackage.DASH_BOARD__PLOT:
 			getPlot().clear();
@@ -189,7 +157,7 @@ public class DashBoardImpl extends NamedElementImpl implements DashBoard {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 		case AbstractsyntaxPackage.DASH_BOARD__FILEEXTRACTOR:
-			setFileextractor((FileExtractor) null);
+			getFileextractor().clear();
 			return;
 		case AbstractsyntaxPackage.DASH_BOARD__PLOT:
 			getPlot().clear();
@@ -207,7 +175,7 @@ public class DashBoardImpl extends NamedElementImpl implements DashBoard {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 		case AbstractsyntaxPackage.DASH_BOARD__FILEEXTRACTOR:
-			return fileextractor != null;
+			return fileextractor != null && !fileextractor.isEmpty();
 		case AbstractsyntaxPackage.DASH_BOARD__PLOT:
 			return plot != null && !plot.isEmpty();
 		}

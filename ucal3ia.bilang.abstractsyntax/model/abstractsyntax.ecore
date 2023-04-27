@@ -13,7 +13,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="dashboard" lowerBound="1"
         eType="#//DashBoard" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="FileExtractor" abstract="true" eSuperTypes="#//NamedElement">
+  <eClassifiers xsi:type="ecore:EClass" name="FileExtractor" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="nullreplacement" upperBound="-1"
         eType="#//NullReplacement" containment="true"/>
@@ -28,7 +28,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DashBoard" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="fileextractor" lowerBound="1"
-        eType="#//FileExtractor"/>
+        upperBound="-1" eType="#//FileExtractor"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="plot" lowerBound="1" upperBound="-1"
         eType="#//Plot" containment="true"/>
   </eClassifiers>

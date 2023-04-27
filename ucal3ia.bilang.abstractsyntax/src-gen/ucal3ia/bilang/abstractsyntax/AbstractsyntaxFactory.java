@@ -31,6 +31,15 @@ public interface AbstractsyntaxFactory extends EFactory {
 	Task createTask();
 
 	/**
+	 * Returns a new object of class '<em>File Extractor</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>File Extractor</em>'.
+	 * @generated
+	 */
+	FileExtractor createFileExtractor();
+
+	/**
 	 * Returns a new object of class '<em>Data Filtering</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

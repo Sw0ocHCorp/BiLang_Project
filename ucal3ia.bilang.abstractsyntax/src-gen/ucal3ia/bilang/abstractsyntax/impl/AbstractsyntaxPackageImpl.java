@@ -990,7 +990,7 @@ public class AbstractsyntaxPackageImpl extends EPackageImpl implements Abstracts
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(fileExtractorEClass, FileExtractor.class, "FileExtractor", IS_ABSTRACT, !IS_INTERFACE,
+		initEClass(fileExtractorEClass, FileExtractor.class, "FileExtractor", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getFileExtractor_Path(), ecorePackage.getEString(), "path", null, 0, 1, FileExtractor.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1012,7 +1012,7 @@ public class AbstractsyntaxPackageImpl extends EPackageImpl implements Abstracts
 
 		initEClass(dashBoardEClass, DashBoard.class, "DashBoard", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDashBoard_Fileextractor(), this.getFileExtractor(), null, "fileextractor", null, 1, 1,
+		initEReference(getDashBoard_Fileextractor(), this.getFileExtractor(), null, "fileextractor", null, 1, -1,
 				DashBoard.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getDashBoard_Plot(), this.getPlot(), null, "plot", null, 1, -1, DashBoard.class, !IS_TRANSIENT,

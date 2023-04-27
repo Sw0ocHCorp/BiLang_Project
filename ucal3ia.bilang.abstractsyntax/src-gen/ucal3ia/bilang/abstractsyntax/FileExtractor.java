@@ -18,7 +18,7 @@ import org.eclipse.emf.common.util.EList;
  * </ul>
  *
  * @see ucal3ia.bilang.abstractsyntax.AbstractsyntaxPackage#getFileExtractor()
- * @model abstract="true"
+ * @model
  * @generated
  */
 public interface FileExtractor extends NamedElement {

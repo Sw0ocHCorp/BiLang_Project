@@ -148,6 +148,9 @@ public class TaskItemProvider extends NamedElementItemProvider {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
 		newChildDescriptors.add(createChildParameter(AbstractsyntaxPackage.Literals.TASK__FILEEXTRACTOR,
+				AbstractsyntaxFactory.eINSTANCE.createFileExtractor()));
+
+		newChildDescriptors.add(createChildParameter(AbstractsyntaxPackage.Literals.TASK__FILEEXTRACTOR,
 				AbstractsyntaxFactory.eINSTANCE.createCsvExtractor()));
 
 		newChildDescriptors.add(createChildParameter(AbstractsyntaxPackage.Literals.TASK__FILEEXTRACTOR,

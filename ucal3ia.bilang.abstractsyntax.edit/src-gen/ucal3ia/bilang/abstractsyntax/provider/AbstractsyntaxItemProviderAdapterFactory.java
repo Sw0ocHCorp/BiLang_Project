@@ -96,6 +96,29 @@ public class AbstractsyntaxItemProviderAdapterFactory extends AbstractsyntaxAdap
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link ucal3ia.bilang.abstractsyntax.FileExtractor} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected FileExtractorItemProvider fileExtractorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ucal3ia.bilang.abstractsyntax.FileExtractor}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createFileExtractorAdapter() {
+		if (fileExtractorItemProvider == null) {
+			fileExtractorItemProvider = new FileExtractorItemProvider(this);
+		}
+
+		return fileExtractorItemProvider;
+	}
+
+	/**
 	 * This keeps track of the one adapter used for all {@link ucal3ia.bilang.abstractsyntax.DataFiltering} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -587,6 +610,8 @@ public class AbstractsyntaxItemProviderAdapterFactory extends AbstractsyntaxAdap
 	public void dispose() {
 		if (taskItemProvider != null)
 			taskItemProvider.dispose();
+		if (fileExtractorItemProvider != null)
+			fileExtractorItemProvider.dispose();
 		if (dataFilteringItemProvider != null)
 			dataFilteringItemProvider.dispose();
 		if (dashBoardItemProvider != null)

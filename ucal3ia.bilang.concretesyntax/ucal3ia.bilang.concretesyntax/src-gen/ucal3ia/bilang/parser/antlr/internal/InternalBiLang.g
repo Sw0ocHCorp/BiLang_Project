@@ -127,40 +127,25 @@ ruleTask returns [EObject current=null]
 			)
 		)
 		(
-			(
-				{
-					newCompositeNode(grammarAccess.getTaskAccess().getDatafilteringDataFilteringParserRuleCall_5_0());
-				}
-				lv_datafiltering_5_0=ruleDataFiltering
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getTaskRule());
-					}
-					add(
-						$current,
-						"datafiltering",
-						lv_datafiltering_5_0,
-						"ucal3ia.bilang.BiLang.DataFiltering");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)?
-		(
+			otherlv_5='['
+			{
+				newLeafNode(otherlv_5, grammarAccess.getTaskAccess().getLeftSquareBracketKeyword_5_0());
+			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getTaskAccess().getFileextractorFileExtractorParserRuleCall_6_0_0());
+						newCompositeNode(grammarAccess.getTaskAccess().getDatafilteringDataFilteringParserRuleCall_5_1_0());
 					}
-					lv_fileextractor_6_0=ruleFileExtractor
+					lv_datafiltering_6_0=ruleDataFiltering
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getTaskRule());
 						}
 						add(
 							$current,
-							"fileextractor",
-							lv_fileextractor_6_0,
-							"ucal3ia.bilang.BiLang.FileExtractor");
+							"datafiltering",
+							lv_datafiltering_6_0,
+							"ucal3ia.bilang.BiLang.DataFiltering");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -168,7 +153,7 @@ ruleTask returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getTaskAccess().getDatafilteringDataFilteringParserRuleCall_6_1_0());
+						newCompositeNode(grammarAccess.getTaskAccess().getDatafilteringDataFilteringParserRuleCall_5_2_0());
 					}
 					lv_datafiltering_7_0=ruleDataFiltering
 					{
@@ -183,18 +168,91 @@ ruleTask returns [EObject current=null]
 						afterParserOrEnumRuleCall();
 					}
 				)
+			)*
+			otherlv_8=']'
+			{
+				newLeafNode(otherlv_8, grammarAccess.getTaskAccess().getRightSquareBracketKeyword_5_3());
+			}
+		)?
+		(
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getTaskAccess().getFileextractorFileExtractorParserRuleCall_6_0_0());
+					}
+					lv_fileextractor_9_0=ruleFileExtractor
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getTaskRule());
+						}
+						add(
+							$current,
+							"fileextractor",
+							lv_fileextractor_9_0,
+							"ucal3ia.bilang.BiLang.FileExtractor");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				otherlv_10='['
+				{
+					newLeafNode(otherlv_10, grammarAccess.getTaskAccess().getLeftSquareBracketKeyword_6_1_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getTaskAccess().getDatafilteringDataFilteringParserRuleCall_6_1_1_0());
+						}
+						lv_datafiltering_11_0=ruleDataFiltering
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getTaskRule());
+							}
+							add(
+								$current,
+								"datafiltering",
+								lv_datafiltering_11_0,
+								"ucal3ia.bilang.BiLang.DataFiltering");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getTaskAccess().getDatafilteringDataFilteringParserRuleCall_6_1_2_0());
+						}
+						lv_datafiltering_12_0=ruleDataFiltering
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getTaskRule());
+							}
+							add(
+								$current,
+								"datafiltering",
+								lv_datafiltering_12_0,
+								"ucal3ia.bilang.BiLang.DataFiltering");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)*
+				otherlv_13=']'
+				{
+					newLeafNode(otherlv_13, grammarAccess.getTaskAccess().getRightSquareBracketKeyword_6_1_3());
+				}
 			)?
 		)*
-		otherlv_8='[dashboard:'
+		otherlv_14='[dashboard:'
 		{
-			newLeafNode(otherlv_8, grammarAccess.getTaskAccess().getDashboardKeyword_7());
+			newLeafNode(otherlv_14, grammarAccess.getTaskAccess().getDashboardKeyword_7());
 		}
 		(
 			(
 				{
 					newCompositeNode(grammarAccess.getTaskAccess().getDashboardDashBoardParserRuleCall_8_0());
 				}
-				lv_dashboard_9_0=ruleDashBoard
+				lv_dashboard_15_0=ruleDashBoard
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getTaskRule());
@@ -202,15 +260,15 @@ ruleTask returns [EObject current=null]
 					set(
 						$current,
 						"dashboard",
-						lv_dashboard_9_0,
+						lv_dashboard_15_0,
 						"ucal3ia.bilang.BiLang.DashBoard");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
-		otherlv_10=']'
+		otherlv_16=']'
 		{
-			newLeafNode(otherlv_10, grammarAccess.getTaskAccess().getRightSquareBracketKeyword_9());
+			newLeafNode(otherlv_16, grammarAccess.getTaskAccess().getRightSquareBracketKeyword_9());
 		}
 	)
 ;
@@ -231,23 +289,98 @@ ruleFileExtractor returns [EObject current=null]
 	leaveRule();
 }:
 	(
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getFileExtractorAccess().getNameEStringParserRuleCall_0_0());
+				}
+				lv_name_0_0=ruleEString
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getFileExtractorRule());
+					}
+					set(
+						$current,
+						"name",
+						lv_name_0_0,
+						"ucal3ia.bilang.BiLang.EString");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_1='=>'
 		{
-			newCompositeNode(grammarAccess.getFileExtractorAccess().getCsvExtractorParserRuleCall_0());
+			newLeafNode(otherlv_1, grammarAccess.getFileExtractorAccess().getEqualsSignGreaterThanSignKeyword_1());
 		}
-		this_CsvExtractor_0=ruleCsvExtractor
-		{
-			$current = $this_CsvExtractor_0.current;
-			afterParserOrEnumRuleCall();
-		}
-		    |
-		{
-			newCompositeNode(grammarAccess.getFileExtractorAccess().getExcelExtractorParserRuleCall_1());
-		}
-		this_ExcelExtractor_1=ruleExcelExtractor
-		{
-			$current = $this_ExcelExtractor_1.current;
-			afterParserOrEnumRuleCall();
-		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getFileExtractorAccess().getPathEStringParserRuleCall_2_0());
+				}
+				lv_path_2_0=ruleEString
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getFileExtractorRule());
+					}
+					set(
+						$current,
+						"path",
+						lv_path_2_0,
+						"ucal3ia.bilang.BiLang.EString");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			otherlv_3='null replacement->'
+			{
+				newLeafNode(otherlv_3, grammarAccess.getFileExtractorAccess().getNullReplacementKeyword_3_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getFileExtractorAccess().getNullreplacementNullReplacementParserRuleCall_3_1_0());
+					}
+					lv_nullreplacement_4_0=ruleNullReplacement
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getFileExtractorRule());
+						}
+						add(
+							$current,
+							"nullreplacement",
+							lv_nullreplacement_4_0,
+							"ucal3ia.bilang.BiLang.NullReplacement");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				otherlv_5=','
+				{
+					newLeafNode(otherlv_5, grammarAccess.getFileExtractorAccess().getCommaKeyword_3_2_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getFileExtractorAccess().getNullreplacementNullReplacementParserRuleCall_3_2_1_0());
+						}
+						lv_nullreplacement_6_0=ruleNullReplacement
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getFileExtractorRule());
+							}
+							add(
+								$current,
+								"nullreplacement",
+								lv_nullreplacement_6_0,
+								"ucal3ia.bilang.BiLang.NullReplacement");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)*
+		)?
 	)
 ;
 
@@ -627,314 +760,72 @@ ruleDashBoard returns [EObject current=null]
 		}
 		(
 			(
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getDashBoardRule());
+				(
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getDashBoardRule());
+						}
 					}
-				}
-				{
-					newCompositeNode(grammarAccess.getDashBoardAccess().getFileextractorFileExtractorCrossReference_2_0());
-				}
-				ruleEString
-				{
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		otherlv_3='plots'
-		{
-			newLeafNode(otherlv_3, grammarAccess.getDashBoardAccess().getPlotsKeyword_3());
-		}
-		otherlv_4='{'
-		{
-			newLeafNode(otherlv_4, grammarAccess.getDashBoardAccess().getLeftCurlyBracketKeyword_4());
-		}
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getDashBoardAccess().getPlotPlotParserRuleCall_5_0());
-				}
-				lv_plot_5_0=rulePlot
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getDashBoardRule());
+					{
+						newCompositeNode(grammarAccess.getDashBoardAccess().getFileextractorFileExtractorCrossReference_2_0_0());
 					}
-					add(
-						$current,
-						"plot",
-						lv_plot_5_0,
-						"ucal3ia.bilang.BiLang.Plot");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getDashBoardAccess().getPlotPlotParserRuleCall_6_0());
-				}
-				lv_plot_6_0=rulePlot
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getDashBoardRule());
+					ruleEString
+					{
+						afterParserOrEnumRuleCall();
 					}
-					add(
-						$current,
-						"plot",
-						lv_plot_6_0,
-						"ucal3ia.bilang.BiLang.Plot");
-					afterParserOrEnumRuleCall();
-				}
+				)
 			)
-		)*
-		otherlv_7='}'
-		{
-			newLeafNode(otherlv_7, grammarAccess.getDashBoardAccess().getRightCurlyBracketKeyword_7());
-		}
-	)
-;
-
-// Entry rule entryRuleCsvExtractor
-entryRuleCsvExtractor returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getCsvExtractorRule()); }
-	iv_ruleCsvExtractor=ruleCsvExtractor
-	{ $current=$iv_ruleCsvExtractor.current; }
-	EOF;
-
-// Rule CsvExtractor
-ruleCsvExtractor returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
+			otherlv_3='plots'
 			{
-				$current = forceCreateModelElement(
-					grammarAccess.getCsvExtractorAccess().getCsvExtractorAction_0(),
-					$current);
+				newLeafNode(otherlv_3, grammarAccess.getDashBoardAccess().getPlotsKeyword_2_1());
 			}
-		)
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getCsvExtractorAccess().getNameEStringParserRuleCall_1_0());
-				}
-				lv_name_1_0=ruleEString
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getCsvExtractorRule());
-					}
-					set(
-						$current,
-						"name",
-						lv_name_1_0,
-						"ucal3ia.bilang.BiLang.EString");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		otherlv_2='.csv'
-		{
-			newLeafNode(otherlv_2, grammarAccess.getCsvExtractorAccess().getCsvKeyword_2());
-		}
-		otherlv_3='=>'
-		{
-			newLeafNode(otherlv_3, grammarAccess.getCsvExtractorAccess().getEqualsSignGreaterThanSignKeyword_3());
-		}
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getCsvExtractorAccess().getPathEStringParserRuleCall_4_0());
-				}
-				lv_path_4_0=ruleEString
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getCsvExtractorRule());
-					}
-					set(
-						$current,
-						"path",
-						lv_path_4_0,
-						"ucal3ia.bilang.BiLang.EString");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		(
-			otherlv_5='null replacement->'
+			otherlv_4='{'
 			{
-				newLeafNode(otherlv_5, grammarAccess.getCsvExtractorAccess().getNullReplacementKeyword_5_0());
+				newLeafNode(otherlv_4, grammarAccess.getDashBoardAccess().getLeftCurlyBracketKeyword_2_2());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getCsvExtractorAccess().getNullreplacementNullReplacementParserRuleCall_5_1_0());
+						newCompositeNode(grammarAccess.getDashBoardAccess().getPlotPlotParserRuleCall_2_3_0());
 					}
-					lv_nullreplacement_6_0=ruleNullReplacement
+					lv_plot_5_0=rulePlot
 					{
 						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getCsvExtractorRule());
+							$current = createModelElementForParent(grammarAccess.getDashBoardRule());
 						}
 						add(
 							$current,
-							"nullreplacement",
-							lv_nullreplacement_6_0,
-							"ucal3ia.bilang.BiLang.NullReplacement");
+							"plot",
+							lv_plot_5_0,
+							"ucal3ia.bilang.BiLang.Plot");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 			(
-				otherlv_7=','
-				{
-					newLeafNode(otherlv_7, grammarAccess.getCsvExtractorAccess().getCommaKeyword_5_2_0());
-				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getCsvExtractorAccess().getNullreplacementNullReplacementParserRuleCall_5_2_1_0());
-						}
-						lv_nullreplacement_8_0=ruleNullReplacement
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getCsvExtractorRule());
-							}
-							add(
-								$current,
-								"nullreplacement",
-								lv_nullreplacement_8_0,
-								"ucal3ia.bilang.BiLang.NullReplacement");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
-			)*
-		)?
-	)
-;
-
-// Entry rule entryRuleExcelExtractor
-entryRuleExcelExtractor returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getExcelExtractorRule()); }
-	iv_ruleExcelExtractor=ruleExcelExtractor
-	{ $current=$iv_ruleExcelExtractor.current; }
-	EOF;
-
-// Rule ExcelExtractor
-ruleExcelExtractor returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			{
-				$current = forceCreateModelElement(
-					grammarAccess.getExcelExtractorAccess().getExcelExtractorAction_0(),
-					$current);
-			}
-		)
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getExcelExtractorAccess().getNameEStringParserRuleCall_1_0());
-				}
-				lv_name_1_0=ruleEString
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getExcelExtractorRule());
-					}
-					set(
-						$current,
-						"name",
-						lv_name_1_0,
-						"ucal3ia.bilang.BiLang.EString");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		otherlv_2='.xlsx'
-		{
-			newLeafNode(otherlv_2, grammarAccess.getExcelExtractorAccess().getXlsxKeyword_2());
-		}
-		otherlv_3='=>'
-		{
-			newLeafNode(otherlv_3, grammarAccess.getExcelExtractorAccess().getEqualsSignGreaterThanSignKeyword_3());
-		}
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getExcelExtractorAccess().getPathEStringParserRuleCall_4_0());
-				}
-				lv_path_4_0=ruleEString
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getExcelExtractorRule());
-					}
-					set(
-						$current,
-						"path",
-						lv_path_4_0,
-						"ucal3ia.bilang.BiLang.EString");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		(
-			otherlv_5='null replacement->'
-			{
-				newLeafNode(otherlv_5, grammarAccess.getExcelExtractorAccess().getNullReplacementKeyword_5_0());
-			}
-			(
 				(
 					{
-						newCompositeNode(grammarAccess.getExcelExtractorAccess().getNullreplacementNullReplacementParserRuleCall_5_1_0());
+						newCompositeNode(grammarAccess.getDashBoardAccess().getPlotPlotParserRuleCall_2_4_0());
 					}
-					lv_nullreplacement_6_0=ruleNullReplacement
+					lv_plot_6_0=rulePlot
 					{
 						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getExcelExtractorRule());
+							$current = createModelElementForParent(grammarAccess.getDashBoardRule());
 						}
 						add(
 							$current,
-							"nullreplacement",
-							lv_nullreplacement_6_0,
-							"ucal3ia.bilang.BiLang.NullReplacement");
+							"plot",
+							lv_plot_6_0,
+							"ucal3ia.bilang.BiLang.Plot");
 						afterParserOrEnumRuleCall();
 					}
 				)
-			)
-			(
-				otherlv_7=','
-				{
-					newLeafNode(otherlv_7, grammarAccess.getExcelExtractorAccess().getCommaKeyword_5_2_0());
-				}
-				(
-					(
-						{
-							newCompositeNode(grammarAccess.getExcelExtractorAccess().getNullreplacementNullReplacementParserRuleCall_5_2_1_0());
-						}
-						lv_nullreplacement_8_0=ruleNullReplacement
-						{
-							if ($current==null) {
-								$current = createModelElementForParent(grammarAccess.getExcelExtractorRule());
-							}
-							add(
-								$current,
-								"nullreplacement",
-								lv_nullreplacement_8_0,
-								"ucal3ia.bilang.BiLang.NullReplacement");
-							afterParserOrEnumRuleCall();
-						}
-					)
-				)
 			)*
-		)?
+			otherlv_7='}'
+			{
+				newLeafNode(otherlv_7, grammarAccess.getDashBoardAccess().getRightCurlyBracketKeyword_2_5());
+			}
+		)+
 	)
 ;
 

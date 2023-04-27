@@ -6,12 +6,12 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 Task returns Task:
 	'Task'name=ID":"
-		"load" fileextractor+=FileExtractor (datafiltering+=DataFiltering)?
-		(fileextractor+= FileExtractor (datafiltering+= DataFiltering)?)* 
+		"load" fileextractor+=FileExtractor ("[" datafiltering+=DataFiltering (datafiltering+=DataFiltering)*"]")?
+		(fileextractor+=FileExtractor ("[" datafiltering+=DataFiltering (datafiltering+=DataFiltering)*"]")?)* 
 		'[dashboard:' dashboard=DashBoard']';
 
 FileExtractor returns FileExtractor:
-	CsvExtractor | ExcelExtractor;
+	name=EString "=>" path=EString ("null replacement->" nullreplacement+= NullReplacement ("," nullreplacement+=NullReplacement)*)?;
 
 
 FilteringStep returns FilteringStep:
@@ -34,19 +34,11 @@ DataFiltering returns DataFiltering:
 
 DashBoard returns DashBoard:
 	
-	name=EString "=>" fileextractor=[FileExtractor|EString] 
+	name=EString "=>" (fileextractor+=[FileExtractor|EString] 
 		'plots' '{' 
 			plot+=Plot 
 			(plot+=Plot)* 
-			'}' ;
-
-CsvExtractor returns CsvExtractor:
-	{CsvExtractor}
-	name=EString".csv" "=>" path=EString ("null replacement->" nullreplacement+= NullReplacement ("," nullreplacement+=NullReplacement)*)?;
-
-ExcelExtractor returns ExcelExtractor:
-	{ExcelExtractor}
-	name=EString".xlsx" "=>" path=EString ("null replacement->" nullreplacement+= NullReplacement ("," nullreplacement+=NullReplacement)*)?;
+			'}')+ ;
 	
 NullReplacement returns NullReplacement:
 	colName= EString "=" (label= EString |  statisticaloperation= StatisticalOperation) 

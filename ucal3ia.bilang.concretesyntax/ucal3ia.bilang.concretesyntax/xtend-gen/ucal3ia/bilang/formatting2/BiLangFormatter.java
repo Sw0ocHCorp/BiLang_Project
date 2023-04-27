@@ -38,13 +38,13 @@ public class BiLangFormatter extends AbstractFormatter2 {
   }
   
   protected void _format(final DataFiltering dataFiltering, @Extension final IFormattableDocument document) {
-    EList<PreprocessingStep> _processingstep = dataFiltering.getProcessingstep();
-    for (final PreprocessingStep preprocessingStep : _processingstep) {
-      document.<PreprocessingStep>format(preprocessingStep);
-    }
     EList<FilteringStep> _filteringstep = dataFiltering.getFilteringstep();
     for (final FilteringStep filteringStep : _filteringstep) {
       document.<FilteringStep>format(filteringStep);
+    }
+    EList<PreprocessingStep> _processingstep = dataFiltering.getProcessingstep();
+    for (final PreprocessingStep preprocessingStep : _processingstep) {
+      document.<PreprocessingStep>format(preprocessingStep);
     }
   }
   

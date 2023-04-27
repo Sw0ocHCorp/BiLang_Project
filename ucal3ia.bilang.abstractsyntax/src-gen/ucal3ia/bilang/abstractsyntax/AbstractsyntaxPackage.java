@@ -288,7 +288,7 @@ public interface AbstractsyntaxPackage extends EPackage {
 	int DASH_BOARD__NAME = NAMED_ELEMENT__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Fileextractor</b></em>' reference.
+	 * The feature id for the '<em><b>Fileextractor</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1647,10 +1647,10 @@ public interface AbstractsyntaxPackage extends EPackage {
 	EClass getDashBoard();
 
 	/**
-	 * Returns the meta object for the reference '{@link ucal3ia.bilang.abstractsyntax.DashBoard#getFileextractor <em>Fileextractor</em>}'.
+	 * Returns the meta object for the reference list '{@link ucal3ia.bilang.abstractsyntax.DashBoard#getFileextractor <em>Fileextractor</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Fileextractor</em>'.
+	 * @return the meta object for the reference list '<em>Fileextractor</em>'.
 	 * @see ucal3ia.bilang.abstractsyntax.DashBoard#getFileextractor()
 	 * @see #getDashBoard()
 	 * @generated
@@ -2243,7 +2243,7 @@ public interface AbstractsyntaxPackage extends EPackage {
 		EClass DASH_BOARD = eINSTANCE.getDashBoard();
 
 		/**
-		 * The meta object literal for the '<em><b>Fileextractor</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Fileextractor</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

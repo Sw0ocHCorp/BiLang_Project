@@ -27,13 +27,13 @@ class BiLangFormatter extends AbstractFormatter2 {
 
 	def dispatch void format(DataFiltering dataFiltering, extension IFormattableDocument document) {
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
-		for (preprocessingStep : dataFiltering.processingstep) {
-			preprocessingStep.format
-		}
 		for (filteringStep : dataFiltering.filteringstep) {
 			filteringStep.format
 		}
+		for (preprocessingStep : dataFiltering.processingstep) {
+			preprocessingStep.format
+		}
 	}
 	
-	// TODO: implement for DashBoard, MathOperation, StatisticalOperation
+	// TODO: implement for DashBoard, NullReplacement, CsvExtractor, ExcelExtractor, StatisticalOperation, MathOperation
 }

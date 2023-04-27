@@ -23,26 +23,16 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface DashBoard extends NamedElement {
 	/**
-	 * Returns the value of the '<em><b>Fileextractor</b></em>' reference.
+	 * Returns the value of the '<em><b>Fileextractor</b></em>' reference list.
+	 * The list contents are of type {@link ucal3ia.bilang.abstractsyntax.FileExtractor}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Fileextractor</em>' reference.
-	 * @see #setFileextractor(FileExtractor)
+	 * @return the value of the '<em>Fileextractor</em>' reference list.
 	 * @see ucal3ia.bilang.abstractsyntax.AbstractsyntaxPackage#getDashBoard_Fileextractor()
 	 * @model required="true"
 	 * @generated
 	 */
-	FileExtractor getFileextractor();
-
-	/**
-	 * Sets the value of the '{@link ucal3ia.bilang.abstractsyntax.DashBoard#getFileextractor <em>Fileextractor</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Fileextractor</em>' reference.
-	 * @see #getFileextractor()
-	 * @generated
-	 */
-	void setFileextractor(FileExtractor value);
+	EList<FileExtractor> getFileextractor();
 
 	/**
 	 * Returns the value of the '<em><b>Plot</b></em>' containment reference list.

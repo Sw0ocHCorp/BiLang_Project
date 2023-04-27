@@ -59,6 +59,8 @@ public class AbstractsyntaxFactoryImpl extends EFactoryImpl implements Abstracts
 		switch (eClass.getClassifierID()) {
 		case AbstractsyntaxPackage.TASK:
 			return createTask();
+		case AbstractsyntaxPackage.FILE_EXTRACTOR:
+			return createFileExtractor();
 		case AbstractsyntaxPackage.DATA_FILTERING:
 			return createDataFiltering();
 		case AbstractsyntaxPackage.DASH_BOARD:
@@ -148,6 +150,16 @@ public class AbstractsyntaxFactoryImpl extends EFactoryImpl implements Abstracts
 	public Task createTask() {
 		TaskImpl task = new TaskImpl();
 		return task;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FileExtractor createFileExtractor() {
+		FileExtractorImpl fileExtractor = new FileExtractorImpl();
+		return fileExtractor;
 	}
 
 	/**

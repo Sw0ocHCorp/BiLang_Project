@@ -17,11 +17,10 @@ import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransi
 import ucal3ia.bilang.abstractsyntax.AbstractsyntaxPackage;
 import ucal3ia.bilang.abstractsyntax.BarPlot;
 import ucal3ia.bilang.abstractsyntax.ColReference;
-import ucal3ia.bilang.abstractsyntax.CsvExtractor;
 import ucal3ia.bilang.abstractsyntax.DashBoard;
 import ucal3ia.bilang.abstractsyntax.DataFiltering;
 import ucal3ia.bilang.abstractsyntax.DonutPlot;
-import ucal3ia.bilang.abstractsyntax.ExcelExtractor;
+import ucal3ia.bilang.abstractsyntax.FileExtractor;
 import ucal3ia.bilang.abstractsyntax.LinePlot;
 import ucal3ia.bilang.abstractsyntax.MathOperation;
 import ucal3ia.bilang.abstractsyntax.NullReplacement;
@@ -55,9 +54,6 @@ public class BiLangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 			case AbstractsyntaxPackage.COL_REFERENCE:
 				sequence_ColReference(context, (ColReference) semanticObject); 
 				return; 
-			case AbstractsyntaxPackage.CSV_EXTRACTOR:
-				sequence_CsvExtractor(context, (CsvExtractor) semanticObject); 
-				return; 
 			case AbstractsyntaxPackage.DASH_BOARD:
 				sequence_DashBoard(context, (DashBoard) semanticObject); 
 				return; 
@@ -67,8 +63,8 @@ public class BiLangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 			case AbstractsyntaxPackage.DONUT_PLOT:
 				sequence_DonutPlot(context, (DonutPlot) semanticObject); 
 				return; 
-			case AbstractsyntaxPackage.EXCEL_EXTRACTOR:
-				sequence_ExcelExtractor(context, (ExcelExtractor) semanticObject); 
+			case AbstractsyntaxPackage.FILE_EXTRACTOR:
+				sequence_FileExtractor(context, (FileExtractor) semanticObject); 
 				return; 
 			case AbstractsyntaxPackage.LINE_PLOT:
 				sequence_LinePlot(context, (LinePlot) semanticObject); 
@@ -149,23 +145,10 @@ public class BiLangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Contexts:
-	 *     FileExtractor returns CsvExtractor
-	 *     CsvExtractor returns CsvExtractor
-	 *
-	 * Constraint:
-	 *     (name=EString path=EString (nullreplacement+=NullReplacement nullreplacement+=NullReplacement*)?)
-	 */
-	protected void sequence_CsvExtractor(ISerializationContext context, CsvExtractor semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     DashBoard returns DashBoard
 	 *
 	 * Constraint:
-	 *     (name=EString fileextractor=[FileExtractor|EString] plot+=Plot plot+=Plot*)
+	 *     (name=EString (fileextractor+=[FileExtractor|EString] plot+=Plot plot+=Plot*)+)
 	 */
 	protected void sequence_DashBoard(ISerializationContext context, DashBoard semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -210,13 +193,12 @@ public class BiLangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Contexts:
-	 *     FileExtractor returns ExcelExtractor
-	 *     ExcelExtractor returns ExcelExtractor
+	 *     FileExtractor returns FileExtractor
 	 *
 	 * Constraint:
 	 *     (name=EString path=EString (nullreplacement+=NullReplacement nullreplacement+=NullReplacement*)?)
 	 */
-	protected void sequence_ExcelExtractor(ISerializationContext context, ExcelExtractor semanticObject) {
+	protected void sequence_FileExtractor(ISerializationContext context, FileExtractor semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -438,8 +420,8 @@ public class BiLangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     (
 	 *         name=ID 
 	 *         fileextractor+=FileExtractor 
-	 *         datafiltering+=DataFiltering? 
-	 *         (fileextractor+=FileExtractor datafiltering+=DataFiltering?)* 
+	 *         (datafiltering+=DataFiltering datafiltering+=DataFiltering*)? 
+	 *         (fileextractor+=FileExtractor (datafiltering+=DataFiltering datafiltering+=DataFiltering*)?)* 
 	 *         dashboard=DashBoard
 	 *     )
 	 */

@@ -24,11 +24,9 @@ import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 import ucal3ia.bilang.abstractsyntax.BarPlot;
 import ucal3ia.bilang.abstractsyntax.ColReference;
-import ucal3ia.bilang.abstractsyntax.CsvExtractor;
 import ucal3ia.bilang.abstractsyntax.DashBoard;
 import ucal3ia.bilang.abstractsyntax.DataFiltering;
 import ucal3ia.bilang.abstractsyntax.DonutPlot;
-import ucal3ia.bilang.abstractsyntax.ExcelExtractor;
 import ucal3ia.bilang.abstractsyntax.FileExtractor;
 import ucal3ia.bilang.abstractsyntax.FilteringStep;
 import ucal3ia.bilang.abstractsyntax.LinePlot;
@@ -59,7 +57,7 @@ public class BiLangGenerator extends AbstractGenerator {
     EObject _head = IteratorExtensions.<EObject>head(resource.getAllContents());
     Task task = ((Task) _head);
     HashMap<String, HashMap<String, ArrayList<String>>> dataArray = new HashMap<String, HashMap<String, ArrayList<String>>>();
-    HashMap<String, HashMap<String, Object>> dashBoardContent = new HashMap<String, HashMap<String, Object>>();
+    HashMap<FileExtractor, HashMap<String, HashMap<String, Object>>> dashBoardContent = new HashMap<FileExtractor, HashMap<String, HashMap<String, Object>>>();
     String fileExtractName = "";
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("<!DOCTYPE html>");
@@ -125,9 +123,14 @@ public class BiLangGenerator extends AbstractGenerator {
         dataArray.put(filter.getFileextractor().getName(), this.translateDataFiltering(filter, inputData));
       }
     }
-    dashBoardContent = this.translateDashBoard(task.getDashboard(), dataArray.get(task.getDashboard().getFileextractor().getName()));
+    ArrayList<FileExtractor> fileExtractors = new ArrayList<FileExtractor>();
+    EList<FileExtractor> _fileextractor_1 = task.getDashboard().getFileextractor();
+    for (final FileExtractor fileExtractor : _fileextractor_1) {
+      fileExtractors.add(fileExtractor);
+    }
+    dashBoardContent = this.translateDashBoard(task.getDashboard(), fileExtractors, dataArray);
     String _fileContent = fileContent;
-    String _displayDashboard = this.displayDashboard(dashBoardContent, dataArray.get(task.getDashboard().getFileextractor().getName()));
+    String _displayDashboard = this.displayDashboard(dashBoardContent, dataArray);
     fileContent = (_fileContent + _displayDashboard);
     String _fileContent_1 = fileContent;
     StringConcatenation _builder_1 = new StringConcatenation();
@@ -156,132 +159,124 @@ public class BiLangGenerator extends AbstractGenerator {
         }
       }
     }
-    if ((fe instanceof CsvExtractor)) {
-      ArrayList<ArrayList<String>> csvData = new ArrayList<ArrayList<String>>();
-      HashMap<String, ArrayList<String>> allData = new HashMap<String, ArrayList<String>>();
-      ArrayList<String> labels = new ArrayList<String>();
-      String row = "";
-      try {
-        String _path = ((CsvExtractor)fe).getPath();
-        FileReader _fileReader = new FileReader(_path);
-        BufferedReader iterator = new BufferedReader(_fileReader);
-        int z = 0;
-        while ((!Objects.equal((row = iterator.readLine()), null))) {
-          {
-            if ((z == 0)) {
-              List<String> _asList = Arrays.<String>asList(row.split(";"));
-              ArrayList<String> _arrayList = new ArrayList<String>(_asList);
-              labels = _arrayList;
-            } else {
-              if ((z == 1)) {
-              } else {
-                List<String> _asList_1 = Arrays.<String>asList(row.split(";"));
-                ArrayList<String> _arrayList_1 = new ArrayList<String>(_asList_1);
-                csvData.add(_arrayList_1);
-              }
-            }
-            z++;
-          }
-        }
-      } catch (final Throwable _t) {
-        if (_t instanceof Exception) {
-          final Exception e = (Exception)_t;
-          e.printStackTrace();
-        } else {
-          throw Exceptions.sneakyThrow(_t);
-        }
-      }
-      int k = 0;
-      for (final String lab : labels) {
+    ArrayList<ArrayList<String>> csvData = new ArrayList<ArrayList<String>>();
+    HashMap<String, ArrayList<String>> allData = new HashMap<String, ArrayList<String>>();
+    ArrayList<String> labels = new ArrayList<String>();
+    String row = "";
+    try {
+      String _path = fe.getPath();
+      FileReader _fileReader = new FileReader(_path);
+      BufferedReader iterator = new BufferedReader(_fileReader);
+      int z = 0;
+      while ((!Objects.equal((row = iterator.readLine()), null))) {
         {
-          ArrayList<String> colData = new ArrayList<String>();
-          for (int j = 0; (j < csvData.size()); j++) {
-            int _length = ((Object[])Conversions.unwrapArray(csvData.get(j), Object.class)).length;
-            boolean _greaterEqualsThan = (k >= _length);
-            if (_greaterEqualsThan) {
-              colData.add("");
+          if ((z == 0)) {
+            List<String> _asList = Arrays.<String>asList(row.split(";"));
+            ArrayList<String> _arrayList = new ArrayList<String>(_asList);
+            labels = _arrayList;
+          } else {
+            if ((z == 1)) {
             } else {
-              colData.add(csvData.get(j).get(k));
+              List<String> _asList_1 = Arrays.<String>asList(row.split(";"));
+              ArrayList<String> _arrayList_1 = new ArrayList<String>(_asList_1);
+              csvData.add(_arrayList_1);
             }
           }
-          allData.put(lab, colData);
-          k++;
+          z++;
         }
       }
-      EList<NullReplacement> _nullreplacement = ((CsvExtractor)fe).getNullreplacement();
-      for (final NullReplacement preprocess : _nullreplacement) {
-        boolean _containsKey = allData.containsKey(preprocess.getColName());
-        if (_containsKey) {
-          ArrayList<String> colData = allData.get(preprocess.getColName());
-          String _label = preprocess.getLabel();
-          boolean _notEquals = (!Objects.equal(_label, null));
-          if (_notEquals) {
-            for (int j = 0; (i < colData.size()); i++) {
+    } catch (final Throwable _t) {
+      if (_t instanceof Exception) {
+        final Exception e = (Exception)_t;
+        e.printStackTrace();
+      } else {
+        throw Exceptions.sneakyThrow(_t);
+      }
+    }
+    int k = 0;
+    for (final String lab : labels) {
+      {
+        ArrayList<String> colData = new ArrayList<String>();
+        for (int j = 0; (j < csvData.size()); j++) {
+          int _length = ((Object[])Conversions.unwrapArray(csvData.get(j), Object.class)).length;
+          boolean _greaterEqualsThan = (k >= _length);
+          if (_greaterEqualsThan) {
+            colData.add("");
+          } else {
+            colData.add(csvData.get(j).get(k));
+          }
+        }
+        allData.put(lab, colData);
+        k++;
+      }
+    }
+    EList<NullReplacement> _nullreplacement = fe.getNullreplacement();
+    for (final NullReplacement preprocess : _nullreplacement) {
+      boolean _containsKey = allData.containsKey(preprocess.getColName());
+      if (_containsKey) {
+        ArrayList<String> colData = allData.get(preprocess.getColName());
+        String _label = preprocess.getLabel();
+        boolean _notEquals = (!Objects.equal(_label, null));
+        if (_notEquals) {
+          for (int j = 0; (i < colData.size()); i++) {
+            boolean _equals = colData.get(j).equals("");
+            if (_equals) {
+              colData.set(j, preprocess.getLabel());
+            }
+          }
+        } else {
+          StatisticalOperation _statisticaloperation = preprocess.getStatisticaloperation();
+          boolean _notEquals_1 = (!Objects.equal(_statisticaloperation, null));
+          if (_notEquals_1) {
+            String value = this.computeStatisticOperation(preprocess.getStatisticaloperation().getColreference().getTarget(), preprocess.getStatisticaloperation().getOperator().getLiteral(), allData).get(0);
+            for (int j = 0; (j < colData.size()); j++) {
               boolean _equals = colData.get(j).equals("");
               if (_equals) {
-                colData.set(j, preprocess.getLabel());
-              }
-            }
-          } else {
-            StatisticalOperation _statisticaloperation = preprocess.getStatisticaloperation();
-            boolean _notEquals_1 = (!Objects.equal(_statisticaloperation, null));
-            if (_notEquals_1) {
-              String value = this.computeStatisticOperation(preprocess.getStatisticaloperation().getColreference().getTarget(), preprocess.getStatisticaloperation().getOperator().getLiteral(), allData).get(0);
-              for (int j = 0; (i < colData.size()); i++) {
-                boolean _equals = colData.get(j).equals("");
-                if (_equals) {
-                  colData.set(j, value);
-                }
-              }
-            }
-          }
-          allData.replace(preprocess.getColName(), colData);
-        } else {
-          boolean _equals = preprocess.getColName().equals("ALL");
-          if (_equals) {
-            Set<String> _keySet = allData.keySet();
-            for (final String label : _keySet) {
-              {
-                ArrayList<String> colData_1 = allData.get(label);
-                String _label_1 = preprocess.getLabel();
-                boolean _notEquals_2 = (!Objects.equal(_label_1, null));
-                if (_notEquals_2) {
-                  for (int j = 0; (j < colData_1.size()); j++) {
-                    {
-                      String value_1 = colData_1.get(j);
-                      boolean _equals_1 = colData_1.get(j).equals("");
-                      if (_equals_1) {
-                        colData_1.set(j, preprocess.getLabel());
-                      }
-                    }
-                  }
-                } else {
-                  StatisticalOperation _statisticaloperation_1 = preprocess.getStatisticaloperation();
-                  boolean _notEquals_3 = (!Objects.equal(_statisticaloperation_1, null));
-                  if (_notEquals_3) {
-                    String value_1 = this.computeStatisticOperation(preprocess.getStatisticaloperation().getColreference().getTarget(), preprocess.getStatisticaloperation().getOperator().getLiteral(), allData).get(0);
-                    for (int j = 0; (i < colData_1.size()); i++) {
-                      boolean _equals_1 = colData_1.get(j).equals("");
-                      if (_equals_1) {
-                        colData_1.set(j, value_1);
-                      }
-                    }
-                  }
-                }
-                allData.replace(label, colData_1);
+                colData.set(j, value);
               }
             }
           }
         }
+        allData.replace(preprocess.getColName(), colData);
+      } else {
+        boolean _equals = preprocess.getColName().equals("ALL");
+        if (_equals) {
+          Set<String> _keySet = allData.keySet();
+          for (final String label : _keySet) {
+            {
+              ArrayList<String> colData_1 = allData.get(label);
+              String _label_1 = preprocess.getLabel();
+              boolean _notEquals_2 = (!Objects.equal(_label_1, null));
+              if (_notEquals_2) {
+                for (int j = 0; (j < colData_1.size()); j++) {
+                  {
+                    String value_1 = colData_1.get(j);
+                    boolean _equals_1 = colData_1.get(j).equals("");
+                    if (_equals_1) {
+                      colData_1.set(j, preprocess.getLabel());
+                    }
+                  }
+                }
+              } else {
+                StatisticalOperation _statisticaloperation_1 = preprocess.getStatisticaloperation();
+                boolean _notEquals_3 = (!Objects.equal(_statisticaloperation_1, null));
+                if (_notEquals_3) {
+                  String value_1 = this.computeStatisticOperation(preprocess.getStatisticaloperation().getColreference().getTarget(), preprocess.getStatisticaloperation().getOperator().getLiteral(), allData).get(0);
+                  for (int j = 0; (i < colData_1.size()); i++) {
+                    boolean _equals_1 = colData_1.get(j).equals("");
+                    if (_equals_1) {
+                      colData_1.set(j, value_1);
+                    }
+                  }
+                }
+              }
+              allData.replace(label, colData_1);
+            }
+          }
+        }
       }
-      return allData;
     }
-    if ((fe instanceof ExcelExtractor)) {
-      ArrayList<ArrayList<String>> excelData = new ArrayList<ArrayList<String>>();
-      HashMap<String, ArrayList<String>> allData_1 = new HashMap<String, ArrayList<String>>();
-      return allData_1;
-    }
-    return null;
+    return allData;
   }
   
   public HashMap<String, ArrayList<String>> translateDataFiltering(final DataFiltering df, final HashMap<String, ArrayList<String>> fileData) {
@@ -297,85 +292,82 @@ public class BiLangGenerator extends AbstractGenerator {
         colLenght = fileData.get(lab).size();
       }
     }
-    FileExtractor _fileextractor = df.getFileextractor();
-    if ((_fileextractor instanceof CsvExtractor)) {
-      EList<PreprocessingStep> _processingstep = df.getProcessingstep();
-      for (final PreprocessingStep preprocess : _processingstep) {
-        {
-          ArrayList<String> newFieldData = new ArrayList<String>();
-          if ((preprocess instanceof MathOperation)) {
-            newFieldData = this.MathOperationAlgorithm(((MathOperation) preprocess), filteredData);
-            filteredData.put("TEST", newFieldData);
-            System.out.println(newFieldData);
-          } else {
-            if ((preprocess instanceof StatisticalOperation)) {
-            }
+    EList<PreprocessingStep> _processingstep = df.getProcessingstep();
+    for (final PreprocessingStep preprocess : _processingstep) {
+      {
+        ArrayList<String> newFieldData = new ArrayList<String>();
+        if ((preprocess instanceof MathOperation)) {
+          newFieldData = this.MathOperationAlgorithm(((MathOperation) preprocess), filteredData);
+          filteredData.put("TEST", newFieldData);
+          System.out.println(newFieldData);
+        } else {
+          if ((preprocess instanceof StatisticalOperation)) {
           }
         }
       }
-      boolean stopLoop = false;
-      EList<FilteringStep> _filteringstep = df.getFilteringstep();
-      for (final FilteringStep filter : _filteringstep) {
-        {
-          ArrayList<String> targetCol = fileData.get(filter.getAxis());
-          boolean targetCondition = false;
-          String main_operator = "";
-          if ((filter instanceof QuantitativeFiltering)) {
-            stopLoop = false;
-            main_operator = ((QuantitativeFiltering)filter).getOperator().getLiteral();
-            float targetValue = ((QuantitativeFiltering)filter).getValues();
-            for (int i = 0; (i < targetCol.size()); i++) {
-              {
-                boolean _equals = main_operator.equals("<");
-                if (_equals) {
-                  float _parseFloat = Float.parseFloat(targetCol.get(i));
-                  boolean _lessThan = (_parseFloat < targetValue);
-                  targetCondition = _lessThan;
+    }
+    boolean stopLoop = false;
+    EList<FilteringStep> _filteringstep = df.getFilteringstep();
+    for (final FilteringStep filter : _filteringstep) {
+      {
+        ArrayList<String> targetCol = fileData.get(filter.getAxis());
+        boolean targetCondition = false;
+        String main_operator = "";
+        if ((filter instanceof QuantitativeFiltering)) {
+          stopLoop = false;
+          main_operator = ((QuantitativeFiltering)filter).getOperator().getLiteral();
+          float targetValue = ((QuantitativeFiltering)filter).getValues();
+          for (int i = 0; (i < targetCol.size()); i++) {
+            {
+              boolean _equals = main_operator.equals("<");
+              if (_equals) {
+                float _parseFloat = Float.parseFloat(targetCol.get(i));
+                boolean _lessThan = (_parseFloat < targetValue);
+                targetCondition = _lessThan;
+              } else {
+                boolean _equals_1 = main_operator.equals(">");
+                if (_equals_1) {
+                  float _parseFloat_1 = Float.parseFloat(targetCol.get(i));
+                  boolean _greaterThan = (_parseFloat_1 > targetValue);
+                  targetCondition = _greaterThan;
                 } else {
-                  boolean _equals_1 = main_operator.equals(">");
-                  if (_equals_1) {
-                    float _parseFloat_1 = Float.parseFloat(targetCol.get(i));
-                    boolean _greaterThan = (_parseFloat_1 > targetValue);
-                    targetCondition = _greaterThan;
-                  } else {
-                    float _parseFloat_2 = Float.parseFloat(targetCol.get(i));
-                    boolean _equals_2 = (_parseFloat_2 == targetValue);
-                    targetCondition = _equals_2;
-                  }
+                  float _parseFloat_2 = Float.parseFloat(targetCol.get(i));
+                  boolean _equals_2 = (_parseFloat_2 == targetValue);
+                  targetCondition = _equals_2;
                 }
-                while (((stopLoop == false) && (targetCondition == false))) {
-                  {
-                    boolean _equals_3 = main_operator.equals("<");
-                    if (_equals_3) {
-                      float _parseFloat_3 = Float.parseFloat(targetCol.get(i));
-                      boolean _lessThan_1 = (_parseFloat_3 < targetValue);
-                      targetCondition = _lessThan_1;
+              }
+              while (((stopLoop == false) && (targetCondition == false))) {
+                {
+                  boolean _equals_3 = main_operator.equals("<");
+                  if (_equals_3) {
+                    float _parseFloat_3 = Float.parseFloat(targetCol.get(i));
+                    boolean _lessThan_1 = (_parseFloat_3 < targetValue);
+                    targetCondition = _lessThan_1;
+                  } else {
+                    boolean _equals_4 = main_operator.equals(">");
+                    if (_equals_4) {
+                      float _parseFloat_4 = Float.parseFloat(targetCol.get(i));
+                      boolean _greaterThan_1 = (_parseFloat_4 > targetValue);
+                      targetCondition = _greaterThan_1;
                     } else {
-                      boolean _equals_4 = main_operator.equals(">");
-                      if (_equals_4) {
-                        float _parseFloat_4 = Float.parseFloat(targetCol.get(i));
-                        boolean _greaterThan_1 = (_parseFloat_4 > targetValue);
-                        targetCondition = _greaterThan_1;
-                      } else {
-                        float _parseFloat_5 = Float.parseFloat(targetCol.get(i));
-                        boolean _equals_5 = (_parseFloat_5 == targetValue);
-                        targetCondition = _equals_5;
-                      }
+                      float _parseFloat_5 = Float.parseFloat(targetCol.get(i));
+                      boolean _equals_5 = (_parseFloat_5 == targetValue);
+                      targetCondition = _equals_5;
                     }
-                    if ((targetCondition == false)) {
-                      Set<String> _keySet_1 = filteredData.keySet();
-                      for (final String lab_1 : _keySet_1) {
-                        {
-                          int _size = targetCol.size();
-                          boolean _equals_6 = (i == _size);
-                          if (_equals_6) {
-                            stopLoop = true;
-                          }
-                          int _size_1 = filteredData.get(lab_1).size();
-                          boolean _greaterThan_2 = (_size_1 > i);
-                          if (_greaterThan_2) {
-                            filteredData.get(lab_1).remove(i);
-                          }
+                  }
+                  if ((targetCondition == false)) {
+                    Set<String> _keySet_1 = filteredData.keySet();
+                    for (final String lab_1 : _keySet_1) {
+                      {
+                        int _size = targetCol.size();
+                        boolean _equals_6 = (i == _size);
+                        if (_equals_6) {
+                          stopLoop = true;
+                        }
+                        int _size_1 = filteredData.get(lab_1).size();
+                        boolean _greaterThan_2 = (_size_1 > i);
+                        if (_greaterThan_2) {
+                          filteredData.get(lab_1).remove(i);
                         }
                       }
                     }
@@ -384,77 +376,77 @@ public class BiLangGenerator extends AbstractGenerator {
               }
             }
           }
-          if ((filter instanceof QualitativeFiltering)) {
-            stopLoop = false;
-            boolean _equals = ((QualitativeFiltering)filter).getAxis().equals("ALL");
-            if (_equals) {
-              main_operator = ((QualitativeFiltering)filter).getOperator().getLiteral();
-              boolean _equals_1 = main_operator.equals("!=");
-              if (_equals_1) {
-                targetCondition = true;
+        }
+        if ((filter instanceof QualitativeFiltering)) {
+          stopLoop = false;
+          boolean _equals = ((QualitativeFiltering)filter).getAxis().equals("ALL");
+          if (_equals) {
+            main_operator = ((QualitativeFiltering)filter).getOperator().getLiteral();
+            boolean _equals_1 = main_operator.equals("!=");
+            if (_equals_1) {
+              targetCondition = true;
+            }
+            boolean haveDelete = false;
+            int updateLenght = (colLenght - 1);
+            for (int i = 0; (i < colLenght); i++) {
+              Set<String> _keySet_1 = filteredData.keySet();
+              for (final String lab_1 : _keySet_1) {
+                {
+                  haveDelete = false;
+                  while (((stopLoop == false) && (filteredData.get(lab_1).get(i).equals(((QualitativeFiltering)filter).getLabels()) == targetCondition))) {
+                    {
+                      if ((i == updateLenght)) {
+                        stopLoop = true;
+                      }
+                      Set<String> _keySet_2 = filteredData.keySet();
+                      for (final String l : _keySet_2) {
+                        int _size = filteredData.get(l).size();
+                        boolean _greaterThan = (_size > i);
+                        if (_greaterThan) {
+                          filteredData.get(l).remove(i);
+                        }
+                      }
+                      updateLenght--;
+                    }
+                  }
+                }
               }
-              boolean haveDelete = false;
-              int updateLenght = (colLenght - 1);
-              for (int i = 0; (i < colLenght); i++) {
+            }
+          } else {
+            boolean _contains = ((QualitativeFiltering)filter).getLabels().contains(", ");
+            if (_contains) {
+              List<String> _asList = Arrays.<String>asList(((QualitativeFiltering)filter).getLabels().split(", "));
+              ArrayList<String> _arrayList = new ArrayList<String>(_asList);
+              targets = _arrayList;
+            } else {
+              boolean _contains_1 = ((QualitativeFiltering)filter).getLabels().contains(",");
+              if (_contains_1) {
+                List<String> _asList_1 = Arrays.<String>asList(((QualitativeFiltering)filter).getLabels().split(","));
+                ArrayList<String> _arrayList_1 = new ArrayList<String>(_asList_1);
+                targets = _arrayList_1;
+              } else {
+                targets.add(((QualitativeFiltering)filter).getLabels());
+              }
+            }
+            main_operator = ((QualitativeFiltering)filter).getOperator().getLiteral();
+            boolean _equals_2 = main_operator.equals("!=");
+            if (_equals_2) {
+              targetCondition = true;
+            }
+            for (int i = 0; (i < targetCol.size()); i++) {
+              while (((stopLoop == false) && (targets.contains(targetCol.get(i)) == targetCondition))) {
                 Set<String> _keySet_1 = filteredData.keySet();
                 for (final String lab_1 : _keySet_1) {
                   {
-                    haveDelete = false;
-                    while (((stopLoop == false) && (filteredData.get(lab_1).get(i).equals(((QualitativeFiltering)filter).getLabels()) == targetCondition))) {
-                      {
-                        if ((i == updateLenght)) {
-                          stopLoop = true;
-                        }
-                        Set<String> _keySet_2 = filteredData.keySet();
-                        for (final String l : _keySet_2) {
-                          int _size = filteredData.get(l).size();
-                          boolean _greaterThan = (_size > i);
-                          if (_greaterThan) {
-                            filteredData.get(l).remove(i);
-                          }
-                        }
-                        updateLenght--;
-                      }
+                    int _size = targetCol.size();
+                    boolean _equals_3 = (i == _size);
+                    if (_equals_3) {
+                      stopLoop = true;
                     }
-                  }
-                }
-              }
-            } else {
-              boolean _contains = ((QualitativeFiltering)filter).getLabels().contains(", ");
-              if (_contains) {
-                List<String> _asList = Arrays.<String>asList(((QualitativeFiltering)filter).getLabels().split(", "));
-                ArrayList<String> _arrayList = new ArrayList<String>(_asList);
-                targets = _arrayList;
-              } else {
-                boolean _contains_1 = ((QualitativeFiltering)filter).getLabels().contains(",");
-                if (_contains_1) {
-                  List<String> _asList_1 = Arrays.<String>asList(((QualitativeFiltering)filter).getLabels().split(","));
-                  ArrayList<String> _arrayList_1 = new ArrayList<String>(_asList_1);
-                  targets = _arrayList_1;
-                } else {
-                  targets.add(((QualitativeFiltering)filter).getLabels());
-                }
-              }
-              main_operator = ((QualitativeFiltering)filter).getOperator().getLiteral();
-              boolean _equals_2 = main_operator.equals("!=");
-              if (_equals_2) {
-                targetCondition = true;
-              }
-              for (int i = 0; (i < targetCol.size()); i++) {
-                while (((stopLoop == false) && (targets.contains(targetCol.get(i)) == targetCondition))) {
-                  Set<String> _keySet_1 = filteredData.keySet();
-                  for (final String lab_1 : _keySet_1) {
-                    {
-                      int _size = targetCol.size();
-                      boolean _equals_3 = (i == _size);
-                      if (_equals_3) {
-                        stopLoop = true;
-                      }
-                      int _size_1 = filteredData.get(lab_1).size();
-                      boolean _greaterThan = (_size_1 > i);
-                      if (_greaterThan) {
-                        filteredData.get(lab_1).remove(i);
-                      }
+                    int _size_1 = filteredData.get(lab_1).size();
+                    boolean _greaterThan = (_size_1 > i);
+                    if (_greaterThan) {
+                      filteredData.get(lab_1).remove(i);
                     }
                   }
                 }
@@ -463,23 +455,12 @@ public class BiLangGenerator extends AbstractGenerator {
           }
         }
       }
-      return filteredData;
     }
-    FileExtractor _fileextractor_1 = df.getFileextractor();
-    if ((_fileextractor_1 instanceof ExcelExtractor)) {
-      EList<PreprocessingStep> _processingstep_1 = df.getProcessingstep();
-      for (final PreprocessingStep preprocess_1 : _processingstep_1) {
-      }
-      EList<FilteringStep> _filteringstep_1 = df.getFilteringstep();
-      for (final FilteringStep filter_1 : _filteringstep_1) {
-      }
-      return filteredData;
-    }
-    return null;
+    return filteredData;
   }
   
-  public HashMap<String, HashMap<String, Object>> translateDashBoard(final DashBoard db, final HashMap<String, ArrayList<String>> fileData) {
-    HashMap<String, HashMap<String, Object>> dashBoardContent = new HashMap<String, HashMap<String, Object>>();
+  public HashMap<FileExtractor, HashMap<String, HashMap<String, Object>>> translateDashBoard(final DashBoard db, final ArrayList<FileExtractor> extractors, final HashMap<String, HashMap<String, ArrayList<String>>> filesData) {
+    HashMap<FileExtractor, HashMap<String, HashMap<String, Object>>> dashBoardContent = new HashMap<FileExtractor, HashMap<String, HashMap<String, Object>>>();
     String plotType = "";
     int p = 0;
     EList<Plot> _plot = db.getPlot();
@@ -556,6 +537,7 @@ public class BiLangGenerator extends AbstractGenerator {
             }
             plotContent.put("xAxis", xAxis);
           } else {
+            xAxis.add(plot.getXAxis());
             plotContent.put("xAxis", plot.getXAxis());
           }
         }
@@ -576,6 +558,7 @@ public class BiLangGenerator extends AbstractGenerator {
             }
             plotContent.put("yAxis", yAxis);
           } else {
+            yAxis.add(plot.getYAxis());
             plotContent.put("yAxis", plot.getYAxis());
           }
         }
@@ -591,42 +574,65 @@ public class BiLangGenerator extends AbstractGenerator {
         if (_notEquals_2) {
           plotContent.put("thickness", Float.toString(plot.getThickness()));
         }
-        dashBoardContent.put(key, plotContent);
-        p++;
-        System.out.println(dashBoardContent);
+        for (final FileExtractor extractor : extractors) {
+          if ((filesData.get(extractor.getName()).keySet().containsAll(yAxis) && filesData.get(extractor.getName()).keySet().containsAll(xAxis))) {
+            HashMap<String, HashMap<String, Object>> plotMap = new HashMap<String, HashMap<String, Object>>();
+            boolean _containsKey = dashBoardContent.containsKey(extractor);
+            boolean _not = (!_containsKey);
+            if (_not) {
+              plotMap.put(key, plotContent);
+            } else {
+              plotMap = dashBoardContent.get(extractor);
+              plotMap.put(key, plotContent);
+            }
+            dashBoardContent.put(extractor, plotMap);
+            p++;
+            System.out.println(dashBoardContent);
+          }
+        }
       }
     }
     return dashBoardContent;
   }
   
-  public String displayDashboard(final HashMap<String, HashMap<String, Object>> dashboardContent, final HashMap<String, ArrayList<String>> fileData) {
+  public String displayDashboard(final HashMap<FileExtractor, HashMap<String, HashMap<String, Object>>> dashboardContent, final HashMap<String, HashMap<String, ArrayList<String>>> filesData) {
     String displayDashboard = "";
     String content = "";
     String targetkey = "";
-    for (int i = 0; (i < ((Object[])Conversions.unwrapArray(dashboardContent.keySet(), Object.class)).length); i++) {
-      {
-        Set<String> _keySet = dashboardContent.keySet();
-        for (final String key : _keySet) {
-          if ((dashboardContent.get(key).containsKey("location") && Objects.equal(dashboardContent.get(key).get("location"), Integer.valueOf(i)))) {
-            targetkey = key;
+    int nbPlot = 0;
+    Set<FileExtractor> _keySet = dashboardContent.keySet();
+    for (final FileExtractor fileExtractor : _keySet) {
+      int _nbPlot = nbPlot;
+      int _length = ((Object[])Conversions.unwrapArray(dashboardContent.get(fileExtractor).keySet(), Object.class)).length;
+      nbPlot = (_nbPlot + _length);
+    }
+    for (int i = 0; (i < nbPlot); i++) {
+      Set<FileExtractor> _keySet_1 = dashboardContent.keySet();
+      for (final FileExtractor fileExtractor_1 : _keySet_1) {
+        {
+          HashMap<String, HashMap<String, Object>> filePlot = dashboardContent.get(fileExtractor_1);
+          Set<String> _keySet_2 = filePlot.keySet();
+          for (final String key : _keySet_2) {
+            if ((filePlot.get(key).containsKey("location") && Objects.equal(filePlot.get(key).get("location"), Integer.valueOf(i)))) {
+              String _content = content;
+              StringConcatenation _builder = new StringConcatenation();
+              _builder.append("<div class=\"chart-container\">");
+              _builder.newLine();
+              _builder.append("\t\t\t\t");
+              _builder.append("<canvas id=\"");
+              String _plus = (_builder.toString() + key);
+              StringConcatenation _builder_1 = new StringConcatenation();
+              _builder_1.append("\"></canvas>");
+              _builder_1.newLine();
+              _builder_1.append("\t\t\t\t");
+              _builder_1.append("</div>");
+              String _plus_1 = (_plus + _builder_1);
+              content = (_content + _plus_1);
+              String _content_1 = content;
+              content = (_content_1 + "\n");
+            }
           }
         }
-        String _content = content;
-        StringConcatenation _builder = new StringConcatenation();
-        _builder.append("<div class=\"chart-container\">");
-        _builder.newLine();
-        _builder.append("\t\t\t");
-        _builder.append("<canvas id=\"");
-        String _plus = (_builder.toString() + targetkey);
-        StringConcatenation _builder_1 = new StringConcatenation();
-        _builder_1.append("\"></canvas>");
-        _builder_1.newLine();
-        _builder_1.append("\t\t\t");
-        _builder_1.append("</div>");
-        String _plus_1 = (_plus + _builder_1);
-        content = (_content + _plus_1);
-        String _content_1 = content;
-        content = (_content_1 + "\n");
       }
     }
     String _content = content;
@@ -699,333 +705,340 @@ public class BiLangGenerator extends AbstractGenerator {
     _builder.append("];");
     content = (_content + _builder);
     int j = 0;
-    Set<String> _keySet = dashboardContent.keySet();
-    for (final String keyPlot : _keySet) {
+    Set<FileExtractor> _keySet_1 = dashboardContent.keySet();
+    for (final FileExtractor fileExtractor_1 : _keySet_1) {
       {
-        Object plotType = dashboardContent.get(keyPlot).get("type");
-        ArrayList<String> xLabs = new ArrayList<String>();
-        ArrayList<String> yLabs = new ArrayList<String>();
-        Object _get = dashboardContent.get(keyPlot).get("xAxis");
-        if ((_get instanceof ArrayList)) {
-          Object _get_1 = dashboardContent.get(keyPlot).get("xAxis");
-          xLabs = ((ArrayList) _get_1);
-        } else {
-          Object _get_2 = dashboardContent.get(keyPlot).get("xAxis");
-          xLabs.add(((String) _get_2));
-        }
-        Object _get_3 = dashboardContent.get(keyPlot).get("yAxis");
-        if ((_get_3 instanceof ArrayList)) {
-          Object _get_4 = dashboardContent.get(keyPlot).get("yAxis");
-          yLabs = ((ArrayList) _get_4);
-        } else {
-          Object _get_5 = dashboardContent.get(keyPlot).get("yAxis");
-          yLabs.add(((String) _get_5));
-        }
-        ArrayList<ArrayList<String>> yCols = new ArrayList<ArrayList<String>>();
-        ArrayList<ArrayList<String>> xCols = new ArrayList<ArrayList<String>>();
-        for (int a = 0; (a < yLabs.size()); a++) {
-          yCols.add(fileData.get(yLabs.get(a)));
-        }
-        for (int a = 0; (a < xLabs.size()); a++) {
-          xCols.add(fileData.get(xLabs.get(a)));
-        }
-        String _content_1 = content;
-        StringConcatenation _builder_1 = new StringConcatenation();
-        _builder_1.append("\t");
-        _builder_1.append("const file");
-        String _plus = ("\n" + _builder_1);
-        String _plus_1 = (_plus + Integer.valueOf(j));
-        String _plus_2 = (_plus_1 + Integer.valueOf(1));
-        StringConcatenation _builder_2 = new StringConcatenation();
-        _builder_2.append("= [");
-        String _plus_3 = (_plus_2 + _builder_2);
-        content = (_content_1 + _plus_3);
-        int yLength = ((Object[])Conversions.unwrapArray(yCols.get(0), Object.class)).length;
-        for (int i = 0; (i < yLength); i++) {
+        HashMap<String, HashMap<String, Object>> filePlot = dashboardContent.get(fileExtractor_1);
+        HashMap<String, ArrayList<String>> fileData = filesData.get(fileExtractor_1.getName());
+        Set<String> _keySet_2 = filePlot.keySet();
+        for (final String keyPlot : _keySet_2) {
           {
+            Object plotType = filePlot.get(keyPlot).get("type");
+            ArrayList<String> xLabs = new ArrayList<String>();
+            ArrayList<String> yLabs = new ArrayList<String>();
+            Object _get = filePlot.get(keyPlot).get("xAxis");
+            if ((_get instanceof ArrayList)) {
+              Object _get_1 = filePlot.get(keyPlot).get("xAxis");
+              xLabs = ((ArrayList) _get_1);
+            } else {
+              Object _get_2 = filePlot.get(keyPlot).get("xAxis");
+              xLabs.add(((String) _get_2));
+            }
+            Object _get_3 = filePlot.get(keyPlot).get("yAxis");
+            if ((_get_3 instanceof ArrayList)) {
+              Object _get_4 = filePlot.get(keyPlot).get("yAxis");
+              yLabs = ((ArrayList) _get_4);
+            } else {
+              Object _get_5 = filePlot.get(keyPlot).get("yAxis");
+              yLabs.add(((String) _get_5));
+            }
+            ArrayList<ArrayList<String>> yCols = new ArrayList<ArrayList<String>>();
+            ArrayList<ArrayList<String>> xCols = new ArrayList<ArrayList<String>>();
+            for (int a = 0; (a < yLabs.size()); a++) {
+              yCols.add(fileData.get(yLabs.get(a)));
+            }
+            for (int a = 0; (a < xLabs.size()); a++) {
+              xCols.add(fileData.get(xLabs.get(a)));
+            }
+            String _content_1 = content;
+            StringConcatenation _builder_1 = new StringConcatenation();
+            _builder_1.append("\t");
+            _builder_1.append("const file");
+            String _plus = ("\n" + _builder_1);
+            String _plus_1 = (_plus + Integer.valueOf(j));
+            String _plus_2 = (_plus_1 + Integer.valueOf(1));
+            StringConcatenation _builder_2 = new StringConcatenation();
+            _builder_2.append("= [");
+            String _plus_3 = (_plus_2 + _builder_2);
+            content = (_content_1 + _plus_3);
+            int yLength = ((Object[])Conversions.unwrapArray(yCols.get(0), Object.class)).length;
+            for (int i = 0; (i < yLength); i++) {
+              {
+                String _content_2 = content;
+                StringConcatenation _builder_3 = new StringConcatenation();
+                _builder_3.append("\t");
+                _builder_3.append("{");
+                content = (_content_2 + _builder_3);
+                for (int cx = 0; (cx < ((Object[])Conversions.unwrapArray(xCols, Object.class)).length); cx++) {
+                  String _content_3 = content;
+                  String _get_6 = xLabs.get(cx);
+                  StringConcatenation _builder_4 = new StringConcatenation();
+                  _builder_4.append(": \"");
+                  String _plus_4 = (_get_6 + _builder_4);
+                  String _get_7 = xCols.get(cx).get(i);
+                  String _plus_5 = (_plus_4 + _get_7);
+                  StringConcatenation _builder_5 = new StringConcatenation();
+                  _builder_5.append("\", ");
+                  String _plus_6 = (_plus_5 + _builder_5);
+                  content = (_content_3 + _plus_6);
+                }
+                for (int cy = 0; (cy < ((Object[])Conversions.unwrapArray(yCols, Object.class)).length); cy++) {
+                  String _content_3 = content;
+                  String _get_6 = yLabs.get(cy);
+                  StringConcatenation _builder_4 = new StringConcatenation();
+                  _builder_4.append(": \"");
+                  String _plus_4 = (_get_6 + _builder_4);
+                  String _get_7 = yCols.get(cy).get(i);
+                  String _plus_5 = (_plus_4 + _get_7);
+                  StringConcatenation _builder_5 = new StringConcatenation();
+                  _builder_5.append("\", ");
+                  String _plus_6 = (_plus_5 + _builder_5);
+                  content = (_content_3 + _plus_6);
+                }
+                String _content_3 = content;
+                content = (_content_3 + "},\n");
+              }
+            }
             String _content_2 = content;
             StringConcatenation _builder_3 = new StringConcatenation();
             _builder_3.append("\t");
-            _builder_3.append("{");
+            _builder_3.append("];");
             content = (_content_2 + _builder_3);
-            for (int cx = 0; (cx < ((Object[])Conversions.unwrapArray(xCols, Object.class)).length); cx++) {
-              String _content_3 = content;
-              String _get_6 = xLabs.get(cx);
-              StringConcatenation _builder_4 = new StringConcatenation();
-              _builder_4.append(": \"");
-              String _plus_4 = (_get_6 + _builder_4);
-              String _get_7 = xCols.get(cx).get(i);
-              String _plus_5 = (_plus_4 + _get_7);
-              StringConcatenation _builder_5 = new StringConcatenation();
-              _builder_5.append("\", ");
-              String _plus_6 = (_plus_5 + _builder_5);
-              content = (_content_3 + _plus_6);
-            }
-            for (int cy = 0; (cy < ((Object[])Conversions.unwrapArray(yCols, Object.class)).length); cy++) {
-              String _content_3 = content;
-              String _get_6 = yLabs.get(cy);
-              StringConcatenation _builder_4 = new StringConcatenation();
-              _builder_4.append(": \"");
-              String _plus_4 = (_get_6 + _builder_4);
-              String _get_7 = yCols.get(cy).get(i);
-              String _plus_5 = (_plus_4 + _get_7);
-              StringConcatenation _builder_5 = new StringConcatenation();
-              _builder_5.append("\", ");
-              String _plus_6 = (_plus_5 + _builder_5);
-              content = (_content_3 + _plus_6);
-            }
             String _content_3 = content;
-            content = (_content_3 + "},\n");
-          }
-        }
-        String _content_2 = content;
-        StringConcatenation _builder_3 = new StringConcatenation();
-        _builder_3.append("\t");
-        _builder_3.append("];");
-        content = (_content_2 + _builder_3);
-        String _content_3 = content;
-        content = (_content_3 + "\n");
-        String _content_4 = content;
-        StringConcatenation _builder_4 = new StringConcatenation();
-        _builder_4.append("\t");
-        String _plus_4 = (_builder_4.toString() + keyPlot);
-        StringConcatenation _builder_5 = new StringConcatenation();
-        _builder_5.append("= new Chart(");
-        _builder_5.newLine();
-        _builder_5.append("\t\t");
-        _builder_5.append("document.getElementById(\"");
-        String _plus_5 = (_plus_4 + _builder_5);
-        String _plus_6 = (_plus_5 + keyPlot);
-        StringConcatenation _builder_6 = new StringConcatenation();
-        _builder_6.append("\"),");
-        _builder_6.newLine();
-        _builder_6.append("\t\t");
-        _builder_6.append("{");
-        _builder_6.newLine();
-        _builder_6.append("\t\t\t");
-        _builder_6.append("type: \"");
-        String _plus_7 = (_plus_6 + _builder_6);
-        String _plus_8 = (_plus_7 + plotType);
-        StringConcatenation _builder_7 = new StringConcatenation();
-        _builder_7.append("\",");
-        _builder_7.newLine();
-        _builder_7.append("\t\t\t");
-        _builder_7.append("data: {");
-        String _plus_9 = (_plus_8 + _builder_7);
-        content = (_content_4 + _plus_9);
-        for (final String xax : xLabs) {
-          {
+            content = (_content_3 + "\n");
+            String _content_4 = content;
+            StringConcatenation _builder_4 = new StringConcatenation();
+            _builder_4.append("\t");
+            String _plus_4 = (_builder_4.toString() + keyPlot);
+            StringConcatenation _builder_5 = new StringConcatenation();
+            _builder_5.append("= new Chart(");
+            _builder_5.newLine();
+            _builder_5.append("\t\t\t");
+            _builder_5.append("document.getElementById(\"");
+            String _plus_5 = (_plus_4 + _builder_5);
+            String _plus_6 = (_plus_5 + keyPlot);
+            StringConcatenation _builder_6 = new StringConcatenation();
+            _builder_6.append("\"),");
+            _builder_6.newLine();
+            _builder_6.append("\t\t\t");
+            _builder_6.append("{");
+            _builder_6.newLine();
+            _builder_6.append("\t\t\t\t");
+            _builder_6.append("type: \"");
+            String _plus_7 = (_plus_6 + _builder_6);
+            String _plus_8 = (_plus_7 + plotType);
+            StringConcatenation _builder_7 = new StringConcatenation();
+            _builder_7.append("\",");
+            _builder_7.newLine();
+            _builder_7.append("\t\t\t\t");
+            _builder_7.append("data: {");
+            String _plus_9 = (_plus_8 + _builder_7);
+            content = (_content_4 + _plus_9);
+            for (final String xax : xLabs) {
+              {
+                String _content_5 = content;
+                StringConcatenation _builder_8 = new StringConcatenation();
+                _builder_8.append("labels: file");
+                String _plus_10 = (_builder_8.toString() + Integer.valueOf(j));
+                String _plus_11 = (_plus_10 + Integer.valueOf(1));
+                StringConcatenation _builder_9 = new StringConcatenation();
+                _builder_9.append(".map(row => row.");
+                String _plus_12 = (_plus_11 + _builder_9);
+                String _plus_13 = (_plus_12 + xax);
+                StringConcatenation _builder_10 = new StringConcatenation();
+                _builder_10.append("),");
+                _builder_10.newLine();
+                _builder_10.append("\t\t\t\t\t");
+                _builder_10.append("datasets: [");
+                _builder_10.newLine();
+                String _plus_14 = (_plus_13 + _builder_10);
+                content = (_content_5 + _plus_14);
+                ArrayList<String> value = new ArrayList<String>();
+                boolean _containsKey = filePlot.get(keyPlot).containsKey("colors");
+                if (_containsKey) {
+                  Object _get_6 = filePlot.get(keyPlot).get("colors");
+                  value = ((ArrayList) _get_6);
+                }
+                ArrayList<String> convertColors = new ArrayList<String>();
+                for (final String col : value) {
+                  boolean _contains = value.contains("#");
+                  if (_contains) {
+                    String hexR = ((String) col).substring(1, 3);
+                    String hexG = ((String) col).substring(3, 5);
+                    String hexB = ((String) col).substring(5);
+                    convertColors.add((((("rgba(" + hexR) + hexG) + hexB) + ", 0.6)"));
+                  } else {
+                    convertColors.add(((String) col));
+                  }
+                }
+                for (int a = 0; (a < yLabs.size()); a++) {
+                  int _size = convertColors.size();
+                  boolean _greaterThan = (_size > 1);
+                  if (_greaterThan) {
+                    String _content_6 = content;
+                    StringConcatenation _builder_11 = new StringConcatenation();
+                    _builder_11.append("\t\t\t\t\t");
+                    _builder_11.append("{");
+                    _builder_11.newLine();
+                    _builder_11.append("\t\t\t\t\t    \t\t");
+                    _builder_11.append("label: \"");
+                    String _get_7 = yLabs.get(a);
+                    String _plus_15 = (_builder_11.toString() + _get_7);
+                    StringConcatenation _builder_12 = new StringConcatenation();
+                    _builder_12.append("\",");
+                    _builder_12.newLine();
+                    _builder_12.append("\t\t\t\t\t        \t");
+                    _builder_12.append("data: file");
+                    String _plus_16 = (_plus_15 + _builder_12);
+                    String _plus_17 = (_plus_16 + Integer.valueOf(j));
+                    String _plus_18 = (_plus_17 + Integer.valueOf(1));
+                    StringConcatenation _builder_13 = new StringConcatenation();
+                    _builder_13.append(".map(row => row.");
+                    String _plus_19 = (_plus_18 + _builder_13);
+                    String _get_8 = yLabs.get(a);
+                    String _plus_20 = (_plus_19 + _get_8);
+                    StringConcatenation _builder_14 = new StringConcatenation();
+                    _builder_14.append("),");
+                    _builder_14.newLine();
+                    _builder_14.append("\t\t\t\t\t        \t");
+                    _builder_14.append("borderColor: \"");
+                    String _plus_21 = (_plus_20 + _builder_14);
+                    String _get_9 = convertColors.get(a);
+                    String _plus_22 = (_plus_21 + _get_9);
+                    StringConcatenation _builder_15 = new StringConcatenation();
+                    _builder_15.append("\",");
+                    String _plus_23 = (_plus_22 + _builder_15);
+                    String _plus_24 = (_plus_23 + "\n");
+                    content = (_content_6 + _plus_24);
+                    boolean _containsKey_1 = filePlot.get(keyPlot).containsKey("thickness");
+                    if (_containsKey_1) {
+                      String _content_7 = content;
+                      StringConcatenation _builder_16 = new StringConcatenation();
+                      _builder_16.append("\t\t\t\t");
+                      _builder_16.append("borderWidth: ");
+                      Object _get_10 = filePlot.get(keyPlot).get("thickness");
+                      String _plus_25 = (_builder_16.toString() + _get_10);
+                      String _plus_26 = (_plus_25 + ",\n");
+                      content = (_content_7 + _plus_26);
+                    }
+                    String _content_8 = content;
+                    StringConcatenation _builder_17 = new StringConcatenation();
+                    _builder_17.append("\t\t\t");
+                    _builder_17.append("},");
+                    content = (_content_8 + _builder_17);
+                  } else {
+                    int _size_1 = convertColors.size();
+                    boolean _equals = (_size_1 == 1);
+                    if (_equals) {
+                      String _content_9 = content;
+                      StringConcatenation _builder_18 = new StringConcatenation();
+                      _builder_18.append("\t\t\t\t\t");
+                      _builder_18.append("{");
+                      _builder_18.newLine();
+                      _builder_18.append("\t\t\t\t\t    \t\t");
+                      _builder_18.append("label: \"");
+                      String _get_11 = yLabs.get(a);
+                      String _plus_27 = (_builder_18.toString() + _get_11);
+                      StringConcatenation _builder_19 = new StringConcatenation();
+                      _builder_19.append("\",");
+                      _builder_19.newLine();
+                      _builder_19.append("\t\t\t\t\t        \t");
+                      _builder_19.append("data: file");
+                      String _plus_28 = (_plus_27 + _builder_19);
+                      String _plus_29 = (_plus_28 + Integer.valueOf(j));
+                      String _plus_30 = (_plus_29 + Integer.valueOf(1));
+                      StringConcatenation _builder_20 = new StringConcatenation();
+                      _builder_20.append(".map(row => row.");
+                      String _plus_31 = (_plus_30 + _builder_20);
+                      String _get_12 = yLabs.get(a);
+                      String _plus_32 = (_plus_31 + _get_12);
+                      StringConcatenation _builder_21 = new StringConcatenation();
+                      _builder_21.append("),");
+                      _builder_21.newLine();
+                      _builder_21.append("\t\t\t\t\t        \t");
+                      _builder_21.append("borderColor: \"");
+                      String _plus_33 = (_plus_32 + _builder_21);
+                      String _get_13 = convertColors.get(0);
+                      String _plus_34 = (_plus_33 + _get_13);
+                      StringConcatenation _builder_22 = new StringConcatenation();
+                      _builder_22.append("\"");
+                      String _plus_35 = (_plus_34 + _builder_22);
+                      content = (_content_9 + _plus_35);
+                      boolean _containsKey_2 = filePlot.get(keyPlot).containsKey("thickness");
+                      if (_containsKey_2) {
+                        String _content_10 = content;
+                        StringConcatenation _builder_23 = new StringConcatenation();
+                        _builder_23.append("borderWidth: ");
+                        Object _get_14 = filePlot.get(keyPlot).get("thickness");
+                        String _plus_36 = (_builder_23.toString() + _get_14);
+                        content = (_content_10 + _plus_36);
+                      }
+                      String _content_11 = content;
+                      StringConcatenation _builder_24 = new StringConcatenation();
+                      _builder_24.append(",");
+                      _builder_24.newLine();
+                      _builder_24.append("\t\t\t\t\t    \t");
+                      _builder_24.append("},");
+                      _builder_24.newLine();
+                      content = (_content_11 + _builder_24);
+                    } else {
+                      String _content_12 = content;
+                      StringConcatenation _builder_25 = new StringConcatenation();
+                      _builder_25.append("\t\t\t\t\t");
+                      _builder_25.append("{");
+                      _builder_25.newLine();
+                      _builder_25.append("\t\t\t\t\t    \t\t");
+                      _builder_25.append("label: \"");
+                      String _get_15 = yLabs.get(a);
+                      String _plus_37 = (_builder_25.toString() + _get_15);
+                      StringConcatenation _builder_26 = new StringConcatenation();
+                      _builder_26.append("\",");
+                      _builder_26.newLine();
+                      _builder_26.append("\t\t\t\t\t        \t");
+                      _builder_26.append("data: file");
+                      String _plus_38 = (_plus_37 + _builder_26);
+                      String _plus_39 = (_plus_38 + Integer.valueOf(j));
+                      String _plus_40 = (_plus_39 + Integer.valueOf(1));
+                      StringConcatenation _builder_27 = new StringConcatenation();
+                      _builder_27.append(".map(row => row.");
+                      String _plus_41 = (_plus_40 + _builder_27);
+                      String _get_16 = yLabs.get(a);
+                      String _plus_42 = (_plus_41 + _get_16);
+                      StringConcatenation _builder_28 = new StringConcatenation();
+                      _builder_28.append(")");
+                      String _plus_43 = (_plus_42 + _builder_28);
+                      content = (_content_12 + _plus_43);
+                      boolean _containsKey_3 = filePlot.get(keyPlot).containsKey("thickness");
+                      if (_containsKey_3) {
+                        String _content_13 = content;
+                        StringConcatenation _builder_29 = new StringConcatenation();
+                        _builder_29.append("borderWidth: ");
+                        Object _get_17 = filePlot.get(keyPlot).get("thickness");
+                        String _plus_44 = (_builder_29.toString() + _get_17);
+                        content = (_content_13 + _plus_44);
+                      }
+                      String _content_14 = content;
+                      StringConcatenation _builder_30 = new StringConcatenation();
+                      _builder_30.append(",");
+                      _builder_30.newLine();
+                      _builder_30.append("\t\t\t\t\t    \t");
+                      _builder_30.append("},");
+                      _builder_30.newLine();
+                      content = (_content_14 + _builder_30);
+                    }
+                  }
+                }
+              }
+            }
             String _content_5 = content;
             StringConcatenation _builder_8 = new StringConcatenation();
-            _builder_8.append("labels: file");
-            String _plus_10 = (_builder_8.toString() + Integer.valueOf(j));
-            String _plus_11 = (_plus_10 + Integer.valueOf(1));
-            StringConcatenation _builder_9 = new StringConcatenation();
-            _builder_9.append(".map(row => row.");
-            String _plus_12 = (_plus_11 + _builder_9);
-            String _plus_13 = (_plus_12 + xax);
-            StringConcatenation _builder_10 = new StringConcatenation();
-            _builder_10.append("),");
-            _builder_10.newLine();
-            _builder_10.append("\t\t\t\t");
-            _builder_10.append("datasets: [");
-            _builder_10.newLine();
-            String _plus_14 = (_plus_13 + _builder_10);
-            content = (_content_5 + _plus_14);
-            ArrayList<String> value = new ArrayList<String>();
-            boolean _containsKey = dashboardContent.get(keyPlot).containsKey("colors");
-            if (_containsKey) {
-              Object _get_6 = dashboardContent.get(keyPlot).get("colors");
-              value = ((ArrayList) _get_6);
-            }
-            ArrayList<String> convertColors = new ArrayList<String>();
-            for (final String col : value) {
-              boolean _contains = value.contains("#");
-              if (_contains) {
-                String hexR = ((String) col).substring(1, 3);
-                String hexG = ((String) col).substring(3, 5);
-                String hexB = ((String) col).substring(5);
-                convertColors.add((((("rgba(" + hexR) + hexG) + hexB) + ", 0.6)"));
-              } else {
-                convertColors.add(((String) col));
-              }
-            }
-            for (int a = 0; (a < yLabs.size()); a++) {
-              int _size = convertColors.size();
-              boolean _greaterThan = (_size > 1);
-              if (_greaterThan) {
-                String _content_6 = content;
-                StringConcatenation _builder_11 = new StringConcatenation();
-                _builder_11.append("\t\t\t\t\t");
-                _builder_11.append("{");
-                _builder_11.newLine();
-                _builder_11.append("\t\t\t\t    \t\t");
-                _builder_11.append("label: \"");
-                String _get_7 = yLabs.get(a);
-                String _plus_15 = (_builder_11.toString() + _get_7);
-                StringConcatenation _builder_12 = new StringConcatenation();
-                _builder_12.append("\",");
-                _builder_12.newLine();
-                _builder_12.append("\t\t\t\t        \t");
-                _builder_12.append("data: file");
-                String _plus_16 = (_plus_15 + _builder_12);
-                String _plus_17 = (_plus_16 + Integer.valueOf(j));
-                String _plus_18 = (_plus_17 + Integer.valueOf(1));
-                StringConcatenation _builder_13 = new StringConcatenation();
-                _builder_13.append(".map(row => row.");
-                String _plus_19 = (_plus_18 + _builder_13);
-                String _get_8 = yLabs.get(a);
-                String _plus_20 = (_plus_19 + _get_8);
-                StringConcatenation _builder_14 = new StringConcatenation();
-                _builder_14.append("),");
-                _builder_14.newLine();
-                _builder_14.append("\t\t\t\t        \t");
-                _builder_14.append("borderColor: \"");
-                String _plus_21 = (_plus_20 + _builder_14);
-                String _get_9 = convertColors.get(a);
-                String _plus_22 = (_plus_21 + _get_9);
-                StringConcatenation _builder_15 = new StringConcatenation();
-                _builder_15.append("\",");
-                String _plus_23 = (_plus_22 + _builder_15);
-                String _plus_24 = (_plus_23 + "\n");
-                content = (_content_6 + _plus_24);
-                boolean _containsKey_1 = dashboardContent.get(keyPlot).containsKey("thickness");
-                if (_containsKey_1) {
-                  String _content_7 = content;
-                  StringConcatenation _builder_16 = new StringConcatenation();
-                  _builder_16.append("\t\t\t\t");
-                  _builder_16.append("borderWidth: ");
-                  Object _get_10 = dashboardContent.get(keyPlot).get("thickness");
-                  String _plus_25 = (_builder_16.toString() + _get_10);
-                  String _plus_26 = (_plus_25 + ",\n");
-                  content = (_content_7 + _plus_26);
-                }
-                String _content_8 = content;
-                StringConcatenation _builder_17 = new StringConcatenation();
-                _builder_17.append("\t\t\t");
-                _builder_17.append("},");
-                content = (_content_8 + _builder_17);
-              } else {
-                int _size_1 = convertColors.size();
-                boolean _equals = (_size_1 == 1);
-                if (_equals) {
-                  String _content_9 = content;
-                  StringConcatenation _builder_18 = new StringConcatenation();
-                  _builder_18.append("\t\t\t\t\t");
-                  _builder_18.append("{");
-                  _builder_18.newLine();
-                  _builder_18.append("\t\t\t\t    \t\t");
-                  _builder_18.append("label: \"");
-                  String _get_11 = yLabs.get(a);
-                  String _plus_27 = (_builder_18.toString() + _get_11);
-                  StringConcatenation _builder_19 = new StringConcatenation();
-                  _builder_19.append("\",");
-                  _builder_19.newLine();
-                  _builder_19.append("\t\t\t\t        \t");
-                  _builder_19.append("data: file");
-                  String _plus_28 = (_plus_27 + _builder_19);
-                  String _plus_29 = (_plus_28 + Integer.valueOf(j));
-                  String _plus_30 = (_plus_29 + Integer.valueOf(1));
-                  StringConcatenation _builder_20 = new StringConcatenation();
-                  _builder_20.append(".map(row => row.");
-                  String _plus_31 = (_plus_30 + _builder_20);
-                  String _get_12 = yLabs.get(a);
-                  String _plus_32 = (_plus_31 + _get_12);
-                  StringConcatenation _builder_21 = new StringConcatenation();
-                  _builder_21.append("),");
-                  _builder_21.newLine();
-                  _builder_21.append("\t\t\t\t        \t");
-                  _builder_21.append("borderColor: \"");
-                  String _plus_33 = (_plus_32 + _builder_21);
-                  String _get_13 = convertColors.get(0);
-                  String _plus_34 = (_plus_33 + _get_13);
-                  StringConcatenation _builder_22 = new StringConcatenation();
-                  _builder_22.append("\"");
-                  String _plus_35 = (_plus_34 + _builder_22);
-                  content = (_content_9 + _plus_35);
-                  boolean _containsKey_2 = dashboardContent.get(keyPlot).containsKey("thickness");
-                  if (_containsKey_2) {
-                    String _content_10 = content;
-                    StringConcatenation _builder_23 = new StringConcatenation();
-                    _builder_23.append("borderWidth: ");
-                    Object _get_14 = dashboardContent.get(keyPlot).get("thickness");
-                    String _plus_36 = (_builder_23.toString() + _get_14);
-                    content = (_content_10 + _plus_36);
-                  }
-                  String _content_11 = content;
-                  StringConcatenation _builder_24 = new StringConcatenation();
-                  _builder_24.append(",");
-                  _builder_24.newLine();
-                  _builder_24.append("\t\t\t\t    \t");
-                  _builder_24.append("},");
-                  _builder_24.newLine();
-                  content = (_content_11 + _builder_24);
-                } else {
-                  String _content_12 = content;
-                  StringConcatenation _builder_25 = new StringConcatenation();
-                  _builder_25.append("\t\t\t\t\t");
-                  _builder_25.append("{");
-                  _builder_25.newLine();
-                  _builder_25.append("\t\t\t\t    \t\t");
-                  _builder_25.append("label: \"");
-                  String _get_15 = yLabs.get(a);
-                  String _plus_37 = (_builder_25.toString() + _get_15);
-                  StringConcatenation _builder_26 = new StringConcatenation();
-                  _builder_26.append("\",");
-                  _builder_26.newLine();
-                  _builder_26.append("\t\t\t\t        \t");
-                  _builder_26.append("data: file");
-                  String _plus_38 = (_plus_37 + _builder_26);
-                  String _plus_39 = (_plus_38 + Integer.valueOf(j));
-                  String _plus_40 = (_plus_39 + Integer.valueOf(1));
-                  StringConcatenation _builder_27 = new StringConcatenation();
-                  _builder_27.append(".map(row => row.");
-                  String _plus_41 = (_plus_40 + _builder_27);
-                  String _get_16 = yLabs.get(a);
-                  String _plus_42 = (_plus_41 + _get_16);
-                  StringConcatenation _builder_28 = new StringConcatenation();
-                  _builder_28.append(")");
-                  String _plus_43 = (_plus_42 + _builder_28);
-                  content = (_content_12 + _plus_43);
-                  boolean _containsKey_3 = dashboardContent.get(keyPlot).containsKey("thickness");
-                  if (_containsKey_3) {
-                    String _content_13 = content;
-                    StringConcatenation _builder_29 = new StringConcatenation();
-                    _builder_29.append("borderWidth: ");
-                    Object _get_17 = dashboardContent.get(keyPlot).get("thickness");
-                    String _plus_44 = (_builder_29.toString() + _get_17);
-                    content = (_content_13 + _plus_44);
-                  }
-                  String _content_14 = content;
-                  StringConcatenation _builder_30 = new StringConcatenation();
-                  _builder_30.append(",");
-                  _builder_30.newLine();
-                  _builder_30.append("\t\t\t\t    \t");
-                  _builder_30.append("},");
-                  _builder_30.newLine();
-                  content = (_content_14 + _builder_30);
-                }
-              }
-            }
+            _builder_8.append("\t\t\t");
+            _builder_8.append("]");
+            _builder_8.newLine();
+            _builder_8.append("\t\t");
+            _builder_8.append("}");
+            _builder_8.newLine();
+            _builder_8.append("\t");
+            _builder_8.append("}");
+            _builder_8.newLine();
+            _builder_8.append(");");
+            _builder_8.newLine();
+            _builder_8.append("\t\t\t\t");
+            _builder_8.newLine();
+            content = (_content_5 + _builder_8);
+            j++;
           }
         }
-        String _content_5 = content;
-        StringConcatenation _builder_8 = new StringConcatenation();
-        _builder_8.append("\t\t\t");
-        _builder_8.append("]");
-        _builder_8.newLine();
-        _builder_8.append("\t\t");
-        _builder_8.append("}");
-        _builder_8.newLine();
-        _builder_8.append("\t");
-        _builder_8.append("}");
-        _builder_8.newLine();
-        _builder_8.append(");");
-        _builder_8.newLine();
-        _builder_8.append("\t\t\t\t");
-        _builder_8.newLine();
-        content = (_content_5 + _builder_8);
-        j++;
       }
     }
     return content;

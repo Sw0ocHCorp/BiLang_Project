@@ -32,7 +32,7 @@ import ucal3ia.bilang.abstractsyntax.NullReplacement;
  *
  * @generated
  */
-public abstract class FileExtractorImpl extends NamedElementImpl implements FileExtractor {
+public class FileExtractorImpl extends NamedElementImpl implements FileExtractor {
 	/**
 	 * The default value of the '{@link #getPath() <em>Path</em>}' attribute.
 	 * <!-- begin-user-doc -->
