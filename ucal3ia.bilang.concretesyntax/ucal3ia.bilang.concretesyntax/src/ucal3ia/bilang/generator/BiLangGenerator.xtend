@@ -29,6 +29,7 @@ import ucal3ia.bilang.abstractsyntax.ScatterPlot
 import ucal3ia.bilang.abstractsyntax.PolarPlot
 import ucal3ia.bilang.abstractsyntax.DonutPlot
 import java.util.Collections
+import ucal3ia.bilang.abstractsyntax.CountPreprocessingStep
 
 /**
  * Generates code from your model files on save.
@@ -42,6 +43,7 @@ class BiLangGenerator extends AbstractGenerator {
 		var Task task= resource.allContents.head as Task
 		var dataArray= new HashMap<String, HashMap<String, ArrayList<String>>>;
 		var dashBoardContent= new HashMap<FileExtractor, HashMap<String, HashMap<String, Object>>>;
+		var countPreprocessData= new HashMap<String, HashMap<String, Integer>>;
 		var fileExtractName= "";
 		var fileContent= '''
 		<!DOCTYPE html>
@@ -72,17 +74,15 @@ class BiLangGenerator extends AbstractGenerator {
 			var inputData= dataArray.get(filter.fileextractor.name)
 			//var filteredData= 
 			dataArray.put(filter.fileextractor.name, translateDataFiltering(filter, inputData))
+			for (countPreprocessing: filter.countpreprocessingstep) {
+				countPreprocessData.put(countPreprocessing.reference, translateCountPreprocessingSteps(countPreprocessing, dataArray.get(filter.fileextractor.name)))
+			}
 		}
 		var fileExtractors= new ArrayList<FileExtractor>()
 		for (fileExtractor: task.dashboard.fileextractor) {
 			fileExtractors.add(fileExtractor)
 		}
-		dashBoardContent= translateDashBoard(task.dashboard, fileExtractors, dataArray)
-			/*if (dashboard.datafiltering != null) {
-				fileContent += translateDashBoardManager(dashboard, dataArray.get(dashboard.datafiltering));
-			} else {
-				fileContent += translateDashBoardManager(dashboard, dataArray.get(dashboard.fileextractor))
-			}*/
+		dashBoardContent= translateDashBoard(task.dashboard, fileExtractors, dataArray, countPreprocessData)
 			
 		fileContent+= displayDashboard(dashBoardContent, dataArray)
 		
@@ -198,7 +198,7 @@ class BiLangGenerator extends AbstractGenerator {
 			var newFieldData= new ArrayList<String>();
 			if (preprocess instanceof MathOperation) {
 				newFieldData= MathOperationAlgorithm(preprocess as MathOperation, filteredData)
-				filteredData.put("TEST", newFieldData);
+				filteredData.put(preprocess.newColName, newFieldData);
 				System.out.println(newFieldData)
 			} else if (preprocess instanceof StatisticalOperation) {
 				
@@ -223,6 +223,10 @@ class BiLangGenerator extends AbstractGenerator {
 					}	
 					else if ((main_operator).equals(">")) {
 						targetCondition= (Float.parseFloat(targetCol.get(i)) > targetValue);
+					} else if ((main_operator).equals("<=")) {
+						targetCondition= (Float.parseFloat(targetCol.get(i)) <= targetValue);
+					} else if ((main_operator).equals(">=")) {
+						targetCondition= (Float.parseFloat(targetCol.get(i)) >= targetValue);
 					}
 					else
 						targetCondition= (Float.parseFloat(targetCol.get(i)) == targetValue);
@@ -303,15 +307,17 @@ class BiLangGenerator extends AbstractGenerator {
 	}
 	
 	//FONCTION DE STOCKAGE DES CARACTERISTIQUES DES GRAPHIQUES
-	def translateDashBoard(DashBoard db, ArrayList<FileExtractor> extractors, HashMap<String, HashMap<String, ArrayList<String>>> filesData) {
+	def translateDashBoard(DashBoard db, ArrayList<FileExtractor> extractors, HashMap<String, HashMap<String, ArrayList<String>>> filesData, HashMap<String, HashMap<String, Integer>> countData) {
 		//var dashBoardContent= new HashMap<String, HashMap<String, Object>>
 		var dashBoardContent= new HashMap<FileExtractor, HashMap<String, HashMap<String, Object>>>
 		var plotType= ""
 		var p= 0
+		
 		for (plot:db.plot) {
 			var plotContent= new HashMap<String, Object>
 			var key= plot.name
 			var xAxis= new ArrayList<String>()
+			var yAxis= new ArrayList<String>()
 			var colors= new ArrayList<String>()
 			//Récupération de la / des couleurs du graphique
 			if (plot.colors != null) {
@@ -336,47 +342,68 @@ class BiLangGenerator extends AbstractGenerator {
 				plotContent.put("type", "scatter")
 			else if (plot instanceof LinePlot) 
 				plotContent.put("type", "line")
-			else if (plot instanceof PiePlot)
+			else if (plot instanceof PiePlot) {
 				plotContent.put("type", "pie")
-			else if (plot instanceof PolarPlot)
+				if (plot.countID != null) {
+					xAxis= new ArrayList<String>((countData.get(plot.countID)).keySet())
+					plotContent.put("countPlot", true)
+					for(countKey: (countData.get(plot.countID)).keySet()) {
+						yAxis.add(String.valueOf((countData.get(plot.countID)).get(countKey)))
+					}
+				}
+			} else if (plot instanceof PolarPlot)
 				plotContent.put("type", "polarArea")
-			else if (plot instanceof DonutPlot)
+			else if (plot instanceof DonutPlot) {
 				plotContent.put("type", "doughnut")
-			else if (plot instanceof RadarPlot)
+				if (plot.countID != null) {
+					xAxis= new ArrayList<String>((countData.get(plot.countID)).keySet())
+					plotContent.put("countPlot", true)
+					for(countKey: (countData.get(plot.countID)).keySet()) {
+						yAxis.add(String.valueOf((countData.get(plot.countID)).get(countKey)))
+					}
+				}
+			} else if (plot instanceof RadarPlot)
 				plotContent.put("type", "radar")
-			//Récupération des axes en abscisses
-			if ((plot.XAxis).contains(", ")){
-				for (lab:(plot.XAxis).split(", ")) {
-					xAxis.add(lab)
+				//Récupération des axes en abscisses
+				if (xAxis.length() == 0) {
+					if ((plot.XAxis).contains(", ")){
+						for (lab:(plot.XAxis).split(", ")) {
+							xAxis.add(lab)
+						}
+						plotContent.put("xAxis", xAxis)
+					}
+					else if ((plot.XAxis).contains(",")) {
+						for (lab:(plot.XAxis).split(",")) {
+							xAxis.add(lab)
+						}
+						plotContent.put("xAxis", xAxis)
+					} else {
+						xAxis.add(plot.XAxis)
+						plotContent.put("xAxis", plot.XAxis)
+					}		
+				}	else {
+					plotContent.put("xAxis", xAxis)
 				}
-				plotContent.put("xAxis", xAxis)
-			}
-			else if ((plot.XAxis).contains(",")) {
-				for (lab:(plot.XAxis).split(",")) {
-					xAxis.add(lab)
-				}
-				plotContent.put("xAxis", xAxis)
-			} else {
-				xAxis.add(plot.XAxis)
-				plotContent.put("xAxis", plot.XAxis)
-			}		
 			//Récupération des axes en ordonnées
-			var yAxis= new ArrayList<String>()
-			if ((plot.YAxis).contains(", ")){
-				for (lab:(plot.YAxis).split(", ")) {
-					yAxis.add(lab)
+			if (yAxis.length() == 0) {
+				if ((plot.YAxis).contains(", ")){
+					for (lab:(plot.YAxis).split(", ")) {
+						yAxis.add(lab)
+					}
+					plotContent.put("yAxis", yAxis)
 				}
-				plotContent.put("yAxis", yAxis)
-			}
-			else if ((plot.YAxis).contains(",")) {
-				for (lab:(plot.YAxis).split(",")) {
-					yAxis.add(lab)
-					
-				}
-				plotContent.put("yAxis", yAxis)
+				else if ((plot.YAxis).contains(",")) {
+					for (lab:(plot.YAxis).split(",")) {
+						yAxis.add(lab)
+						
+					}
+					plotContent.put("yAxis", yAxis)
+				} else {
+					yAxis.add(plot.YAxis)
+					plotContent.put("yAxis", plot.YAxis)
+				}	
 			} else {
-				yAxis.add(plot.YAxis)
-				plotContent.put("yAxis", plot.YAxis)
+				plotContent.put("yAxis", yAxis)
 			}
 			//Récupération de la position du graphique, epaisseur des lignes / barres / etc...
 			if (plot.location != -1) {
@@ -387,7 +414,7 @@ class BiLangGenerator extends AbstractGenerator {
 				plotContent.put("thickness", Float.toString(plot.thickness))	
 			}
 			for (extractor: extractors) {
-				if (((filesData.get(extractor.name)).keySet()).containsAll(yAxis) &&  ((filesData.get(extractor.name)).keySet()).containsAll(xAxis)){
+				if (((plotContent.get("type")).equals("doughnut")) || ((plotContent.get("type")).equals("pie"))) {
 					var plotMap= new HashMap<String, HashMap<String, Object>>
 					if (!dashBoardContent.containsKey(extractor)) {	
 						plotMap.put(key, plotContent)
@@ -400,11 +427,112 @@ class BiLangGenerator extends AbstractGenerator {
 					dashBoardContent.put(extractor, plotMap)
 					p++
 					System.out.println(dashBoardContent)
-				}		
+				} else {
+					if ((filesData.get(extractor.getName()).keySet().containsAll(yAxis) && filesData.get(extractor.getName()).keySet().containsAll(xAxis))) {
+						var plotMap= new HashMap<String, HashMap<String, Object>>
+						if (!dashBoardContent.containsKey(extractor)) {	
+							plotMap.put(key, plotContent)
+							
+						} else {
+							plotMap= dashBoardContent.get(extractor)
+							plotMap.put(key, plotContent)
+						}
+						// Stockage dans la map globale du dashboard
+						dashBoardContent.put(extractor, plotMap)
+						p++
+						System.out.println(dashBoardContent)
+					}
+				}	
 			}
 		}
 		
 		return dashBoardContent
+	}
+	
+	def translateCountPreprocessingSteps(CountPreprocessingStep countPreprocess, HashMap<String, ArrayList<String>> fileData) {
+		var countData= new HashMap<String, Integer>
+		var test= 0
+		for (value: fileData.get(countPreprocess.axis)) {
+			if ((countPreprocess.countqualistatement).length() > 0) {
+				for (countStatement: countPreprocess.countqualistatement) {
+					if (((countStatement.qualiOperator).literal).equals("=")) {
+						if (value.equals(countStatement.label)) {
+							if (countData.containsKey(countStatement.statement)) {
+								countData.put(countStatement.statement, countData.get(countStatement.statement) +1)	
+							} else {
+								countData.put(countStatement.statement, 1)	
+							}
+						}	
+					} else if (((countStatement.qualiOperator).literal).equals("!=")) {
+						if (!value.equals(countStatement.label)) {
+							if (countData.containsKey(countStatement.statement)) {
+								countData.put(countStatement.statement, countData.get(countStatement.statement) +1)	
+							} else {
+								countData.put(countStatement.statement, 1)	
+							}
+						}	
+					}
+				}	
+			} else if ((countPreprocess.countquantistatement).length() > 0) {
+				for (countStatement: countPreprocess.countquantistatement) {
+					if (((countStatement.LSide == -123456789) && (countStatement.RSide != -123456789))) {
+						if ((countStatement.quantiOperator.literal).equals("<") && Float.parseFloat(value) < countStatement.RSide) {
+							if (countData.containsKey(countStatement.statement)) {
+								countData.put(countStatement.statement, countData.get(countStatement.statement) +1)	
+							} else {
+								countData.put(countStatement.statement, 1)	
+							}	
+						} else if((countStatement.quantiOperator.literal).equals("<=") && Float.parseFloat(value) <= countStatement.RSide) {
+							if (countData.containsKey(countStatement.statement)) {
+								countData.put(countStatement.statement, countData.get(countStatement.statement) +1)	
+							} else {
+								countData.put(countStatement.statement, 1)	
+							}	
+						} else if ((countStatement.quantiOperator.literal).equals(">") && Float.parseFloat(value) > countStatement.RSide) {
+							if (countData.containsKey(countStatement.statement)) {
+								countData.put(countStatement.statement, countData.get(countStatement.statement) +1)	
+							} else {
+								countData.put(countStatement.statement, 1)	
+							}	
+						} else if ((countStatement.quantiOperator.literal).equals(">=") && Float.parseFloat(value) >= countStatement.RSide) {
+							if (countData.containsKey(countStatement.statement)) {
+								countData.put(countStatement.statement, countData.get(countStatement.statement) +1)	
+							} else {
+								countData.put(countStatement.statement, 1)	
+							}	
+						}
+					} else if ((countStatement.LSide != -123456789) && (countStatement.RSide != -123456789)) {
+						if (((countStatement.rangeOperator.literal).equals("][")) && ((Float.parseFloat(value) > countStatement.LSide) && (Float.parseFloat(value) < countStatement.RSide))) {
+							if (countData.containsKey(countStatement.statement)) {
+								countData.put(countStatement.statement, countData.get(countStatement.statement) +1)	
+							} else {
+								countData.put(countStatement.statement, 1)	
+							}	
+						} else if (((countStatement.rangeOperator.literal).equals("[]")) && ((Float.parseFloat(value) >= countStatement.LSide) && (Float.parseFloat(value) <= countStatement.RSide))) {
+							if (countData.containsKey(countStatement.statement)) {
+								countData.put(countStatement.statement, countData.get(countStatement.statement) +1)	
+							} else {
+								countData.put(countStatement.statement, 1)	
+							}	
+						} else if (((countStatement.rangeOperator.literal).equals("]]")) && ((Float.parseFloat(value) > countStatement.LSide) && (Float.parseFloat(value) <= countStatement.RSide))) {
+							if (countData.containsKey(countStatement.statement)) {
+								countData.put(countStatement.statement, countData.get(countStatement.statement) +1)	
+							} else {
+								countData.put(countStatement.statement, 1)	
+							}	
+						} else if (((countStatement.rangeOperator.literal).equals("[[")) && ((Float.parseFloat(value) >= countStatement.LSide) && (Float.parseFloat(value) < countStatement.RSide))) {
+							if (countData.containsKey(countStatement.statement)) {
+								countData.put(countStatement.statement, countData.get(countStatement.statement) +1)	
+							} else {
+								countData.put(countStatement.statement, 1)	
+							}	
+						}
+					}
+				}
+			}
+			test++	
+		}
+		return countData
 	}
 	
 	//FONCTION PERMETTANT D'UTILISER LES DONNéES CARACTéRISTIQUES DES GRAPHIQUES ET DONNéES DU CSV POUR AFFICHER LES GRAPHIQUES SUR LA PAGE WEB
@@ -431,21 +559,6 @@ class BiLangGenerator extends AbstractGenerator {
 				
 			}
 		}
-		/*for(fileExtractor: dashboardContent.keySet()) {
-			var filePlot= dashboardContent.get(fileExtractor)
-			for (var i= plotNum; i < (filePlot.keySet()).length()+plotNum; i++) {
-				for (key: filePlot.keySet()) {
-					if ((filePlot.get(key)).containsKey("location") && (filePlot.get(key)).get("location") == i) {
-						targetkey= key
-						plotNum= i+1
-					}
-				}
-				content+= '''<div class="chart-container">
-				<canvas id="''' + targetkey + '''"></canvas>
-				</div>'''
-				content+= "\n"
-			}	
-		}*/
 		content+='''
 				
 				<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -479,98 +592,157 @@ class BiLangGenerator extends AbstractGenerator {
 				var plotType= filePlot.get(keyPlot).get("type")
 				var xLabs= new ArrayList<String>()
 				var yLabs= new ArrayList<String>()
-				if (filePlot.get(keyPlot).get("xAxis") instanceof ArrayList) {
-					xLabs= filePlot.get(keyPlot).get("xAxis") as ArrayList
-				} else {
-					xLabs.add(filePlot.get(keyPlot).get("xAxis") as String)
-				}
-				
-				if (filePlot.get(keyPlot).get("yAxis") instanceof ArrayList) {
-					yLabs= filePlot.get(keyPlot).get("yAxis") as ArrayList
-				} else {
-					yLabs.add(filePlot.get(keyPlot).get("yAxis") as String)
-				}
-				
 				var yCols= new ArrayList<ArrayList<String>>();
 				var xCols= new ArrayList<ArrayList<String>>();	
-				for (var a= 0; a < yLabs.size(); a++) 
-					yCols.add(fileData.get(yLabs.get(a)));
-		
-				for (var a= 0; a < xLabs.size(); a++) 
-					xCols.add(fileData.get(xLabs.get(a)));
-				content += "\n"+'''	const file''' + j+1 + '''= ['''
-				var yLength= yCols.get(0).length()
-				for (var i= 0; i < yLength; i++) {
-					content+='''	{'''
-					for (var cx= 0; cx < xCols.length(); cx++)
-						content+= xLabs.get(cx) + ''': "''' + xCols.get(cx).get(i) + '''", '''
-						//content+= dbm.plot.get(j).XAxis + ''': "''' + xCol.get(i) + '''", ''' + dbm.plot.get(j).YAxis + ''': "''' + yCol.get(i) + '''"},'''
-					for (var cy= 0; cy < yCols.length(); cy++)
-						content+= yLabs.get(cy) + ''': "''' + yCols.get(cy).get(i) + '''", '''
-					//content-= ''', '''
-					content += "},\n"
-				}
-				content += '''	];'''
-				content += "\n"
-				content += '''	''' + keyPlot + '''= new Chart(
-			document.getElementById("''' + keyPlot + '''"),
-			{
-				type: "''' + plotType + '''",
-				data: {''' 
-				for (xax: xLabs) {	
-					
+				var yLength= 0
+				if ((filePlot.get(keyPlot)).containsKey("countPlot")) {
+					var yCol= filePlot.get(keyPlot).get("yAxis") as ArrayList
+					var xCol= filePlot.get(keyPlot).get("xAxis") as ArrayList
+					yLength= yCol.length()
+					content += "\n"+'''	const file''' + j+1 + '''= ['''
+					for (var i= 0; i < yLength; i++) {
+						content+='''	{'''
+						content+= '''xData: "''' + xCol.get(i) + '''", '''
+						content+= '''countNumber: "''' + yCol.get(i) + '''", '''
+						//content-= ''', '''
+						content += "},\n"
+					}
+					content += '''	];'''
+					content += "\n"
+					content += '''	''' + keyPlot + '''= new Chart(
+				document.getElementById("''' + keyPlot + '''"),
+				{
+					type: "''' + plotType + '''",
+					data: {''' 
 					content+= '''
-					labels: file''' + j+1 + '''.map(row => row.''' + xax + '''),
-					datasets: [
-						''' 
-					
+						labels: file''' + j+1 + '''.map(row => row.xData),
+						datasets: [
+							'''
 					var value= new ArrayList<String>()
 					if (filePlot.get(keyPlot).containsKey("colors")) {
 						value= filePlot.get(keyPlot).get("colors") as ArrayList
 					}
-					var convertColors= new ArrayList<String>()
+					var convertColor= ""
 					for (col: value) {
 						if (value.contains("#")) {
 							var hexR= (col as String).substring(1, 3)
 							var hexG= (col as String).substring(3, 5)
 							var hexB= (col as String).substring(5)
-							convertColors.add("rgba(" + hexR + hexG + hexB + ", 0.6)" )
+							convertColor= "rgba(" + hexR + hexG + hexB + ", 0.6)"
 						} else
-							convertColors.add((col as String))
+							convertColor= (col as String)
+					} 
+					if (!convertColor.equals("")) {
+						content+= '''					{
+						    		label: "countNumber",
+						        	data: file''' + j+1 + '''.map(row => row.countNumber),
+						        	borderColor: "''' + convertColor + '''"'''
+						        	if (filePlot.get(keyPlot).containsKey("thickness")) 
+						        		content+= '''
+						        	borderWidth: ''' + filePlot.get(keyPlot).get("thickness") 
+						        	content+= ''',
+						    	},
+						    	'''  
+					} else {
+						content+= '''					{
+						    		label: "countNumber",
+						        	data: file''' + j+1 + '''.map(row => row.countNumber)'''
+						        	if (filePlot.get(keyPlot).containsKey("thickness")) 
+						        		content+= '''
+						        	borderWidth: ''' + filePlot.get(keyPlot).get("thickness") 
+						content+= ''',
+						    	},
+						    	'''
 					}
-					for (var a= 0; a < yLabs.size(); a++) { 
-						if (convertColors.size()> 1) {	
-							content+= '''					{
-					    		label: "''' + yLabs.get(a) + '''",
-					        	data: file''' + j+1 + '''.map(row => row.''' + yLabs.get(a) + '''),
-					        	borderColor: "''' + convertColors.get(a) + '''",''' + "\n"
-					        	if (filePlot.get(keyPlot).containsKey("thickness"))
-					        		content+='''				borderWidth: ''' + filePlot.get(keyPlot).get("thickness") + ",\n"
-					        	content+=  '''			},'''  
-					   	} else if (convertColors.size() == 1) {
-					   		content+= '''					{
-					    		label: "''' + yLabs.get(a) + '''",
-					        	data: file''' + j+1 + '''.map(row => row.''' + yLabs.get(a) + '''),
-					        	borderColor: "''' + convertColors.get(0) + '''"'''
-					        	if (filePlot.get(keyPlot).containsKey("thickness")) 
-					        		content+= '''
-					        	borderWidth: ''' + filePlot.get(keyPlot).get("thickness") 
-					        	content+= ''',
-					    	},
-					    	'''  
-					   	} else {
-					   		content+= '''					{
-					    		label: "''' + yLabs.get(a) + '''",
-					        	data: file''' + j+1 + '''.map(row => row.''' + yLabs.get(a)+ ''')'''
-					        	if (filePlot.get(keyPlot).containsKey("thickness")) 
-					        		content+= '''
-					        	borderWidth: ''' + filePlot.get(keyPlot).get("thickness") 
-					        	content+= ''',
-					    	},
-					    	'''
-					   	}
+				} else {
+					if (filePlot.get(keyPlot).get("xAxis") instanceof ArrayList) {
+						xLabs= filePlot.get(keyPlot).get("xAxis") as ArrayList
+					} else {
+						xLabs.add(filePlot.get(keyPlot).get("xAxis") as String)
 					}
 					
+					if (filePlot.get(keyPlot).get("yAxis") instanceof ArrayList) {
+						yLabs= filePlot.get(keyPlot).get("yAxis") as ArrayList
+					} else {
+						yLabs.add(filePlot.get(keyPlot).get("yAxis") as String)
+					}
+					
+					for (var a= 0; a < yLabs.size(); a++) 
+						yCols.add(fileData.get(yLabs.get(a)));
+					for (var a= 0; a < xLabs.size(); a++) 
+						xCols.add(fileData.get(xLabs.get(a)));
+					yLength= yCols.get(0).length()
+					content += "\n"+'''	const file''' + j+1 + '''= ['''
+					for (var i= 0; i < yLength; i++) {
+						content+='''	{'''
+						for (var cx= 0; cx < xCols.length(); cx++)
+							content+= '''''' + xLabs.get(cx) + ''': "''' + xCols.get(cx).get(i) + '''", '''
+						for (var cy= 0; cy < yCols.length(); cy++)
+							content+= yLabs.get(cy) + ''': "''' + yCols.get(cy).get(i) + '''", '''
+						//content-= ''', '''
+						content += "},\n"
+					}		
+					content += '''	];'''
+					content += "\n"
+					content += '''	''' + keyPlot + '''= new Chart(
+				document.getElementById("''' + keyPlot + '''"),
+				{
+					type: "''' + plotType + '''",
+					data: {''' 
+					for (xax: xLabs) {	
+						
+						content+= '''
+						labels: file''' + j+1 + '''.map(row => row.''' + xax + '''),
+						datasets: [
+							''' 
+						
+						var value= new ArrayList<String>()
+						if (filePlot.get(keyPlot).containsKey("colors")) {
+							value= filePlot.get(keyPlot).get("colors") as ArrayList
+						}
+						var convertColors= new ArrayList<String>()
+						for (col: value) {
+							if (value.contains("#")) {
+								var hexR= (col as String).substring(1, 3)
+								var hexG= (col as String).substring(3, 5)
+								var hexB= (col as String).substring(5)
+								convertColors.add("rgba(" + hexR + hexG + hexB + ", 0.6)" )
+							} else
+								convertColors.add((col as String))
+						}
+						for (var a= 0; a < yLabs.size(); a++) { 
+							if (convertColors.size()> 1) {	
+								content+= '''					{
+						    		label: "''' + yLabs.get(a) + '''",
+						        	data: file''' + j+1 + '''.map(row => row.''' + yLabs.get(a) + '''),
+						        	borderColor: "''' + convertColors.get(a) + '''",''' + "\n"
+						        	if (filePlot.get(keyPlot).containsKey("thickness"))
+						        		content+='''				borderWidth: ''' + filePlot.get(keyPlot).get("thickness") + ",\n"
+						        	content+=  '''			},'''  
+						   	} else if (convertColors.size() == 1) {
+						   		content+= '''					{
+						    		label: "''' + yLabs.get(a) + '''",
+						        	data: file''' + j+1 + '''.map(row => row.''' + yLabs.get(a) + '''),
+						        	borderColor: "''' + convertColors.get(0) + '''"'''
+						        	if (filePlot.get(keyPlot).containsKey("thickness")) 
+						        		content+= '''
+						        	borderWidth: ''' + filePlot.get(keyPlot).get("thickness") 
+						        	content+= ''',
+						    	},
+						    	'''  
+						   	} else {
+						   		content+= '''					{
+						    		label: "''' + yLabs.get(a) + '''",
+						        	data: file''' + j+1 + '''.map(row => row.''' + yLabs.get(a)+ ''')'''
+						        	if (filePlot.get(keyPlot).containsKey("thickness")) 
+						        		content+= '''
+						        	borderWidth: ''' + filePlot.get(keyPlot).get("thickness") 
+						        	content+= ''',
+						    	},
+						    	'''
+						   	}
+						}	
+					}	
 				}
 				    	content+= '''
 					]
@@ -588,6 +760,7 @@ class BiLangGenerator extends AbstractGenerator {
 	def ArrayList<String> computeStatisticOperation(String targetCol, String operator, HashMap<String, ArrayList<String>> fileData){
 		var colRef= new ArrayList<Float>()
 		for (value: fileData.get(targetCol)) {
+			if (!value.equals(""))
 			colRef.add(Float.parseFloat(value))
 		}
 		Collections.sort(colRef)
@@ -598,16 +771,19 @@ class BiLangGenerator extends AbstractGenerator {
 				sum+= colRef.get(i)
 			}	
 			statVal.add((sum / colRef.size()).toString())
+			System.out.println((sum / colRef.size()).toString())
 			
 									
 		} else if (operator.equals("MEDIAN")) {
 			if (colRef.size() % 2 != 0) {
 				statVal.add((colRef.get((colRef.size() / 2) +1)).toString()) 
+				System.out.println((colRef.get((colRef.size() / 2) +1)).toString())
 			}
 			else {
 				var fval= colRef.get(colRef.size() / 2)
 				var sval= colRef.get((colRef.size() / 2) +1)
-				statVal.add(((fval + sval) / 2).toString)
+				statVal.add(((fval + sval) / 2).toString())
+				System.out.println(((fval + sval) / 2).toString())
 			}
 						
 		} else {

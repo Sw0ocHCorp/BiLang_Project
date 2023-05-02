@@ -9,6 +9,7 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
+
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
@@ -18,20 +19,21 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 import ucal3ia.bilang.abstractsyntax.AbstractsyntaxFactory;
 import ucal3ia.bilang.abstractsyntax.AbstractsyntaxPackage;
-import ucal3ia.bilang.abstractsyntax.DataFiltering;
+import ucal3ia.bilang.abstractsyntax.CountPreprocessingStep;
 
 /**
- * This is the item provider adapter for a {@link ucal3ia.bilang.abstractsyntax.DataFiltering} object.
+ * This is the item provider adapter for a {@link ucal3ia.bilang.abstractsyntax.CountPreprocessingStep} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class DataFilteringItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
+public class CountPreprocessingStepItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider,
 		IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
@@ -39,7 +41,7 @@ public class DataFilteringItemProvider extends ItemProviderAdapter implements IE
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DataFilteringItemProvider(AdapterFactory adapterFactory) {
+	public CountPreprocessingStepItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -54,25 +56,42 @@ public class DataFilteringItemProvider extends ItemProviderAdapter implements IE
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addFileextractorPropertyDescriptor(object);
+			addAxisPropertyDescriptor(object);
+			addReferencePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Fileextractor feature.
+	 * This adds a property descriptor for the Axis feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addFileextractorPropertyDescriptor(Object object) {
+	protected void addAxisPropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_DataFiltering_fileextractor_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_DataFiltering_fileextractor_feature",
-								"_UI_DataFiltering_type"),
-						AbstractsyntaxPackage.Literals.DATA_FILTERING__FILEEXTRACTOR, true, false, true, null, null,
-						null));
+						getResourceLocator(), getString("_UI_CountPreprocessingStep_axis_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_CountPreprocessingStep_axis_feature",
+								"_UI_CountPreprocessingStep_type"),
+						AbstractsyntaxPackage.Literals.COUNT_PREPROCESSING_STEP__AXIS, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Reference feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addReferencePropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_CountPreprocessingStep_reference_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_CountPreprocessingStep_reference_feature",
+								"_UI_CountPreprocessingStep_type"),
+						AbstractsyntaxPackage.Literals.COUNT_PREPROCESSING_STEP__REFERENCE, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -87,9 +106,8 @@ public class DataFilteringItemProvider extends ItemProviderAdapter implements IE
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(AbstractsyntaxPackage.Literals.DATA_FILTERING__FILTERINGSTEP);
-			childrenFeatures.add(AbstractsyntaxPackage.Literals.DATA_FILTERING__PROCESSINGSTEP);
-			childrenFeatures.add(AbstractsyntaxPackage.Literals.DATA_FILTERING__COUNTPREPROCESSINGSTEP);
+			childrenFeatures.add(AbstractsyntaxPackage.Literals.COUNT_PREPROCESSING_STEP__COUNTQUANTISTATEMENT);
+			childrenFeatures.add(AbstractsyntaxPackage.Literals.COUNT_PREPROCESSING_STEP__COUNTQUALISTATEMENT);
 		}
 		return childrenFeatures;
 	}
@@ -108,14 +126,14 @@ public class DataFilteringItemProvider extends ItemProviderAdapter implements IE
 	}
 
 	/**
-	 * This returns DataFiltering.gif.
+	 * This returns CountPreprocessingStep.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/DataFiltering"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/CountPreprocessingStep"));
 	}
 
 	/**
@@ -136,7 +154,9 @@ public class DataFilteringItemProvider extends ItemProviderAdapter implements IE
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_DataFiltering_type");
+		String label = ((CountPreprocessingStep) object).getAxis();
+		return label == null || label.length() == 0 ? getString("_UI_CountPreprocessingStep_type")
+				: getString("_UI_CountPreprocessingStep_type") + " " + label;
 	}
 
 	/**
@@ -150,10 +170,13 @@ public class DataFilteringItemProvider extends ItemProviderAdapter implements IE
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(DataFiltering.class)) {
-		case AbstractsyntaxPackage.DATA_FILTERING__FILTERINGSTEP:
-		case AbstractsyntaxPackage.DATA_FILTERING__PROCESSINGSTEP:
-		case AbstractsyntaxPackage.DATA_FILTERING__COUNTPREPROCESSINGSTEP:
+		switch (notification.getFeatureID(CountPreprocessingStep.class)) {
+		case AbstractsyntaxPackage.COUNT_PREPROCESSING_STEP__AXIS:
+		case AbstractsyntaxPackage.COUNT_PREPROCESSING_STEP__REFERENCE:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+			return;
+		case AbstractsyntaxPackage.COUNT_PREPROCESSING_STEP__COUNTQUANTISTATEMENT:
+		case AbstractsyntaxPackage.COUNT_PREPROCESSING_STEP__COUNTQUALISTATEMENT:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
@@ -171,24 +194,13 @@ public class DataFilteringItemProvider extends ItemProviderAdapter implements IE
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
 
-		newChildDescriptors.add(createChildParameter(AbstractsyntaxPackage.Literals.DATA_FILTERING__FILTERINGSTEP,
-				AbstractsyntaxFactory.eINSTANCE.createQuantitativeFiltering()));
-
-		newChildDescriptors.add(createChildParameter(AbstractsyntaxPackage.Literals.DATA_FILTERING__FILTERINGSTEP,
-				AbstractsyntaxFactory.eINSTANCE.createQualitativeFiltering()));
-
-		newChildDescriptors.add(createChildParameter(AbstractsyntaxPackage.Literals.DATA_FILTERING__PROCESSINGSTEP,
-				AbstractsyntaxFactory.eINSTANCE.createMathOperation()));
-
-		newChildDescriptors.add(createChildParameter(AbstractsyntaxPackage.Literals.DATA_FILTERING__PROCESSINGSTEP,
-				AbstractsyntaxFactory.eINSTANCE.createColReference()));
-
-		newChildDescriptors.add(createChildParameter(AbstractsyntaxPackage.Literals.DATA_FILTERING__PROCESSINGSTEP,
-				AbstractsyntaxFactory.eINSTANCE.createStatisticalOperation()));
+		newChildDescriptors
+				.add(createChildParameter(AbstractsyntaxPackage.Literals.COUNT_PREPROCESSING_STEP__COUNTQUANTISTATEMENT,
+						AbstractsyntaxFactory.eINSTANCE.createCountQuantiStatement()));
 
 		newChildDescriptors
-				.add(createChildParameter(AbstractsyntaxPackage.Literals.DATA_FILTERING__COUNTPREPROCESSINGSTEP,
-						AbstractsyntaxFactory.eINSTANCE.createCountPreprocessingStep()));
+				.add(createChildParameter(AbstractsyntaxPackage.Literals.COUNT_PREPROCESSING_STEP__COUNTQUALISTATEMENT,
+						AbstractsyntaxFactory.eINSTANCE.createCountQualiStatement()));
 	}
 
 	/**

@@ -193,6 +193,33 @@ public interface AbstractsyntaxFactory extends EFactory {
 	NullReplacement createNullReplacement();
 
 	/**
+	 * Returns a new object of class '<em>Count Preprocessing Step</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Count Preprocessing Step</em>'.
+	 * @generated
+	 */
+	CountPreprocessingStep createCountPreprocessingStep();
+
+	/**
+	 * Returns a new object of class '<em>Count Quali Statement</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Count Quali Statement</em>'.
+	 * @generated
+	 */
+	CountQualiStatement createCountQualiStatement();
+
+	/**
+	 * Returns a new object of class '<em>Count Quanti Statement</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Count Quanti Statement</em>'.
+	 * @generated
+	 */
+	CountQuantiStatement createCountQuantiStatement();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

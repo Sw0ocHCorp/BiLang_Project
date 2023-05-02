@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link ucal3ia.bilang.abstractsyntax.DataFiltering#getFileextractor <em>Fileextractor</em>}</li>
  *   <li>{@link ucal3ia.bilang.abstractsyntax.DataFiltering#getFilteringstep <em>Filteringstep</em>}</li>
  *   <li>{@link ucal3ia.bilang.abstractsyntax.DataFiltering#getProcessingstep <em>Processingstep</em>}</li>
+ *   <li>{@link ucal3ia.bilang.abstractsyntax.DataFiltering#getCountpreprocessingstep <em>Countpreprocessingstep</em>}</li>
  * </ul>
  *
  * @see ucal3ia.bilang.abstractsyntax.AbstractsyntaxPackage#getDataFiltering()
@@ -69,5 +70,17 @@ public interface DataFiltering extends EObject {
 	 * @generated
 	 */
 	EList<PreprocessingStep> getProcessingstep();
+
+	/**
+	 * Returns the value of the '<em><b>Countpreprocessingstep</b></em>' containment reference list.
+	 * The list contents are of type {@link ucal3ia.bilang.abstractsyntax.CountPreprocessingStep}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Countpreprocessingstep</em>' containment reference list.
+	 * @see ucal3ia.bilang.abstractsyntax.AbstractsyntaxPackage#getDataFiltering_Countpreprocessingstep()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<CountPreprocessingStep> getCountpreprocessingstep();
 
 } // DataFiltering

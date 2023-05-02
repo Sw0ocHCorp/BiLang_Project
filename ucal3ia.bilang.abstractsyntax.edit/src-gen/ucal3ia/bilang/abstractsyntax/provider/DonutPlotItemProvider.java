@@ -8,8 +8,12 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
+import ucal3ia.bilang.abstractsyntax.AbstractsyntaxPackage;
 import ucal3ia.bilang.abstractsyntax.DonutPlot;
 
 /**
@@ -40,8 +44,25 @@ public class DonutPlotItemProvider extends PlotItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addCountIDPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Count ID feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCountIDPropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_DonutPlot_countID_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_DonutPlot_countID_feature",
+								"_UI_DonutPlot_type"),
+						AbstractsyntaxPackage.Literals.DONUT_PLOT__COUNT_ID, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
 	/**
@@ -88,6 +109,12 @@ public class DonutPlotItemProvider extends PlotItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(DonutPlot.class)) {
+		case AbstractsyntaxPackage.DONUT_PLOT__COUNT_ID:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+			return;
+		}
 		super.notifyChanged(notification);
 	}
 

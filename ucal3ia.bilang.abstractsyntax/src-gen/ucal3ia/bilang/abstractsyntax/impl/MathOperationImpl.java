@@ -26,6 +26,7 @@ import ucal3ia.bilang.abstractsyntax.PreprocessingStep;
  *   <li>{@link ucal3ia.bilang.abstractsyntax.impl.MathOperationImpl#getLside <em>Lside</em>}</li>
  *   <li>{@link ucal3ia.bilang.abstractsyntax.impl.MathOperationImpl#getRside <em>Rside</em>}</li>
  *   <li>{@link ucal3ia.bilang.abstractsyntax.impl.MathOperationImpl#getOperator <em>Operator</em>}</li>
+ *   <li>{@link ucal3ia.bilang.abstractsyntax.impl.MathOperationImpl#getNewColName <em>New Col Name</em>}</li>
  * </ul>
  *
  * @generated
@@ -70,6 +71,26 @@ public class MathOperationImpl extends PreprocessingStepImpl implements MathOper
 	 * @ordered
 	 */
 	protected MathOperator operator = OPERATOR_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getNewColName() <em>New Col Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNewColName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NEW_COL_NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getNewColName() <em>New Col Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getNewColName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String newColName = NEW_COL_NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -217,6 +238,28 @@ public class MathOperationImpl extends PreprocessingStepImpl implements MathOper
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getNewColName() {
+		return newColName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setNewColName(String newNewColName) {
+		String oldNewColName = newColName;
+		newColName = newNewColName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, AbstractsyntaxPackage.MATH_OPERATION__NEW_COL_NAME,
+					oldNewColName, newColName));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -242,6 +285,8 @@ public class MathOperationImpl extends PreprocessingStepImpl implements MathOper
 			return getRside();
 		case AbstractsyntaxPackage.MATH_OPERATION__OPERATOR:
 			return getOperator();
+		case AbstractsyntaxPackage.MATH_OPERATION__NEW_COL_NAME:
+			return getNewColName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -262,6 +307,9 @@ public class MathOperationImpl extends PreprocessingStepImpl implements MathOper
 			return;
 		case AbstractsyntaxPackage.MATH_OPERATION__OPERATOR:
 			setOperator((MathOperator) newValue);
+			return;
+		case AbstractsyntaxPackage.MATH_OPERATION__NEW_COL_NAME:
+			setNewColName((String) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -284,6 +332,9 @@ public class MathOperationImpl extends PreprocessingStepImpl implements MathOper
 		case AbstractsyntaxPackage.MATH_OPERATION__OPERATOR:
 			setOperator(OPERATOR_EDEFAULT);
 			return;
+		case AbstractsyntaxPackage.MATH_OPERATION__NEW_COL_NAME:
+			setNewColName(NEW_COL_NAME_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -302,6 +353,8 @@ public class MathOperationImpl extends PreprocessingStepImpl implements MathOper
 			return rside != null;
 		case AbstractsyntaxPackage.MATH_OPERATION__OPERATOR:
 			return operator != OPERATOR_EDEFAULT;
+		case AbstractsyntaxPackage.MATH_OPERATION__NEW_COL_NAME:
+			return NEW_COL_NAME_EDEFAULT == null ? newColName != null : !NEW_COL_NAME_EDEFAULT.equals(newColName);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -319,6 +372,8 @@ public class MathOperationImpl extends PreprocessingStepImpl implements MathOper
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (operator: ");
 		result.append(operator);
+		result.append(", newColName: ");
+		result.append(newColName);
 		result.append(')');
 		return result.toString();
 	}

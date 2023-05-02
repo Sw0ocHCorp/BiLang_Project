@@ -25,6 +25,8 @@
         eType="#//FilteringStep" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="processingstep" upperBound="-1"
         eType="#//PreprocessingStep" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="countpreprocessingstep"
+        upperBound="-1" eType="#//CountPreprocessingStep" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DashBoard" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="fileextractor" lowerBound="1"
@@ -62,6 +64,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="rside" lowerBound="1" eType="#//PreprocessingStep"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" eType="#//MathOperator"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="newColName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ColReference" eSuperTypes="#//PreprocessingStep">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="target" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -86,6 +89,8 @@
     <eLiterals name="EQUAL" literal="="/>
     <eLiterals name="SUPERIOR" value="1" literal=">"/>
     <eLiterals name="INFERIOR" value="2" literal="&lt;"/>
+    <eLiterals name="SUP_EQUAL" value="3" literal=">="/>
+    <eLiterals name="INF_EQUAL" value="4" literal="&lt;="/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="QualitativeOperator">
     <eLiterals name="EQUALS" literal="="/>
@@ -93,13 +98,45 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ScatterPlot" eSuperTypes="#//Plot"/>
   <eClassifiers xsi:type="ecore:EClass" name="PolarPlot" eSuperTypes="#//Plot"/>
-  <eClassifiers xsi:type="ecore:EClass" name="PiePlot" eSuperTypes="#//Plot"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PiePlot" eSuperTypes="#//Plot">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="countID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RadarPlot" eSuperTypes="#//Plot"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DonutPlot" eSuperTypes="#//Plot"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DonutPlot" eSuperTypes="#//Plot">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="countID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NullReplacement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="colName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="statisticaloperation" eType="#//StatisticalOperation"
         containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CountPreprocessingStep">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="axis" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="countquantistatement" upperBound="-1"
+        eType="#//CountQuantiStatement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="countqualistatement" upperBound="-1"
+        eType="#//CountQualiStatement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="reference" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CountQualiStatement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="qualiOperator" eType="#//QualitativeOperator"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="statement" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CountQuantiStatement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="quantiOperator" eType="#//QuantitativeOperator"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lSide" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Float"
+        defaultValueLiteral="-123456789"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rSide" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Float"
+        defaultValueLiteral="-123456789"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="statement" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rangeOperator" eType="#//RangeOperator"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="RangeOperator">
+    <eLiterals name="LR_INCLUSION" literal="[]"/>
+    <eLiterals name="LR_EXCLUSION" value="1" literal="]["/>
+    <eLiterals name="L_INCLUSION" value="2" literal="[["/>
+    <eLiterals name="R_INCLUSION" value="4" literal="]]"/>
   </eClassifiers>
 </ecore:EPackage>

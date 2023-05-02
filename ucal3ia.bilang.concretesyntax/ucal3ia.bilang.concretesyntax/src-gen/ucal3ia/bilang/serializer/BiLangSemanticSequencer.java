@@ -17,6 +17,9 @@ import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransi
 import ucal3ia.bilang.abstractsyntax.AbstractsyntaxPackage;
 import ucal3ia.bilang.abstractsyntax.BarPlot;
 import ucal3ia.bilang.abstractsyntax.ColReference;
+import ucal3ia.bilang.abstractsyntax.CountPreprocessingStep;
+import ucal3ia.bilang.abstractsyntax.CountQualiStatement;
+import ucal3ia.bilang.abstractsyntax.CountQuantiStatement;
 import ucal3ia.bilang.abstractsyntax.DashBoard;
 import ucal3ia.bilang.abstractsyntax.DataFiltering;
 import ucal3ia.bilang.abstractsyntax.DonutPlot;
@@ -53,6 +56,15 @@ public class BiLangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 				return; 
 			case AbstractsyntaxPackage.COL_REFERENCE:
 				sequence_ColReference(context, (ColReference) semanticObject); 
+				return; 
+			case AbstractsyntaxPackage.COUNT_PREPROCESSING_STEP:
+				sequence_CountPreprocessingStep(context, (CountPreprocessingStep) semanticObject); 
+				return; 
+			case AbstractsyntaxPackage.COUNT_QUALI_STATEMENT:
+				sequence_CountQualiStatement(context, (CountQualiStatement) semanticObject); 
+				return; 
+			case AbstractsyntaxPackage.COUNT_QUANTI_STATEMENT:
+				sequence_CountQuantiStatement(context, (CountQuantiStatement) semanticObject); 
 				return; 
 			case AbstractsyntaxPackage.DASH_BOARD:
 				sequence_DashBoard(context, (DashBoard) semanticObject); 
@@ -145,6 +157,54 @@ public class BiLangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	
 	/**
 	 * Contexts:
+	 *     CountPreprocessingStep returns CountPreprocessingStep
+	 *
+	 * Constraint:
+	 *     (axis=EString (countqualistatement+=CountQualiStatement+ | countquantistatement+=CountQuantiStatement+)? reference=EString)
+	 */
+	protected void sequence_CountPreprocessingStep(ISerializationContext context, CountPreprocessingStep semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     CountQualiStatement returns CountQualiStatement
+	 *
+	 * Constraint:
+	 *     (qualiOperator=QualitativeOperator label=EString statement=EString)
+	 */
+	protected void sequence_CountQualiStatement(ISerializationContext context, CountQualiStatement semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, AbstractsyntaxPackage.Literals.COUNT_QUALI_STATEMENT__QUALI_OPERATOR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AbstractsyntaxPackage.Literals.COUNT_QUALI_STATEMENT__QUALI_OPERATOR));
+			if (transientValues.isValueTransient(semanticObject, AbstractsyntaxPackage.Literals.COUNT_QUALI_STATEMENT__LABEL) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AbstractsyntaxPackage.Literals.COUNT_QUALI_STATEMENT__LABEL));
+			if (transientValues.isValueTransient(semanticObject, AbstractsyntaxPackage.Literals.COUNT_QUALI_STATEMENT__STATEMENT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AbstractsyntaxPackage.Literals.COUNT_QUALI_STATEMENT__STATEMENT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getCountQualiStatementAccess().getQualiOperatorQualitativeOperatorEnumRuleCall_0_0(), semanticObject.getQualiOperator());
+		feeder.accept(grammarAccess.getCountQualiStatementAccess().getLabelEStringParserRuleCall_1_0(), semanticObject.getLabel());
+		feeder.accept(grammarAccess.getCountQualiStatementAccess().getStatementEStringParserRuleCall_3_0(), semanticObject.getStatement());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     CountQuantiStatement returns CountQuantiStatement
+	 *
+	 * Constraint:
+	 *     (((quantiOperator=QuantitativeOperator rSide=EFloat) | (lSide=EFloat rangeOperator=RangeOperator rSide=EFloat)) statement=EString)
+	 */
+	protected void sequence_CountQuantiStatement(ISerializationContext context, CountQuantiStatement semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     DashBoard returns DashBoard
 	 *
 	 * Constraint:
@@ -162,8 +222,9 @@ public class BiLangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 * Constraint:
 	 *     (
 	 *         fileextractor=[FileExtractor|EString] 
+	 *         (filteringstep+=FilteringStep filteringstep+=FilteringStep*)? 
 	 *         (processingstep+=PreprocessingStep processingstep+=PreprocessingStep*)? 
-	 *         (filteringstep+=FilteringStep filteringstep+=FilteringStep*)?
+	 *         (countpreprocessingstep+=CountPreprocessingStep countpreprocessingstep+=CountPreprocessingStep*)?
 	 *     )
 	 */
 	protected void sequence_DataFiltering(ISerializationContext context, DataFiltering semanticObject) {
@@ -177,14 +238,7 @@ public class BiLangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     DonutPlot returns DonutPlot
 	 *
 	 * Constraint:
-	 *     (
-	 *         name=ID 
-	 *         xAxis=EString 
-	 *         yAxis=EString 
-	 *         location=EInt? 
-	 *         colors=EString? 
-	 *         thickness=EFloat?
-	 *     )
+	 *     (name=ID (countID=EString | (xAxis=EString yAxis=EString)) location=EInt? colors=EString? thickness=EFloat?)
 	 */
 	protected void sequence_DonutPlot(ISerializationContext context, DonutPlot semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -229,22 +283,10 @@ public class BiLangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     MathOperation returns MathOperation
 	 *
 	 * Constraint:
-	 *     (lside=PreprocessingStep operator=MathOperator rside=PreprocessingStep)
+	 *     (newColName=EString? lside=PreprocessingStep operator=MathOperator rside=PreprocessingStep)
 	 */
 	protected void sequence_MathOperation(ISerializationContext context, MathOperation semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, AbstractsyntaxPackage.Literals.MATH_OPERATION__LSIDE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AbstractsyntaxPackage.Literals.MATH_OPERATION__LSIDE));
-			if (transientValues.isValueTransient(semanticObject, AbstractsyntaxPackage.Literals.MATH_OPERATION__OPERATOR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AbstractsyntaxPackage.Literals.MATH_OPERATION__OPERATOR));
-			if (transientValues.isValueTransient(semanticObject, AbstractsyntaxPackage.Literals.MATH_OPERATION__RSIDE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AbstractsyntaxPackage.Literals.MATH_OPERATION__RSIDE));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getMathOperationAccess().getLsidePreprocessingStepParserRuleCall_2_0(), semanticObject.getLside());
-		feeder.accept(grammarAccess.getMathOperationAccess().getOperatorMathOperatorEnumRuleCall_3_0(), semanticObject.getOperator());
-		feeder.accept(grammarAccess.getMathOperationAccess().getRsidePreprocessingStepParserRuleCall_5_0(), semanticObject.getRside());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -266,14 +308,7 @@ public class BiLangSemanticSequencer extends AbstractDelegatingSemanticSequencer
 	 *     PiePlot returns PiePlot
 	 *
 	 * Constraint:
-	 *     (
-	 *         name=ID 
-	 *         xAxis=EString 
-	 *         yAxis=EString 
-	 *         location=EInt? 
-	 *         colors=EString? 
-	 *         thickness=EFloat?
-	 *     )
+	 *     (name=ID (countID=EString | (xAxis=EString yAxis=EString)) location=EInt? colors=EString? thickness=EFloat?)
 	 */
 	protected void sequence_PiePlot(ISerializationContext context, PiePlot semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

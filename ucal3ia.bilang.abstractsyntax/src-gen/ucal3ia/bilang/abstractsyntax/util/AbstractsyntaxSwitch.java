@@ -281,6 +281,27 @@ public class AbstractsyntaxSwitch<T> extends Switch<T> {
 				result = defaultCase(theEObject);
 			return result;
 		}
+		case AbstractsyntaxPackage.COUNT_PREPROCESSING_STEP: {
+			CountPreprocessingStep countPreprocessingStep = (CountPreprocessingStep) theEObject;
+			T result = caseCountPreprocessingStep(countPreprocessingStep);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case AbstractsyntaxPackage.COUNT_QUALI_STATEMENT: {
+			CountQualiStatement countQualiStatement = (CountQualiStatement) theEObject;
+			T result = caseCountQualiStatement(countQualiStatement);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case AbstractsyntaxPackage.COUNT_QUANTI_STATEMENT: {
+			CountQuantiStatement countQuantiStatement = (CountQuantiStatement) theEObject;
+			T result = caseCountQuantiStatement(countQuantiStatement);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
 		default:
 			return defaultCase(theEObject);
 		}
@@ -628,6 +649,51 @@ public class AbstractsyntaxSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseNullReplacement(NullReplacement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Count Preprocessing Step</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Count Preprocessing Step</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCountPreprocessingStep(CountPreprocessingStep object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Count Quali Statement</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Count Quali Statement</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCountQualiStatement(CountQualiStatement object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Count Quanti Statement</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Count Quanti Statement</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCountQuantiStatement(CountQuantiStatement object) {
 		return null;
 	}
 

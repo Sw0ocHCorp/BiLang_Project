@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import ucal3ia.bilang.abstractsyntax.AbstractsyntaxPackage;
+import ucal3ia.bilang.abstractsyntax.CountPreprocessingStep;
 import ucal3ia.bilang.abstractsyntax.DataFiltering;
 import ucal3ia.bilang.abstractsyntax.FileExtractor;
 import ucal3ia.bilang.abstractsyntax.FilteringStep;
@@ -35,6 +36,7 @@ import ucal3ia.bilang.abstractsyntax.PreprocessingStep;
  *   <li>{@link ucal3ia.bilang.abstractsyntax.impl.DataFilteringImpl#getFileextractor <em>Fileextractor</em>}</li>
  *   <li>{@link ucal3ia.bilang.abstractsyntax.impl.DataFilteringImpl#getFilteringstep <em>Filteringstep</em>}</li>
  *   <li>{@link ucal3ia.bilang.abstractsyntax.impl.DataFilteringImpl#getProcessingstep <em>Processingstep</em>}</li>
+ *   <li>{@link ucal3ia.bilang.abstractsyntax.impl.DataFilteringImpl#getCountpreprocessingstep <em>Countpreprocessingstep</em>}</li>
  * </ul>
  *
  * @generated
@@ -69,6 +71,16 @@ public class DataFilteringImpl extends MinimalEObjectImpl.Container implements D
 	 * @ordered
 	 */
 	protected EList<PreprocessingStep> processingstep;
+
+	/**
+	 * The cached value of the '{@link #getCountpreprocessingstep() <em>Countpreprocessingstep</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCountpreprocessingstep()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<CountPreprocessingStep> countpreprocessingstep;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -160,6 +172,19 @@ public class DataFilteringImpl extends MinimalEObjectImpl.Container implements D
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<CountPreprocessingStep> getCountpreprocessingstep() {
+		if (countpreprocessingstep == null) {
+			countpreprocessingstep = new EObjectContainmentEList<CountPreprocessingStep>(CountPreprocessingStep.class,
+					this, AbstractsyntaxPackage.DATA_FILTERING__COUNTPREPROCESSINGSTEP);
+		}
+		return countpreprocessingstep;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -167,6 +192,8 @@ public class DataFilteringImpl extends MinimalEObjectImpl.Container implements D
 			return ((InternalEList<?>) getFilteringstep()).basicRemove(otherEnd, msgs);
 		case AbstractsyntaxPackage.DATA_FILTERING__PROCESSINGSTEP:
 			return ((InternalEList<?>) getProcessingstep()).basicRemove(otherEnd, msgs);
+		case AbstractsyntaxPackage.DATA_FILTERING__COUNTPREPROCESSINGSTEP:
+			return ((InternalEList<?>) getCountpreprocessingstep()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -187,6 +214,8 @@ public class DataFilteringImpl extends MinimalEObjectImpl.Container implements D
 			return getFilteringstep();
 		case AbstractsyntaxPackage.DATA_FILTERING__PROCESSINGSTEP:
 			return getProcessingstep();
+		case AbstractsyntaxPackage.DATA_FILTERING__COUNTPREPROCESSINGSTEP:
+			return getCountpreprocessingstep();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -211,6 +240,10 @@ public class DataFilteringImpl extends MinimalEObjectImpl.Container implements D
 			getProcessingstep().clear();
 			getProcessingstep().addAll((Collection<? extends PreprocessingStep>) newValue);
 			return;
+		case AbstractsyntaxPackage.DATA_FILTERING__COUNTPREPROCESSINGSTEP:
+			getCountpreprocessingstep().clear();
+			getCountpreprocessingstep().addAll((Collection<? extends CountPreprocessingStep>) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -232,6 +265,9 @@ public class DataFilteringImpl extends MinimalEObjectImpl.Container implements D
 		case AbstractsyntaxPackage.DATA_FILTERING__PROCESSINGSTEP:
 			getProcessingstep().clear();
 			return;
+		case AbstractsyntaxPackage.DATA_FILTERING__COUNTPREPROCESSINGSTEP:
+			getCountpreprocessingstep().clear();
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -250,6 +286,8 @@ public class DataFilteringImpl extends MinimalEObjectImpl.Container implements D
 			return filteringstep != null && !filteringstep.isEmpty();
 		case AbstractsyntaxPackage.DATA_FILTERING__PROCESSINGSTEP:
 			return processingstep != null && !processingstep.isEmpty();
+		case AbstractsyntaxPackage.DATA_FILTERING__COUNTPREPROCESSINGSTEP:
+			return countpreprocessingstep != null && !countpreprocessingstep.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

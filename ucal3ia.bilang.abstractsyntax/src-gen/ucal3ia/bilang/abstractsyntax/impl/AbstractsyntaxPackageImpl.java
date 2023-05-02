@@ -10,10 +10,14 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
 import ucal3ia.bilang.abstractsyntax.AbstractsyntaxFactory;
 import ucal3ia.bilang.abstractsyntax.AbstractsyntaxPackage;
 import ucal3ia.bilang.abstractsyntax.BarPlot;
 import ucal3ia.bilang.abstractsyntax.ColReference;
+import ucal3ia.bilang.abstractsyntax.CountPreprocessingStep;
+import ucal3ia.bilang.abstractsyntax.CountQualiStatement;
+import ucal3ia.bilang.abstractsyntax.CountQuantiStatement;
 import ucal3ia.bilang.abstractsyntax.CsvExtractor;
 import ucal3ia.bilang.abstractsyntax.DashBoard;
 import ucal3ia.bilang.abstractsyntax.DataFiltering;
@@ -35,6 +39,7 @@ import ucal3ia.bilang.abstractsyntax.QualitativeOperator;
 import ucal3ia.bilang.abstractsyntax.QuantitativeFiltering;
 import ucal3ia.bilang.abstractsyntax.QuantitativeOperator;
 import ucal3ia.bilang.abstractsyntax.RadarPlot;
+import ucal3ia.bilang.abstractsyntax.RangeOperator;
 import ucal3ia.bilang.abstractsyntax.ScatterPlot;
 import ucal3ia.bilang.abstractsyntax.StatisticalOperation;
 import ucal3ia.bilang.abstractsyntax.StatisticalOperator;
@@ -213,6 +218,27 @@ public class AbstractsyntaxPackageImpl extends EPackageImpl implements Abstracts
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass countPreprocessingStepEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass countQualiStatementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass countQuantiStatementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum mathOperatorEEnum = null;
 
 	/**
@@ -235,6 +261,13 @@ public class AbstractsyntaxPackageImpl extends EPackageImpl implements Abstracts
 	 * @generated
 	 */
 	private EEnum qualitativeOperatorEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum rangeOperatorEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -285,6 +318,9 @@ public class AbstractsyntaxPackageImpl extends EPackageImpl implements Abstracts
 				: new AbstractsyntaxPackageImpl();
 
 		isInited = true;
+
+		// Initialize simple dependencies
+		XMLTypePackage.eINSTANCE.eClass();
 
 		// Create package meta-data objects
 		theAbstractsyntaxPackage.createPackageContents();
@@ -415,6 +451,15 @@ public class AbstractsyntaxPackageImpl extends EPackageImpl implements Abstracts
 	 */
 	public EReference getDataFiltering_Processingstep() {
 		return (EReference) dataFilteringEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getDataFiltering_Countpreprocessingstep() {
+		return (EReference) dataFilteringEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -656,6 +701,15 @@ public class AbstractsyntaxPackageImpl extends EPackageImpl implements Abstracts
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getMathOperation_NewColName() {
+		return (EAttribute) mathOperationEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getColReference() {
 		return colReferenceEClass;
 	}
@@ -728,6 +782,15 @@ public class AbstractsyntaxPackageImpl extends EPackageImpl implements Abstracts
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getPiePlot_CountID() {
+		return (EAttribute) piePlotEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getRadarPlot() {
 		return radarPlotEClass;
 	}
@@ -739,6 +802,15 @@ public class AbstractsyntaxPackageImpl extends EPackageImpl implements Abstracts
 	 */
 	public EClass getDonutPlot() {
 		return donutPlotEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getDonutPlot_CountID() {
+		return (EAttribute) donutPlotEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -782,6 +854,141 @@ public class AbstractsyntaxPackageImpl extends EPackageImpl implements Abstracts
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getCountPreprocessingStep() {
+		return countPreprocessingStepEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCountPreprocessingStep_Axis() {
+		return (EAttribute) countPreprocessingStepEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCountPreprocessingStep_Countquantistatement() {
+		return (EReference) countPreprocessingStepEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getCountPreprocessingStep_Countqualistatement() {
+		return (EReference) countPreprocessingStepEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCountPreprocessingStep_Reference() {
+		return (EAttribute) countPreprocessingStepEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCountQualiStatement() {
+		return countQualiStatementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCountQualiStatement_QualiOperator() {
+		return (EAttribute) countQualiStatementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCountQualiStatement_Label() {
+		return (EAttribute) countQualiStatementEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCountQualiStatement_Statement() {
+		return (EAttribute) countQualiStatementEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getCountQuantiStatement() {
+		return countQuantiStatementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCountQuantiStatement_QuantiOperator() {
+		return (EAttribute) countQuantiStatementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCountQuantiStatement_LSide() {
+		return (EAttribute) countQuantiStatementEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCountQuantiStatement_RSide() {
+		return (EAttribute) countQuantiStatementEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCountQuantiStatement_Statement() {
+		return (EAttribute) countQuantiStatementEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getCountQuantiStatement_RangeOperator() {
+		return (EAttribute) countQuantiStatementEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getMathOperator() {
 		return mathOperatorEEnum;
 	}
@@ -811,6 +1018,15 @@ public class AbstractsyntaxPackageImpl extends EPackageImpl implements Abstracts
 	 */
 	public EEnum getQualitativeOperator() {
 		return qualitativeOperatorEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getRangeOperator() {
+		return rangeOperatorEEnum;
 	}
 
 	/**
@@ -858,6 +1074,7 @@ public class AbstractsyntaxPackageImpl extends EPackageImpl implements Abstracts
 		createEReference(dataFilteringEClass, DATA_FILTERING__FILEEXTRACTOR);
 		createEReference(dataFilteringEClass, DATA_FILTERING__FILTERINGSTEP);
 		createEReference(dataFilteringEClass, DATA_FILTERING__PROCESSINGSTEP);
+		createEReference(dataFilteringEClass, DATA_FILTERING__COUNTPREPROCESSINGSTEP);
 
 		dashBoardEClass = createEClass(DASH_BOARD);
 		createEReference(dashBoardEClass, DASH_BOARD__FILEEXTRACTOR);
@@ -895,6 +1112,7 @@ public class AbstractsyntaxPackageImpl extends EPackageImpl implements Abstracts
 		createEReference(mathOperationEClass, MATH_OPERATION__LSIDE);
 		createEReference(mathOperationEClass, MATH_OPERATION__RSIDE);
 		createEAttribute(mathOperationEClass, MATH_OPERATION__OPERATOR);
+		createEAttribute(mathOperationEClass, MATH_OPERATION__NEW_COL_NAME);
 
 		colReferenceEClass = createEClass(COL_REFERENCE);
 		createEAttribute(colReferenceEClass, COL_REFERENCE__TARGET);
@@ -908,21 +1126,42 @@ public class AbstractsyntaxPackageImpl extends EPackageImpl implements Abstracts
 		polarPlotEClass = createEClass(POLAR_PLOT);
 
 		piePlotEClass = createEClass(PIE_PLOT);
+		createEAttribute(piePlotEClass, PIE_PLOT__COUNT_ID);
 
 		radarPlotEClass = createEClass(RADAR_PLOT);
 
 		donutPlotEClass = createEClass(DONUT_PLOT);
+		createEAttribute(donutPlotEClass, DONUT_PLOT__COUNT_ID);
 
 		nullReplacementEClass = createEClass(NULL_REPLACEMENT);
 		createEAttribute(nullReplacementEClass, NULL_REPLACEMENT__COL_NAME);
 		createEAttribute(nullReplacementEClass, NULL_REPLACEMENT__LABEL);
 		createEReference(nullReplacementEClass, NULL_REPLACEMENT__STATISTICALOPERATION);
 
+		countPreprocessingStepEClass = createEClass(COUNT_PREPROCESSING_STEP);
+		createEAttribute(countPreprocessingStepEClass, COUNT_PREPROCESSING_STEP__AXIS);
+		createEReference(countPreprocessingStepEClass, COUNT_PREPROCESSING_STEP__COUNTQUANTISTATEMENT);
+		createEReference(countPreprocessingStepEClass, COUNT_PREPROCESSING_STEP__COUNTQUALISTATEMENT);
+		createEAttribute(countPreprocessingStepEClass, COUNT_PREPROCESSING_STEP__REFERENCE);
+
+		countQualiStatementEClass = createEClass(COUNT_QUALI_STATEMENT);
+		createEAttribute(countQualiStatementEClass, COUNT_QUALI_STATEMENT__QUALI_OPERATOR);
+		createEAttribute(countQualiStatementEClass, COUNT_QUALI_STATEMENT__LABEL);
+		createEAttribute(countQualiStatementEClass, COUNT_QUALI_STATEMENT__STATEMENT);
+
+		countQuantiStatementEClass = createEClass(COUNT_QUANTI_STATEMENT);
+		createEAttribute(countQuantiStatementEClass, COUNT_QUANTI_STATEMENT__QUANTI_OPERATOR);
+		createEAttribute(countQuantiStatementEClass, COUNT_QUANTI_STATEMENT__LSIDE);
+		createEAttribute(countQuantiStatementEClass, COUNT_QUANTI_STATEMENT__RSIDE);
+		createEAttribute(countQuantiStatementEClass, COUNT_QUANTI_STATEMENT__STATEMENT);
+		createEAttribute(countQuantiStatementEClass, COUNT_QUANTI_STATEMENT__RANGE_OPERATOR);
+
 		// Create enums
 		mathOperatorEEnum = createEEnum(MATH_OPERATOR);
 		statisticalOperatorEEnum = createEEnum(STATISTICAL_OPERATOR);
 		quantitativeOperatorEEnum = createEEnum(QUANTITATIVE_OPERATOR);
 		qualitativeOperatorEEnum = createEEnum(QUALITATIVE_OPERATOR);
+		rangeOperatorEEnum = createEEnum(RANGE_OPERATOR);
 	}
 
 	/**
@@ -948,6 +1187,10 @@ public class AbstractsyntaxPackageImpl extends EPackageImpl implements Abstracts
 		setName(eNAME);
 		setNsPrefix(eNS_PREFIX);
 		setNsURI(eNS_URI);
+
+		// Obtain other dependent packages
+		XMLTypePackage theXMLTypePackage = (XMLTypePackage) EPackage.Registry.INSTANCE
+				.getEPackage(XMLTypePackage.eNS_URI);
 
 		// Create type parameters
 
@@ -1009,6 +1252,9 @@ public class AbstractsyntaxPackageImpl extends EPackageImpl implements Abstracts
 		initEReference(getDataFiltering_Processingstep(), this.getPreprocessingStep(), null, "processingstep", null, 0,
 				-1, DataFiltering.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getDataFiltering_Countpreprocessingstep(), this.getCountPreprocessingStep(), null,
+				"countpreprocessingstep", null, 0, -1, DataFiltering.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
+				IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dashBoardEClass, DashBoard.class, "DashBoard", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -1078,6 +1324,9 @@ public class AbstractsyntaxPackageImpl extends EPackageImpl implements Abstracts
 				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMathOperation_Operator(), this.getMathOperator(), "operator", null, 0, 1, MathOperation.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMathOperation_NewColName(), ecorePackage.getEString(), "newColName", null, 0, 1,
+				MathOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
 
 		initEClass(colReferenceEClass, ColReference.class, "ColReference", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -1100,12 +1349,16 @@ public class AbstractsyntaxPackageImpl extends EPackageImpl implements Abstracts
 				IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(piePlotEClass, PiePlot.class, "PiePlot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getPiePlot_CountID(), ecorePackage.getEString(), "countID", null, 0, 1, PiePlot.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(radarPlotEClass, RadarPlot.class, "RadarPlot", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(donutPlotEClass, DonutPlot.class, "DonutPlot", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDonutPlot_CountID(), ecorePackage.getEString(), "countID", null, 0, 1, DonutPlot.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(nullReplacementEClass, NullReplacement.class, "NullReplacement", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
@@ -1118,6 +1371,51 @@ public class AbstractsyntaxPackageImpl extends EPackageImpl implements Abstracts
 		initEReference(getNullReplacement_Statisticaloperation(), this.getStatisticalOperation(), null,
 				"statisticaloperation", null, 0, 1, NullReplacement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE,
 				IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(countPreprocessingStepEClass, CountPreprocessingStep.class, "CountPreprocessingStep", !IS_ABSTRACT,
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCountPreprocessingStep_Axis(), ecorePackage.getEString(), "axis", null, 0, 1,
+				CountPreprocessingStep.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCountPreprocessingStep_Countquantistatement(), this.getCountQuantiStatement(), null,
+				"countquantistatement", null, 0, -1, CountPreprocessingStep.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCountPreprocessingStep_Countqualistatement(), this.getCountQualiStatement(), null,
+				"countqualistatement", null, 0, -1, CountPreprocessingStep.class, !IS_TRANSIENT, !IS_VOLATILE,
+				IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCountPreprocessingStep_Reference(), ecorePackage.getEString(), "reference", null, 0, 1,
+				CountPreprocessingStep.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(countQualiStatementEClass, CountQualiStatement.class, "CountQualiStatement", !IS_ABSTRACT,
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCountQualiStatement_QualiOperator(), this.getQualitativeOperator(), "qualiOperator", null, 0,
+				1, CountQualiStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCountQualiStatement_Label(), ecorePackage.getEString(), "label", null, 0, 1,
+				CountQualiStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCountQualiStatement_Statement(), ecorePackage.getEString(), "statement", null, 0, 1,
+				CountQualiStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(countQuantiStatementEClass, CountQuantiStatement.class, "CountQuantiStatement", !IS_ABSTRACT,
+				!IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCountQuantiStatement_QuantiOperator(), this.getQuantitativeOperator(), "quantiOperator", null,
+				0, 1, CountQuantiStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCountQuantiStatement_LSide(), theXMLTypePackage.getFloat(), "lSide", "-123456789", 0, 1,
+				CountQuantiStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCountQuantiStatement_RSide(), theXMLTypePackage.getFloat(), "rSide", "-123456789", 0, 1,
+				CountQuantiStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCountQuantiStatement_Statement(), ecorePackage.getEString(), "statement", null, 0, 1,
+				CountQuantiStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCountQuantiStatement_RangeOperator(), this.getRangeOperator(), "rangeOperator", null, 0, 1,
+				CountQuantiStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(mathOperatorEEnum, MathOperator.class, "MathOperator");
@@ -1135,10 +1433,18 @@ public class AbstractsyntaxPackageImpl extends EPackageImpl implements Abstracts
 		addEEnumLiteral(quantitativeOperatorEEnum, QuantitativeOperator.EQUAL);
 		addEEnumLiteral(quantitativeOperatorEEnum, QuantitativeOperator.SUPERIOR);
 		addEEnumLiteral(quantitativeOperatorEEnum, QuantitativeOperator.INFERIOR);
+		addEEnumLiteral(quantitativeOperatorEEnum, QuantitativeOperator.SUP_EQUAL);
+		addEEnumLiteral(quantitativeOperatorEEnum, QuantitativeOperator.INF_EQUAL);
 
 		initEEnum(qualitativeOperatorEEnum, QualitativeOperator.class, "QualitativeOperator");
 		addEEnumLiteral(qualitativeOperatorEEnum, QualitativeOperator.EQUALS);
 		addEEnumLiteral(qualitativeOperatorEEnum, QualitativeOperator.NOT);
+
+		initEEnum(rangeOperatorEEnum, RangeOperator.class, "RangeOperator");
+		addEEnumLiteral(rangeOperatorEEnum, RangeOperator.LR_INCLUSION);
+		addEEnumLiteral(rangeOperatorEEnum, RangeOperator.LR_EXCLUSION);
+		addEEnumLiteral(rangeOperatorEEnum, RangeOperator.LINCLUSION);
+		addEEnumLiteral(rangeOperatorEEnum, RangeOperator.RINCLUSION);
 
 		// Create resource
 		createResource(eNS_URI);

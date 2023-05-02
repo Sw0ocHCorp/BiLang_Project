@@ -95,6 +95,12 @@ public class AbstractsyntaxFactoryImpl extends EFactoryImpl implements Abstracts
 			return createDonutPlot();
 		case AbstractsyntaxPackage.NULL_REPLACEMENT:
 			return createNullReplacement();
+		case AbstractsyntaxPackage.COUNT_PREPROCESSING_STEP:
+			return createCountPreprocessingStep();
+		case AbstractsyntaxPackage.COUNT_QUALI_STATEMENT:
+			return createCountQualiStatement();
+		case AbstractsyntaxPackage.COUNT_QUANTI_STATEMENT:
+			return createCountQuantiStatement();
 		default:
 			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -116,6 +122,8 @@ public class AbstractsyntaxFactoryImpl extends EFactoryImpl implements Abstracts
 			return createQuantitativeOperatorFromString(eDataType, initialValue);
 		case AbstractsyntaxPackage.QUALITATIVE_OPERATOR:
 			return createQualitativeOperatorFromString(eDataType, initialValue);
+		case AbstractsyntaxPackage.RANGE_OPERATOR:
+			return createRangeOperatorFromString(eDataType, initialValue);
 		default:
 			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -137,6 +145,8 @@ public class AbstractsyntaxFactoryImpl extends EFactoryImpl implements Abstracts
 			return convertQuantitativeOperatorToString(eDataType, instanceValue);
 		case AbstractsyntaxPackage.QUALITATIVE_OPERATOR:
 			return convertQualitativeOperatorToString(eDataType, instanceValue);
+		case AbstractsyntaxPackage.RANGE_OPERATOR:
+			return convertRangeOperatorToString(eDataType, instanceValue);
 		default:
 			throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -337,6 +347,36 @@ public class AbstractsyntaxFactoryImpl extends EFactoryImpl implements Abstracts
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public CountPreprocessingStep createCountPreprocessingStep() {
+		CountPreprocessingStepImpl countPreprocessingStep = new CountPreprocessingStepImpl();
+		return countPreprocessingStep;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CountQualiStatement createCountQualiStatement() {
+		CountQualiStatementImpl countQualiStatement = new CountQualiStatementImpl();
+		return countQualiStatement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public CountQuantiStatement createCountQuantiStatement() {
+		CountQuantiStatementImpl countQuantiStatement = new CountQuantiStatementImpl();
+		return countQuantiStatement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public MathOperator createMathOperatorFromString(EDataType eDataType, String initialValue) {
 		MathOperator result = MathOperator.get(initialValue);
 		if (result == null)
@@ -417,6 +457,28 @@ public class AbstractsyntaxFactoryImpl extends EFactoryImpl implements Abstracts
 	 * @generated
 	 */
 	public String convertQualitativeOperatorToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RangeOperator createRangeOperatorFromString(EDataType eDataType, String initialValue) {
+		RangeOperator result = RangeOperator.get(initialValue);
+		if (result == null)
+			throw new IllegalArgumentException(
+					"The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertRangeOperatorToString(EDataType eDataType, Object instanceValue) {
 		return instanceValue == null ? null : instanceValue.toString();
 	}
 

@@ -510,6 +510,75 @@ public class AbstractsyntaxItemProviderAdapterFactory extends AbstractsyntaxAdap
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link ucal3ia.bilang.abstractsyntax.CountPreprocessingStep} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CountPreprocessingStepItemProvider countPreprocessingStepItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ucal3ia.bilang.abstractsyntax.CountPreprocessingStep}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCountPreprocessingStepAdapter() {
+		if (countPreprocessingStepItemProvider == null) {
+			countPreprocessingStepItemProvider = new CountPreprocessingStepItemProvider(this);
+		}
+
+		return countPreprocessingStepItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link ucal3ia.bilang.abstractsyntax.CountQualiStatement} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CountQualiStatementItemProvider countQualiStatementItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ucal3ia.bilang.abstractsyntax.CountQualiStatement}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCountQualiStatementAdapter() {
+		if (countQualiStatementItemProvider == null) {
+			countQualiStatementItemProvider = new CountQualiStatementItemProvider(this);
+		}
+
+		return countQualiStatementItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link ucal3ia.bilang.abstractsyntax.CountQuantiStatement} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected CountQuantiStatementItemProvider countQuantiStatementItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link ucal3ia.bilang.abstractsyntax.CountQuantiStatement}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createCountQuantiStatementAdapter() {
+		if (countQuantiStatementItemProvider == null) {
+			countQuantiStatementItemProvider = new CountQuantiStatementItemProvider(this);
+		}
+
+		return countQuantiStatementItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -646,6 +715,12 @@ public class AbstractsyntaxItemProviderAdapterFactory extends AbstractsyntaxAdap
 			donutPlotItemProvider.dispose();
 		if (nullReplacementItemProvider != null)
 			nullReplacementItemProvider.dispose();
+		if (countPreprocessingStepItemProvider != null)
+			countPreprocessingStepItemProvider.dispose();
+		if (countQualiStatementItemProvider != null)
+			countQualiStatementItemProvider.dispose();
+		if (countQuantiStatementItemProvider != null)
+			countQuantiStatementItemProvider.dispose();
 	}
 
 }

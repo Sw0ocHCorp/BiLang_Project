@@ -25,10 +25,18 @@
       <genEnumLiterals ecoreEnumLiteral="abstractsyntax.ecore#//QuantitativeOperator/EQUAL"/>
       <genEnumLiterals ecoreEnumLiteral="abstractsyntax.ecore#//QuantitativeOperator/SUPERIOR"/>
       <genEnumLiterals ecoreEnumLiteral="abstractsyntax.ecore#//QuantitativeOperator/INFERIOR"/>
+      <genEnumLiterals ecoreEnumLiteral="abstractsyntax.ecore#//QuantitativeOperator/SUP_EQUAL"/>
+      <genEnumLiterals ecoreEnumLiteral="abstractsyntax.ecore#//QuantitativeOperator/INF_EQUAL"/>
     </genEnums>
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="abstractsyntax.ecore#//QualitativeOperator">
       <genEnumLiterals ecoreEnumLiteral="abstractsyntax.ecore#//QualitativeOperator/EQUALS"/>
       <genEnumLiterals ecoreEnumLiteral="abstractsyntax.ecore#//QualitativeOperator/NOT"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="abstractsyntax.ecore#//RangeOperator">
+      <genEnumLiterals ecoreEnumLiteral="abstractsyntax.ecore#//RangeOperator/LR_INCLUSION"/>
+      <genEnumLiterals ecoreEnumLiteral="abstractsyntax.ecore#//RangeOperator/LR_EXCLUSION"/>
+      <genEnumLiterals ecoreEnumLiteral="abstractsyntax.ecore#//RangeOperator/L_INCLUSION"/>
+      <genEnumLiterals ecoreEnumLiteral="abstractsyntax.ecore#//RangeOperator/R_INCLUSION"/>
     </genEnums>
     <genClasses ecoreClass="abstractsyntax.ecore#//NamedElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstractsyntax.ecore#//NamedElement/name"/>
@@ -46,6 +54,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference abstractsyntax.ecore#//DataFiltering/fileextractor"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference abstractsyntax.ecore#//DataFiltering/filteringstep"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference abstractsyntax.ecore#//DataFiltering/processingstep"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference abstractsyntax.ecore#//DataFiltering/countpreprocessingstep"/>
     </genClasses>
     <genClasses ecoreClass="abstractsyntax.ecore#//DashBoard">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference abstractsyntax.ecore#//DashBoard/fileextractor"/>
@@ -78,6 +87,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference abstractsyntax.ecore#//MathOperation/lside"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference abstractsyntax.ecore#//MathOperation/rside"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstractsyntax.ecore#//MathOperation/operator"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstractsyntax.ecore#//MathOperation/newColName"/>
     </genClasses>
     <genClasses ecoreClass="abstractsyntax.ecore#//ColReference">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstractsyntax.ecore#//ColReference/target"/>
@@ -88,13 +98,35 @@
     </genClasses>
     <genClasses ecoreClass="abstractsyntax.ecore#//ScatterPlot"/>
     <genClasses ecoreClass="abstractsyntax.ecore#//PolarPlot"/>
-    <genClasses ecoreClass="abstractsyntax.ecore#//PiePlot"/>
+    <genClasses ecoreClass="abstractsyntax.ecore#//PiePlot">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstractsyntax.ecore#//PiePlot/countID"/>
+    </genClasses>
     <genClasses ecoreClass="abstractsyntax.ecore#//RadarPlot"/>
-    <genClasses ecoreClass="abstractsyntax.ecore#//DonutPlot"/>
+    <genClasses ecoreClass="abstractsyntax.ecore#//DonutPlot">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstractsyntax.ecore#//DonutPlot/countID"/>
+    </genClasses>
     <genClasses ecoreClass="abstractsyntax.ecore#//NullReplacement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstractsyntax.ecore#//NullReplacement/colName"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstractsyntax.ecore#//NullReplacement/label"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference abstractsyntax.ecore#//NullReplacement/statisticaloperation"/>
+    </genClasses>
+    <genClasses ecoreClass="abstractsyntax.ecore#//CountPreprocessingStep">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstractsyntax.ecore#//CountPreprocessingStep/axis"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference abstractsyntax.ecore#//CountPreprocessingStep/countquantistatement"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference abstractsyntax.ecore#//CountPreprocessingStep/countqualistatement"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstractsyntax.ecore#//CountPreprocessingStep/reference"/>
+    </genClasses>
+    <genClasses ecoreClass="abstractsyntax.ecore#//CountQualiStatement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstractsyntax.ecore#//CountQualiStatement/qualiOperator"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstractsyntax.ecore#//CountQualiStatement/label"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstractsyntax.ecore#//CountQualiStatement/statement"/>
+    </genClasses>
+    <genClasses ecoreClass="abstractsyntax.ecore#//CountQuantiStatement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstractsyntax.ecore#//CountQuantiStatement/quantiOperator"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstractsyntax.ecore#//CountQuantiStatement/lSide"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstractsyntax.ecore#//CountQuantiStatement/rSide"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstractsyntax.ecore#//CountQuantiStatement/statement"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute abstractsyntax.ecore#//CountQuantiStatement/rangeOperator"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -20,14 +20,14 @@ import ucal3ia.bilang.services.BiLangGrammarAccess;
 public class BiLangSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected BiLangGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_MathOperation_LeftParenthesisKeyword_0_q;
-	protected AbstractElementAlias match_MathOperation_RightParenthesisKeyword_6_q;
+	protected AbstractElementAlias match_MathOperation_LeftParenthesisKeyword_1_q;
+	protected AbstractElementAlias match_MathOperation_RightParenthesisKeyword_7_q;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (BiLangGrammarAccess) access;
-		match_MathOperation_LeftParenthesisKeyword_0_q = new TokenAlias(false, true, grammarAccess.getMathOperationAccess().getLeftParenthesisKeyword_0());
-		match_MathOperation_RightParenthesisKeyword_6_q = new TokenAlias(false, true, grammarAccess.getMathOperationAccess().getRightParenthesisKeyword_6());
+		match_MathOperation_LeftParenthesisKeyword_1_q = new TokenAlias(false, true, grammarAccess.getMathOperationAccess().getLeftParenthesisKeyword_1());
+		match_MathOperation_RightParenthesisKeyword_7_q = new TokenAlias(false, true, grammarAccess.getMathOperationAccess().getRightParenthesisKeyword_7());
 	}
 	
 	@Override
@@ -42,10 +42,10 @@ public class BiLangSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if (match_MathOperation_LeftParenthesisKeyword_0_q.equals(syntax))
-				emit_MathOperation_LeftParenthesisKeyword_0_q(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if (match_MathOperation_RightParenthesisKeyword_6_q.equals(syntax))
-				emit_MathOperation_RightParenthesisKeyword_6_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			if (match_MathOperation_LeftParenthesisKeyword_1_q.equals(syntax))
+				emit_MathOperation_LeftParenthesisKeyword_1_q(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_MathOperation_RightParenthesisKeyword_7_q.equals(syntax))
+				emit_MathOperation_RightParenthesisKeyword_7_q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
@@ -56,8 +56,9 @@ public class BiLangSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *
 	 * This ambiguous syntax occurs at:
 	 *     (rule start) (ambiguity) 'l' lside=PreprocessingStep
+	 *     newColName=EString '=' (ambiguity) 'l' lside=PreprocessingStep
 	 */
-	protected void emit_MathOperation_LeftParenthesisKeyword_0_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_MathOperation_LeftParenthesisKeyword_1_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -68,7 +69,7 @@ public class BiLangSyntacticSequencer extends AbstractSyntacticSequencer {
 	 * This ambiguous syntax occurs at:
 	 *     rside=PreprocessingStep (ambiguity) (rule end)
 	 */
-	protected void emit_MathOperation_RightParenthesisKeyword_6_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_MathOperation_RightParenthesisKeyword_7_q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

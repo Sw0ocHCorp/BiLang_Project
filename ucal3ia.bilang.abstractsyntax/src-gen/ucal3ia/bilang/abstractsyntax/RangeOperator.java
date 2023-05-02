@@ -10,145 +10,126 @@ import org.eclipse.emf.common.util.Enumerator;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the literals of the enumeration '<em><b>Quantitative Operator</b></em>',
+ * A representation of the literals of the enumeration '<em><b>Range Operator</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * @see ucal3ia.bilang.abstractsyntax.AbstractsyntaxPackage#getQuantitativeOperator()
+ * @see ucal3ia.bilang.abstractsyntax.AbstractsyntaxPackage#getRangeOperator()
  * @model
  * @generated
  */
-public enum QuantitativeOperator implements Enumerator {
+public enum RangeOperator implements Enumerator {
 	/**
-	 * The '<em><b>EQUAL</b></em>' literal object.
+	 * The '<em><b>LR INCLUSION</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #EQUAL_VALUE
+	 * @see #LR_INCLUSION_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	EQUAL(0, "EQUAL", "="),
+	LR_INCLUSION(0, "LR_INCLUSION", "[]"),
 
 	/**
-	 * The '<em><b>SUPERIOR</b></em>' literal object.
+	 * The '<em><b>LR EXCLUSION</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #SUPERIOR_VALUE
+	 * @see #LR_EXCLUSION_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	SUPERIOR(1, "SUPERIOR", ">"),
+	LR_EXCLUSION(1, "LR_EXCLUSION", "]["),
 
 	/**
-	 * The '<em><b>INFERIOR</b></em>' literal object.
+	 * The '<em><b>LINCLUSION</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #INFERIOR_VALUE
+	 * @see #LINCLUSION_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	INFERIOR(2, "INFERIOR", "<"),
-	/**
-	 * The '<em><b>SUP EQUAL</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	* <!-- end-user-doc -->
-	 * @see #SUP_EQUAL_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	SUP_EQUAL(3, "SUP_EQUAL", ">="),
-	/**
-	 * The '<em><b>INF EQUAL</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	* <!-- end-user-doc -->
-	 * @see #INF_EQUAL_VALUE
-	 * @generated
-	 * @ordered
-	 */
-	INF_EQUAL(4, "INF_EQUAL", "<=");
+	LINCLUSION(2, "L_INCLUSION", "[["),
 
 	/**
-	 * The '<em><b>EQUAL</b></em>' literal value.
+	 * The '<em><b>RINCLUSION</b></em>' literal object.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #EQUAL
-	 * @model literal="="
+	 * @see #RINCLUSION_VALUE
 	 * @generated
 	 * @ordered
 	 */
-	public static final int EQUAL_VALUE = 0;
+	RINCLUSION(4, "R_INCLUSION", "]]");
 
 	/**
-	 * The '<em><b>SUPERIOR</b></em>' literal value.
+	 * The '<em><b>LR INCLUSION</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #SUPERIOR
-	 * @model literal="&gt;"
+	 * @see #LR_INCLUSION
+	 * @model literal="[]"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int SUPERIOR_VALUE = 1;
+	public static final int LR_INCLUSION_VALUE = 0;
 
 	/**
-	 * The '<em><b>INFERIOR</b></em>' literal value.
+	 * The '<em><b>LR EXCLUSION</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #INFERIOR
-	 * @model literal="&lt;"
+	 * @see #LR_EXCLUSION
+	 * @model literal="]["
 	 * @generated
 	 * @ordered
 	 */
-	public static final int INFERIOR_VALUE = 2;
+	public static final int LR_EXCLUSION_VALUE = 1;
 
 	/**
-	 * The '<em><b>SUP EQUAL</b></em>' literal value.
+	 * The '<em><b>LINCLUSION</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #SUP_EQUAL
-	 * @model literal="&gt;="
+	 * @see #LINCLUSION
+	 * @model name="L_INCLUSION" literal="[["
 	 * @generated
 	 * @ordered
 	 */
-	public static final int SUP_EQUAL_VALUE = 3;
+	public static final int LINCLUSION_VALUE = 2;
 
 	/**
-	 * The '<em><b>INF EQUAL</b></em>' literal value.
+	 * The '<em><b>RINCLUSION</b></em>' literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #INF_EQUAL
-	 * @model literal="&lt;="
+	 * @see #RINCLUSION
+	 * @model name="R_INCLUSION" literal="]]"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int INF_EQUAL_VALUE = 4;
+	public static final int RINCLUSION_VALUE = 4;
 
 	/**
-	 * An array of all the '<em><b>Quantitative Operator</b></em>' enumerators.
+	 * An array of all the '<em><b>Range Operator</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final QuantitativeOperator[] VALUES_ARRAY = new QuantitativeOperator[] { EQUAL, SUPERIOR, INFERIOR,
-			SUP_EQUAL, INF_EQUAL, };
+	private static final RangeOperator[] VALUES_ARRAY = new RangeOperator[] { LR_INCLUSION, LR_EXCLUSION, LINCLUSION,
+			RINCLUSION, };
 
 	/**
-	 * A public read-only list of all the '<em><b>Quantitative Operator</b></em>' enumerators.
+	 * A public read-only list of all the '<em><b>Range Operator</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List<QuantitativeOperator> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+	public static final List<RangeOperator> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
-	 * Returns the '<em><b>Quantitative Operator</b></em>' literal with the specified literal value.
+	 * Returns the '<em><b>Range Operator</b></em>' literal with the specified literal value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param literal the literal.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
-	public static QuantitativeOperator get(String literal) {
+	public static RangeOperator get(String literal) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			QuantitativeOperator result = VALUES_ARRAY[i];
+			RangeOperator result = VALUES_ARRAY[i];
 			if (result.toString().equals(literal)) {
 				return result;
 			}
@@ -157,16 +138,16 @@ public enum QuantitativeOperator implements Enumerator {
 	}
 
 	/**
-	 * Returns the '<em><b>Quantitative Operator</b></em>' literal with the specified name.
+	 * Returns the '<em><b>Range Operator</b></em>' literal with the specified name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param name the name.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
-	public static QuantitativeOperator getByName(String name) {
+	public static RangeOperator getByName(String name) {
 		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
-			QuantitativeOperator result = VALUES_ARRAY[i];
+			RangeOperator result = VALUES_ARRAY[i];
 			if (result.getName().equals(name)) {
 				return result;
 			}
@@ -175,25 +156,23 @@ public enum QuantitativeOperator implements Enumerator {
 	}
 
 	/**
-	 * Returns the '<em><b>Quantitative Operator</b></em>' literal with the specified integer value.
+	 * Returns the '<em><b>Range Operator</b></em>' literal with the specified integer value.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @param value the integer value.
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
-	public static QuantitativeOperator get(int value) {
+	public static RangeOperator get(int value) {
 		switch (value) {
-		case EQUAL_VALUE:
-			return EQUAL;
-		case SUPERIOR_VALUE:
-			return SUPERIOR;
-		case INFERIOR_VALUE:
-			return INFERIOR;
-		case SUP_EQUAL_VALUE:
-			return SUP_EQUAL;
-		case INF_EQUAL_VALUE:
-			return INF_EQUAL;
+		case LR_INCLUSION_VALUE:
+			return LR_INCLUSION;
+		case LR_EXCLUSION_VALUE:
+			return LR_EXCLUSION;
+		case LINCLUSION_VALUE:
+			return LINCLUSION;
+		case RINCLUSION_VALUE:
+			return RINCLUSION;
 		}
 		return null;
 	}
@@ -225,7 +204,7 @@ public enum QuantitativeOperator implements Enumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private QuantitativeOperator(int value, String name, String literal) {
+	private RangeOperator(int value, String name, String literal) {
 		this.value = value;
 		this.name = name;
 		this.literal = literal;
@@ -269,4 +248,4 @@ public enum QuantitativeOperator implements Enumerator {
 		return literal;
 	}
 
-} //QuantitativeOperator
+} //RangeOperator

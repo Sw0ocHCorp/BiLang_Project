@@ -14,6 +14,7 @@ package ucal3ia.bilang.abstractsyntax;
  *   <li>{@link ucal3ia.bilang.abstractsyntax.MathOperation#getLside <em>Lside</em>}</li>
  *   <li>{@link ucal3ia.bilang.abstractsyntax.MathOperation#getRside <em>Rside</em>}</li>
  *   <li>{@link ucal3ia.bilang.abstractsyntax.MathOperation#getOperator <em>Operator</em>}</li>
+ *   <li>{@link ucal3ia.bilang.abstractsyntax.MathOperation#getNewColName <em>New Col Name</em>}</li>
  * </ul>
  *
  * @see ucal3ia.bilang.abstractsyntax.AbstractsyntaxPackage#getMathOperation()
@@ -89,5 +90,27 @@ public interface MathOperation extends PreprocessingStep {
 	 * @generated
 	 */
 	void setOperator(MathOperator value);
+
+	/**
+	 * Returns the value of the '<em><b>New Col Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>New Col Name</em>' attribute.
+	 * @see #setNewColName(String)
+	 * @see ucal3ia.bilang.abstractsyntax.AbstractsyntaxPackage#getMathOperation_NewColName()
+	 * @model
+	 * @generated
+	 */
+	String getNewColName();
+
+	/**
+	 * Sets the value of the '{@link ucal3ia.bilang.abstractsyntax.MathOperation#getNewColName <em>New Col Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>New Col Name</em>' attribute.
+	 * @see #getNewColName()
+	 * @generated
+	 */
+	void setNewColName(String value);
 
 } // MathOperation

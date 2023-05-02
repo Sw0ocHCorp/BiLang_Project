@@ -182,6 +182,21 @@ public class AbstractsyntaxAdapterFactory extends AdapterFactoryImpl {
 		}
 
 		@Override
+		public Adapter caseCountPreprocessingStep(CountPreprocessingStep object) {
+			return createCountPreprocessingStepAdapter();
+		}
+
+		@Override
+		public Adapter caseCountQualiStatement(CountQualiStatement object) {
+			return createCountQualiStatementAdapter();
+		}
+
+		@Override
+		public Adapter caseCountQuantiStatement(CountQuantiStatement object) {
+			return createCountQuantiStatementAdapter();
+		}
+
+		@Override
 		public Adapter defaultCase(EObject object) {
 			return createEObjectAdapter();
 		}
@@ -519,6 +534,48 @@ public class AbstractsyntaxAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createNullReplacementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ucal3ia.bilang.abstractsyntax.CountPreprocessingStep <em>Count Preprocessing Step</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ucal3ia.bilang.abstractsyntax.CountPreprocessingStep
+	 * @generated
+	 */
+	public Adapter createCountPreprocessingStepAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ucal3ia.bilang.abstractsyntax.CountQualiStatement <em>Count Quali Statement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ucal3ia.bilang.abstractsyntax.CountQualiStatement
+	 * @generated
+	 */
+	public Adapter createCountQualiStatementAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link ucal3ia.bilang.abstractsyntax.CountQuantiStatement <em>Count Quanti Statement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see ucal3ia.bilang.abstractsyntax.CountQuantiStatement
+	 * @generated
+	 */
+	public Adapter createCountQuantiStatementAdapter() {
 		return null;
 	}
 

@@ -18,7 +18,6 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
 import ucal3ia.bilang.abstractsyntax.AbstractsyntaxFactory;
 import ucal3ia.bilang.abstractsyntax.AbstractsyntaxPackage;
 import ucal3ia.bilang.abstractsyntax.MathOperation;
-import ucal3ia.bilang.abstractsyntax.MathOperator;
 
 /**
  * This is the item provider adapter for a {@link ucal3ia.bilang.abstractsyntax.MathOperation} object.
@@ -49,6 +48,7 @@ public class MathOperationItemProvider extends PreprocessingStepItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addOperatorPropertyDescriptor(object);
+			addNewColNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -66,6 +66,22 @@ public class MathOperationItemProvider extends PreprocessingStepItemProvider {
 						getString("_UI_PropertyDescriptor_description", "_UI_MathOperation_operator_feature",
 								"_UI_MathOperation_type"),
 						AbstractsyntaxPackage.Literals.MATH_OPERATION__OPERATOR, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This adds a property descriptor for the New Col Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNewColNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors
+				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
+						getResourceLocator(), getString("_UI_MathOperation_newColName_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_MathOperation_newColName_feature",
+								"_UI_MathOperation_type"),
+						AbstractsyntaxPackage.Literals.MATH_OPERATION__NEW_COL_NAME, true, false, false,
 						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
 	}
 
@@ -129,8 +145,7 @@ public class MathOperationItemProvider extends PreprocessingStepItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		MathOperator labelValue = ((MathOperation) object).getOperator();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((MathOperation) object).getNewColName();
 		return label == null || label.length() == 0 ? getString("_UI_MathOperation_type")
 				: getString("_UI_MathOperation_type") + " " + label;
 	}
@@ -148,6 +163,7 @@ public class MathOperationItemProvider extends PreprocessingStepItemProvider {
 
 		switch (notification.getFeatureID(MathOperation.class)) {
 		case AbstractsyntaxPackage.MATH_OPERATION__OPERATOR:
+		case AbstractsyntaxPackage.MATH_OPERATION__NEW_COL_NAME:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 			return;
 		case AbstractsyntaxPackage.MATH_OPERATION__LSIDE:

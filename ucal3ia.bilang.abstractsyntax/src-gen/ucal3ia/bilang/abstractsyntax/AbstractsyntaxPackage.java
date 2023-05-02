@@ -251,13 +251,22 @@ public interface AbstractsyntaxPackage extends EPackage {
 	int DATA_FILTERING__PROCESSINGSTEP = 2;
 
 	/**
+	 * The feature id for the '<em><b>Countpreprocessingstep</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_FILTERING__COUNTPREPROCESSINGSTEP = 3;
+
+	/**
 	 * The number of structural features of the '<em>Data Filtering</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_FILTERING_FEATURE_COUNT = 3;
+	int DATA_FILTERING_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Data Filtering</em>' class.
@@ -892,13 +901,22 @@ public interface AbstractsyntaxPackage extends EPackage {
 	int MATH_OPERATION__OPERATOR = PREPROCESSING_STEP_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>New Col Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MATH_OPERATION__NEW_COL_NAME = PREPROCESSING_STEP_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Math Operation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MATH_OPERATION_FEATURE_COUNT = PREPROCESSING_STEP_FEATURE_COUNT + 3;
+	int MATH_OPERATION_FEATURE_COUNT = PREPROCESSING_STEP_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Math Operation</em>' class.
@@ -1221,13 +1239,22 @@ public interface AbstractsyntaxPackage extends EPackage {
 	int PIE_PLOT__THICKNESS = PLOT__THICKNESS;
 
 	/**
+	 * The feature id for the '<em><b>Count ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PIE_PLOT__COUNT_ID = PLOT_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Pie Plot</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PIE_PLOT_FEATURE_COUNT = PLOT_FEATURE_COUNT + 0;
+	int PIE_PLOT_FEATURE_COUNT = PLOT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Pie Plot</em>' class.
@@ -1385,13 +1412,22 @@ public interface AbstractsyntaxPackage extends EPackage {
 	int DONUT_PLOT__THICKNESS = PLOT__THICKNESS;
 
 	/**
+	 * The feature id for the '<em><b>Count ID</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DONUT_PLOT__COUNT_ID = PLOT_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Donut Plot</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DONUT_PLOT_FEATURE_COUNT = PLOT_FEATURE_COUNT + 0;
+	int DONUT_PLOT_FEATURE_COUNT = PLOT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Donut Plot</em>' class.
@@ -1458,6 +1494,198 @@ public interface AbstractsyntaxPackage extends EPackage {
 	int NULL_REPLACEMENT_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link ucal3ia.bilang.abstractsyntax.impl.CountPreprocessingStepImpl <em>Count Preprocessing Step</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ucal3ia.bilang.abstractsyntax.impl.CountPreprocessingStepImpl
+	 * @see ucal3ia.bilang.abstractsyntax.impl.AbstractsyntaxPackageImpl#getCountPreprocessingStep()
+	 * @generated
+	 */
+	int COUNT_PREPROCESSING_STEP = 23;
+
+	/**
+	 * The feature id for the '<em><b>Axis</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_PREPROCESSING_STEP__AXIS = 0;
+
+	/**
+	 * The feature id for the '<em><b>Countquantistatement</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_PREPROCESSING_STEP__COUNTQUANTISTATEMENT = 1;
+
+	/**
+	 * The feature id for the '<em><b>Countqualistatement</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_PREPROCESSING_STEP__COUNTQUALISTATEMENT = 2;
+
+	/**
+	 * The feature id for the '<em><b>Reference</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_PREPROCESSING_STEP__REFERENCE = 3;
+
+	/**
+	 * The number of structural features of the '<em>Count Preprocessing Step</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_PREPROCESSING_STEP_FEATURE_COUNT = 4;
+
+	/**
+	 * The number of operations of the '<em>Count Preprocessing Step</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_PREPROCESSING_STEP_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link ucal3ia.bilang.abstractsyntax.impl.CountQualiStatementImpl <em>Count Quali Statement</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ucal3ia.bilang.abstractsyntax.impl.CountQualiStatementImpl
+	 * @see ucal3ia.bilang.abstractsyntax.impl.AbstractsyntaxPackageImpl#getCountQualiStatement()
+	 * @generated
+	 */
+	int COUNT_QUALI_STATEMENT = 24;
+
+	/**
+	 * The feature id for the '<em><b>Quali Operator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_QUALI_STATEMENT__QUALI_OPERATOR = 0;
+
+	/**
+	 * The feature id for the '<em><b>Label</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_QUALI_STATEMENT__LABEL = 1;
+
+	/**
+	 * The feature id for the '<em><b>Statement</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_QUALI_STATEMENT__STATEMENT = 2;
+
+	/**
+	 * The number of structural features of the '<em>Count Quali Statement</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_QUALI_STATEMENT_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of operations of the '<em>Count Quali Statement</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_QUALI_STATEMENT_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link ucal3ia.bilang.abstractsyntax.impl.CountQuantiStatementImpl <em>Count Quanti Statement</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ucal3ia.bilang.abstractsyntax.impl.CountQuantiStatementImpl
+	 * @see ucal3ia.bilang.abstractsyntax.impl.AbstractsyntaxPackageImpl#getCountQuantiStatement()
+	 * @generated
+	 */
+	int COUNT_QUANTI_STATEMENT = 25;
+
+	/**
+	 * The feature id for the '<em><b>Quanti Operator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_QUANTI_STATEMENT__QUANTI_OPERATOR = 0;
+
+	/**
+	 * The feature id for the '<em><b>LSide</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_QUANTI_STATEMENT__LSIDE = 1;
+
+	/**
+	 * The feature id for the '<em><b>RSide</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_QUANTI_STATEMENT__RSIDE = 2;
+
+	/**
+	 * The feature id for the '<em><b>Statement</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_QUANTI_STATEMENT__STATEMENT = 3;
+
+	/**
+	 * The feature id for the '<em><b>Range Operator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_QUANTI_STATEMENT__RANGE_OPERATOR = 4;
+
+	/**
+	 * The number of structural features of the '<em>Count Quanti Statement</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_QUANTI_STATEMENT_FEATURE_COUNT = 5;
+
+	/**
+	 * The number of operations of the '<em>Count Quanti Statement</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COUNT_QUANTI_STATEMENT_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link ucal3ia.bilang.abstractsyntax.MathOperator <em>Math Operator</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1465,7 +1693,7 @@ public interface AbstractsyntaxPackage extends EPackage {
 	 * @see ucal3ia.bilang.abstractsyntax.impl.AbstractsyntaxPackageImpl#getMathOperator()
 	 * @generated
 	 */
-	int MATH_OPERATOR = 23;
+	int MATH_OPERATOR = 26;
 
 	/**
 	 * The meta object id for the '{@link ucal3ia.bilang.abstractsyntax.StatisticalOperator <em>Statistical Operator</em>}' enum.
@@ -1475,7 +1703,7 @@ public interface AbstractsyntaxPackage extends EPackage {
 	 * @see ucal3ia.bilang.abstractsyntax.impl.AbstractsyntaxPackageImpl#getStatisticalOperator()
 	 * @generated
 	 */
-	int STATISTICAL_OPERATOR = 24;
+	int STATISTICAL_OPERATOR = 27;
 
 	/**
 	 * The meta object id for the '{@link ucal3ia.bilang.abstractsyntax.QuantitativeOperator <em>Quantitative Operator</em>}' enum.
@@ -1485,7 +1713,7 @@ public interface AbstractsyntaxPackage extends EPackage {
 	 * @see ucal3ia.bilang.abstractsyntax.impl.AbstractsyntaxPackageImpl#getQuantitativeOperator()
 	 * @generated
 	 */
-	int QUANTITATIVE_OPERATOR = 25;
+	int QUANTITATIVE_OPERATOR = 28;
 
 	/**
 	 * The meta object id for the '{@link ucal3ia.bilang.abstractsyntax.QualitativeOperator <em>Qualitative Operator</em>}' enum.
@@ -1495,7 +1723,17 @@ public interface AbstractsyntaxPackage extends EPackage {
 	 * @see ucal3ia.bilang.abstractsyntax.impl.AbstractsyntaxPackageImpl#getQualitativeOperator()
 	 * @generated
 	 */
-	int QUALITATIVE_OPERATOR = 26;
+	int QUALITATIVE_OPERATOR = 29;
+
+	/**
+	 * The meta object id for the '{@link ucal3ia.bilang.abstractsyntax.RangeOperator <em>Range Operator</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see ucal3ia.bilang.abstractsyntax.RangeOperator
+	 * @see ucal3ia.bilang.abstractsyntax.impl.AbstractsyntaxPackageImpl#getRangeOperator()
+	 * @generated
+	 */
+	int RANGE_OPERATOR = 30;
 
 	/**
 	 * Returns the meta object for class '{@link ucal3ia.bilang.abstractsyntax.NamedElement <em>Named Element</em>}'.
@@ -1635,6 +1873,17 @@ public interface AbstractsyntaxPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getDataFiltering_Processingstep();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link ucal3ia.bilang.abstractsyntax.DataFiltering#getCountpreprocessingstep <em>Countpreprocessingstep</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Countpreprocessingstep</em>'.
+	 * @see ucal3ia.bilang.abstractsyntax.DataFiltering#getCountpreprocessingstep()
+	 * @see #getDataFiltering()
+	 * @generated
+	 */
+	EReference getDataFiltering_Countpreprocessingstep();
 
 	/**
 	 * Returns the meta object for class '{@link ucal3ia.bilang.abstractsyntax.DashBoard <em>Dash Board</em>}'.
@@ -1912,6 +2161,17 @@ public interface AbstractsyntaxPackage extends EPackage {
 	EAttribute getMathOperation_Operator();
 
 	/**
+	 * Returns the meta object for the attribute '{@link ucal3ia.bilang.abstractsyntax.MathOperation#getNewColName <em>New Col Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>New Col Name</em>'.
+	 * @see ucal3ia.bilang.abstractsyntax.MathOperation#getNewColName()
+	 * @see #getMathOperation()
+	 * @generated
+	 */
+	EAttribute getMathOperation_NewColName();
+
+	/**
 	 * Returns the meta object for class '{@link ucal3ia.bilang.abstractsyntax.ColReference <em>Col Reference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1995,6 +2255,17 @@ public interface AbstractsyntaxPackage extends EPackage {
 	EClass getPiePlot();
 
 	/**
+	 * Returns the meta object for the attribute '{@link ucal3ia.bilang.abstractsyntax.PiePlot#getCountID <em>Count ID</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Count ID</em>'.
+	 * @see ucal3ia.bilang.abstractsyntax.PiePlot#getCountID()
+	 * @see #getPiePlot()
+	 * @generated
+	 */
+	EAttribute getPiePlot_CountID();
+
+	/**
 	 * Returns the meta object for class '{@link ucal3ia.bilang.abstractsyntax.RadarPlot <em>Radar Plot</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2013,6 +2284,17 @@ public interface AbstractsyntaxPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getDonutPlot();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ucal3ia.bilang.abstractsyntax.DonutPlot#getCountID <em>Count ID</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Count ID</em>'.
+	 * @see ucal3ia.bilang.abstractsyntax.DonutPlot#getCountID()
+	 * @see #getDonutPlot()
+	 * @generated
+	 */
+	EAttribute getDonutPlot_CountID();
 
 	/**
 	 * Returns the meta object for class '{@link ucal3ia.bilang.abstractsyntax.NullReplacement <em>Null Replacement</em>}'.
@@ -2058,6 +2340,168 @@ public interface AbstractsyntaxPackage extends EPackage {
 	EReference getNullReplacement_Statisticaloperation();
 
 	/**
+	 * Returns the meta object for class '{@link ucal3ia.bilang.abstractsyntax.CountPreprocessingStep <em>Count Preprocessing Step</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Count Preprocessing Step</em>'.
+	 * @see ucal3ia.bilang.abstractsyntax.CountPreprocessingStep
+	 * @generated
+	 */
+	EClass getCountPreprocessingStep();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ucal3ia.bilang.abstractsyntax.CountPreprocessingStep#getAxis <em>Axis</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Axis</em>'.
+	 * @see ucal3ia.bilang.abstractsyntax.CountPreprocessingStep#getAxis()
+	 * @see #getCountPreprocessingStep()
+	 * @generated
+	 */
+	EAttribute getCountPreprocessingStep_Axis();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link ucal3ia.bilang.abstractsyntax.CountPreprocessingStep#getCountquantistatement <em>Countquantistatement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Countquantistatement</em>'.
+	 * @see ucal3ia.bilang.abstractsyntax.CountPreprocessingStep#getCountquantistatement()
+	 * @see #getCountPreprocessingStep()
+	 * @generated
+	 */
+	EReference getCountPreprocessingStep_Countquantistatement();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link ucal3ia.bilang.abstractsyntax.CountPreprocessingStep#getCountqualistatement <em>Countqualistatement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Countqualistatement</em>'.
+	 * @see ucal3ia.bilang.abstractsyntax.CountPreprocessingStep#getCountqualistatement()
+	 * @see #getCountPreprocessingStep()
+	 * @generated
+	 */
+	EReference getCountPreprocessingStep_Countqualistatement();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ucal3ia.bilang.abstractsyntax.CountPreprocessingStep#getReference <em>Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Reference</em>'.
+	 * @see ucal3ia.bilang.abstractsyntax.CountPreprocessingStep#getReference()
+	 * @see #getCountPreprocessingStep()
+	 * @generated
+	 */
+	EAttribute getCountPreprocessingStep_Reference();
+
+	/**
+	 * Returns the meta object for class '{@link ucal3ia.bilang.abstractsyntax.CountQualiStatement <em>Count Quali Statement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Count Quali Statement</em>'.
+	 * @see ucal3ia.bilang.abstractsyntax.CountQualiStatement
+	 * @generated
+	 */
+	EClass getCountQualiStatement();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ucal3ia.bilang.abstractsyntax.CountQualiStatement#getQualiOperator <em>Quali Operator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Quali Operator</em>'.
+	 * @see ucal3ia.bilang.abstractsyntax.CountQualiStatement#getQualiOperator()
+	 * @see #getCountQualiStatement()
+	 * @generated
+	 */
+	EAttribute getCountQualiStatement_QualiOperator();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ucal3ia.bilang.abstractsyntax.CountQualiStatement#getLabel <em>Label</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Label</em>'.
+	 * @see ucal3ia.bilang.abstractsyntax.CountQualiStatement#getLabel()
+	 * @see #getCountQualiStatement()
+	 * @generated
+	 */
+	EAttribute getCountQualiStatement_Label();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ucal3ia.bilang.abstractsyntax.CountQualiStatement#getStatement <em>Statement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Statement</em>'.
+	 * @see ucal3ia.bilang.abstractsyntax.CountQualiStatement#getStatement()
+	 * @see #getCountQualiStatement()
+	 * @generated
+	 */
+	EAttribute getCountQualiStatement_Statement();
+
+	/**
+	 * Returns the meta object for class '{@link ucal3ia.bilang.abstractsyntax.CountQuantiStatement <em>Count Quanti Statement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Count Quanti Statement</em>'.
+	 * @see ucal3ia.bilang.abstractsyntax.CountQuantiStatement
+	 * @generated
+	 */
+	EClass getCountQuantiStatement();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ucal3ia.bilang.abstractsyntax.CountQuantiStatement#getQuantiOperator <em>Quanti Operator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Quanti Operator</em>'.
+	 * @see ucal3ia.bilang.abstractsyntax.CountQuantiStatement#getQuantiOperator()
+	 * @see #getCountQuantiStatement()
+	 * @generated
+	 */
+	EAttribute getCountQuantiStatement_QuantiOperator();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ucal3ia.bilang.abstractsyntax.CountQuantiStatement#getLSide <em>LSide</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>LSide</em>'.
+	 * @see ucal3ia.bilang.abstractsyntax.CountQuantiStatement#getLSide()
+	 * @see #getCountQuantiStatement()
+	 * @generated
+	 */
+	EAttribute getCountQuantiStatement_LSide();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ucal3ia.bilang.abstractsyntax.CountQuantiStatement#getRSide <em>RSide</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>RSide</em>'.
+	 * @see ucal3ia.bilang.abstractsyntax.CountQuantiStatement#getRSide()
+	 * @see #getCountQuantiStatement()
+	 * @generated
+	 */
+	EAttribute getCountQuantiStatement_RSide();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ucal3ia.bilang.abstractsyntax.CountQuantiStatement#getStatement <em>Statement</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Statement</em>'.
+	 * @see ucal3ia.bilang.abstractsyntax.CountQuantiStatement#getStatement()
+	 * @see #getCountQuantiStatement()
+	 * @generated
+	 */
+	EAttribute getCountQuantiStatement_Statement();
+
+	/**
+	 * Returns the meta object for the attribute '{@link ucal3ia.bilang.abstractsyntax.CountQuantiStatement#getRangeOperator <em>Range Operator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Range Operator</em>'.
+	 * @see ucal3ia.bilang.abstractsyntax.CountQuantiStatement#getRangeOperator()
+	 * @see #getCountQuantiStatement()
+	 * @generated
+	 */
+	EAttribute getCountQuantiStatement_RangeOperator();
+
+	/**
 	 * Returns the meta object for enum '{@link ucal3ia.bilang.abstractsyntax.MathOperator <em>Math Operator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2096,6 +2540,16 @@ public interface AbstractsyntaxPackage extends EPackage {
 	 * @generated
 	 */
 	EEnum getQualitativeOperator();
+
+	/**
+	 * Returns the meta object for enum '{@link ucal3ia.bilang.abstractsyntax.RangeOperator <em>Range Operator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Range Operator</em>'.
+	 * @see ucal3ia.bilang.abstractsyntax.RangeOperator
+	 * @generated
+	 */
+	EEnum getRangeOperator();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -2231,6 +2685,14 @@ public interface AbstractsyntaxPackage extends EPackage {
 		 * @generated
 		 */
 		EReference DATA_FILTERING__PROCESSINGSTEP = eINSTANCE.getDataFiltering_Processingstep();
+
+		/**
+		 * The meta object literal for the '<em><b>Countpreprocessingstep</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference DATA_FILTERING__COUNTPREPROCESSINGSTEP = eINSTANCE.getDataFiltering_Countpreprocessingstep();
 
 		/**
 		 * The meta object literal for the '{@link ucal3ia.bilang.abstractsyntax.impl.DashBoardImpl <em>Dash Board</em>}' class.
@@ -2463,6 +2925,14 @@ public interface AbstractsyntaxPackage extends EPackage {
 		EAttribute MATH_OPERATION__OPERATOR = eINSTANCE.getMathOperation_Operator();
 
 		/**
+		 * The meta object literal for the '<em><b>New Col Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MATH_OPERATION__NEW_COL_NAME = eINSTANCE.getMathOperation_NewColName();
+
+		/**
 		 * The meta object literal for the '{@link ucal3ia.bilang.abstractsyntax.impl.ColReferenceImpl <em>Col Reference</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2537,6 +3007,14 @@ public interface AbstractsyntaxPackage extends EPackage {
 		EClass PIE_PLOT = eINSTANCE.getPiePlot();
 
 		/**
+		 * The meta object literal for the '<em><b>Count ID</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PIE_PLOT__COUNT_ID = eINSTANCE.getPiePlot_CountID();
+
+		/**
 		 * The meta object literal for the '{@link ucal3ia.bilang.abstractsyntax.impl.RadarPlotImpl <em>Radar Plot</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2555,6 +3033,14 @@ public interface AbstractsyntaxPackage extends EPackage {
 		 * @generated
 		 */
 		EClass DONUT_PLOT = eINSTANCE.getDonutPlot();
+
+		/**
+		 * The meta object literal for the '<em><b>Count ID</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DONUT_PLOT__COUNT_ID = eINSTANCE.getDonutPlot_CountID();
 
 		/**
 		 * The meta object literal for the '{@link ucal3ia.bilang.abstractsyntax.impl.NullReplacementImpl <em>Null Replacement</em>}' class.
@@ -2589,6 +3075,134 @@ public interface AbstractsyntaxPackage extends EPackage {
 		 * @generated
 		 */
 		EReference NULL_REPLACEMENT__STATISTICALOPERATION = eINSTANCE.getNullReplacement_Statisticaloperation();
+
+		/**
+		 * The meta object literal for the '{@link ucal3ia.bilang.abstractsyntax.impl.CountPreprocessingStepImpl <em>Count Preprocessing Step</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ucal3ia.bilang.abstractsyntax.impl.CountPreprocessingStepImpl
+		 * @see ucal3ia.bilang.abstractsyntax.impl.AbstractsyntaxPackageImpl#getCountPreprocessingStep()
+		 * @generated
+		 */
+		EClass COUNT_PREPROCESSING_STEP = eINSTANCE.getCountPreprocessingStep();
+
+		/**
+		 * The meta object literal for the '<em><b>Axis</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COUNT_PREPROCESSING_STEP__AXIS = eINSTANCE.getCountPreprocessingStep_Axis();
+
+		/**
+		 * The meta object literal for the '<em><b>Countquantistatement</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COUNT_PREPROCESSING_STEP__COUNTQUANTISTATEMENT = eINSTANCE
+				.getCountPreprocessingStep_Countquantistatement();
+
+		/**
+		 * The meta object literal for the '<em><b>Countqualistatement</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference COUNT_PREPROCESSING_STEP__COUNTQUALISTATEMENT = eINSTANCE
+				.getCountPreprocessingStep_Countqualistatement();
+
+		/**
+		 * The meta object literal for the '<em><b>Reference</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COUNT_PREPROCESSING_STEP__REFERENCE = eINSTANCE.getCountPreprocessingStep_Reference();
+
+		/**
+		 * The meta object literal for the '{@link ucal3ia.bilang.abstractsyntax.impl.CountQualiStatementImpl <em>Count Quali Statement</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ucal3ia.bilang.abstractsyntax.impl.CountQualiStatementImpl
+		 * @see ucal3ia.bilang.abstractsyntax.impl.AbstractsyntaxPackageImpl#getCountQualiStatement()
+		 * @generated
+		 */
+		EClass COUNT_QUALI_STATEMENT = eINSTANCE.getCountQualiStatement();
+
+		/**
+		 * The meta object literal for the '<em><b>Quali Operator</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COUNT_QUALI_STATEMENT__QUALI_OPERATOR = eINSTANCE.getCountQualiStatement_QualiOperator();
+
+		/**
+		 * The meta object literal for the '<em><b>Label</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COUNT_QUALI_STATEMENT__LABEL = eINSTANCE.getCountQualiStatement_Label();
+
+		/**
+		 * The meta object literal for the '<em><b>Statement</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COUNT_QUALI_STATEMENT__STATEMENT = eINSTANCE.getCountQualiStatement_Statement();
+
+		/**
+		 * The meta object literal for the '{@link ucal3ia.bilang.abstractsyntax.impl.CountQuantiStatementImpl <em>Count Quanti Statement</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ucal3ia.bilang.abstractsyntax.impl.CountQuantiStatementImpl
+		 * @see ucal3ia.bilang.abstractsyntax.impl.AbstractsyntaxPackageImpl#getCountQuantiStatement()
+		 * @generated
+		 */
+		EClass COUNT_QUANTI_STATEMENT = eINSTANCE.getCountQuantiStatement();
+
+		/**
+		 * The meta object literal for the '<em><b>Quanti Operator</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COUNT_QUANTI_STATEMENT__QUANTI_OPERATOR = eINSTANCE.getCountQuantiStatement_QuantiOperator();
+
+		/**
+		 * The meta object literal for the '<em><b>LSide</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COUNT_QUANTI_STATEMENT__LSIDE = eINSTANCE.getCountQuantiStatement_LSide();
+
+		/**
+		 * The meta object literal for the '<em><b>RSide</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COUNT_QUANTI_STATEMENT__RSIDE = eINSTANCE.getCountQuantiStatement_RSide();
+
+		/**
+		 * The meta object literal for the '<em><b>Statement</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COUNT_QUANTI_STATEMENT__STATEMENT = eINSTANCE.getCountQuantiStatement_Statement();
+
+		/**
+		 * The meta object literal for the '<em><b>Range Operator</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COUNT_QUANTI_STATEMENT__RANGE_OPERATOR = eINSTANCE.getCountQuantiStatement_RangeOperator();
 
 		/**
 		 * The meta object literal for the '{@link ucal3ia.bilang.abstractsyntax.MathOperator <em>Math Operator</em>}' enum.
@@ -2629,6 +3243,16 @@ public interface AbstractsyntaxPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum QUALITATIVE_OPERATOR = eINSTANCE.getQualitativeOperator();
+
+		/**
+		 * The meta object literal for the '{@link ucal3ia.bilang.abstractsyntax.RangeOperator <em>Range Operator</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see ucal3ia.bilang.abstractsyntax.RangeOperator
+		 * @see ucal3ia.bilang.abstractsyntax.impl.AbstractsyntaxPackageImpl#getRangeOperator()
+		 * @generated
+		 */
+		EEnum RANGE_OPERATOR = eINSTANCE.getRangeOperator();
 
 	}
 
